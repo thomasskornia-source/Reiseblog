@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --paper: #FAF3E8;
+  --paper-warm: #F3E9D8;
+  --ink: #2E3A32;
+  --ink-soft: #5A6A5E;
+  --rust: #B5502E;
+  --gold: #C99A3E;
+  --sage: #8FA398;
+  --max-width: 680px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+/* --- Site header --- */
+
+.site-header {
+  text-align: left;
+  margin-bottom: 56px;
+}
+
+.site-header .kicker {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin: 0 0 4px;
+  letter-spacing: 0.02em;
+}
+
+.site-header h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 40px;
+  margin: 0;
+  color: var(--ink);
+}
+
+/* --- Entry list (Startseite) --- */
+
+.entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.entry-preview {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 28px 0;
+  border-top: 1px solid rgba(46, 58, 50, 0.14);
+}
+
+.entry-preview:first-child { border-top: none; }
+
+.entry-preview .date {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 6px;
+}
+
+.entry-preview h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+
+.entry-preview p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+/* --- Einzelner Eintrag --- */
+
+.entry-header {
+  margin-bottom: 36px;
+}
+
+.entry-header .date {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+}
+
+.entry-header h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 44px;
+  margin: 0 0 14px;
+  line-height: 1.1;
+}
+
+.rule {
+  width: 44px;
+  height: 3px;
+  background: var(--rust);
+  border: none;
+  margin: 0;
+}
+
+/* --- Fotoreihe --- */
+
+.photo-row {
+  display: flex;
+  gap: 18px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.photo {
+  flex: 1 1 220px;
+}
+
+.photo .frame {
+  background: var(--paper-warm);
+  border: 1px solid rgba(46, 58, 50, 0.12);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.photo .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo figcaption {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 8px 4px 0;
+}
+
+.photo-row.tall .photo:nth-child(2) { flex: 1 1 280px; }
+
+/* --- Fließtext --- */
+
+.entry-body p {
+  margin: 0 0 20px;
+  max-width: 62ch;
+}
+
+.entry-body p:first-of-type::first-letter {
+  font-family: 'Fraunces', serif;
+  font-size: 46px;
+  font-weight: 500;
+  float: left;
+  line-height: 0.85;
+  padding: 6px 8px 0 0;
+  color: var(--rust);
+}
+
+/* --- Footer / Navigation --- */
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 32px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--sage);
+}
+
+.back-link:hover { color: var(--ink); }
+
+.site-footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(46, 58, 50, 0.14);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 480px) {
+  .site-header h1 { font-size: 32px; }
+  .entry-header h1 { font-size: 34px; }
+  .wrap { padding: 32px 18px 72px; }
+}
