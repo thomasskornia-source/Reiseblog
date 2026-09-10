@@ -14,12 +14,23 @@
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer
   onerror="document.querySelectorAll('.notify-btn').forEach(function(b){b.textContent='⚠️ SDK-Skript nicht ladbar (Netzwerk/CDN)';})"></script>
 <script>
-  setTimeout(function () {
-    if (!window.__OneSignal) {
-      document.querySelectorAll('.notify-btn').forEach(function (btn) {
-        btn.textContent = '⚠️ Timeout: SDK reagiert nicht (Cache?)';
-      });
+  setTimeout(async function () {
+    if (window.__OneSignal) return;
+    var parts = [];
+    parts.push('standalone=' + (window.navigator.standalone === true));
+    parts.push('SW=' + ('serviceWorker' in navigator));
+    parts.push('Push=' + ('PushManager' in window));
+    parts.push('Notif=' + ('Notification' in window));
+    parts.push('OSobj=' + (typeof window.OneSignal));
+    try {
+      var regs = await navigator.serviceWorker.getRegistrations();
+      parts.push('SWcount=' + regs.length);
+    } catch (e) {
+      parts.push('SWerr=' + e.message);
     }
+    document.querySelectorAll('.notify-btn').forEach(function (btn) {
+      btn.textContent = '⚠️ ' + parts.join(' | ');
+    });
   }, 8000);
 </script>
 <script>
