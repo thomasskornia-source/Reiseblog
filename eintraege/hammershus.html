@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hammershus – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function (OneSignal) {
+    await OneSignal.init({
+      appId: "94272d78-1aff-4896-9677-75367a0bbf13",
+      serviceWorkerPath: "OneSignalSDKWorker.js",
+      serviceWorkerParam: { scope: "/Reiseblog/" }
+    });
+  });
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="../index.html">← Zur Übersicht</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">6. September 2026</p>
+      <h1>Hammershus</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="photo-row">
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-1.jpg" alt="Radweg auf Bornholm mit Selfie"></div>
+        <figcaption>Unterwegs auf dem Radweg</figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-2.jpg" alt="In der Ruine von Hammershus"></div>
+        <figcaption>In der Ruine von Hammershus</figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-3.jpg" alt="Thomas und Nicki mit Meerblick"></div>
+        <figcaption>Thomas und Nicki mit Meerblick</figcaption>
+      </figure>
+    </div>
+
+    <figure class="map-block">
+      <div class="frame">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=14.738000%2C55.248000%2C14.778000%2C55.288000&marker=55.268000%2C14.758000&layer=mapnik" loading="lazy" title="Standort Hammershus"></iframe>
+      </div>
+      <figcaption>Die Festungsruine Hammershus im Nordwesten Bornholms</figcaption>
+    </figure>
+
+    <div class="entry-body">
+      <p>Das war der zweite Tag unserer Bornholm-Umrundung. Nicki und ich sind vom Osten der Insel aus weitergefahren, immer gegen den Uhrzeigersinn – unser Etappenziel war Rønne. In Summe kamen an dem Tag knapp 80 Kilometer zusammen.</p>
+      <p>Zwei, drei Stunden hatten wir dabei ordentlichen Gegenwind mit 35 bis 40 km/h, aber dafür großartiges Wetter – durchgehend sonnig, sodass man streckenweise auch im T-Shirt fahren konnte. Bornholm hat sich von seiner schönsten Seite gezeigt: eine traumhafte Insel mit tollem Hinterland. Wir sind durch schöne Wälder gefahren und teils auch direkt am Meer entlang. Ein wirklich schönes Erlebnis.</p>
+    </div>
+
+    <div class="photo-row">
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-4.jpg" alt="Blick durch die Ruinenmauern von Hammershus"></div>
+        <figcaption>Die massiven Mauern von Hammershus</figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-5.jpg" alt="Blick durch Bäume auf die windige Ostsee"></div>
+        <figcaption>Windige Ostsee auf dem Weg nach Rønne</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt aus Fotos und Sprachnotizen unterwegs.</p>
+  </footer>
+
+</div>
+</body>
+</html>
