@@ -1,0 +1,31 @@
+name: Push-Benachrichtigung bei neuem Blogeintrag
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'status.txt'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Status-Datei lesen und Push senden
+        env:
+          ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+          ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
+        run: |
+          STATUS=$(cat status.txt)
+          echo "Neuer Stand: $STATUS"
+          curl -s -X POST "https://onesignal.com/api/v1/notifications" \
+            -H "Authorization: Key ${ONESIGNAL_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "app_id": "'"${ONESIGNAL_APP_ID}"'",
+              "included_segments": ["Subscribed Users"],
+              "headings": {"en": "Andrea unterwegs", "de": "Andrea unterwegs"},
+              "contents": {"en": "Neuer Eintrag: '"${STATUS}"'", "de": "Neuer Eintrag: '"${STATUS}"'"},
+              "url": "https://thomasskornia-source.github.io/Reiseblog/"
+            }'
