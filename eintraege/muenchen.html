@@ -21,7 +21,12 @@
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function (OneSignal) {
     try {
-      await OneSignal.init({ appId: "94272d78-1aff-4896-9677-75367a0bbf13" });
+      await Promise.race([
+        OneSignal.init({ appId: "94272d78-1aff-4896-9677-75367a0bbf13" }),
+        new Promise(function (_, reject) {
+          setTimeout(function () { reject(new Error('Zeitüberschreitung nach 6s')); }, 6000);
+        })
+      ]);
     } catch (err) {
       document.querySelectorAll('.notify-btn').forEach(function (btn) {
         btn.textContent = '⚠️ Init-Fehler: ' + (err && err.message ? err.message : String(err));
