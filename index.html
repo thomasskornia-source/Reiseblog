@@ -5,56 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Andrea unterwegs – Reiseblog</title>
 <link rel="stylesheet" href="styles.css">
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.notify-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (!btn.dataset.ready) btn.textContent = '⏳ Verbinde …';
-      });
-    });
-  });
-</script>
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer
-  onerror="document.querySelectorAll('.notify-btn').forEach(function(b){b.textContent='⚠️ Skript blockiert/nicht geladen';})"></script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function (OneSignal) {
-    try {
-      await Promise.race([
-        OneSignal.init({ appId: "94272d78-1aff-4896-9677-75367a0bbf13" }),
-        new Promise(function (_, reject) {
-          setTimeout(function () { reject(new Error('Zeitüberschreitung nach 6s')); }, 6000);
-        })
-      ]);
-    } catch (err) {
-      document.querySelectorAll('.notify-btn').forEach(function (btn) {
-        btn.textContent = '⚠️ Init-Fehler: ' + (err && err.message ? err.message : String(err));
-      });
-      return;
+    await OneSignal.init({ appId: "94272d78-1aff-4896-9677-75367a0bbf13" });
+    if (OneSignal.Notifications.permission !== true) {
+      try { await OneSignal.Notifications.requestPermission(); } catch (e) {}
     }
-
-    function refreshNotifyButtons() {
-      var enabled = OneSignal.Notifications.permission === true;
-      document.querySelectorAll('.notify-btn').forEach(function (btn) {
-        btn.dataset.ready = '1';
-        btn.textContent = enabled ? '🔔 Benachrichtigungen aktiv' : '🔔 Benachrichtigungen aktivieren';
-        btn.classList.toggle('subscribed', enabled);
-      });
-    }
-
-    document.querySelectorAll('.notify-btn').forEach(function (btn) {
-      btn.addEventListener('click', async function () {
-        try {
-          await OneSignal.Notifications.requestPermission();
-        } catch (e) {
-          btn.textContent = '⚠️ ' + (e && e.message ? e.message : String(e));
-          return;
-        }
-        refreshNotifyButtons();
-      });
-    });
-
-    refreshNotifyButtons();
   });
 </script>
 </head>
@@ -64,7 +22,6 @@
   <header class="site-header">
     <p class="kicker">ein Reisetagebuch</p>
     <h1>Andrea unterwegs</h1>
-    <button class="notify-btn">🔔 Benachrichtigungen aktivieren</button>
   </header>
 
   <main class="entry-list">
