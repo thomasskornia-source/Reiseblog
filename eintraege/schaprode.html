@@ -10,6 +10,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="../lightbox.js" defer></script>
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
@@ -21,6 +23,10 @@
     });
   });
 </script>
+<style>
+  #route-map { height: 320px; width: 100%; border: 1px solid rgba(46, 58, 50, 0.12); }
+  .leaflet-popup-content { font-family: 'Work Sans', sans-serif; font-size: 13px; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -34,26 +40,20 @@
       <hr class="rule">
     </header>
 
-    <div class="photo-row">
+    <div class="photo-duo">
       <figure class="photo">
         <div class="frame"><img src="schaprode-1.jpg" alt="Yachthafen Schaprode"></div>
         <figcaption>Der Yachthafen Schaprode</figcaption>
       </figure>
-      <figure class="photo">
+      <figure class="photo tilt-right">
         <div class="frame"><img src="schaprode-2.jpg" alt="Andrea und Kalli am Hafen"></div>
         <figcaption>Andrea und Kalli am Steg</figcaption>
       </figure>
-      <figure class="photo">
-        <div class="frame"><img src="schaprode-3.jpg" alt="Kalli lacht in die Kamera"></div>
-        <figcaption>Kalli bester Laune</figcaption>
-      </figure>
     </div>
 
-    <figure class="map-block">
-      <div class="frame">
-        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=13.147200%2C54.491300%2C13.187200%2C54.531300&marker=54.511300%2C13.167200&layer=mapnik" loading="lazy" title="Standort Schaprode"></iframe>
-      </div>
-      <figcaption>Der Yachthafen Schaprode</figcaption>
+    <figure class="photo photo-full">
+      <div class="frame"><img src="schaprode-3.jpg" alt="Kalli lacht in die Kamera"></div>
+      <figcaption>Kalli bester Laune</figcaption>
     </figure>
 
     <div class="entry-body">
@@ -61,16 +61,21 @@
       <p>Dort haben wir uns umgeschaut – ein wirklich schöner Hafen – und mittags etwas gegessen. Anschließend ging es weiter zur Insel-Brauerei in Rambin, wo wir im Hofladen noch ein bisschen gestöbert haben, unter anderem an der "Alten Pomeranze", einem pommerschen Bitterlikör. Zum Abschluss sind wir wieder zurück Richtung Baabe gefahren.</p>
     </div>
 
-    <div class="photo-row">
+    <div class="photo-stack">
       <figure class="photo">
         <div class="frame"><img src="schaprode-4.jpg" alt="Bierregal der Insel-Brauerei"></div>
         <figcaption>Im Hofladen der Insel-Brauerei</figcaption>
       </figure>
       <figure class="photo">
         <div class="frame"><img src="schaprode-5.jpg" alt="Andrea mit einer Flasche Alte Pomeranze"></div>
-        <figcaption>Die "Alte Pomeranze" – ein pommerscher Bitterlikör</figcaption>
+        <figcaption>Die "Alte Pomeranze"</figcaption>
       </figure>
     </div>
+
+    <figure class="map-block">
+      <div id="route-map"></div>
+      <figcaption>Vom Yachthafen Schaprode zur Insel-Brauerei in Rambin</figcaption>
+    </figure>
   </article>
 
   <footer class="site-footer">
@@ -78,5 +83,27 @@
   </footer>
 
 </div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    [54.511428, 13.167981, "Der Yachthafen Schaprode"],
+    [54.512128, 13.167067, "Andrea und Kalli am Steg"],
+    [54.353403, 13.201061, "Im Hofladen der Insel-Brauerei"],
+    [54.353853, 13.201239, "Die \"Alte Pomeranze\""]
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap-Mitwirkende',
+    maxZoom: 17
+  }).addTo(map);
+  var latlngs = [];
+  stops.forEach(function (s, i) {
+    L.marker([s[0], s[1]]).addTo(map).bindPopup((i + 1) + '. ' + s[2]);
+    latlngs.push([s[0], s[1]]);
+  });
+  L.polyline(latlngs, { color: '#B5502E', weight: 3, opacity: 0.7 }).addTo(map);
+  map.fitBounds(latlngs, { padding: [30, 30] });
+</script>
 </body>
 </html>
