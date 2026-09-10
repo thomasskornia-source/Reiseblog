@@ -6,12 +6,28 @@
 <title>Kreidefelsen – Andrea unterwegs</title>
 <link rel="stylesheet" href="../styles.css">
 <script src="../lightbox.js" defer></script>
-<script src="../subscribe.js" defer></script>
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({ appId: "94272d78-1aff-4896-9677-75367a0bbf13" });
+
+    function refreshNotifyButtons() {
+      var enabled = OneSignal.Notifications.permission === true;
+      document.querySelectorAll('.notify-btn').forEach(function (btn) {
+        btn.textContent = enabled ? '🔔 Benachrichtigungen aktiv' : '🔔 Benachrichtigungen aktivieren';
+        btn.classList.toggle('subscribed', enabled);
+      });
+    }
+
+    document.querySelectorAll('.notify-btn').forEach(function (btn) {
+      btn.addEventListener('click', async function () {
+        try { await OneSignal.Notifications.requestPermission(); } catch (e) {}
+        refreshNotifyButtons();
+      });
+    });
+
+    refreshNotifyButtons();
   });
 </script>
 </head>
