@@ -45,6 +45,32 @@ body {
   letter-spacing: 0.02em;
 }
 
+.notify-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid var(--rust);
+  color: var(--rust);
+  border-radius: 999px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.notify-btn:active {
+  background: var(--rust);
+  color: var(--paper);
+}
+
+.notify-btn.subscribed {
+  border-color: var(--sage);
+  color: var(--sage);
+  pointer-events: none;
+}
+
 .site-header h1 {
   font-family: 'Fraunces', serif;
   font-weight: 500;
