@@ -16,25 +16,40 @@
   OneSignalDeferred.push(async function (OneSignal) {
     await OneSignal.init({ appId: "94272d78-1aff-4896-9677-75367a0bbf13" });
     window.__OneSignal = OneSignal;
-    if (OneSignal.Notifications.permission === true) {
-      document.querySelectorAll('.notify-btn').forEach(function (btn) {
-        btn.textContent = '🔔 Benachrichtigungen aktiv';
-        btn.classList.add('subscribed');
-      });
-    }
+    updateStatus();
   });
+
+  function updateStatus() {
+    var OneSignal = window.__OneSignal;
+    if (!OneSignal) return;
+    var id = OneSignal.User.PushSubscription.id;
+    var optedIn = OneSignal.User.PushSubscription.optedIn;
+    document.querySelectorAll('.notify-btn').forEach(function (btn) {
+      if (optedIn && id) {
+        btn.textContent = '🔔 Aktiv (ID ' + id.slice(0, 6) + ')';
+        btn.classList.add('subscribed');
+      } else {
+        btn.textContent = '🔔 Benachrichtigungen aktivieren';
+      }
+    });
+  }
 
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.notify-btn').forEach(function (btn) {
       btn.addEventListener('click', async function () {
-        if (!window.__OneSignal) return;
+        var OneSignal = window.__OneSignal;
+        if (!OneSignal) { btn.textContent = '⚠️ Noch nicht geladen'; return; }
         try {
-          await window.__OneSignal.Notifications.requestPermission();
-          if (window.__OneSignal.Notifications.permission === true) {
-            btn.textContent = '🔔 Benachrichtigungen aktiv';
-            btn.classList.add('subscribed');
+          await OneSignal.Notifications.requestPermission();
+          if (!OneSignal.User.PushSubscription.optedIn) {
+            await OneSignal.User.PushSubscription.optIn();
           }
-        } catch (e) {}
+        } catch (e) {
+          btn.textContent = '⚠️ ' + (e && e.message ? e.message : String(e));
+          return;
+        }
+        await new Promise(function (r) { setTimeout(r, 1000); });
+        updateStatus();
       });
     });
   });
