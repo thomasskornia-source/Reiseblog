@@ -16,7 +16,7 @@
   setTimeout(async function () {
     if (window.__OneSignal) return;
     var parts = [];
-    parts.push('standalone=' + (window.navigator.standalone === true));
+    parts.push('v=1789046026'); parts.push('standalone=' + (window.navigator.standalone === true));
     parts.push('SW=' + ('serviceWorker' in navigator));
     parts.push('Push=' + ('PushManager' in window));
     parts.push('Notif=' + ('Notification' in window));
