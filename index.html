@@ -4,13 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Andrea unterwegs – Reiseblog</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=1789042633">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer
+  onerror="document.querySelectorAll('.notify-btn').forEach(function(b){b.textContent='⚠️ SDK-Skript nicht ladbar (Netzwerk/CDN)';})"></script>
+<script>
+  setTimeout(function () {
+    if (!window.__OneSignal) {
+      document.querySelectorAll('.notify-btn').forEach(function (btn) {
+        btn.textContent = '⚠️ Timeout: SDK reagiert nicht (Cache?)';
+      });
+    }
+  }, 8000);
+</script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function (OneSignal) {
