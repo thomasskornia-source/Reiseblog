@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sonnenuntergang und Kite über den Dünen – Andrea unterwegs</title>
-<link rel="stylesheet" href="../styles.css?v=1789042633">
+<link rel="stylesheet" href="../styles.css">
 <link rel="manifest" href="../manifest.json">
 <link rel="apple-touch-icon" href="../icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="../lightbox.js" defer></script>
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
@@ -22,15 +23,15 @@
     });
   });
 </script>
+<style>
+  #route-map { height: 280px; width: 100%; border: 1px solid rgba(46, 58, 50, 0.12); }
+  .leaflet-popup-content { font-family: 'Work Sans', sans-serif; font-size: 13px; }
+</style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="entry-topbar">
-    <div class="entry-topbar">
-    <a class="back-link" href="../index.html">← Zur Übersicht</a>
-  </div>
-  </div>
+  <a class="back-link" href="../index.html">← Zur Übersicht</a>
 
   <article>
     <header class="entry-header">
@@ -39,31 +40,30 @@
       <hr class="rule">
     </header>
 
-    <div class="photo-row">
+    <div class="photo-duo uneven">
       <figure class="photo">
         <div class="frame"><img src="thiessow-1.jpg" alt="Weiter Sandstrand in Thiessow am Abend"></div>
         <figcaption>Der weite Strand am Abend</figcaption>
       </figure>
-      <figure class="photo">
+      <figure class="photo tilt-right">
         <div class="frame"><img src="thiessow-2.jpg" alt="Kitesurfer-Schirm über den Dünen"></div>
         <figcaption>Ein Kite hoch über den Dünen</figcaption>
       </figure>
-      <figure class="photo">
-        <div class="frame"><img src="thiessow-3.jpg" alt="Sonnenuntergang über den Dünen von Thiessow"></div>
-        <figcaption>Sonnenuntergang zum Abschluss</figcaption>
-      </figure>
     </div>
-
-    <figure class="map-block">
-      <div class="frame">
-        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=13.677967%2C54.259670%2C13.717967%2C54.299670&marker=54.279670%2C13.697880&layer=mapnik" loading="lazy" title="Standort Thiessow"></iframe>
-      </div>
-      <figcaption>Wo dieser Abend stattfand</figcaption>
-    </figure>
 
     <div class="entry-body">
       <p>Schöne Abendaufnahmen am Strand von Thiessow.</p>
     </div>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="thiessow-3.jpg" alt="Sonnenuntergang über den Dünen von Thiessow"></div>
+      <figcaption>Sonnenuntergang zum Abschluss</figcaption>
+    </figure>
+
+    <figure class="map-block">
+      <div id="route-map"></div>
+      <figcaption>Wo dieser Abend stattfand</figcaption>
+    </figure>
   </article>
 
   <footer class="site-footer">
@@ -71,5 +71,26 @@
   </footer>
 
 </div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    [54.293703, 13.714931, "Der weite Strand am Abend"],
+    [54.279675, 13.697878, "Ein Kite hoch über den Dünen"],
+    [54.276856, 13.70345, "Sonnenuntergang zum Abschluss"]
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap-Mitwirkende',
+    maxZoom: 17
+  }).addTo(map);
+  var latlngs = [];
+  stops.forEach(function (s, i) {
+    L.marker([s[0], s[1]]).addTo(map).bindPopup((i + 1) + '. ' + s[2]);
+    latlngs.push([s[0], s[1]]);
+  });
+  L.polyline(latlngs, { color: '#B5502E', weight: 3, opacity: 0.7 }).addTo(map);
+  map.fitBounds(latlngs, { padding: [30, 30] });
+</script>
 </body>
 </html>
