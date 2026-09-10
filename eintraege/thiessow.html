@@ -6,15 +6,33 @@
 <title>Thiessow – Andrea unterwegs</title>
 <link rel="stylesheet" href="../styles.css">
 <script src="../lightbox.js" defer></script>
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.notify-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (!btn.dataset.ready) btn.textContent = '⏳ Verbinde …';
+      });
+    });
+  });
+</script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer
+  onerror="document.querySelectorAll('.notify-btn').forEach(function(b){b.textContent='⚠️ Skript blockiert/nicht geladen';})"></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({ appId: "94272d78-1aff-4896-9677-75367a0bbf13" });
+  OneSignalDeferred.push(async function (OneSignal) {
+    try {
+      await OneSignal.init({ appId: "94272d78-1aff-4896-9677-75367a0bbf13" });
+    } catch (err) {
+      document.querySelectorAll('.notify-btn').forEach(function (btn) {
+        btn.textContent = '⚠️ Init-Fehler: ' + (err && err.message ? err.message : String(err));
+      });
+      return;
+    }
 
     function refreshNotifyButtons() {
       var enabled = OneSignal.Notifications.permission === true;
       document.querySelectorAll('.notify-btn').forEach(function (btn) {
+        btn.dataset.ready = '1';
         btn.textContent = enabled ? '🔔 Benachrichtigungen aktiv' : '🔔 Benachrichtigungen aktivieren';
         btn.classList.toggle('subscribed', enabled);
       });
@@ -22,7 +40,12 @@
 
     document.querySelectorAll('.notify-btn').forEach(function (btn) {
       btn.addEventListener('click', async function () {
-        try { await OneSignal.Notifications.requestPermission(); } catch (e) {}
+        try {
+          await OneSignal.Notifications.requestPermission();
+        } catch (e) {
+          btn.textContent = '⚠️ ' + (e && e.message ? e.message : String(e));
+          return;
+        }
         refreshNotifyButtons();
       });
     });
