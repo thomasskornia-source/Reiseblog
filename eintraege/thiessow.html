@@ -28,6 +28,12 @@
     } catch (e) {
       parts.push('SWerr=' + e.message);
     }
+    try {
+      var reg = await navigator.serviceWorker.register('OneSignalSDKWorker.js', { scope: '/Reiseblog/' });
+      parts.push('manualReg=OK');
+    } catch (e) {
+      parts.push('manualReg-FAIL: ' + e.name + ': ' + e.message);
+    }
     document.querySelectorAll('.notify-btn').forEach(function (btn) {
       btn.textContent = '⚠️ ' + parts.join(' | ');
     });
