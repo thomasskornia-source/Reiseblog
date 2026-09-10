@@ -351,43 +351,52 @@ body {
 .photo-duo.uneven .photo:last-child { flex: 1; }
 
 .photo-stack {
-  position: relative;
-  margin: 56px 0 64px;
-  height: 320px;
+  margin: 44px 0;
 }
 
-.photo-stack .photo {
+.photo-stack .stack-frames {
+  position: relative;
+  height: 300px;
+}
+
+.photo-stack .stack-frames .frame {
   position: absolute;
   width: 58%;
-  margin: 0;
+  box-shadow: 0 10px 24px rgba(46, 58, 50, 0.22);
+  border-color: var(--paper);
+  border-width: 4px;
 }
 
-.photo-stack .photo:first-child {
+.photo-stack .stack-frames .frame:first-child {
   left: 0;
   top: 0;
   z-index: 1;
   transform: rotate(-4deg);
 }
 
-.photo-stack .photo:last-child {
+.photo-stack .stack-frames .frame:last-child {
   right: 0;
   bottom: 0;
   z-index: 2;
   transform: rotate(3deg);
 }
 
-.photo-stack .frame {
-  box-shadow: 0 10px 24px rgba(46, 58, 50, 0.22);
-  border-color: var(--paper);
-  border-width: 4px;
+.photo-stack .stack-captions {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
 }
+
+.photo-stack .stack-captions figcaption { flex: 1; }
 
 .tilt-left { transform: rotate(-2.5deg); }
 .tilt-right { transform: rotate(2.5deg); }
 
-@media (max-width: 480px) {
-  .photo-stack { height: 260px; }
-  .photo-duo { gap: 10px; }
+@media (max-width: 600px) {
+  .photo-duo { flex-direction: column; gap: 24px; }
+  .photo-duo.uneven .photo:first-child,
+  .photo-duo.uneven .photo:last-child { flex: 1; }
+  .photo-stack .stack-frames { height: 220px; }
 }
 
 /* --- Karte --- */
