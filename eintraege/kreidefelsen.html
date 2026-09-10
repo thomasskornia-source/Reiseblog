@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Die Kreidefelsen von Jasmund – Andrea unterwegs</title>
-<link rel="stylesheet" href="../styles.css?v=1789042633">
+<link rel="stylesheet" href="../styles.css">
 <link rel="manifest" href="../manifest.json">
 <link rel="apple-touch-icon" href="../icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="../lightbox.js" defer></script>
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
@@ -22,15 +23,15 @@
     });
   });
 </script>
+<style>
+  #route-map { height: 280px; width: 100%; border: 1px solid rgba(46, 58, 50, 0.12); }
+  .leaflet-popup-content { font-family: 'Work Sans', sans-serif; font-size: 13px; }
+</style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="entry-topbar">
-    <div class="entry-topbar">
-    <a class="back-link" href="../index.html">← Zur Übersicht</a>
-  </div>
-  </div>
+  <a class="back-link" href="../index.html">← Zur Übersicht</a>
 
   <article>
     <header class="entry-header">
@@ -39,22 +40,9 @@
       <hr class="rule">
     </header>
 
-    <div class="photo-row">
-      <figure class="photo">
-        <div class="frame"><img src="kreidefelsen-1.jpg" alt="Andrea und Kalli am Strand vor den Kreidefelsen"></div>
-        <figcaption>Andrea und Kalli am Fuß der Felsen</figcaption>
-      </figure>
-      <figure class="photo">
-        <div class="frame"><img src="kreidefelsen-2.jpg" alt="Die Kreidefelsen aus der Nähe, mit winzigem Wanderer am Fuß"></div>
-        <figcaption>Erst am winzigen Wanderer unten wird die Höhe wirklich klar</figcaption>
-      </figure>
-    </div>
-
-    <figure class="map-block">
-      <div class="frame">
-        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=13.656900%2C54.510280%2C13.696900%2C54.550280&marker=54.530280%2C13.676900&layer=mapnik" loading="lazy" title="Standort Kreidefelsen"></iframe>
-      </div>
-      <figcaption>Nationalpark Jasmund, an der Steilküste zwischen Sassnitz und Lohme</figcaption>
+    <figure class="photo photo-full">
+      <div class="frame"><img src="kreidefelsen-2.jpg" alt="Die Kreidefelsen aus der Nähe, mit winzigem Wanderer am Fuß"></div>
+      <figcaption>Erst am winzigen Wanderer unten wird die Höhe wirklich klar</figcaption>
     </figure>
 
     <div class="entry-body">
@@ -62,16 +50,26 @@
       <p>Ein kleiner Fakt am Rande: Die weiße Kreide besteht aus den Kalkschalen winziger Algen, die vor rund 70 Millionen Jahren in einem warmen Flachmeer lebten. Und die Küste bewegt sich bis heute – bei den nahegelegenen Wissower Klinken rutschten 2005 über Nacht rund 50.000 Kubikmeter Kreide ins Meer. Kein Wunder also, dass man an manchen Stellen lieber etwas zügiger weiterläuft.</p>
     </div>
 
-    <div class="photo-row">
+    <div class="photo-duo">
       <figure class="photo">
+        <div class="frame"><img src="kreidefelsen-1.jpg" alt="Andrea und Kalli am Strand vor den Kreidefelsen"></div>
+        <figcaption>Andrea und Kalli am Fuß der Felsen</figcaption>
+      </figure>
+      <figure class="photo tilt-left">
         <div class="frame"><img src="kreidefelsen-3.jpg" alt="Ein Stein mit der Aufschrift Omnia vincit amor am Ufer"></div>
         <figcaption>Ein kleiner Gruß am Wegesrand</figcaption>
       </figure>
-      <figure class="photo">
-        <div class="frame"><img src="kreidefelsen-4.jpg" alt="Blick auf die Kreideküste mit Treibholz im Vordergrund"></div>
-        <figcaption>Der Blick zurück am Kiesstrand</figcaption>
-      </figure>
     </div>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="kreidefelsen-4.jpg" alt="Blick auf die Kreideküste mit Treibholz im Vordergrund"></div>
+      <figcaption>Der Blick zurück am Kiesstrand</figcaption>
+    </figure>
+
+    <figure class="map-block">
+      <div id="route-map"></div>
+      <figcaption>Nationalpark Jasmund, an der Steilküste zwischen Sassnitz und Lohme</figcaption>
+    </figure>
   </article>
 
   <footer class="site-footer">
@@ -79,5 +77,27 @@
   </footer>
 
 </div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    [54.521106, 13.668547, "Ankunft am Fuß der Felsen"],
+    [54.526867, 13.672381, "Andrea und Kalli"],
+    [54.530278, 13.676897, "Der Blick zurück"],
+    [54.530278, 13.676819, "Am Kiesstrand"]
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap-Mitwirkende',
+    maxZoom: 18
+  }).addTo(map);
+  var latlngs = [];
+  stops.forEach(function (s, i) {
+    L.marker([s[0], s[1]]).addTo(map).bindPopup((i + 1) + '. ' + s[2]);
+    latlngs.push([s[0], s[1]]);
+  });
+  L.polyline(latlngs, { color: '#B5502E', weight: 3, opacity: 0.7 }).addTo(map);
+  map.fitBounds(latlngs, { padding: [30, 30] });
+</script>
 </body>
 </html>
