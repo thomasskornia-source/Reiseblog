@@ -89,6 +89,133 @@ body {
   margin-top: 16px;
 }
 
+/* --- Hero-Bereich (Startseite) --- */
+
+.site-hero {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 8px 0 40px;
+}
+
+.site-hero .hero-text {
+  flex: 1 1 280px;
+}
+
+.site-hero .hero-photo {
+  flex: 1 1 280px;
+}
+
+.site-hero .hero-photo .frame {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.site-hero .hero-photo .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Andrea-Vorstellung --- */
+
+.about-block {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 24px 0;
+  margin-bottom: 48px;
+  border-top: 1px solid rgba(46, 58, 50, 0.14);
+  border-bottom: 1px solid rgba(46, 58, 50, 0.14);
+}
+
+.about-block .about-photo {
+  flex: 0 0 84px;
+}
+
+.about-block .about-photo .frame {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.about-block .about-photo .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-block .about-text h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 19px;
+  margin: 0 0 6px;
+}
+
+.about-block .about-text p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+/* --- Eintrags-Galerie (Startseite) --- */
+
+.entry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 20px;
+}
+
+.entry-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.entry-card .frame {
+  aspect-ratio: 4 / 3;
+  margin-bottom: 10px;
+}
+
+.entry-card .date {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0 0 4px;
+}
+
+.entry-card h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 19px;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.entry-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.entry-card:first-child {
+  grid-column: 1 / -1;
+}
+
+.entry-card:first-child .frame {
+  aspect-ratio: 16 / 9;
+}
+
+.entry-card:first-child h2 {
+  font-size: 26px;
+}
+
+@media (max-width: 560px) {
+  .site-hero { flex-direction: column; gap: 20px; }
+  .entry-grid { grid-template-columns: 1fr; }
+  .entry-card:first-child .frame { aspect-ratio: 4 / 3; }
+}
+
 .site-header h1 {
   font-family: 'Fraunces', serif;
   font-weight: 500;
