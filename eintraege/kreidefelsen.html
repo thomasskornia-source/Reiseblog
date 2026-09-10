@@ -36,7 +36,11 @@
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function (OneSignal) {
-    await OneSignal.init({ appId: "94272d78-1aff-4896-9677-75367a0bbf13" });
+    await OneSignal.init({
+      appId: "94272d78-1aff-4896-9677-75367a0bbf13",
+      serviceWorkerPath: "OneSignalSDKWorker.js",
+      serviceWorkerParam: { scope: "/Reiseblog/" }
+    });
     window.__OneSignal = OneSignal;
     updateStatus();
   });
