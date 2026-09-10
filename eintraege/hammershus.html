@@ -10,6 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
@@ -21,6 +22,10 @@
     });
   });
 </script>
+<style>
+  #route-map { height: 380px; width: 100%; border: 1px solid rgba(46, 58, 50, 0.12); }
+  .leaflet-popup-content { font-family: 'Work Sans', sans-serif; font-size: 13px; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -36,35 +41,71 @@
 
     <div class="photo-row">
       <figure class="photo">
-        <div class="frame"><img src="hammershus-1.jpg" alt="Radweg auf Bornholm mit Selfie"></div>
-        <figcaption>Unterwegs auf dem Radweg</figcaption>
+        <div class="frame"><img src="hammershus-6.jpg" alt="Nexø Hostel"></div>
+        <figcaption>Start am Nexø Hostel</figcaption>
       </figure>
       <figure class="photo">
-        <div class="frame"><img src="hammershus-2.jpg" alt="In der Ruine von Hammershus"></div>
-        <figcaption>In der Ruine von Hammershus</figcaption>
+        <div class="frame"><img src="hammershus-1.jpg" alt="Selfie auf dem Radweg"></div>
+        <figcaption>Auf geht's</figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-7.jpg" alt="Radfahrer auf Küstenweg"></div>
+        <figcaption>Entlang der Küste</figcaption>
+      </figure>
+    </div>
+
+    <div class="entry-body">
+      <p>Das war der zweite Tag unserer Bornholm-Umrundung. Nicki und ich sind von Nexø aus weitergefahren, immer gegen den Uhrzeigersinn entlang der Küste – unser Etappenziel war Rønne. In Summe kamen an dem Tag knapp 80 Kilometer zusammen.</p>
+      <p>Zwei, drei Stunden hatten wir dabei ordentlichen Gegenwind mit 35 bis 40 km/h – die Bornholmer Flagge stand entsprechend steif im Wind. Dafür hatten wir großartiges Wetter, durchgehend sonnig, sodass man streckenweise auch im T-Shirt fahren konnte. Bornholm hat sich von seiner schönsten Seite gezeigt: eine traumhafte Insel mit tollem Hinterland, schönen Wäldern und Streckenabschnitten direkt am Meer entlang.</p>
+    </div>
+
+    <div class="photo-row">
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-8.jpg" alt="Bornholmer Flagge im Wind"></div>
+        <figcaption>Die Bornholmer Flagge im Wind</figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-9.jpg" alt="Meerblick durch Bäume"></div>
+        <figcaption>Immer wieder Meerblick</figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-10.jpg" alt="Kleiner Hafen mit Räucherei"></div>
+        <figcaption>Kurze Rast an einem kleinen Hafen</figcaption>
+      </figure>
+    </div>
+
+    <figure class="map-block">
+      <div id="route-map"></div>
+      <figcaption>Die Route des Tages – jeder Punkt ein Foto</figcaption>
+    </figure>
+
+    <div class="entry-body">
+      <p>Höhepunkt des Tages war die Festungsruine Hammershus im Nordwesten der Insel – die größte mittelalterliche Burgruine Nordeuropas, hoch über der Steilküste gelegen. Ein wirklich schönes Erlebnis.</p>
+    </div>
+
+    <div class="photo-row">
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-11.jpg" alt="Fahrräder am Wegesrand"></div>
+        <figcaption>Kurze Pause vor Hammershus</figcaption>
       </figure>
       <figure class="photo">
         <div class="frame"><img src="hammershus-3.jpg" alt="Thomas und Nicki mit Meerblick"></div>
         <figcaption>Thomas und Nicki mit Meerblick</figcaption>
       </figure>
-    </div>
-
-    <figure class="map-block">
-      <div class="frame">
-        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=14.738000%2C55.248000%2C14.778000%2C55.288000&marker=55.268000%2C14.758000&layer=mapnik" loading="lazy" title="Standort Hammershus"></iframe>
-      </div>
-      <figcaption>Die Festungsruine Hammershus im Nordwesten Bornholms</figcaption>
-    </figure>
-
-    <div class="entry-body">
-      <p>Das war der zweite Tag unserer Bornholm-Umrundung. Nicki und ich sind vom Osten der Insel aus weitergefahren, immer gegen den Uhrzeigersinn – unser Etappenziel war Rønne. In Summe kamen an dem Tag knapp 80 Kilometer zusammen.</p>
-      <p>Zwei, drei Stunden hatten wir dabei ordentlichen Gegenwind mit 35 bis 40 km/h, aber dafür großartiges Wetter – durchgehend sonnig, sodass man streckenweise auch im T-Shirt fahren konnte. Bornholm hat sich von seiner schönsten Seite gezeigt: eine traumhafte Insel mit tollem Hinterland. Wir sind durch schöne Wälder gefahren und teils auch direkt am Meer entlang. Ein wirklich schönes Erlebnis.</p>
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-4.jpg" alt="Blick durch die Ruinenmauern von Hammershus"></div>
+        <figcaption>Die massiven Mauern von Hammershus</figcaption>
+      </figure>
     </div>
 
     <div class="photo-row">
       <figure class="photo">
-        <div class="frame"><img src="hammershus-4.jpg" alt="Blick durch die Ruinenmauern von Hammershus"></div>
-        <figcaption>Die massiven Mauern von Hammershus</figcaption>
+        <div class="frame"><img src="hammershus-2.jpg" alt="In der Ruine von Hammershus"></div>
+        <figcaption>In der Ruine von Hammershus</figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-12.jpg" alt="Pfad zur Küste"></div>
+        <figcaption>Ein Pfad hinunter zur Küste</figcaption>
       </figure>
       <figure class="photo">
         <div class="frame"><img src="hammershus-5.jpg" alt="Blick durch Bäume auf die windige Ostsee"></div>
@@ -78,5 +119,35 @@
   </footer>
 
 </div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    [55.06299, 15.11776, "Nexø Hostel – Start"],
+    [55.08807, 15.14977, "Auf dem Radweg"],
+    [55.10041, 15.14103, "Entlang der Küste"],
+    [55.19545, 14.98635, "Die Bornholmer Flagge im Wind"],
+    [55.24034, 14.8591, "Meerblick durch die Bäume"],
+    [55.28132, 14.79633, "Kleiner Hafen mit Räucherei"],
+    [55.28254, 14.76198, "Kurze Pause vor Hammershus"],
+    [55.27227, 14.75527, "Hammershus – mit Nicki"],
+    [55.27075, 14.7552, "Hammershus – innen"],
+    [55.26455, 14.7588, "Hammershus – auf der Mauer"],
+    [55.23729, 14.724, "Pfad zur Küste"],
+    [55.22903, 14.71787, "Auf dem Weg nach Rønne"]
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap-Mitwirkende',
+    maxZoom: 17
+  }).addTo(map);
+  var latlngs = [];
+  stops.forEach(function (s, i) {
+    L.marker([s[0], s[1]]).addTo(map).bindPopup((i + 1) + '. ' + s[2]);
+    latlngs.push([s[0], s[1]]);
+  });
+  L.polyline(latlngs, { color: '#B5502E', weight: 3, opacity: 0.7 }).addTo(map);
+  map.fitBounds(latlngs, { padding: [24, 24] });
+</script>
 </body>
 </html>
