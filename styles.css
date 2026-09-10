@@ -203,6 +203,66 @@ body {
 
 .photo-row.tall .photo:nth-child(2) { flex: 1 1 280px; }
 
+/* --- Foto-Varianten für mehr visuelle Abwechslung --- */
+
+.photo-full {
+  margin: 36px 0;
+}
+
+.photo-full .frame {
+  aspect-ratio: 16 / 10;
+}
+
+.photo-duo {
+  display: flex;
+  gap: 18px;
+  margin: 36px 0;
+}
+
+.photo-duo .photo { flex: 1; }
+.photo-duo.uneven .photo:first-child { flex: 1.4; }
+.photo-duo.uneven .photo:last-child { flex: 1; }
+
+.photo-stack {
+  position: relative;
+  margin: 56px 0 64px;
+  height: 320px;
+}
+
+.photo-stack .photo {
+  position: absolute;
+  width: 58%;
+  margin: 0;
+}
+
+.photo-stack .photo:first-child {
+  left: 0;
+  top: 0;
+  z-index: 1;
+  transform: rotate(-4deg);
+}
+
+.photo-stack .photo:last-child {
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  transform: rotate(3deg);
+}
+
+.photo-stack .frame {
+  box-shadow: 0 10px 24px rgba(46, 58, 50, 0.22);
+  border-color: var(--paper);
+  border-width: 4px;
+}
+
+.tilt-left { transform: rotate(-2.5deg); }
+.tilt-right { transform: rotate(2.5deg); }
+
+@media (max-width: 480px) {
+  .photo-stack { height: 260px; }
+  .photo-duo { gap: 10px; }
+}
+
 /* --- Karte --- */
 
 .map-block {
