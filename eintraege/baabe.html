@@ -16,9 +16,28 @@
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function (OneSignal) {
     await OneSignal.init({ appId: "94272d78-1aff-4896-9677-75367a0bbf13" });
-    if (OneSignal.Notifications.permission !== true) {
-      try { await OneSignal.Notifications.requestPermission(); } catch (e) {}
+    window.__OneSignal = OneSignal;
+    if (OneSignal.Notifications.permission === true) {
+      document.querySelectorAll('.notify-btn').forEach(function (btn) {
+        btn.textContent = '🔔 Benachrichtigungen aktiv';
+        btn.classList.add('subscribed');
+      });
     }
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.notify-btn').forEach(function (btn) {
+      btn.addEventListener('click', async function () {
+        if (!window.__OneSignal) return;
+        try {
+          await window.__OneSignal.Notifications.requestPermission();
+          if (window.__OneSignal.Notifications.permission === true) {
+            btn.textContent = '🔔 Benachrichtigungen aktiv';
+            btn.classList.add('subscribed');
+          }
+        } catch (e) {}
+      });
+    });
   });
 </script>
 </head>
@@ -26,7 +45,10 @@
 <div class="wrap">
 
   <div class="entry-topbar">
+    <div class="entry-topbar">
     <a class="back-link" href="../index.html">← Zur Übersicht</a>
+    <button class="notify-btn">🔔 Benachrichtigungen aktivieren</button>
+  </div>
   </div>
 
   <article>
