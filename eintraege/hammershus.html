@@ -11,6 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="../lightbox.js" defer></script>
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
@@ -39,38 +40,46 @@
       <hr class="rule">
     </header>
 
-    <div class="photo-row">
+    <div class="photo-duo">
       <figure class="photo">
         <div class="frame"><img src="hammershus-6.jpg" alt="Nexø Hostel"></div>
         <figcaption>Start am Nexø Hostel</figcaption>
       </figure>
-      <figure class="photo">
+      <figure class="photo tilt-right">
         <div class="frame"><img src="hammershus-1.jpg" alt="Selfie auf dem Radweg"></div>
         <figcaption>Auf geht's</figcaption>
       </figure>
-      <figure class="photo">
-        <div class="frame"><img src="hammershus-7.jpg" alt="Radfahrer auf Küstenweg"></div>
-        <figcaption>Entlang der Küste</figcaption>
-      </figure>
     </div>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="hammershus-7.jpg" alt="Radfahrer auf Küstenweg"></div>
+      <figcaption>Entlang der Küste</figcaption>
+    </figure>
 
     <div class="entry-body">
       <p>Das war der zweite Tag unserer Bornholm-Umrundung. Nicki und ich sind von Nexø aus weitergefahren, immer gegen den Uhrzeigersinn entlang der Küste – unser Etappenziel war Rønne. In Summe kamen an dem Tag knapp 80 Kilometer zusammen.</p>
       <p>Zwei, drei Stunden hatten wir dabei ordentlichen Gegenwind mit 35 bis 40 km/h – die Bornholmer Flagge stand entsprechend steif im Wind. Dafür hatten wir großartiges Wetter, durchgehend sonnig, sodass man streckenweise auch im T-Shirt fahren konnte. Bornholm hat sich von seiner schönsten Seite gezeigt: eine traumhafte Insel mit tollem Hinterland, schönen Wäldern und Streckenabschnitten direkt am Meer entlang.</p>
     </div>
 
-    <div class="photo-row">
+    <div class="photo-duo uneven">
       <figure class="photo">
         <div class="frame"><img src="hammershus-8.jpg" alt="Bornholmer Flagge im Wind"></div>
         <figcaption>Die Bornholmer Flagge im Wind</figcaption>
       </figure>
-      <figure class="photo">
+      <figure class="photo tilt-left">
         <div class="frame"><img src="hammershus-9.jpg" alt="Meerblick durch Bäume"></div>
         <figcaption>Immer wieder Meerblick</figcaption>
       </figure>
+    </div>
+
+    <div class="photo-stack">
       <figure class="photo">
         <div class="frame"><img src="hammershus-10.jpg" alt="Kleiner Hafen mit Räucherei"></div>
         <figcaption>Kurze Rast an einem kleinen Hafen</figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="frame"><img src="hammershus-11.jpg" alt="Fahrräder am Wegesrand"></div>
+        <figcaption>Kurze Pause vor Hammershus</figcaption>
       </figure>
     </div>
 
@@ -83,33 +92,30 @@
       <p>Höhepunkt des Tages war die Festungsruine Hammershus im Nordwesten der Insel – die größte mittelalterliche Burgruine Nordeuropas, hoch über der Steilküste gelegen. Ein wirklich schönes Erlebnis.</p>
     </div>
 
-    <div class="photo-row">
-      <figure class="photo">
-        <div class="frame"><img src="hammershus-11.jpg" alt="Fahrräder am Wegesrand"></div>
-        <figcaption>Kurze Pause vor Hammershus</figcaption>
-      </figure>
+    <div class="photo-duo">
       <figure class="photo">
         <div class="frame"><img src="hammershus-3.jpg" alt="Thomas und Nicki mit Meerblick"></div>
         <figcaption>Thomas und Nicki mit Meerblick</figcaption>
       </figure>
-      <figure class="photo">
+      <figure class="photo tilt-right">
         <div class="frame"><img src="hammershus-4.jpg" alt="Blick durch die Ruinenmauern von Hammershus"></div>
-        <figcaption>Die massiven Mauern von Hammershus</figcaption>
+        <figcaption>Die massiven Mauern</figcaption>
       </figure>
     </div>
 
-    <div class="photo-row">
-      <figure class="photo">
-        <div class="frame"><img src="hammershus-2.jpg" alt="In der Ruine von Hammershus"></div>
-        <figcaption>In der Ruine von Hammershus</figcaption>
-      </figure>
+    <figure class="photo photo-full">
+      <div class="frame"><img src="hammershus-2.jpg" alt="In der Ruine von Hammershus"></div>
+      <figcaption>In der Ruine von Hammershus</figcaption>
+    </figure>
+
+    <div class="photo-duo">
       <figure class="photo">
         <div class="frame"><img src="hammershus-12.jpg" alt="Pfad zur Küste"></div>
         <figcaption>Ein Pfad hinunter zur Küste</figcaption>
       </figure>
-      <figure class="photo">
+      <figure class="photo tilt-left">
         <div class="frame"><img src="hammershus-5.jpg" alt="Blick durch Bäume auf die windige Ostsee"></div>
-        <figcaption>Windige Ostsee auf dem Weg nach Rønne</figcaption>
+        <figcaption>Windige Ostsee Richtung Rønne</figcaption>
       </figure>
     </div>
   </article>
