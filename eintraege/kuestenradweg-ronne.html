@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Küstenradweg Richtung Rønne – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="../lightbox.js" defer></script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function (OneSignal) {
+    await OneSignal.init({
+      appId: "94272d78-1aff-4896-9677-75367a0bbf13",
+      serviceWorkerPath: "OneSignalSDKWorker.js",
+      serviceWorkerParam: { scope: "/Reiseblog/" }
+    });
+  });
+</script>
+<style>
+  #route-map { height: 260px; width: 100%; border: 1px solid rgba(46, 58, 50, 0.12); }
+  .leaflet-popup-content { font-family: 'Work Sans', sans-serif; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="../index.html">← Zur Übersicht</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">11. September 2026</p>
+      <h1>Küstenradweg Richtung Rønne</h1>
+      <hr class="rule">
+    </header>
+
+    <figure class="photo photo-full">
+      <div class="frame">
+        <video controls playsinline preload="metadata" poster="kuestenradweg-video-poster.jpg">
+          <source src="kuestenradweg-video.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption>An der Küste entlang, der Radweg Richtung Rønne</figcaption>
+    </figure>
+
+    <div class="entry-body">
+      <p>Immer der Küste nach – der Radweg schlängelt sich heute Richtung Rønne, mit Blick aufs Meer und dem Wind im Rücken.</p>
+    </div>
+
+    <figure class="map-block">
+      <div id="route-map"></div>
+      <figcaption>Wo diese Etappe entlangführt</figcaption>
+    </figure>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt aus Fotos und Sprachnotizen unterwegs.</p>
+  </footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    [55.099900, 14.706100, "Küstenradweg Richtung Rønne"]
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap-Mitwirkende',
+    maxZoom: 17
+  }).addTo(map);
+  stops.forEach(function (s, i) {
+    L.marker([s[0], s[1]]).addTo(map).bindPopup((i + 1) + '. ' + s[2]);
+  });
+  map.setView([stops[0][0], stops[0][1]], 12);
+</script>
+</body>
+</html>
