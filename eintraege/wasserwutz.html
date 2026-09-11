@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unsere Wasserwutz – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="../lightbox.js" defer></script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function (OneSignal) {
+    await OneSignal.init({
+      appId: "94272d78-1aff-4896-9677-75367a0bbf13",
+      serviceWorkerPath: "OneSignalSDKWorker.js",
+      serviceWorkerParam: { scope: "/Reiseblog/" }
+    });
+  });
+</script>
+<style>
+  #route-map { height: 260px; width: 100%; border: 1px solid rgba(46, 58, 50, 0.12); }
+  .leaflet-popup-content { font-family: 'Work Sans', sans-serif; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="../index.html">← Zur Übersicht</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">11. September 2026</p>
+      <h1>Unsere Wasserwutz</h1>
+      <hr class="rule">
+    </header>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="wasserwutz-1.jpg" alt="Kalli schwimmt im Meer bei Baabe"></div>
+      <figcaption>Kalli schwimmt hinaus – ganz in seinem Element</figcaption>
+    </figure>
+
+    <div class="entry-body">
+      <p>Heute am Strand von Baabe: Unser Hund ist natürlich so eine Wasserwutz – er schwimmt einfach zu gerne.</p>
+    </div>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="wasserwutz-2.jpg" alt="Kalli im Wasser bei Baabe"></div>
+      <figcaption>Immer wieder rein ins kühle Nass</figcaption>
+    </figure>
+
+    <figure class="photo photo-full">
+      <div class="frame">
+        <video controls playsinline preload="metadata" poster="wasserwutz-video-1-poster.jpg">
+          <source src="wasserwutz-video-1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption>Schwimmrunde Nummer eins</figcaption>
+    </figure>
+
+    <figure class="photo photo-full">
+      <div class="frame">
+        <video controls playsinline preload="metadata" poster="wasserwutz-video-2-poster.jpg">
+          <source src="wasserwutz-video-2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption>Und wieder zurück zum Ufer</figcaption>
+    </figure>
+
+    <figure class="photo photo-full">
+      <div class="frame">
+        <video controls playsinline preload="metadata" poster="wasserwutz-video-3-poster.jpg">
+          <source src="wasserwutz-video-3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption>Kein Ende in Sicht – er will einfach nicht raus</figcaption>
+    </figure>
+
+    <figure class="photo photo-full">
+      <div class="frame">
+        <video controls playsinline preload="metadata" poster="wasserwutz-video-4-poster.jpg">
+          <source src="wasserwutz-video-4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption>Zum Schluss noch eine Runde</figcaption>
+    </figure>
+
+    <figure class="map-block">
+      <div id="route-map"></div>
+      <figcaption>Wo Kalli heute geschwommen ist</figcaption>
+    </figure>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt aus Fotos und Sprachnotizen unterwegs.</p>
+  </footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    [54.360155, 13.720138, "Unsere Wasserwutz"]
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap-Mitwirkende',
+    maxZoom: 17
+  }).addTo(map);
+  stops.forEach(function (s, i) {
+    L.marker([s[0], s[1]]).addTo(map).bindPopup((i + 1) + '. ' + s[2]);
+  });
+  map.setView([stops[0][0], stops[0][1]], 15);
+</script>
+</body>
+</html>
