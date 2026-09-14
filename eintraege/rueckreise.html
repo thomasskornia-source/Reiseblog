@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die Rückfahrt: 900 km mit Stopp in Bayreuth – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="../lightbox.js" defer></script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function (OneSignal) {
+    await OneSignal.init({
+      appId: "94272d78-1aff-4896-9677-75367a0bbf13",
+      serviceWorkerPath: "OneSignalSDKWorker.js",
+      serviceWorkerParam: { scope: "/Reiseblog/" }
+    });
+  });
+</script>
+<style>
+  #route-map { height: 280px; width: 100%; border: 1px solid rgba(46, 58, 50, 0.12); }
+  .leaflet-popup-content { font-family: 'Work Sans', sans-serif; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="../index.html">← Zur Übersicht</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">12. September 2026</p>
+      <h1>Die Rückfahrt: 900 km mit Stopp in Bayreuth</h1>
+      <hr class="rule">
+    </header>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="rueckreise-1.jpg" alt="Schloss Eremitage in Bayreuth"></div>
+      <figcaption>Zwischenstopp: die Eremitage in Bayreuth</figcaption>
+    </figure>
+
+    <div class="entry-body">
+      <p>Die Rückfahrt: von Rügen bis nach Hause, 900 km. Lief super, freie Bahn mit Marzipan im Gepäck. Zwischenübernachtung in Bayreuth – und eine Stunde mit dem Hund durch die Eremitage spaziert.</p>
+    </div>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="rueckreise-2.jpg" alt="Blumenbeet in der Eremitage"></div>
+      <figcaption>Herbstliche Beete im Park</figcaption>
+    </figure>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="rueckreise-3.jpg" alt="Andrea und Kalli an der Grotte"></div>
+      <figcaption>Kurze Pause an der Grotte</figcaption>
+    </figure>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="rueckreise-4.jpg" alt="Mosaikverzierte Saeulen der Grotte"></div>
+      <figcaption>Die kunstvoll verzierten Säulen der Grotte</figcaption>
+    </figure>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="rueckreise-5.jpg" alt="Nahaufnahme der Mosaiksaeule"></div>
+      <figcaption>Aus unzähligen Steinen zusammengesetzt</figcaption>
+    </figure>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="rueckreise-6.jpg" alt="Durchgang der Grotte in der Eremitage"></div>
+      <figcaption>Durchgang zum inneren Hof</figcaption>
+    </figure>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="rueckreise-7.jpg" alt="Vergoldete Figuren an der Grotte"></div>
+      <figcaption>Vergoldete Figuren im Sonnenlicht</figcaption>
+    </figure>
+
+    <div class="entry-body">
+      <p>Anschließend noch im Gasthof Veldensteiner Forst eingekehrt – da gab's was Schönes zu essen. Und ja, schon lustig, wie viel günstiger die Preise im Fränkischen sind im Vergleich zu München.</p>
+    </div>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="rueckreise-8.jpg" alt="Speisekarte Gasthof Veldensteiner Forst"></div>
+      <figcaption>Die Speisekarte im Gasthof Veldensteiner Forst</figcaption>
+    </figure>
+
+    <figure class="map-block">
+      <div id="route-map"></div>
+      <figcaption>Der Zwischenstopp auf der 900-km-Heimfahrt</figcaption>
+    </figure>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt aus Fotos und Sprachnotizen unterwegs.</p>
+  </footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    [49.9497, 11.6247, "Eremitage Bayreuth"],
+    [49.6656, 11.4857, "Gasthof Veldensteiner Forst"]
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap-Mitwirkende',
+    maxZoom: 17
+  }).addTo(map);
+  var latlngs = [];
+  stops.forEach(function (s, i) {
+    L.marker([s[0], s[1]]).addTo(map).bindPopup((i + 1) + '. ' + s[2]);
+    latlngs.push([s[0], s[1]]);
+  });
+  L.polyline(latlngs, { color: '#c0392b', weight: 3, dashArray: '6,6' }).addTo(map);
+  map.fitBounds(latlngs, { padding: [30, 30] });
+</script>
+</body>
+</html>
