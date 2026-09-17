@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udon-Nudeln Stir-fry mit grünem Spargel – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Abends</p>
+      <h1>Udon-Nudeln Stir-fry mit grünem Spargel</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 30 Min.</span>
+      <span>🍽 4 Portionen</span>
+      <span>🌱 Viel Gemüse, ungesättigte Fette</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Grüner Spargel, Karotte, Weißkraut und Lauch in einer würzigen Stir-fry-Sauce – schnell gemacht, viel Gemüse, und mit Pflanzenöl statt tierischem Fett zubereitet.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten (für 4 Personen)</h3>
+      <ul>
+        <li>400 g grüner Spargel</li>
+        <li>150 g Karotten</li>
+        <li>100 g Weißkraut</li>
+        <li>50 g Lauch</li>
+        <li>20 ml Pflanzenöl</li>
+        <li>1 kleine Zwiebel</li>
+        <li>1 Limette</li>
+        <li>500 g Udon-Nudeln (z. B. aus dem Asia-Laden)</li>
+        <li>2 Bund Koriander</li>
+      </ul>
+      <h3 style="margin-top:18px;">Stir-fry-Sauce</h3>
+      <ul>
+        <li>240 ml Hoisin-Sauce</li>
+        <li>160 ml Mirin (süßer Reiswein)</li>
+        <li>190 ml Sojasauce</li>
+        <li>250 ml Austernsauce</li>
+      </ul>
+      <h3 style="margin-top:18px;">Zum Garnieren (optional)</h3>
+      <ul>
+        <li>Sesamsamen</li>
+        <li>Frühlingszwiebeln</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Udon-Nudeln gemäß Packungsanleitung kochen und abtropfen lassen.</li>
+        <li>Für die Stir-fry-Sauce alle Zutaten kalt vermengen, damit sich die Aromen verbinden.</li>
+        <li>Karotte, Lauch und Zwiebel sorgfältig reinigen und in Stifte schneiden. Spargel unter fließendem Wasser abspülen, holzige Enden (untere 2–3 cm) abschneiden, bei dicken Stangen das untere Drittel dünn schälen. Weißkraut in 2–3 cm breite Streifen schneiden. Limette auspressen.</li>
+        <li>Das Gemüse in einer heißen, beschichteten Pfanne mit Pflanzenöl anbraten, bis es leicht gebräunt und knackig ist. Gekochte Udon-Nudeln hinzufügen und die Stir-fry-Sauce nach und nach darübergießen. Alles zusammen ca. 2 Minuten bei niedriger Hitze köcheln lassen.</li>
+        <li>Vor dem Servieren mit frisch gepresstem Limettensaft verfeinern. In tiefen Schalen anrichten und großzügig mit grob gehacktem Koriander bestreuen. Optional mit Sesamsamen und dünnen Frühlingszwiebelringen garnieren.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept-Idee ursprünglich von Maik Haltenhof (Betriebsküchenleiter, Initiative "NAHtürlich").</p>
+
+    <div class="rating-block" data-recipe="udon-spargel-stirfry">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('udon-spargel-stirfry','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('udon-spargel-stirfry','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-udon-spargel-stirfry');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
