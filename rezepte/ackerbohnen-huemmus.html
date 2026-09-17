@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ackerbohnen-Bärlauch-Hummus mit geröstetem Ciabatta – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Mittagessen</p>
+      <h1>Ackerbohnen-Bärlauch-Hummus mit geröstetem Ciabatta</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 20 Min. (plus Einweichzeit)</span>
+      <span>🍽 4 Portionen</span>
+      <span>🌱 Pflanzenprotein, lösliche Ballaststoffe</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Ackerbohnen (auch Saubohnen genannt) sind eine der ballaststoff- und proteinreichsten heimischen Hülsenfrüchte – ein direkter Ersatz für tierisches Eiweiß, der aktiv beim LDL-Senken hilft. Mit Bärlauch, Zitrone und Tahin wird daraus ein cremiger Hummus mit Frühlingsaroma.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten (für 4 Personen)</h3>
+      <ul>
+        <li>240 g Ackerbohnen</li>
+        <li>50 g Naturjoghurt, 3,5 % Fett</li>
+        <li>½ unbehandelte Zitrone, Abrieb und Saft</li>
+        <li>ca. 1–2 Bund Bärlauch (idealerweise aus kontrolliertem Anbau)</li>
+        <li>2 EL Olivenöl</li>
+        <li>1 TL Salz</li>
+        <li>1 TL Kreuzkümmel (Cumin)</li>
+        <li>1 TL Ras el Hanout</li>
+        <li>1 EL Sesampaste (Tahin)</li>
+      </ul>
+      <h3 style="margin-top:18px;">Zum Anrichten</h3>
+      <ul>
+        <li>1 Ciabatta, ca. 400 g</li>
+        <li>2 EL Olivenöl</li>
+        <li>40 g Rucola, geputzt und gewaschen</li>
+        <li>20 g Mandelsplitter, geröstet</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Ackerbohnen über Nacht (ca. 12 Std.) einweichen. Einweichwasser wegschütten, Bohnen gründlich abspülen und in frischem Wasser 45–60 Min. weich kochen, abgießen und abtropfen lassen.</li>
+        <li>Bärlauch gründlich waschen, trocken tupfen und grob hacken. Zitrone heiß waschen, Schale fein abreiben und Saft auspressen.</li>
+        <li>Gekochte Bohnen mit Naturjoghurt, Zitronenabrieb und -saft, Bärlauch, Salz, Kreuzkümmel, Ras el Hanout, Olivenöl und Tahin im Mixer fein pürieren. Falls zu fest: esslöffelweise kaltes Wasser oder zusätzliches Olivenöl zugeben, bis die Masse cremig-streichfähig ist. Abschmecken.</li>
+        <li>Ciabatta in ca. 1 cm dicke Scheiben schneiden, fettfrei goldbraun in einer Pfanne rösten und mit etwas Olivenöl beträufeln. Mandelsplitter ebenfalls ohne Fett kurz goldbraun rösten.</li>
+        <li>Eine großzügige Portion Hummus auf das Brot geben und mit Rucola sowie Mandelsplitter garnieren.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept-Idee ursprünglich von Maik Haltenhof (Betriebsküchenleiter, Initiative "NAHtürlich").</p>
+
+    <div class="rating-block" data-recipe="ackerbohnen-huemmus">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('ackerbohnen-huemmus','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('ackerbohnen-huemmus','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-ackerbohnen-huemmus');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
