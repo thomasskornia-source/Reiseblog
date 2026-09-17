@@ -10,6 +10,12 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 8px; }
+  .filter-btn { font-family: 'Work Sans', sans-serif; font-size: 14px; padding: 8px 16px; border-radius: 20px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); cursor: pointer; }
+  .filter-btn.active { background: var(--rust); color: var(--paper); border-color: var(--rust); }
+  .entry-preview.hidden { display: none; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -26,24 +32,31 @@
     <div class="entry-body">
       <p>Rezepte nach dem LDL-Senkungsprinzip: ungesättigte Fette, lösliche Ballaststoffe, pflanzliches Protein und Pflanzensterine. Mit Daumen hoch oder runter kannst du direkt sagen, was schmeckt.</p>
     </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="alle" onclick="filterRezepte('alle', this)">Alle</button>
+      <button class="filter-btn" data-filter="fruehstueck" onclick="filterRezepte('fruehstueck', this)">Frühstück</button>
+      <button class="filter-btn" data-filter="mittag" onclick="filterRezepte('mittag', this)">Mittagessen</button>
+      <button class="filter-btn" data-filter="abend" onclick="filterRezepte('abend', this)">Abends</button>
+    </div>
   </article>
 
   <main class="entry-list">
 
-    <a class="entry-preview" href="rezepte/haferkleie-porridge.html">
+    <a class="entry-preview" data-category="fruehstueck" href="rezepte/haferkleie-porridge.html">
       <p class="date">Frühstück</p>
       <h2>Haferkleie-Porridge mit Leinsamen und Beeren</h2>
       <p>Beta-Glucan, Omega-3 und Antioxidantien zum Start in den Tag ...</p>
     </a>
 
-    <a class="entry-preview" href="rezepte/linsen-curry.html">
-      <p class="date">Hauptgericht</p>
+    <a class="entry-preview" data-category="mittag" href="rezepte/linsen-curry.html">
+      <p class="date">Mittagessen</p>
       <h2>Rotes Linsen-Curry mit Vollkornreis</h2>
       <p>Pflanzliches Protein und lösliche Ballaststoffe statt rotem Fleisch ...</p>
     </a>
 
-    <a class="entry-preview" href="rezepte/lachs-ofengemuese.html">
-      <p class="date">Hauptgericht</p>
+    <a class="entry-preview" data-category="abend" href="rezepte/lachs-ofengemuese.html">
+      <p class="date">Abends</p>
       <h2>Lachs mit Ofengemüse und Quinoa</h2>
       <p>Omega-3-reicher Seefisch, viel Gemüse und Pflanzensterine aus Kernen ...</p>
     </a>
@@ -57,5 +70,16 @@
   </footer>
 
 </div>
+
+<script>
+  function filterRezepte(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.entry-preview').forEach(function(card){
+      var show = (cat === 'alle') || (card.getAttribute('data-category') === cat);
+      card.classList.toggle('hidden', !show);
+    });
+  }
+</script>
 </body>
 </html>
