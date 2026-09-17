@@ -20,6 +20,13 @@
   .entry-body ul { padding-left: 20px; }
   .entry-body li { margin-bottom: 8px; }
   .disclaimer { font-size: 13px; color: var(--ink-soft); margin-top: 32px; border-top: 1px solid rgba(46,58,50,0.12); padding-top: 16px; }
+  .qa-block { background: var(--paper-warm); border-radius: 8px; padding: 20px 22px; margin: 32px 0; }
+  .qa-block h2 { font-family: 'Fraunces', serif; font-size: 20px; margin: 0 0 8px; }
+  .qa-block p { font-size: 15px; margin: 0 0 14px; }
+  .qa-form textarea { width: 100%; min-height: 90px; font-family: 'Work Sans', sans-serif; font-size: 15px; padding: 10px 12px; border: 1px solid rgba(46,58,50,0.25); border-radius: 6px; resize: vertical; box-sizing: border-box; }
+  .qa-form button { margin-top: 10px; font-family: 'Work Sans', sans-serif; font-size: 15px; padding: 10px 20px; border-radius: 24px; border: 1px solid var(--ink); background: var(--rust); color: var(--paper); cursor: pointer; }
+  .qa-answered h3 { font-family: 'Fraunces', serif; font-size: 17px; margin: 20px 0 4px; color: var(--rust); }
+  .qa-answered p { font-size: 15px; margin: 0 0 4px; }
 </style>
 </head>
 <body>
@@ -93,6 +100,20 @@
     <p style="text-align:center; margin: 32px 0;">
       <a class="back-link" href="rezepte.html">→ Passende Rezepte ansehen</a>
     </p>
+
+    <div class="qa-block">
+      <h2>Fragen zum Thema?</h2>
+      <p>Stell deine Frage – sie wird per Mail zugestellt, beantwortet und landet dann hier auf der Seite.</p>
+      <form class="qa-form" action="mailto:thomas.skornia@gmail.com" method="post" enctype="text/plain">
+        <textarea name="Frage" placeholder="Deine Frage zum Thema Ernährung ..." required></textarea><br>
+        <button type="submit">Frage senden</button>
+      </form>
+    </div>
+
+    <div class="qa-answered">
+      <h2 class="subhead">Beantwortete Fragen</h2>
+      <p style="font-size:14px; color: var(--ink-soft);">Hier erscheinen demnächst Antworten auf eure Fragen.</p>
+    </div>
 
     <p class="disclaimer">Diese Seite fasst allgemeine, gut belegte Ernährungsprinzipien zusammen und ersetzt keine individuelle ärztliche oder ernährungsmedizinische Beratung.</p>
   </article>
