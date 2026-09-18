@@ -16,15 +16,16 @@
   .control-field { display: flex; flex-direction: column; gap: 4px; }
   .control-field label { font-size: 13px; color: var(--ink-soft); }
   .control-field input { font-family: 'Work Sans', sans-serif; font-size: 18px; width: 70px; padding: 6px 10px; border: 1px solid rgba(46,58,50,0.3); border-radius: 6px; }
-  .check-table { width: 100%; border-collapse: collapse; margin: 12px 0 28px; font-size: 15px; }
-  .check-table th, .check-table td { text-align: left; padding: 9px 10px; border-bottom: 1px solid rgba(46,58,50,0.1); vertical-align: middle; }
+  .check-table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 12px 0 28px; font-size: 15px; }
+  .check-table th, .check-table td { text-align: left; padding: 9px 6px; border-bottom: 1px solid rgba(46,58,50,0.1); vertical-align: middle; word-wrap: break-word; overflow-wrap: break-word; }
+  .check-table th:first-child, .check-table td:first-child { width: 32px; }
   .check-table th { font-family: 'Fraunces', serif; color: var(--rust); font-weight: 600; font-size: 14px; }
-  .check-table td.amount { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+  .check-table td.amount { font-variant-numeric: tabular-nums; text-align: right; white-space: normal; font-size: 13px; width: 34%; }
   .check-table input[type="checkbox"] { width: 18px; height: 18px; }
   .note-box { background: var(--paper-warm); border-left: 3px solid var(--rust); padding: 14px 18px; margin: 20px 0; border-radius: 4px; font-size: 15px; }
   .source-links a { display: block; margin: 4px 0; font-size: 14px; }
-  .price-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 10px 0 28px; }
-  .price-table th, .price-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid rgba(46,58,50,0.1); }
+  .price-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 13px; margin: 10px 0 28px; }
+  .price-table th, .price-table td { text-align: left; padding: 8px 6px; border-bottom: 1px solid rgba(46,58,50,0.1); word-wrap: break-word; overflow-wrap: break-word; }
   .price-table th { font-family: 'Fraunces', serif; color: var(--rust); font-size: 13px; }
 </style>
 </head>
