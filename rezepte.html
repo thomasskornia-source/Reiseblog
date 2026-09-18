@@ -11,10 +11,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
 <style>
-  .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 8px; }
+  .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 12px; }
   .filter-btn { font-family: 'Work Sans', sans-serif; font-size: 14px; padding: 8px 16px; border-radius: 20px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); cursor: pointer; }
   .filter-btn.active { background: var(--rust); color: var(--paper); border-color: var(--rust); }
+  .search-field { width: 100%; box-sizing: border-box; font-family: 'Work Sans', sans-serif; font-size: 16px; padding: 12px 16px; border: 1px solid rgba(46,58,50,0.3); border-radius: 24px; margin: 4px 0 20px; }
   .entry-preview.hidden { display: none; }
+  .no-results { font-size: 14px; color: var(--ink-soft); display: none; margin: 10px 0; }
 </style>
 </head>
 <body>
@@ -34,11 +36,11 @@
     </div>
 
     <div class="filter-bar">
-      <button class="filter-btn active" data-filter="alle" onclick="filterRezepte('alle', this)">Alle</button>
-      <button class="filter-btn" data-filter="fruehstueck" onclick="filterRezepte('fruehstueck', this)">Frühstück</button>
-      <button class="filter-btn" data-filter="mittag" onclick="filterRezepte('mittag', this)">Mittagessen</button>
-      <button class="filter-btn" data-filter="abend" onclick="filterRezepte('abend', this)">Abends</button>
+      <button class="filter-btn" data-filter="fruehstueck" onclick="toggleCategory('fruehstueck', this)">Frühstück</button>
+      <button class="filter-btn" data-filter="mittag" onclick="toggleCategory('mittag', this)">Mittagessen</button>
+      <button class="filter-btn" data-filter="abend" onclick="toggleCategory('abend', this)">Abends</button>
     </div>
+    <input type="search" class="search-field" id="rezept-suche" placeholder="Rezept suchen ..." oninput="applyFilters()">
   </article>
 
   <main class="entry-list">
@@ -77,6 +79,8 @@
 
   </main>
 
+  <p class="no-results" id="no-results">Keine Rezepte gefunden.</p>
+
   <footer class="site-footer">
     <p>Automatisch erstellt und gepflegt.</p>
   </footer>
@@ -84,13 +88,32 @@
 </div>
 
 <script>
-  function filterRezepte(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
-    btn.classList.add('active');
-    document.querySelectorAll('.entry-preview').forEach(function(card){
-      var show = (cat === 'alle') || (card.getAttribute('data-category') === cat);
+  var activeCategory = null;
+
+  function toggleCategory(cat, btn) {
+    if (activeCategory === cat) {
+      activeCategory = null;
+      btn.classList.remove('active');
+    } else {
+      document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+      activeCategory = cat;
+      btn.classList.add('active');
+    }
+    applyFilters();
+  }
+
+  function applyFilters() {
+    var query = document.getElementById('rezept-suche').value.trim().toLowerCase();
+    var visibleCount = 0;
+    document.querySelectorAll('.entry-preview').forEach(function(card) {
+      var matchesCategory = !activeCategory || card.getAttribute('data-category') === activeCategory;
+      var text = card.textContent.toLowerCase();
+      var matchesSearch = !query || text.indexOf(query) !== -1;
+      var show = matchesCategory && matchesSearch;
       card.classList.toggle('hidden', !show);
+      if (show) visibleCount++;
     });
+    document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
   }
 </script>
 </body>
