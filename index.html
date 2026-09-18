@@ -158,22 +158,32 @@
 
 </div>
 <script>
-  var rezepte = [
-    { title: "Haferkleie-Porridge mit Leinsamen und Beeren", teaser: "Beta-Glucan, Omega-3 und Antioxidantien zum Start in den Tag", url: "rezepte/haferkleie-porridge.html" },
-    { title: "Rotes Linsen-Curry mit Vollkornreis", teaser: "Pflanzliches Protein und lösliche Ballaststoffe statt rotem Fleisch", url: "rezepte/linsen-curry.html" },
-    { title: "Lachs mit Ofengemüse und Quinoa", teaser: "Omega-3-reicher Seefisch, viel Gemüse und Pflanzensterine aus Kernen", url: "rezepte/lachs-ofengemuese.html" },
-    { title: "Ackerbohnen-Bärlauch-Hummus mit geröstetem Ciabatta", teaser: "Heimische Hülsenfrucht als cremiger Aufstrich", url: "rezepte/ackerbohnen-huemmus.html" },
-    { title: "Udon-Nudeln Stir-fry mit grünem Spargel", teaser: "Buntes Gemüse, würzige Sauce, in 30 Minuten fertig", url: "rezepte/udon-spargel-stirfry.html" }
-  ];
-  var start = new Date(2026, 0, 1);
-  var today = new Date();
-  var dayOfYear = Math.floor((today - start) / 86400000);
-  var idx = ((dayOfYear % rezepte.length) + rezepte.length) % rezepte.length;
-  var pick = rezepte[idx];
-  document.getElementById('rdt-title').textContent = pick.title;
-  document.getElementById('rdt-teaser').textContent = pick.teaser;
-  document.getElementById('rdt-link').href = pick.url;
-  document.getElementById('rezept-des-tages').style.display = 'block';
+  function renderRezeptDesTages() {
+    var rezepte = [
+      { title: "Haferkleie-Porridge mit Leinsamen und Beeren", teaser: "Beta-Glucan, Omega-3 und Antioxidantien zum Start in den Tag", url: "rezepte/haferkleie-porridge.html" },
+      { title: "Rotes Linsen-Curry mit Vollkornreis", teaser: "Pflanzliches Protein und lösliche Ballaststoffe statt rotem Fleisch", url: "rezepte/linsen-curry.html" },
+      { title: "Lachs mit Ofengemüse und Quinoa", teaser: "Omega-3-reicher Seefisch, viel Gemüse und Pflanzensterine aus Kernen", url: "rezepte/lachs-ofengemuese.html" },
+      { title: "Ackerbohnen-Bärlauch-Hummus mit geröstetem Ciabatta", teaser: "Heimische Hülsenfrucht als cremiger Aufstrich", url: "rezepte/ackerbohnen-huemmus.html" },
+      { title: "Udon-Nudeln Stir-fry mit grünem Spargel", teaser: "Buntes Gemüse, würzige Sauce, in 30 Minuten fertig", url: "rezepte/udon-spargel-stirfry.html" }
+    ];
+    var start = new Date(2026, 0, 1);
+    var today = new Date();
+    var dayOfYear = Math.floor((today - start) / 86400000);
+    var idx = ((dayOfYear % rezepte.length) + rezepte.length) % rezepte.length;
+    var pick = rezepte[idx];
+    var box = document.getElementById('rezept-des-tages');
+    if (!box) return;
+    document.getElementById('rdt-title').textContent = pick.title;
+    document.getElementById('rdt-teaser').textContent = pick.teaser;
+    document.getElementById('rdt-link').href = pick.url;
+    box.style.display = 'block';
+  }
+  renderRezeptDesTages();
+  // Safari (v.a. iOS) stellt Seiten beim Zuruecknavigieren oft aus dem bfcache wieder her,
+  // ohne Skripte neu auszufuehren. "pageshow" feuert in beiden Faellen zuverlaessig.
+  window.addEventListener('pageshow', function (event) {
+    renderRezeptDesTages();
+  });
 </script>
 </body>
 </html>
