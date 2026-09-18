@@ -35,6 +35,13 @@
       <span style="margin: 0 6px; color: var(--sage);">·</span>
       <a class="back-link" href="notfallvorrat.html">🎒 Notfallvorrat</a>
     </p>
+    <div id="rezept-des-tages" style="margin-top: 16px; background: var(--paper-warm); border-radius: 8px; padding: 14px 18px; display: none;">
+      <p style="font-size: 12px; color: var(--ink-soft); margin: 0 0 4px; text-transform: uppercase; letter-spacing: 0.04em;">🍽 Rezept des Tages</p>
+      <a id="rdt-link" href="#" style="text-decoration: none; color: var(--ink);">
+        <strong id="rdt-title" style="font-family: 'Fraunces', serif; font-size: 17px;"></strong>
+        <p id="rdt-teaser" style="font-size: 14px; margin: 4px 0 0; color: var(--ink-soft);"></p>
+      </a>
+    </div>
   </header>
 
   <main class="entry-list">
@@ -150,5 +157,23 @@
   </footer>
 
 </div>
+<script>
+  var rezepte = [
+    { title: "Haferkleie-Porridge mit Leinsamen und Beeren", teaser: "Beta-Glucan, Omega-3 und Antioxidantien zum Start in den Tag", url: "rezepte/haferkleie-porridge.html" },
+    { title: "Rotes Linsen-Curry mit Vollkornreis", teaser: "Pflanzliches Protein und lösliche Ballaststoffe statt rotem Fleisch", url: "rezepte/linsen-curry.html" },
+    { title: "Lachs mit Ofengemüse und Quinoa", teaser: "Omega-3-reicher Seefisch, viel Gemüse und Pflanzensterine aus Kernen", url: "rezepte/lachs-ofengemuese.html" },
+    { title: "Ackerbohnen-Bärlauch-Hummus mit geröstetem Ciabatta", teaser: "Heimische Hülsenfrucht als cremiger Aufstrich", url: "rezepte/ackerbohnen-huemmus.html" },
+    { title: "Udon-Nudeln Stir-fry mit grünem Spargel", teaser: "Buntes Gemüse, würzige Sauce, in 30 Minuten fertig", url: "rezepte/udon-spargel-stirfry.html" }
+  ];
+  var start = new Date(2026, 0, 1);
+  var today = new Date();
+  var dayOfYear = Math.floor((today - start) / 86400000);
+  var idx = ((dayOfYear % rezepte.length) + rezepte.length) % rezepte.length;
+  var pick = rezepte[idx];
+  document.getElementById('rdt-title').textContent = pick.title;
+  document.getElementById('rdt-teaser').textContent = pick.teaser;
+  document.getElementById('rdt-link').href = pick.url;
+  document.getElementById('rezept-des-tages').style.display = 'block';
+</script>
 </body>
 </html>
