@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unser Notfallvorrat – Andrea unterwegs</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .subhead { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 32px 0 8px; }
+  .controls { display: flex; gap: 24px; flex-wrap: wrap; background: var(--paper-warm); border-radius: 8px; padding: 18px 20px; margin: 20px 0; }
+  .control-field { display: flex; flex-direction: column; gap: 4px; }
+  .control-field label { font-size: 13px; color: var(--ink-soft); }
+  .control-field input { font-family: 'Work Sans', sans-serif; font-size: 18px; width: 70px; padding: 6px 10px; border: 1px solid rgba(46,58,50,0.3); border-radius: 6px; }
+  .check-table { width: 100%; border-collapse: collapse; margin: 12px 0 28px; font-size: 15px; }
+  .check-table th, .check-table td { text-align: left; padding: 9px 10px; border-bottom: 1px solid rgba(46,58,50,0.1); vertical-align: middle; }
+  .check-table th { font-family: 'Fraunces', serif; color: var(--rust); font-weight: 600; font-size: 14px; }
+  .check-table td.amount { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+  .check-table input[type="checkbox"] { width: 18px; height: 18px; }
+  .note-box { background: var(--paper-warm); border-left: 3px solid var(--rust); padding: 14px 18px; margin: 20px 0; border-radius: 4px; font-size: 15px; }
+  .source-links a { display: block; margin: 4px 0; font-size: 14px; }
+  .price-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 10px 0 28px; }
+  .price-table th, .price-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid rgba(46,58,50,0.1); }
+  .price-table th { font-family: 'Fraunces', serif; color: var(--rust); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="index.html">← Zur Übersicht</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Vorsorge</p>
+      <h1>Unser Notfallvorrat</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="entry-body">
+      <p>Für den Fall eines Stromausfalls oder einer ähnlichen Krise – unsere Vorsorge als Familie, damit alle wissen, was wo liegt und wann mal wieder nachgeschaut werden muss. Mengen unten sind Richtwerte und passen sich automatisch an Personenzahl und Tage an.</p>
+    </div>
+
+    <div class="controls">
+      <div class="control-field">
+        <label for="personen">Personen</label>
+        <input type="number" id="personen" min="1" max="12" value="4" oninput="updateQuantities()">
+      </div>
+      <div class="control-field">
+        <label for="tage">Tage</label>
+        <input type="number" id="tage" min="1" max="14" value="3" oninput="updateQuantities()">
+      </div>
+    </div>
+
+    <h2 class="subhead">💧 Trinkwasser</h2>
+    <table class="check-table">
+      <tr><th></th><th>Was</th><th>Menge</th></tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>Trinkwasser (ca. 2 l pro Person und Tag)</td>
+        <td class="amount" data-per="2" data-unit="l">– l</td>
+      </tr>
+    </table>
+
+    <h2 class="subhead">🥫 Lebensmittelvorrat</h2>
+    <p style="font-size:14px; color: var(--ink-soft); margin-top:-8px;">nicht-kühlpflichtig, lange haltbar, überwiegend vegetarisch – Mengen sind grobe Planungs-Richtwerte</p>
+    <table class="check-table">
+      <tr><th></th><th>Was</th><th>Menge</th></tr>
+      <tr><td><input type="checkbox"></td><td>Reis, Nudeln</td><td class="amount" data-per="60" data-unit="g">– g</td></tr>
+      <tr><td><input type="checkbox"></td><td>Haferflocken</td><td class="amount" data-per="40" data-unit="g">– g</td></tr>
+      <tr><td><input type="checkbox"></td><td>Zwieback / Knäckebrot</td><td class="amount" data-per="30" data-unit="g">– g</td></tr>
+      <tr><td><input type="checkbox"></td><td>Linsen, Kichererbsen, Bohnen</td><td class="amount" data-per="50" data-unit="g">– g</td></tr>
+      <tr><td><input type="checkbox"></td><td>Gemüsekonserven</td><td class="amount" data-per="150" data-unit="g">– g</td></tr>
+      <tr><td><input type="checkbox"></td><td>Obstkonserven, Trockenfrüchte, Nüsse</td><td class="amount" data-per="40" data-unit="g">– g</td></tr>
+      <tr><td><input type="checkbox"></td><td>Fleisch-/Fischkonserven (kleinere Menge)</td><td class="amount" data-per="40" data-unit="g">– g</td></tr>
+      <tr><td><input type="checkbox"></td><td>Pflanzenöl</td><td class="amount" data-per="15" data-unit="ml">– ml</td></tr>
+      <tr><td><input type="checkbox"></td><td>Salz, Gewürze</td><td class="amount">nach Bedarf</td></tr>
+      <tr><td><input type="checkbox"></td><td>Lange haltbare Milch / Pflanzendrink</td><td class="amount" data-per="100" data-unit="ml">– ml</td></tr>
+      <tr><td><input type="checkbox"></td><td>Kaffee / Tee</td><td class="amount">nach Bedarf</td></tr>
+      <tr><td><input type="checkbox"></td><td>Traubenzucker / Energieriegel</td><td class="amount" data-per="1" data-unit="Stück">– Stück</td></tr>
+    </table>
+
+    <h2 class="subhead">🔦 Ausrüstung</h2>
+    <table class="check-table">
+      <tr><th></th><th>Was</th><th>Menge</th></tr>
+      <tr><td><input type="checkbox"></td><td>Kurbelradio</td><td class="amount">1 pro Haushalt</td></tr>
+      <tr><td><input type="checkbox"></td><td>Powerbank + Kabel</td><td class="amount">1–2 pro Haushalt</td></tr>
+      <tr><td><input type="checkbox"></td><td>Taschenlampen + Ersatzbatterien</td><td class="amount" data-perperson="1" data-unit="Stück">– Stück</td></tr>
+      <tr><td><input type="checkbox"></td><td>Kerzen + Feuerzeug</td><td class="amount">ca. 10 Kerzen</td></tr>
+      <tr><td><input type="checkbox"></td><td>Erste-Hilfe-Set + Medikamente</td><td class="amount">1 großes Set pro Haushalt</td></tr>
+      <tr><td><input type="checkbox"></td><td>Hygieneartikel</td><td class="amount">ausreichend für alle</td></tr>
+      <tr><td><input type="checkbox"></td><td>Camping-/Gaskocher</td><td class="amount">1 pro Haushalt</td></tr>
+      <tr><td><input type="checkbox"></td><td>Bargeld</td><td class="amount">ca. 100–200 € in kleinen Scheinen</td></tr>
+    </table>
+
+    <h2 class="subhead">🎒 Notgepäck</h2>
+    <p id="notgepaeck-hinweis" style="font-size:14px; color: var(--ink-soft); margin-top:-8px;">Ein Rucksack pro Person – aktuell also 4 Rucksäcke</p>
+    <table class="check-table">
+      <tr><th></th><th>Inhalt (pro Rucksack)</th></tr>
+      <tr><td><input type="checkbox"></td><td>Medikamente, Erste-Hilfe, FFP2-Maske</td></tr>
+      <tr><td><input type="checkbox"></td><td>Batterieradio</td></tr>
+      <tr><td><input type="checkbox"></td><td>2-Tage-Verpflegung</td></tr>
+      <tr><td><input type="checkbox"></td><td>Taschenlampe</td></tr>
+      <tr><td><input type="checkbox"></td><td>Schlafsack / Decke</td></tr>
+      <tr><td><input type="checkbox"></td><td>Wechselkleidung</td></tr>
+      <tr><td><input type="checkbox"></td><td>Wetterfeste Jacke</td></tr>
+      <tr><td><input type="checkbox"></td><td>Festes Schuhwerk</td></tr>
+      <tr><td><input type="checkbox"></td><td>Hygieneartikel</td></tr>
+      <tr><td><input type="checkbox"></td><td>Dokumentenmappe (Kopie)</td></tr>
+    </table>
+
+    <h2 class="subhead">📁 Dokumentenmappe</h2>
+    <table class="check-table">
+      <tr><th></th><th>Was</th></tr>
+      <tr><td><input type="checkbox"></td><td>Ausweise</td></tr>
+      <tr><td><input type="checkbox"></td><td>Geburts-/Heiratsurkunden</td></tr>
+      <tr><td><input type="checkbox"></td><td>Versicherungspolicen</td></tr>
+      <tr><td><input type="checkbox"></td><td>Verträge</td></tr>
+      <tr><td><input type="checkbox"></td><td>Testament / Patientenverfügung / Vollmacht</td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft); margin-top:-16px;">Als Kopie, zusätzlich digital gesichert.</p>
+
+    <div class="note-box">
+      📅 <strong>Wann wir nachschauen:</strong> zweimal im Jahr (Frühjahr/Herbst) Haltbarkeit prüfen und austauschen.
+    </div>
+
+    <h2 class="subhead">🛒 Günstige Bezugsquellen</h2>
+    <p style="font-size:14px; color: var(--ink-soft);">Ungefähre Preisspannen, Stand jetzt – Preise schwanken, daher Suchlinks statt fixer Angebote:</p>
+    <table class="price-table">
+      <tr><th>Artikel</th><th>ca. Preis</th><th>Wo schauen</th></tr>
+      <tr><td>Kurbelradio (Solar + Kurbel + USB)</td><td>17–45 €</td><td><a href="https://www.amazon.de/s?k=Kurbelradio+Notfall+Solar" target="_blank">Amazon-Suche</a></td></tr>
+      <tr><td>Erste-Hilfe-Set (umfangreich)</td><td>ab ca. 16 €</td><td><a href="https://www.amazon.de/s?k=Erste+Hilfe+Set+gross" target="_blank">Amazon-Suche</a></td></tr>
+      <tr><td>Camping-/Gaskocher (einfach)</td><td>ab ca. 18 €</td><td><a href="https://www.amazon.de/s?k=Camping+Gaskocher+guenstig" target="_blank">Amazon-Suche</a></td></tr>
+      <tr><td>Powerbank (10.000+ mAh)</td><td>ca. 15–30 €</td><td><a href="https://www.amazon.de/s?k=Powerbank+10000mAh" target="_blank">Amazon-Suche</a></td></tr>
+      <tr><td>LED-Taschenlampen-Set</td><td>ca. 10–20 €</td><td><a href="https://www.amazon.de/s?k=LED+Taschenlampe+Set" target="_blank">Amazon-Suche</a></td></tr>
+    </table>
+
+    <h2 class="subhead">Quelle</h2>
+    <div class="source-links">
+      <a href="https://www.bbk.bund.de/DE/Warnung-Vorsorge/Vorsorge/So-koennen-Sie-sich-vorbereiten/Bevorraten/bevorraten_node.html" target="_blank">Bundesamt für Bevölkerungsschutz und Katastrophenhilfe (BBK) – Essen und Trinken bevorraten</a>
+    </div>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+
+<script>
+  function updateQuantities() {
+    var personen = parseInt(document.getElementById('personen').value) || 1;
+    var tage = parseInt(document.getElementById('tage').value) || 1;
+
+    document.querySelectorAll('.amount[data-per]').forEach(function(cell) {
+      var per = parseFloat(cell.getAttribute('data-per'));
+      var unit = cell.getAttribute('data-unit');
+      var total = per * personen * tage;
+      var display;
+      if (unit === 'g' && total >= 1000) {
+        display = (total / 1000).toFixed(1) + ' kg';
+      } else if (unit === 'ml' && total >= 1000) {
+        display = (total / 1000).toFixed(1) + ' l';
+      } else if (unit === 'l') {
+        display = total.toFixed(1) + ' l';
+      } else if (unit === 'Stück') {
+        display = Math.ceil(total) + ' Stück';
+      } else {
+        display = Math.round(total) + ' ' + unit;
+      }
+      cell.textContent = display;
+    });
+
+    document.querySelectorAll('.amount[data-perperson]').forEach(function(cell) {
+      var per = parseFloat(cell.getAttribute('data-perperson'));
+      var unit = cell.getAttribute('data-unit');
+      var total = Math.ceil(per * personen);
+      cell.textContent = total + ' ' + unit;
+    });
+
+    document.getElementById('notgepaeck-hinweis').textContent =
+      'Ein Rucksack pro Person – aktuell also ' + personen + ' Rucksäcke';
+  }
+  updateQuantities();
+</script>
+</body>
+</html>
