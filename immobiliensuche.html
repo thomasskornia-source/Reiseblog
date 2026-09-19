@@ -22,6 +22,11 @@
   .example-list { font-size: 15px; }
   .example-list li { margin-bottom: 10px; }
   .disclaimer { font-size: 13px; color: var(--ink-soft); margin-top: 32px; border-top: 1px solid rgba(46,58,50,0.12); padding-top: 16px; }
+  .filter-box { display: flex; gap: 20px; flex-wrap: wrap; background: var(--paper-warm); border-radius: 8px; padding: 18px 20px; margin: 20px 0; align-items: flex-end; }
+  .filter-field { display: flex; flex-direction: column; gap: 4px; }
+  .filter-field label { font-size: 13px; color: var(--ink-soft); }
+  .filter-field select, .filter-field input { font-family: 'Work Sans', sans-serif; font-size: 16px; padding: 8px 10px; border: 1px solid rgba(46,58,50,0.3); border-radius: 6px; width: 140px; }
+  .filter-note { font-size: 12px; color: var(--ink-soft); width: 100%; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -54,15 +59,33 @@
 
     <h2 class="subhead">🔎 Direktsuchen nach Kriterium</h2>
 
+    <div class="filter-box">
+      <div class="filter-field">
+        <label for="filter-zimmer">Zimmer mind.</label>
+        <select id="filter-zimmer" onchange="updateFilterLinks()">
+          <option value="0">egal</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label for="filter-preis">Preis bis (€)</label>
+        <input type="number" id="filter-preis" value="1000000" step="50000" oninput="updateFilterLinks()">
+      </div>
+      <p class="filter-note">Gilt für ImmoScout24 und Immowelt (dort technisch als Link-Parameter unterstützt) – Standard bereits auf max. 1 Mio. € gesetzt.</p>
+    </div>
+
     <div class="portal-grid">
       <div class="portal-card">
         <h3>ImmoScout24</h3>
         <p>Größtes Portal, gute Filter, tagesaktuell</p>
         <div class="portal-links">
-          <a href="https://www.immobilienscout24.de/Suche/de/bayern/bad-toelz-wolfratshausen-kreis/haus-kaufen" target="_blank">DHH Bad Tölz-Wolfratshausen</a>
-          <a href="https://www.immobilienscout24.de/Suche/de/bayern/weilheim-schongau-kreis/haus-kaufen" target="_blank">DHH Weilheim-Schongau</a>
-          <a href="https://www.immobilienscout24.de/Suche/de/bayern/bad-toelz-wolfratshausen-kreis/wohnung-kaufen" target="_blank">Wohnungen Bad Tölz-Wolfratshausen</a>
-          <a href="https://www.immobilienscout24.de/Suche/de/bayern/weilheim-schongau-kreis/wohnung-kaufen" target="_blank">Wohnungen Weilheim-Schongau</a>
+          <a class="is24-link" data-base="https://www.immobilienscout24.de/Suche/de/bayern/bad-toelz-wolfratshausen-kreis/haus-kaufen" href="#" target="_blank">DHH Bad Tölz-Wolfratshausen</a>
+          <a class="is24-link" data-base="https://www.immobilienscout24.de/Suche/de/bayern/weilheim-schongau-kreis/haus-kaufen" href="#" target="_blank">DHH Weilheim-Schongau</a>
+          <a class="is24-link" data-base="https://www.immobilienscout24.de/Suche/de/bayern/bad-toelz-wolfratshausen-kreis/wohnung-kaufen" href="#" target="_blank">Wohnungen Bad Tölz-Wolfratshausen</a>
+          <a class="is24-link" data-base="https://www.immobilienscout24.de/Suche/de/bayern/weilheim-schongau-kreis/wohnung-kaufen" href="#" target="_blank">Wohnungen Weilheim-Schongau</a>
         </div>
       </div>
 
@@ -70,8 +93,18 @@
         <h3>Immowelt</h3>
         <p>Ähnlich große Auswahl, oft andere Exklusiv-Angebote als ImmoScout</p>
         <div class="portal-links">
-          <a href="https://www.immowelt.de/suche/landkreis-bad-toelz-wolfratshausen/haeuser/kaufen/doppelhaushaelfte" target="_blank">DHH Bad Tölz-Wolfratshausen</a>
-          <a href="https://www.immowelt.de/suche/landkreis-weilheim-schongau/haeuser/mk/doppelhaushaelfte" target="_blank">DHH Weilheim-Schongau</a>
+          <a class="immowelt-link" data-base="https://www.immowelt.de/suche/landkreis-bad-toelz-wolfratshausen/haeuser/kaufen/doppelhaushaelfte" href="#" target="_blank">DHH Bad Tölz-Wolfratshausen</a>
+          <a class="immowelt-link" data-base="https://www.immowelt.de/suche/landkreis-weilheim-schongau/haeuser/mk/doppelhaushaelfte" href="#" target="_blank">DHH Weilheim-Schongau</a>
+        </div>
+      </div>
+
+      <div class="portal-card">
+        <h3>ohne-makler.net</h3>
+        <p>Provisionsfrei direkt vom Eigentümer – keine Maklercourtage, dafür oft weniger Auswahl</p>
+        <div class="portal-links">
+          <a href="https://www.ohne-makler.net/immobilien/immobilie-kaufen/bayern/wolfratshausen/" target="_blank">Wolfratshausen</a>
+          <a href="https://www.ohne-makler.net/immobilien/immobilie-kaufen/bayern/bad-toelz/" target="_blank">Bad Tölz</a>
+          <a href="https://www.ohne-makler.net/immobilien/immobilie-kaufen/bayern/weilheim-in-oberbayern/" target="_blank">Weilheim i. Obb.</a>
         </div>
       </div>
 
@@ -125,5 +158,28 @@
   </footer>
 
 </div>
+<script>
+  function updateFilterLinks() {
+    var zimmer = parseInt(document.getElementById('filter-zimmer').value) || 0;
+    var preis = parseInt(document.getElementById('filter-preis').value) || 0;
+
+    document.querySelectorAll('.is24-link').forEach(function (a) {
+      var url = a.getAttribute('data-base') + '?';
+      var params = [];
+      if (preis > 0) params.push('price=-' + preis);
+      if (zimmer > 0) params.push('numberofrooms=' + zimmer.toFixed(1) + '-');
+      a.href = url + params.join('&');
+    });
+
+    document.querySelectorAll('.immowelt-link').forEach(function (a) {
+      var url = a.getAttribute('data-base') + '?';
+      var params = [];
+      if (preis > 0) params.push('price=0-' + preis);
+      if (zimmer > 0) params.push('rooms=' + zimmer + '-');
+      a.href = url + params.join('&');
+    });
+  }
+  updateFilterLinks();
+</script>
 </body>
 </html>
