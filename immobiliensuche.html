@@ -14,6 +14,18 @@
   .subhead { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 32px 0 8px; }
   .criteria-box { background: var(--paper-warm); border-radius: 8px; padding: 18px 22px; margin: 20px 0; font-size: 15px; }
   .criteria-box ul { margin: 8px 0 0; padding-left: 20px; }
+  .top-picks { background: rgba(46,58,50,0.06); border: 1px solid rgba(46,58,50,0.15); border-radius: 10px; padding: 20px 22px; margin: 20px 0 28px; }
+  .top-picks h2 { margin-top: 0; }
+  .pick { padding: 12px 0; border-bottom: 1px solid rgba(46,58,50,0.12); }
+  .pick:last-child { border-bottom: none; padding-bottom: 0; }
+  .pick-title { font-family: 'Fraunces', serif; font-size: 17px; margin: 0 0 4px; }
+  .pick-meta { font-size: 14px; color: var(--ink-soft); margin: 0 0 4px; }
+  .pick-price { font-weight: 600; color: var(--rust); }
+  #region-map { height: 340px; width: 100%; border-radius: 8px; margin: 16px 0 6px; }
+  .map-controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 6px; }
+  .map-controls button { font-family: 'Work Sans', sans-serif; font-size: 13px; padding: 6px 14px; border-radius: 16px; border: 1px solid var(--ink); background: var(--paper); cursor: pointer; }
+  #region-result { font-size: 14px; margin: 8px 0 0; }
+  #region-result a { display: inline-block; margin-top: 6px; }
   .portal-grid { display: grid; gap: 14px; margin: 16px 0 28px; }
   .portal-card { background: var(--paper-warm); border-radius: 8px; padding: 16px 20px; }
   .portal-card h3 { font-family: 'Fraunces', serif; font-size: 18px; margin: 0 0 4px; }
@@ -28,6 +40,8 @@
   .filter-field select, .filter-field input { font-family: 'Work Sans', sans-serif; font-size: 16px; padding: 8px 10px; border: 1px solid rgba(46,58,50,0.3); border-radius: 6px; width: 140px; }
   .filter-note { font-size: 12px; color: var(--ink-soft); width: 100%; margin-top: 4px; }
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
 </head>
 <body>
 <div class="wrap">
@@ -51,10 +65,43 @@
       <strong style="display:block; margin-top:10px;">Region:</strong> südlich/südwestlich von München – v. a. Weilheim (i. Obb.), Wolfratshausen, Bad Tölz und Umgebung
     </div>
 
+    <h2 class="subhead">🗺 Suchgebiet auf der Karte</h2>
+    <div class="entry-body">
+      <p>Die drei Orte als Orientierung – mit dem Kreis-Werkzeug oben links kannst du selbst einen eigenen Suchradius auf der Karte einzeichnen.</p>
+    </div>
+    <div class="map-controls">
+      <button onclick="clearRegionCircle()">Kreis löschen</button>
+    </div>
+    <div id="region-map"></div>
+    <p id="region-result"></p>
+
+    <div class="top-picks">
+      <h2 class="subhead" style="margin-top:0;">📌 Drei aktuelle Beispiele (unter 1 Mio. €)</h2>
+
+      <div class="pick">
+        <p class="pick-title">Reihenmittelhaus mit Garten – Bad Tölz</p>
+        <p class="pick-meta"><span class="pick-price">415.000 €</span> · 67 m² · 3 Zimmer · 217 m² Grundstück · Baujahr 1940, renoviert</p>
+        <p class="pick-meta">Gepflegter Garten mit Teich, Gewächshaus und Hochbeet, Wintergarten, eigene Garage.</p>
+      </div>
+
+      <div class="pick">
+        <p class="pick-title">Mittelhaus mit Garten – Wolfratshausen</p>
+        <p class="pick-meta"><span class="pick-price">580.000 €</span> · 113 m² · 5 Zimmer · 225 m² Grundstück · Baujahr 1964</p>
+        <p class="pick-meta">Zentrumsnah in der "Flößerstadt", von-Poll-Objektnummer 25289026.</p>
+      </div>
+
+      <div class="pick">
+        <p class="pick-title">Reiheneckhaus mit Terrasse & Garten – Weilheim, provisionsfrei</p>
+        <p class="pick-meta"><span class="pick-price">870.000 €</span> · 185 m² · 6 Zimmer · 570 m² Grundstück · Baujahr 1985</p>
+        <p class="pick-meta">Sonnige West-Terrasse mit Markise, großer Garten, Ortsrandlage, keine Käuferprovision (ohne-makler.net).</p>
+      </div>
+
+      <p style="font-size:12px; color: var(--ink-soft); margin: 10px 0 0;">Momentaufnahme vom Zeitpunkt der Recherche – Objekte können inzwischen verkauft sein. Für den aktuellen Stand die Suchlinks unten nutzen.</p>
+    </div>
+
     <h2 class="subhead">Aktuelle Markteinschätzung</h2>
     <div class="entry-body">
       <p>Der Landkreis Bad Tölz-Wolfratshausen hat aktuell rund 60+ Doppelhaushälften im Angebot (Bad Tölz, Geretsried, Wolfratshausen, Dietramszell, Königsdorf u. a.), der Landkreis Weilheim-Schongau nochmal ähnlich viele. Erdgeschosswohnungen mit Garten oder Terrasse sind seltener und meist schneller weg – hier lohnt sich regelmäßiges Nachschauen mehr als eine einmalige Suche.</p>
-      <p style="font-size:14px; color: var(--ink-soft);">Ein Beispiel aus der aktuellen Marktlage: In Wolfratshausen entsteht das Neubauprojekt "Neue Angerwiese" mit 8 Doppelhaushälften, Kaufpreis ab ca. 1,13 Mio. € (Einzelgarage und Außenstellplatz inklusive) – als Orientierung für die Preisspanne in der Region, nicht als konkrete Empfehlung.</p>
     </div>
 
     <h2 class="subhead">🔎 Direktsuchen nach Kriterium</h2>
@@ -180,6 +227,86 @@
     });
   }
   updateFilterLinks();
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+<script>
+  var map = L.map('region-map').setView([47.838, 11.38], 10);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap-Mitwirkende',
+    maxZoom: 17
+  }).addTo(map);
+
+  var orte = [
+    [47.8385, 11.1436, 'Weilheim i. Obb.'],
+    [47.9128, 11.4232, 'Wolfratshausen'],
+    [47.7608, 11.5583, 'Bad Tölz']
+  ];
+  orte.forEach(function (o) {
+    L.marker([o[0], o[1]]).addTo(map).bindPopup(o[2]);
+  });
+
+  var drawnItems = new L.FeatureGroup();
+  map.addLayer(drawnItems);
+
+  var drawControl = new L.Control.Draw({
+    draw: {
+      circle: true,
+      marker: false,
+      polygon: false,
+      polyline: false,
+      rectangle: false,
+      circlemarker: false
+    },
+    edit: { featureGroup: drawnItems, remove: false }
+  });
+  map.addControl(drawControl);
+
+  function showRegionResult(lat, lon, radiusKm) {
+    var zimmer = parseInt(document.getElementById('filter-zimmer').value) || 0;
+    var preis = parseInt(document.getElementById('filter-preis').value) || 0;
+    var params = ['geocoordinates=' + lat.toFixed(5) + ';' + lon.toFixed(5) + ';' + radiusKm.toFixed(1)];
+    if (preis > 0) params.push('price=-' + preis);
+    if (zimmer > 0) params.push('numberofrooms=' + zimmer.toFixed(1) + '-');
+    var hausLink = 'https://www.immobilienscout24.de/Suche/radius/haus-kaufen?' + params.join('&');
+    var wohnungLink = 'https://www.immobilienscout24.de/Suche/radius/wohnung-kaufen?' + params.join('&');
+    document.getElementById('region-result').innerHTML =
+      'Eigene Region: ca. ' + radiusKm.toFixed(1) + ' km Radius um ' + lat.toFixed(3) + ', ' + lon.toFixed(3) + '<br>' +
+      '<a href="' + hausLink + '" target="_blank">→ Häuser in dieser Region auf ImmoScout24</a><br>' +
+      '<a href="' + wohnungLink + '" target="_blank">→ Wohnungen in dieser Region auf ImmoScout24</a>';
+    try {
+      localStorage.setItem('immo-region', JSON.stringify({ lat: lat, lon: lon, radiusKm: radiusKm }));
+    } catch (e) {}
+  }
+
+  map.on(L.Draw.Event.CREATED, function (e) {
+    drawnItems.clearLayers();
+    var layer = e.layer;
+    drawnItems.addLayer(layer);
+    var center = layer.getLatLng();
+    var radiusKm = layer.getRadius() / 1000;
+    showRegionResult(center.lat, center.lng, radiusKm);
+  });
+
+  function clearRegionCircle() {
+    drawnItems.clearLayers();
+    document.getElementById('region-result').innerHTML = '';
+    try { localStorage.removeItem('immo-region'); } catch (e) {}
+  }
+
+  // Gespeicherten Kreis beim erneuten Besuch wiederherstellen
+  (function () {
+    try {
+      var saved = JSON.parse(localStorage.getItem('immo-region'));
+      if (saved) {
+        var circle = L.circle([saved.lat, saved.lon], { radius: saved.radiusKm * 1000 });
+        drawnItems.addLayer(circle);
+        map.fitBounds(circle.getBounds());
+        showRegionResult(saved.lat, saved.lon, saved.radiusKm);
+      }
+    } catch (e) {}
+  })();
 </script>
 </body>
 </html>
