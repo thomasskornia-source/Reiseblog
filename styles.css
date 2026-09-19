@@ -75,12 +75,12 @@ body {
   width: 100%;
 }
 
-.site-header--video .kicker,
-.site-header--video h1 {
+.site-header.site-header--video .kicker,
+.site-header.site-header--video h1 {
   color: var(--paper);
 }
 
-.site-header--video .back-link {
+.site-header.site-header--video .back-link {
   color: var(--paper);
   border-color: rgba(250,243,232,0.5);
 }
