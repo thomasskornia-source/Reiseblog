@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zu Besuch bei der Insel-Brauerei – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="../lightbox.js" defer></script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function (OneSignal) {
+    await OneSignal.init({
+      appId: "94272d78-1aff-4896-9677-75367a0bbf13",
+      serviceWorkerPath: "OneSignalSDKWorker.js",
+      serviceWorkerParam: { scope: "/Reiseblog/" }
+    });
+  });
+</script>
+<style>
+  #route-map { height: 260px; width: 100%; border: 1px solid rgba(46, 58, 50, 0.12); }
+  .leaflet-popup-content { font-family: 'Work Sans', sans-serif; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="../index.html">← Zur Übersicht</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">10. September 2026</p>
+      <h1>Zu Besuch bei der Insel-Brauerei</h1>
+      <hr class="rule">
+    </header>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="inselbrauerei-1.jpg" alt="Regale mit Flaschen der Insel-Brauerei"></div>
+      <figcaption>Ganze Regale voller Rügener Bierspezialitäten</figcaption>
+    </figure>
+
+    <div class="entry-body">
+      <p>Ein Abstecher zur Insel-Brauerei auf Rügen – von Baltic Ale über Insel Kreide bis zum Baltic Stout stapeln sich hier die Flaschen bis unter die Decke. Eine schöne Gelegenheit, die regionalen Biersorten der Insel kennenzulernen.</p>
+    </div>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="inselbrauerei-2.jpg" alt="Hiddensee Bier-Sortiment"></div>
+      <figcaption>Das Hiddensee-Sortiment: Hell, Weizen, Pils, Radler</figcaption>
+    </figure>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="inselbrauerei-3.jpg" alt="Weitere Ansicht der Brauerei"></div>
+      <figcaption>Noch mehr Auswahl in der Braurei</figcaption>
+    </figure>
+
+    <figure class="photo photo-full">
+      <div class="frame"><img src="inselbrauerei-4.jpg" alt="Innenbereich der Insel-Brauerei"></div>
+      <figcaption>Rundgang durch die Brauerei</figcaption>
+    </figure>
+
+    <figure class="map-block">
+      <div id="route-map"></div>
+      <figcaption>Wo die Insel-Brauerei liegt</figcaption>
+    </figure>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt aus Fotos und Sprachnotizen unterwegs.</p>
+  </footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    [54.353700, 13.201200, "Insel-Brauerei"]
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap-Mitwirkende',
+    maxZoom: 17
+  }).addTo(map);
+  stops.forEach(function (s, i) {
+    L.marker([s[0], s[1]]).addTo(map).bindPopup((i + 1) + '. ' + s[2]);
+  });
+  map.setView([stops[0][0], stops[0][1]], 14);
+</script>
+</body>
+</html>
