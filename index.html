@@ -25,7 +25,12 @@
 <body>
 <div class="wrap">
 
-  <header class="site-header">
+  <header class="site-header site-header--video">
+    <video class="header-video" autoplay muted loop playsinline preload="auto">
+      <source src="https://assets.mixkit.co/videos/51601/51601-720.mp4" type="video/mp4">
+    </video>
+    <div class="header-video-overlay"></div>
+    <div class="header-video-content">
     <p class="kicker">ein Tagebuch</p>
     <h1>Das Leben ist ein Fluss</h1>
     <p style="margin-top: 10px;">
@@ -43,6 +48,7 @@
         <strong id="rdt-title" style="font-family: 'Fraunces', serif; font-size: 17px;"></strong>
         <p id="rdt-teaser" style="font-size: 14px; margin: 4px 0 0; color: var(--ink-soft);"></p>
       </a>
+    </div>
     </div>
   </header>
 
