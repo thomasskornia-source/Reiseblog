@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cholesterin verstehen – Andrea unterwegs</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .subhead { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 32px 0 8px; }
+  .value-table { width: 100%; border-collapse: collapse; margin: 16px 0 8px; font-size: 15px; }
+  .value-table th, .value-table td { text-align: left; padding: 9px 10px; border-bottom: 1px solid rgba(46,58,50,0.1); }
+  .value-table th { font-family: 'Fraunces', serif; color: var(--rust); font-weight: 600; font-size: 14px; }
+  .good-bad { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 16px 0 24px; }
+  .chol-card { border-radius: 8px; padding: 16px 20px; }
+  .chol-card.ldl { background: rgba(181,80,46,0.08); border-left: 3px solid var(--rust); }
+  .chol-card.hdl { background: rgba(143,163,152,0.15); border-left: 3px solid var(--sage); }
+  .chol-card h3 { font-family: 'Fraunces', serif; font-size: 18px; margin: 0 0 6px; }
+  .chol-card p { font-size: 15px; margin: 0; }
+  .callout { background: var(--paper-warm); border-left: 3px solid var(--rust); padding: 14px 18px; margin: 20px 0; border-radius: 4px; font-size: 15px; }
+  .disclaimer { font-size: 13px; color: var(--ink-soft); margin-top: 32px; border-top: 1px solid rgba(46,58,50,0.12); padding-top: 16px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="ernaehrung.html">← Zur Ernährungsseite</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Ernährung · Grundlagen</p>
+      <h1>Cholesterin verstehen</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="entry-body">
+      <p>Cholesterin hat einen schlechten Ruf – dabei ist es lebenswichtig. Es ist Baustein jeder Zellmembran im Körper und wird für die Bildung von Hormonen (u. a. Östrogen, Testosteron, Cortisol), Vitamin D und Gallensäuren gebraucht. Den größten Teil – grob zwei Drittel bis drei Viertel – stellt die Leber selbst her, nur ein kleinerer Teil kommt über die Nahrung dazu. Problematisch wird es nicht durch Cholesterin an sich, sondern durch ein ungünstiges Verhältnis der Transportformen im Blut.</p>
+    </div>
+
+    <h2 class="subhead">Die zwei Transportformen: LDL und HDL</h2>
+    <div class="entry-body">
+      <p>Cholesterin ist fettlöslich und kann nicht einfach frei im (wässrigen) Blut schwimmen – es wird von Trägerproteinen transportiert. Je nach "Verpackung" unterscheidet man zwei Haupttypen:</p>
+    </div>
+
+    <div class="good-bad">
+      <div class="chol-card ldl">
+        <h3>LDL – das "schlechte" Cholesterin</h3>
+        <p><strong>Low Density Lipoprotein.</strong> Transportiert Cholesterin von der Leber zu den Körperzellen. Wird mehr geliefert, als die Zellen aufnehmen können, bleibt der Überschuss im Blut und kann sich an Gefäßwänden ablagern – das begünstigt Arteriosklerose (Gefäßverkalkung) und damit langfristig Herzinfarkt- und Schlaganfallrisiko. Ziel: <strong>möglichst niedrig</strong>.</p>
+      </div>
+      <div class="chol-card hdl">
+        <h3>HDL – das "gute" Cholesterin</h3>
+        <p><strong>High Density Lipoprotein.</strong> Sammelt überschüssiges Cholesterin aus Gefäßen und Gewebe ein und bringt es zurück zur Leber, wo es abgebaut und über die Galle ausgeschieden wird – eine Art Rücktransport-Dienst. Ziel: <strong>eher hoch</strong> (auch wenn neuere Studien zeigen, dass sehr hohe Werte über ca. 90 mg/dl keinen zusätzlichen Vorteil mehr bringen und die Schutzfunktion dann gestört sein kann).</p>
+      </div>
+    </div>
+
+    <div class="entry-body">
+      <p>Zusätzlich wird meist noch der <strong>Gesamtcholesterinwert</strong> sowie die <strong>Triglyceride</strong> (andere Blutfette, stark abhängig von Zucker- und Alkoholkonsum) mitbestimmt. Wichtiger als jeder Einzelwert ist oft das Verhältnis von LDL zu HDL.</p>
+    </div>
+
+    <h2 class="subhead">Richtwerte zur groben Orientierung</h2>
+    <table class="value-table">
+      <tr><th>Wert</th><th>Grobe Orientierung</th></tr>
+      <tr><td>Gesamtcholesterin</td><td>unter 200 mg/dl (5,2 mmol/l)</td></tr>
+      <tr><td>LDL-Cholesterin</td><td>unter 115 mg/dl bei niedrigem Risiko – bei bestehenden Herz-Kreislauf-Erkrankungen oder hohem Risiko deutlich niedrigere Zielwerte</td></tr>
+      <tr><td>HDL-Cholesterin</td><td>über 40 mg/dl (Männer) bzw. über 48 mg/dl (Frauen)</td></tr>
+      <tr><td>Triglyceride</td><td>unter 150 mg/dl</td></tr>
+    </table>
+    <div class="callout">
+      Diese Zahlen sind eine grobe Orientierung, keine pauschale Diagnose. Der tatsächlich sinnvolle Zielwert hängt vom individuellen Herz-Kreislauf-Gesamtrisiko ab (u. a. Alter, Blutdruck, Rauchen, Diabetes, familiäre Vorbelastung) und wird ärztlich festgelegt.
+    </div>
+
+    <h2 class="subhead">Was den Cholesterinspiegel beeinflusst</h2>
+    <div class="entry-body">
+      <ul>
+        <li><strong>Ernährung:</strong> vor allem die Art der Fette (gesättigt vs. ungesättigt) und die Ballaststoffzufuhr – siehe die ausführlichen Tipps auf der Ernährungsseite.</li>
+        <li><strong>Körpergewicht und Bewegung:</strong> Übergewicht und Bewegungsmangel wirken sich ungünstig auf LDL und HDL gleichzeitig aus; regelmäßige Bewegung kann HDL messbar anheben.</li>
+        <li><strong>Rauchen:</strong> senkt HDL und schädigt zusätzlich die Gefäßwände direkt.</li>
+        <li><strong>Alkohol:</strong> beeinflusst vor allem die Triglyceride, in Maßen.</li>
+        <li><strong>Genetik:</strong> familiäre Hypercholesterinämie und andere genetische Faktoren können den Wert unabhängig vom Lebensstil deutlich erhöhen – bei stark erhöhten Werten trotz gesunder Ernährung lohnt sich eine ärztliche Abklärung (siehe Hinweis auf der Ernährungsseite zu Lipoprotein(a)).</li>
+        <li><strong>Schilddrüse:</strong> eine Unterfunktion kann den Cholesterinabbau verlangsamen und die Werte erhöhen.</li>
+      </ul>
+      <p>Eine gezielte Ernährungsumstellung kann den Cholesterinspiegel im Schnitt um ca. 10–15 %, bei zuvor sehr ungünstiger Ernährung in Einzelfällen auch deutlich mehr senken. Bei stark erhöhten Werten reichen Lebensstiländerungen allein oft nicht aus – dann kommt eine medikamentöse Therapie in Kombination mit der Ernährungsumstellung infrage, das entscheidet der Arzt bzw. die Ärztin.</p>
+    </div>
+
+    <p style="text-align:center; margin: 32px 0;">
+      <a class="back-link" href="ernaehrung.html">→ Konkrete Ernährungstipps zur LDL-Senkung</a>
+    </p>
+
+    <p class="disclaimer">Diese Seite fasst allgemeine, gut belegte Grundlagen zum Thema Cholesterin zusammen und ersetzt keine individuelle ärztliche Beratung oder Diagnose.</p>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
