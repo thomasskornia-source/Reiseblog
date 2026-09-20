@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelloFresh Loaded Smashed Potatoes – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Hauptgericht</p>
+      <h1>Loaded Smashed Potatoes</h1> <span class="ampel-dot-inline" title="Gelb"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 30–40 Min.</span>
+      <span>🍽 2–4 Portionen</span>
+      <span>🧀 Deftig mit Käse-Sauce, dazu frisches Gemüse</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Ein HelloFresh-Rezept: zerdrückte, im Ofen knusprig gebackene Kartoffeln mit einer würzigen Jalapeño-Käse-Sauce, dazu Pico de Gallo und Avocado. Vegetarisch und mit frischem Gemüse, aber durch Käse, Butter und Crème fraîche auch reichhaltig – daher Gelb statt Grün, ein Gericht für zwischendurch statt für jeden Tag.</p>
+    </div>
+
+    <img src="hellofresh-smashed-potatoes-1.jpg" alt="Loaded Smashed Potatoes mit Jalapeño-Käse-Sauce, Pico de Gallo und Avocado auf einem Teller" style="width:100%; border-radius: 8px; margin: 8px 0 18px;">
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten (2 Personen)</h3>
+      <ul>
+        <li>600 g Kartoffeln (Drillinge)</li>
+        <li>1 rote Zwiebel</li>
+        <li>1 Limette, gewachst</li>
+        <li>1 Knoblauchzehe</li>
+        <li>20 g Butter</li>
+        <li>200 ml Milch</li>
+        <li>100 g Käse-Mix</li>
+        <li>1 Avocado</li>
+        <li>2 Tomaten</li>
+        <li>1 Jalapeño</li>
+        <li>75 g Crème fraîche</li>
+        <li>10 g Koriander</li>
+        <li>Öl, Mehl, Zucker, Salz, Pfeffer</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Den Backofen auf 250 °C Ober-/Unterhitze (230 °C Umluft) vorheizen. Gemüse und Kräuter waschen.</li>
+        <li>Kartoffeln in einen großen Topf geben, mit Wasser bedecken, kräftig salzen und aufkochen. Mit Deckel 12–15 Min. kochen, bis sie gar sind.</li>
+        <li>Währenddessen Zwiebel und Knoblauch fein hacken. Jalapeño halbieren, entkernen und fein hacken. Tomaten grob würfeln. Koriander fein hacken. Limette heiß abwaschen, Schale abreiben und die Limette vierteln.</li>
+        <li>Für das Pico de Gallo Tomatenwürfel mit der Hälfte des Korianders, der Hälfte der Zwiebel, etwas Limettensaft und 1 EL Öl vermengen, mit Salz, Pfeffer und Zucker abschmecken. Für den Limetten-Dip die Hälfte der Crème fraîche mit 1 TL Limettenabrieb verrühren und mit Salz und Pfeffer abschmecken.</li>
+        <li>Gekochte Kartoffeln abgießen, auf einem Backblech mit Backpapier verteilen und mit einem Topfdeckel flach drücken. Mit 2 EL Öl beträufeln, salzen, pfeffern und 6–8 Min. im Ofen knusprig backen.</li>
+        <li>Für die Käsesoße Butter in einem kleinen Topf erhitzen, Knoblauch, Jalapeño und restliche Zwiebel 2–3 Min. andünsten. 1 EL Mehl einrühren und kurz mitschwitzen, dann unter Rühren die Milch dazugeben und 1–2 Min. einkochen lassen. Vom Herd nehmen, Käse und restlichen Koriander unterrühren, mit Salz und Pfeffer abschmecken.</li>
+        <li>Avocado würfeln. Smashed Potatoes anrichten, mit der Käsesoße toppen, Pico de Gallo und Avocado dazugeben, mit dem Limetten-Dip und restlichen Limettenspalten servieren.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept von HelloFresh.</p>
+
+    <div class="rating-block" data-recipe="hellofresh-smashed-potatoes">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('hellofresh-smashed-potatoes','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('hellofresh-smashed-potatoes','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-hellofresh-smashed-potatoes');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
