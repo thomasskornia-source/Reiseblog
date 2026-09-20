@@ -564,3 +564,21 @@ body {
 .recipe-ingredients li { margin-bottom: 6px; }
 .recipe-steps ol { padding-left: 20px; }
 .recipe-steps li { margin-bottom: 12px; }
+
+/* Teilen-Button */
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 13px;
+  background: transparent;
+  border: 1px solid rgba(46, 58, 50, 0.25);
+  color: var(--ink-soft);
+  border-radius: 999px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+.share-btn:active { background: var(--rust); border-color: var(--rust); color: var(--paper); }

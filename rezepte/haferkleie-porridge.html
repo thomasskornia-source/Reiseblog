@@ -14,7 +14,10 @@
 <body>
 <div class="wrap">
 
-  <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)">Teilen ↗</button>
+  </div>
 
   <article>
     <header class="entry-header">
@@ -84,6 +87,21 @@
           }
         } catch(e) {}
       })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.textContent;
+            btn.textContent = 'Link kopiert!';
+            setTimeout(function(){ btn.textContent = original; }, 2000);
+          });
+        }
+      }
     </script>
   </article>
 
