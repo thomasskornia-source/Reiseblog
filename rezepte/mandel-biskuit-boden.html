@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandel-Biskuit-Boden – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Kuchen</p>
+      <h1>Mandel-Biskuit-Boden</h1> <span class="ampel-dot-inline" title="Gelb"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ ca. 30 Min.</span>
+      <span>🍽 1 Springform</span>
+      <span>🌰 Mandeln statt Mehl, ohne Butter</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Ein handgeschriebenes Familienrezept für einen leichten Biskuitboden aus gemahlenen Mandeln statt Mehl. Ohne Butter, dafür mit Zucker gesüßt – gute Basis für Torten oder als eigener kleiner Kuchen. Durch die Mandeln pflanzliche Fette statt gesättigter, daher Gelb.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten</h3>
+      <ul>
+        <li>3 Eier</li>
+        <li>3 EL heißes Wasser</li>
+        <li>150 g Zucker</li>
+        <li>1 Päckchen Vanillezucker</li>
+        <li>150 g gemahlene Mandeln</li>
+        <li>50 g Mondamin (Speisestärke)</li>
+        <li>Backpapier und Fett für die Form</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Den Backofen auf 200 °C (Umluft 175 °C) vorheizen. Die Form mit Backpapier belegen und den Rand dünn einfetten.</li>
+        <li>Die Eier mit dem heißen Wasser schaumig rühren, nach und nach Zucker und Vanillezucker hinzufügen.</li>
+        <li>Die Mandel-Mondamin-Mischung darüber geben und vorsichtig unterheben.</li>
+        <li>Den Teig gleichmäßig in der Springform verstreichen und im Ofen bei 200 bzw. 175 °C 20–25 Minuten backen.</li>
+        <li>Aus der Form lösen, auf ein Kuchengitter stürzen, das Backpapier abziehen und den Boden auskühlen lassen.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Familienrezept, handschriftlich überliefert.</p>
+
+    <div class="rating-block" data-recipe="mandel-biskuit-boden">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('mandel-biskuit-boden','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('mandel-biskuit-boden','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-mandel-biskuit-boden');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>

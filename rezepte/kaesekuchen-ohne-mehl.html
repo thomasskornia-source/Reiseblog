@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Käsekuchen ohne Mehl – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Kuchen</p>
+      <h1>Käsekuchen ohne Mehl</h1> <span class="ampel-dot-inline" title="Rot"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ ca. 1 Std. 30 Min.</span>
+      <span>🍽 1 Springform (ca. 12 Stücke)</span>
+      <span>🧈 Reich an Butter und Zucker – ein Kuchen für besondere Anlässe</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Ein handgeschriebenes Familienrezept: klassischer Käsekuchen mit Magerquark, ohne Mehl, dafür mit Hartweizengrieß gebunden. Durch viel Butter, Zucker und Quark deftig und süß – daher Rot, aber ein Klassiker für besondere Anlässe. Passt gut zu einem Fruchtpüree aus Himbeeren oder Aprikosen.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten</h3>
+      <ul>
+        <li>1 kg Magerquark</li>
+        <li>250 g Butter</li>
+        <li>250 g Zucker</li>
+        <li>1 Päckchen Vanillezucker</li>
+        <li>2 Beutel Zitronenaroma, oder Schale einer unbehandelten Zitrone</li>
+        <li>Saft von 1 Zitrone</li>
+        <li>6 Eier</li>
+        <li>8 EL Grieß (Hartweizengrieß)</li>
+        <li>1 Prise Salz</li>
+        <li>Fett für die Form + Semmelbrösel</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Den Quark mindestens 1 Stunde vorher auf einem Sieb abtropfen lassen.</li>
+        <li>Weiche Butter und Zucker schaumig rühren. Vanillezucker und Zitronenaroma dazugeben. Die Eier trennen und die Eigelbe nach und nach unterrühren. Quark, Grieß und den Zitronensaft unter die Eicreme rühren.</li>
+        <li>Eiweiß mit einer Prise Salz steifschlagen und unter die Masse heben, dann in die gefettete und mit Semmelbröseln ausgestreute Kuchenform füllen.</li>
+        <li>Bei 175 °C (Umluft 150 °C) etwa 1 Stunde backen. Nach ca. 30 Minuten bei Bedarf mit Pergamentpapier oder Folie abdecken, damit die Oberfläche nicht zu dunkel wird.</li>
+        <li>Backofen abstellen und den Kuchen noch 15–30 Minuten darin abkühlen lassen.</li>
+        <li>Dazu passt ein Fruchtpüree aus Himbeeren oder Aprikosen.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Familienrezept, handschriftlich überliefert.</p>
+
+    <div class="rating-block" data-recipe="kaesekuchen-ohne-mehl">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('kaesekuchen-ohne-mehl','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('kaesekuchen-ohne-mehl','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-kaesekuchen-ohne-mehl');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
