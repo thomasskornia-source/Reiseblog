@@ -12,10 +12,18 @@
 <meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
 <style>
   .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 12px; }
-  .filter-btn { font-family: 'Work Sans', sans-serif; font-size: 14px; padding: 8px 16px; border-radius: 20px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); cursor: pointer; }
-  .filter-btn.active { background: var(--rust); color: var(--paper); border-color: var(--rust); }
+  .ampel-btn { width: 34px; height: 34px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0; opacity: 0.55; }
+  .ampel-btn.active { opacity: 1; border-color: var(--ink); }
+  .ampel-btn.gruen { background: #4c9a4c; }
+  .ampel-btn.gelb { background: #e0b83c; }
+  .ampel-btn.rot { background: #c0392b; }
   .search-field { width: 100%; box-sizing: border-box; font-family: 'Work Sans', sans-serif; font-size: 16px; padding: 12px 16px; border: 1px solid rgba(46,58,50,0.3); border-radius: 24px; margin: 4px 0 20px; }
   .entry-preview.hidden { display: none; }
+  .entry-preview { position: relative; }
+  .ampel-dot { position: absolute; top: 14px; right: 0; width: 14px; height: 14px; border-radius: 50%; }
+  .ampel-dot.gruen { background: #4c9a4c; }
+  .ampel-dot.gelb { background: #e0b83c; }
+  .ampel-dot.rot { background: #c0392b; }
   .no-results { font-size: 14px; color: var(--ink-soft); display: none; margin: 10px 0; }
 </style>
 </head>
@@ -36,52 +44,59 @@
     </div>
 
     <div class="filter-bar">
-      <button class="filter-btn" data-filter="fruehstueck" onclick="toggleCategory('fruehstueck', this)">Frühstück</button>
-      <button class="filter-btn" data-filter="mittag" onclick="toggleCategory('mittag', this)">Mittagessen</button>
-      <button class="filter-btn" data-filter="abend" onclick="toggleCategory('abend', this)">Abends</button>
+      <button class="ampel-btn gruen" data-filter="gruen" onclick="toggleAmpel('gruen', this)" aria-label="Grün"></button>
+      <button class="ampel-btn gelb" data-filter="gelb" onclick="toggleAmpel('gelb', this)" aria-label="Gelb"></button>
+      <button class="ampel-btn rot" data-filter="rot" onclick="toggleAmpel('rot', this)" aria-label="Rot"></button>
     </div>
     <input type="search" class="search-field" id="rezept-suche" placeholder="Rezept suchen ..." oninput="applyFilters()">
   </article>
 
   <main class="entry-list">
 
-    <a class="entry-preview" data-category="fruehstueck" href="rezepte/haferkleie-porridge.html">
+    <a class="entry-preview" data-ampel="gruen" href="rezepte/haferkleie-porridge.html">
+      <span class="ampel-dot gruen"></span>
       <p class="date">Frühstück</p>
       <h2>Haferkleie-Porridge mit Leinsamen und Beeren</h2>
       <p>Beta-Glucan, Omega-3 und Antioxidantien zum Start in den Tag ...</p>
     </a>
 
-    <a class="entry-preview" data-category="mittag" href="rezepte/linsen-curry.html">
+    <a class="entry-preview" data-ampel="gruen" href="rezepte/linsen-curry.html">
+      <span class="ampel-dot gruen"></span>
       <p class="date">Mittagessen</p>
       <h2>Rotes Linsen-Curry mit Vollkornreis</h2>
       <p>Pflanzliches Protein und lösliche Ballaststoffe statt rotem Fleisch ...</p>
     </a>
 
-    <a class="entry-preview" data-category="abend" href="rezepte/lachs-ofengemuese.html">
+    <a class="entry-preview" data-ampel="gruen" href="rezepte/lachs-ofengemuese.html">
+      <span class="ampel-dot gruen"></span>
       <p class="date">Abends</p>
       <h2>Lachs mit Ofengemüse und Quinoa</h2>
       <p>Omega-3-reicher Seefisch, viel Gemüse und Pflanzensterine aus Kernen ...</p>
     </a>
 
-    <a class="entry-preview" data-category="mittag" href="rezepte/ackerbohnen-huemmus.html">
+    <a class="entry-preview" data-ampel="gruen" href="rezepte/ackerbohnen-huemmus.html">
+      <span class="ampel-dot gruen"></span>
       <p class="date">Mittagessen</p>
       <h2>Ackerbohnen-Bärlauch-Hummus mit geröstetem Ciabatta</h2>
       <p>Heimische Huelsenfrucht als cremiger Aufstrich, mit Rucola und Mandelsplitter ...</p>
     </a>
 
-    <a class="entry-preview" data-category="abend" href="rezepte/udon-spargel-stirfry.html">
+    <a class="entry-preview" data-ampel="gruen" href="rezepte/udon-spargel-stirfry.html">
+      <span class="ampel-dot gruen"></span>
       <p class="date">Abends</p>
       <h2>Udon-Nudeln Stir-fry mit grünem Spargel</h2>
       <p>Buntes Gemuese, wuerzige Sauce, in 30 Minuten fertig ...</p>
     </a>
 
-    <a class="entry-preview" data-category="fruehstueck" href="rezepte/skyr-bowl-walnuss.html">
+    <a class="entry-preview" data-ampel="gruen" href="rezepte/skyr-bowl-walnuss.html">
+      <span class="ampel-dot gruen"></span>
       <p class="date">Frühstück</p>
       <h2>Skyr-Bowl mit Walnüssen, Leinsamen und Beeren</h2>
       <p>Ca. 28 g Protein, Omega-3 und Antioxidantien in 5 Minuten ...</p>
     </a>
 
-    <a class="entry-preview" data-category="mittag" href="rezepte/fusilli-brokkoli-walnuss-pesto.html">
+    <a class="entry-preview" data-ampel="gruen" href="rezepte/fusilli-brokkoli-walnuss-pesto.html">
+      <span class="ampel-dot gruen"></span>
       <p class="date">Mittagessen</p>
       <h2>Vollkorn-Fusilli mit Brokkoli-Walnuss-Pesto und Kichererbsen</h2>
       <p>Pflanzensterine, Ballaststoffe und Pflanzenprotein in einer Schuessel ...</p>
@@ -100,15 +115,15 @@
 </div>
 
 <script>
-  var activeCategory = null;
+  var activeAmpel = null;
 
-  function toggleCategory(cat, btn) {
-    if (activeCategory === cat) {
-      activeCategory = null;
+  function toggleAmpel(val, btn) {
+    if (activeAmpel === val) {
+      activeAmpel = null;
       btn.classList.remove('active');
     } else {
-      document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
-      activeCategory = cat;
+      document.querySelectorAll('.ampel-btn').forEach(function(b){ b.classList.remove('active'); });
+      activeAmpel = val;
       btn.classList.add('active');
     }
     applyFilters();
@@ -118,10 +133,10 @@
     var query = document.getElementById('rezept-suche').value.trim().toLowerCase();
     var visibleCount = 0;
     document.querySelectorAll('.entry-preview').forEach(function(card) {
-      var matchesCategory = !activeCategory || card.getAttribute('data-category') === activeCategory;
+      var matchesAmpel = !activeAmpel || card.getAttribute('data-ampel') === activeAmpel;
       var text = card.textContent.toLowerCase();
       var matchesSearch = !query || text.indexOf(query) !== -1;
-      var show = matchesCategory && matchesSearch;
+      var show = matchesAmpel && matchesSearch;
       card.classList.toggle('hidden', !show);
       if (show) visibleCount++;
     });
