@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karamellisierter Kaiserschmarrn mit Apfelmus – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Dessert</p>
+      <h1>Karamellisierter Kaiserschmarrn mit Apfelmus</h1> <span class="ampel-dot-inline" title="Rot"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ ca. 1 Std. 10 Min.</span>
+      <span>🍽 4 Personen</span>
+      <span>🧈 Anspruchsvoll, reich an Butter und Zucker</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Ein Wiener Klassiker: in Butter goldbraun gebackener Eierteig, in Stücke gezupft und mit Mandelblättchen und Puderzucker karamellisiert, dazu selbstgemachtes Apfelmus mit Zimt. Durch viel Butter, Zucker und Eier ein Kuchen-Dessert für besondere Anlässe – daher Rot.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten</h3>
+      <ul>
+        <li>8 Eier (Größe L)</li>
+        <li>80 g Zucker</li>
+        <li>240 g Mehl, Type 405</li>
+        <li>280 ml Vollmilch</li>
+        <li>120 g Butter</li>
+        <li>60 g Mandelblättchen</li>
+        <li>Puderzucker zum Bestäuben</li>
+        <li>1 Prise Salz</li>
+        <li>8 Äpfel</li>
+        <li>400 ml Wasser</li>
+        <li>1 TL gemahlener Zimt</li>
+        <li>4 TL Bourbon-Vanillezucker</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Eier trennen. Die Eigelbe mit dem Zucker schaumig schlagen, dann abwechselnd Mehl und Milch unterrühren, bis ein glatter, klumpenfreier Teig entsteht. Den Teig 30 Minuten quellen lassen.</li>
+        <li>In der Zwischenzeit die Äpfel schälen und grob würfeln. Mit Wasser, Zimt und Vanillezucker in einem Topf aufkochen und zugedeckt 10 Minuten dünsten. Mit dem Stabmixer grob pürieren und abkühlen lassen. Den Backofen auf 50 °C vorheizen.</li>
+        <li>Das Eiweiß mit einer Prise Salz steif schlagen und unter den Teig heben. Ein Viertel der Butter in einer beschichteten Pfanne (Ø 24–28 cm) bei mittlerer Hitze schmelzen, bis sie zu schäumen beginnt. Die Hälfte des Teigs hineingießen und bei niedriger bis mittlerer Hitze mit geschlossenem Deckel etwa 5 Minuten goldbraun backen.</li>
+        <li>Den Teig in der Pfanne mit zwei Holzkochlöffeln vierteln, die Stücke einzeln wenden und weitere 2 Minuten ausbacken. Anschließend mit den Löffeln in grobe Stücke zerrupfen.</li>
+        <li>Ein weiteres Viertel der Butter, die Hälfte der Mandelblättchen und 1 EL Puderzucker dazugeben und den Schmarrn karamellisieren lassen, bis die Mandeln leicht gebräunt sind. Auf einen Teller geben und im vorgeheizten Ofen warmhalten. Mit der restlichen Teighälfte, Butter und den übrigen Mandeln genauso verfahren.</li>
+        <li>Zum Servieren mit weiterem Puderzucker bestäuben und das Apfelmus dazu anrichten.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept-Idee von SZ.de, ursprünglich in der 2-Personen-Variante veröffentlicht.</p>
+
+    <div class="rating-block" data-recipe="kaiserschmarrn-mit-apfelmus">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('kaiserschmarrn-mit-apfelmus','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('kaiserschmarrn-mit-apfelmus','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-kaiserschmarrn-mit-apfelmus');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
