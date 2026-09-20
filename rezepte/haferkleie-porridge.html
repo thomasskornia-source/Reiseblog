@@ -16,7 +16,13 @@
 
   <div class="entry-topbar">
     <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
-    <button class="share-btn" onclick="shareRecipe(this)">Teilen ↗</button>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
   </div>
 
   <article>
@@ -96,9 +102,9 @@
           navigator.share(shareData).catch(function(){});
         } else if (navigator.clipboard) {
           navigator.clipboard.writeText(window.location.href).then(function(){
-            var original = btn.textContent;
-            btn.textContent = 'Link kopiert!';
-            setTimeout(function(){ btn.textContent = original; }, 2000);
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
           });
         }
       }
