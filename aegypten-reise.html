@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ägypten-Reise (12 Tage) – Andrea unterwegs</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .subhead { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 32px 0 8px; }
+  .route-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 15px; }
+  .route-table th, .route-table td { border: 1px solid rgba(46,58,50,0.15); padding: 8px 12px; text-align: left; }
+  .route-table th { background: var(--paper-warm); font-family: 'Work Sans', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); }
+  .map-link { display: inline-block; margin: 10px 0 4px; padding: 10px 18px; background: var(--rust); color: #fff; text-decoration: none; border-radius: 6px; font-size: 14px; }
+  .hotel-group { margin: 16px 0; }
+  .hotel-group strong { display: block; font-family: 'Fraunces', serif; font-size: 17px; margin-bottom: 6px; }
+  .hotel-group ul { margin: 0; padding-left: 20px; }
+  .hotel-group li { margin-bottom: 6px; }
+  .safety-box { background: rgba(197, 92, 60, 0.08); border: 1px solid rgba(197, 92, 60, 0.25); border-radius: 8px; padding: 18px 22px; margin: 16px 0; font-size: 15px; }
+  .practical-list li { margin-bottom: 10px; }
+  .note { font-style: italic; color: var(--ink-soft); font-size: 14px; }
+  #route-map { height: 380px; width: 100%; border-radius: 8px; margin: 14px 0 6px; }
+  .route-tooltip { background: var(--paper, #faf6f0); border: 1px solid rgba(46,58,50,0.25); font-family: 'Work Sans', sans-serif; font-size: 12px; padding: 2px 6px; border-radius: 4px; box-shadow: none; }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="reisen.html">← Zu den Reisen</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Seite teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Reiseplanung</p>
+      <h1>Ägypten-Reise (12 Tage)</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="entry-body">
+      <p>12 Tage Ägypten ab München, zu dritt. Route: <strong>Kairo → Nilkreuzfahrt Luxor–Assuan → Hurghada (Rotes Meer)</strong>. Klassische Kombination aus Antike, Nil und Baden.</p>
+    </div>
+
+    <h2 class="subhead">Route</h2>
+    <div id="route-map"></div>
+    <a class="map-link" href="https://www.google.com/maps/dir/Cairo,+Egypt/Luxor,+Egypt/Aswan,+Egypt/Hurghada,+Egypt" target="_blank">📍 Route in Google Maps öffnen (Navigation)</a>
+    <table class="route-table">
+      <tr><th>Tag</th><th>Station</th><th>Programm</th></tr>
+      <tr><td>1–3</td><td>Kairo</td><td>Pyramiden von Gizeh &amp; Sphinx, Ägyptisches/Grand Egyptian Museum, Khan el-Khalili Basar</td></tr>
+      <tr><td>4</td><td>Luxor</td><td>Flug/Zug ab Kairo, Karnak-Tempel bei Sonnenuntergang</td></tr>
+      <tr><td>5–8</td><td>Nilkreuzfahrt Luxor–Assuan</td><td>Tal der Könige, Tempel Edfu &amp; Kom Ombo, Assuan-Staudamm, optional Abu Simbel</td></tr>
+      <tr><td>9–11</td><td>Hurghada</td><td>Rotes Meer, Schnorcheln/Tauchen, Entspannung</td></tr>
+      <tr><td>12</td><td>Rückflug</td><td>ab Hurghada</td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft);">Inlandsflug Kairo–Luxor spart Zeit gegenüber der Zugfahrt (ca. 10 Std.).</p>
+
+    <h2 class="subhead">Hotelvorschläge (Medium-Budget)</h2>
+    <div class="hotel-group">
+      <strong>Kairo</strong>
+      <ul>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=ONE+GATE+Pyramids+View+INN&amp;query_place_id=ChIJzU-T1YRFWBQRl6uq_IoOZqo">ONE GATE Pyramids View INN</a> – 5,0★ (211 Bew.), Boutique-Hotel mit Pyramidenblick, moderater Preis</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=JAZ+Pyramids+Resort&amp;query_place_id=ChIJpVgcgT1FWBQRiLRSuDFJuZs">JAZ Pyramids Resort</a> – 4,8★ (5.084 Bew.), großzügiges Resort mit Garten, etwas mehr Komfort</li>
+      </ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Nilkreuzfahrt</strong>
+      <ul>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Nile+Cruise+City+and+Sea+Adonis&amp;query_place_id=ChIJYaeI720VSRQRlw-Hln8ILuI">Nile Cruise – City and Sea Adonis</a> – 4,9★, klassisches Kreuzfahrtschiff, Ägyptologe an Bord</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Nile+Crown+Cruises&amp;query_place_id=ChIJh-swkV8XSRQR4ZZwABIDBh0">Nile Crown Cruises</a> – 4,3★, solide Alternative</li>
+      </ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Hurghada</strong>
+      <ul>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Albatros+Alf+Leila+Wa+Leila+Hotel&amp;query_place_id=ChIJQ4FCLrGHUhQRM0XCCKHxxkM">Albatros Alf Leila Wa Leila Hotel</a> – 4,7★ (12.001 Bew.), familienfreundlich, eigener Wasserpark (Neverland)</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Cook%27s+Club+El+Gouna&amp;query_place_id=ChIJje7i5lBnUhQR9zCVjwbM1hg">Cook's Club El Gouna</a> – 4,9★, moderneres Design-Hotel, etwas außerhalb in El Gouna</li>
+      </ul>
+      <p class="note">Meiden: Sand Beach Resort Hurghada – wiederholt schlechte Bewertungen zu Sauberkeit und Service.</p>
+    </div>
+
+    <h2 class="subhead">Sicherheitslage (Stand: September 2026)</h2>
+    <div class="safety-box">
+      <p style="margin-bottom:0;">Das Auswärtige Amt weist auf eine volatile Sicherheitslage in der Region hin: Seit Ende Februar 2026 bestehen militärische Spannungen zwischen USA/Israel und Iran; trotz einer im Juni 2026 unterzeichneten Absichtserklärung kommt es weiterhin zu militärischen Schlägen in der Region, mehrere Fluggesellschaften haben den Flugbetrieb zeitweise eingeschränkt. Für Ägypten selbst – einschließlich der Touristengebiete am Roten Meer – wird zu besonderer Vorsicht geraten, insbesondere an belebten Orten. Frühere Anschläge (zuletzt 2022) fanden vor allem auf der Sinai-Halbinsel statt; unsere Route (Kairo, Nil, Hurghada) berührt diese Region nicht. Kurz vor Abflug nochmal die aktuelle Lage prüfen.</p>
+    </div>
+    <ul><li><a href="https://www.auswaertiges-amt.de/de/service/laender/aegypten-node/aegyptensicherheit-212622" target="_blank">Auswärtiges Amt: Ägypten – Reise- und Sicherheitshinweise</a></li></ul>
+
+    <h2 class="subhead">Flugsuche München–Kairo / Hurghada</h2>
+    <ul>
+      <li><a href="https://www.skyscanner.de/transport/fluege/muc/cai/" target="_blank">Skyscanner: München → Kairo</a></li>
+      <li><a href="https://www.google.com/travel/flights?q=Flights%20from%20Munich%20to%20Cairo" target="_blank">Google Flights: München → Kairo</a></li>
+      <li><a href="https://www.kayak.de/flights/MUC-HRG" target="_blank">Kayak: München → Hurghada</a></li>
+    </ul>
+    <p style="font-size:14px; color: var(--ink-soft);">Direktflüge München–Kairo (ca. 4,5 Std.) liegen meist bei 300–450 € p.P., Rückflug ab Hurghada oft günstiger (ab ca. 230 €) – ggf. "Open Jaw"-Ticket (Hinflug Kairo, Rückflug Hurghada) prüfen, spart Zeit und oft auch Geld.</p>
+
+    <h2 class="subhead">Praktisches</h2>
+    <ul class="practical-list">
+      <li><strong>Visum</strong>: eVisa vorab online beantragen (ca. 25 USD) oder Visa-on-Arrival am Flughafen – eVisa spart Wartezeit</li>
+      <li><strong>Nilkreuzfahrt</strong>: am besten über etablierten Reiseveranstalter buchen, inkl. Ausflugspaket (Eintritte oft nicht im Kreuzfahrtpreis enthalten)</li>
+      <li><strong>Kleidung</strong>: bei Tempel-/Moschee-Besuchen Schultern/Knie bedecken; im Dezember/Januar Kairo abends kühl (Jacke einpacken)</li>
+      <li><strong>Trinkgeld (Baksheesh)</strong>: in Ägypten überall üblich, kleine Scheine bereithalten</li>
+      <li><strong>Leitungswasser</strong>: nicht trinken, überall abgefülltes Wasser verfügbar</li>
+    </ul>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Stand: 21. September 2026.</p>
+
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    { name: "Kairo",    tag: "Tag 1–3",  lat: 30.0444, lon: 31.2357, info: "Pyramiden, Museum, Khan el-Khalili" },
+    { name: "Luxor",    tag: "Tag 4",    lat: 25.6872, lon: 32.6396, info: "Karnak-Tempel" },
+    { name: "Assuan",   tag: "Tag 5–8",  lat: 24.0889, lon: 32.8998, info: "Nilkreuzfahrt, Assuan-Staudamm" },
+    { name: "Hurghada", tag: "Tag 9–11", lat: 27.2579, lon: 33.8116, info: "Rotes Meer, Schnorcheln/Tauchen" }
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap-Mitwirkende' }).addTo(map);
+  var latlngs = stops.map(function (s) { return [s.lat, s.lon]; });
+  L.polyline(latlngs, { color: '#a5622a', weight: 3, dashArray: '6 6' }).addTo(map);
+  stops.forEach(function (s, i) {
+    var marker = L.circleMarker([s.lat, s.lon], { radius: 9, fillColor: '#c98a4b', color: '#fff', weight: 2, fillOpacity: 1 }).addTo(map);
+    marker.bindTooltip((i + 1) + '. ' + s.name, { permanent: true, direction: 'top', offset: [0, -8], className: 'route-tooltip' });
+    marker.bindPopup('<strong>' + s.name + '</strong><br>' + s.tag + '<br>' + s.info);
+  });
+  map.fitBounds(latlngs, { padding: [30, 30] });
+</script>
+<script>
+  function shareRecipe(btn) {
+    var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+    if (navigator.share) {
+      navigator.share(shareData).catch(function(){});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href).then(function(){
+        var original = btn.innerHTML;
+        btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+        setTimeout(function(){ btn.innerHTML = original; }, 2000);
+      });
+    }
+  }
+</script>
+</body>
+</html>
