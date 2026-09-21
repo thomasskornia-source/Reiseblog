@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China-Reise (12 Tage) – Andrea unterwegs</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .subhead { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 32px 0 8px; }
+  .route-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 15px; }
+  .route-table th, .route-table td { border: 1px solid rgba(46,58,50,0.15); padding: 8px 12px; text-align: left; }
+  .route-table th { background: var(--paper-warm); font-family: 'Work Sans', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); }
+  .map-link { display: inline-block; margin: 10px 0 4px; padding: 10px 18px; background: var(--rust); color: #fff; text-decoration: none; border-radius: 6px; font-size: 14px; }
+  .hotel-group { margin: 16px 0; }
+  .hotel-group strong { display: block; font-family: 'Fraunces', serif; font-size: 17px; margin-bottom: 6px; }
+  .hotel-group ul { margin: 0; padding-left: 20px; }
+  .hotel-group li { margin-bottom: 6px; }
+  .tip-box { background: var(--paper-warm); border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
+  .safety-box { background: rgba(197, 92, 60, 0.08); border: 1px solid rgba(197, 92, 60, 0.25); border-radius: 8px; padding: 18px 22px; margin: 16px 0; font-size: 15px; }
+  .practical-list li { margin-bottom: 10px; }
+  #route-map { height: 380px; width: 100%; border-radius: 8px; margin: 14px 0 6px; }
+  .route-tooltip { background: var(--paper, #faf6f0); border: 1px solid rgba(46,58,50,0.25); font-family: 'Work Sans', sans-serif; font-size: 12px; padding: 2px 6px; border-radius: 4px; box-shadow: none; }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="reisen.html">← Zu den Reisen</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Seite teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Reiseplanung</p>
+      <h1>China-Reise (12 Tage)</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="entry-body">
+      <p>12 Tage China ab München, zu dritt. Route: <strong>Peking → Xi'an → Guilin/Yangshuo → Shanghai</strong> – die klassische "goldene Route" für den ersten China-Besuch. Kaiserliche Geschichte, die Terrakotta-Armee, die Karstberglandschaft am Li-Fluss und zum Abschluss das pulsierende, moderne Shanghai.</p>
+    </div>
+
+    <h2 class="subhead">Route</h2>
+    <div id="route-map"></div>
+    <a class="map-link" href="https://www.google.com/maps/dir/Beijing,+China/Xi'an,+China/Yangshuo,+Guilin,+China/Shanghai,+China" target="_blank">📍 Route in Google Maps öffnen (Navigation)</a>
+    <table class="route-table">
+      <tr><th>Tag</th><th>Station</th><th>Programm</th></tr>
+      <tr><td>1–3</td><td>Peking</td><td>Verbotene Stadt, Tiananmen-Platz, Himmelstempel, Große Mauer bei Mutianyu, Hutong-Viertel</td></tr>
+      <tr><td>4–5</td><td>Xi'an</td><td>Hochgeschwindigkeitszug ab Peking, Terrakotta-Armee, Stadtmauer (Fahrradtour), Große Wildganspagode, Muslimisches Viertel</td></tr>
+      <tr><td>6–7</td><td>Guilin / Yangshuo</td><td>Flug ab Xi'an, Li-Fluss-Kreuzfahrt nach Yangshuo, West Street, Karstberglandschaft mit dem Fahrrad</td></tr>
+      <tr><td>8–11</td><td>Shanghai</td><td>Flug ab Guilin, der Bund, Yu-Garten &amp; Altstadt, Nanjing Road, Shanghai Tower, Tagesausflug Wasserstadt Zhujiajiao</td></tr>
+      <tr><td>12</td><td>Rückflug</td><td>ab Shanghai</td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft);">Zwischen den Stationen sind sowohl Hochgeschwindigkeitszüge (Peking–Xi'an ca. 4–5 Std.) als auch Inlandsflüge üblich – Tickets rechtzeitig buchen, besonders über Feiertage.</p>
+
+    <h2 class="subhead">Kostenübersicht (12 Tage, zu dritt)</h2>
+    <table class="route-table">
+      <tr><th></th><th>Medium</th><th>Luxus</th></tr>
+      <tr><td>Flüge (3 Pers., München–Peking/Shanghai)</td><td>2.700 €</td><td>5.700 €</td></tr>
+      <tr><td>Fortbewegung (Züge &amp; Inlandsflüge)</td><td>900 €</td><td>1.800 €</td></tr>
+      <tr><td>Hotels (11 Nächte)</td><td>1.500 €</td><td>4.000 €</td></tr>
+      <tr><td>Eintritte &amp; Guides (Mauer, Terrakotta-Armee, Li-Fluss)</td><td>500 €</td><td>1.000 €</td></tr>
+      <tr><td>Verpflegung</td><td>900 €</td><td>1.800 €</td></tr>
+      <tr><td><strong>Gesamt</strong></td><td><strong>≈ 6.500 €</strong></td><td><strong>≈ 14.300 €</strong></td></tr>
+    </table>
+
+    <h2 class="subhead">Hotelvorschläge (Medium-Budget)</h2>
+    <div class="hotel-group">
+      <strong>Peking</strong>
+      <ul>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Hotel+Beijing&amp;query_place_id=ChIJ94BccchS8DUR-LZL9CT194s">Grand Hotel Beijing</a> – 4,5★ (278 Bew.), direkt neben der Verbotenen Stadt, traditionsreiches Haus</li>
+      </ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Xi'an</strong>
+      <ul>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=UrCove+by+Hyatt+Xian+HiTech+Park&amp;query_place_id=ChIJY5ej9IpwYzYRRudt7IRc2kw">UrCove by Hyatt Xi'an HiTech Park</a> – 4,7★, moderne, geräumige Zimmer, kostenloser Wäscheservice</li>
+      </ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Yangshuo</strong>
+      <ul>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Yangshuo+River+View+Hotel&amp;query_place_id=ChIJ_xrfMYuvpTYRTNxwCXGZfBY">Yangshuo River View Hotel</a> – 4,5★ (34 Bew.), direkt am Fluss mit Blick auf die Karstberge, zentral zu West Street</li>
+      </ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Shanghai</strong>
+      <ul>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Atour+Hotel+Shanghai+Bund+Nanjing+East+Road&amp;query_place_id=ChIJIelWHFlwsjURVImuWhdnv84">Atour Hotel Shanghai Bund Nanjing East Road</a> – 4,6★ (161 Bew.), 2 Gehminuten zum Bund, moderne Zimmer, eigene Dachterrasse</li>
+      </ul>
+    </div>
+
+    <h2 class="subhead">Silvester-Vorschlag: Guilin/Yangshuo</h2>
+    <div class="tip-box">
+      <p>Bei einem Reisezeitraum ähnlich Jordanien (ab ca. 26.12.) fällt Silvester genau in die Guilin/Yangshuo-Tage. Statt Wüste oder Strand hier die Karstberg-Kulisse: ein Abendessen an der West Street mit Blick auf den Li-Fluss, dazu vielerorts Lichterschmuck und kleine Feuerwerke über dem Fluss. Deutlich ruhiger als Silvester in Shanghai, wo es an den Hotspots (Bund, Nanjing Road) sehr voll werden kann.</p>
+      <p style="margin-bottom:0;">Wer es lieber urban mag: Silvester lässt sich auch gut ans Ende der Reise nach Shanghai verlegen – dort gibt es an der Bund-Promenade ein großes, gut besuchtes Feuerwerk, dann aber frühzeitig einen guten Beobachtungsplatz sichern.</p>
+    </div>
+
+    <h2 class="subhead">Sicherheitslage (Stand: September 2026)</h2>
+    <div class="safety-box">
+      <p>China gilt im Alltag als sehr sicheres Reiseland mit niedriger Kriminalität, auch für Individualreisende. Das Auswärtige Amt weist auf ein theoretisches Risiko von Ausreisesperren gegen Ausländer hin – dies betrifft praktisch ausschließlich Personen, die in Zivil- oder Strafverfahren verwickelt sind, für normale Touristen ist das kein relevantes Risiko. Die Region Xinjiang hat deutlich verschärfte Sicherheitskontrollen; sie liegt außerhalb unserer Route. Vereinzelt kommt es regional zu Unwettern (Sturzfluten, Taifune je nach Jahreszeit) – für unsere Stationen im Dezember/Januar untypisch.</p>
+      <p style="margin-bottom:0;">Deutsche Staatsangehörige können bis 31. Dezember 2026 für touristische Aufenthalte bis 30 Tage visumfrei einreisen (Reisepass mind. 6 Monate gültig). Bei privater Unterkunft (z.B. Ferienwohnung) besteht eine Registrierungspflicht – Hotels erledigen das automatisch.</p>
+    </div>
+    <ul><li><a href="https://www.auswaertiges-amt.de/de/service/laender/china-node/chinasicherheit/200466" target="_blank">Auswärtiges Amt: China – Reise- und Sicherheitshinweise</a></li></ul>
+
+    <h2 class="subhead">Flugsuche München–Peking / ab Shanghai</h2>
+    <ul>
+      <li><a href="https://www.skyscanner.de/transport/fluege/muc/pek/" target="_blank">Skyscanner: München → Peking</a></li>
+      <li><a href="https://www.google.com/travel/flights?q=Flights%20from%20Munich%20to%20Beijing" target="_blank">Google Flights: München → Peking</a></li>
+      <li><a href="https://www.kayak.de/flights/MUC-PEK" target="_blank">Kayak: München → Peking</a></li>
+    </ul>
+    <p style="font-size:14px; color: var(--ink-soft);">Direktflüge München–Peking (ca. 9–10 Std.) werden von mehreren Airlines angeboten. Da die Route in Shanghai endet, lohnt sich ein "Open Jaw"-Ticket (Hinflug Peking, Rückflug Shanghai) – spart den sonst nötigen Rückflug nach Peking. Preise meist bei 700–900 € p.P.</p>
+
+    <h2 class="subhead">Praktisches</h2>
+    <ul class="practical-list">
+      <li><strong>Einreise</strong>: 30 Tage visumfrei für deutsche Staatsangehörige (touristische Zwecke, gültig bis 31.12.2026), Reisepass mind. 6 Monate gültig</li>
+      <li><strong>Internet</strong>: Google, WhatsApp, Instagram und Facebook sind gesperrt – ein VPN vorab auf dem Handy einrichten (Installation in China selbst oft erschwert)</li>
+      <li><strong>Bezahlen</strong>: Alipay und WeChat Pay sind allgegenwärtig, Bargeld und ausländische Kreditkarten werden vielerorts nicht mehr akzeptiert – die Tourist-Version von Alipay vorab mit Kreditkarte verknüpfen</li>
+      <li><strong>Sprache</strong>: Außerhalb von Hotels und großen Touristenorten wird kaum Englisch gesprochen, eine Übersetzungs-App (z.B. Pleco oder Google Translate offline) hilft sehr</li>
+      <li><strong>Klima</strong>: Dezember/Januar in Peking und Xi'an kalt (0 bis -10°C), in Guilin/Yangshuo mild (10–15°C), in Shanghai kühl-feucht (5–10°C) – Schichtenkleidung einplanen</li>
+    </ul>
+
+    <h2 class="subhead">Reiseberichte &amp; Erfahrungen</h2>
+    <ul>
+      <li><a href="https://www.sonnenklar.tv/blog/?p=7993" target="_blank">sonnenklar.tv: Peking auf eigene Faust</a> – Interview-Reisebericht eines Alleinreisenden, Vorbereitung und Erfahrungen</li>
+      <li><a href="https://www.wandernundmehr.at/faq/kann-man-china-auf-eigene-faust-bereisen" target="_blank">wandernundmehr: Kann man China auf eigene Faust bereisen?</a> – praktische FAQ zu Sicherheit, Zug fahren und Bewegungsfreiheit</li>
+      <li><a href="https://www.chinatours.de/2019-01-15-rundreise-chinas-schoenste-ecken" target="_blank">chinatours.de: Rundreise – Chinas schönste Ecken</a> – persönlicher Erfahrungsbericht zu Peking, Verbotener Stadt und Großer Mauer</li>
+      <li><a href="https://www.exoticca.com/de/asien/ferner-osten/china/yangshuo" target="_blank">exoticca: Yangshuo – Reiseinfos</a> – Anreise, West Street und Li-Fluss praktisch erklärt</li>
+    </ul>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Stand: 21. September 2026.</p>
+
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    { name: "Peking",   tag: "Tag 1–3",   lat: 39.9042,  lon: 116.4074, info: "Verbotene Stadt, Mauer, Hutongs" },
+    { name: "Xi'an",    tag: "Tag 4–5",   lat: 34.3416,  lon: 108.9398, info: "Terrakotta-Armee, Stadtmauer" },
+    { name: "Yangshuo", tag: "Tag 6–7",   lat: 24.7785,  lon: 110.4977, info: "Li-Fluss-Kreuzfahrt, West Street" },
+    { name: "Shanghai", tag: "Tag 8–11",  lat: 31.2304,  lon: 121.4737, info: "Bund, Yu-Garten, Shanghai Tower" }
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap-Mitwirkende' }).addTo(map);
+  var latlngs = stops.map(function (s) { return [s.lat, s.lon]; });
+  L.polyline(latlngs, { color: '#a5622a', weight: 3, dashArray: '6 6' }).addTo(map);
+  stops.forEach(function (s, i) {
+    var marker = L.circleMarker([s.lat, s.lon], { radius: 9, fillColor: '#c98a4b', color: '#fff', weight: 2, fillOpacity: 1 }).addTo(map);
+    marker.bindTooltip((i + 1) + '. ' + s.name, { permanent: true, direction: 'top', offset: [0, -8], className: 'route-tooltip' });
+    marker.bindPopup('<strong>' + s.name + '</strong><br>' + s.tag + '<br>' + s.info);
+  });
+  map.fitBounds(latlngs, { padding: [30, 30] });
+</script>
+<script>
+  function shareRecipe(btn) {
+    var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+    if (navigator.share) {
+      navigator.share(shareData).catch(function(){});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href).then(function(){
+        var original = btn.innerHTML;
+        btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+        setTimeout(function(){ btn.innerHTML = original; }, 2000);
+      });
+    }
+  }
+</script>
+</body>
+</html>
