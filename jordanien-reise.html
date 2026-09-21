@@ -23,7 +23,9 @@
   .tip-box { background: var(--paper-warm); border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
   .safety-box { background: rgba(197, 92, 60, 0.08); border: 1px solid rgba(197, 92, 60, 0.25); border-radius: 8px; padding: 18px 22px; margin: 16px 0; font-size: 15px; }
   .practical-list li { margin-bottom: 10px; }
+  #route-map { height: 380px; width: 100%; border-radius: 8px; margin: 14px 0 6px; }
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 <div class="wrap">
@@ -42,7 +44,8 @@
     </div>
 
     <h2 class="subhead">Route</h2>
-    <a class="map-link" href="https://www.google.com/maps/dir/Amman,+Jordan/Jerash,+Jordan/Sweimeh,+Jordan/Wadi+Musa,+Jordan/Wadi+Rum,+Jordan/Aqaba,+Jordan" target="_blank">📍 Gesamte Route in Google Maps öffnen</a>
+    <div id="route-map"></div>
+    <a class="map-link" href="https://www.google.com/maps/dir/Amman,+Jordan/Jerash,+Jordan/Sweimeh,+Jordan/Wadi+Musa,+Jordan/Wadi+Rum,+Jordan/Aqaba,+Jordan" target="_blank">📍 Route in Google Maps öffnen (Navigation)</a>
     <table class="route-table">
       <tr><th>Tag</th><th>Station</th><th>Programm</th></tr>
       <tr><td>1–3</td><td>Amman</td><td>Ankunft, Zitadelle, Altstadt/Souks, Tagesausflug Jerash</td></tr>
@@ -129,5 +132,43 @@
   </footer>
 
 </div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    { name: "Amman",     tag: "Tag 1–3",   lat: 31.9454, lon: 35.9284, info: "Ankunft, Zitadelle, Altstadt/Souks" },
+    { name: "Jerash",    tag: "Tagesausflug ab Amman", lat: 32.2811, lon: 35.8996, info: "Römische Ruinenstadt" },
+    { name: "Totes Meer",tag: "Tag 4–5",   lat: 31.7365, lon: 35.5763, info: "Schweben, Schlammpackung, Pool-Resort" },
+    { name: "Petra",     tag: "Tag 6–7",   lat: 30.3285, lon: 35.4444, info: "Anfahrt via Königsstraße, 2 volle Tage" },
+    { name: "Wadi Rum",  tag: "Tag 8–9",   lat: 29.5760, lon: 35.4206, info: "Jeeptour, Wüstencamp, Silvester" },
+    { name: "Aqaba",     tag: "Tag 10–11", lat: 29.5321, lon: 35.0063, info: "Rotes Meer, Schnorcheln/Tauchen, Rückflug" }
+  ];
+
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap-Mitwirkende'
+  }).addTo(map);
+
+  var latlngs = stops.map(function (s) { return [s.lat, s.lon]; });
+
+  L.polyline(latlngs, { color: '#a5622a', weight: 3, dashArray: '6 6' }).addTo(map);
+
+  stops.forEach(function (s, i) {
+    var marker = L.circleMarker([s.lat, s.lon], {
+      radius: 9,
+      fillColor: '#c98a4b',
+      color: '#fff',
+      weight: 2,
+      fillOpacity: 1
+    }).addTo(map);
+    marker.bindTooltip((i + 1) + '. ' + s.name, { permanent: true, direction: 'top', offset: [0, -8], className: 'route-tooltip' });
+    marker.bindPopup('<strong>' + s.name + '</strong><br>' + s.tag + '<br>' + s.info);
+  });
+
+  map.fitBounds(latlngs, { padding: [30, 30] });
+</script>
+<style>
+  .route-tooltip { background: var(--paper, #faf6f0); border: 1px solid rgba(46,58,50,0.25); font-family: 'Work Sans', sans-serif; font-size: 12px; padding: 2px 6px; border-radius: 4px; box-shadow: none; }
+</style>
 </body>
 </html>
