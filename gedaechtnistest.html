@@ -29,7 +29,9 @@
   .diary-form input, .diary-form select, .diary-form textarea {
     width: 100%; padding: 9px 12px; border: 1px solid rgba(46,58,50,0.25); border-radius: 6px;
     font-family: 'Work Sans', sans-serif; font-size: 15px; background: #fff; box-sizing: border-box;
+    -webkit-appearance: none; appearance: none; min-width: 0; display: block;
   }
+  .diary-form input[type="date"] { max-width: 100%; }
   .diary-form textarea { min-height: 70px; resize: vertical; }
   .diary-add-btn, .diary-action-btn {
     padding: 10px 20px; border-radius: 6px; border: none; font-size: 14px; cursor: pointer;
