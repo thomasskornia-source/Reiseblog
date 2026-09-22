@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fremdbeurteilung Alltagsveränderungen – Andrea unterwegs</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .subhead { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 32px 0 8px; }
+  .note-box { background: var(--paper-warm); border-radius: 8px; padding: 18px 22px; margin: 16px 0; font-size: 15px; }
+  .ad8-item { border-bottom: 1px solid rgba(46,58,50,0.12); padding: 16px 0; }
+  .ad8-item:last-child { border-bottom: none; }
+  .ad8-question { font-size: 15px; margin-bottom: 10px; }
+  .ad8-options { display: flex; gap: 10px; flex-wrap: wrap; }
+  .ad8-options label { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1px solid rgba(46,58,50,0.2); border-radius: 999px; font-size: 14px; cursor: pointer; }
+  .ad8-options input { accent-color: var(--rust); }
+  .ad8-result { margin-top: 20px; padding: 18px 22px; border-radius: 8px; font-size: 15px; }
+  .ad8-result.low { background: rgba(107,142,107,0.12); border: 1px solid rgba(107,142,107,0.3); }
+  .ad8-result.high { background: rgba(197,92,60,0.1); border: 1px solid rgba(197,92,60,0.3); }
+  .checklist { padding-left: 20px; }
+  .checklist li { margin-bottom: 8px; }
+  .diary-form { display: grid; gap: 12px; margin: 16px 0; }
+  .diary-form label { font-size: 13px; color: var(--ink-soft); display: block; margin-bottom: 4px; }
+  .diary-form input, .diary-form select, .diary-form textarea {
+    width: 100%; padding: 9px 12px; border: 1px solid rgba(46,58,50,0.25); border-radius: 6px;
+    font-family: 'Work Sans', sans-serif; font-size: 15px; background: #fff; box-sizing: border-box;
+  }
+  .diary-form textarea { min-height: 70px; resize: vertical; }
+  .diary-add-btn, .diary-action-btn {
+    padding: 10px 20px; border-radius: 6px; border: none; font-size: 14px; cursor: pointer;
+    font-family: 'Work Sans', sans-serif;
+  }
+  .diary-add-btn { background: var(--rust); color: #fff; }
+  .diary-action-btn { background: transparent; border: 1px solid rgba(46,58,50,0.25); color: var(--ink-soft); }
+  .diary-actions { display: flex; gap: 10px; margin: 14px 0; flex-wrap: wrap; }
+  .diary-entry { border: 1px solid rgba(46,58,50,0.15); border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+  .diary-entry-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px; }
+  .diary-entry-date { font-family: 'Work Sans', sans-serif; font-size: 13px; color: var(--ink-soft); }
+  .diary-entry-cat { font-size: 13px; background: var(--paper-warm); padding: 2px 10px; border-radius: 999px; }
+  .diary-entry-del { background: none; border: none; color: var(--ink-soft); cursor: pointer; font-size: 13px; text-decoration: underline; }
+  .diary-empty { color: var(--ink-soft); font-size: 14px; font-style: italic; }
+  @media print {
+    .no-print { display: none !important; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link no-print" href="index.html">← Zur Übersicht</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Familie &amp; Vorsorge</p>
+      <h1>Fremdbeurteilung Alltagsveränderungen</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="entry-body">
+      <p>Angehörige können keine Diagnose stellen – auch keine Erstdiagnose. Ein formeller Test am Küchentisch unter "Prüfungsbedingungen" erzeugt bei Betroffenen meist Stress, Scham oder Abwehr und verfälscht das Ergebnis. Sinnvoll und treffsicher sind stattdessen Fremdbeurteilungs-Fragebögen, die Sie als Angehörige alleine ausfüllen, sowie die strukturierte Dokumentation von Alltagsveränderungen. Diese Seite ist ein Hilfsmittel für das Gespräch mit der Hausarztpraxis – kein Diagnosewerkzeug.</p>
+    </div>
+
+    <h2 class="subhead">AD8 – Fremdbeurteilungsbogen</h2>
+    <div class="note-box">
+      <p style="margin-bottom:0;">8 Fragen zu Veränderungen der letzten Jahre. Füllen Sie den Bogen alleine aus, ohne die betroffene Person einer Testsituation auszusetzen. Ab 2 Auffälligkeiten ("Ja") wird eine medizinische Abklärung empfohlen.</p>
+    </div>
+
+    <div id="ad8-form">
+      <div class="ad8-item" data-index="0">
+        <p class="ad8-question">1. Nachlassendes Urteilsvermögen (z.B. bei finanziellen Entscheidungen, Geschenken, riskanten Angeboten)?</p>
+        <div class="ad8-options">
+          <label><input type="radio" name="q0" value="1"> Ja</label>
+          <label><input type="radio" name="q0" value="0"> Nein</label>
+          <label><input type="radio" name="q0" value="0"> Weiß nicht</label>
+        </div>
+      </div>
+      <div class="ad8-item" data-index="1">
+        <p class="ad8-question">2. Vermindertes Interesse an Hobbys/Aktivitäten?</p>
+        <div class="ad8-options">
+          <label><input type="radio" name="q1" value="1"> Ja</label>
+          <label><input type="radio" name="q1" value="0"> Nein</label>
+          <label><input type="radio" name="q1" value="0"> Weiß nicht</label>
+        </div>
+      </div>
+      <div class="ad8-item" data-index="2">
+        <p class="ad8-question">3. Wiederholt dieselben Dinge (Fragen, Geschichten, Aussagen)?</p>
+        <div class="ad8-options">
+          <label><input type="radio" name="q2" value="1"> Ja</label>
+          <label><input type="radio" name="q2" value="0"> Nein</label>
+          <label><input type="radio" name="q2" value="0"> Weiß nicht</label>
+        </div>
+      </div>
+      <div class="ad8-item" data-index="3">
+        <p class="ad8-question">4. Schwierigkeiten beim Erlernen des Umgangs mit einem Gerät (Fernbedienung, Herd, Handy)?</p>
+        <div class="ad8-options">
+          <label><input type="radio" name="q3" value="1"> Ja</label>
+          <label><input type="radio" name="q3" value="0"> Nein</label>
+          <label><input type="radio" name="q3" value="0"> Weiß nicht</label>
+        </div>
+      </div>
+      <div class="ad8-item" data-index="4">
+        <p class="ad8-question">5. Vergisst das korrekte Monat oder Jahr?</p>
+        <div class="ad8-options">
+          <label><input type="radio" name="q4" value="1"> Ja</label>
+          <label><input type="radio" name="q4" value="0"> Nein</label>
+          <label><input type="radio" name="q4" value="0"> Weiß nicht</label>
+        </div>
+      </div>
+      <div class="ad8-item" data-index="5">
+        <p class="ad8-question">6. Schwierigkeiten, komplizierte finanzielle Angelegenheiten selbst zu regeln (z.B. Kontoauszüge, Steuererklärung)?</p>
+        <div class="ad8-options">
+          <label><input type="radio" name="q5" value="1"> Ja</label>
+          <label><input type="radio" name="q5" value="0"> Nein</label>
+          <label><input type="radio" name="q5" value="0"> Weiß nicht</label>
+        </div>
+      </div>
+      <div class="ad8-item" data-index="6">
+        <p class="ad8-question">7. Schwierigkeiten, sich Verabredungen/Termine zu merken?</p>
+        <div class="ad8-options">
+          <label><input type="radio" name="q6" value="1"> Ja</label>
+          <label><input type="radio" name="q6" value="0"> Nein</label>
+          <label><input type="radio" name="q6" value="0"> Weiß nicht</label>
+        </div>
+      </div>
+      <div class="ad8-item" data-index="7">
+        <p class="ad8-question">8. Tägliche Probleme mit Denkvermögen und/oder Gedächtnis?</p>
+        <div class="ad8-options">
+          <label><input type="radio" name="q7" value="1"> Ja</label>
+          <label><input type="radio" name="q7" value="0"> Nein</label>
+          <label><input type="radio" name="q7" value="0"> Weiß nicht</label>
+        </div>
+      </div>
+    </div>
+    <div id="ad8-result" class="ad8-result" style="display:none;"></div>
+
+    <h2 class="subhead">Uhren-Zeichen-Test</h2>
+    <div class="entry-body">
+      <p>Nur wenn die Person kooperativ ist und sich nicht unter Druck gesetzt fühlt – beiläufig einbauen, nicht als "Test" ankündigen.</p>
+    </div>
+    <p><strong>Ablauf:</strong> Leeres Blatt Papier und Stift geben. Bitten, das Zifferblatt einer Uhr mit allen Zahlen zu zeichnen und die Zeiger auf 11:10 Uhr zu stellen.</p>
+    <p><strong>Worauf achten:</strong></p>
+    <ul class="checklist">
+      <li>Werden Zahlen ausgelassen oder doppelt gezeichnet?</li>
+      <li>Sind die Zahlen falsch platziert oder außerhalb des Kreises?</li>
+      <li>Sind Stunden- und Minutenzeiger vertauscht oder falsch lang?</li>
+      <li>Zeigen die Zeiger nicht auf 11 und 2 (für 11:10 Uhr)?</li>
+    </ul>
+    <p style="font-size:14px; color: var(--ink-soft);">Der Test prüft visuell-erfassende Fähigkeiten, Gedächtnis und Handlungsplanung. Ein auffälliges Ergebnis ist kein Beweis, aber ein weiterer Baustein für das Arztgespräch.</p>
+
+    <h2 class="subhead">Gedächtnistagebuch</h2>
+    <div class="note-box">
+      <p style="margin-bottom:0;">Notieren Sie konkrete Vorfälle über 2–4 Wochen mit Datum. Für den Arzt sind solche Beobachtungen extrem wertvoll. Die Einträge werden nur auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <div class="diary-form">
+      <div>
+        <label for="diary-date">Datum</label>
+        <input type="date" id="diary-date">
+      </div>
+      <div>
+        <label for="diary-cat">Kategorie</label>
+        <select id="diary-cat">
+          <option value="Alltagsaufgaben">Komplexere Alltagsaufgaben (Haushaltsbuch, Medikamente, Kochen)</option>
+          <option value="Orientierung">Orientierung (Wege, Termine, Wochentage)</option>
+          <option value="Sprache">Sprachliche Muster (Wortfindung, Füllwörter)</option>
+          <option value="Verhalten">Verhaltensänderungen (Rückzug, Misstrauen, Passivität)</option>
+          <option value="Sonstiges">Sonstiges</option>
+        </select>
+      </div>
+      <div>
+        <label for="diary-note">Beobachtung</label>
+        <textarea id="diary-note" placeholder="Was genau ist passiert?"></textarea>
+      </div>
+      <button class="diary-add-btn no-print" onclick="addDiaryEntry()">Eintrag speichern</button>
+    </div>
+
+    <div class="diary-actions no-print">
+      <button class="diary-action-btn" onclick="window.print()">Drucken / als PDF exportieren</button>
+      <button class="diary-action-btn" onclick="clearDiary()">Alle Einträge löschen</button>
+    </div>
+
+    <div id="diary-list"></div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 24px;">Mit ausgefülltem AD8-Bogen und den Tagebuch-Notizen können Sie sich direkt an die Hausarztpraxis wenden, um dort die weiteren medizinischen Schritte einzuleiten.</p>
+
+  </article>
+
+  <footer class="site-footer no-print">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+
+<script>
+  // AD8 auswertung
+  function evaluateAD8() {
+    var total = 0;
+    var answered = 0;
+    for (var i = 0; i < 8; i++) {
+      var checked = document.querySelector('input[name="q' + i + '"]:checked');
+      if (checked) {
+        answered++;
+        total += parseInt(checked.value, 10);
+      }
+    }
+    var resultEl = document.getElementById('ad8-result');
+    if (answered === 0) { resultEl.style.display = 'none'; return; }
+    resultEl.style.display = 'block';
+    if (total >= 2) {
+      resultEl.className = 'ad8-result high';
+      resultEl.innerHTML = '<strong>' + total + ' von 8 Auffälligkeiten' + (answered < 8 ? ' (' + answered + ' von 8 beantwortet)' : '') + '.</strong><br>Ab 2 Auffälligkeiten wird eine medizinische Abklärung empfohlen – mit diesem Ergebnis und den Tagebuch-Notizen an die Hausarztpraxis wenden.';
+    } else {
+      resultEl.className = 'ad8-result low';
+      resultEl.innerHTML = '<strong>' + total + ' von 8 Auffälligkeiten' + (answered < 8 ? ' (' + answered + ' von 8 beantwortet)' : '') + '.</strong><br>Aktuell unterhalb der Schwelle, ab der eine Abklärung empfohlen wird. Bei fortbestehender Sorge trotzdem das Gespräch mit der Hausarztpraxis suchen.';
+    }
+  }
+  document.querySelectorAll('#ad8-form input[type="radio"]').forEach(function(el) {
+    el.addEventListener('change', evaluateAD8);
+  });
+
+  // Gedächtnistagebuch mit localStorage
+  var DIARY_KEY = 'gedaechtnistagebuch-eintraege';
+
+  function loadDiary() {
+    try {
+      return JSON.parse(localStorage.getItem(DIARY_KEY)) || [];
+    } catch (e) { return []; }
+  }
+
+  function saveDiary(entries) {
+    try { localStorage.setItem(DIARY_KEY, JSON.stringify(entries)); } catch (e) {}
+  }
+
+  function renderDiary() {
+    var entries = loadDiary();
+    var listEl = document.getElementById('diary-list');
+    if (entries.length === 0) {
+      listEl.innerHTML = '<p class="diary-empty">Noch keine Einträge.</p>';
+      return;
+    }
+    entries.sort(function(a, b) { return (b.date || '').localeCompare(a.date || ''); });
+    listEl.innerHTML = entries.map(function(e, idx) {
+      var dateDisplay = e.date ? new Date(e.date + 'T00:00:00').toLocaleDateString('de-DE') : '(ohne Datum)';
+      return '<div class="diary-entry">' +
+        '<div class="diary-entry-head">' +
+          '<span class="diary-entry-date">' + dateDisplay + '</span>' +
+          '<span class="diary-entry-cat">' + e.category + '</span>' +
+        '</div>' +
+        '<p style="margin:0;">' + escapeHtml(e.note) + '</p>' +
+        '<button class="diary-entry-del no-print" onclick="deleteDiaryEntry(' + e.id + ')">Löschen</button>' +
+      '</div>';
+    }).join('');
+  }
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function addDiaryEntry() {
+    var date = document.getElementById('diary-date').value;
+    var category = document.getElementById('diary-cat').value;
+    var note = document.getElementById('diary-note').value.trim();
+    if (!note) { alert('Bitte eine Beobachtung eintragen.'); return; }
+    var entries = loadDiary();
+    entries.push({ id: Date.now(), date: date, category: category, note: note });
+    saveDiary(entries);
+    document.getElementById('diary-note').value = '';
+    renderDiary();
+  }
+
+  function deleteDiaryEntry(id) {
+    var entries = loadDiary().filter(function(e) { return e.id !== id; });
+    saveDiary(entries);
+    renderDiary();
+  }
+
+  function clearDiary() {
+    if (confirm('Wirklich alle Tagebuch-Einträge auf diesem Gerät löschen?')) {
+      saveDiary([]);
+      renderDiary();
+    }
+  }
+
+  renderDiary();
+</script>
+
+</body>
+</html>
