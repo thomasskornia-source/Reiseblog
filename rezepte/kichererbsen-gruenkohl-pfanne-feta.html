@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mediterrane Kichererbsen-Grünkohl-Pfanne – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Hauptgericht</p>
+      <h1>Mediterrane Kichererbsen-Grünkohl-Pfanne mit Feta</h1> <span class="ampel-dot-inline" title="Grün"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 25 Min.</span>
+      <span>🍽 2 Portionen</span>
+      <span>🌿 Viel Gemüse, pflanzliches + moderates Milchprotein, Olivenöl</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Eine schnelle Pfanne nach mediterranem Muster: Kichererbsen und Grünkohl liefern reichlich Ballaststoffe, Olivenöl und Walnüsse die ungesättigten Fette und Pflanzensterine, Feta rundet mit Protein und Calcium ab. Passt gut zu den LDL-Empfehlungen auf der Ernährungsseite – deutlich mehr pflanzliches als tierisches Fett, dazu ein guter Ballaststoff-Beitrag pro Portion.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten (2 Personen)</h3>
+      <ul>
+        <li>2 Dosen Kichererbsen (ca. 480 g Abtropfgewicht)</li>
+        <li>200 g Grünkohl, geputzt (ersatzweise Cavolo Nero oder Mangold)</li>
+        <li>250 g Kirschtomaten</li>
+        <li>2 Knoblauchzehen</li>
+        <li>1 rote Zwiebel</li>
+        <li>3 EL Olivenöl</li>
+        <li>1 TL geräuchertes Paprikapulver</li>
+        <li>150 g Feta</li>
+        <li>30 g Walnusskerne</li>
+        <li>Saft von ½ Zitrone</li>
+        <li>Salz, Pfeffer</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Kichererbsen abgießen, abspülen und gut abtropfen lassen. Grünkohl von harten Stielen befreien und grob zerkleinern. Kirschtomaten halbieren. Zwiebel und Knoblauch fein hacken.</li>
+        <li>2 EL Olivenöl in einer großen Pfanne erhitzen. Zwiebel und Knoblauch darin 2–3 Minuten andünsten, bis sie glasig sind.</li>
+        <li>Kichererbsen und Paprikapulver dazugeben, mit Salz und Pfeffer würzen und 5 Minuten mitbraten, bis die Kichererbsen leicht Farbe bekommen.</li>
+        <li>Grünkohl und Kirschtomaten unterheben und weitere 5–6 Minuten schmoren, bis der Grünkohl zusammenfällt und die Tomaten aufplatzen.</li>
+        <li>Walnüsse grob hacken und trocken in einer kleinen Pfanne 2 Minuten anrösten.</li>
+        <li>Zitronensaft und restliches Olivenöl über die Pfanne geben, abschmecken. Feta darüber bröckeln, mit den gerösteten Walnüssen bestreuen und sofort servieren.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Eigene Zusammenstellung nach den Prinzipien der mediterranen Küche.</p>
+
+    <div class="rating-block" data-recipe="kichererbsen-gruenkohl-pfanne-feta">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('kichererbsen-gruenkohl-pfanne-feta','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('kichererbsen-gruenkohl-pfanne-feta','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-kichererbsen-gruenkohl-pfanne-feta');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>

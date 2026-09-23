@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Makrele mit weißen Bohnen und Rucola-Salat – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Hauptgericht</p>
+      <h1>Makrele mit weißen Bohnen und Rucola-Salat</h1> <span class="ampel-dot-inline" title="Grün"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 20 Min.</span>
+      <span>🍽 2 Portionen</span>
+      <span>🐟 Omega-3-reicher Fisch, viel Ballaststoffe, ohne Kochen</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Ein schnelles, kaltes Gericht ohne Herd: Makrele liefert hochwertiges Protein und reichlich Omega-3-Fettsäuren, weiße Bohnen tragen Ballaststoffe und pflanzliches Protein bei, Olivenöl und Zitrone machen ein frisches Dressing. Genau die Kombination aus ungesättigten Fetten, magerem/fettem Fisch und Hülsenfrüchten, die auf der Ernährungsseite für die LDL-Senkung empfohlen wird.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten (2 Personen)</h3>
+      <ul>
+        <li>2 Makrelenfilets (küchenfertig, z.B. geräuchert oder aus der Dose in eigenem Saft)</li>
+        <li>1 Dose weiße Bohnen (ca. 240 g Abtropfgewicht)</li>
+        <li>80 g Rucola</li>
+        <li>150 g Kirschtomaten</li>
+        <li>½ rote Zwiebel</li>
+        <li>3 EL Olivenöl</li>
+        <li>Saft von 1 Zitrone</li>
+        <li>1 TL Dijon-Senf</li>
+        <li>Salz, Pfeffer</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Weiße Bohnen abgießen, abspülen und gut abtropfen lassen. Kirschtomaten halbieren. Zwiebel in feine Ringe schneiden.</li>
+        <li>Für das Dressing Olivenöl, Zitronensaft und Senf verrühren, mit Salz und Pfeffer abschmecken.</li>
+        <li>Rucola, weiße Bohnen, Kirschtomaten und Zwiebelringe in einer großen Schüssel vermengen und mit dem Dressing vorsichtig durchmischen.</li>
+        <li>Makrelenfilets in mundgerechte Stücke zupfen bzw. schneiden.</li>
+        <li>Den Salat auf zwei Tellern anrichten und die Makrelenstücke obenauf verteilen. Sofort servieren, solange der Rucola noch knackig ist.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Eigene Zusammenstellung nach den Prinzipien der mediterranen Küche.</p>
+
+    <div class="rating-block" data-recipe="makrele-weisse-bohnen-rucola-salat">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('makrele-weisse-bohnen-rucola-salat','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('makrele-weisse-bohnen-rucola-salat','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-makrele-weisse-bohnen-rucola-salat');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
