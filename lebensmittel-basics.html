@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basis-Lebensmittel für den Alltag – Andrea unterwegs</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .subhead { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 32px 0 8px; }
+  .entry-body ul { padding-left: 20px; }
+  .entry-body li { margin-bottom: 8px; }
+  .callout { background: var(--paper-warm); border-left: 3px solid var(--rust); padding: 14px 18px; margin: 20px 0; border-radius: 4px; font-size: 15px; }
+  .disclaimer { font-size: 13px; color: var(--ink-soft); margin-top: 32px; border-top: 1px solid rgba(46,58,50,0.12); padding-top: 16px; }
+
+  /* Pyramide */
+  .pyramide { margin: 20px 0 28px; }
+  .pyr-stufe { display: flex; align-items: center; gap: 14px; padding: 10px 16px; margin: 0 auto 3px; border-radius: 6px; color: var(--paper); font-size: 14px; }
+  .pyr-stufe .pyr-label { font-weight: 600; font-family: 'Fraunces', serif; font-size: 15px; }
+  .pyr-stufe .pyr-desc { color: rgba(250,243,232,0.9); }
+  .pyr-1 { width: 100%; background: #4c9a4c; }
+  .pyr-2 { width: 90%; background: #6a9a5c; }
+  .pyr-3 { width: 75%; background: var(--sage); }
+  .pyr-4 { width: 58%; background: var(--gold); }
+  .pyr-5 { width: 40%; background: var(--rust); }
+
+  /* Vorrats-Karten */
+  .vorrat-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 16px 0 24px; }
+  .vorrat-card { background: var(--paper-warm); border-radius: 8px; padding: 16px 20px; }
+  .vorrat-card h3 { font-family: 'Fraunces', serif; font-size: 17px; margin: 0 0 8px; color: var(--rust); }
+  .vorrat-card p { font-size: 14.5px; margin: 0; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="ernaehrung.html">← Zur Ernährungsseite</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Ernährung · Grundlagen</p>
+      <h1>Basis-Lebensmittel für den Alltag</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="entry-body">
+      <p>Keine Theorie für den Ernährungsberater, sondern eine kurze, alltagstaugliche Orientierung: Was sollte eigentlich immer im Haus sein, damit gesundes Kochen nicht an fehlenden Zutaten scheitert? Ohne exotische Sonderzutaten – mit dem, was auch in den <a href="rezepte.html">Rezepten</a> hier tatsächlich verwendet wird.</p>
+    </div>
+
+    <h2 class="subhead">Die Lebensmittelpyramide als grobe Orientierung</h2>
+    <div class="entry-body">
+      <p>Die Pyramide zeigt nicht, was verboten ist, sondern in welchem <em>Mengenverhältnis</em> die Lebensmittelgruppen sinnvoll sind: unten viel und häufig, oben wenig und selten.</p>
+    </div>
+
+    <div class="pyramide">
+      <div class="pyr-stufe pyr-1">
+        <span class="pyr-label">1. Getränke</span>
+        <span class="pyr-desc">– Wasser, ungesüßter Tee: die Basis, reichlich</span>
+      </div>
+      <div class="pyr-stufe pyr-2">
+        <span class="pyr-label">2. Gemüse & Obst</span>
+        <span class="pyr-desc">– 5 Portionen/Tag, möglichst bunt</span>
+      </div>
+      <div class="pyr-stufe pyr-3">
+        <span class="pyr-label">3. Getreide & Kartoffeln</span>
+        <span class="pyr-desc">– möglichst Vollkorn</span>
+      </div>
+      <div class="pyr-stufe pyr-4">
+        <span class="pyr-label">4. Milch, Eiweiß & Fette</span>
+        <span class="pyr-desc">– in Maßen, pflanzliche Fette bevorzugen</span>
+      </div>
+      <div class="pyr-stufe pyr-5">
+        <span class="pyr-label">5. Süßes & Snacks</span>
+        <span class="pyr-desc">– die Spitze: bewusst und selten</span>
+      </div>
+    </div>
+
+    <div class="callout">
+      Praktische Faustregel aus der Pyramide: Bei jeder Mahlzeit sollte die Hälfte des Tellers Gemüse oder Obst sein – der Rest teilt sich auf Vollkorn/Kartoffeln und Eiweißquelle auf. Das deckt sich mit dem <a href="ernaehrung.html">Teller-Prinzip zur LDL-Senkung</a>.
+    </div>
+
+    <h2 class="subhead">Die Basis-Ausstattung, die immer da sein sollte</h2>
+    <div class="entry-body">
+      <p>Mit diesen Zutaten lässt sich fast jedes gesunde Rezept hier spontan kochen, ohne extra einkaufen zu müssen.</p>
+    </div>
+
+    <div class="vorrat-grid">
+      <div class="vorrat-card">
+        <h3>🥫 Trockenvorrat & Dosen</h3>
+        <p>Haferflocken, Haferkleie, Vollkornreis, Vollkornnudeln, Linsen und Kichererbsen (Glas oder Dose – genauso wertvoll wie getrocknet, aber ohne Einweichzeit), weiße Bohnen, Flohsamenschalen, Zwiebeln, Knoblauch.</p>
+      </div>
+      <div class="vorrat-card">
+        <h3>🧊 Tiefkühlfach</h3>
+        <p>Tiefkühlgemüse (z. B. Brokkoli, Erbsen, Spinat – genauso nährstoffreich wie frisch), Tiefkühlbeeren, ein Filet Lachs oder Makrele als Reserve.</p>
+      </div>
+      <div class="vorrat-card">
+        <h3>🥛 Kühlschrank</h3>
+        <p>Eier, Skyr oder Magerquark, ein milder Käse, frisches Gemüse der Saison, Zitrone oder Limette.</p>
+      </div>
+      <div class="vorrat-card">
+        <h3>🫒 Öle, Nüsse & Gewürze</h3>
+        <p>Olivenöl und Rapsöl, eine Handvoll Walnüsse und Mandeln, Leinsamen (frisch geschrotet wirkt am besten), Kürbis- oder Sonnenblumenkerne, Salz, Pfeffer, Paprika, Kreuzkümmel.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      Wer diese vier Kategorien im Haus hat, kommt bei den meisten <a href="rezepte.html">Rezepten hier</a> ohne Extra-Einkauf aus – ideal für spontane ⚡ Blitzgerichte an stressigen Tagen.
+    </div>
+
+    <h2 class="subhead">Drei Grundsätze statt vieler Regeln</h2>
+    <div class="entry-body">
+      <ul>
+        <li><strong>Vollkorn statt Weißmehl</strong> – bei Reis, Nudeln und Brot bringt das automatisch mehr Ballaststoffe, ohne dass sich am Rezept viel ändert.</li>
+        <li><strong>Öfter Hülsenfrüchte, seltener rotes Fleisch</strong> – Dosen-Kichererbsen oder -Linsen sind genauso schnell fertig wie Hackfleisch anzubraten.</li>
+        <li><strong>Eine Handvoll Nüsse oder Kerne pro Tag</strong> – roh als Snack oder übers Essen gestreut, statt als separates "Extra".</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center; margin: 32px 0;">
+      <a class="back-link" href="rezepte.html">→ Passende Rezepte ansehen</a>
+    </p>
+
+    <p class="disclaimer">
+      Quellen: Deutsche Gesellschaft für Ernährung (DGE) – <a href="https://www.dge.de/gesunde-ernaehrung/gut-essen-und-trinken/dge-empfehlungen/" target="_blank" rel="noopener">DGE-Ernährungskreis & Empfehlungen</a>; aid/BLE – <a href="https://www.bzfe.de" target="_blank" rel="noopener">Bundeszentrum für Ernährung, dreidimensionale Lebensmittelpyramide</a>. Diese Seite fasst allgemeine, gut belegte Ernährungsprinzipien vereinfacht zusammen und ersetzt keine individuelle ärztliche oder ernährungsmedizinische Beratung.
+    </p>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>

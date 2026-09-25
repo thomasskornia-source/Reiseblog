@@ -17,6 +17,8 @@
   .ampel-btn.gruen { background: #4c9a4c; }
   .ampel-btn.gelb { background: #e0b83c; }
   .ampel-btn.rot { background: #c0392b; }
+  .blitz-btn { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 16px; border-radius: 20px; border: 1.5px solid var(--ink); background: transparent; font-family: 'Work Sans', sans-serif; font-size: 14px; color: var(--ink); cursor: pointer; opacity: 0.65; }
+  .blitz-btn.active { opacity: 1; background: var(--rust); border-color: var(--rust); color: var(--paper); }
   .search-field { width: 100%; box-sizing: border-box; font-family: 'Work Sans', sans-serif; font-size: 16px; padding: 12px 16px; border: 1px solid rgba(46,58,50,0.3); border-radius: 24px; margin: 4px 0 20px; }
   .entry-preview.hidden { display: none; }
   .entry-preview { position: relative; }
@@ -24,6 +26,7 @@
   .ampel-dot.gruen { background: #4c9a4c; }
   .ampel-dot.gelb { background: #e0b83c; }
   .ampel-dot.rot { background: #c0392b; }
+  .blitz-tag { color: var(--rust); font-weight: 600; }
   .no-results { font-size: 14px; color: var(--ink-soft); display: none; margin: 10px 0; }
 </style>
 </head>
@@ -47,22 +50,24 @@
       <button class="ampel-btn gruen" data-filter="gruen" onclick="toggleAmpel('gruen', this)" aria-label="Grün"></button>
       <button class="ampel-btn gelb" data-filter="gelb" onclick="toggleAmpel('gelb', this)" aria-label="Gelb"></button>
       <button class="ampel-btn rot" data-filter="rot" onclick="toggleAmpel('rot', this)" aria-label="Rot"></button>
+      <button class="blitz-btn" data-filter="blitz" onclick="toggleBlitz(this)" aria-label="Blitzgerichte">⚡ Blitzgerichte</button>
     </div>
+    <p style="font-size: 13px; color: var(--ink-soft); margin: -12px 0 16px;">Blitzgerichte: in max. 30 Minuten fertig, ohne ausgefallene Zutaten.</p>
     <input type="search" class="search-field" id="rezept-suche" placeholder="Rezept suchen ..." oninput="applyFilters()">
   </article>
 
   <main class="entry-list">
 
-    <a class="entry-preview" data-ampel="gruen" href="rezepte/haferkleie-porridge.html">
+    <a class="entry-preview" data-ampel="gruen" data-blitz="true" href="rezepte/haferkleie-porridge.html">
       <span class="ampel-dot gruen"></span>
-      <p class="date">Frühstück</p>
+      <p class="date">Frühstück · <span class="blitz-tag">⚡ Blitzgericht</span></p>
       <h2>Haferkleie-Porridge mit Leinsamen und Beeren</h2>
       <p>Beta-Glucan, Omega-3 und Antioxidantien zum Start in den Tag ...</p>
     </a>
 
-    <a class="entry-preview" data-ampel="gruen" href="rezepte/linsen-curry.html">
+    <a class="entry-preview" data-ampel="gruen" data-blitz="true" href="rezepte/linsen-curry.html">
       <span class="ampel-dot gruen"></span>
-      <p class="date">Mittagessen</p>
+      <p class="date">Mittagessen · <span class="blitz-tag">⚡ Blitzgericht</span></p>
       <h2>Rotes Linsen-Curry mit Vollkornreis</h2>
       <p>Pflanzliches Protein und lösliche Ballaststoffe statt rotem Fleisch ...</p>
     </a>
@@ -81,23 +86,23 @@
       <p>Heimische Huelsenfrucht als cremiger Aufstrich, mit Rucola und Mandelsplitter ...</p>
     </a>
 
-    <a class="entry-preview" data-ampel="gruen" href="rezepte/udon-spargel-stirfry.html">
+    <a class="entry-preview" data-ampel="gruen" data-blitz="true" href="rezepte/udon-spargel-stirfry.html">
       <span class="ampel-dot gruen"></span>
-      <p class="date">Abends</p>
+      <p class="date">Abends · <span class="blitz-tag">⚡ Blitzgericht</span></p>
       <h2>Udon-Nudeln Stir-fry mit grünem Spargel</h2>
       <p>Buntes Gemuese, wuerzige Sauce, in 30 Minuten fertig ...</p>
     </a>
 
-    <a class="entry-preview" data-ampel="gruen" href="rezepte/skyr-bowl-walnuss.html">
+    <a class="entry-preview" data-ampel="gruen" data-blitz="true" href="rezepte/skyr-bowl-walnuss.html">
       <span class="ampel-dot gruen"></span>
-      <p class="date">Frühstück</p>
+      <p class="date">Frühstück · <span class="blitz-tag">⚡ Blitzgericht</span></p>
       <h2>Skyr-Bowl mit Walnüssen, Leinsamen und Beeren</h2>
       <p>Ca. 28 g Protein, Omega-3 und Antioxidantien in 5 Minuten ...</p>
     </a>
 
-    <a class="entry-preview" data-ampel="gruen" href="rezepte/fusilli-brokkoli-walnuss-pesto.html">
+    <a class="entry-preview" data-ampel="gruen" data-blitz="true" href="rezepte/fusilli-brokkoli-walnuss-pesto.html">
       <span class="ampel-dot gruen"></span>
-      <p class="date">Mittagessen</p>
+      <p class="date">Mittagessen · <span class="blitz-tag">⚡ Blitzgericht</span></p>
       <h2>Vollkorn-Fusilli mit Brokkoli-Walnuss-Pesto und Kichererbsen</h2>
       <p>Pflanzensterine, Ballaststoffe und Pflanzenprotein in einer Schuessel ...</p>
     </a>
@@ -158,16 +163,16 @@
       <p>Wiener Klassiker mit Mandelblättchen, karamellisiert, dazu selbstgemachtes Apfelmus ...</p>
     </a>
 
-    <a class="entry-preview" data-ampel="gruen" href="rezepte/kichererbsen-gruenkohl-pfanne-feta.html">
+    <a class="entry-preview" data-ampel="gruen" data-blitz="true" href="rezepte/kichererbsen-gruenkohl-pfanne-feta.html">
       <span class="ampel-dot gruen"></span>
-      <p class="date">Hauptgericht</p>
+      <p class="date">Hauptgericht · <span class="blitz-tag">⚡ Blitzgericht</span></p>
       <h2>Mediterrane Kichererbsen-Grünkohl-Pfanne mit Feta</h2>
       <p>Kichererbsen und Grünkohl für Ballaststoffe, Olivenöl und Walnüsse für gute Fette ...</p>
     </a>
 
-    <a class="entry-preview" data-ampel="gruen" href="rezepte/makrele-weisse-bohnen-rucola-salat.html">
+    <a class="entry-preview" data-ampel="gruen" data-blitz="true" href="rezepte/makrele-weisse-bohnen-rucola-salat.html">
       <span class="ampel-dot gruen"></span>
-      <p class="date">Hauptgericht</p>
+      <p class="date">Hauptgericht · <span class="blitz-tag">⚡ Blitzgericht</span></p>
       <h2>Makrele mit weißen Bohnen und Rucola-Salat</h2>
       <p>Omega-3-reicher Fisch trifft auf ballaststoffreiche weiße Bohnen, ganz ohne Kochen ...</p>
     </a>
@@ -186,6 +191,7 @@
 
 <script>
   var activeAmpel = null;
+  var activeBlitz = false;
 
   function toggleAmpel(val, btn) {
     if (activeAmpel === val) {
@@ -199,14 +205,21 @@
     applyFilters();
   }
 
+  function toggleBlitz(btn) {
+    activeBlitz = !activeBlitz;
+    btn.classList.toggle('active', activeBlitz);
+    applyFilters();
+  }
+
   function applyFilters() {
     var query = document.getElementById('rezept-suche').value.trim().toLowerCase();
     var visibleCount = 0;
     document.querySelectorAll('.entry-preview').forEach(function(card) {
       var matchesAmpel = !activeAmpel || card.getAttribute('data-ampel') === activeAmpel;
+      var matchesBlitz = !activeBlitz || card.getAttribute('data-blitz') === 'true';
       var text = card.textContent.toLowerCase();
       var matchesSearch = !query || text.indexOf(query) !== -1;
-      var show = matchesAmpel && matchesSearch;
+      var show = matchesAmpel && matchesBlitz && matchesSearch;
       card.classList.toggle('hidden', !show);
       if (show) visibleCount++;
     });
