@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ofen-Kabeljau mit Kichererbsen und Tomaten – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .ampel-dot-inline { display:inline-block; width:12px; height:12px; border-radius:50%; background:#4c9a4c; margin-left:8px; vertical-align:middle; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Hauptgericht</p>
+      <h1>Ofen-Kabeljau mit Kichererbsen und Tomaten</h1> <span class="ampel-dot-inline" title="Grün"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 30 Min.</span>
+      <span>🍽 4 Portionen</span>
+      <span>🐟 Sehr fettarmer Fisch, Ballaststoffe und Pflanzenprotein aus Kichererbsen</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Kabeljau ist einer der fettärmsten Fische überhaupt und liefert fast ausschließlich mageres, hochwertiges Protein ohne relevante Mengen gesättigtes Fett. Zusammen mit Kichererbsen, Tomaten und einem großzügigen Schuss Olivenöl entsteht ein klassisch mediterranes, ballaststoffreiches Gericht – genau die Kombination aus der Ernährungsseite zur LDL-Senkung.</p>
+      <p style="margin-top:8px; font-size:14px; color: var(--ink-soft);">Nährwerte werden auf der Originalseite nicht angegeben. Schätzung pro Portion: ca. 28–32 g Protein (ca. 23 g aus dem Kabeljaufilet, ca. 7 g aus den Kichererbsen) und ca. 6–7 g Ballaststoffe, überwiegend aus den Kichererbsen.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten (4 Personen)</h3>
+      <ul>
+        <li>1 Knoblauchzehe, fein gewürfelt</li>
+        <li>1 rote Chilischote, fein gewürfelt</li>
+        <li>300 g Kirschtomaten, halbiert</li>
+        <li>400 g Kichererbsen (aus der Dose), abgetropft</li>
+        <li>3 EL Olivenöl</li>
+        <li>1 TL geräuchertes Paprikapulver</li>
+        <li>4 Kabeljaufilets (ca. 125 g pro Stück)</li>
+        <li>Salz und Pfeffer</li>
+        <li>Kleiner Bund glatte Petersilie, gehackt</li>
+        <li>Abgeriebene Schale von 1 Zitrone</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Ofen auf 180 °C (Umluft) vorheizen.</li>
+        <li>Knoblauch, Chili, Kirschtomaten und Kichererbsen in einer Auflaufform vermengen, mit Olivenöl und Paprikapulver übergießen und gut durchmischen.</li>
+        <li>10 Minuten im Ofen rösten.</li>
+        <li>Form herausnehmen, Kabeljaufilets obenauf legen, mit Salz und Pfeffer würzen.</li>
+        <li>Weitere 10–15 Minuten backen, bis der Fisch gar ist und sich leicht in Flocken teilen lässt.</li>
+        <li>Mit Petersilie und Zitronenschale bestreuen und servieren – passt zu Reis, frischem Brot oder pur als leichtere Variante.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept nach <a href="https://overcomingms.org/live-well/recipes/one-pan-cod-and-chickpea-bake" target="_blank" rel="noopener">Overcoming MS (nach Olive Magazine)</a>.</p>
+
+    <div class="rating-block" data-recipe="kabeljau-kichererbsen-ofenpfanne">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('kabeljau-kichererbsen-ofenpfanne','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('kabeljau-kichererbsen-ofenpfanne','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-kabeljau-kichererbsen-ofenpfanne');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
