@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puten-Bohnen-Chili mit Kichererbsen – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .ampel-dot-inline { display:inline-block; width:12px; height:12px; border-radius:50%; background:#4c9a4c; margin-left:8px; vertical-align:middle; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Hauptgericht</p>
+      <h1>Puten-Bohnen-Chili mit Kichererbsen</h1> <span class="ampel-dot-inline" title="Grün"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 20 Min.</span>
+      <span>🍽 4 Portionen</span>
+      <span>🦃 Mageres Putenfleisch plus zwei Hülsenfrüchte für Ballaststoffe</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Putenschnitzel ist eines der magersten Fleischsorten überhaupt und enthält kaum gesättigtes Fett – ein direkter Ersatz für rotes Fleisch. Kichererbsen und weiße Bohnen liefern zusätzlich lösliche Ballaststoffe und pflanzliches Protein, Tomaten und etwas Olivenöl sorgen für ein mediterranes Aroma. In 15–20 Minuten fertig und damit ein echtes Blitzgericht.</p>
+      <p style="margin-top:8px; font-size:14px; color: var(--ink-soft);">Nährwerte werden auf der Originalseite nicht angegeben. Schätzung pro Portion (bei 4 Portionen): ca. 30–34 g Protein (überwiegend aus der Pute, ergänzt durch die Hülsenfrüchte) und ca. 6–8 g Ballaststoffe.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten (4 Portionen)</h3>
+      <ul>
+        <li>400 g Putenschnitzel, in kleine Stücke geschnitten</li>
+        <li>1 Bund Frühlingszwiebeln, in Ringe geschnitten</li>
+        <li>1 Knoblauchzehe, fein gehackt</li>
+        <li>1 EL Olivenöl</li>
+        <li>2 EL Tomatenmark</li>
+        <li>1 Dose Kichererbsen, abgetropft</li>
+        <li>1 Dose weiße Bohnen, abgetropft</li>
+        <li>1 Packung passierte Tomaten (400 ml)</li>
+        <li>1 Dose gehackte Tomaten (425 ml)</li>
+        <li>½ TL Zucker</li>
+        <li>2 TL Kreuzkümmel</li>
+        <li>1 TL Pfeffer</li>
+        <li>Chiliflocken nach Geschmack</li>
+        <li>Gemüsebrühepulver zum Abschmecken</li>
+        <li>½ Bund Petersilie, gehackt</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Alle Zutaten abwiegen und bereitstellen. Kichererbsen und weiße Bohnen abspülen und abtropfen lassen.</li>
+        <li>Olivenöl in einem großen Topf erhitzen, Putenstücke darin scharf anbraten, dann Frühlingszwiebeln zugeben.</li>
+        <li>Tomatenmark in der Topfmitte kurz anrösten, Knoblauch mitdünsten.</li>
+        <li>Mit passierten und gehackten Tomaten ablöschen und gut verrühren.</li>
+        <li>Zucker, Kreuzkümmel, Pfeffer, Chiliflocken und Gemüsebrühepulver einrühren, aufkochen.</li>
+        <li>Kichererbsen und weiße Bohnen zugeben, 5–8 Minuten bei mittlerer Hitze köcheln lassen, bis die Pute durchgegart ist.</li>
+        <li>Mit Petersilie bestreut servieren, passt zu Reis oder Vollkornbrot.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept nach <a href="https://herzelieb.de/puten-chili-topf-rezept-bohnen-kichererbsen-schnell/" target="_blank" rel="noopener">herzelieb</a>.</p>
+
+    <div class="rating-block" data-recipe="puten-bohnen-chili">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('puten-bohnen-chili','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('puten-bohnen-chili','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-puten-bohnen-chili');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
