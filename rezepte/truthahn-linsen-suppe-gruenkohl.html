@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truthahn-Linsen-Suppe mit Grünkohl – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .ampel-dot-inline { display:inline-block; width:12px; height:12px; border-radius:50%; background:#4c9a4c; margin-left:8px; vertical-align:middle; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Hauptgericht</p>
+      <h1>Truthahn-Linsen-Suppe mit Grünkohl</h1> <span class="ampel-dot-inline" title="Grün"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 55 Min.</span>
+      <span>🍽 8 Portionen</span>
+      <span>🍲 34 g Protein und 10 g Ballaststoffe pro Portion</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Mageres Putenhack statt rotem Fleisch, dazu eine ganze Packung Linsen und Grünkohl: Diese Suppe bringt viel pflanzliches und tierisches Protein bei wenig gesättigtem Fett zusammen, während die Linsen kräftig zu den 35 g Ballaststoffen pro Tag beitragen. Tomaten, Olivenöl und Kräuter machen daraus ein mediterran angelehntes Gericht, das sich gut portionsweise vorkochen lässt.</p>
+      <p style="margin-top:8px; font-size:14px; color: var(--ink-soft);">Nährwerte laut Quelle pro Portion: 400 kcal, 34 g Eiweiß, 49 g Kohlenhydrate, 9 g Fett (davon 2,1 g gesättigt), 10 g Ballaststoffe.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten (8 Portionen)</h3>
+      <ul>
+        <li>1 EL Olivenöl</li>
+        <li>1 gelbe Zwiebel, gewürfelt</li>
+        <li>2 Karotten, gewürfelt</li>
+        <li>3 Stangen Staudensellerie, gewürfelt</li>
+        <li>4 Knoblauchzehen, gehackt</li>
+        <li>450 g mageres Putenhack</li>
+        <li>2 EL italienische Kräutermischung</li>
+        <li>1 TL Salz</li>
+        <li>½ TL schwarzer Pfeffer</li>
+        <li>450 g Linsen (getrocknet)</li>
+        <li>800 g passierte Tomaten (aus der Dose)</li>
+        <li>1,9 l Hühnerbrühe (fettarm, wenig Salz)</li>
+        <li>1 EL Balsamico-Essig</li>
+        <li>1 Lorbeerblatt</li>
+        <li>ca. 200 g Grünkohl, grob gehackt</li>
+        <li>geriebener Parmesan zum Garnieren (optional)</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Linsen abspülen und verlesen, dann beiseitestellen.</li>
+        <li>Olivenöl in einem großen Topf erhitzen und die Zwiebel darin 3–4 Minuten andünsten.</li>
+        <li>Putenhack mit den Gewürzen dazugeben und 2–3 Minuten anbraten, dann Sellerie, Karotten und Knoblauch zufügen und weitere 2–3 Minuten mitbraten.</li>
+        <li>Linsen, passierte Tomaten, Brühe, Lorbeerblatt und Balsamico-Essig einrühren. Bei mittlerer Hitze 30 Minuten köcheln lassen, gelegentlich umrühren.</li>
+        <li>Grünkohl unterrühren und weitere 5–10 Minuten köcheln lassen, bis Gemüse und Linsen weich sind.</li>
+        <li>Lorbeerblatt entfernen und nach Belieben mit Parmesan servieren.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept nach <a href="https://nutritiontofit.com/turkey-lentil-soup/" target="_blank" rel="noopener">Nutrition to Fit, „Turkey Lentil Soup"</a>, ins Deutsche übertragen.</p>
+
+    <div class="rating-block" data-recipe="truthahn-linsen-suppe-gruenkohl">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('truthahn-linsen-suppe-gruenkohl','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('truthahn-linsen-suppe-gruenkohl','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-truthahn-linsen-suppe-gruenkohl');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
