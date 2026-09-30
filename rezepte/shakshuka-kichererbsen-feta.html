@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shakshuka mit Kichererbsen und Feta – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .ampel-dot-inline { display:inline-block; width:12px; height:12px; border-radius:50%; background:#4c9a4c; margin-left:8px; vertical-align:middle; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Frühstück</p>
+      <h1>Shakshuka mit Kichererbsen und Feta</h1> <span class="ampel-dot-inline" title="Grün"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 15 Min.</span>
+      <span>🍽 2 Portionen</span>
+      <span>🍳 33 g Protein und 13 g Ballaststoffe pro Portion</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Kichererbsen liefern in dieser Pfanne pflanzliches Protein und reichlich Ballaststoffe, Eier und eine moderate Menge Feta runden das Protein ab, Olivenöl steuert die ungesättigten Fette bei. Zusammen mit der Tomatensauce ergibt sich ein mediterran geprägtes Frühstück oder Abendessen mit ordentlich Protein pro Portion – bei nur wenig Feta pro Person bleibt der Anteil an gesättigtem Fett moderat.</p>
+      <p style="margin-top:8px; font-size:14px; color: var(--ink-soft);">Nährwerte laut Quelle pro Portion: 648 kcal, 33 g Eiweiß, 34 g Kohlenhydrate, 37 g Fett, 13 g Ballaststoffe.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten (2 Personen)</h3>
+      <ul>
+        <li>4 Eier</li>
+        <li>220 g Kichererbsen (aus der Dose, abgetropft)</li>
+        <li>300 g Tomatensauce mit Basilikum (oder passierte Tomaten mit italienischen Kräutern)</li>
+        <li>80 g Feta</li>
+        <li>½ rote Zwiebel</li>
+        <li>2 TL Olivenöl</li>
+        <li>Salz, Pfeffer</li>
+        <li>Frische Petersilie zum Garnieren (optional)</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Rote Zwiebel schälen und in dünne Ringe schneiden.</li>
+        <li>Olivenöl in einer großen Pfanne bei hoher Hitze erhitzen, Zwiebelringe zugeben und 2 Minuten anbraten.</li>
+        <li>Kichererbsen dazugeben, mit Salz und Pfeffer würzen und 3–4 Minuten weiterbraten, dabei häufig umrühren.</li>
+        <li>Tomatensauce einrühren und gleichmäßig verteilen.</li>
+        <li>Vier Mulden in die Masse drücken und je ein Ei hineingeben, mit Salz und Pfeffer würzen. Pfanne abdecken und bei niedriger Hitze 3–4 Minuten stocken lassen.</li>
+        <li>Mit zerkrümeltem Feta und nach Belieben frischer Petersilie servieren.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept nach <a href="https://jow.fr/en/recipes/feta-and-chickpea-shakshuka-8jgr45ec0ejkkumm0mw2" target="_blank" rel="noopener">Jow, „Feta & Chickpea Shakshuka"</a>, ins Deutsche übertragen und auf 2 Portionen skaliert.</p>
+
+    <div class="rating-block" data-recipe="shakshuka-kichererbsen-feta">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('shakshuka-kichererbsen-feta','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('shakshuka-kichererbsen-feta','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-shakshuka-kichererbsen-feta');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
