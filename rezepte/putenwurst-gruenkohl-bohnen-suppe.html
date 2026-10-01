@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Putenwurst-Suppe mit Grünkohl und weißen Bohnen – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .ampel-dot-inline { display:inline-block; width:12px; height:12px; border-radius:50%; background:#4c9a4c; margin-left:8px; vertical-align:middle; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Hauptgericht</p>
+      <h1>Putenwurst-Suppe mit Grünkohl und weißen Bohnen</h1> <span class="ampel-dot-inline" title="Grün"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 45 Min.</span>
+      <span>🍽 4 Portionen</span>
+      <span>🥬 Viel Protein, wenig gesättigtes Fett</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Mageres Putenwurst-Brät liefert hier reichlich Eiweiß bei deutlich weniger gesättigtem Fett als klassische Schweinswurst, weiße Bohnen tragen lösliche Ballaststoffe und pflanzliches Protein bei, und der Grünkohl rundet die Suppe mit zusätzlichen Ballaststoffen und sekundären Pflanzenstoffen ab. Eine warme, sättigende Mahlzeit, die gleich mehrere LDL-Hebel von der Ernährungsseite bedient, ohne auf rotes oder stark verarbeitetes Fleisch zu setzen.</p>
+      <p style="margin-top:8px; font-size:14px; color: var(--ink-soft);">Nährwerte laut Quelle pro Portion: ca. 321 kcal, 33 g Eiweiß, 15 g Kohlenhydrate, 13 g Fett (davon nur 3,5 g gesättigt), 5 g Ballaststoffe.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten (4 Portionen)</h3>
+      <ul>
+        <li>570 g Putenbratwurst-Brät (aus der Haut gedrückt), alternativ mageres, italienisch gewürztes Putenhack</li>
+        <li>2 TL Olivenöl</li>
+        <li>1 Knoblauchzehe, fein gehackt</li>
+        <li>150 g Grünkohl, geputzt und klein geschnitten</li>
+        <li>240 g weiße Bohnen (Cannellini, aus der Dose, abgetropft und abgespült)</li>
+        <li>950 ml fettarme Hühnerbrühe</li>
+        <li>480 ml Wasser</li>
+        <li>1 Prise Chiliflocken (optional)</li>
+        <li>Salz, Pfeffer</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Olivenöl in einem mittelgroßen Topf bei mittelhoher Hitze erhitzen. Das Putenwurst-Brät hineingeben und unter Zerteilen in grobe Stücke rundum braun anbraten, bis es durchgegart ist.</li>
+        <li>Knoblauch dazugeben und 2–3 Minuten mitdünsten, bis er duftet.</li>
+        <li>Wasser, Hühnerbrühe, weiße Bohnen und Chiliflocken einrühren. Aufkochen, dann zugedeckt bei niedriger Hitze 10 Minuten köcheln lassen.</li>
+        <li>Grünkohl dazugeben und weitere 10 Minuten zugedeckt köcheln lassen, bis er zart ist.</li>
+        <li>Mit Salz und Pfeffer abschmecken. In vier Schüsseln aufteilen und heiß servieren.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept nach <a href="https://www.skinnytaste.com/turkey-sausage-kale-and-white-bean-soup/" target="_blank" rel="noopener">Skinnytaste, „Turkey Sausage, Kale and White Bean Soup" von Gina Homolka</a>, ins Deutsche übertragen.</p>
+
+    <div class="rating-block" data-recipe="putenwurst-gruenkohl-bohnen-suppe">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('putenwurst-gruenkohl-bohnen-suppe','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('putenwurst-gruenkohl-bohnen-suppe','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-putenwurst-gruenkohl-bohnen-suppe');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
