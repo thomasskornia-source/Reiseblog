@@ -713,7 +713,7 @@ function compute(P) {
   var conNum = function (v, hi) { var x = parseFloat(String(v == null ? '' : v).replace(',', '.')); return isFinite(x) ? clamp(x, 0, hi) : 0; };
   function conClean(c) {
     var ty = CT[c && c.type] ? c.type : 'sonst';
-    return { type: ty, name: String(c && c.name || '').slice(0, 40), beitrag: conNum(c && c.beitrag, 1e5), leistung: conNum(c && c.leistung, 1e8), paid: conNum(c && c.paid, 1e8), zusatz: c && c.zusatz === 'vor2005' ? 'vor2005' : 'ab2005' };
+    return { type: ty, name: String(c && c.name || '').slice(0, 60), insured: String(c && c.insured || '').slice(0, 60), nr: String(c && c.nr || '').slice(0, 40), beitrag: conNum(c && c.beitrag, 1e5), leistung: conNum(c && c.leistung, 1e8), paid: conNum(c && c.paid, 1e8), zusatz: c && c.zusatz === 'vor2005' ? 'vor2005' : 'ab2005' };
   }
   var CAT = ['#3E6F5C', '#B5502E', '#C99A3E', '#4A7A96', '#8FA398', '#7A4E6D', '#A68A64', '#6B6B6B'];
   AUS.forEach(function (a) {
@@ -1017,7 +1017,8 @@ function compute(P) {
         '<div class="tw2"><table class="contbl"><thead><tr><th>Vertrag</th><th>Beitrag pro Monat</th><th>Leistung</th></tr></thead><tbody>' +
         pc.map(function (c) {
           var d = CT[c.type], l = c.leistung > 0 ? eur(c.leistung) + ' ' + d.unit : '–';
-          return '<tr><td>' + esc(c.name || d.n) + (c.name ? '<br><span class="small">' + d.n + '</span>' : '') + '</td><td>' + (c.beitrag > 0 ? eur(c.beitrag) : '–') + '</td><td>' + l + '</td></tr>';
+          var sub = [c.name ? d.n : '', c.insured ? 'Versicherte Person: ' + esc(c.insured) : '', c.nr ? 'Nr. ' + esc(c.nr) : ''].filter(Boolean).join(' · ');
+          return '<tr><td>' + esc(c.name || d.n) + (sub ? '<br><span class="small">' + sub + '</span>' : '') + '</td><td>' + (c.beitrag > 0 ? eur(c.beitrag) : '–') + '</td><td>' + l + '</td></tr>';
         }).join('') + '</tbody></table></div>' +
         '<div class="kv"><div><b>' + eur(cb) + '</b><span>Beiträge pro Monat' + (netMonth > 0 ? ', ' + pct(cb / netMonth, 1) + ' deines Nettos' : '') + '</span></div>' +
         (R.cGross > 0 ? '<div><b>' + eur(R.cNet) + '</b><span>Renten aus Verträgen im Ruhestand, netto pro Monat. Brutto ' + eur(R.cGross) + '</span></div>' : '') +
@@ -1179,7 +1180,9 @@ function compute(P) {
     $('conList').innerHTML = CON.map(function (c, i) {
       var d = CT[c.type], v = function (x) { return x ? esc(x) : ''; };
       return '<div class="con"><div class="conhead"><select data-i="' + i + '" data-f="type" aria-label="Art des Vertrags">' + opts(c.type, typeList) + '</select><button type="button" class="conrm" data-rm="' + i + '" aria-label="Vertrag entfernen">×</button></div>' +
-        '<label>Bezeichnung (optional)<input type="text" maxlength="40" data-i="' + i + '" data-f="name" value="' + v(c.name) + '" placeholder="z. B. Allianz, Vertrag 2"></label>' +
+        '<div class="grid2"><label>Versicherungsgesellschaft<input type="text" maxlength="60" data-i="' + i + '" data-f="name" value="' + v(c.name) + '" placeholder="z. B. Allianz"></label>' +
+        '<label>Vertragsnummer<input type="text" maxlength="40" data-i="' + i + '" data-f="nr" value="' + v(c.nr) + '" autocomplete="off"></label></div>' +
+        '<label>Versicherte Person<input type="text" maxlength="60" data-i="' + i + '" data-f="insured" value="' + v(c.insured) + '" placeholder="Name"></label>' +
         '<div class="grid2"><label>Beitrag pro Monat<input type="number" inputmode="decimal" min="0" step="10" data-i="' + i + '" data-f="beitrag" value="' + v(c.beitrag) + '" placeholder="€"></label>' +
         '<label>' + d.ben + '<input type="number" inputmode="decimal" min="0" step="' + (c.type === 'lv' || c.type === 'rlv' ? 1000 : 50) + '" data-i="' + i + '" data-f="leistung" value="' + v(c.leistung) + '" placeholder="€"></label></div>' +
         (c.type === 'lv' ? '<div class="grid2"><label>Davon selbst eingezahlt<input type="number" inputmode="decimal" min="0" step="1000" data-i="' + i + '" data-f="paid" value="' + v(c.paid) + '" placeholder="€ gesamt, optional"></label>' +
@@ -1199,7 +1202,7 @@ function compute(P) {
   });
   $('conAdd').addEventListener('click', function () {
     if (CON.length >= 12) return;
-    CON.push({ type: $('conType').value, name: '', beitrag: '', leistung: '', paid: '', zusatz: 'ab2005' });
+    CON.push({ type: $('conType').value, name: '', insured: '', nr: '', beitrag: '', leistung: '', paid: '', zusatz: 'ab2005' });
     $('conDet').open = true; conRender(); dirty(); render();
   });
 
