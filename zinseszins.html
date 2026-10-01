@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zinseszins zum Anfassen – Andrea unterwegs</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .zz-page { max-width: 820px; }
+  .zz { --save: #8FA398; --save-dark: #5F7A6B; --zins: #B5502E; display: flex; flex-direction: column; gap: 22px; font-size: 16px; }
+  .zz h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin: 0 0 6px; }
+  .zz p { margin: 0; }
+  .zz .lead { color: var(--ink-soft); }
+  .zz .card { background: var(--paper-warm); border-radius: 10px; padding: 18px 20px; }
+  .zz .small { font-size: 13px; color: var(--ink-soft); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .chip { font-family: 'Work Sans', sans-serif; font-size: 14px; padding: 8px 14px; border-radius: 20px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); cursor: pointer; text-align: left; }
+  .chip[aria-pressed="true"] { background: var(--rust); border-color: var(--rust); color: var(--paper); }
+  .chip:focus-visible, .zz input:focus-visible, .zz button:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
+  .chip small { display: block; font-size: 12px; opacity: .8; }
+
+  .sliders { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; margin-top: 14px; }
+  @media (max-width: 560px) { .sliders { grid-template-columns: 1fr; } }
+  .sl label { display: flex; justify-content: space-between; font-size: 14px; color: var(--ink-soft); margin-bottom: 4px; }
+  .sl label b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .sl input[type=range] { width: 100%; accent-color: var(--rust); margin: 0; }
+  .infl { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink-soft); margin-top: 14px; }
+  .infl input { accent-color: var(--rust); width: 18px; height: 18px; }
+
+  .sentence { font-size: 18px; line-height: 1.5; }
+  .sentence b { font-family: 'Fraunces', serif; font-weight: 600; }
+  .sentence .z { color: var(--zins); }
+  .big3 { display: grid; gap: 10px; grid-template-columns: repeat(3, 1fr); margin-top: 14px; }
+  @media (max-width: 560px) { .big3 { grid-template-columns: 1fr; } }
+  .big3 > div { background: var(--paper); border-radius: 8px; padding: 12px 14px; border-top: 4px solid var(--save); }
+  .big3 > div.z { border-top-color: var(--zins); }
+  .big3 > div.t { border-top-color: var(--ink); }
+  .big3 span { display: block; font-size: 13px; color: var(--ink-soft); }
+  .big3 b { display: block; font-family: 'Fraunces', serif; font-size: 26px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.2; }
+  .share { display: flex; height: 14px; border-radius: 7px; overflow: hidden; margin-top: 14px; background: var(--paper); }
+  .share i { display: block; height: 100%; transition: width .25s ease; }
+  .sharelegend { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; color: var(--ink-soft); margin-top: 6px; flex-wrap: wrap; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+
+  #chart { width: 100%; height: auto; display: block; touch-action: pan-y; cursor: crosshair; }
+  #chart text { font-family: 'Work Sans', sans-serif; font-size: 11px; fill: var(--ink-soft); }
+  .readout { font-size: 14px; min-height: 22px; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13px; color: var(--ink-soft); margin-top: 6px; }
+
+  .cmp-row { display: grid; grid-template-columns: 110px 1fr; gap: 10px; align-items: center; margin-top: 12px; font-size: 14px; }
+  @media (max-width: 480px) { .cmp-row { grid-template-columns: 1fr; gap: 4px; } }
+  .cmp-bar { display: flex; height: 26px; border-radius: 5px; overflow: hidden; background: var(--paper); }
+  .cmp-bar i { display: block; height: 100%; transition: width .25s ease; }
+  .cmp-val { font-variant-numeric: tabular-nums; font-size: 13px; color: var(--ink-soft); margin-top: 2px; }
+  .facts { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 560px) { .facts { grid-template-columns: 1fr; } }
+  .facts .card h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; margin: 0 0 4px; }
+  .facts .card p { font-size: 14px; color: var(--ink-soft); }
+  .zz a.more { color: var(--rust); }
+  @media (prefers-reduced-motion: reduce) { .share i, .cmp-bar i { transition: none; } }
+</style>
+</head>
+<body>
+<div class="wrap zz-page">
+
+  <a class="back-link" href="index.html">← Zur Übersicht</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Vorsorge</p>
+      <h1>Zinseszins zum Anfassen</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="zz">
+
+      <div>
+        <p class="lead">Wer früh anfängt, muss weniger selbst einzahlen. Den Rest erledigt die Zeit: Zinsen bringen selbst wieder Zinsen. Such dir ein Beispiel aus oder stell deine eigenen Werte ein und sieh, was passiert.</p>
+      </div>
+
+      <section class="card" aria-labelledby="h-szen">
+        <h2 id="h-szen">Such dir ein Beispiel aus</h2>
+        <div class="chips" id="chips"></div>
+
+        <div class="sliders">
+          <div class="sl"><label for="sAge">Alter, wenn du anfängst <b id="vAge"></b></label><input id="sAge" type="range" min="16" max="60" step="1"></div>
+          <div class="sl"><label for="sRate">Du sparst pro Monat <b id="vRate"></b></label><input id="sRate" type="range" min="0" max="500" step="10"></div>
+          <div class="sl"><label for="sRet">Zinsen bzw. Rendite pro Jahr <b id="vRet"></b></label><input id="sRet" type="range" min="0" max="10" step="0.5"></div>
+          <div class="sl"><label for="sEnd">Du sparst bis zum Alter von <b id="vEnd"></b></label><input id="sEnd" type="range" min="40" max="70" step="1"></div>
+        </div>
+        <label class="infl"><input type="checkbox" id="cInfl"> Zusätzlich Kaufkraft in heutigem Geld anzeigen (bei 2 % Preissteigerung pro Jahr)</label>
+      </section>
+
+      <section class="card" aria-live="polite" aria-labelledby="h-erg">
+        <h2 id="h-erg">Das kommt dabei heraus</h2>
+        <p class="sentence" id="sentence"></p>
+        <div class="big3">
+          <div><span>Das zahlst du selbst ein</span><b id="oDep"></b></div>
+          <div class="z"><span>Das kommt an Zinsen dazu</span><b id="oInt"></b></div>
+          <div class="t"><span>Das hast du am Ende</span><b id="oTot"></b></div>
+        </div>
+        <div class="share" id="share" role="img" aria-label=""></div>
+        <div class="sharelegend">
+          <span><i class="dot" style="background:var(--save)"></i>Eingezahlt <b id="pDep"></b></span>
+          <span><i class="dot" style="background:var(--zins)"></i>Zinsen <b id="pInt"></b></span>
+        </div>
+        <p class="small" id="oReal" style="margin-top:10px"></p>
+      </section>
+
+      <section class="card" aria-labelledby="h-chart">
+        <h2 id="h-chart">So wächst dein Geld Jahr für Jahr</h2>
+        <p class="small">Fahr mit der Maus über die Säulen oder tippe darauf. Am Anfang ist fast alles selbst eingezahlt, später wächst der rote Anteil von allein immer schneller.</p>
+        <svg id="chart" viewBox="0 0 640 300" role="img" aria-label=""></svg>
+        <div class="readout" id="readout"></div>
+        <div class="legend">
+          <span><i class="dot" style="background:var(--save)"></i>Selbst eingezahlt</span>
+          <span><i class="dot" style="background:var(--zins)"></i>Zinsen und Zinseszinsen</span>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="h-cmp">
+        <h2 id="h-cmp">Jedes Jahr früher zählt</h2>
+        <p class="small" id="cmpIntro"></p>
+        <div id="cmp"></div>
+      </section>
+
+      <section aria-labelledby="h-facts">
+        <h2 id="h-facts" style="margin-bottom:12px">Gut zu wissen</h2>
+        <div class="facts">
+          <div class="card"><h3>Die 72er-Regel</h3><p id="rule72"></p></div>
+          <div class="card"><h3>Warum arbeiten sich lohnt</h3><p>Zinsen gibt es nur auf Geld, das da ist. Wer arbeitet, kann einen Teil beiseitelegen. Schon kleine Beträge, regelmäßig und lange gespart, ergeben am Ende eine Summe, die man mit späterem Sparen kaum aufholt.</p></div>
+        </div>
+      </section>
+
+      <p class="small">Das ist eine Beispielrechnung, keine Anlageberatung und keine Zusage. Die Zinsen werden monatlich gutgeschrieben, die Sparrate kommt jeweils am Monatsende dazu. Echte Renditen schwanken von Jahr zu Jahr. Steuern, Kosten und Gebühren sind bewusst nicht eingerechnet. Je nach Anlage (zum Beispiel Tagesgeld oder ein breit gestreuter Fonds) sind die Zinsen sehr verschieden: ein Sparbuch liegt eher bei 0 bis 2 %, breit gestreute Aktienfonds haben über lange Zeiträume schon mehr erzielt, mit Schwankungen und ohne Garantie.
+      Für die ausführliche Rechnung mit Steuern und Rente gibt es die <a class="more" href="finanzplanung.html">Finanzplanung</a>.</p>
+
+    </div>
+  </article>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var INFL = 0.02;
+  var eur = function (n) { return Math.round(n).toLocaleString('de-DE') + ' €'; };
+  var pct = function (n) { return Math.round(n).toLocaleString('de-DE') + ' %'; };
+
+  var SCEN = [
+    { name: 'Azubi-Start', sub: '50 € ab 20', age: 20, rate: 50, ret: 5, end: 67 },
+    { name: 'Student', sub: '100 € ab 22', age: 22, rate: 100, ret: 5, end: 67 },
+    { name: 'Zehn Jahre später', sub: '100 € ab 32', age: 32, rate: 100, ret: 5, end: 67 },
+    { name: 'Nur Sparbuch', sub: '100 € ab 22, 1 %', age: 22, rate: 100, ret: 1, end: 67 },
+    { name: 'Unterm Kopfkissen', sub: '100 € ab 22, 0 %', age: 22, rate: 100, ret: 0, end: 67 }
+  ];
+  var st = { age: 22, rate: 100, ret: 5, end: 67 };
+
+  function sim(rate, ret, a0, a1) {
+    var rm = Math.pow(1 + ret / 100, 1 / 12) - 1, b = 0, d = 0, rows = [{ age: a0, dep: 0, bal: 0 }];
+    for (var y = a0; y < a1; y++) {
+      for (var m = 0; m < 12; m++) { b = b * (1 + rm) + rate; d += rate; }
+      rows.push({ age: y + 1, dep: d, bal: b });
+    }
+    return rows;
+  }
+
+  function niceStep(max) {
+    var steps = [500, 1000, 2000, 5000, 10000, 20000, 25000, 50000, 100000, 200000, 250000, 500000, 1000000, 2000000];
+    for (var i = 0; i < steps.length; i++) if (max / steps[i] <= 5) return steps[i];
+    return 5000000;
+  }
+  function axisLabel(v) {
+    if (v >= 1000000) return (v / 1000000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' Mio.';
+    if (v >= 1000) return (v / 1000).toLocaleString('de-DE') + ' Tsd.';
+    return String(v);
+  }
+
+  var rows = [], sel = 0;
+
+  function drawChart() {
+    var W = 640, H = 300, L = 54, R = 6, T = 10, B = 26, n = rows.length - 1;
+    var svg = $('chart');
+    if (n < 1) { svg.innerHTML = ''; return; }
+    var max = Math.max(rows[n].bal, 1), step = niceStep(max), top = Math.ceil(max / step) * step;
+    var pw = W - L - R, ph = H - T - B, bw = pw / n, gap = Math.min(3, bw * 0.15);
+    var y = function (v) { return T + ph - (v / top) * ph; };
+    var s = '';
+    for (var v = 0; v <= top; v += step) {
+      s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="rgba(46,58,50,0.14)"/>';
+      s += '<text x="' + (L - 6) + '" y="' + (y(v) + 4) + '" text-anchor="end">' + axisLabel(v) + '</text>';
+    }
+    var every = Math.ceil(n / 8);
+    for (var i = 1; i <= n; i++) {
+      var r = rows[i], x = L + (i - 1) * bw + gap / 2, w = Math.max(bw - gap, 1);
+      var yd = y(r.dep), yb = y(r.bal), isSel = (i === sel);
+      s += '<rect x="' + x + '" y="' + yd + '" width="' + w + '" height="' + Math.max(T + ph - yd, 0) + '" fill="#8FA398"/>';
+      s += '<rect x="' + x + '" y="' + yb + '" width="' + w + '" height="' + Math.max(yd - yb, 0) + '" fill="#B5502E"/>';
+      if (isSel) s += '<rect x="' + (x - 1) + '" y="' + (yb - 1) + '" width="' + (w + 2) + '" height="' + (T + ph - yb + 2) + '" fill="none" stroke="#2E3A32" stroke-width="2"/>';
+      if (i % every === 0 || i === n) s += '<text x="' + (x + w / 2) + '" y="' + (H - 8) + '" text-anchor="middle">' + r.age + '</text>';
+    }
+    s += '<text x="' + (L + pw / 2) + '" y="' + (H - 0) + '" text-anchor="middle" style="font-size:10px"></text>';
+    svg.innerHTML = s;
+    svg.setAttribute('aria-label', 'Säulendiagramm: Vermögen von ' + rows[0].age + ' bis ' + rows[n].age + ' Jahren. Am Ende ' + eur(rows[n].bal) + ', davon ' + eur(rows[n].dep) + ' selbst eingezahlt.');
+  }
+
+  function readout() {
+    var r = rows[sel]; if (!r) { $('readout').textContent = ''; return; }
+    var z = r.bal - r.dep;
+    $('readout').innerHTML = 'Mit <b>' + r.age + '</b>: eingezahlt ' + eur(r.dep) + ', Zinsen ' + eur(z) + ', zusammen <b>' + eur(r.bal) + '</b>';
+  }
+
+  function compare() {
+    var years = st.end - st.age, host = $('cmp'), html = '', starts = [];
+    [0, 10, 20].forEach(function (d) { if (st.end - (st.age + d) >= 5) starts.push(st.age + d); });
+    $('cmpIntro').textContent = 'Gleiche Sparrate (' + eur(st.rate) + ' im Monat), gleiche Zinsen (' + st.ret.toLocaleString('de-DE') + ' % pro Jahr), gleiches Ende (Alter ' + st.end + '). Nur der Start ist verschieden.';
+    var res = starts.map(function (a) { var r = sim(st.rate, st.ret, a, st.end); return { a: a, dep: r[r.length - 1].dep, bal: r[r.length - 1].bal }; });
+    var mx = Math.max.apply(null, res.map(function (r) { return r.bal; }).concat([1]));
+    res.forEach(function (r) {
+      var wd = r.dep / mx * 100, wz = (r.bal - r.dep) / mx * 100;
+      html += '<div class="cmp-row"><div><b>Start mit ' + r.a + '</b></div><div><div class="cmp-bar" role="img" aria-label="Start mit ' + r.a + ': ' + eur(r.bal) + '">' +
+        '<i style="width:' + wd + '%;background:#8FA398"></i><i style="width:' + wz + '%;background:#B5502E"></i></div>' +
+        '<div class="cmp-val">' + eur(r.bal) + ' (davon selbst eingezahlt ' + eur(r.dep) + ')</div></div></div>';
+    });
+    host.innerHTML = html || '<p class="small">Für diesen Vergleich braucht es mehr Zeit zwischen Start und Ende.</p>';
+  }
+
+  function render() {
+    if (st.end <= st.age) st.end = Math.min(70, st.age + 1);
+    $('sAge').value = st.age; $('sRate').value = st.rate; $('sRet').value = st.ret;
+    $('sEnd').min = Math.max(40, st.age + 1); $('sEnd').value = st.end;
+    $('vAge').textContent = st.age + ' Jahre'; $('vRate').textContent = eur(st.rate);
+    $('vRet').textContent = st.ret.toLocaleString('de-DE') + ' %'; $('vEnd').textContent = st.end + ' Jahre';
+
+    var cs = document.querySelectorAll('.chip');
+    SCEN.forEach(function (c, i) {
+      cs[i].setAttribute('aria-pressed', (c.age === st.age && c.rate === st.rate && c.ret === st.ret && c.end === st.end) ? 'true' : 'false');
+    });
+
+    rows = sim(st.rate, st.ret, st.age, st.end);
+    var last = rows[rows.length - 1], dep = last.dep, tot = last.bal, zin = tot - dep, years = st.end - st.age;
+    sel = rows.length - 1;
+
+    $('oDep').textContent = eur(dep); $('oInt').textContent = eur(zin); $('oTot').textContent = eur(tot);
+    var zs = tot > 0 ? zin / tot * 100 : 0;
+    $('share').innerHTML = '<i style="width:' + (100 - zs) + '%;background:#8FA398"></i><i style="width:' + zs + '%;background:#B5502E"></i>';
+    $('share').setAttribute('aria-label', 'Von ' + eur(tot) + ' sind ' + pct(100 - zs) + ' selbst eingezahlt und ' + pct(zs) + ' Zinsen.');
+    $('pDep').textContent = pct(100 - zs); $('pInt').textContent = pct(zs);
+
+    if (st.rate === 0) {
+      $('sentence').innerHTML = 'Ohne Sparrate bleibt nichts liegen. Schieb den Regler bei „Du sparst pro Monat“ nach rechts.';
+    } else if (zin < 1) {
+      $('sentence').innerHTML = 'Mit <b>' + eur(st.rate) + '</b> im Monat über <b>' + years + ' Jahre</b> kommst du auf <b>' + eur(tot) + '</b>. Ohne Zinsen ist das genau das, was du selbst einzahlst. Stell die Zinsen höher und schau, was sich ändert.';
+    } else {
+      $('sentence').innerHTML = 'Mit <b>' + eur(st.rate) + '</b> im Monat ab <b>' + st.age + '</b> hast du mit <b>' + st.end + '</b> etwa <b>' + eur(tot) + '</b>. Selbst eingezahlt hast du nur <b>' + eur(dep) + '</b>. <span class="z"><b>' + pct(zs) + '</b> vom Endbetrag sind Zinsen</span>, die du nicht erarbeiten musstest.';
+    }
+    $('oReal').textContent = $('cInfl').checked && tot > 0
+      ? 'In heutigem Geld (bei ' + (INFL * 100) + ' % Preissteigerung pro Jahr) entspricht das einer Kaufkraft von etwa ' + eur(tot / Math.pow(1 + INFL, years)) + '. Alles wird mit der Zeit teurer, deshalb kauft man später für die gleiche Summe weniger.'
+      : '';
+
+    $('rule72').textContent = st.ret > 0
+      ? 'Teile 72 durch den Zinssatz, dann weißt du ungefähr, nach wie vielen Jahren sich Geld verdoppelt. Bei ' + st.ret.toLocaleString('de-DE') + ' % sind das etwa ' + Math.round(72 / st.ret) + ' Jahre. Bei 0 % verdoppelt sich nie etwas.'
+      : 'Teile 72 durch den Zinssatz, dann weißt du ungefähr, nach wie vielen Jahren sich Geld verdoppelt. Bei 0 % passiert das nie. Probier es mit 5 % aus: etwa alle 14 Jahre.';
+
+    drawChart(); readout(); compare();
+  }
+
+  // Szenario-Buttons
+  var chips = $('chips');
+  SCEN.forEach(function (c, i) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.setAttribute('aria-pressed', 'false');
+    b.innerHTML = c.name + '<small>' + c.sub + '</small>';
+    b.addEventListener('click', function () { st = { age: c.age, rate: c.rate, ret: c.ret, end: c.end }; render(); });
+    chips.appendChild(b);
+  });
+
+  // Regler
+  $('sAge').addEventListener('input', function () { st.age = +this.value; render(); });
+  $('sRate').addEventListener('input', function () { st.rate = +this.value; render(); });
+  $('sRet').addEventListener('input', function () { st.ret = +this.value; render(); });
+  $('sEnd').addEventListener('input', function () { st.end = +this.value; render(); });
+  $('cInfl').addEventListener('change', render);
+
+  // Diagramm: Säule auswählen
+  var svg = $('chart');
+  function pick(ev) {
+    var n = rows.length - 1; if (n < 1) return;
+    var rect = svg.getBoundingClientRect(), W = 640, L = 54, R = 6;
+    var x = (ev.clientX - rect.left) / rect.width * W;
+    var i = Math.floor((x - L) / ((W - L - R) / n)) + 1;
+    i = Math.max(1, Math.min(n, i));
+    if (i !== sel) { sel = i; drawChart(); readout(); }
+  }
+  svg.addEventListener('pointermove', pick);
+  svg.addEventListener('pointerdown', pick);
+
+  render();
+})();
+</script>
+</body>
+</html>
