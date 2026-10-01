@@ -135,6 +135,10 @@ th { font-weight: 600; color: var(--ink2); }
 .fp input[type=text] { width: 100%; min-width: 0; font: inherit; font-size: 15px; color: var(--ink); border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px; }
 .fp input[type=number], .fp input[type=text], .fp select { background: var(--paper); }
 
+#svMsg { width: 100%; min-height: 18px; }
+.savebar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.savebar .small { flex-basis: 100%; }
+.catlegend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink2); font-variant-numeric: tabular-nums; }
 .exportbtn { position: absolute; top: 0; right: 0; display: inline-flex; align-items: center; gap: 6px; font-family: 'Work Sans', sans-serif; font-size: 14px; color: var(--ink); background: var(--paper-warm); border: 1px solid var(--ink); border-radius: 22px; padding: 8px 14px; cursor: pointer; }
 .exportbtn:hover { background: var(--ink); color: var(--paper); }
 .exportbtn:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
@@ -146,7 +150,7 @@ th { font-weight: 600; color: var(--ink2); }
   @page { size: A4; margin: 12mm; }
   html, body { background: #FAF3E8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .wrap, .fp-page { padding: 0 !important; max-width: none !important; }
-  .back-link, .exportbtn, .demo, #inputs, .bar, .toolbar .seg, details, .print-hide { display: none !important; }
+  .back-link, .exportbtn, .demo, #inputs, .savebar, .bar, .toolbar .seg, details, .print-hide { display: none !important; }
   .fp .layout { display: block !important; }
   .fp .stack { gap: 12px; }
   .fp .toolbar { justify-content: flex-start !important; }
@@ -194,6 +198,15 @@ body.fp-body { padding-bottom: 0; }
     <aside id="inputs" class="panel" aria-label="Deine Angaben">
       <header><h2>Deine Angaben</h2><p>Alle Werte bleiben auf deinem Gerät und werden nur zum Rechnen genutzt.</p></header>
 
+      <div class="savebar" role="group" aria-label="Speichern und Laden">
+        <button type="button" class="chip" id="svSave">Speichern</button>
+        <button type="button" class="chip" id="svLoad">Laden</button>
+        <button type="button" class="chip" id="svExport">Als Datei sichern</button>
+        <button type="button" class="chip" id="svImport">Datei laden</button>
+        <input type="file" id="svFile" accept="application/json,.json" hidden>
+        <div class="small" id="svMsg" role="status" aria-live="polite"></div>
+      </div>
+
       <fieldset><legend>Person und Lebenssituation</legend>
         <label class="f" for="vorname"><span>Vorname (optional)</span><input id="vorname" type="text" maxlength="40" autocomplete="given-name" placeholder="z. B. Anna"><small>Wird nur für die Anrede und die Beschriftung benutzt.</small></label>
         <div class="grid2">
@@ -234,6 +247,11 @@ body.fp-body { padding-bottom: 0; }
         <div class="small" id="nettoNote"></div>
         <label class="f" for="startAge"><span>Berufsstart mit Alter</span><input id="startAge" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
         <label class="f" for="renteInfo"><span>Rente laut Rentenbescheid oder Renteninformation (optional)</span><input id="renteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"><small>Trage die Bruttorente vor Abzügen ein. Sie ersetzt die Schätzung des Planers.</small></label>
+        <label class="f" for="bRente"><span>Berufs- oder Betriebsrente (optional)</span><input id="bRente" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat ab Renteneintritt"><small>Betrag laut Mitteilung deines Versorgers. Er wird wie die gesetzliche Rente als Wert in heutigen Preisen behandelt.</small></label>
+        <label class="f" for="bRenteTyp"><span>Art der Berufsrente</span>
+          <select id="bRenteTyp"><option value="bav">Betriebsrente oder Pensionskasse</option><option value="basis">Versorgungswerk oder Basisrente</option></select>
+          <small>Betriebsrenten sind voll steuerpflichtig, dazu kommen Kranken- und Pflegeversicherungsbeiträge. Versorgungswerk und Basisrente werden wie die gesetzliche Rente besteuert.</small></label>
+        <label class="f" for="retOverride"><span>Eigenes Renteneintrittsalter (optional)</span><input id="retOverride" type="number" inputmode="decimal" min="63" max="70" step="0.5" placeholder="leer = gesetzliche Regelaltersgrenze"><small id="retNote"></small></label>
         <label class="f" for="rentenbeginn"><span>Rentenbeginn, Jahr (optional)</span><input id="rentenbeginn" type="number" inputmode="numeric" min="1990" max="2080" step="1" placeholder="nur falls du schon Rente beziehst"><small>Der Rentenbeginn bestimmt, welcher Anteil der Rente steuerpflichtig ist.</small></label>
       </fieldset>
 
@@ -260,6 +278,13 @@ body.fp-body { padding-bottom: 0; }
         <label class="f" for="saveUntil"><span>Du sparst bis</span>
           <select id="saveUntil"><option value="rente">Renteneintritt</option><option value="wunsch">Wunschalter</option></select></label>
       </fieldset>
+
+      <details class="more" id="ausDet"><summary>Ausgaben im Ruhestand (optional)</summary>
+        <p class="small">Trage ein, was du im Ruhestand pro Monat ausgeben willst, in heutigen Preisen. Kranken- und Pflegeversicherung gehören nicht hinein, die sind schon von der Rente abgezogen.</p>
+        <div class="grid2" id="ausGrid" style="margin-top:10px"></div>
+        <div class="chips" style="margin-top:10px"><button type="button" class="chip" id="ausEx">Beispielwerte einsetzen</button><button type="button" class="chip" id="ausClr">Leeren</button></div>
+        <div class="small" id="ausSum" style="margin-top:8px"></div>
+      </details>
 
       <details class="more"><summary>Annahmen anpassen</summary>
         <div style="display:grid;gap:12px">
@@ -291,6 +316,11 @@ body.fp-body { padding-bottom: 0; }
       <section class="panel" aria-labelledby="h-ruhe">
         <header><h2 id="h-ruhe">Was bleibt im Ruhestand pro Monat?</h2><p>Alle Beträge in heutiger Kaufkraft, nach Steuern und Abgaben, im Vergleich zu deinem heutigen Netto.</p></header>
         <div id="ruhe" class="inc"></div>
+      </section>
+
+      <section class="panel" id="ausPanel" aria-labelledby="h-aus" hidden>
+        <header><h2 id="h-aus">Reicht das für deine Ausgaben?</h2><p>Deine geplanten Ausgaben im Ruhestand gegen deine Einnahmen, alles in heutiger Kaufkraft und netto.</p></header>
+        <div id="aus" class="inc"></div>
       </section>
 
       <section class="panel" aria-labelledby="h-scen">
@@ -413,11 +443,14 @@ function pensionNetHH(P, items) {
   let J = 0, KV = 0, taxable = 0; const shares = [];
   items.forEach(it => {
     const j = it.gross * 12;
-    const share = it.beamte ? versorgungsanteil(it.year) : besteuerungsanteil(it.year);
+    const bav = it.kind === 'bav';
+    const share = bav ? 1 : (it.beamte ? versorgungsanteil(it.year) : besteuerungsanteil(it.year));
     shares.push(share);
     if (j <= 0) return;
-    const k = it.beamte ? 0.08 * j : j * (0.0875 + 0.036 + (P.kinder === 0 ? 0.006 : 0));
-    J += j; KV += k; taxable += Math.max(0, j * share - 102 - k);
+    let k;
+    if (bav) k = Math.max(0, j - 197.75 * 12) * (0.146 + 0.029) + j * (0.036 + (P.kinder === 0 ? 0.006 : 0));
+    else k = it.beamte ? 0.08 * j : j * (0.0875 + 0.036 + (P.kinder === 0 ? 0.006 : 0));
+    J += j; KV += k; taxable += Math.max(0, j * share - (bav ? 0 : 102) - k);
   });
   const tax = est(taxable, split);
   const kist = tax * kistRate(P.kirche);
@@ -460,7 +493,9 @@ function payoutMonthly(Kreal, rReal, n) {
 }
 function compute(P) {
   const age0 = YEAR - P.by;
-  const ra = regelalter(P.by), retAge = ra.y + ra.m / 12;
+  const ra = regelalter(P.by), regAge = ra.y + ra.m / 12;
+  const retAge = P.retOverride >= 63 ? Math.min(70, P.retOverride) : regAge;
+  const dM = Math.round((retAge - regAge) * 12), rFactor = dM < 0 ? 1 + 0.003 * dM : 1 + 0.005 * dM;
   const wunsch = Math.max(P.wunsch, age0 + 1);
   const endAge = Math.max(wunsch, retAge, age0 + 1);
   const months = Math.ceil((endAge - age0) * 12);
@@ -480,7 +515,7 @@ function compute(P) {
   const netYear = P.netto != null ? P.netto * 12 : ni.net;
   const netMonth = netYear / 12;
   // Ruhestand
-  const pg = pensionGross(P, retAge);
+  const pg = pensionGross(P, retAge); pg.v *= rFactor;
   const hasPartner = !!P.partner && P.status === 'verheiratet';
   let pg2 = null, retAge2 = null;
   const items = [{ gross: pg.v, beamte: P.beruf === 'beamte' && !(P.renteInfo > 0), year: retYear }];
@@ -489,7 +524,10 @@ function compute(P) {
     pg2 = pensionGross(P.partner, retAge2);
     items.push({ gross: pg2.v, beamte: P.partner.beruf === 'beamte' && !(P.partner.renteInfo > 0), year: Math.floor(P.partner.by + retAge2) });
   }
-  const pn = pensionNetHH(P, items);
+  const pn0 = pensionNetHH(P, items);
+  if (P.bRente > 0) items.push({ gross: P.bRente, kind: P.bRenteTyp, beamte: false, year: retYear });
+  const pn = P.bRente > 0 ? pensionNetHH(P, items) : pn0;
+  const bNet = pn.net - pn0.net;
   const rReal = (1 + P.rRet) / (1 + P.infl) - 1;
   const nPay = Math.max(1, Math.round((P.planAge - retAge) * 12));
   const retMonths = Math.max(1, Math.round((retAge - age0) * 12));
@@ -534,7 +572,7 @@ function compute(P) {
   const series = [];
   for (let m = 0; m <= months; m += 12) series.push(age0 + m / 12);
   if (series[series.length - 1] < endAge - 1e-6) series.push(endAge);
-  return { age0, retAge, retYear, wunsch, endAge, sim, at, ni, netMonth, netYear, pg, pg2, retAge2, hasPartner, pn, kReal, payout, total, quota, target, extra, extraOk, scen, strat, series, t, fb, mix, infl, nPay, rReal, base };
+  return { age0, retAge, regAge, rFactor, pn0, bNet, retYear, wunsch, endAge, sim, at, ni, netMonth, netYear, pg, pg2, retAge2, hasPartner, pn, kReal, payout, total, quota, target, extra, extraOk, scen, strat, series, t, fb, mix, infl, nPay, rReal, base };
 }
 
 </script>
@@ -542,6 +580,24 @@ function compute(P) {
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var DEF = { vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', rentenbeginn: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente' };
+  DEF.bRente = ''; DEF.bRenteTyp = 'bav'; DEF.retOverride = '';
+  var AUS = [
+    ['aWohnen', 'Wohnen', 'Miete bzw. Wohnkosten, Nebenkosten, Energie', 1100],
+    ['aLeben', 'Lebensmittel', 'Lebensmittel und Haushalt', 450],
+    ['aMobil', 'Mobilität', 'Auto, Bahn, ÖPNV', 250],
+    ['aKomm', 'Kommunikation', 'Handy, Internet, Streaming, Zeitung', 80],
+    ['aVers', 'Versicherungen', 'Haftpflicht, Hausrat, Auto und weitere', 120],
+    ['aGes', 'Gesundheit', 'Zuzahlungen, Brille, Zahnersatz', 100],
+    ['aFrei', 'Freizeit und Reisen', 'Hobbys, Urlaub, Essen gehen', 350],
+    ['aSonst', 'Sonstiges', 'Geschenke, Kleidung, Rücklagen', 150]
+  ];
+  var CAT = ['#3E6F5C', '#B5502E', '#C99A3E', '#4A7A96', '#8FA398', '#7A4E6D', '#A68A64', '#6B6B6B'];
+  AUS.forEach(function (a) {
+    DEF[a[0]] = '';
+    var l = document.createElement('label'); l.className = 'f'; l.htmlFor = a[0];
+    l.innerHTML = '<span>' + a[1] + '</span><input id="' + a[0] + '" type="number" inputmode="decimal" min="0" step="10" placeholder="€ pro Monat"><small>' + a[2] + '</small>';
+    $('ausGrid').appendChild(l);
+  });
   Object.keys(DEF).forEach(function (k) { $(k).value = DEF[k]; });
   var nettoAuto = true, mode = 'nom', userTouched = false;
 
@@ -568,8 +624,11 @@ function compute(P) {
       vorname: $('vorname').value.trim().slice(0, 40), rentenbeginn: rd('rentenbeginn', 0, 0, 2080),
       aE: rd('aE', 0, 0, 100) / 100, aA: rd('aA', 0, 0, 100) / 100,
       rS: rd('rS', 2.5, -5, 20) / 100, rE: rd('rE', 6, -5, 20) / 100, rA: rd('rA', 6, -5, 20) / 100,
-      infl: rd('infl', 2, -2, 15) / 100, rRet: rd('rRet', 3, -2, 15) / 100, planAge: rd('planAge', 90, 70, 110), saveUntil: $('saveUntil').value, netto: null
+      infl: rd('infl', 2, -2, 15) / 100, rRet: rd('rRet', 3, -2, 15) / 100, planAge: rd('planAge', 90, 70, 110), saveUntil: $('saveUntil').value, netto: null,
+      bRente: rd('bRente', 0, 0, 50000), bRenteTyp: $('bRenteTyp').value,
+      aus: AUS.map(function (a) { return rd(a[0], 0, 0, 100000); })
     };
+    var ro = rd('retOverride', 0, 0, 80); P.retOverride = ro >= 60 ? clamp(ro, 63, 70) : 0;
     if (P.status === 'verheiratet') {
       P.partner = { name: $('pvorname').value.trim().slice(0, 40), by: Math.round(rd('pby', P.by, 1940, YEAR - 16)), beruf: $('pberuf').value,
         brutto: rd('pbrutto', 0, 0, 5e6), startAge: rd('pstart', 23, 14, 45), renteInfo: rd('prenteInfo', 0, 0, 20000) };
@@ -730,13 +789,13 @@ function compute(P) {
     }));
 
     // Ruhestand
-    var pn = R.pn, payout = R.payout, total = R.total, goal = R.target;
+    var pn = R.pn, pn0 = R.pn0, bNet = R.bNet, payout = R.payout, total = R.total, goal = R.target;
     var scale = Math.max(netMonth, total, goal) * 1.04 || 1;
-    var wP = pn.net / scale * 100, wO = payout / scale * 100, tx = goal / scale * 100;
+    var wP = pn0.net / scale * 100, wB = bNet / scale * 100, wO = payout / scale * 100, tx = goal / scale * 100;
     var q = R.quota, cls = q >= 0.8 ? 'good' : (q >= 0.65 ? 'warn' : 'crit');
     var vt = q >= 0.8 ? '✓ Gute Absicherung' : (q >= 0.65 ? '! Knappe Absicherung' : '✕ Deutliche Lücke');
     var who1 = nm || 'Du', who2 = pnm || 'Partner/in';
-    var grossDetail = R.hasPartner ? 'Brutto: ' + esc(who1) + ' ' + eur(R.pg.v) + ', ' + esc(who2) + ' ' + eur(R.pg2.v) + '. Abzüge ' + eur(pn.deductions) : 'Brutto ' + eur(pn.gross) + ', Abzüge ' + eur(pn.deductions);
+    var grossDetail = R.hasPartner ? 'Brutto: ' + esc(who1) + ' ' + eur(R.pg.v) + ', ' + esc(who2) + ' ' + eur(R.pg2.v) + '. Abzüge ' + eur(pn0.deductions) : 'Brutto ' + eur(pn0.gross) + ', Abzüge ' + eur(pn0.deductions);
     var pensionLabel = R.hasPartner ? 'Gesetzliche Renten zusammen (geschätzt)' : R.pg.src === 'info' ? 'Gesetzliche Rente laut deiner Renteninformation' : (R.pg.src === 'none' ? 'Keine gesetzliche Rente eingetragen' : (R.pg.src === 'beamte' ? 'Pension (geschätzt)' : 'Gesetzliche Rente (geschätzt)'));
     var gapText;
     if (R.total >= R.target) gapText = 'Du erreichst mit deinem Plan mehr als 80 % deines heutigen Nettos. Dieser Wert gilt unter Planern als gutes Ziel für den Ruhestand.';
@@ -746,12 +805,51 @@ function compute(P) {
     $('ruhe').innerHTML =
       '<span class="verdict ' + cls + '">' + vt + ' · ' + pct(q) + ' deines heutigen Nettos</span>' +
       '<div class="incwrap"><div class="target' + (tx > 78 ? ' flip' : '') + '" style="left:' + tx + '%"><span>80 % vom heutigen Netto</span></div>' +
-      '<div class="incbar" role="img" aria-label="Monatliches Einkommen im Ruhestand: ' + eur(pn.net) + ' Rente und ' + eur(payout) + ' aus Vermögen"><i style="width:' + wP + '%;background:var(--s1)"></i><i style="width:' + wO + '%;background:var(--s2)"></i></div></div>' +
-      '<div class="kv"><div><b>' + eur(pn.net) + '</b><span><i class="dot" style="background:var(--s1)"></i>' + pensionLabel + ', netto. ' + grossDetail + '</span></div>' +
+      '<div class="incbar" role="img" aria-label="Monatliches Einkommen im Ruhestand: ' + eur(pn0.net) + ' gesetzliche Rente, ' + eur(bNet) + ' Berufsrente und ' + eur(payout) + ' aus Vermögen"><i style="width:' + wP + '%;background:var(--s1)"></i><i style="width:' + wB + '%;background:var(--s3)"></i><i style="width:' + wO + '%;background:var(--s2)"></i></div></div>' +
+      '<div class="kv"><div><b>' + eur(pn0.net) + '</b><span><i class="dot" style="background:var(--s1)"></i>' + pensionLabel + ', netto. ' + grossDetail + '</span></div>' +
+      (P.bRente > 0 ? '<div><b>' + eur(bNet) + '</b><span><i class="dot" style="background:var(--s3)"></i>' + (P.bRenteTyp === 'bav' ? 'Betriebsrente' : 'Versorgungswerk bzw. Basisrente') + ', netto. Brutto ' + eur(P.bRente) + ', Abzüge ' + eur(P.bRente - bNet) + '</span></div>' : '') +
       '<div><b>' + eur(payout) + '</b><span><i class="dot" style="background:var(--s2)"></i>Entnahme aus dem Vermögen bis Alter ' + num(P.planAge) + ', Kaufkraft bleibt gleich</span></div>' +
       '<div><b>' + eur(total) + '</b><span>Summe pro Monat. Heutiges Netto: ' + eur(netMonth) + '</span></div></div>' +
       '<p class="note">' + gapText + '</p>' +
       (R.pg.src === 'none' && !R.hasPartner ? '<p class="note">Als Selbstständige oder Selbstständiger zählt hier nur dein Vermögen. Hast du Ansprüche aus einem Versorgungswerk oder einer Basisrente, trage sie bei der Renteninformation ein.</p>' : '');
+
+    // Renteneintrittsalter-Hinweis
+    var rn = 'Gesetzliche Regelaltersgrenze für Jahrgang ' + P.by + ': ' + ageText(R.regAge) + ' Jahre.';
+    if (P.retOverride) rn += ' Du rechnest mit ' + ageText(R.retAge) + '. Die gesetzliche Rente wird dafür ' + (R.rFactor < 1 ? 'um ' + pct(1 - R.rFactor, 1) + ' gekürzt (0,3 % je Monat früher).' : (R.rFactor > 1 ? 'um ' + pct(R.rFactor - 1, 1) + ' erhöht (0,5 % je Monat später).' : 'nicht verändert.'));
+    $('retNote').textContent = rn;
+
+    // Ausgaben im Ruhestand
+    var ausTotal = P.aus.reduce(function (x, y) { return x + y; }, 0);
+    $('ausPanel').hidden = !(ausTotal > 0);
+    $('ausSum').textContent = ausTotal > 0 ? 'Summe: ' + eur(ausTotal) + ' pro Monat' : '';
+    if (ausTotal > 0) {
+      var inc = total, ac = inc / ausTotal, sc2 = Math.max(inc, ausTotal) * 1.02;
+      var acl = ac >= 1 ? 'good' : (ac >= 0.85 ? 'warn' : 'crit');
+      var avt = ac >= 1 ? '✓ Gedeckt' : (ac >= 0.85 ? '! Knapp' : '✕ Lücke');
+      var incBar = '<i style="width:' + pn0.net / sc2 * 100 + '%;background:var(--s1)"></i>' + (bNet > 0 ? '<i style="width:' + bNet / sc2 * 100 + '%;background:var(--s3)"></i>' : '') + '<i style="width:' + payout / sc2 * 100 + '%;background:var(--s2)"></i>';
+      var catBar = AUS.map(function (a, i) { return P.aus[i] > 0 ? '<i style="width:' + P.aus[i] / sc2 * 100 + '%;background:' + CAT[i] + '"></i>' : ''; }).join('');
+      var catLeg = AUS.map(function (a, i) { return P.aus[i] > 0 ? '<span><i class="dot" style="background:' + CAT[i] + '"></i>' + a[1] + ' ' + eur(P.aus[i]) + ' (' + pct(P.aus[i] / ausTotal) + ')</span>' : ''; }).join('');
+      var incLeg = '<span><i class="dot" style="background:var(--s1)"></i>Gesetzliche Rente ' + eur(pn0.net) + '</span>' + (bNet > 0 ? '<span><i class="dot" style="background:var(--s3)"></i>Berufsrente ' + eur(bNet) + '</span>' : '') + '<span><i class="dot" style="background:var(--s2)"></i>Entnahme aus Vermögen ' + eur(payout) + '</span>';
+      var need = Math.max(0, ausTotal - pn.net), Kc = Math.max(0, R.kReal), rm = Math.pow(1 + R.rReal, 1 / 12) - 1, depl;
+      if (need <= 0) depl = 'Deine Renten decken die Ausgaben allein. Das Vermögen bleibt unangetastet.';
+      else if (Kc <= 0) depl = 'Ohne Vermögen bei Rentenbeginn fehlen ' + eur(need) + ' pro Monat.';
+      else {
+        var nn = rm > 1e-9 ? (Kc * rm >= need ? Infinity : -Math.log(1 - Kc * rm / need) / Math.log(1 + rm)) : Kc / need;
+        if (!isFinite(nn)) depl = 'Aus dem Vermögen fehlen ' + eur(need) + ' pro Monat. Die Erträge im Ruhestand (' + pct(P.rRet, 1) + ' vor Inflation) tragen diese Entnahme dauerhaft, das Vermögen schmilzt nicht ab.';
+        else {
+          var endA = R.retAge + nn / 12;
+          depl = 'Aus dem Vermögen fehlen ' + eur(need) + ' pro Monat. Das Vermögen reicht dafür bis etwa Alter ' + num(endA) + (endA >= P.planAge ? ', also über dein Planungsalter von ' + num(P.planAge) + ' hinaus.' : ', also ' + num(P.planAge - endA) + ' Jahre kürzer als dein Planungsalter von ' + num(P.planAge) + '.');
+        }
+        depl += ' Das sind ' + pct(need * 12 / Kc, 1) + ' des Vermögens bei Rentenbeginn pro Jahr. Als grober Anhaltspunkt gelten etwa 3 bis 4 % als langfristig tragbar.';
+      }
+      $('aus').innerHTML =
+        '<span class="verdict ' + acl + '">' + avt + ' · Einnahmen decken ' + pct(ac) + ' der Ausgaben</span>' +
+        '<div><div class="small" style="margin-bottom:4px">Einnahmen pro Monat: ' + eur(inc) + '</div><div class="incbar" role="img" aria-label="Einnahmen ' + eur(inc) + ' pro Monat">' + incBar + '</div><div class="catlegend" style="margin-top:6px">' + incLeg + '</div></div>' +
+        '<div><div class="small" style="margin-bottom:4px">Ausgaben pro Monat: ' + eur(ausTotal) + '</div><div class="incbar" role="img" aria-label="Ausgaben ' + eur(ausTotal) + ' pro Monat">' + catBar + '</div><div class="catlegend" style="margin-top:6px">' + catLeg + '</div></div>' +
+        '<div class="kv"><div><b>' + (inc >= ausTotal ? '+' : '–') + eur(Math.abs(inc - ausTotal)) + '</b><span>' + (inc >= ausTotal ? 'Überschuss' : 'Lücke') + ' pro Monat in heutiger Kaufkraft</span></div></div>' +
+        '<p class="note">' + depl + '</p>' +
+        '<p class="small">Ausgaben ändern sich im Alter oft: erst mehr für Reisen und Freizeit, später mehr für Gesundheit und Pflege. Pflegekosten sind hier nicht enthalten.</p>';
+    }
 
     // Szenarien
     $('scenNote').textContent = 'Vermögen nach Steuern bei Wunschalter ' + R.wunsch + ', wenn dein Portfolio im Schnitt pro Jahr 2 bis 7 % bringt. Zum Vergleich: Tagesgeld lag zuletzt meist bei 2 bis 3 %, breite Aktien-ETFs haben langfristig oft 5 bis 7 % erzielt. Das ist eine Rückschau, keine Zusage.';
@@ -807,6 +905,7 @@ function compute(P) {
     if (P.kinder > 0) h.push(['Kinder', 'Mit Kindern sinkt der Pflegeversicherungsbeitrag, das ist in der Rechnung berücksichtigt. Plane Rücklagen für Ausbildung und Studium getrennt von deiner Altersvorsorge.']);
     if (P.beruf === 'selbst') h.push(['Selbstständig', 'Ohne Pflichtmitgliedschaft entsteht keine gesetzliche Rente. Beiträge zur Basisrente sind steuerlich absetzbar, und freiwillige Beiträge zur gesetzlichen Rente sind möglich.']);
     if (P.beruf === 'beamte') h.push(['Beamtin oder Beamter', 'Die Pension wächst mit den Dienstjahren, höchstens bis 71,75 %. Der Planer schätzt sie grob. Frage deinen Dienstherrn nach der Pensionsauskunft.']);
+    if (P.bRente > 0 && P.bRenteTyp === 'bav') h.push(['Betriebsrente', 'Von einer Betriebsrente bleibt netto oft nur etwa die Hälfte bis zwei Drittel, weil Einkommensteuer sowie voller Kranken- und Pflegeversicherungsbeitrag anfallen. Der Planer rechnet damit ' + eur(R.bNet) + ' von ' + eur(P.bRente) + '.']);
     var eqNow = Math.round((P.aE + P.aA) * 100), eqRule = clamp(100 - a0, 0, 100);
     h.push(['Aktienquote', 'Eine bekannte Faustregel lautet 100 minus Alter, bei dir etwa ' + eqRule + ' % in Aktien oder Aktien-ETFs. Du hast ' + eqNow + ' %. Das ist ein grober Anhaltspunkt und hängt auch davon ab, wie gut du Kursschwankungen aushältst.']);
     if (quote < 0.1) h.push(['Sparquote', 'Du sparst ' + pct(quote) + ' deines Nettos. Viele Planer nennen 10 bis 20 % als Richtwert für die Altersvorsorge.']);
@@ -815,12 +914,13 @@ function compute(P) {
     $('hints').innerHTML = h.map(function (x) { return '<li><b>' + x[0] + '</b>' + x[1] + '</li>'; }).join('');
 
     var an = [];
-    an.push(['Regelaltersgrenze', 'Sie folgt deinem Geburtsjahr nach dem Gesetz: bis Jahrgang 1946 mit 65, danach schrittweise bis 67 für Jahrgang 1964 und jünger.']);
+    an.push(['Regelaltersgrenze', 'Sie folgt deinem Geburtsjahr nach dem Gesetz: bis Jahrgang 1946 mit 65, danach schrittweise bis 67 für Jahrgang 1964 und jünger. Eine weitere Anhebung ist bisher nur eine Empfehlung der Alterssicherungskommission (Bericht vom Juni 2026) und kein Gesetz. Über ein eigenes Renteneintrittsalter kannst du andere Fälle durchrechnen.']);
     an.push(['Gesetzliche Rente', 'Geschätzt aus Entgeltpunkten: dein heutiges Einkommen gilt für das ganze Berufsleben ab Berufsstart, Rentenwert 42,52 € seit 1. Juli 2026, Durchschnittsentgelt 51.944 €. Der Betrag gilt in heutigen Preisen, Änderungen des Rentenniveaus sind nicht enthalten.']);
     an.push(['Steuern', 'Abgeltungsteuer von 25 % plus Soli und optional Kirchensteuer, Teilfreistellung von 30 % bei Aktien-ETFs, Sparerpauschbetrag. Vorabpauschale und Dividenden werden nicht einzeln gerechnet. Einkommensteuer nach dem Tarif 2026.']);
     an.push(['Entnahme', 'Das Kapital bei Renteneintritt wird so über die Jahre bis zum Entnahmealter verteilt, dass die Kaufkraft gleich bleibt. Steuern auf das Kapital sind schon abgezogen.']);
     an.push(['Ehepartner', 'Bei gemeinsamer Veranlagung zählen Netto, Vermögen und Sparrate für den Haushalt. Die Rente des Partners wird ab deinem Renteneintritt angesetzt, auch wenn er oder sie später in Rente geht.']);
-    an.push(['Nicht enthalten', 'Erwerbsminderung, Pflegekosten, Erbschaften, Immobilien, betriebliche Altersvorsorge und Einkommen des Partners.']);
+    an.push(['Berufsrente', 'Eine Betriebsrente wird voll besteuert, dazu kommen Krankenversicherung (14,6 % plus 2,9 % Zusatzbeitrag über dem Freibetrag von 197,75 € im Monat) und Pflegeversicherung. Versorgungswerk und Basisrente werden wie die gesetzliche Rente behandelt. Der Betrag zählt in heutigen Preisen.']);
+    an.push(['Nicht enthalten', 'Erwerbsminderung, Pflegekosten, Erbschaften, Immobilien und Hinterbliebenenversorgung.']);
     $('annahmen').innerHTML = an.map(function (x) { return '<li><b>' + x[0] + '</b>' + x[1] + '</li>'; }).join('');
   }
 
@@ -837,6 +937,55 @@ function compute(P) {
       render();
     });
   });
+  $('netto').addEventListener('input', function () { dirty(); nettoAuto = false; render(); });
+  $('ausEx').addEventListener('click', function () { AUS.forEach(function (a) { $(a[0]).value = a[3]; }); dirty(); render(); });
+  $('ausClr').addEventListener('click', function () { AUS.forEach(function (a) { $(a[0]).value = ''; }); render(); });
+
+  /* ---------- Speichern und Laden ---------- */
+  var SAVEKEY = 'finanzplanung-blog-v1', svT;
+  function svMsg(m) { var e = $('svMsg'); e.textContent = m; clearTimeout(svT); svT = setTimeout(function () { e.textContent = ''; }, 5000); }
+  function collect() {
+    var f = {}; Object.keys(DEF).forEach(function (k) { f[k] = $(k).value; }); f.netto = $('netto').value;
+    return { app: 'finanzplanung', v: 1, saved: new Date().toISOString(), nettoAuto: nettoAuto, mode: mode, fields: f };
+  }
+  function applyState(o) {
+    if (!o || o.app !== 'finanzplanung' || typeof o.fields !== 'object' || !o.fields) throw new Error('format');
+    Object.keys(DEF).forEach(function (k) { if (o.fields[k] != null) $(k).value = String(o.fields[k]).slice(0, 80); });
+    nettoAuto = o.nettoAuto !== false;
+    if (!nettoAuto && o.fields.netto != null) $('netto').value = String(o.fields.netto).slice(0, 20);
+    mode = o.mode === 'real' ? 'real' : 'nom';
+    userTouched = true; $('demo').hidden = true; render();
+  }
+  var dt = function (iso) { try { return new Date(iso).toLocaleString('de-DE', { dateStyle: 'medium', timeStyle: 'short' }); } catch (e) { return ''; } };
+  $('svSave').addEventListener('click', function () {
+    try { var o = collect(); localStorage.setItem(SAVEKEY, JSON.stringify(o)); svMsg('Gespeichert auf diesem Gerät (' + dt(o.saved) + ').'); }
+    catch (e) { svMsg('Speichern im Browser ist hier nicht möglich. Nutze „Als Datei sichern“.'); }
+  });
+  $('svLoad').addEventListener('click', function () {
+    try {
+      var raw = localStorage.getItem(SAVEKEY);
+      if (!raw) { svMsg('Auf diesem Gerät ist noch nichts gespeichert.'); return; }
+      var o = JSON.parse(raw); applyState(o); svMsg('Stand vom ' + dt(o.saved) + ' geladen.');
+    } catch (e) { svMsg('Der gespeicherte Stand konnte nicht geladen werden.'); }
+  });
+  $('svExport').addEventListener('click', function () {
+    try {
+      var o = collect(), blob = new Blob([JSON.stringify(o, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'finanzplanung-' + o.saved.slice(0, 10) + '.json';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+      svMsg('Datei erstellt. Sie enthält deine Eingaben im Klartext, bewahre sie sicher auf.');
+    } catch (e) { svMsg('Die Datei konnte nicht erstellt werden.'); }
+  });
+  $('svImport').addEventListener('click', function () { $('svFile').click(); });
+  $('svFile').addEventListener('change', function () {
+    var f = this.files && this.files[0]; if (!f) return;
+    if (f.size > 200000) { svMsg('Die Datei ist zu groß für einen Planer-Stand.'); this.value = ''; return; }
+    var rd2 = new FileReader(), inp = this;
+    rd2.onload = function () { try { applyState(JSON.parse(String(rd2.result))); svMsg('Datei geladen.'); } catch (e) { svMsg('Diese Datei ist kein gültiger Planer-Stand.'); } inp.value = ''; };
+    rd2.readAsText(f);
+  });
+  try { var sv0 = JSON.parse(localStorage.getItem(SAVEKEY) || 'null'); if (sv0 && sv0.saved) $('svMsg').textContent = 'Gespeicherter Stand vom ' + dt(sv0.saved) + ' vorhanden. Mit „Laden“ übernehmen.'; } catch (e) {}
+
   $('presets').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
     $('aE').value = b.dataset.e; $('aA').value = b.dataset.a; dirty(); render();
@@ -865,6 +1014,7 @@ function compute(P) {
       ['Geburtsjahr', txt('by')], ['Wunschalter', txt('wunsch') + ' Jahre'], ['Familienstand', txt('status')],
       ['Beruf', txt('beruf')], ['Brutto pro Jahr', money(txt('brutto'))], ['Netto pro Monat', money(txt('netto'))],
       ['Sparrate pro Monat', money(txt('sparrate'))], ['Sparen bis', txt('saveUntil')],
+      ['Berufsrente brutto/Monat', txt('bRente') ? money(txt('bRente')) : '–'], ['Eigenes Renteneintrittsalter', txt('retOverride') || 'gesetzlich'],
       ['Rendite Tagesgeld / ETF / Aktien', pc(txt('rS')) + ' / ' + pc(txt('rE')) + ' / ' + pc(txt('rA'))],
       ['Inflation', pc(txt('infl'))], ['Rendite im Ruhestand', pc(txt('rRet'))]
     ];
