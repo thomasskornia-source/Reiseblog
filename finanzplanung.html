@@ -5,66 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Finanzplanung – Andrea unterwegs</title>
 <meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="styles.css">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
 <style>
-  .blogbar { background: #FAF3E8; border-bottom: 1px solid rgba(46,58,50,0.15); padding: 12px 16px; font-family: 'Work Sans', system-ui, sans-serif; font-size: 15px; }
-  .blogbar a { color: #2E3A32; text-decoration: none; }
-  .blogbar a:hover { color: #B5502E; }
-  .blogbar .t { color: #5A6A5E; margin-left: 10px; }
-</style>
-</head>
-<body>
-<div class="blogbar"><a href="index.html">← Zur Übersicht</a><span class="t">· Finanzplanung</span></div>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
 /* Aufbau: oben drei Meilensteine (heute, Rente, Wunschalter), darunter links die Eingaben, rechts die Auswertungen. Auf dem Handy untereinander. */
-:root {
-  --bg: #f2f5f3; --surface: #fbfcfb; --ink: #12201b; --ink2: #46544f; --muted: #6b7a74; --line: #dce3df;
-  --accent: #0d6b58; --accent-ink: #ffffff; --accent-soft: #dff0ea;
-  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a;
-  --q1: #86b6ef; --q2: #5598e7; --q3: #3987e5; --q4: #256abf; --q5: #184f95; --q6: #0d366b;
-  --good: #0b6a2b; --warn: #8a5a00; --crit: #b02a2a;
-  --good-soft: #dcf2e3; --warn-soft: #fbefd2; --crit-soft: #f8dcdc;
-  --f-display: 'Schibsted Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --f-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0f1513; --surface: #172019; --ink: #eef3f0; --ink2: #b8c4be; --muted: #8a9a93; --line: #2a3631;
-    --accent: #4fc3a8; --accent-ink: #08201a; --accent-soft: #1c3029;
-    --s1: #3987e5; --s2: #d95926; --s3: #199e70;
-    --q1: #184f95; --q2: #1c5cab; --q3: #256abf; --q4: #3987e5; --q5: #6da7ec; --q6: #9ec5f4;
-    --good: #5ad28a; --warn: #f0b84d; --crit: #f08a8a;
-    --good-soft: #17301f; --warn-soft: #33290f; --crit-soft: #3a1a1a;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0f1513; --surface: #172019; --ink: #eef3f0; --ink2: #b8c4be; --muted: #8a9a93; --line: #2a3631;
-  --accent: #4fc3a8; --accent-ink: #08201a; --accent-soft: #1c3029;
-  --s1: #3987e5; --s2: #d95926; --s3: #199e70;
-  --q1: #184f95; --q2: #1c5cab; --q3: #256abf; --q4: #3987e5; --q5: #6da7ec; --q6: #9ec5f4;
-  --good: #5ad28a; --warn: #f0b84d; --crit: #f08a8a;
-  --good-soft: #17301f; --warn-soft: #33290f; --crit-soft: #3a1a1a;
-  color-scheme: dark;
-}
-* { box-sizing: border-box; }
-body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; padding-inline: 16px; padding-block: 20px 88px; }
-.wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
-h1, h2, h3 { font-family: var(--f-display); margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
-h1 { font-size: 28px; line-height: 1.1; font-weight: 700; }
-h2 { font-size: 19px; font-weight: 600; }
-h3 { font-size: 15px; font-weight: 600; }
-p { margin: 0; }
-.lead { color: var(--ink2); max-width: 62ch; }
+.fp h2, .fp h3 { font-family: var(--f-display); margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+.fp h2 { font-size: 19px; font-weight: 600; }
+.fp h3 { font-size: 15px; font-weight: 600; }
+.fp p { margin: 0; }
 .eyebrow { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-.head { display: flex; flex-direction: column; gap: 8px; }
 .demo { background: var(--accent-soft); color: var(--ink); border-radius: 8px; padding: 10px 14px; font-size: 14px; display: flex; gap: 10px; align-items: flex-start; }
 .demo b { color: var(--accent); }
 
@@ -156,12 +109,46 @@ th { font-weight: 600; color: var(--ink2); }
 .bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; background: var(--surface); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: var(--ink2); }
 .bar b { display: block; font-family: var(--f-display); font-size: 17px; color: var(--ink); font-variant-numeric: tabular-nums; }
 @media (prefers-reduced-motion: no-preference) { .incbar i { transition: width .25s ease; } }
-</style>
 
-<div class="wrap">
-  <div class="head">
-    <div class="eyebrow">Finanzplaner</div>
-    <h1 id="h1">Wo stehst du heute, bei Rente und im Wunschalter?</h1>
+/* In den Blog eingepasst: Farben und Schriften der Webseite */
+.fp-page { max-width: 1180px; }
+.fp {
+  --bg: #FAF3E8; --surface: #F3E9D8; --ink: #2E3A32; --ink2: #5A6A5E; --muted: #7C887F; --line: rgba(46,58,50,0.16);
+  --accent: #B5502E; --accent-ink: #FAF3E8; --accent-soft: #EFD9C7;
+  --s1: #3E6F5C; --s2: #B5502E; --s3: #C99A3E;
+  --q1: #C5D3C8; --q2: #9DB6A6; --q3: #78977F; --q4: #567B66; --q5: #3B5E4B; --q6: #284334;
+  --good: #2F6B3D; --warn: #8A5A00; --crit: #A8321F;
+  --good-soft: #DDEBD9; --warn-soft: #F4E4BE; --crit-soft: #F2D6CC;
+  --f-display: 'Fraunces', Georgia, serif; --f-body: 'Work Sans', system-ui, sans-serif;
+  font-family: var(--f-body); font-size: 15px; line-height: 1.5; color: var(--ink);
+  display: flex; flex-direction: column; gap: 20px;
+}
+.fp * { box-sizing: border-box; }
+.fp .lead { color: var(--ink2); max-width: 62ch; font-size: 16px; }
+.fp .intro h2 { font-size: 22px; font-weight: 500; }
+.fp .eyebrow { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.fp .demo b { color: var(--rust); }
+@media (min-width: 980px) { .fp #inputs { top: 16px; } }
+.fp input[type=text] { width: 100%; min-width: 0; font: inherit; font-size: 15px; color: var(--ink); border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px; }
+.fp input[type=number], .fp input[type=text], .fp select { background: var(--paper); }
+body.fp-body { padding-bottom: 0; }
+</style>
+</head>
+<body>
+<div class="wrap fp-page">
+
+  <a class="back-link" href="index.html">← Zur Übersicht</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Vorsorge</p>
+      <h1>Finanzplanung</h1>
+      <hr class="rule">
+    </header>
+
+<div class="fp">
+  <div class="intro" style="display:flex;flex-direction:column;gap:8px">
+    <h2 id="h1">Wo stehst du heute, bei Rente und im Wunschalter?</h2>
     <p class="lead">Der Planer rechnet aus deinem Alter, deiner Lebenssituation, deinem Einkommen und deiner Sparweise hoch, wie viel Vermögen nach Steuern übrig bleibt, wenn du so weitermachst wie bisher.</p>
   </div>
   <div class="demo" id="demo"><span><b>Beispielwerte.</b> Trage unten deine eigenen Angaben ein. Alle Zahlen und Grafiken passen sich sofort an.</span></div>
@@ -310,6 +297,9 @@ th { font-weight: 600; color: var(--ink2); }
       </section>
     </main>
   </div>
+</div>
+
+</article>
 </div>
 
 <div class="bar" id="bar" aria-live="polite"></div>
