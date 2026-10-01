@@ -276,6 +276,11 @@ body.fp-body { padding-bottom: 0; }
         <label class="f" for="bRenteTyp"><span>Art der Berufsrente</span>
           <select id="bRenteTyp"><option value="bav">Betriebsrente oder Pensionskasse</option><option value="basis">Versorgungswerk oder Basisrente</option></select>
           <small>Betriebsrenten sind voll steuerpflichtig, dazu kommen Kranken- und Pflegeversicherungsbeiträge. Versorgungswerk und Basisrente werden wie die gesetzliche Rente besteuert.</small></label>
+        <div id="bKapWrap" style="display:grid;gap:12px">
+          <label class="f" for="bKap"><span>Angesparter Betrag der Betriebsrente (optional)</span><input id="bKap" type="number" inputmode="decimal" min="0" step="1000" placeholder="€ Kapital, falls Auszahlung angeboten wird"><small>Dein Versorger bietet das Kapital als Einmalzahlung oder verteilt über 4 Jahre an? Trage es hier ein und vergleiche die Varianten.</small></label>
+          <label class="f" for="bForm"><span>Betriebsrente rechnen als</span>
+            <select id="bForm"><option value="rente">Monatliche Rente</option><option value="einmal">Einmalzahlung</option><option value="vier">Auszahlung über 4 Jahre</option></select></label>
+        </div>
         <label class="f" for="retOverride"><span>Eigenes Renteneintrittsalter (optional)</span><input id="retOverride" type="number" inputmode="decimal" min="63" max="70" step="0.5" placeholder="leer = gesetzliche Regelaltersgrenze"><small id="retNote"></small></label>
         <label class="f" for="rentenbeginn"><span>Rentenbeginn, Jahr (optional)</span><input id="rentenbeginn" type="number" inputmode="numeric" min="1990" max="2080" step="1" placeholder="nur falls du schon Rente beziehst"><small>Der Rentenbeginn bestimmt, welcher Anteil der Rente steuerpflichtig ist.</small></label>
       </fieldset>
@@ -354,6 +359,11 @@ body.fp-body { padding-bottom: 0; }
       <section class="panel" id="ausPanel" aria-labelledby="h-aus" hidden>
         <header><h2 id="h-aus">Reicht das für deine Ausgaben?</h2><p>Deine geplanten Ausgaben im Ruhestand gegen deine Einnahmen, alles in heutiger Kaufkraft und netto.</p></header>
         <div id="aus" class="inc"></div>
+      </section>
+
+      <section class="panel" id="bavPanel" aria-labelledby="h-bav" hidden>
+        <header><h2 id="h-bav">Betriebsrente: Rente oder Auszahlung?</h2><p>Die drei Varianten im Vergleich, nach Steuer sowie Kranken- und Pflegeversicherung.</p></header>
+        <div id="bavBox" class="inc"></div>
       </section>
 
       <section class="panel" id="conPanel" aria-labelledby="h-con" hidden>
@@ -493,7 +503,7 @@ function pensionNetHH(P, items) {
   });
   const tax = est(taxable, split);
   const kist = tax * kistRate(P.kirche);
-  return { gross: J / 12, net: (J - KV - tax - kist) / 12, deductions: (KV + tax + kist) / 12, share: shares[0] };
+  return { gross: J / 12, net: (J - KV - tax - kist) / 12, deductions: (KV + tax + kist) / 12, share: shares[0], taxable };
 }
 function ertragsanteil(age) {
   const T = { 55: 0.26, 56: 0.25, 57: 0.24, 58: 0.23, 59: 0.22, 60: 0.22, 61: 0.22, 62: 0.21, 63: 0.20, 64: 0.19, 65: 0.18, 66: 0.18, 67: 0.17, 68: 0.16, 69: 0.15, 70: 0.15 };
@@ -584,8 +594,11 @@ function compute(P) {
     items.push({ gross: pg2.v, beamte: P.partner.beruf === 'beamte' && !(P.partner.renteInfo > 0), year: Math.floor(P.partner.by + retAge2) });
   }
   const pn0 = pensionNetHH(P, items);
-  if (P.bRente > 0) items.push({ gross: P.bRente, kind: P.bRenteTyp, beamte: false, year: retYear });
-  const pnB = P.bRente > 0 ? pensionNetHH(P, items) : pn0;
+  const bKap = P.bRenteTyp === 'bav' && P.bKap > 0 ? P.bKap : 0;
+  const selRente = !(bKap > 0 && P.bForm !== 'rente');
+  const bNetRente = P.bRente > 0 ? pensionNetHH(P, items.concat([{ gross: P.bRente, kind: P.bRenteTyp, beamte: false, year: retYear }])).net - pn0.net : 0;
+  if (P.bRente > 0 && selRente) items.push({ gross: P.bRente, kind: P.bRenteTyp, beamte: false, year: retYear, isB: true });
+  const pnB = P.bRente > 0 && selRente ? pensionNetHH(P, items) : pn0;
   const bNet = pnB.net - pn0.net;
   // Vorsorgeverträge
   const cons = P.contracts || [];
@@ -603,6 +616,20 @@ function compute(P) {
   });
   const pn = cGross > 0 ? pensionNetHH(P, items) : pnB;
   const cNet = pn.net - pnB.net;
+  const lvNom = lumpNom;
+  // Betriebsrente als Kapital: Einmalzahlung oder Auszahlung ueber 4 Jahre
+  let bav = null;
+  if (bKap > 0) {
+    const split = P.status === 'verheiratet', m = bKap / 120;
+    const kv = 120 * (Math.max(0, m - 197.75) * 0.175 + m * (0.036 + (P.kinder === 0 ? 0.006 : 0)));
+    const base = pensionNetHH(P, items.filter(i => !i.isB)).taxable, ki = kistRate(P.kirche);
+    const calc = n => { const kk = (bKap - kv) / n, k5 = n === 1 ? 5 : 1; const tax = n * k5 * (est(base + kk / k5, split) - est(base, split)); return bKap - kv - tax * (1 + ki); };
+    const net1 = calc(1), net4 = calc(4);
+    const rm = P.rRet;
+    const pv4 = [0, 1, 2, 3].reduce((a, t) => a + net4 / 4 / Math.pow(1 + rm, t), 0);
+    bav = { K: bKap, kv, net1, net4, pv1: net1, pv4 };
+    if (P.bForm === 'einmal') lumpNom += net1; else if (P.bForm === 'vier') lumpNom += pv4;
+  }
   const rReal = (1 + P.rRet) / (1 + P.infl) - 1;
   const nPay = Math.max(1, Math.round((P.planAge - retAge) * 12));
   const retMonths = Math.max(1, Math.round((retAge - age0) * 12));
@@ -612,6 +639,11 @@ function compute(P) {
   };
   const kReal = (at.ret.net + lumpNom) / infl(retAge - age0);
   const payout = payoutMonthly(Math.max(0, kReal), rReal, nPay);
+  if (bav) {
+    const eq = pv => payoutMonthly(pv / infl(retAge - age0), rReal, nPay);
+    bav.eqRente = bNetRente; bav.eq1 = eq(bav.pv1); bav.eq4 = eq(bav.pv4);
+    bav.breakEven = bNetRente > 0 ? bav.net1 / (bNetRente * 12) : null;
+  }
   const total = pn.net + payout;
   const quota = netMonth > 0 ? total / netMonth : 0;
   const target = 0.8 * netMonth;
@@ -647,7 +679,7 @@ function compute(P) {
   const series = [];
   for (let m = 0; m <= months; m += 12) series.push(age0 + m / 12);
   if (series[series.length - 1] < endAge - 1e-6) series.push(endAge);
-  return { age0, retAge, regAge, rFactor, pn0, bNet, cNet, cGross, lumpNom, lumpGross, lumpTax, lumpGuess, retYear, wunsch, endAge, sim, at, ni, netMonth, netYear, pg, pg2, retAge2, hasPartner, pn, kReal, payout, total, quota, target, extra, extraOk, scen, strat, series, t, fb, mix, infl, nPay, rReal, base };
+  return { age0, retAge, regAge, rFactor, pn0, bNet, cNet, cGross, lumpNom, lvNom, bav, bNetRente, selRente, lumpGross, lumpTax, lumpGuess, retYear, wunsch, endAge, sim, at, ni, netMonth, netYear, pg, pg2, retAge2, hasPartner, pn, kReal, payout, total, quota, target, extra, extraOk, scen, strat, series, t, fb, mix, infl, nPay, rReal, base };
 }
 
 </script>
@@ -655,7 +687,7 @@ function compute(P) {
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var DEF = { vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', rentenbeginn: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente' };
-  DEF.bRente = ''; DEF.bRenteTyp = 'bav'; DEF.retOverride = '';
+  DEF.bRente = ''; DEF.bRenteTyp = 'bav'; DEF.bKap = ''; DEF.bForm = 'rente'; DEF.retOverride = '';
   var AUS = [
     ['aWohnen', 'Wohnen', 'Miete bzw. Wohnkosten, Nebenkosten, Energie', 1100],
     ['aLeben', 'Lebensmittel', 'Lebensmittel und Haushalt', 450],
@@ -717,7 +749,7 @@ function compute(P) {
       aE: rd('aE', 0, 0, 100) / 100, aA: rd('aA', 0, 0, 100) / 100,
       rS: rd('rS', 2.5, -5, 20) / 100, rE: rd('rE', 6, -5, 20) / 100, rA: rd('rA', 6, -5, 20) / 100,
       infl: rd('infl', 2, -2, 15) / 100, rRet: rd('rRet', 3, -2, 15) / 100, planAge: rd('planAge', 90, 70, 110), saveUntil: $('saveUntil').value, netto: null,
-      bRente: rd('bRente', 0, 0, 50000), bRenteTyp: $('bRenteTyp').value,
+      bRente: rd('bRente', 0, 0, 50000), bRenteTyp: $('bRenteTyp').value, bKap: rd('bKap', 0, 0, 5e7), bForm: $('bForm').value,
       aus: AUS.map(function (a) { return rd(a[0], 0, 0, 100000); }),
       contracts: CON.map(conClean)
     };
@@ -914,9 +946,9 @@ function compute(P) {
       '<div class="incwrap"><div class="target' + (tx > 78 ? ' flip' : '') + '" style="left:' + tx + '%"><span>80 % vom heutigen Netto</span></div>' +
       '<div class="incbar" role="img" aria-label="Monatliches Einkommen im Ruhestand: ' + eur(pn0.net) + ' gesetzliche Rente, ' + eur(bNet) + ' Berufsrente, ' + eur(cNet) + ' aus Vorsorgeverträgen und ' + eur(payout) + ' aus Vermögen"><i style="width:' + wP + '%;background:var(--s1)"></i><i style="width:' + wB + '%;background:var(--s3)"></i><i style="width:' + wC + '%;background:var(--s4)"></i><i style="width:' + wO + '%;background:var(--s2)"></i></div></div>' +
       '<div class="kv"><div><b>' + eur(pn0.net) + '</b><span><i class="dot" style="background:var(--s1)"></i>' + pensionLabel + ', netto. ' + grossDetail + '</span></div>' +
-      (P.bRente > 0 ? '<div><b>' + eur(bNet) + '</b><span><i class="dot" style="background:var(--s3)"></i>' + (P.bRenteTyp === 'bav' ? 'Betriebsrente' : 'Versorgungswerk bzw. Basisrente') + ', netto. Brutto ' + eur(P.bRente) + ', Abzüge ' + eur(P.bRente - bNet) + '</span></div>' : '') +
+      (P.bRente > 0 && R.selRente ? '<div><b>' + eur(bNet) + '</b><span><i class="dot" style="background:var(--s3)"></i>' + (P.bRenteTyp === 'bav' ? 'Betriebsrente' : 'Versorgungswerk bzw. Basisrente') + ', netto. Brutto ' + eur(P.bRente) + ', Abzüge ' + eur(P.bRente - bNet) + '</span></div>' : '') +
       (R.cGross > 0 ? '<div><b>' + eur(cNet) + '</b><span><i class="dot" style="background:var(--s4)"></i>Renten aus Vorsorgeverträgen, netto. Brutto ' + eur(R.cGross) + ', Abzüge ' + eur(R.cGross - cNet) + '</span></div>' : '') +
-      '<div><b>' + eur(payout) + '</b><span><i class="dot" style="background:var(--s2)"></i>Entnahme aus dem Vermögen bis Alter ' + num(P.planAge) + ', Kaufkraft bleibt gleich' + (R.lumpNom > 0 ? '. Darin enthalten: Auszahlung Lebensversicherung ' + eur(R.lumpNom) + ' netto' : '') + '</span></div>' +
+      '<div><b>' + eur(payout) + '</b><span><i class="dot" style="background:var(--s2)"></i>Entnahme aus dem Vermögen bis Alter ' + num(P.planAge) + ', Kaufkraft bleibt gleich' + (R.lvNom > 0 ? '. Darin enthalten: Auszahlung Lebensversicherung ' + eur(R.lvNom) + ' netto' : '') + (R.bav && P.bForm !== 'rente' ? '. Darin enthalten: Betriebsrente als ' + (P.bForm === 'einmal' ? 'Einmalzahlung' : 'Auszahlung über 4 Jahre') + ' (' + eur(P.bForm === 'einmal' ? R.bav.net1 : R.bav.net4) + ' netto)' : '') + '</span></div>' +
       '<div><b>' + eur(total) + '</b><span>Summe pro Monat. Heutiges Netto: ' + eur(netMonth) + '</span></div></div>' +
       '<p class="note">' + gapText + '</p>' +
       (R.pg.src === 'none' && !R.hasPartner ? '<p class="note">Als Selbstständige oder Selbstständiger zählt hier nur dein Vermögen. Hast du Ansprüche aus einem Versorgungswerk oder einer Basisrente, trage sie bei der Renteninformation ein.</p>' : '');
@@ -959,6 +991,22 @@ function compute(P) {
         '<p class="small">Ausgaben ändern sich im Alter oft: erst mehr für Reisen und Freizeit, später mehr für Gesundheit und Pflege. Pflegekosten sind hier nicht enthalten.</p>';
     }
 
+    // Betriebsrente: Varianten
+    $('bKapWrap').hidden = P.bRenteTyp !== 'bav';
+    var bv = R.bav; $('bavPanel').hidden = !bv;
+    if (bv) {
+      var opt = [['rente', 'Monatliche Rente', bv.eqRente, P.bRente > 0 ? eur(bv.eqRente) + ' netto pro Monat, lebenslang. Brutto ' + eur(P.bRente) : 'Trage oben die Rente pro Monat ein, um sie zu vergleichen.'],
+        ['einmal', 'Einmalzahlung', bv.eq1, eur(bv.net1) + ' netto auf einmal. Brutto ' + eur(bv.K) + ', Abzüge ' + eur(bv.K - bv.net1)],
+        ['vier', 'Auszahlung über 4 Jahre', bv.eq4, eur(bv.net4) + ' netto insgesamt, etwa ' + eur(bv.net4 / 4) + ' pro Jahr. Abzüge ' + eur(bv.K - bv.net4)]];
+      var best = opt.filter(function (o) { return o[2] > 0; }).sort(function (a, b) { return b[2] - a[2]; })[0];
+      $('bavBox').innerHTML =
+        '<div class="kv">' + opt.map(function (o) {
+          return '<div' + (P.bForm === o[0] ? ' style="border-color:var(--accent)"' : '') + '><b>' + (o[2] > 0 ? eur(o[2]) : '–') + '</b><span><i class="dot" style="background:' + (best && best[0] === o[0] ? 'var(--good)' : 'var(--muted)') + '"></i>' + o[1] + (P.bForm === o[0] ? ' (so rechnet der Planer)' : '') + '. ' + o[3] + '</span></div>';
+        }).join('') + '</div>' +
+        '<p class="note">Vergleichbar gemacht: Die Zahl oben ist jeweils die gleichwertige Monatsrente in heutiger Kaufkraft bis Alter ' + num(P.planAge) + ', wenn du das Geld mit ' + pct(P.rRet, 1) + ' Rendite im Ruhestand anlegst und gleichmäßig entnimmst.' + (best ? ' Rechnerisch liegt „' + best[1] + '“ vorn.' : '') + (bv.breakEven ? ' Ohne Verzinsung hat die Rente die Einmalzahlung nach etwa ' + num(bv.breakEven, 1) + ' Jahren eingeholt.' : '') + '</p>' +
+        '<p class="small">Einmalzahlung: voll steuerpflichtig, der Planer nutzt die Fünftelregelung. Kranken- und Pflegeversicherung werden auf 120 Monate verteilt berechnet (ein Hundertzwanzigstel pro Monat, mit Freibetrag). Bei der Auszahlung über 4 Jahre wird jede Rate im Jahr des Zuflusses normal besteuert, die Fünftelregelung gilt dann nicht. Welche Variante weniger Steuer kostet, hängt von deinem übrigen Einkommen ab. Der Planer rechnet die Raten zu Beginn jedes Jahres und zinst sie auf den Renteneintritt ab. Die Rente schützt dich vor einem langen Leben, das Kapital bleibt flexibel und vererbbar. Wie dein Vertrag tatsächlich behandelt wird, hängt vom Durchführungsweg ab. Frage deinen Versorger und einen Steuerberater, die Zahlen hier sind Schätzungen.</p>';
+    }
+
     // Verträge
     var pc = P.contracts;
     $('conPanel').hidden = !pc.length;
@@ -973,7 +1021,7 @@ function compute(P) {
         }).join('') + '</tbody></table></div>' +
         '<div class="kv"><div><b>' + eur(cb) + '</b><span>Beiträge pro Monat' + (netMonth > 0 ? ', ' + pct(cb / netMonth, 1) + ' deines Nettos' : '') + '</span></div>' +
         (R.cGross > 0 ? '<div><b>' + eur(R.cNet) + '</b><span>Renten aus Verträgen im Ruhestand, netto pro Monat. Brutto ' + eur(R.cGross) + '</span></div>' : '') +
-        (R.lumpGross > 0 ? '<div><b>' + eur(R.lumpNom) + '</b><span>Kapitalauszahlung bei Renteneintritt, nach geschätzter Steuer ' + eur(R.lumpTax) + '</span></div>' : '') + '</div>' +
+        (R.lumpGross > 0 ? '<div><b>' + eur(R.lvNom) + '</b><span>Kapitalauszahlung bei Renteneintritt, nach geschätzter Steuer ' + eur(R.lumpTax) + '</span></div>' : '') + '</div>' +
         (R.lumpGuess ? '<p class="small">Bei einer Lebensversicherung ohne Angabe der eingezahlten Beiträge nimmt der Planer an, dass 30 % der Auszahlung Ertrag sind.</p>' : '') +
         '<p class="small">Rentenverträge gehen in „Was bleibt im Ruhestand pro Monat?“ ein. Berufsunfähigkeit, Risikoleben, Pflege und Sonstiges werden nur aufgelistet und fließen nicht in die Rechnung ein. Lebensversicherungen vor 2005 sind steuerfrei, danach wird die Hälfte des Ertrags versteuert, wenn der Vertrag mindestens 12 Jahre lief und du bei Auszahlung mindestens 62 bist.</p>';
     }
@@ -1056,8 +1104,12 @@ function compute(P) {
       var cTxt = 'Deine eingetragenen Verträge kosten ' + eur(cBeitrag) + ' pro Monat' + (netMonth > 0 ? ', das sind ' + pct(cBeitrag / netMonth, 1) + ' deines Nettos' : '') + '. Sie sind in deiner Sparrate von ' + eur(P.sparrate) + ' nicht enthalten.';
       if (R.cGross > 0) cTxt += ' Aus den Rentenverträgen kommen im Ruhestand brutto ' + eur(R.cGross) + ' pro Monat, netto etwa ' + eur(R.cNet) + '.';
       if (hasType('riester')) cTxt += ' Riester-Renten sind im Ruhestand voll steuerpflichtig. Prüfe, ob Gebühren und Garantien zu deiner Lage passen.';
-      if (R.lumpNom > 0) cTxt += ' Die Kapitalauszahlung der Lebensversicherung (' + eur(R.lumpNom) + ' netto) fließt in dein Vermögen bei Renteneintritt.';
+      if (R.lvNom > 0) cTxt += ' Die Kapitalauszahlung der Lebensversicherung (' + eur(R.lvNom) + ' netto) fließt in dein Vermögen bei Renteneintritt.';
       h.push(['Deine Verträge', cTxt, '']);
+    }
+    if (R.bav) {
+      var bb = [['Monatliche Rente', R.bav.eqRente], ['Einmalzahlung', R.bav.eq1], ['Auszahlung über 4 Jahre', R.bav.eq4]].filter(function (o) { return o[1] > 0; }).sort(function (x, y) { return y[1] - x[1]; })[0];
+      h.push(['Betriebsrente: Rente oder Kapital', 'Von ' + eur(R.bav.K) + ' angespartem Kapital bleiben bei Einmalzahlung etwa ' + eur(R.bav.net1) + ' netto, bei Auszahlung über 4 Jahre etwa ' + eur(R.bav.net4) + '. Rein rechnerisch liegt bei deinen Annahmen „' + bb[0] + '“ vorn. Bei der Steuer liegen Einmalzahlung (mit Fünftelregelung) und Verteilung über 4 Jahre oft nah beieinander. Bedenke: Das Kapital musst du selbst anlegen und über Jahrzehnte verwalten, die Rente fließt garantiert weiter. Sprich vor der Entscheidung mit deinem Versorger über Steuer und Krankenkassenbeiträge.', '']);
     }
     if (a0 >= 40 && !hasType('pfl') && a0 < 70) h.push(['Pflege', 'Pflegekosten sind im Planer nicht enthalten. Die gesetzliche Pflegeversicherung ist nur eine Teilabsicherung, der Eigenanteil im Pflegeheim liegt oft bei weit über 2.000 Euro pro Monat. Plane dafür Vermögen ein oder prüfe eine Pflegezusatzversicherung.', '']);
     // Vermögen und Notgroschen
@@ -1082,7 +1134,7 @@ function compute(P) {
     if (P.kinder > 0) h.push(['Kinder', 'Mit Kindern sinkt der Pflegeversicherungsbeitrag, das ist in der Rechnung berücksichtigt. Plane Rücklagen für Ausbildung und Studium getrennt von deiner Altersvorsorge.']);
     if (P.beruf === 'selbst') h.push(['Selbstständig', 'Ohne Pflichtmitgliedschaft entsteht keine gesetzliche Rente. Beiträge zur Basisrente sind steuerlich absetzbar, und freiwillige Beiträge zur gesetzlichen Rente sind möglich.']);
     if (P.beruf === 'beamte') h.push(['Beamtin oder Beamter', 'Die Pension wächst mit den Dienstjahren, höchstens bis 71,75 %. Der Planer schätzt sie grob. Frage deinen Dienstherrn nach der Pensionsauskunft.']);
-    if (P.bRente > 0 && P.bRenteTyp === 'bav') h.push(['Betriebsrente', 'Von einer Betriebsrente bleibt netto oft nur etwa die Hälfte bis zwei Drittel, weil Einkommensteuer sowie voller Kranken- und Pflegeversicherungsbeitrag anfallen. Der Planer rechnet damit ' + eur(R.bNet) + ' von ' + eur(P.bRente) + '.']);
+    if (P.bRente > 0 && P.bRenteTyp === 'bav' && R.selRente) h.push(['Betriebsrente', 'Von einer Betriebsrente bleibt netto oft nur etwa die Hälfte bis zwei Drittel, weil Einkommensteuer sowie voller Kranken- und Pflegeversicherungsbeitrag anfallen. Der Planer rechnet damit ' + eur(R.bNet) + ' von ' + eur(P.bRente) + '.']);
     var eqNow = Math.round((P.aE + P.aA) * 100), eqRule = clamp(100 - a0, 0, 100);
     h.push(['Aktienquote', 'Eine bekannte Faustregel lautet 100 minus Alter, bei dir etwa ' + eqRule + ' % in Aktien oder Aktien-ETFs. Du hast ' + eqNow + ' %. Das ist ein grober Anhaltspunkt und hängt auch davon ab, wie gut du Kursschwankungen aushältst.']);
     if (quote < 0.1) h.push(['Sparquote', 'Du sparst ' + pct(quote) + ' deines Nettos. Viele Planer nennen 10 bis 20 % als Richtwert für die Altersvorsorge.']);
