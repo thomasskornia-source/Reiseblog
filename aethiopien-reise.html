@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Äthiopien-Reise (12 Tage) – Andrea unterwegs</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .subhead { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 32px 0 8px; }
+  .route-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 15px; }
+  .route-table th, .route-table td { border: 1px solid rgba(46,58,50,0.15); padding: 8px 12px; text-align: left; }
+  .route-table th { background: var(--paper-warm); font-family: 'Work Sans', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); }
+  .map-link { display: inline-block; margin: 10px 0 4px; padding: 10px 18px; background: var(--rust); color: #fff; text-decoration: none; border-radius: 6px; font-size: 14px; }
+  .hotel-group { margin: 16px 0; }
+  .hotel-group strong { display: block; font-family: 'Fraunces', serif; font-size: 17px; margin-bottom: 6px; }
+  .hotel-group ul { margin: 0; padding-left: 20px; }
+  .hotel-group li { margin-bottom: 6px; }
+  .safety-box { background: rgba(197, 92, 60, 0.08); border: 1px solid rgba(197, 92, 60, 0.25); border-radius: 8px; padding: 18px 22px; margin: 16px 0; font-size: 15px; }
+  .safety-box.warn { background: rgba(197, 92, 60, 0.14); border: 2px solid rgba(197, 92, 60, 0.55); }
+  .practical-list li { margin-bottom: 10px; }
+  .note { font-style: italic; color: var(--ink-soft); font-size: 14px; }
+  #route-map { height: 380px; width: 100%; border-radius: 8px; margin: 14px 0 6px; }
+  .route-tooltip { background: var(--paper, #faf6f0); border: 1px solid rgba(46,58,50,0.25); font-family: 'Work Sans', sans-serif; font-size: 12px; padding: 2px 6px; border-radius: 4px; box-shadow: none; }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="reisen.html">← Zu den Reisen</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Seite teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Reiseplanung</p>
+      <h1>Äthiopien-Reise (12 Tage)</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="safety-box warn">
+      <p><strong>Wichtig vorab – Teilreisewarnung (Stand: 1. Oktober 2026).</strong> Das Auswärtige Amt warnt vor Reisen in große Teile Äthiopiens und rät von nicht notwendigen Reisen in die übrigen Gebiete ab. Als Ausnahme gilt nur die Hauptstadt Addis Abeba. Seit dem 22.09.2026 gibt es zudem erneute Kampfhandlungen in Tigray, Amhara und Afar, teilweise sind Flughäfen geschlossen.</p>
+      <p style="margin-bottom:0;">Dieser Plan ist deshalb nur ein Vorschlag für den Fall, dass sich die Lage bis zur Buchung deutlich entspannt. Nach heutigem Stand ist die Route außerhalb von Addis Abeba nicht empfehlenswert – Details im Abschnitt „Sicherheitslage“.</p>
+    </div>
+
+    <div class="entry-body">
+      <p>12 Tage Äthiopien ab München, zu dritt, <strong>ohne Inlandsflüge</strong>. Route: <strong>Addis Abeba → Bishoftu (Kraterseen) → Hawassa → Bale Mountains → zurück nach Addis Abeba</strong>. Kaffee, Rift-Valley-Seen, Wandern auf dem Hochplateau und Wildtiere wie der Äthiopische Wolf – alles per Auto mit Fahrer.</p>
+      <p style="font-size:14px; color: var(--ink-soft);">Die klassische Nordroute (Bahir Dar, Gondar, Lalibela, Aksum) wird meist mit Inlandsflügen kombiniert und liegt in Regionen mit Reisewarnung (Amhara, Tigray). Sie ist deshalb nicht Teil dieses Plans.</p>
+    </div>
+
+    <h2 class="subhead">Route</h2>
+    <div id="route-map"></div>
+    <a class="map-link" href="https://www.google.com/maps/dir/Addis+Ababa,+Ethiopia/Bishoftu,+Ethiopia/Hawassa,+Ethiopia/Dinsho,+Ethiopia/Addis+Ababa,+Ethiopia" target="_blank">📍 Route in Google Maps öffnen (Navigation)</a>
+    <table class="route-table">
+      <tr><th>Tag</th><th>Station</th><th>Programm</th><th>Lage laut Auswärtigem Amt</th></tr>
+      <tr><td>1</td><td>Addis Abeba</td><td>Ankunft, Höhenanpassung (ca. 2.400 m), ruhiger Abend</td><td>Ausnahme von der Warnung, erhöhte Kontrollen</td></tr>
+      <tr><td>2–4</td><td>Addis Abeba</td><td>Nationalmuseum, Kathedrale, Markt, Kaffeezeremonie, Essen mit Injera</td><td>Ausnahme von der Warnung</td></tr>
+      <tr><td>5</td><td>Bishoftu</td><td>Kraterseen, Vogelwelt, entspannter Tag am Wasser</td><td>Abraten (übrige Gebiete)</td></tr>
+      <tr><td>6–7</td><td>Hawassa</td><td>Hawassa-See, Fischmarkt, Marabus und Affen am Ufer</td><td>Abraten (übrige Gebiete); Anfahrt vermutlich durch die Zone Arsi (Warnung)</td></tr>
+      <tr><td>8–9</td><td>Bale Mountains</td><td>Wanderungen bei Dinsho, Sanetti-Hochplateau, Äthiopischer Wolf</td><td>Abraten; Anfahrt vermutlich durch die Zone Arsi (Warnung)</td></tr>
+      <tr><td>10</td><td>Rückfahrt nach Addis Abeba</td><td>Lange Etappe, nur bei Tageslicht</td><td>Abraten / Warnung auf Teilen der Strecke</td></tr>
+      <tr><td>11</td><td>Addis Abeba</td><td>Puffertag, Souvenirs, Kaffee</td><td>Ausnahme von der Warnung</td></tr>
+      <tr><td>12</td><td>Rückflug</td><td>ab Addis Abeba</td><td>–</td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft);">Fahrzeiten laut einem Anbieter der Rift-Valley-Tour: Addis Abeba – Langano ca. 4 Std., Langano – Bale Mountains ca. 5,5 Std., Bale Mountains – Hawassa ca. 5 Std. Die Rückfahrt Bale – Addis Abeba dauert entsprechend gut 9 Stunden und sollte mit einem Fahrer vor Ort genau geplant werden. Welche Zonen die Strecke berührt, bitte vor einer Buchung mit einem Veranstalter vor Ort klären.</p>
+
+    <h2 class="subhead">Kostenübersicht</h2>
+    <p>Eine vollständige Kalkulation gibt es noch nicht, weil die Route zuerst von der Lage abhängt. Bekannt sind nur diese Anhaltspunkte:</p>
+    <ul>
+      <li><strong>Flüge</strong>: Lufthansa nennt Hin- und Rückflug München–Addis Abeba ab 708 € p.P. (Beispieltermine im Juni 2027). Vergleichsportale zeigen für Winter 2026/27 Preise ab ca. 490–550 € p.P. (Stand der Anzeige, kann sich ändern).</li>
+      <li><strong>Hotels in Addis Abeba</strong> (Booking.com, 26.–29.12., drei Personen, ein Zimmer, Gesamtpreis für 3 Nächte): Point Central ca. 166 €, Hotel Lobelia ca. 166 €, Best Western Premier Dynasty ca. 539 €.</li>
+      <li><strong>Fahrer/Auto</strong>: Eine Rift-Valley-Tour mit Geländewagen, Fahrer und Guide wird von einem Anbieter ab ca. 638 USD p.P. (4 Tage, Basis 2 Personen, ohne Mittag- und Abendessen) angeboten – als grober Richtwert für die Überlandstrecke.</li>
+    </ul>
+
+    <h2 class="subhead">Hotelvorschläge (Addis Abeba)</h2>
+    <div class="hotel-group">
+      <strong>Addis Abeba</strong>
+      <ul>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Point+Central+Hotel+Addis+Ababa">Point Central Hotel</a> – Booking-Bewertung 9,1/10 (86 Bew.), Garten, Flughafentransfer, 24-Std.-Sicherheitspersonal</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Lobelia+Addis+Ababa">Hotel Lobelia</a> – 8,0/10 (1.133 Bew.), Garten, Flughafenshuttle, Familienzimmer</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Best+Western+Premier+Dynasty+Addis+Ababa">Best Western Premier Dynasty</a> – 8,9/10 (315 Bew.), Innenpool, Spa, Familienzimmer</li>
+      </ul>
+    </div>
+    <p class="note">Für Bishoftu, Hawassa und die Bale Mountains gibt es hier bewusst noch keine Hotelempfehlung. Unterkünfte dort sollten erst gebucht werden, wenn die Lage eine Reise zulässt, am besten mit kostenloser Stornierung.</p>
+
+    <h2 class="subhead">Sicherheitslage (Stand: 1. Oktober 2026)</h2>
+    <div class="safety-box">
+      <p>Das Auswärtige Amt hat seit dem 25.09.2026 eine Teilreisewarnung für Äthiopien. <strong>Gewarnt</strong> wird vor Reisen nach Tigray, Amhara, Benishangul-Gumuz, Gambela und Somali, in die Grenzgebiete (ca. 10 km) zu Eritrea, Südsudan, Sudan und Kenia sowie in die westlichen Zonen von Oromia (West-, Südwest- und Nord-Shewa, Zone Arsi). <strong>Dringend abgeraten</strong> wird von Reisen in die Zone Awsi in Afar. Von nicht notwendigen Reisen in die übrigen Gebiete wird <strong>abgeraten</strong>. Ausgenommen ist die Hauptstadt Addis Abeba, auch dort gelten aber erhöhte Kontrollen.</p>
+      <p>Überlandfahrten sollen vermieden werden, besonders nach Einbruch der Dunkelheit. In Grenzregionen besteht Minengefahr. Seit dem 22.09.2026 gibt es erneute Kampfhandlungen in Tigray, Amhara und Afar, Flughäfen sind teilweise geschlossen.</p>
+      <p style="margin-bottom:0;">Was das für den Plan bedeutet: Außerhalb von Addis Abeba liegt jede Station in einem Gebiet, von dem abgeraten wird, und die Anfahrt nach Süden führt vermutlich durch die Zone Arsi, vor der gewarnt wird. Reiserücktritts- und Auslandskrankenversicherungen können bei Reisewarnungen eingeschränkt sein, bitte die Bedingungen vor der Buchung prüfen. Die Lage kurz vor Abflug und vor jeder Buchung erneut prüfen. Als Alternative bieten sich andere Ziele auf dieser Seite an.</p>
+    </div>
+    <ul><li><a href="https://www.auswaertiges-amt.de/de/reiseundsicherheit/aethiopiensicherheit-209504" target="_blank">Auswärtiges Amt: Äthiopien – Reise- und Sicherheitshinweise</a></li></ul>
+
+    <h2 class="subhead">Flugsuche München–Addis Abeba</h2>
+    <ul>
+      <li><a href="https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/muenchen-addis-abeba" target="_blank">Lufthansa: München → Addis Abeba</a></li>
+      <li><a href="https://www.fluege.de/Katalog/Muenchen-Addis-Abeba/Flug-von-nach-7016" target="_blank">fluege.de: München → Addis Abeba</a></li>
+      <li><a href="https://www.google.com/travel/flights?q=Flights%20from%20Munich%20to%20Addis%20Ababa" target="_blank">Google Flights: München → Addis Abeba</a></li>
+    </ul>
+    <p style="font-size:14px; color: var(--ink-soft);">Ob die Verbindungen nonstop oder mit Stopp sind und wie lange sie dauern, bitte in der Suche für die konkreten Termine prüfen. Wegen der aktuellen Lage sind Flughäfen teilweise geschlossen, daher nur flexible Tarife mit Umbuchung oder Erstattung buchen.</p>
+
+    <h2 class="subhead">Reiseberichte &amp; Infos</h2>
+    <ul>
+      <li><a href="https://www.brilliant-ethiopia.com/rift-valley-road-trip" target="_blank">Brilliant Ethiopia: Rift Valley Road Trip</a> – 4-Tage-Tour Addis Abeba – Langano – Bale Mountains – Hawassa, Orientierung für Etappen und Fahrzeiten</li>
+      <li><a href="https://addis-abeba.diplo.de/et-de/willkommen-in-aethiopien/reise-sicherheit" target="_blank">Deutsche Botschaft Addis Abeba: Reise und Sicherheit</a> – aktuelle Hinweise vor Ort</li>
+    </ul>
+
+    <h2 class="subhead">Praktisches</h2>
+    <ul class="practical-list">
+      <li><strong>Einreise</strong>: E-Visum online oder Visum bei der Botschaft in Berlin, Visa on arrival am Flughafen Addis Abeba ist in USD möglich. Reisepass mindestens 6 Monate gültig.</li>
+      <li><strong>Gesundheit</strong>: Addis Abeba liegt auf ca. 2.400 m, dort ist das Malariarisiko ganzjährig gering. Unterhalb von 2.500 m besteht Malariarisiko, das betrifft Bishoftu und Hawassa. Gelbfieberimpfung ist bei Einreise aus Gelbfiebergebieten nötig. Impfungen und Prophylaxe vorab mit einem Tropenmediziner klären.</li>
+      <li><strong>Höhe</strong>: Das Sanetti-Plateau in den Bale Mountains liegt deutlich über 3.000 m. Auf Höhenkrankheit achten, warme Kleidung einpacken, die Nächte sind dort kalt.</li>
+      <li><strong>Fahren</strong>: nur mit ortskundigem Fahrer, nicht nach Einbruch der Dunkelheit, keine Selbstfahrer-Etappen. Das ist eine Empfehlung passend zum Hinweis des Auswärtigen Amts.</li>
+    </ul>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Stand: 1. Oktober 2026.</p>
+
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    { name: "Addis Abeba",  tag: "Tag 1–4, 10–11", lat: 9.0300, lon: 38.7400, info: "Museum, Kathedrale, Kaffee" },
+    { name: "Bishoftu",     tag: "Tag 5",          lat: 8.7522, lon: 38.9784, info: "Kraterseen" },
+    { name: "Hawassa",      tag: "Tag 6–7",        lat: 7.0504, lon: 38.4955, info: "Hawassa-See, Fischmarkt" },
+    { name: "Bale Mountains", tag: "Tag 8–9",      lat: 7.1000, lon: 39.7700, info: "Sanetti-Plateau, Äthiopischer Wolf" }
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap-Mitwirkende' }).addTo(map);
+  var latlngs = stops.map(function (s) { return [s.lat, s.lon]; });
+  var loop = latlngs.concat([latlngs[0]]);
+  L.polyline(loop, { color: '#a5622a', weight: 3, dashArray: '6 6' }).addTo(map);
+  stops.forEach(function (s, i) {
+    var marker = L.circleMarker([s.lat, s.lon], { radius: 9, fillColor: '#c98a4b', color: '#fff', weight: 2, fillOpacity: 1 }).addTo(map);
+    marker.bindTooltip((i + 1) + '. ' + s.name, { permanent: true, direction: 'top', offset: [0, -8], className: 'route-tooltip' });
+    marker.bindPopup('<strong>' + s.name + '</strong><br>' + s.tag + '<br>' + s.info);
+  });
+  map.fitBounds(latlngs, { padding: [30, 30] });
+</script>
+<script>
+  function shareRecipe(btn) {
+    var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+    if (navigator.share) {
+      navigator.share(shareData).catch(function(){});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href).then(function(){
+        var original = btn.innerHTML;
+        btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+        setTimeout(function(){ btn.innerHTML = original; }, 2000);
+      });
+    }
+  }
+</script>
+</body>
+</html>
