@@ -1171,12 +1171,30 @@ function compute(P) {
   }
   var dt = function (iso) { try { return new Date(iso).toLocaleString('de-DE', { dateStyle: 'medium', timeStyle: 'short' }); } catch (e) { return ''; } };
   $('svSave').addEventListener('click', function () {
-    try {
-      var o = collect(), blob = new Blob([JSON.stringify(o, null, 2)], { type: 'application/json' });
-      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'finanzplanung-' + o.saved.slice(0, 10) + '.json';
-      document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
-      svMsg('Gespeichert als ' + a.download + '. Die Datei enthält deine Eingaben im Klartext, bewahre sie sicher auf.');
-    } catch (e) { svMsg('Speichern fehlgeschlagen.'); }
+    var o = collect(), name = 'finanzplanung-' + o.saved.slice(0, 10) + '.json', text = JSON.stringify(o, null, 2);
+    var done = function () { svMsg('Gespeichert als ' + name + '. Die Datei enthält deine Eingaben im Klartext, bewahre sie sicher auf.'); };
+    var plain = function () {
+      try {
+        var blob = new Blob([text], { type: 'application/json' }), a = document.createElement('a');
+        a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000); done();
+      } catch (e) { svMsg('Speichern fehlgeschlagen.'); }
+    };
+    var viaShare = function () {
+      try {
+        var file = new File([text], name, { type: 'application/json' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          navigator.share({ files: [file], title: name }).then(function () { svMsg('Datei übergeben. Wähle „In Dateien sichern“ für den Speicherort.'); }, function (e) { if (!e || e.name !== 'AbortError') plain(); });
+          return;
+        }
+      } catch (e) {}
+      plain();
+    };
+    if (window.showSaveFilePicker) {
+      window.showSaveFilePicker({ suggestedName: name, types: [{ description: 'Planer-Stand (JSON)', accept: { 'application/json': ['.json'] } }] })
+        .then(function (h) { return h.createWritable().then(function (w) { return w.write(text).then(function () { return w.close(); }); }); })
+        .then(done, function (e) { if (e && e.name === 'AbortError') return; viaShare(); });
+    } else viaShare();
   });
   $('svLoad').addEventListener('click', function () { $('svFile').click(); });
   $('svFile').addEventListener('change', function () {
