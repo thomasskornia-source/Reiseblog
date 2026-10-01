@@ -135,9 +135,13 @@ th { font-weight: 600; color: var(--ink2); }
 .fp input[type=text] { width: 100%; min-width: 0; font: inherit; font-size: 15px; color: var(--ink); border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px; }
 .fp input[type=number], .fp input[type=text], .fp select { background: var(--paper); }
 
-#svMsg { width: 100%; min-height: 18px; }
-.savebar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-.savebar .small { flex-basis: 100%; }
+[hidden] { display: none !important; }
+.toolgroup { position: absolute; top: 0; right: 0; display: flex; gap: 8px; }
+.toolbtn { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; padding: 0; color: var(--ink); background: var(--paper-warm); border: 1px solid var(--ink); border-radius: 50%; cursor: pointer; }
+.toolbtn:hover { background: var(--ink); color: var(--paper); }
+.toolbtn:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 10; max-width: 90vw; text-align: center; font-size: 14px; color: var(--paper); background: var(--ink); border-radius: 20px; padding: 8px 16px; box-shadow: 0 2px 10px rgba(0,0,0,.2); }
+.toast:empty { display: none; }
 .catlegend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink2); font-variant-numeric: tabular-nums; }
 .exportbtn { position: absolute; top: 0; right: 0; display: inline-flex; align-items: center; gap: 6px; font-family: 'Work Sans', sans-serif; font-size: 14px; color: var(--ink); background: var(--paper-warm); border: 1px solid var(--ink); border-radius: 22px; padding: 8px 14px; cursor: pointer; }
 .exportbtn:hover { background: var(--ink); color: var(--paper); }
@@ -150,7 +154,7 @@ th { font-weight: 600; color: var(--ink2); }
   @page { size: A4; margin: 12mm; }
   html, body { background: #FAF3E8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .wrap, .fp-page { padding: 0 !important; max-width: none !important; }
-  .back-link, .exportbtn, .demo, #inputs, .savebar, .bar, .toolbar .seg, details, .print-hide { display: none !important; }
+  .back-link, .toolgroup, .toast, .demo, #inputs, .bar, .toolbar .seg, details, .print-hide { display: none !important; }
   .fp .layout { display: block !important; }
   .fp .stack { gap: 12px; }
   .fp .toolbar { justify-content: flex-start !important; }
@@ -176,9 +180,19 @@ body.fp-body { padding-bottom: 0; }
     <header class="entry-header" style="position:relative">
       <p class="date">Vorsorge</p>
       <h1>Finanzplanung</h1>
-      <button type="button" class="exportbtn" id="exportBtn" aria-label="Zusammenfassung als PDF speichern oder drucken" title="Als PDF speichern oder drucken">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6"/><path d="M9.5 14.5 12 17l2.5-2.5"/></svg><span>PDF</span>
-      </button>
+      <div class="toolgroup" role="group" aria-label="Werkzeuge">
+        <button type="button" class="toolbtn" id="svLoad" aria-label="Gespeicherten Stand aus Datei laden" title="Laden">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19V6a2 2 0 0 1 2-2h4l2 2h7a2 2 0 0 1 2 2v2"/><path d="M3 19l3-9h16l-3 9z"/></svg>
+        </button>
+        <button type="button" class="toolbtn" id="svSave" aria-label="Eingaben als Datei speichern" title="Speichern">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3"/><path d="M7 21v-7h10v7"/></svg>
+        </button>
+        <button type="button" class="toolbtn" id="exportBtn" aria-label="Zusammenfassung als PDF speichern oder drucken" title="Als PDF speichern oder drucken">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6"/><path d="M9.5 14.5 12 17l2.5-2.5"/></svg>
+        </button>
+      </div>
+      <input type="file" id="svFile" accept="application/json,.json" hidden>
+      <span class="toast" id="svMsg" role="status" aria-live="polite"></span>
       <hr class="rule">
     </header>
 
@@ -198,13 +212,6 @@ body.fp-body { padding-bottom: 0; }
     <aside id="inputs" class="panel" aria-label="Deine Angaben">
       <header><h2>Deine Angaben</h2><p>Alle Werte bleiben auf deinem Gerät und werden nur zum Rechnen genutzt.</p></header>
 
-      <div class="savebar" role="group" aria-label="Speichern und Laden">
-        <button type="button" class="chip" id="svSave">Speichern</button>
-        <button type="button" class="chip" id="svLoad">Laden</button>
-        <button type="button" class="chip" id="svExport">Als Datei sichern</button>
-        <button type="button" class="chip" id="svImport">Datei laden</button>
-        <input type="file" id="svFile" accept="application/json,.json" hidden>
-        <div class="small" id="svMsg" role="status" aria-live="polite"></div>
       </div>
 
       <fieldset><legend>Person und Lebenssituation</legend>
@@ -942,7 +949,7 @@ function compute(P) {
   $('ausClr').addEventListener('click', function () { AUS.forEach(function (a) { $(a[0]).value = ''; }); render(); });
 
   /* ---------- Speichern und Laden ---------- */
-  var SAVEKEY = 'finanzplanung-blog-v1', svT;
+  var svT;
   function svMsg(m) { var e = $('svMsg'); e.textContent = m; clearTimeout(svT); svT = setTimeout(function () { e.textContent = ''; }, 5000); }
   function collect() {
     var f = {}; Object.keys(DEF).forEach(function (k) { f[k] = $(k).value; }); f.netto = $('netto').value;
@@ -958,33 +965,21 @@ function compute(P) {
   }
   var dt = function (iso) { try { return new Date(iso).toLocaleString('de-DE', { dateStyle: 'medium', timeStyle: 'short' }); } catch (e) { return ''; } };
   $('svSave').addEventListener('click', function () {
-    try { var o = collect(); localStorage.setItem(SAVEKEY, JSON.stringify(o)); svMsg('Gespeichert auf diesem Gerät (' + dt(o.saved) + ').'); }
-    catch (e) { svMsg('Speichern im Browser ist hier nicht möglich. Nutze „Als Datei sichern“.'); }
-  });
-  $('svLoad').addEventListener('click', function () {
-    try {
-      var raw = localStorage.getItem(SAVEKEY);
-      if (!raw) { svMsg('Auf diesem Gerät ist noch nichts gespeichert.'); return; }
-      var o = JSON.parse(raw); applyState(o); svMsg('Stand vom ' + dt(o.saved) + ' geladen.');
-    } catch (e) { svMsg('Der gespeicherte Stand konnte nicht geladen werden.'); }
-  });
-  $('svExport').addEventListener('click', function () {
     try {
       var o = collect(), blob = new Blob([JSON.stringify(o, null, 2)], { type: 'application/json' });
       var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'finanzplanung-' + o.saved.slice(0, 10) + '.json';
       document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
-      svMsg('Datei erstellt. Sie enthält deine Eingaben im Klartext, bewahre sie sicher auf.');
-    } catch (e) { svMsg('Die Datei konnte nicht erstellt werden.'); }
+      svMsg('Gespeichert als ' + a.download + '. Die Datei enthält deine Eingaben im Klartext, bewahre sie sicher auf.');
+    } catch (e) { svMsg('Speichern fehlgeschlagen.'); }
   });
-  $('svImport').addEventListener('click', function () { $('svFile').click(); });
+  $('svLoad').addEventListener('click', function () { $('svFile').click(); });
   $('svFile').addEventListener('change', function () {
     var f = this.files && this.files[0]; if (!f) return;
     if (f.size > 200000) { svMsg('Die Datei ist zu groß für einen Planer-Stand.'); this.value = ''; return; }
     var rd2 = new FileReader(), inp = this;
-    rd2.onload = function () { try { applyState(JSON.parse(String(rd2.result))); svMsg('Datei geladen.'); } catch (e) { svMsg('Diese Datei ist kein gültiger Planer-Stand.'); } inp.value = ''; };
+    rd2.onload = function () { try { applyState(JSON.parse(String(rd2.result))); svMsg('Stand aus Datei geladen.'); } catch (e) { svMsg('Diese Datei ist kein gültiger Planer-Stand.'); } inp.value = ''; };
     rd2.readAsText(f);
   });
-  try { var sv0 = JSON.parse(localStorage.getItem(SAVEKEY) || 'null'); if (sv0 && sv0.saved) $('svMsg').textContent = 'Gespeicherter Stand vom ' + dt(sv0.saved) + ' vorhanden. Mit „Laden“ übernehmen.'; } catch (e) {}
 
   $('presets').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
