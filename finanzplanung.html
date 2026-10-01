@@ -187,8 +187,8 @@ body.fp-body { padding-bottom: 0; }
         <button type="button" class="toolbtn" id="svSave" aria-label="Eingaben als Datei speichern" title="Speichern">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3"/><path d="M7 21v-7h10v7"/></svg>
         </button>
-        <button type="button" class="toolbtn" id="exportBtn" aria-label="Zusammenfassung als PDF speichern oder drucken" title="Als PDF speichern oder drucken">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6"/><path d="M9.5 14.5 12 17l2.5-2.5"/></svg>
+        <button type="button" class="toolbtn" id="shareBtn" aria-label="Seite teilen" title="Teilen">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
         </button>
       </div>
       <input type="file" id="svFile" accept="application/json,.json" hidden>
@@ -206,7 +206,6 @@ body.fp-body { padding-bottom: 0; }
 
   <section class="miles" id="miles" aria-label="Meilensteine"></section>
 
-  <section class="panel print-only" id="printAngaben" aria-label="Angaben"></section>
 
   <div class="layout">
     <aside id="inputs" class="panel" aria-label="Deine Angaben">
@@ -371,8 +370,7 @@ body.fp-body { padding-bottom: 0; }
   </div>
 </div>
 
-<p class="small print-only" id="printFoot"></p>
-  </article>
+</article>
 </div>
 
 <div class="bar" id="bar" aria-live="polite"></div>
@@ -998,35 +996,22 @@ function compute(P) {
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  ['h-hints', 'h-ann', 'h-strat'].forEach(function (id) { var e = $(id), p = e && e.closest('section, .panel'); if (p) p.classList.add('print-hide'); });
-  var made = [];
-  function txt(id) { var e = $(id); if (!e) return ''; if (e.tagName === 'SELECT') return e.options[e.selectedIndex] ? e.options[e.selectedIndex].text : ''; return e.value; }
-  function money(v) { var n = parseFloat(v); return isFinite(n) ? n.toLocaleString('de-DE') + ' €' : '–'; }
-  function pc(v) { var n = parseFloat(v); return isFinite(n) ? n.toLocaleString('de-DE') + ' %' : '–'; }
-  function prepare() {
-    var name = txt('vorname');
-    var rows = [
-      ['Geburtsjahr', txt('by')], ['Wunschalter', txt('wunsch') + ' Jahre'], ['Familienstand', txt('status')],
-      ['Beruf', txt('beruf')], ['Brutto pro Jahr', money(txt('brutto'))], ['Netto pro Monat', money(txt('netto'))],
-      ['Sparrate pro Monat', money(txt('sparrate'))], ['Sparen bis', txt('saveUntil')],
-      ['Berufsrente brutto/Monat', txt('bRente') ? money(txt('bRente')) : '–'], ['Eigenes Renteneintrittsalter', txt('retOverride') || 'gesetzlich'],
-      ['Rendite Tagesgeld / ETF / Aktien', pc(txt('rS')) + ' / ' + pc(txt('rE')) + ' / ' + pc(txt('rA'))],
-      ['Inflation', pc(txt('infl'))], ['Rendite im Ruhestand', pc(txt('rRet'))]
-    ];
-    $('printAngaben').innerHTML = '<header><h2>Angaben' + (name ? ' von ' + name.replace(/</g, '') : '') + '</h2></header><div class="pr-grid">' +
-      rows.map(function (r) { return '<div><span>' + r[0] + '</span><b>' + r[1] + '</b></div>'; }).join('') + '</div>';
-    $('printFoot').textContent = 'Erstellt am ' + new Date().toLocaleDateString('de-DE') + '. Beispielrechnung auf Basis der oben genannten Annahmen, keine Anlage- oder Steuerberatung und keine Zusage. Renditen schwanken, Steuern sind vereinfacht berechnet.';
-    document.querySelectorAll('.charts canvas').forEach(function (cv) {
-      try {
-        var img = document.createElement('img'); img.className = 'printimg'; img.alt = cv.getAttribute('aria-label') || '';
-        img.src = cv.toDataURL('image/png'); cv.parentNode.insertBefore(img, cv); made.push(img);
-      } catch (e) {}
-    });
+  var t;
+  function say(m) { var e = $('svMsg'); e.textContent = m; clearTimeout(t); t = setTimeout(function () { e.textContent = ''; }, 3000); }
+  function copy(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(function () { say('Link kopiert'); }, function () { fb(text); }); } else fb(text);
   }
-  function cleanup() { made.forEach(function (i) { if (i.parentNode) i.parentNode.removeChild(i); }); made = []; }
-  $('exportBtn').addEventListener('click', function () {
-    cleanup(); prepare();
-    setTimeout(function () { window.print(); }, 80);
+  function fb(text) {
+    var ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); say('Link kopiert'); } catch (e) { say('Kopieren nicht möglich'); }
+    document.body.removeChild(ta);
+  }
+  $('shareBtn').addEventListener('click', function () {
+    var url = location.href.split('#')[0].split('?')[0];
+    var data = { title: 'Finanzplanung', text: 'Finanzplanung: Wo stehst du heute, bei Rente und im Wunschalter?', url: url };
+    if (navigator.share) navigator.share(data).catch(function (e) { if (e && e.name !== 'AbortError') copy(url); });
+    else copy(url);
   });
 })();
 </script>
