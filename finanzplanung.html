@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Finanzplanung – Andrea unterwegs</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .blogbar { background: #FAF3E8; border-bottom: 1px solid rgba(46,58,50,0.15); padding: 12px 16px; font-family: 'Work Sans', system-ui, sans-serif; font-size: 15px; }
+  .blogbar a { color: #2E3A32; text-decoration: none; }
+  .blogbar a:hover { color: #B5502E; }
+  .blogbar .t { color: #5A6A5E; margin-left: 10px; }
+</style>
+</head>
+<body>
+<div class="blogbar"><a href="index.html">← Zur Übersicht</a><span class="t">· Finanzplanung</span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Aufbau: oben drei Meilensteine (heute, Rente, Wunschalter), darunter links die Eingaben, rechts die Auswertungen. Auf dem Handy untereinander. */
+:root {
+  --bg: #f2f5f3; --surface: #fbfcfb; --ink: #12201b; --ink2: #46544f; --muted: #6b7a74; --line: #dce3df;
+  --accent: #0d6b58; --accent-ink: #ffffff; --accent-soft: #dff0ea;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a;
+  --q1: #86b6ef; --q2: #5598e7; --q3: #3987e5; --q4: #256abf; --q5: #184f95; --q6: #0d366b;
+  --good: #0b6a2b; --warn: #8a5a00; --crit: #b02a2a;
+  --good-soft: #dcf2e3; --warn-soft: #fbefd2; --crit-soft: #f8dcdc;
+  --f-display: 'Schibsted Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1513; --surface: #172019; --ink: #eef3f0; --ink2: #b8c4be; --muted: #8a9a93; --line: #2a3631;
+    --accent: #4fc3a8; --accent-ink: #08201a; --accent-soft: #1c3029;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+    --q1: #184f95; --q2: #1c5cab; --q3: #256abf; --q4: #3987e5; --q5: #6da7ec; --q6: #9ec5f4;
+    --good: #5ad28a; --warn: #f0b84d; --crit: #f08a8a;
+    --good-soft: #17301f; --warn-soft: #33290f; --crit-soft: #3a1a1a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1513; --surface: #172019; --ink: #eef3f0; --ink2: #b8c4be; --muted: #8a9a93; --line: #2a3631;
+  --accent: #4fc3a8; --accent-ink: #08201a; --accent-soft: #1c3029;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+  --q1: #184f95; --q2: #1c5cab; --q3: #256abf; --q4: #3987e5; --q5: #6da7ec; --q6: #9ec5f4;
+  --good: #5ad28a; --warn: #f0b84d; --crit: #f08a8a;
+  --good-soft: #17301f; --warn-soft: #33290f; --crit-soft: #3a1a1a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; padding-inline: 16px; padding-block: 20px 88px; }
+.wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+h1 { font-size: 28px; line-height: 1.1; font-weight: 700; }
+h2 { font-size: 19px; font-weight: 600; }
+h3 { font-size: 15px; font-weight: 600; }
+p { margin: 0; }
+.lead { color: var(--ink2); max-width: 62ch; }
+.eyebrow { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.head { display: flex; flex-direction: column; gap: 8px; }
+.demo { background: var(--accent-soft); color: var(--ink); border-radius: 8px; padding: 10px 14px; font-size: 14px; display: flex; gap: 10px; align-items: flex-start; }
+.demo b { color: var(--accent); }
+
+.miles { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.mile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.mile .age { font-size: 13px; color: var(--ink2); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.mile .age b { font-family: var(--f-display); font-size: 14px; color: var(--ink); }
+.mile .big { font-family: var(--f-display); font-weight: 700; font-size: 34px; line-height: 1.05; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.mile .sub { font-size: 13px; color: var(--ink2); font-variant-numeric: tabular-nums; }
+.mile.now { border-color: var(--accent); }
+
+.layout { display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 980px) {
+  .layout { grid-template-columns: 370px minmax(0, 1fr); gap: 24px; }
+  #inputs { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; }
+  .bar { display: none !important; }
+  body { padding-block-end: 32px; }
+}
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.panel > header { display: flex; flex-direction: column; gap: 4px; }
+.panel > header p { color: var(--ink2); font-size: 13px; }
+.stack { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+
+fieldset { border: 0; border-top: 1px solid var(--line); padding: 14px 0 0; margin: 0; display: grid; gap: 12px; min-width: 0; }
+fieldset:first-of-type { border-top: 0; padding-top: 0; }
+legend { padding: 0 8px 0 0; float: left; width: 100%; margin-bottom: 10px; font-family: var(--f-display); font-weight: 600; font-size: 14px; }
+.grid2 { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+.f { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--ink2); min-width: 0; }
+.f > span { display: flex; justify-content: space-between; gap: 6px; }
+.f small { color: var(--muted); font-size: 12px; }
+input[type=number], select { width: 100%; min-width: 0; font: inherit; font-size: 15px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px; font-variant-numeric: tabular-nums; }
+input[type=number]:focus-visible, select:focus-visible, button:focus-visible, summary:focus-visible, input[type=range]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+input[type=range] { width: 100%; accent-color: var(--accent); margin: 2px 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip, .seg button { font: inherit; font-size: 13px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+.chip[aria-pressed=true], .seg button[aria-pressed=true] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.alloc { display: grid; gap: 8px; }
+.allocbar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; gap: 2px; background: var(--line); }
+.allocbar i { display: block; height: 100%; }
+.alloclegend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink2); font-variant-numeric: tabular-nums; }
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; }
+.linkbtn { font: inherit; font-size: 12px; background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; }
+details.more { border-top: 1px solid var(--line); padding-top: 12px; }
+details.more > summary, details.tbl > summary { cursor: pointer; font-family: var(--f-display); font-weight: 600; font-size: 14px; }
+details.more[open] > summary { margin-bottom: 12px; }
+details.tbl { border-top: 1px solid var(--line); padding-top: 10px; }
+details.tbl > summary { font-size: 13px; color: var(--ink2); font-family: var(--f-body); font-weight: 500; }
+
+.seg { display: inline-flex; gap: 6px; }
+.toolbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.charts { position: relative; height: 270px; }
+@media (min-width: 700px) { .charts { height: 330px; } }
+.legendrow { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12px; color: var(--ink2); }
+.sw { display: inline-block; width: 12px; height: 3px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+.sw.box { height: 10px; width: 10px; border-radius: 2px; }
+.sw.dash { background: none !important; border-top: 2px dashed var(--ink2); height: 0; }
+.note { font-size: 13px; color: var(--ink2); }
+.small { font-size: 12px; color: var(--muted); }
+
+table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+.tw { overflow-x: auto; }
+th, td { text-align: right; padding: 5px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-weight: 600; color: var(--ink2); }
+
+.verdict { display: inline-flex; align-items: center; gap: 8px; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; align-self: flex-start; }
+.verdict.good { background: var(--good-soft); color: var(--good); }
+.verdict.warn { background: var(--warn-soft); color: var(--warn); }
+.verdict.crit { background: var(--crit-soft); color: var(--crit); }
+.inc { display: grid; gap: 10px; }
+.incbar { position: relative; display: flex; height: 34px; gap: 2px; border-radius: 6px; overflow: hidden; background: var(--line); }
+.incbar i { display: block; height: 100%; }
+.incwrap { position: relative; padding-top: 18px; }
+.target { position: absolute; top: 0; bottom: -4px; width: 0; border-left: 2px dashed var(--ink); }
+.target span { position: absolute; top: -2px; left: 6px; font-size: 11px; white-space: nowrap; color: var(--ink2); transform: translateY(-2px); }
+.target.flip span { left: auto; right: 6px; }
+.kv { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.kv > div { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.kv b { font-family: var(--f-display); font-size: 20px; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.kv span { font-size: 12px; color: var(--ink2); }
+.cards { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.cards > div { border: 1px solid var(--line); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 4px; }
+.cards p { font-size: 13px; color: var(--ink2); }
+.hints { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.hints li { padding-left: 14px; border-left: 2px solid var(--accent); font-size: 14px; color: var(--ink2); }
+.hints li b { color: var(--ink); font-family: var(--f-display); display: block; font-size: 14px; }
+.src { font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+.src a { color: var(--accent); }
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; background: var(--surface); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: var(--ink2); }
+.bar b { display: block; font-family: var(--f-display); font-size: 17px; color: var(--ink); font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: no-preference) { .incbar i { transition: width .25s ease; } }
+</style>
+
+<div class="wrap">
+  <div class="head">
+    <div class="eyebrow">Finanzplaner</div>
+    <h1 id="h1">Wo stehst du heute, bei Rente und im Wunschalter?</h1>
+    <p class="lead">Der Planer rechnet aus deinem Alter, deiner Lebenssituation, deinem Einkommen und deiner Sparweise hoch, wie viel Vermögen nach Steuern übrig bleibt, wenn du so weitermachst wie bisher.</p>
+  </div>
+  <div class="demo" id="demo"><span><b>Beispielwerte.</b> Trage unten deine eigenen Angaben ein. Alle Zahlen und Grafiken passen sich sofort an.</span></div>
+
+  <section class="miles" id="miles" aria-label="Meilensteine"></section>
+
+  <div class="layout">
+    <aside id="inputs" class="panel" aria-label="Deine Angaben">
+      <header><h2>Deine Angaben</h2><p>Alle Werte bleiben auf deinem Gerät und werden nur zum Rechnen genutzt.</p></header>
+
+      <fieldset><legend>Person und Lebenssituation</legend>
+        <label class="f" for="vorname"><span>Vorname (optional)</span><input id="vorname" type="text" maxlength="40" autocomplete="given-name" placeholder="z. B. Anna"><small>Wird nur für die Anrede und die Beschriftung benutzt.</small></label>
+        <div class="grid2">
+          <label class="f" for="by"><span>Geburtsjahr</span><input id="by" type="number" inputmode="numeric" min="1940" max="2010" step="1"></label>
+          <label class="f" for="wunsch"><span>Wunschalter</span><input id="wunsch" type="number" inputmode="numeric" min="30" max="95" step="1"></label>
+        </div>
+        <label class="f" for="status"><span>Familienstand</span>
+          <select id="status"><option value="ledig">Ledig</option><option value="verheiratet">Verheiratet, gemeinsame Veranlagung</option><option value="geschieden">Geschieden</option><option value="verwitwet">Verwitwet</option></select></label>
+        <div class="grid2">
+          <label class="f" for="kinder"><span>Kinder</span><input id="kinder" type="number" inputmode="numeric" min="0" max="8" step="1"></label>
+          <label class="f" for="kirche"><span>Kirchensteuer</span>
+            <select id="kirche"><option value="0">Nein</option><option value="9">Ja, 9 %</option><option value="8">Ja, 8 % (BY, BW)</option></select></label>
+        </div>
+        <label class="f" for="beruf"><span>Beruf</span>
+          <select id="beruf"><option value="angestellt">Angestellt</option><option value="selbst">Selbstständig</option><option value="beamte">Beamtin oder Beamter</option></select></label>
+      </fieldset>
+
+      <fieldset id="partnerSet" hidden><legend>Ehepartner oder Ehepartnerin</legend>
+        <p class="small">Bei gemeinsamer Veranlagung rechnet der Planer mit dem Splittingtarif und beiden Einkommen. Lässt du Brutto leer, zählt dein Partner ohne eigenes Einkommen.</p>
+        <label class="f" for="pvorname"><span>Vorname (optional)</span><input id="pvorname" type="text" maxlength="40" placeholder="z. B. Ben"></label>
+        <div class="grid2">
+          <label class="f" for="pby"><span>Geburtsjahr</span><input id="pby" type="number" inputmode="numeric" min="1940" max="2010" step="1"></label>
+          <label class="f" for="pberuf"><span>Beruf</span>
+            <select id="pberuf"><option value="angestellt">Angestellt</option><option value="selbst">Selbstständig</option><option value="beamte">Beamtin oder Beamter</option></select></label>
+        </div>
+        <div class="grid2">
+          <label class="f" for="pbrutto"><span>Brutto pro Jahr</span><input id="pbrutto" type="number" inputmode="decimal" min="0" step="1000"></label>
+          <label class="f" for="pstart"><span>Berufsstart mit Alter</span><input id="pstart" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
+        </div>
+        <label class="f" for="prenteInfo"><span>Rente laut Rentenbescheid oder Renteninformation (optional)</span><input id="prenteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"></label>
+      </fieldset>
+
+      <fieldset><legend>Einkommen</legend>
+        <div class="grid2">
+          <label class="f" for="brutto"><span id="bruttoLbl">Brutto pro Jahr</span><input id="brutto" type="number" inputmode="decimal" min="0" step="1000"></label>
+          <label class="f" for="netto"><span id="nettoLbl">Netto pro Monat</span><input id="netto" type="number" inputmode="decimal" min="0" step="50"></label>
+        </div>
+        <div class="small" id="nettoNote"></div>
+        <label class="f" for="startAge"><span>Berufsstart mit Alter</span><input id="startAge" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
+        <label class="f" for="renteInfo"><span>Rente laut Rentenbescheid oder Renteninformation (optional)</span><input id="renteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"><small>Trage die Bruttorente vor Abzügen ein. Sie ersetzt die Schätzung des Planers.</small></label>
+        <label class="f" for="rentenbeginn"><span>Rentenbeginn, Jahr (optional)</span><input id="rentenbeginn" type="number" inputmode="numeric" min="1990" max="2080" step="1" placeholder="nur falls du schon Rente beziehst"><small>Der Rentenbeginn bestimmt, welcher Anteil der Rente steuerpflichtig ist.</small></label>
+      </fieldset>
+
+      <fieldset><legend>Sparen und Anlegen</legend>
+        <div class="grid2">
+          <label class="f" for="W0"><span>Vermögen heute</span><input id="W0" type="number" inputmode="decimal" min="0" step="1000"></label>
+          <label class="f" for="sparrate"><span>Sparrate pro Monat</span><input id="sparrate" type="number" inputmode="decimal" min="0" step="50"></label>
+        </div>
+        <label class="f" for="dyn"><span>Sparrate steigt pro Jahr um (%)</span><input id="dyn" type="number" inputmode="decimal" min="0" max="10" step="0.5"></label>
+        <div class="alloc">
+          <div class="eyebrow">Wie legst du an?</div>
+          <div class="chips" id="presets">
+            <button type="button" class="chip" data-e="0" data-a="0">Sicher</button>
+            <button type="button" class="chip" data-e="50" data-a="0">Ausgewogen</button>
+            <button type="button" class="chip" data-e="100" data-a="0">Wachstum</button>
+            <button type="button" class="chip" data-e="60" data-a="40">Aktienlastig</button>
+          </div>
+          <label class="f" for="aE"><span>Breiter ETF <b id="aEv"></b></span><input id="aE" type="range" min="0" max="100" step="5"></label>
+          <label class="f" for="aA"><span>Einzelaktien <b id="aAv"></b></span><input id="aA" type="range" min="0" max="100" step="5"></label>
+          <div class="allocbar" id="allocbar" aria-hidden="true"></div>
+          <div class="alloclegend" id="alloclegend"></div>
+        </div>
+        <div class="small" id="hhNote" hidden>Bei gemeinsamer Veranlagung gelten Netto, Vermögen und Sparrate für euren gemeinsamen Haushalt.</div>
+        <label class="f" for="saveUntil"><span>Du sparst bis</span>
+          <select id="saveUntil"><option value="rente">Renteneintritt</option><option value="wunsch">Wunschalter</option></select></label>
+      </fieldset>
+
+      <details class="more"><summary>Annahmen anpassen</summary>
+        <div style="display:grid;gap:12px">
+          <div class="grid2">
+            <label class="f" for="rS"><span>Rendite Tagesgeld (%)</span><input id="rS" type="number" inputmode="decimal" step="0.5"></label>
+            <label class="f" for="rE"><span>Rendite ETF (%)</span><input id="rE" type="number" inputmode="decimal" step="0.5"></label>
+            <label class="f" for="rA"><span>Rendite Aktien (%)</span><input id="rA" type="number" inputmode="decimal" step="0.5"></label>
+            <label class="f" for="infl"><span>Inflation (%)</span><input id="infl" type="number" inputmode="decimal" step="0.5"></label>
+            <label class="f" for="rRet"><span>Rendite im Ruhestand (%)</span><input id="rRet" type="number" inputmode="decimal" step="0.5"></label>
+            <label class="f" for="planAge"><span>Entnahme bis Alter</span><input id="planAge" type="number" inputmode="numeric" step="1"></label>
+          </div>
+          <p class="small">Renditen sind Annahmen vor Steuern und vor Inflation. Sie sind keine Prognose und nicht garantiert.</p>
+        </div>
+      </details>
+    </aside>
+
+    <main class="stack" id="results">
+      <section class="panel" aria-labelledby="h-verlauf">
+        <header class="toolbar">
+          <div><h2 id="h-verlauf">Vermögensverlauf</h2><p class="note" id="verlaufNote"></p></div>
+          <div class="seg" role="group" aria-label="Anzeige"><button type="button" id="mNom" aria-pressed="true">Nominal</button><button type="button" id="mReal" aria-pressed="false">Kaufkraft heute</button></div>
+        </header>
+        <div class="legendrow"><span><i class="sw" style="background:var(--s1)"></i>Vermögen nach Steuern</span><span><i class="sw" style="background:var(--muted)"></i>Eingezahlt</span></div>
+        <div class="charts"><canvas id="c1" role="img" aria-label="Verlauf des Vermögens nach Steuern und der Einzahlungen bis zum Wunschalter"></canvas></div>
+        <p class="small" id="modeNote"></p>
+        <details class="tbl"><summary>Als Tabelle anzeigen</summary><div class="tw" id="t1"></div></details>
+      </section>
+
+      <section class="panel" aria-labelledby="h-ruhe">
+        <header><h2 id="h-ruhe">Was bleibt im Ruhestand pro Monat?</h2><p>Alle Beträge in heutiger Kaufkraft, nach Steuern und Abgaben, im Vergleich zu deinem heutigen Netto.</p></header>
+        <div id="ruhe" class="inc"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="h-scen">
+        <header><h2 id="h-scen">Was wäre, wenn die Rendite anders ausfällt?</h2><p id="scenNote"></p></header>
+        <div class="legendrow"><span><i class="sw box" style="background:var(--q4)"></i>Vermögen nach Steuern bei gleichbleibender Rendite</span><span><i class="sw dash"></i>Eingezahlt</span></div>
+        <div class="charts"><canvas id="c2" role="img" aria-label="Vermögen nach Steuern bei Renditen von 2 bis 7 Prozent"></canvas></div>
+        <details class="tbl"><summary>Als Tabelle anzeigen</summary><div class="tw" id="t2"></div></details>
+      </section>
+
+      <section class="panel" aria-labelledby="h-strat">
+        <header><h2 id="h-strat">Welche Anlagestrategie führt wohin?</h2><p id="stratNote"></p></header>
+        <div class="charts"><canvas id="c3" role="img" aria-label="Vermögen bei Wunschalter nach Anlagestrategie in drei Szenarien"></canvas></div>
+        <div class="cards" id="stratCards"></div>
+        <details class="tbl"><summary>Als Tabelle anzeigen</summary><div class="tw" id="t3"></div></details>
+      </section>
+
+      <section class="panel" aria-labelledby="h-steuer">
+        <header><h2 id="h-steuer">Steuern auf einen Blick</h2></header>
+        <div class="kv" id="steuer"></div>
+        <p class="note" id="steuerNote"></p>
+      </section>
+
+      <section class="panel" aria-labelledby="h-hints">
+        <header><h2 id="h-hints">Passend zu deiner Situation</h2></header>
+        <ul class="hints" id="hints"></ul>
+      </section>
+
+      <section class="panel" aria-labelledby="h-ann">
+        <header><h2 id="h-ann">Annahmen und Grenzen</h2></header>
+        <ul class="hints" id="annahmen"></ul>
+        <p class="note">Der Finanzplaner ist ein Rechenmodell zur Orientierung. Er ersetzt keine Anlage-, Steuer- oder Rechtsberatung.</p>
+        <div class="src">
+          <span>Quellen für Rechengrößen 2026:</span>
+          <a href="https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260429-rentenanpassung-2026-bundeskabinett.html" target="_blank" rel="noopener">Deutsche Rentenversicherung: Rentenanpassung 2026 (Rentenwert 42,52 €)</a>
+          <a href="https://www.ihre-vorsorge.de/rente/nachrichten/werte-der-rentenversicherung-2026" target="_blank" rel="noopener">Werte der Rentenversicherung 2026 (Durchschnittsentgelt 51.944 €)</a>
+          <a href="https://www.bundesregierung.de/breg-de/aktuelles/beitragsgemessungsgrenzen-2386514" target="_blank" rel="noopener">Bundesregierung: Beitragsbemessungsgrenzen 2026</a>
+          <a href="https://meinrechner.eu/ratgeber/einkommensteuer-tabelle-2026/" target="_blank" rel="noopener">Einkommensteuer-Tarifformeln 2026</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="bar" id="bar" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script id="model">
+const YEAR = new Date().getFullYear();
+const K = { RENTENWERT: 42.52, DURCHSCHNITT: 51944, BBG_RV: 101400, BBG_KV: 69750, TEILFREI: 0.30 };
+
+function estGrund(x) {
+  x = Math.floor(Math.max(0, x));
+  if (x <= 12348) return 0;
+  if (x <= 17799) { const y = (x - 12348) / 10000; return Math.floor((914.51 * y + 1400) * y); }
+  if (x <= 69878) { const z = (x - 17799) / 10000; return Math.floor((173.10 * z + 2397) * z + 1034.87); }
+  if (x <= 277825) return Math.floor(0.42 * x - 11135.63);
+  return Math.floor(0.45 * x - 19470.38);
+}
+function est(x, split) { return split ? 2 * estGrund(x / 2) : estGrund(x); }
+function kistRate(k) { return k === '9' ? 0.09 : (k === '8' ? 0.08 : 0); }
+function kapStRate(k) {
+  const c = kistRate(k);
+  if (!c) return 0.25 * 1.055;
+  return 0.25 / (1 + 0.25 * c) * (1 + 0.055 + c);
+}
+function regelalter(by) {
+  if (by <= 1946) return { y: 65, m: 0 };
+  if (by <= 1958) { const m = by - 1946; return { y: 65 + Math.floor(m / 12), m: m % 12 }; }
+  if (by <= 1964) { const m = 2 * (by - 1958); return { y: 66 + Math.floor(m / 12), m: m % 12 }; }
+  return { y: 67, m: 0 };
+}
+function pvRateAN(kinder) {
+  let r = 0.018;
+  if (kinder === 0) r += 0.006; else if (kinder >= 2) r -= 0.0025 * Math.min(kinder - 1, 4);
+  return r;
+}
+function svOf(b, beruf, kinder) {
+  if (beruf === 'angestellt') return Math.min(b, K.BBG_RV) * 0.106 + Math.min(b, K.BBG_KV) * (0.0875 + pvRateAN(kinder));
+  if (beruf === 'beamte') return b * 0.06;
+  return Math.min(b, K.BBG_RV) * 0.17;
+}
+function netIncome(P) {
+  const split = P.status === 'verheiratet';
+  const ps = [{ b: P.brutto, beruf: P.beruf }];
+  if (P.partner) ps.push({ b: P.partner.brutto, beruf: P.partner.beruf });
+  let sumB = 0, sumSv = 0, sumZ = 0;
+  ps.forEach(p => {
+    const b = Math.max(0, p.b), sv = b > 0 ? svOf(b, p.beruf, P.kinder) : 0;
+    sumB += b; sumSv += sv; sumZ += b > 0 ? Math.max(0, b - sv - 1230) : 0;
+  });
+  const zve = Math.max(0, sumZ - (split ? 72 : 36));
+  const tax = est(zve, split);
+  const kist = tax * kistRate(P.kirche);
+  return { net: sumB - sumSv - tax - kist, sv: sumSv, tax, kist };
+}
+function pensionGross(P, retAge) {
+  if (P.renteInfo > 0) return { v: P.renteInfo, src: 'info' };
+  if (P.beruf === 'selbst') return { v: 0, src: 'none' };
+  const yrs = Math.max(0, retAge - P.startAge);
+  if (P.beruf === 'beamte') return { v: Math.min(0.7175, 0.0179375 * yrs) * P.brutto / 12, src: 'beamte' };
+  const ep = yrs * Math.min(P.brutto, K.BBG_RV) / K.DURCHSCHNITT;
+  return { v: ep * K.RENTENWERT, ep, src: 'grv' };
+}
+function besteuerungsanteil(y) {
+  if (y >= 2023) return Math.min(1, 0.83 + 0.005 * (y - 2023));
+  if (y >= 2021) return 0.81 + 0.01 * (y - 2021);
+  if (y >= 2005) return Math.max(0.5, 0.5 + 0.02 * (y - 2005)) > 0.8 ? 0.8 : 0.5 + 0.02 * (y - 2005);
+  return 0.5;
+}
+function versorgungsanteil(y) {
+  const frei = y >= 2020 ? Math.max(0, 0.16 - 0.008 * (y - 2020)) : Math.min(0.4, 0.16 + 0.016 * (2020 - y));
+  return 1 - frei;
+}
+function pensionNetHH(P, items) {
+  const split = P.status === 'verheiratet';
+  let J = 0, KV = 0, taxable = 0; const shares = [];
+  items.forEach(it => {
+    const j = it.gross * 12;
+    const share = it.beamte ? versorgungsanteil(it.year) : besteuerungsanteil(it.year);
+    shares.push(share);
+    if (j <= 0) return;
+    const k = it.beamte ? 0.08 * j : j * (0.0875 + 0.036 + (P.kinder === 0 ? 0.006 : 0));
+    J += j; KV += k; taxable += Math.max(0, j * share - 102 - k);
+  });
+  const tax = est(taxable, split);
+  const kist = tax * kistRate(P.kirche);
+  return { gross: J / 12, net: (J - KV - tax - kist) / 12, deductions: (KV + tax + kist) / 12, share: shares[0] };
+}
+function pensionNet(P, grossM, retYear) {
+  return pensionNetHH(P, [{ gross: grossM, beamte: P.beruf === 'beamte' && !(P.renteInfo > 0), year: retYear }]);
+}
+function simulate(c) {
+  const N = c.months, a = c.alloc, r = c.rates;
+  const mo = x => Math.pow(1 + Math.max(x, -0.99), 1 / 12) - 1;
+  const mS = mo(r.S), mE = mo(r.E), mA = mo(r.A);
+  let S = c.W0 * a.S, E = c.W0 * a.E, Ec = E, A = c.W0 * a.A, Ac = A, paid = c.W0, intr = 0, taxS = 0;
+  const out = { N, age0: c.age0, gross: new Float64Array(N + 1), net: new Float64Array(N + 1), paid: new Float64Array(N + 1), tax: new Float64Array(N + 1) };
+  const rec = i => {
+    const gE = Math.max(0, E - Ec) * (1 - K.TEILFREI), gA = Math.max(0, A - Ac);
+    const st = Math.max(0, gE + gA - c.fb) * c.t;
+    out.gross[i] = S + E + A; out.net[i] = S + E + A - st; out.paid[i] = paid; out.tax[i] = taxS + st;
+  };
+  rec(0);
+  for (let i = 0; i < N; i++) {
+    if (i < c.saveMonths) {
+      const k = c.monthly * Math.pow(1 + c.dyn, Math.floor(i / 12));
+      S += k * a.S; E += k * a.E; Ec += k * a.E; A += k * a.A; Ac += k * a.A; paid += k;
+    }
+    const iS = S * mS; S += iS; intr += iS; E *= 1 + mE; A *= 1 + mA;
+    if ((i + 1) % 12 === 0) { const t = Math.max(0, intr - c.fb) * c.t; S -= t; taxS += t; intr = 0; }
+    rec(i + 1);
+  }
+  out.at = age => {
+    const i = Math.min(N, Math.max(0, Math.round((age - c.age0) * 12)));
+    return { gross: out.gross[i], net: out.net[i], paid: out.paid[i], tax: out.tax[i] };
+  };
+  return out;
+}
+function payoutMonthly(Kreal, rReal, n) {
+  const rm = Math.pow(1 + rReal, 1 / 12) - 1;
+  if (Math.abs(rm) < 1e-9) return Kreal / n;
+  return Kreal * rm / (1 - Math.pow(1 + rm, -n));
+}
+function compute(P) {
+  const age0 = YEAR - P.by;
+  const ra = regelalter(P.by), retAge = ra.y + ra.m / 12;
+  const wunsch = Math.max(P.wunsch, age0 + 1);
+  const endAge = Math.max(wunsch, retAge, age0 + 1);
+  const months = Math.ceil((endAge - age0) * 12);
+  const saveEnd = P.saveUntil === 'wunsch' ? wunsch : retAge;
+  const saveMonths = Math.max(0, Math.round((saveEnd - age0) * 12));
+  const t = kapStRate(P.kirche), fb = P.status === 'verheiratet' ? 2000 : 1000;
+  const aS = Math.max(0, 1 - P.aE - P.aA);
+  const mix = { S: aS, E: P.aE, A: P.aA };
+  const rates = { S: P.rS, E: P.rE, A: P.rA };
+  const base = { age0, months, W0: P.W0, monthly: P.sparrate, dyn: P.dyn, saveMonths, alloc: mix, rates, t, fb };
+  const run = o => simulate(Object.assign({}, base, o));
+  const sim = run({});
+  const infl = f => Math.pow(1 + P.infl, f);
+  const retYear = P.rentenbeginn > 0 ? P.rentenbeginn : Math.floor(P.by + retAge);
+  const at = { today: sim.at(age0), ret: sim.at(retAge), wunsch: sim.at(wunsch) };
+  const ni = netIncome(P);
+  const netYear = P.netto != null ? P.netto * 12 : ni.net;
+  const netMonth = netYear / 12;
+  // Ruhestand
+  const pg = pensionGross(P, retAge);
+  const hasPartner = !!P.partner && P.status === 'verheiratet';
+  let pg2 = null, retAge2 = null;
+  const items = [{ gross: pg.v, beamte: P.beruf === 'beamte' && !(P.renteInfo > 0), year: retYear }];
+  if (hasPartner) {
+    const r2 = regelalter(P.partner.by); retAge2 = r2.y + r2.m / 12;
+    pg2 = pensionGross(P.partner, retAge2);
+    items.push({ gross: pg2.v, beamte: P.partner.beruf === 'beamte' && !(P.partner.renteInfo > 0), year: Math.floor(P.partner.by + retAge2) });
+  }
+  const pn = pensionNetHH(P, items);
+  const rReal = (1 + P.rRet) / (1 + P.infl) - 1;
+  const nPay = Math.max(1, Math.round((P.planAge - retAge) * 12));
+  const retMonths = Math.max(1, Math.round((retAge - age0) * 12));
+  const kRealOf = monthly => {
+    const s = simulate(Object.assign({}, base, { months: retMonths, monthly, saveMonths: Math.min(saveMonths, retMonths) }));
+    return s.net[retMonths] / infl(retMonths / 12);
+  };
+  const kReal = at.ret.net / infl(retAge - age0);
+  const payout = payoutMonthly(Math.max(0, kReal), rReal, nPay);
+  const total = pn.net + payout;
+  const quota = netMonth > 0 ? total / netMonth : 0;
+  const target = 0.8 * netMonth;
+  let extra = 0, extraOk = true;
+  if (total < target && retAge > age0) {
+    const need = target - pn.net;
+    let lo = 0, hi = 50000;
+    if (payoutMonthly(kRealOf(hi), rReal, nPay) < need) extraOk = false;
+    else { for (let i = 0; i < 40; i++) { const mid = (lo + hi) / 2; if (payoutMonthly(kRealOf(mid), rReal, nPay) < need) lo = mid; else hi = mid; } extra = hi - P.sparrate; if (extra < 0) extra = 0; }
+  }
+  // Renditeszenarien
+  const scen = [0.02, 0.03, 0.04, 0.05, 0.06, 0.07].map(r => {
+    const s = run({ rates: { S: r, E: r, A: r } }).at(wunsch);
+    return { r, net: s.net, paid: s.paid };
+  });
+  // Strategien
+  const defs = [
+    { key: 'S', name: 'Tagesgeld', alloc: { S: 1, E: 0, A: 0 }, r: P.rS, sp: 0.01 },
+    { key: 'E', name: 'Welt-ETF', alloc: { S: 0, E: 1, A: 0 }, r: P.rE, sp: 0.025 },
+    { key: 'A', name: 'Einzelaktien', alloc: { S: 0, E: 0, A: 1 }, r: P.rA, sp: 0.04 }
+  ];
+  const strat = defs.map(d => {
+    const f = rr => run({ alloc: d.alloc, rates: { S: rr, E: rr, A: rr } }).at(wunsch).net;
+    return { name: d.name, low: f(d.r - d.sp), mid: f(d.r), high: f(d.r + d.sp), r: d.r, sp: d.sp };
+  });
+  {
+    const mixRate = mix.S * P.rS + mix.E * P.rE + mix.A * P.rA;
+    const sp = mix.S * 0.01 + mix.E * 0.025 + mix.A * 0.04;
+    const f = d => run({ rates: { S: P.rS + d, E: P.rE + d, A: P.rA + d } }).at(wunsch).net;
+    strat.push({ name: 'Deine Mischung', low: f(-sp), mid: f(0), high: f(sp), r: mixRate, sp });
+  }
+  // Serie fuers Diagramm
+  const series = [];
+  for (let m = 0; m <= months; m += 12) series.push(age0 + m / 12);
+  if (series[series.length - 1] < endAge - 1e-6) series.push(endAge);
+  return { age0, retAge, retYear, wunsch, endAge, sim, at, ni, netMonth, netYear, pg, pg2, retAge2, hasPartner, pn, kReal, payout, total, quota, target, extra, extraOk, scen, strat, series, t, fb, mix, infl, nPay, rReal, base };
+}
+
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var DEF = { vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', rentenbeginn: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente' };
+  Object.keys(DEF).forEach(function (k) { $(k).value = DEF[k]; });
+  var nettoAuto = true, mode = 'nom', userTouched = false;
+
+  var fmt = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  var eur = function (v) { return isFinite(v) ? fmt.format(Math.round(v)) : '–'; };
+  var num = function (v, d) { return isFinite(v) ? v.toLocaleString('de-DE', { maximumFractionDigits: d == null ? 0 : d, minimumFractionDigits: d == null ? 0 : d }) : '–'; };
+  var pct = function (v, d) { return num(v * 100, d || 0) + ' %'; };
+  var compact = function (v, unit) {
+    var u = unit ? ' €' : '';
+    if (Math.abs(v) >= 1e6) return num(v / 1e6, 2) + ' Mio.' + u;
+    if (Math.abs(v) >= 1e3) return num(v / 1e3, 0) + ' Tsd.' + u;
+    return num(v, 0) + u;
+  };
+  var ageText = function (a) { var y = Math.floor(a + 1e-9), m = Math.round((a - y) * 12); return m ? y + ' J. ' + m + ' M.' : String(y); };
+  var clamp = function (v, lo, hi) { return Math.min(hi, Math.max(lo, v)); };
+  var rd = function (id, d, lo, hi) { var v = parseFloat(String($(id).value).replace(',', '.')); if (!isFinite(v)) v = d; return clamp(v, lo, hi); };
+
+  function readP() {
+    var P = {
+      by: Math.round(rd('by', DEF.by, 1940, YEAR - 16)), wunsch: Math.round(rd('wunsch', 70, 30, 95)),
+      status: $('status').value, kinder: Math.round(rd('kinder', 0, 0, 8)), kirche: $('kirche').value, beruf: $('beruf').value,
+      brutto: rd('brutto', 0, 0, 5e6), startAge: rd('startAge', 23, 14, 45), renteInfo: rd('renteInfo', 0, 0, 20000),
+      W0: rd('W0', 0, 0, 1e9), sparrate: rd('sparrate', 0, 0, 1e6), dyn: rd('dyn', 0, 0, 10) / 100,
+      vorname: $('vorname').value.trim().slice(0, 40), rentenbeginn: rd('rentenbeginn', 0, 0, 2080),
+      aE: rd('aE', 0, 0, 100) / 100, aA: rd('aA', 0, 0, 100) / 100,
+      rS: rd('rS', 2.5, -5, 20) / 100, rE: rd('rE', 6, -5, 20) / 100, rA: rd('rA', 6, -5, 20) / 100,
+      infl: rd('infl', 2, -2, 15) / 100, rRet: rd('rRet', 3, -2, 15) / 100, planAge: rd('planAge', 90, 70, 110), saveUntil: $('saveUntil').value, netto: null
+    };
+    if (P.status === 'verheiratet') {
+      P.partner = { name: $('pvorname').value.trim().slice(0, 40), by: Math.round(rd('pby', P.by, 1940, YEAR - 16)), beruf: $('pberuf').value,
+        brutto: rd('pbrutto', 0, 0, 5e6), startAge: rd('pstart', 23, 14, 45), renteInfo: rd('prenteInfo', 0, 0, 20000) };
+    } else P.partner = null;
+    if (!nettoAuto) P.netto = rd('netto', 0, 0, 1e6);
+    return P;
+  }
+
+  var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+
+  /* ---------- Farben und Diagramme ---------- */
+  function tk() {
+    var cs = getComputedStyle(document.documentElement), g = function (n) { return cs.getPropertyValue(n).trim(); };
+    return { ink: g('--ink'), ink2: g('--ink2'), muted: g('--muted'), line: g('--line'), surface: g('--surface'), s1: g('--s1'), s2: g('--s2'), s3: g('--s3'),
+      q: [g('--q1'), g('--q2'), g('--q3'), g('--q4'), g('--q5'), g('--q6')], font: g('--f-body') };
+  }
+  function rgba(hex, a) {
+    var h = hex.replace('#', ''); if (h.length === 3) h = h.split('').map(function (c) { return c + c; }).join('');
+    var n = parseInt(h, 16); return 'rgba(' + (n >> 16 & 255) + ',' + (n >> 8 & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+  var charts = {};
+  var markerPlugin = {
+    id: 'markers',
+    afterDatasetsDraw: function (chart, args, o) {
+      if (!o || !o.items) return;
+      var ctx = chart.ctx, a = chart.chartArea, x = chart.scales.x;
+      ctx.save(); ctx.font = '600 11px ' + o.font;
+      o.items.forEach(function (it) {
+        var px = x.getPixelForValue(it.x); if (px < a.left || px > a.right) return;
+        ctx.strokeStyle = o.color; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);
+        ctx.beginPath(); ctx.moveTo(px, a.top); ctx.lineTo(px, a.bottom); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = o.text; var right = px > a.right - 70; ctx.textAlign = right ? 'right' : 'left';
+        ctx.fillText(it.label, px + (right ? -5 : 5), a.top + 12 + it.row * 14);
+      });
+      ctx.restore();
+    },
+    afterDraw: function (chart, args, o) {
+      if (!o || !o.cross || !chart.tooltip) return;
+      var act = chart.tooltip.getActiveElements ? chart.tooltip.getActiveElements() : [];
+      if (!act.length) return;
+      var ctx = chart.ctx, a = chart.chartArea, px = act[0].element.x;
+      ctx.save(); ctx.strokeStyle = o.cross; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(px, a.top); ctx.lineTo(px, a.bottom); ctx.stroke(); ctx.restore();
+    }
+  };
+  var barLabelPlugin = {
+    id: 'barlabels',
+    afterDatasetsDraw: function (chart, args, o) {
+      if (!o || !o.on) return;
+      var meta = chart.getDatasetMeta(0), ctx = chart.ctx;
+      ctx.save(); ctx.font = '600 10.5px ' + o.font; ctx.fillStyle = o.color; ctx.textAlign = 'center';
+      meta.data.forEach(function (bar, i) { ctx.fillText(compact(chart.data.datasets[0].data[i], false), bar.x, bar.y - 5); });
+      ctx.restore();
+    }
+  };
+  function baseOpts(t, yTitle) {
+    return {
+      responsive: true, maintainAspectRatio: false, animation: false, font: { family: t.font },
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        y: { beginAtZero: true, grid: { color: t.line }, border: { display: false }, ticks: { color: t.muted, callback: function (v) { return compact(v, true); }, maxTicksLimit: 6 } },
+        x: { grid: { display: false }, border: { color: t.line }, ticks: { color: t.muted } }
+      },
+      plugins: { legend: { display: false }, tooltip: { backgroundColor: t.surface, titleColor: t.ink, bodyColor: t.ink2, borderColor: t.line, borderWidth: 1, padding: 10, boxPadding: 4 } }
+    };
+  }
+  function upsert(id, cfg) {
+    if (typeof Chart === 'undefined') return;
+    if (charts[id]) { charts[id].data = cfg.data; charts[id].options = cfg.options; charts[id].update('none'); }
+    else charts[id] = new Chart($(id), cfg);
+  }
+
+  /* ---------- Hilfen ---------- */
+  function tableHTML(head, rows) {
+    return '<table><thead><tr>' + head.map(function (h) { return '<th>' + h + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      rows.map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table>';
+  }
+  var bench = [[25, 0.25], [30, 1], [35, 2], [40, 3], [45, 4.5], [50, 6], [55, 7], [60, 8], [67, 10]];
+  function benchmark(age) {
+    if (age < 25) return 0; if (age >= 67) return 10;
+    for (var i = 1; i < bench.length; i++) if (age <= bench[i][0]) { var a = bench[i - 1], b = bench[i]; return a[1] + (b[1] - a[1]) * (age - a[0]) / (b[0] - a[0]); }
+    return 10;
+  }
+
+  function syncAlloc(changed) {
+    var e = +$('aE').value, a = +$('aA').value;
+    if (e + a > 100) { if (changed === 'aE') $('aA').value = 100 - e; else $('aE').value = 100 - a; }
+  }
+
+  /* ---------- Rendering ---------- */
+  function render() {
+    var P = readP(), R = compute(P), t = tk();
+    var nm = P.vorname, pnm = P.partner && P.partner.name;
+    $('h1').textContent = nm ? nm + ', wo stehst du heute, bei Rente und im Wunschalter?' : 'Wo stehst du heute, bei Rente und im Wunschalter?';
+    $('partnerSet').hidden = !P.partner; $('hhNote').hidden = !P.partner;
+    $('nettoLbl').textContent = P.partner ? 'Haushalts-Netto pro Monat' : 'Netto pro Monat';
+    $('bruttoLbl').textContent = P.partner ? 'Dein Brutto pro Jahr' : 'Brutto pro Jahr';
+    var adj = function (v, yrs) { return mode === 'real' ? v / Math.pow(1 + P.infl, yrs) : v; };
+    var yTo = function (age) { return age - R.age0; };
+
+    // Netto automatisch
+    var est = R.ni.net / 12;
+    if (nettoAuto) { $('netto').value = Math.round(est); $('nettoNote').innerHTML = 'Das Netto ist geschätzt aus Brutto, Familienstand und Beruf. Du kannst es überschreiben.'; }
+    else { $('nettoNote').innerHTML = 'Dein eigener Wert wird verwendet. <button type="button" class="linkbtn" id="reest">Wieder schätzen lassen</button> (Schätzung: ' + eur(est) + ')'; var rb = $('reest'); if (rb) rb.onclick = function () { nettoAuto = true; render(); }; }
+    var netMonth = R.netMonth;
+
+    // Allokation
+    var aS = Math.max(0, 100 - P.aE * 100 - P.aA * 100);
+    $('aEv').textContent = num(P.aE * 100) + ' %'; $('aAv').textContent = num(P.aA * 100) + ' %';
+    $('allocbar').innerHTML = '<i style="width:' + aS + '%;background:var(--s3)"></i><i style="width:' + P.aE * 100 + '%;background:var(--s1)"></i><i style="width:' + P.aA * 100 + '%;background:var(--s2)"></i>';
+    $('alloclegend').innerHTML = '<span><i class="dot" style="background:var(--s3)"></i>Tagesgeld ' + num(aS) + ' %</span><span><i class="dot" style="background:var(--s1)"></i>ETF ' + num(P.aE * 100) + ' %</span><span><i class="dot" style="background:var(--s2)"></i>Aktien ' + num(P.aA * 100) + ' %</span>';
+    Array.prototype.forEach.call($('presets').children, function (b) { b.setAttribute('aria-pressed', (+b.dataset.e === Math.round(P.aE * 100) && +b.dataset.a === Math.round(P.aA * 100)) ? 'true' : 'false'); });
+
+    // Meilensteine
+    var quote = netMonth > 0 ? P.sparrate / netMonth : 0;
+    var hhBrutto = P.brutto + (P.partner ? P.partner.brutto : 0);
+    var bm = benchmark(R.age0), bmEur = bm * hhBrutto, mult = hhBrutto > 0 ? P.W0 / hhBrutto : 0;
+    var other = function (v, yrs) { return mode === 'real' ? 'Nominal: ' + eur(v) : 'Kaufkraft heute: ' + eur(v / Math.pow(1 + P.infl, yrs)); };
+    var mileHTML = function (cls, label, sub, big, l1, l2) {
+      return '<div class="mile ' + cls + '"><div class="age"><b>' + label + '</b><span>' + sub + '</span></div><div class="big">' + big + '</div><div class="sub">' + l1 + '</div><div class="sub">' + l2 + '</div></div>';
+    };
+    var ret = R.at.ret, wu = R.at.wunsch;
+    var m1 = mileHTML('now', 'Heute', R.age0 + ' Jahre', eur(P.W0),
+      'Sparrate ' + eur(P.sparrate) + ' pro Monat (' + pct(quote) + ' vom Netto)',
+      bm > 0 ? 'Faustregel für dein Alter: etwa ' + num(bm, 1) + '× Jahreseinkommen (' + eur(bmEur) + '). Du liegst bei ' + num(mult, 1) + '×.' : 'Für dein Alter gibt es noch keinen Richtwert.');
+    var m2 = mileHTML('', 'Renteneintritt', R.retAge <= R.age0 ? 'schon erreicht (' + ageText(R.retAge) + ' Jahre)' : ageText(R.retAge) + ' Jahre, ca. ' + R.retYear, eur(adj(ret.net, yTo(R.retAge))),
+      'Davon eingezahlt ' + eur(adj(ret.paid, yTo(R.retAge))) + ', Erträge nach Steuern ' + eur(adj(ret.net - ret.paid, yTo(R.retAge))),
+      other(ret.net, yTo(R.retAge)));
+    var m3 = mileHTML('', 'Wunschalter', R.wunsch + ' Jahre, ca. ' + Math.floor(P.by + R.wunsch), eur(adj(wu.net, yTo(R.wunsch))),
+      'Davon eingezahlt ' + eur(adj(wu.paid, yTo(R.wunsch))) + ', Erträge nach Steuern ' + eur(adj(wu.net - wu.paid, yTo(R.wunsch))),
+      other(wu.net, yTo(R.wunsch)) + (P.saveUntil === 'rente' && R.wunsch > R.retAge ? ', ohne Entnahmen' : ''));
+    $('miles').innerHTML = m1 + m2 + m3;
+    $('bar').innerHTML = '<div>Rente mit ' + ageText(R.retAge) + '<b>' + eur(adj(ret.net, yTo(R.retAge))) + '</b></div><div style="text-align:right">Wunschalter ' + R.wunsch + '<b>' + eur(adj(wu.net, yTo(R.wunsch))) + '</b></div>';
+
+    // Verlauf
+    $('mNom').setAttribute('aria-pressed', mode === 'nom'); $('mReal').setAttribute('aria-pressed', mode === 'real');
+    $('verlaufNote').textContent = 'Vermögen nach Steuern, wenn du heute verkaufen würdest.';
+    $('modeNote').textContent = mode === 'real' ? 'Kaufkraft heute: Die Inflation von ' + pct(P.infl, 1) + ' pro Jahr ist herausgerechnet. Die Beträge zeigen, was das Geld nach heutigen Preisen wert wäre.' : 'Nominal: So viel steht dann tatsächlich auf dem Konto. Mit der Inflation von ' + pct(P.infl, 1) + ' pro Jahr kauft man dafür weniger als heute.';
+    var dNet = [], dPaid = [], rows1 = [];
+    R.series.forEach(function (age) {
+      var s = R.sim.at(age), y = adj(s.net, yTo(age)), p = adj(s.paid, yTo(age));
+      dNet.push({ x: age, y: y }); dPaid.push({ x: age, y: p });
+    });
+    var marks = [{ x: R.retAge, label: 'Rente ' + ageText(R.retAge), row: 0 }, { x: R.wunsch, label: 'Wunsch ' + R.wunsch, row: 0 }];
+    if (Math.abs(R.retAge - R.wunsch) < 4) { marks[1].row = 1; if (R.wunsch < R.retAge) { marks[0].row = 1; marks[1].row = 0; } }
+    var o1 = baseOpts(t);
+    o1.scales.x = { type: 'linear', min: R.age0, max: R.endAge, grid: { display: false }, border: { color: t.line }, ticks: { color: t.muted, stepSize: R.endAge - R.age0 > 30 ? 5 : 2, callback: function (v) { return Number.isInteger(v) ? v : ''; } }, title: { display: true, text: 'Alter', color: t.muted } };
+    o1.plugins.markers = { items: marks, color: t.muted, text: t.ink2, font: t.font, cross: t.muted };
+    o1.plugins.tooltip.callbacks = { title: function (it) { return 'Alter ' + num(it[0].parsed.x, 0); }, label: function (c) { return c.dataset.label + ': ' + eur(c.parsed.y); } };
+    upsert('c1', { type: 'line', plugins: [markerPlugin], data: { datasets: [
+      { label: 'Eingezahlt', data: dPaid, borderColor: t.muted, backgroundColor: rgba(t.muted, 0.18), borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, fill: 'origin', tension: 0.15 },
+      { label: 'Vermögen nach Steuern', data: dNet, borderColor: t.s1, backgroundColor: rgba(t.s1, 0.16), borderWidth: 2, pointRadius: 0, pointHoverRadius: 5, pointHoverBackgroundColor: t.s1, pointHoverBorderColor: t.surface, pointHoverBorderWidth: 2, fill: 0, tension: 0.15 }
+    ] }, options: o1 });
+    var tAges = []; for (var a = R.age0; a < R.endAge; a += 5) tAges.push(a);
+    [R.retAge, R.wunsch, R.endAge].forEach(function (x) { if (tAges.indexOf(x) < 0) tAges.push(x); });
+    tAges.sort(function (x, y) { return x - y; });
+    $('t1').innerHTML = tableHTML(['Alter', 'Eingezahlt', 'Vermögen nach Steuern', 'Steuern bis dahin'], tAges.map(function (age) {
+      var s = R.sim.at(age); return [ageText(age), eur(adj(s.paid, yTo(age))), eur(adj(s.net, yTo(age))), eur(adj(s.tax, yTo(age)))];
+    }));
+
+    // Ruhestand
+    var pn = R.pn, payout = R.payout, total = R.total, goal = R.target;
+    var scale = Math.max(netMonth, total, goal) * 1.04 || 1;
+    var wP = pn.net / scale * 100, wO = payout / scale * 100, tx = goal / scale * 100;
+    var q = R.quota, cls = q >= 0.8 ? 'good' : (q >= 0.65 ? 'warn' : 'crit');
+    var vt = q >= 0.8 ? '✓ Gute Absicherung' : (q >= 0.65 ? '! Knappe Absicherung' : '✕ Deutliche Lücke');
+    var who1 = nm || 'Du', who2 = pnm || 'Partner/in';
+    var grossDetail = R.hasPartner ? 'Brutto: ' + esc(who1) + ' ' + eur(R.pg.v) + ', ' + esc(who2) + ' ' + eur(R.pg2.v) + '. Abzüge ' + eur(pn.deductions) : 'Brutto ' + eur(pn.gross) + ', Abzüge ' + eur(pn.deductions);
+    var pensionLabel = R.hasPartner ? 'Gesetzliche Renten zusammen (geschätzt)' : R.pg.src === 'info' ? 'Gesetzliche Rente laut deiner Renteninformation' : (R.pg.src === 'none' ? 'Keine gesetzliche Rente eingetragen' : (R.pg.src === 'beamte' ? 'Pension (geschätzt)' : 'Gesetzliche Rente (geschätzt)'));
+    var gapText;
+    if (R.total >= R.target) gapText = 'Du erreichst mit deinem Plan mehr als 80 % deines heutigen Nettos. Dieser Wert gilt unter Planern als gutes Ziel für den Ruhestand.';
+    else if (!R.extraOk) gapText = 'Dein Netto ist mit den eingetragenen Annahmen nicht zu erreichen. Prüfe Renteninformation und Zeithorizont.';
+    else if (R.retAge <= R.age0) gapText = 'Du bist im Rentenalter. Hier hilft nur noch eine Anpassung der Entnahme.';
+    else gapText = 'Um 80 % deines heutigen Nettos zu erreichen, müsstest du etwa ' + eur(P.sparrate + R.extra) + ' pro Monat sparen, also ' + eur(R.extra) + ' mehr als heute.';
+    $('ruhe').innerHTML =
+      '<span class="verdict ' + cls + '">' + vt + ' · ' + pct(q) + ' deines heutigen Nettos</span>' +
+      '<div class="incwrap"><div class="target' + (tx > 78 ? ' flip' : '') + '" style="left:' + tx + '%"><span>80 % vom heutigen Netto</span></div>' +
+      '<div class="incbar" role="img" aria-label="Monatliches Einkommen im Ruhestand: ' + eur(pn.net) + ' Rente und ' + eur(payout) + ' aus Vermögen"><i style="width:' + wP + '%;background:var(--s1)"></i><i style="width:' + wO + '%;background:var(--s2)"></i></div></div>' +
+      '<div class="kv"><div><b>' + eur(pn.net) + '</b><span><i class="dot" style="background:var(--s1)"></i>' + pensionLabel + ', netto. ' + grossDetail + '</span></div>' +
+      '<div><b>' + eur(payout) + '</b><span><i class="dot" style="background:var(--s2)"></i>Entnahme aus dem Vermögen bis Alter ' + num(P.planAge) + ', Kaufkraft bleibt gleich</span></div>' +
+      '<div><b>' + eur(total) + '</b><span>Summe pro Monat. Heutiges Netto: ' + eur(netMonth) + '</span></div></div>' +
+      '<p class="note">' + gapText + '</p>' +
+      (R.pg.src === 'none' && !R.hasPartner ? '<p class="note">Als Selbstständige oder Selbstständiger zählt hier nur dein Vermögen. Hast du Ansprüche aus einem Versorgungswerk oder einer Basisrente, trage sie bei der Renteninformation ein.</p>' : '');
+
+    // Szenarien
+    $('scenNote').textContent = 'Vermögen nach Steuern bei Wunschalter ' + R.wunsch + ', wenn dein Portfolio im Schnitt pro Jahr 2 bis 7 % bringt. Zum Vergleich: Tagesgeld lag zuletzt meist bei 2 bis 3 %, breite Aktien-ETFs haben langfristig oft 5 bis 7 % erzielt. Das ist eine Rückschau, keine Zusage.';
+    var sc = R.scen, yW = yTo(R.wunsch);
+    var o2 = baseOpts(t);
+    o2.layout = { padding: { top: 16 } };
+    o2.plugins.barlabels = { on: true, color: t.ink2, font: t.font };
+    o2.plugins.tooltip.callbacks = { title: function (it) { return 'Rendite ' + it[0].label + ' pro Jahr'; }, label: function (c) { return c.dataset.label + ': ' + eur(c.parsed.y); } };
+    var ramp2 = [t.q[0], t.q[1], t.q[2], t.q[3], t.q[4], t.q[5]];
+    upsert('c2', { type: 'bar', plugins: [barLabelPlugin], data: { labels: sc.map(function (s) { return num(s.r * 100) + ' %'; }), datasets: [
+      { type: 'bar', label: 'Vermögen nach Steuern', data: sc.map(function (s) { return adj(s.net, yW); }), backgroundColor: ramp2, borderRadius: { topLeft: 4, topRight: 4 }, borderSkipped: 'bottom', maxBarThickness: 56 },
+      { type: 'line', label: 'Eingezahlt', data: sc.map(function (s) { return adj(s.paid, yW); }), borderColor: t.ink2, borderDash: [5, 4], borderWidth: 2, pointRadius: 0, pointHoverRadius: 3, fill: false }
+    ] }, options: o2 });
+    $('t2').innerHTML = tableHTML(['Rendite p. a.', 'Eingezahlt', 'Vermögen nach Steuern'], sc.map(function (s) { return [num(s.r * 100) + ' %', eur(adj(s.paid, yW)), eur(adj(s.net, yW))]; }));
+
+    // Strategien
+    $('stratNote').textContent = 'Vermögen nach Steuern bei Wunschalter ' + R.wunsch + ', wenn du alles in eine Anlageform steckst. Die drei Balken zeigen ein schwaches, ein erwartetes und ein starkes Börsenjahrzehnt.';
+    var o3 = baseOpts(t);
+    o3.plugins.legend = { display: true, position: 'bottom', labels: { color: t.ink2, boxWidth: 12, boxHeight: 12, font: { family: t.font, size: 12 } } };
+    o3.plugins.tooltip.callbacks = { label: function (c) { return c.dataset.label + ': ' + eur(c.parsed.y); } };
+    var cols3 = [t.q[0], t.q[2], t.q[4]], nm3 = ['Schwach', 'Erwartet', 'Stark'];
+    upsert('c3', { type: 'bar', data: { labels: R.strat.map(function (s) { return s.name; }), datasets: ['low', 'mid', 'high'].map(function (k, i) {
+      return { label: nm3[i], data: R.strat.map(function (s) { return adj(s[k], yW); }), backgroundColor: cols3[i], borderRadius: { topLeft: 3, topRight: 3 }, borderSkipped: 'bottom', maxBarThickness: 30 };
+    }) }, options: o3 });
+    $('t3').innerHTML = tableHTML(['Strategie', 'Annahme p. a.', 'Schwach', 'Erwartet', 'Stark'], R.strat.map(function (s) { return [s.name, num(s.r * 100, 1) + ' % ± ' + num(s.sp * 100, 1), eur(adj(s.low, yW)), eur(adj(s.mid, yW)), eur(adj(s.high, yW))]; }));
+    $('stratCards').innerHTML =
+      '<div><h3>Tagesgeld und Festgeld</h3><p>Planbar und bis 100.000 € pro Bank durch die Einlagensicherung geschützt. Die Zinsen sind voll steuerpflichtig. Nach Inflation bleibt oft wenig übrig.</p></div>' +
+      '<div><h3>Breiter Welt-ETF</h3><p>Streut über tausende Firmen bei niedrigen Kosten. 30 % der Erträge sind steuerfrei. Zwischenzeitlich sind Rückgänge von 30 % und mehr möglich, ein langer Atem ist nötig.</p></div>' +
+      '<div><h3>Einzelaktien</h3><p>Hohe Chancen und hohe Streuung der Ergebnisse. Wenige Titel bedeuten Klumpenrisiko, und es gibt keine Teilfreistellung. Viele Anleger fahren mit einem Index besser.</p></div>';
+
+    // Steuern
+    var gains = wu.gross - wu.paid, taxTotal = wu.tax;
+    $('steuer').innerHTML =
+      '<div><b>' + pct(R.t, 1) + '</b><span>Steuersatz auf Kapitalerträge (Abgeltungsteuer, Soli' + (P.kirche !== '0' ? ', Kirchensteuer' : '') + ')</span></div>' +
+      '<div><b>' + eur(R.fb) + '</b><span>Sparerpauschbetrag pro Jahr' + (P.status === 'verheiratet' ? ' (zusammen)' : '') + '</span></div>' +
+      '<div><b>' + eur(adj(taxTotal, yW)) + '</b><span>Steuern auf Erträge bis Wunschalter' + (gains > 0 ? ', das sind ' + pct(taxTotal / gains, 0) + ' der Erträge' : '') + '</span></div>' +
+      '<div><b>' + pct(R.pn.share, 1) + '</b><span>der Rente sind bei Rentenbeginn ' + R.retYear + ' steuerpflichtig</span></div>' +
+      '<div><b>' + eur(R.pn.deductions) + '</b><span>Steuer und Kranken-/Pflegeversicherung pro Monat auf deine Rente</span></div>' +
+      '<div><b>' + eur(R.ni.net / 12) + '</b><span>geschätztes Netto heute (Steuer ' + eur(R.ni.tax / 12) + ', Sozialabgaben ' + eur(R.ni.sv / 12) + ' pro Monat)</span></div>';
+    $('steuerNote').textContent = 'Beim Tagesgeld werden Zinsen jedes Jahr besteuert. ETFs und Aktien werden im Modell erst am Ende verkauft und dann besteuert. Das verschiebt Steuern nach hinten, und Erträge wachsen länger ungeschmälert.';
+
+    // Hinweise
+    var h = [], a0 = R.age0;
+    var phase = a0 < 30 ? ['Aufbauphase', 'Zeit ist dein größter Hebel. Schon kleine Beträge wachsen über Jahrzehnte stark. Ein Notgroschen von drei bis sechs Nettomonatsgehältern gehört zuerst aufs Tagesgeld.']
+      : a0 < 45 ? ['Wachstumsphase', 'Familie, Wohnen und Karriere konkurrieren mit dem Sparen. Lege die Sparrate fest und lass sie jährlich mit dem Gehalt steigen, bevor Ausgaben mitwachsen.']
+      : a0 < 60 ? ['Konsolidierung', 'Jetzt lohnt der Blick auf Lücken. Eine höhere Sparrate wirkt noch, und die Renteninformation zeigt, was die gesetzliche Rente wirklich beiträgt.']
+      : ['Übergangsphase', 'Wichtig werden ein Entnahmeplan und genug sichere Anlagen für die ersten Jahre, damit du in Börsenkrisen nicht zu Tiefstkursen verkaufen musst.'];
+    h.push(['Lebensphase: ' + phase[0], phase[1]]);
+    if (P.status === 'verheiratet') h.push(['Verheiratet', 'Der Sparerpauschbetrag beträgt zusammen 2.000 €. Prüfe die Freistellungsaufträge beider Partner und die Hinterbliebenenversorgung. Der Planer rechnet mit Zusammenveranlagung und ' + (P.partner.brutto > 0 || P.partner.renteInfo > 0 ? 'dem Einkommen und der Rente von ' + esc(who2) + '.' : 'ohne eigenes Einkommen des Partners. Trage es links ein, wenn es eines gibt.')]);
+    if (P.status === 'geschieden') h.push(['Geschieden', 'Ein Versorgungsausgleich kann deine gesetzliche Rente verändern. Trage den Wert aus deiner aktuellen Renteninformation ein, dann rechnet der Planer damit.']);
+    if (P.status === 'verwitwet') h.push(['Verwitwet', 'Eine mögliche Witwen- oder Witwerrente ist hier nicht enthalten. Trage sie über die Renteninformation ein, wenn du sie bekommst.']);
+    if (P.status === 'ledig') h.push(['Ledig', 'Du hast kein zweites Einkommen im Haushalt als Puffer. Eine eigene Absicherung gegen Berufsunfähigkeit und ein Notgroschen sind deshalb besonders wichtig.']);
+    if (P.kinder > 0) h.push(['Kinder', 'Mit Kindern sinkt der Pflegeversicherungsbeitrag, das ist in der Rechnung berücksichtigt. Plane Rücklagen für Ausbildung und Studium getrennt von deiner Altersvorsorge.']);
+    if (P.beruf === 'selbst') h.push(['Selbstständig', 'Ohne Pflichtmitgliedschaft entsteht keine gesetzliche Rente. Beiträge zur Basisrente sind steuerlich absetzbar, und freiwillige Beiträge zur gesetzlichen Rente sind möglich.']);
+    if (P.beruf === 'beamte') h.push(['Beamtin oder Beamter', 'Die Pension wächst mit den Dienstjahren, höchstens bis 71,75 %. Der Planer schätzt sie grob. Frage deinen Dienstherrn nach der Pensionsauskunft.']);
+    var eqNow = Math.round((P.aE + P.aA) * 100), eqRule = clamp(100 - a0, 0, 100);
+    h.push(['Aktienquote', 'Eine bekannte Faustregel lautet 100 minus Alter, bei dir etwa ' + eqRule + ' % in Aktien oder Aktien-ETFs. Du hast ' + eqNow + ' %. Das ist ein grober Anhaltspunkt und hängt auch davon ab, wie gut du Kursschwankungen aushältst.']);
+    if (quote < 0.1) h.push(['Sparquote', 'Du sparst ' + pct(quote) + ' deines Nettos. Viele Planer nennen 10 bis 20 % als Richtwert für die Altersvorsorge.']);
+    else if (quote > 0.2) h.push(['Sparquote', 'Du sparst ' + pct(quote) + ' deines Nettos, das ist ein hoher Wert. Halte neben dem Sparen genug Reserve für Unvorhergesehenes.']);
+    else h.push(['Sparquote', 'Du sparst ' + pct(quote) + ' deines Nettos und liegst damit im üblichen Richtwert von 10 bis 20 %.']);
+    $('hints').innerHTML = h.map(function (x) { return '<li><b>' + x[0] + '</b>' + x[1] + '</li>'; }).join('');
+
+    var an = [];
+    an.push(['Regelaltersgrenze', 'Sie folgt deinem Geburtsjahr nach dem Gesetz: bis Jahrgang 1946 mit 65, danach schrittweise bis 67 für Jahrgang 1964 und jünger.']);
+    an.push(['Gesetzliche Rente', 'Geschätzt aus Entgeltpunkten: dein heutiges Einkommen gilt für das ganze Berufsleben ab Berufsstart, Rentenwert 42,52 € seit 1. Juli 2026, Durchschnittsentgelt 51.944 €. Der Betrag gilt in heutigen Preisen, Änderungen des Rentenniveaus sind nicht enthalten.']);
+    an.push(['Steuern', 'Abgeltungsteuer von 25 % plus Soli und optional Kirchensteuer, Teilfreistellung von 30 % bei Aktien-ETFs, Sparerpauschbetrag. Vorabpauschale und Dividenden werden nicht einzeln gerechnet. Einkommensteuer nach dem Tarif 2026.']);
+    an.push(['Entnahme', 'Das Kapital bei Renteneintritt wird so über die Jahre bis zum Entnahmealter verteilt, dass die Kaufkraft gleich bleibt. Steuern auf das Kapital sind schon abgezogen.']);
+    an.push(['Ehepartner', 'Bei gemeinsamer Veranlagung zählen Netto, Vermögen und Sparrate für den Haushalt. Die Rente des Partners wird ab deinem Renteneintritt angesetzt, auch wenn er oder sie später in Rente geht.']);
+    an.push(['Nicht enthalten', 'Erwerbsminderung, Pflegekosten, Erbschaften, Immobilien, betriebliche Altersvorsorge und Einkommen des Partners.']);
+    $('annahmen').innerHTML = an.map(function (x) { return '<li><b>' + x[0] + '</b>' + x[1] + '</li>'; }).join('');
+  }
+
+  /* ---------- Ereignisse ---------- */
+  var dirty = function (e) {
+    if (!userTouched) { userTouched = true; $('demo').hidden = true; }
+  };
+  Object.keys(DEF).forEach(function (k) {
+    var el = $(k), ev = (el.tagName === 'SELECT' || el.type === 'range') ? 'input' : 'input';
+    el.addEventListener(ev, function () {
+      dirty();
+      if (k === 'netto') nettoAuto = false;
+      if (k === 'aE' || k === 'aA') syncAlloc(k);
+      render();
+    });
+  });
+  $('presets').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    $('aE').value = b.dataset.e; $('aA').value = b.dataset.a; dirty(); render();
+  });
+  $('mNom').addEventListener('click', function () { mode = 'nom'; render(); });
+  $('mReal').addEventListener('click', function () { mode = 'real'; render(); });
+  try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render); } catch (e) {}
+  try { new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] }); } catch (e) {}
+  render();
+  window.addEventListener('load', render);
+})();
+</script>
+
+</body>
+</html>
