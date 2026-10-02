@@ -11,6 +11,16 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+<style>
+  .head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+  .head-row .entry-header { flex: 1; min-width: 0; }
+  .berater-tile { flex: none; width: 150px; margin-top: 6px; padding: 12px 14px; border-radius: 16px; background: var(--paper-warm); border: 1px solid rgba(46,58,50,.1); box-shadow: 0 8px 20px rgba(46,58,50,.08); text-decoration: none; color: var(--ink); display: grid; gap: 3px; transition: transform .15s, box-shadow .15s; }
+  .berater-tile:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(46,58,50,.12); }
+  .berater-tile .bt-ic { font-size: 22px; line-height: 1; }
+  .berater-tile b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; }
+  .berater-tile span:last-child { font-size: 12.5px; line-height: 1.4; color: var(--ink-soft); }
+  @media (max-width: 420px) { .berater-tile { width: 128px; padding: 10px 12px; } .berater-tile span:last-child { font-size: 12px; } }
+</style>
 </head>
 <body class="page-list page-reisen">
 <nav class="topbar" id="topbar"><div class="topin">
@@ -22,30 +32,30 @@
       <a href="muenchen-quiz.html">München-Quiz</a>
       <a href="ernaehrung.html">Ernährung</a>
       <a href="notfallvorrat.html">Notfallvorrat</a>
-      <a class="hot" href="reiseberater.html">🧭 Reiseberater</a>
     </div>
   </div></nav>
 <div class="wrap">
 
   <a class="back-link" href="index.html">← Zur Übersicht</a>
 
-  <header class="entry-header">
-    <p class="date">Reiseplanung</p>
-    <h1>Reisen</h1>
-    <hr class="rule">
-  </header>
+  <div class="head-row">
+    <header class="entry-header">
+      <p class="date">Reiseplanung</p>
+      <h1>Reisen</h1>
+      <hr class="rule">
+    </header>
+    <a class="berater-tile" href="reiseberater.html">
+      <span class="bt-ic">🧭</span>
+      <b>Reiseberater</b>
+      <span>Reisevorschläge auf Basis des Reiseplaners</span>
+    </a>
+  </div>
 
   <div class="entry-body">
     <p>Reisevorschläge für die kommende Reise zu dritt, jeweils als 12-Tage-Route mit Hotels, Sicherheitslage und Flugsuche.</p>
-    <div class="chips"><span>🗺️ 10 Ziele</span><span>📅 je 12 Tage</span><span>🏨 Hotels</span><span>✈️ Flüge</span><span>🛡️ Sicherheitscheck</span></div>
   </div>
 
   <div class="entry-list">
-  <a class="entry-preview" href="reiseberater.html">
-    <p class="date">Neu</p>
-    <h2>🧭 Reiseberater</h2>
-    <p>Einmal Personen, Dauer, Monat, Budget und Interessen eintippen: Du siehst sofort, welches Ziel passt, und kannst daraus eine neue Reise planen lassen ...</p>
-  </a>
   <a class="entry-preview" href="srilanka-natur-reise.html">
     <p class="date">Aus dem Reiseberater</p>
     <h2>🐘 Sri-Lanka-Reise: Natur &amp; Schnorcheln <span style="white-space: nowrap;">26.12.–6.1.</span></h2>
