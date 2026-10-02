@@ -753,6 +753,25 @@ function compute(P) {
   });
   const pn = cGross > 0 ? pensionNetHH(P, items) : pnB;
   const cNet = pn.net - pnB.net;
+  // Betriebliche Kapitalleistungen (AK/ZV, PVK, AVWL): Ratenzahlung ueber n Jahre oder Einmalzahlung
+  cons.forEach(c => {
+    if (c.type !== 'bkap' || !(c.leistung > 0)) return;
+    const split = P.status === 'verheiratet', ki = kistRate(P.kirche), K = c.leistung, r = P.rRet, kl = P.kinder === 0 ? 0.006 : 0;
+    const kvM = m => 12 * (Math.max(0, m - 197.75) * 0.175 + m * (0.036 + kl));
+    const pre = c.jahr > 0 && c.jahr < retYear;
+    const base = pre ? 0.85 * P.brutto : pensionNetHH(P, items).taxable;
+    let pv;
+    if (c.form === 'einmal') {
+      const kv = 120 * (Math.max(0, K / 120 - 197.75) * 0.175 + K / 120 * (0.036 + kl));
+      const tax = 5 * (est(base + (K - kv) / 5, split) - est(base, split));
+      pv = (K - kv - tax * (1 + ki)) * (pre ? Math.pow(1 + r, retYear - c.jahr) : 1);
+    } else {
+      const n = Math.max(2, Math.round(c.n || 20)), rate = r > 0 ? K * r / (1 - Math.pow(1 + r, -n)) : K / n;
+      const net = rate - kvM(rate / 12) - (est(base + rate, split) - est(base, split)) * (1 + ki);
+      pv = 0; for (let t = 1; t <= n; t++) pv += net / Math.pow(1 + r, t);
+    }
+    lumpGross += K; lumpTax += K - pv; lumpNom += pv;
+  });
   const lvNom = lumpNom;
   // Betriebsrente als Kapital: Einmalzahlung oder Auszahlung ueber 4 Jahre
   let bav = null;
@@ -854,6 +873,7 @@ function compute(P) {
     basis: { n: 'Rürup- bzw. Basisrente', ben: 'Rente pro Monat ab Renteneintritt, brutto', unit: 'pro Monat' },
     bav: { n: 'Betriebsrente oder Direktversicherung', ben: 'Rente pro Monat ab Renteneintritt, brutto', unit: 'pro Monat' },
     prv: { n: 'Private Rentenversicherung', ben: 'Rente pro Monat ab Renteneintritt, brutto', unit: 'pro Monat' },
+    bkap: { n: 'Betriebliche Kapitalleistung (Raten oder einmalig)', ben: 'Prognostiziertes Guthaben bei Auszahlung in €', unit: 'Guthaben' },
     lv: { n: 'Kapital-Lebensversicherung', ben: 'Auszahlung bei Renteneintritt in €', unit: 'einmalig' },
     bu: { n: 'Berufsunfähigkeitsversicherung', ben: 'Versicherte BU-Rente pro Monat', unit: 'BU-Rente pro Monat' },
     rlv: { n: 'Risikolebensversicherung', ben: 'Todesfallsumme in €', unit: 'Todesfallsumme' },
@@ -864,7 +884,7 @@ function compute(P) {
   var conNum = function (v, hi) { var x = parseFloat(String(v == null ? '' : v).replace(',', '.')); return isFinite(x) ? clamp(x, 0, hi) : 0; };
   function conClean(c) {
     var ty = CT[c && c.type] ? c.type : 'sonst';
-    return { type: ty, name: String(c && c.name || '').slice(0, 60), insured: String(c && c.insured || '').slice(0, 60), nr: String(c && c.nr || '').slice(0, 40), tarif: String(c && c.tarif || '').slice(0, 60), beitrag: conNum(c && c.beitrag, 1e5), leistung: conNum(c && c.leistung, 1e8), paid: conNum(c && c.paid, 1e8), zusatz: c && c.zusatz === 'vor2005' ? 'vor2005' : 'ab2005' };
+    return { type: ty, name: String(c && c.name || '').slice(0, 60), insured: String(c && c.insured || '').slice(0, 60), nr: String(c && c.nr || '').slice(0, 40), tarif: String(c && c.tarif || '').slice(0, 60), beitrag: conNum(c && c.beitrag, 1e5), leistung: conNum(c && c.leistung, 1e8), paid: conNum(c && c.paid, 1e8), zusatz: c && c.zusatz === 'vor2005' ? 'vor2005' : 'ab2005', form: c && c.form === 'einmal' ? 'einmal' : 'raten', n: Math.round(conNum(c && c.n, 40)) || 20, jahr: Math.round(conNum(c && c.jahr, 2100)) || '' };
   }
   var CAT = ['#3E6F5C', '#B5502E', '#C99A3E', '#4A7A96', '#8FA398', '#7A4E6D', '#A68A64', '#6B6B6B'];
   AUS.forEach(function (a) {
@@ -1233,9 +1253,9 @@ function compute(P) {
         }).join('') + '</tbody></table></div>' +
         '<div class="kv"><div><b>' + eur(cb) + '</b><span>Beiträge pro Monat' + (netMonth > 0 ? ', ' + pct(cb / netMonth, 1) + ' deines Nettos' : '') + '</span></div>' +
         (R.cGross > 0 ? '<div><b>' + eur(R.cNet) + '</b><span>Renten aus Verträgen im Ruhestand, netto pro Monat. Brutto ' + eur(R.cGross) + '</span></div>' : '') +
-        (R.lumpGross > 0 ? '<div><b>' + eur(R.lvNom) + '</b><span>Kapitalauszahlung bei Renteneintritt, nach geschätzter Steuer ' + eur(R.lumpTax) + '</span></div>' : '') + '</div>' +
+        (R.lumpGross > 0 ? '<div><b>' + eur(R.lvNom) + '</b><span>Kapitalauszahlung bei Renteneintritt, nach geschätzten Abgaben (Steuer, Kranken- und Pflegeversicherung) von ' + eur(R.lumpTax) + '</span></div>' : '') + '</div>' +
         (R.lumpGuess ? '<p class="small">Bei einer Lebensversicherung ohne Angabe der eingezahlten Beiträge nimmt der Planer an, dass 30 % der Auszahlung Ertrag sind.</p>' : '') +
-        '<p class="small">Rentenverträge gehen in „Was bleibt im Ruhestand pro Monat?“ ein. Berufsunfähigkeit, Risikoleben, Pflege und Sonstiges werden nur aufgelistet und fließen nicht in die Rechnung ein. Lebensversicherungen vor 2005 sind steuerfrei, danach wird die Hälfte des Ertrags versteuert, wenn der Vertrag mindestens 12 Jahre lief und du bei Auszahlung mindestens 62 bist.</p>';
+        '<p class="small">Betriebliche Kapitalleistungen werden als Jahresraten (Verzinsung mit deiner Rendite im Ruhestand) oder einmalig mit Fünftelregelung gerechnet, abzüglich Steuer sowie Kranken- und Pflegeversicherung, und fließen ins Vermögen bei Renteneintritt ein. Rentenverträge gehen in „Was bleibt im Ruhestand pro Monat?“ ein. Berufsunfähigkeit, Risikoleben, Pflege und Sonstiges werden nur aufgelistet und fließen nicht in die Rechnung ein. Lebensversicherungen vor 2005 sind steuerfrei, danach wird die Hälfte des Ertrags versteuert, wenn der Vertrag mindestens 12 Jahre lief und du bei Auszahlung mindestens 62 bist.</p>';
     }
 
     // Szenarien
@@ -1400,13 +1420,15 @@ function compute(P) {
         '<label>' + d.ben + '<input type="number" inputmode="decimal" min="0" step="' + (c.type === 'lv' || c.type === 'rlv' ? 1000 : 50) + '" data-i="' + i + '" data-f="leistung" value="' + v(c.leistung) + '" placeholder="€"></label></div>' +
         (c.type === 'lv' ? '<div class="grid2"><label>Davon selbst eingezahlt<input type="number" inputmode="decimal" min="0" step="1000" data-i="' + i + '" data-f="paid" value="' + v(c.paid) + '" placeholder="€ gesamt, optional"></label>' +
           '<label>Abschluss<select data-i="' + i + '" data-f="zusatz">' + opts(c.zusatz, [['ab2005', '2005 oder später'], ['vor2005', 'vor 2005 (steuerfrei)']]) + '</select></label></div>' : '') +
+        (c.type === 'bkap' ? '<div class="grid2"><label>Auszahlung als<select data-i="' + i + '" data-f="form">' + opts(c.form, [['raten', 'Jahresraten'], ['einmal', 'Einmalzahlung']]) + '</select></label>' +
+          (c.form === 'einmal' ? '<label>Auszahlung im Jahr<input type="number" inputmode="numeric" min="2000" max="2100" step="1" data-i="' + i + '" data-f="jahr" value="' + v(c.jahr) + '" placeholder="leer = Renteneintritt"></label>' : '<label>Anzahl Jahresraten<input type="number" inputmode="numeric" min="2" max="40" step="1" data-i="' + i + '" data-f="n" value="' + v(c.n) + '" placeholder="20"></label>') + '</div>' : '') +
         '</div>';
     }).join('');
   }
   $('conList').addEventListener('input', function (e) {
     var t = e.target, i = +t.dataset.i, f = t.dataset.f; if (!f || !CON[i]) return;
     CON[i][f] = t.value; dirty();
-    if (f === 'type') conRender();
+    if (f === 'type' || f === 'form') conRender();
     render();
   });
   $('conList').addEventListener('click', function (e) {
@@ -1415,7 +1437,7 @@ function compute(P) {
   });
   $('conAdd').addEventListener('click', function () {
     if (CON.length >= 12) return;
-    CON.push({ type: $('conType').value, name: '', insured: '', nr: '', tarif: '', beitrag: '', leistung: '', paid: '', zusatz: 'ab2005' });
+    CON.push({ type: $('conType').value, name: '', insured: '', nr: '', tarif: '', beitrag: '', leistung: '', paid: '', zusatz: 'ab2005', form: 'raten', n: 20, jahr: '' });
     $('conDet').open = true; conRender(); dirty(); render();
   });
 
@@ -1433,7 +1455,7 @@ function compute(P) {
     if (!nettoAuto && o.fields.netto != null) $('netto').value = String(o.fields.netto).slice(0, 20);
     mode = o.mode === 'real' ? 'real' : 'nom';
     CON = Array.isArray(o.contracts) ? o.contracts.slice(0, 12).map(conClean) : [];
-    CON.forEach(function (c) { ['beitrag', 'leistung', 'paid'].forEach(function (k) { if (!c[k]) c[k] = ''; }); });
+    CON.forEach(function (c) { ['beitrag', 'leistung', 'paid', 'jahr'].forEach(function (k) { if (!c[k]) c[k] = ''; }); });
     conRender(); if (CON.length) $('conDet').open = true;
     userTouched = true; $('demo').hidden = true; render();
   }
