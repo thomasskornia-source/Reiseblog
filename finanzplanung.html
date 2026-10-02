@@ -754,6 +754,7 @@ function compute(P) {
   const pn = cGross > 0 ? pensionNetHH(P, items) : pnB;
   const cNet = pn.net - pnB.net;
   // Betriebliche Kapitalleistungen (AK/ZV, PVK, AVWL): Ratenzahlung ueber n Jahre oder Einmalzahlung
+  const bkRows = [];
   cons.forEach(c => {
     if (c.type !== 'bkap' || !(c.leistung > 0)) return;
     const split = P.status === 'verheiratet', ki = kistRate(P.kirche), K = c.leistung, r = P.rRet, kl = P.kinder === 0 ? 0.006 : 0;
@@ -769,6 +770,7 @@ function compute(P) {
       const n = Math.max(2, Math.round(c.n || 20)), rate = r > 0 ? K * r / (1 - Math.pow(1 + r, -n)) : K / n;
       const net = rate - kvM(rate / 12) - (est(base + rate, split) - est(base, split)) * (1 + ki);
       pv = 0; for (let t = 1; t <= n; t++) pv += net / Math.pow(1 + r, t);
+      bkRows.push({ n, grossM: rate / 12, netM: net / 12, real: 1 / infl(retAge - age0) });
     }
     lumpGross += K; lumpTax += K - pv; lumpNom += pv;
   });
@@ -835,7 +837,7 @@ function compute(P) {
   const series = [];
   for (let m = 0; m <= months; m += 12) series.push(age0 + m / 12);
   if (series[series.length - 1] < endAge - 1e-6) series.push(endAge);
-  return { age0, retAge, regAge, rFactor, pn0, bNet, cNet, cGross, lumpNom, lvNom, bav, bNetRente, selRente, lumpGross, lumpTax, lumpGuess, retYear, wunsch, endAge, sim, at, ni, netMonth, netYear, pg, pg2, retAge2, hasPartner, pn, kReal, payout, total, quota, target, extra, extraOk, scen, strat, series, t, fb, mix, infl, nPay, rReal, base };
+  return { age0, retAge, regAge, rFactor, pn0, bNet, cNet, cGross, lumpNom, lvNom, bkRows, bav, bNetRente, selRente, lumpGross, lumpTax, lumpGuess, retYear, wunsch, endAge, sim, at, ni, netMonth, netYear, pg, pg2, retAge2, hasPartner, pn, kReal, payout, total, quota, target, extra, extraOk, scen, strat, series, t, fb, mix, infl, nPay, rReal, base };
 }
 
 </script>
@@ -1154,7 +1156,7 @@ function compute(P) {
       '<div class="kv"><div><b>' + eur(pn0.net) + '</b><span><i class="dot" style="background:var(--s1)"></i>' + pensionLabel + ', netto. ' + grossDetail + '</span></div>' +
       (P.bRente > 0 && R.selRente ? '<div><b>' + eur(bNet) + '</b><span><i class="dot" style="background:var(--s3)"></i>' + (P.bRenteTyp === 'bav' ? 'Betriebsrente' : 'Versorgungswerk bzw. Basisrente') + ', netto. Brutto ' + eur(P.bRente) + ', Abzüge ' + eur(P.bRente - bNet) + '</span></div>' : '') +
       (R.cGross > 0 ? '<div><b>' + eur(cNet) + '</b><span><i class="dot" style="background:var(--s4)"></i>Renten aus Vorsorgeverträgen, netto. Brutto ' + eur(R.cGross) + ', Abzüge ' + eur(R.cGross - cNet) + '</span></div>' : '') +
-      '<div><b>' + eur(payout) + '</b><span><i class="dot" style="background:var(--s2)"></i>Entnahme aus dem Vermögen bis Alter ' + num(P.planAge) + ', Kaufkraft bleibt gleich' + (R.lvNom > 0 ? '. Darin enthalten: Auszahlung Lebensversicherung ' + eur(R.lvNom) + ' netto' : '') + (R.bav && P.bForm !== 'rente' ? '. Darin enthalten: Betriebsrente als ' + (P.bForm === 'einmal' ? 'Einmalzahlung' : 'Auszahlung über 4 Jahre') + ' (' + eur(P.bForm === 'einmal' ? R.bav.net1 : R.bav.net4) + ' netto)' : '') + '</span></div>' +
+      '<div><b>' + eur(payout) + '</b><span><i class="dot" style="background:var(--s2)"></i>Entnahme aus dem Vermögen bis Alter ' + num(P.planAge) + ', Kaufkraft bleibt gleich' + (R.lvNom > 0 ? '. Darin enthalten: Kapitalauszahlungen aus Lebensversicherung und betrieblichen Verträgen ' + eur(R.lvNom) + ' netto' : '') + (R.bav && P.bForm !== 'rente' ? '. Darin enthalten: Betriebsrente als ' + (P.bForm === 'einmal' ? 'Einmalzahlung' : 'Auszahlung über 4 Jahre') + ' (' + eur(P.bForm === 'einmal' ? R.bav.net1 : R.bav.net4) + ' netto)' : '') + '</span></div>' +
       '<div><b>' + eur(total) + '</b><span>Summe pro Monat. Heutiges Netto: ' + eur(netMonth) + '</span></div></div>' +
       '<p class="note">' + gapText + '</p>' +
       (R.pg.src === 'none' && !R.hasPartner ? '<p class="note">Als Selbstständige oder Selbstständiger zählt hier nur dein Vermögen. Hast du Ansprüche aus einem Versorgungswerk oder einer Basisrente, trage sie bei der Renteninformation ein.</p>' : '');
@@ -1254,6 +1256,7 @@ function compute(P) {
         '<div class="kv"><div><b>' + eur(cb) + '</b><span>Beiträge pro Monat' + (netMonth > 0 ? ', ' + pct(cb / netMonth, 1) + ' deines Nettos' : '') + '</span></div>' +
         (R.cGross > 0 ? '<div><b>' + eur(R.cNet) + '</b><span>Renten aus Verträgen im Ruhestand, netto pro Monat. Brutto ' + eur(R.cGross) + '</span></div>' : '') +
         (R.lumpGross > 0 ? '<div><b>' + eur(R.lvNom) + '</b><span>Kapitalauszahlung bei Renteneintritt, nach geschätzten Abgaben (Steuer, Kranken- und Pflegeversicherung) von ' + eur(R.lumpTax) + '</span></div>' : '') + '</div>' +
+        (R.bkRows.length ? '<div class="kv">' + R.bkRows.map(function (b) { return '<div><b>' + eur(b.netM) + '</b><span>Jahresraten aus ' + b.n + '-Raten-Vertrag, umgerechnet auf den Monat und netto (nominal, im ersten Jahr). Brutto ' + eur(b.grossM) + ' pro Monat, nach heutiger Kaufkraft etwa ' + eur(b.netM * b.real) + ' netto</span></div>'; }).join('') + '</div>' : '') +
         (R.lumpGuess ? '<p class="small">Bei einer Lebensversicherung ohne Angabe der eingezahlten Beiträge nimmt der Planer an, dass 30 % der Auszahlung Ertrag sind.</p>' : '') +
         '<p class="small">Betriebliche Kapitalleistungen werden als Jahresraten (Verzinsung mit deiner Rendite im Ruhestand) oder einmalig mit Fünftelregelung gerechnet, abzüglich Steuer sowie Kranken- und Pflegeversicherung, und fließen ins Vermögen bei Renteneintritt ein. Rentenverträge gehen in „Was bleibt im Ruhestand pro Monat?“ ein. Berufsunfähigkeit, Risikoleben, Pflege und Sonstiges werden nur aufgelistet und fließen nicht in die Rechnung ein. Lebensversicherungen vor 2005 sind steuerfrei, danach wird die Hälfte des Ertrags versteuert, wenn der Vertrag mindestens 12 Jahre lief und du bei Auszahlung mindestens 62 bist.</p>';
     }
