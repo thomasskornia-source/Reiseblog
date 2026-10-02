@@ -991,7 +991,7 @@ function compute(P) {
     };
     P.retOverride = 0;
     var kb = function (id, d, lo, hi) { return String($(id).value).trim() === '' ? d : rd(id, d, lo, hi) / 100; };
-    P.kauf.wert = kb('kfWert', P.infl, -5, 10); P.kauf.mietg = kb('kfMietG', P.infl, -2, 10);
+    P.kauf.wert = kb('kfWert', Math.max(P.infl, 0.035), -5, 10); P.kauf.mietg = kb('kfMietG', P.infl, -2, 10);
     P.kauf.rend = kb('kfRend', P.rE * (1 - kapStRate(P.kirche) * (1 - K.TEILFREI)), -2, 15);
     if (P.status === 'verheiratet' || P.status === 'paar') {
       P.partner = { name: $('pvorname').value.trim().slice(0, 40), by: Math.round(rd('pby', P.by, 1940, YEAR - 16)), beruf: $('pberuf').value,
@@ -1269,7 +1269,7 @@ function compute(P) {
     // Kaufen oder mieten
     (function () {
       $('kfEK').placeholder = P.W0 > 0 ? eur(P.W0) + ' (Vermögen)' : 'Vermögen heute';
-      $('kfWert').placeholder = pct(P.infl, 1) + ' (Inflation)'; $('kfMietG').placeholder = pct(P.infl, 1) + ' (Inflation)';
+      $('kfWert').placeholder = pct(Math.max(P.infl, 0.035), 1) + ' (Süd-Bayern)'; $('kfMietG').placeholder = pct(P.infl, 1) + ' (Inflation)';
       $('kfRend').placeholder = pct(P.kauf.rend, 1) + ' (ETF nach Steuer)';
       var wohn = P.aus[AUS.findIndex(function (a) { return a[0] === 'aWohnen'; })] || 0;
       $('kfMiete').placeholder = wohn > 0 ? eur(wohn) + ' (Wohnen)' : '€';
