@@ -389,8 +389,7 @@ body.fp-body { padding-bottom: 0; }
         <label class="f" for="startAge"><span>Berufsstart mit Alter</span><input id="startAge" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
         </div>
         <label class="f" for="renteInfo"><span>Rente laut Rentenbescheid oder Renteninformation (optional)</span><input id="renteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"><small>Trage die Bruttorente vor Abzügen ein. Sie ersetzt die Schätzung des Planers.</small></label>
-        <label class="f" for="retOverride"><span>Abweichendes Renteneintrittsalter (optional)</span><input id="retOverride" type="number" inputmode="decimal" min="63" max="70" step="0.5" placeholder="leer = Regelaltersgrenze laut Renteninformation"><small id="retNote"></small></label>
-      </fieldset>
+        <label class="f" for="retOverride"><span>Renteneintrittsalter</span><select id="retOverride"><option value="">Regelaltersgrenze laut Renteninformation</option><option value="63">63 Jahre</option><option value="64">64 Jahre</option><option value="65">65 Jahre</option><option value="66">66 Jahre</option><option value="67">67 Jahre</option><option value="68">68 Jahre</option><option value="69">69 Jahre</option><option value="70">70 Jahre</option></select><small id="retNote"></small></label>      </fieldset>
 
       <fieldset id="partnerSet" hidden><legend id="parLeg">Partnerin oder Partner</legend>
         <p class="small">Lässt du Brutto leer, zählt die Person ohne eigenes Einkommen.</p>
