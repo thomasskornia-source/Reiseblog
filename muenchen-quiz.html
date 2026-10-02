@@ -17,6 +17,8 @@
   .quiz-map { height: 56vh; min-height: 340px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(46,58,50,0.14); background: var(--paper-warm); }
   .leaflet-container { font-family: 'Work Sans', sans-serif; background: #ece4d4; }
   .leaflet-interactive { cursor: pointer; }
+  .leaflet-tile-pane { filter: saturate(.55) sepia(.12) brightness(1.04); }
+  .leaflet-control-attribution { font-size: 10px; }
   .quiz-panel { background: var(--paper-warm); border-radius: 14px; padding: 22px 24px; border: 1px solid rgba(46,58,50,0.1); align-self: start; }
   .quiz-panel h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 24px; margin: 0 0 8px; line-height: 1.2; }
   .quiz-panel p { margin: 0 0 12px; font-size: 15px; color: var(--ink-soft); line-height: 1.55; }
@@ -164,8 +166,8 @@
   /* ---------- Karte ---------- */
   var BEZ = {}, polys = {};
   window.MUC_BEZIRKE.forEach(function (b) { BEZ[b.nr] = b; });
-  var map = L.map('map', { zoomSnap: 0.25, minZoom: 10, maxZoom: 15, zoomControl: true, attributionControl: false });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', { subdomains: 'abcd', maxZoom: 19 }).addTo(map);
+  var map = L.map('map', { zoomSnap: 0.25, minZoom: 10, maxZoom: 15, zoomControl: true, attributionControl: true });
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>' }).addTo(map);
   var allBounds = null;
   var STY = {
     base: { color: '#2E3A32', weight: 1.4, opacity: 0.55, fillColor: '#8FA398', fillOpacity: 0.22 },

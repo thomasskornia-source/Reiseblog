@@ -79,3 +79,17 @@ article th { background: rgba(181, 80, 46, .08); }
 body .topbar .topnav a { color: var(--ink) !important; text-decoration: none !important; }
 body .topbar .topnav a[aria-current] { color: var(--paper) !important; }
 body .topbar .topnav a.hot { color: #fff !important; }
+
+/* Textseiten: eine ruhige Lesespalte statt zwei Spalten */
+@media (min-width: 1000px) {
+  .page-info.page-single article { column-count: 1; max-width: 860px; }
+  .page-single .wrap { max-width: 1000px; }
+}
+.page-single .entry-body li { margin-bottom: 10px; }
+.page-single .entry-body ul { padding-left: 22px; }
+.page-single .nutri-table td:first-child { font-weight: 600; }
+.page-single .entry-body { max-width: none; }
+.page-single .entry-body p::first-letter { font-size: inherit; float: none; color: inherit; line-height: inherit; padding: 0; margin: 0; font-family: inherit; }
+.page-single .entry-header + .entry-body p:first-of-type::first-letter { font-family: 'Fraunces', serif; font-size: 3.1em; float: left; line-height: .85; padding: .08em .1em 0 0; color: var(--rust); }
+.page-single .entry-body p { max-width: none; }
+.page-single .entry-body { font-size: 17px; }
