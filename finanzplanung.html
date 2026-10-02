@@ -1173,12 +1173,14 @@ function compute(P) {
       a = 'Vor dem Renteneintritt mit ' + ageText(R.retAge) + ' reicht das Vermögen rechnerisch nicht, um ' + what + ' zu ersetzen. Würdest ' + du + ' schon mit ' + ageText(q2) + ' aufhören, blieben etwa <b>' + eur(payQ(q2)) + ' im Monat</b> (heutige Kaufkraft) bis ' + P.planAge + '.';
     }
     $('exitA').innerHTML = a; EXIT = { a: a, b: '' };
+    EXIT.ok = earliest !== null; EXIT.ageE = earliest !== null ? earliest : Math.max(R.age0, Math.floor(R.retAge - 3)); EXIT.payE = payQ(EXIT.ageE); EXIT.E = E; EXIT.now = EXIT.ok && earliest <= R.age0 + 0.01;
     var Y = Math.min(8, Math.max(0, +$('atzY').value || 0)), pc = Math.min(100, Math.max(40, +$('atzP').value || 80));
     Y = Math.min(Y, R.retAge - R.age0);
     if (Y > 0) {
       var start = R.retAge - Y, capR = capAt(R.retAge, start);
       var pensA = pensAt(R.retAge, Math.min(1, 0.1 * Y / Math.max(1, R.retAge - P.startAge)));
       var withA = sustainPay(R, P, capR, R.retAge, pensA, R.lumpNom), without = sustainPay(R, P, R.at.ret.net, R.retAge, R.pn.net, R.lumpNom);
+      EXIT.atz = { Y: Y, start: start, net: pc / 100 * netMonth, withA: withA, without: without };
       $('exitB').innerHTML = EXIT.b = 'Gehst ' + du + ' <b>' + Y + ' ' + (Y === 1 ? 'Jahr' : 'Jahre') + ' vor der Rente</b> (ab ' + ageText(start) + ') in Altersteilzeit, bleiben etwa <b>' + eur(pc / 100 * netMonth) + ' netto im Monat</b> (statt ' + eur(netMonth) + '), das Sparen pausiert. Ab dem Renteneintritt stehen ' + (two ? 'euch' : 'dir') + ' aus Rente (' + eur(pensA) + ') und Vermögen (≈ ' + eur(capR) + ') zusammen etwa <b>' + eur(withA) + ' im Monat</b> zur Verfügung, ohne Altersteilzeit wären es ' + eur(without) + '.';
     } else $('exitB').innerHTML = 'Mit „Altersteilzeit (Jahre)“ unten rechnest ' + du + ' aus, was ' + (two ? 'euch' : 'dir') + ' in der Teilzeit und danach bleibt.';
     $('exitN').textContent = 'Grobe Rechnung in heutiger Kaufkraft, Entnahme bis ' + P.planAge + ' mit ' + pct(P.rRet, 1) + ' Rendite. Bei früherem Aufhören fällt die Rente niedriger aus, in der Altersteilzeit zählen die Rentenbeiträge mit rund 90 %. Die genauen Werte hängen vom Tarifvertrag ab.';
@@ -1792,7 +1794,13 @@ function compute(P) {
         '<p>' + (need <= 0 ? 'Dein Einkommen im Ruhestand trägt deine Kosten, ohne dass du an dein Vermögen musst.' : (dep === null ? 'Dein Vermögen trägt die Lücke bis zu deinem Planungsalter von ' + num(P.planAge) + '.' : 'Das Vermögen reicht bis etwa Alter ' + num(dep) + ', danach fehlen ' + eur(need) + ' pro Monat (in heutiger Kaufkraft).')) + '</p>' });
     }
     // Früher aufhören / Altersteilzeit
-    if (EXIT && EXIT.a) c.push({ t: 't-blue', h: '<div class="st-eye">Früher aufhören?</div><h2>Altersteilzeit und Ausstieg</h2><p style="max-width:none;font-size:15px">' + EXIT.a + '</p>' + (EXIT.b ? '<p style="max-width:none;font-size:15px">' + EXIT.b + '</p>' : '') + '<p class="st-fine">Grobe Rechnung in heutiger Kaufkraft.</p>' });
+    if (EXIT && EXIT.a) {
+      var X = EXIT, Z = X.atz;
+      c.push({ t: 't-blue', h: '<div class="st-eye">Früher aufhören?</div><h2>Zwei Wege raus</h2>' +
+        '<div class="st-sub" style="margin-top:6px">' + (X.ok ? (X.now ? 'Aufhören ab heute' : 'Aufhören mit ' + ageText(X.ageE)) : 'Schon mit ' + ageText(X.ageE) + ' aufhören') + '</div><div class="st-big" style="font-size:clamp(34px,10vw,46px)">' + cnt(X.payE, 'eur') + '</div><div class="st-sub">pro Monat bis ' + P.planAge + (X.ok ? ' · deckt deine Ausgaben' : ' · reicht nicht für ' + eur(X.E)) + '</div>' +
+        (Z ? '<div class="st-sub" style="margin-top:14px">Altersteilzeit ab ' + ageText(Z.start) + ' (' + Z.Y + ' J.)</div><div class="st-rows"><div class="st-row"><span>In der Teilzeit netto</span><b>' + eur(Z.net) + '</b></div><div class="st-row"><span>Danach pro Monat</span><b>' + eur(Z.withA) + '</b></div><div class="st-row"><span>Ohne Teilzeit</span><b>' + eur(Z.without) + '</b></div></div>' : '') +
+        '<p class="st-fine">Heutige Kaufkraft, grobe Rechnung.</p>' });
+    }
     // Zahlen am Rande
     var yR = Math.max(0, P.planAge - R.retAge);
     if (yL > 0.5) {
