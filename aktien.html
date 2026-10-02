@@ -20,7 +20,6 @@
   .ak-form { display: flex; gap: 8px; background: var(--paper-warm); border: 1px solid rgba(46,58,50,.12); border-radius: 999px; padding: 6px; }
   .ak-form input { flex: 1; min-width: 0; font: inherit; font-size: 16px; border: 0; background: transparent; padding: 8px 14px; color: var(--ink); outline: 0; }
   .btn { font: inherit; font-size: 15px; background: var(--rust); color: #fff; border: 0; border-radius: 999px; padding: 9px 20px; cursor: pointer; white-space: nowrap; }
-  .btn.ghost { background: transparent; color: var(--rust); border: 1px solid var(--rust); padding: 6px 14px; font-size: 13.5px; }
   .btn[disabled] { opacity: .5; cursor: default; }
   .msg { font-size: 13.5px; color: var(--ink-soft); text-align: center; margin: -4px 0 0; min-height: 1em; }
   .pend { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
@@ -29,43 +28,48 @@
   .pend .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); animation: bl 1.2s infinite ease-in-out; }
   .pend .dots i:nth-child(2) { animation-delay: .2s; } .pend .dots i:nth-child(3) { animation-delay: .4s; }
   @keyframes bl { 0%, 80%, 100% { opacity: .2; transform: scale(.8); } 40% { opacity: 1; transform: scale(1.2); } }
-  .st { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 16px; box-shadow: 0 6px 18px rgba(46,58,50,.06); animation: up .35s ease both; }
+  .st { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 14px; animation: up .35s ease both; }
   @keyframes up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
   .st.hit { border-color: var(--rust); }
-  .st > summary { list-style: none; cursor: pointer; padding: 13px 16px; display: grid; grid-template-columns: 1fr auto; gap: 6px 10px; align-items: center; }
+  .st > summary { list-style: none; cursor: pointer; padding: 14px 16px; position: relative; }
   .st > summary::-webkit-details-marker { display: none; }
-  .st h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; margin: 0; }
-  .st h3 small { font-family: inherit; font-size: 12.5px; color: var(--ink-soft); font-weight: 400; margin-left: 4px; }
-  .age { font-size: 12px; color: var(--ink-soft); text-align: right; white-space: nowrap; }
-  .age.old { color: #8e2a1c; font-weight: 600; }
-  .chips { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; }
-  .chip { font-size: 12px; font-weight: 600; border-radius: 999px; padding: 2px 10px; background: var(--paper-warm); }
-  .chip em { font-style: normal; font-weight: 400; color: var(--ink-soft); margin-right: 3px; }
-  .g { background: #dcebd9; color: #2f6a2f; } .a { background: #f4e6c3; color: #7a5a12; } .r { background: #f3d6d1; color: #8e2a1c; }
-  .body { padding: 0 16px 16px; }
-  .kz { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; padding: 0; list-style: none; }
-  .kz li { font-size: 12.5px; color: var(--ink-soft); background: var(--paper-warm); border-radius: 999px; padding: 3px 10px; }
-  .kz b { color: var(--ink); font-weight: 600; }
-  .duo { display: grid; gap: 14px; }
-  @media (min-width: 720px) { .duo { grid-template-columns: 1fr 1fr; gap: 18px; } }
-  .who { display: grid; grid-template-columns: 48px 1fr; gap: 4px 12px; align-items: start; }
-  .who svg { width: 48px; height: 48px; border-radius: 50%; }
-  .who .top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .who h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; margin: 0; }
-  .who p { margin: 0; font-size: 14.5px; line-height: 1.55; grid-column: 1 / -1; }
-  @media (min-width: 720px) { .who p { grid-column: 2; } .who svg { grid-row: span 2; } }
-  .jm { margin-top: 14px; padding-top: 14px; border-top: 1px dashed rgba(46,58,50,.2); }
-  .jm .nums { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--ink-soft); grid-column: 1 / -1; }
-  .jm .nums b { color: var(--ink); }
-  .risk { font-size: 13.5px; color: var(--ink-soft); margin: 12px 0 0; line-height: 1.5; }
-  .src { font-size: 12px; color: var(--ink-soft); margin: 6px 0 0; }
-  .bel { margin: 12px 0 0; font-size: 13.5px; }
-  .bel summary { cursor: pointer; color: var(--ink-soft); }
-  .bel blockquote { margin: 8px 0 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--gold); line-height: 1.5; }
-  .bel blockquote cite { display: block; font-style: normal; font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
-  .vl { font-size: 12.5px; color: var(--ink-soft); margin: 10px 0 0; }
-  .act { display: flex; align-items: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
-  .act span { font-size: 12.5px; color: var(--ink-soft); }
+  .st > summary::after { content: ''; position: absolute; right: 16px; top: 22px; width: 8px; height: 8px; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg); transition: transform .2s; }
+  .st[open] > summary::after { transform: rotate(-135deg); top: 26px; }
+  .hd { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; padding-right: 26px; }
+  .hd h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; margin: 0; }
+  .hd small { font-size: 12.5px; color: var(--ink-soft); }
+  .age { font-size: 12px; color: var(--ink-soft); margin: 2px 0 0; }
+  .age.old { color: #8e2a1c; }
+  .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-top: 12px; }
+  @media (min-width: 720px) { .vs { grid-template-columns: repeat(4, 1fr); } }
+  .vs span { display: block; font-size: 11.5px; letter-spacing: .03em; text-transform: uppercase; color: var(--ink-soft); }
+  .vs b { display: flex; align-items: center; gap: 6px; font-size: 14.5px; font-weight: 600; margin-top: 1px; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex: none; background: #b9a46a; }
+  .g .dot, .dot.g { background: #3f8f3f; } .a .dot, .dot.a { background: #d1a02a; } .r .dot, .dot.r { background: #c0392b; }
+  .body { padding: 2px 16px 16px; }
+  .sec { border-top: 1px solid rgba(46,58,50,.1); padding-top: 14px; margin-top: 14px; }
+  .sec:first-child { border-top: 0; margin-top: 0; padding-top: 12px; }
+  .who { display: grid; grid-template-columns: 40px 1fr; gap: 2px 12px; align-items: center; }
+  .who svg { width: 40px; height: 40px; border-radius: 50%; }
+  .who h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; margin: 0; line-height: 1.2; }
+  .who h4 em { font-style: normal; font-family: 'Work Sans', sans-serif; font-size: 13.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; margin-left: 8px; }
+  .who p { margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; grid-column: 1 / -1; }
+  .rows { grid-column: 1 / -1; margin: 8px 0 0; display: grid; gap: 4px; font-size: 14px; }
+  .rows div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(46,58,50,.08); padding: 4px 0; }
+  .rows dt { color: var(--ink-soft); } .rows dd { margin: 0; display: flex; align-items: center; justify-content: flex-end; gap: 6px; text-align: right; font-weight: 600; }
+  .rows { margin-block: 8px 0; } dl.rows { margin-inline: 0; }
+  .more { margin-top: 14px; font-size: 14px; }
+  .more > summary { cursor: pointer; color: var(--ink-soft); padding: 4px 0; }
+  .more dl { margin: 6px 0 0; display: grid; gap: 0; }
+  .more dl div { padding: 7px 0; border-bottom: 1px solid rgba(46,58,50,.08); display: grid; gap: 1px; }
+  @media (min-width: 560px) { .more dl div { grid-template-columns: 38% 1fr; gap: 12px; } }
+  .more dt { color: var(--ink-soft); font-size: 13px; } .more dd { margin: 0; font-size: 13.5px; }
+  .more blockquote { margin: 8px 0 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--gold); line-height: 1.5; }
+  .more blockquote cite { display: block; font-style: normal; font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+  .risk { font-size: 14px; color: var(--ink); margin: 0; line-height: 1.55; }
+  .risk b { display: block; font-size: 11.5px; letter-spacing: .03em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; margin-bottom: 2px; }
+  .meta { font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; margin: 14px 0 0; }
+  .upd { font: inherit; font-size: 13.5px; background: none; border: 0; color: var(--rust); padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
   .empty { font-size: 15px; color: var(--ink-soft); text-align: center; margin: 12px 0; }
   .foot { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; text-align: center; margin: 22px 0 0; }
 </style>
@@ -146,45 +150,57 @@
     if (p.length && !timer) timer = setInterval(refresh, 20000);
     if (!p.length && timer) { clearInterval(timer); timer = null; }
   }
+  function dot(c) { return '<i class="dot ' + c + '"></i>'; }
   function who(k, name, x) {
     if (!x) return '';
-    return '<div class="who">' + FACE[k] + '<div class="top"><h4>' + name + '</h4><span class="chip ' + cls(x.urteil) + '">' + esc(x.urteil) + '</span></div><p>' + esc(x.text) + '</p></div>';
+    return '<div class="sec who">' + FACE[k] + '<h4>' + name + '<em class="' + cls(x.urteil) + '">' + dot(cls(x.urteil)) + esc(x.urteil) + '</em></h4><p>' + esc(x.text) + '</p></div>';
+  }
+  function jEin(j) {
+    if (!j || !j.lage) return null;
+    return {
+      lage: j.urteil || j.lage,
+      pct: j.abstand_pct != null ? (j.abstand_pct > 0 ? '+' : '') + zahl(j.abstand_pct, 1) + ' %' : '',
+      c: jcls(j.lage)
+    };
   }
   function james(j) {
     if (!j) return '';
-    var f = j.flows || {};
-    var nums = j.kurs == null ? '' : '<div class="nums"><span>Kurs <b>' + zahl(j.kurs) + ' ' + esc(j.waehrung || '') + '</b></span><span>200-Tage <b>' + zahl(j.ma200) + '</b> (' + (j.abstand_pct > 0 ? '+' : '') + zahl(j.abstand_pct, 1) + ' %' + (j.ma200_steigt === true ? ', steigt' : j.ma200_steigt === false ? ', fällt' : '') + ')</span>' + (j.ma50 != null ? '<span>50-Tage <b>' + zahl(j.ma50) + '</b></span>' : '') + '</div>';
-    return '<div class="who jm">' + FACE.j + '<div class="top"><h4>James</h4>' +
-      (j.urteil ? '<span class="chip ' + jcls(j.lage) + '">' + esc(j.urteil) + '</span>' : '') +
-      (f.richtung ? '<span class="chip ' + fcls(f.richtung) + '"><em>Option Flows</em>' + esc(f.richtung) + '</span>' : '') + '</div>' + nums + '<p>' + esc(j.text) + (f.text ? ' <i>Option Flows: ' + esc(f.text) + '</i>' : '') + '</p></div>';
+    var f = j.flows || {}, e = jEin(j), r = '';
+    if (e) r += '<div><dt>Lage zur 200-Tage-Linie</dt><dd>' + dot(e.c) + esc(String(j.lage)) + (e.pct ? ' · ' + e.pct : '') + '</dd></div>';
+    if (j.kurs != null) r += '<div><dt>Kurs</dt><dd>' + zahl(j.kurs) + ' ' + esc(j.waehrung || '') + '</dd></div><div><dt>200-Tage-Linie</dt><dd>' + zahl(j.ma200) + (j.ma200_steigt === true ? ' · steigt' : j.ma200_steigt === false ? ' · fällt' : '') + '</dd></div>' + (j.ma50 != null ? '<div><dt>50-Tage-Linie</dt><dd>' + zahl(j.ma50) + '</dd></div>' : '');
+    if (f.richtung) r += '<div><dt>Option Flows</dt><dd>' + dot(fcls(f.richtung)) + esc(f.richtung) + '</dd></div>';
+    return '<div class="sec who">' + FACE.j + '<h4>James</h4><dl class="rows">' + r + '</dl><p>' + esc(j.text) + (f.text ? ' <i>Option Flows: ' + esc(f.text) + '</i>' : '') + '</p></div>';
   }
-  function belege(b) {
-    if (!b || !b.length) return '';
-    return '<details class="bel"><summary>Belege aus Briefen und Versammlungen (' + b.length + ')</summary>' + b.map(function (x) {
+  function mehr(e) {
+    var kz = (e.kennzahlen || []).map(function (k) { return '<div><dt>' + esc(k.k) + '</dt><dd>' + esc(k.v) + '</dd></div>'; }).join('');
+    var bel = (e.belege || []).map(function (x) {
       var q = /^https?:\/\//.test(x.url || '') ? '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.quelle) + '</a>' : esc(x.quelle);
       return '<blockquote>„' + esc(x.zitat) + '“<cite>' + esc(x.wer) + ' · ' + q + '</cite></blockquote>';
-    }).join('') + '</details>';
+    }).join('');
+    var h = '';
+    if (kz) h += '<details class="more"><summary>Kennzahlen</summary><dl>' + kz + '</dl></details>';
+    if (bel) h += '<details class="more"><summary>Belege aus Briefen und Versammlungen (' + (e.belege || []).length + ')</summary>' + bel + '</details>';
+    return h;
   }
-  function verlauf(v) {
-    if (!v || !v.length) return '';
-    return '<p class="vl"><b>Früher:</b> ' + v.slice().reverse().slice(0, 4).map(function (x) { return esc(x.stand) + ': Warren ' + esc(x.warren || '–') + ', Charlie ' + esc(x.charlie || '–') + (x.james ? ', James ' + esc(x.james) : ''); }).join(' · ') + '</p>';
+  function meta(e) {
+    var src = (e.quellen || []).map(function (q) { return /^https?:\/\//.test(q.url) ? '<a href="' + esc(q.url) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>' : esc(q.name); }).join(' · ');
+    var vl = (e.verlauf || []).slice().reverse().slice(0, 3).map(function (x) { return esc(x.stand) + ' Warren ' + esc(x.warren || '–') + ', Charlie ' + esc(x.charlie || '–') + (x.james ? ', James ' + esc(x.james) : ''); }).join(' · ');
+    return '<p class="meta">' + (vl ? 'Früher: ' + vl + '<br>' : '') + (src ? 'Quellen: ' + src + '<br>' : '') +
+      'Stand ' + esc(e.stand) + (!e.james ? ' · noch ohne James' : '') + ' · <button type="button" class="upd" data-upd="' + esc(sym(e)) + '">Aktualisieren</button></p>';
   }
   function card(e, offen, treffer) {
-    var d = alter(e), alt = d !== null && d > VERALTET;
-    var kz = (e.kennzahlen || []).map(function (k) { return '<li>' + esc(k.k) + ' <b>' + esc(k.v) + '</b></li>'; }).join('');
-    var src = (e.quellen || []).map(function (q) { return /^https?:\/\//.test(q.url) ? '<a href="' + esc(q.url) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>' : esc(q.name); }).join(' · ');
-    var j = e.james, f = j && j.flows;
+    var d = alter(e), alt = d !== null && d > VERALTET, j = e.james, f = j && j.flows, je = jEin(j);
+    function zelle(l, t, c) { return '<div><span>' + l + '</span><b class="' + c + '">' + dot(c) + esc(t) + '</b></div>'; }
     return '<details class="st' + (treffer ? ' hit' : '') + '" data-sym="' + esc(sym(e)) + '"' + (offen ? ' open' : '') + '><summary>' +
-      '<h3>' + esc(e.name) + '<small>' + esc(e.ticker || '') + '</small></h3><span class="age' + (alt ? ' old' : '') + '">' + (alt ? 'veraltet · ' : '') + alterText(d) + '</span>' +
-      '<div class="chips">' + (e.warren ? '<span class="chip ' + cls(e.warren.urteil) + '"><em>Warren</em>' + esc(e.warren.urteil) + '</span>' : '') +
-      (e.charlie ? '<span class="chip ' + cls(e.charlie.urteil) + '"><em>Charlie</em>' + esc(e.charlie.urteil) + '</span>' : '') +
-      (j && j.lage ? '<span class="chip ' + jcls(j.lage) + '"><em>James</em>' + esc(String(j.lage).replace(/^(deutlich|knapp) /, '$1 ')) + ' 200-Tage</span>' : '') +
-      (f && f.richtung && f.richtung !== 'keine Daten' ? '<span class="chip ' + fcls(f.richtung) + '"><em>Option Flows</em>' + esc(f.richtung) + '</span>' : '') + '</div></summary>' +
-      '<div class="body">' + (kz ? '<ul class="kz">' + kz + '</ul>' : '') +
-      '<div class="duo">' + who('w', 'Warren', e.warren) + who('c', 'Charlie', e.charlie) + '</div>' + james(j) +
-      belege(e.belege) + (e.risiken ? '<p class="risk"><b>Was schiefgehen kann:</b> ' + esc(e.risiken) + '</p>' : '') +
-      verlauf(e.verlauf) + (src ? '<p class="src">Quellen: ' + src + '</p>' : '') +
-      '<div class="act"><button type="button" class="btn ghost" data-upd="' + esc(sym(e)) + '">Aktualisieren</button><span>Stand ' + esc(e.stand) + (!j ? ' · noch ohne James' : '') + '</span></div></div></details>';
+      '<div class="hd"><h3>' + esc(e.name) + '</h3><small>' + esc(e.ticker || '') + '</small></div>' +
+      '<p class="age' + (alt ? ' old' : '') + '">' + (alt ? 'veraltet · ' : '') + alterText(d) + '</p>' +
+      '<div class="vs">' + (e.warren ? zelle('Warren', e.warren.urteil, cls(e.warren.urteil)) : '') +
+      (e.charlie ? zelle('Charlie', e.charlie.urteil, cls(e.charlie.urteil)) : '') +
+      (je ? zelle('James · 200-Tage', String(j.lage), je.c) : '') +
+      (f && f.richtung && f.richtung !== 'keine Daten' ? zelle('Option Flows', f.richtung, fcls(f.richtung)) : '') + '</div></summary>' +
+      '<div class="body">' + who('w', 'Warren', e.warren) + who('c', 'Charlie', e.charlie) + james(j) +
+      (e.risiken ? '<div class="sec"><p class="risk"><b>Was schiefgehen kann</b>' + esc(e.risiken) + '</p></div>' : '') +
+      mehr(e) + meta(e) + '</div></details>';
   }
   function render() {
     var l = data.slice().reverse(), t = norm(filter);
