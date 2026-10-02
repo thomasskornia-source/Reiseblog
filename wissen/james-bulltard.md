@@ -34,7 +34,9 @@ wolle in Werten sein, die gekauft werden. Option Flows zeigen, was große Marktt
    aktualisiert (`tools/markt.py`, GitHub-Aktion). James setzt die Aktie ins Verhältnis zum Markt.
 3. **Option Flows:** Richtung bullisch / neutral / bärisch aus `python3 tools/optionsfluesse.py <Ticker>` (öffentliche,
    verzögerte Cboe-Optionsdaten, nur US-Aktien). Eine **Näherung aus dem Tagesumsatz** (Put/Call im Vergleich zum
-   Normalwert der Aktie, Prämien, ungewöhnliche Kontrakte), kein echter Institutionen-Flow: wer kauft oder verkauft,
+   Normalwert der Aktie, Prämien, ungewöhnliche Kontrakte), bewertet **auf Jahresbasis**: die heutige Lage wird mit den
+   eigenen Tageswerten der Aktie der letzten bis zu 252 Handelstage verglichen (`tools/flows-sammeln.py` sammelt sie
+   täglich; bis 40 Werte vorliegen, gilt eine Ersatzregel), kein echter Institutionen-Flow: wer kauft oder verkauft,
    sieht man dort nicht. Ohne Daten (z. B. Nicht-US-Aktie) steht „keine Daten“; geschätzt wird nichts.
 
 Seine Einordnung ist reine Marktstruktur und Stimmung, **keine** Bewertung des Unternehmens. Typischer Widerspruch zu

@@ -38,21 +38,25 @@ Gewinn- und Margenentwicklung über mehrere Jahre, Aktienrückkäufe/Verwässeru
 - **Die Zahlen schreibt das Werkzeug, nicht du:** Erst `python3 tools/kurs-check.py <Yahoo-Ticker>` lesen (US: `KO`, Xetra:
   `SIE.DE`, London `.L`, Paris `.PA`), dann den Eintrag mit Texten und Urteilen in `data/aktien.json` anlegen oder
   ersetzen, **danach** `python3 tools/kurs-check.py <Ticker> --schreibe` ausführen: Das trägt Kurs, Linien, `ampel`
-  (Up / Medium / Down), `lage` und den 80-Tage-Verlauf für den Chart in `james` ein. Diese Felder nie von Hand schreiben
+  (Up / Medium / Down), `lage` und den 1-Jahres-Verlauf für den Chart (252 Handelstage) in `james` ein. Diese Felder nie von Hand schreiben
   oder abtippen. Schlägt das Werkzeug fehl („FEHLER: …“): Zahlen weglassen, nichts schätzen.
 - Dein Text bei James nennt `ampel` und `lage` genau so wie das Werkzeug, die Lage zur 200er (steigt oder fällt sie)
-  und das Verhältnis zum Markt (siehe unten). Kein Chart-Wissen aus dem Gedächtnis.
+  und das Verhältnis zum Markt (siehe unten). Auch die Lage in der 52-Wochen-Spanne (`pos_52w_pct`) darf vorkommen. Alle
+  Bewertungen von Linien und Option Flows gelten auf Jahresbasis. Kein Chart-Wissen aus dem Gedächtnis.
 - **Markt:** `data/markt.json` (S&P 500, aktuell durch eine tägliche GitHub-Aktion, nicht von dir ändern) liefert
   `ampel` und `lage`. James setzt die Aktie ins Verhältnis: Up-Markt und Up-Aktie = Rückenwind; Down-Markt trotz Up-Aktie
   oder umgekehrt ausdrücklich nennen.
-- **Option Flows** (so heißen sie überall in Texten und auf der Seite, nie „Flüsse“): `python3 tools/optionsfluesse.py <US-Ticker>` (öffentliche, verzögerte Cboe-Optionsdaten, nur US-Aktien).
-  Es liefert Richtung (bullisch / neutral / bärisch), Put/Call-Volumen, Prämien, ungewöhnliche Kontrakte. Aktien mit Klassenzusatz (BRK-B, BF-B) gehen wie bei Yahoo mit Bindestrich. Die Richtung
-  ist eine **Näherung aus dem heutigen Optionsumsatz**, kein echter Institutionen-Flow (Käufer- oder Verkäuferseite
-  unbekannt). Das so benennen: im Feld `flows.text` ein Satz mit 2–3 Zahlen (z. B. Put/Call-Volumen, größter
-  auffälliger Kontrakt) und der Zusatz „Näherung aus Optionsumsatz“. `flows.quelle` = „Cboe, verzögert“.
-  Schlägt es fehl (kein US-Ticker, keine Optionen, „FEHLER: …“): `"richtung": "keine Daten"`, nichts schätzen.
+- **Option Flows** (so heißen sie überall in Texten und auf der Seite, nie „Flüsse“): **Das Werkzeug schreibt sie**:
+  `python3 tools/optionsfluesse.py <Ticker> --schreibe` (öffentliche, verzögerte Cboe-Optionsdaten, nur US-Aktien;
+  Klassenzusatz wie bei Yahoo mit Bindestrich: `BRK-B`). Es trägt `james.flows` (Richtung bullisch / neutral /
+  bärisch, Text mit Zahlen und Basis) ein und merkt sich den Tageswert in `data/flows/<Ticker>.json`. Die Bewertung
+  gilt **auf Jahresbasis**: die heutige Put/Call-Lage wird mit den eigenen Tageswerten der Aktie der letzten bis zu
+  252 Handelstage verglichen; solange weniger als 40 Tageswerte vorliegen, nennt `basis` die Ersatzregel. Eine tägliche
+  GitHub-Aktion (`flows.yml`) sammelt die Tageswerte aller Aktien in der Liste. Es ist eine Näherung aus Optionsumsatz,
+  kein echter Institutionen-Flow. Schlägt das Werkzeug fehl („FEHLER: …“, z. B. Nicht-US-Aktie): `"richtung": "keine
+  Daten"`, nichts schätzen. Dein James-Text nennt die Richtung und die Basis, schreibt `flows.text` aber nicht selbst.
   Wurde eine Stock-Terminal-Datei von Thomas in Google Drive abgelegt (Ordner „Stock Terminal“), darf sie zusätzlich
-  genutzt werden; sie ersetzt das Tool nicht.
+  genutzt werden; sie ersetzt das Werkzeug nicht.
 - Konzept von James: `wissen/james-bulltard.md`.
 
 ## Eintrag in `data/aktien.json`
@@ -70,7 +74,7 @@ Gewinn- und Margenentwicklung über mehrere Jahre, Aktienrückkäufe/Verwässeru
   "risiken": "1–3 Sätze",
   "james": {
     "urteil": "Up | Medium | Down",    // wie `ampel`; die Zahlenfelder (kurs, ma8, ma21, ma50, ma200, ampel, lage, serie …) trägt `--schreibe` ein
-    "flows": {"richtung": "bullisch | neutral | bärisch | keine Daten", "quelle": "Cboe, verzögert", "stand": "02.10.2026", "text": "1–2 Sätze mit Zahlen"},
+    "flows": {"richtung": "bullisch | neutral | bärisch | keine Daten", "quelle": "Cboe, verzögert", "stand": "02.10.2026", "text": "…"},   // schreibt `optionsfluesse.py --schreibe`, nicht von Hand
     "text": "3–4 Sätze: Trend-Einordnung (ampel, lage), Lage zur 200er, Verhältnis zum Markt, Option Flows; reine Markttechnik, keine Firmenbewertung"
   },
   "verlauf": [{"stand": "25.09.2026", "warren": "Abwarten", "charlie": "Abwarten", "james": "Über der 200-Tage-Linie"}],

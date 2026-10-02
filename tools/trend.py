@@ -1,6 +1,6 @@
 """Trend-Logik für James im Aktien-Check (gemeinsam für Aktien und den S&P 500).
 
-Linien: 8- und 21-Tage-EMA, 50- und 200-Tage-Durchschnitt. Kursdaten: Yahoo-Finance-Tageskurse (inoffiziell, kostenlos).
+Linien: 8- und 21-Tage-EMA, 50- und 200-Tage-Durchschnitt. Der Verlauf für den Chart umfasst ein Jahr (252 Handelstage). Kursdaten: Yahoo-Finance-Tageskurse (inoffiziell, kostenlos).
 
 Einordnung (Kurs = letzter Schlusskurs), von oben nach unten, die erste zutreffende Zeile gilt:
   unter 200                         -> Down   „unter der 200-Tage-Linie“
@@ -45,7 +45,7 @@ def einordnen(kurs, m8, m21, m50, m200):
     if kurs >= m50: return 'Medium', 'zwischen 21 und 50'
     return 'Down', 'unter 21- und 50-Tage-Linie, 200er hält'
 
-def analyse(zeilen, meta=None, tage=80):
+def analyse(zeilen, meta=None, tage=252):
     c = [z[4] for z in zeilen]
     if len(c) < 210: raise ValueError('zu wenig Kursverlauf (%d Tage)' % len(c))
     m8, m21, m50, m200 = ema_reihe(c, 8), ema_reihe(c, 21), sma_reihe(c, 50), sma_reihe(c, 200)
@@ -60,6 +60,7 @@ def analyse(zeilen, meta=None, tage=80):
         'abstand_pct': round((kurs / m200[-1] - 1) * 100, 1),
         'ma200_steigt': m200[-1] > m200[-21],
         'hoch_52w': r(max(c[-252:])), 'tief_52w': r(min(c[-252:])),
+        'pos_52w_pct': round((kurs - min(c[-252:])) / (max(c[-252:]) - min(c[-252:])) * 100) if max(c[-252:]) > min(c[-252:]) else 50,
         'ampel': ampel, 'lage': zone,
         'serie': {
             'd': [datetime.datetime.utcfromtimestamp(zeilen[i][0]).strftime('%d.%m.%y') for i in letzte],
