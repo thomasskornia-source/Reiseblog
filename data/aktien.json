@@ -1,86 +1,6 @@
 {
   "einschaetzungen": [
     {
-      "eingabe": "Alphabet",
-      "zeitstempel": "02.10.2026 19:49:46",
-      "name": "Alphabet Inc. (Google)",
-      "ticker": "GOOGL (Nasdaq)",
-      "stand": "02.10.2026",
-      "kennzahlen": [
-        {
-          "k": "Umsatz 2025",
-          "v": "402,8 Mrd. $ (+15 %)"
-        },
-        {
-          "k": "Operatives Ergebnis 2025",
-          "v": "129 Mrd. $ (Marge ca. 32 %); Q2 2026: Marge 34 %"
-        },
-        {
-          "k": "Gewinn je Aktie 2025",
-          "v": "10,81 $ (+34 %)"
-        },
-        {
-          "k": "KGV",
-          "v": "unklar; Drittquelle ca. 16, aber Q2-2026-Gewinn enthält ca. 98 Mrd. $ unrealisierte Buchgewinne"
-        },
-        {
-          "k": "Free Cashflow",
-          "v": "73 Mrd. $ (2025); Q2 2026 negativ (ca. -5,9 Mrd. $)"
-        },
-        {
-          "k": "Investitionen (Capex)",
-          "v": "Q2 2026: 44,9 Mrd. $; Jahresplan 195–205 Mrd. $"
-        },
-        {
-          "k": "Schulden",
-          "v": "ca. 59 Mrd. $ Ende 2025, danach neue Finanzierungen (ca. 70 Mrd. $ in Q2 2026); Netto-Schulden/EBITDA unklar"
-        },
-        {
-          "k": "Aktienrückkäufe",
-          "v": "in Q2 2026 keine"
-        },
-        {
-          "k": "ROIC",
-          "v": "unklar (nicht belegt gefunden)"
-        }
-      ],
-      "warren": {
-        "urteil": "Abwarten",
-        "text": "Suchmaschine und Werbung sind verständlich, der Burggraben aus Reichweite und Gewohnheit ist enorm, die Margen sind hoch. Schwerer fällt mir das Neue: Die Investitionen in KI-Rechenzentren haben sich binnen eines Jahres auf rund 200 Milliarden Dollar verdoppelt, der freie Cashflow ist zuletzt negativ, und das Unternehmen leiht sich wieder Geld, statt Aktien zurückzukaufen. Ob diese Milliarden später hohe Renditen bringen, lässt sich nicht verlässlich vorhersagen. Der Gewinn des letzten Quartals ist zudem durch Buchgewinne aufgebläht, die KGV-Zahl damit nur bedingt aussagekräftig. Ein hervorragendes Kerngeschäft, aber keine planbare Sicherheitsmarge."
-      },
-      "charlie": {
-        "urteil": "Abwarten",
-        "text": "Invertiert: Wie geht das schief? Die KI-Antworten könnten das Suchgeschäft aushöhlen, Kartellverfahren könnten Standard-Deals und Teile des Konzerns treffen, und der Wettlauf um Rechenzentren verleitet alle zu Übertreibung, weil keiner als Erster aufhören will. Ein klassischer Herdentrieb mit Milliardenbeträgen. Die Anreize sind gemischt: Aktienvergütung ist hoch, das Wachstum soll weitergehen, koste es, was es wolle. Im Gegensatz zu Warren würde ich das Kerngeschäft eher noch bewundern, den Kapitaleinsatz aber misstrauischer betrachten. 'Zu schwer' ist hier ein ehrliches Ergebnis."
-      },
-      "risiken": "Verdrängung der klassischen Suche durch KI-Assistenten, Kartell- und Regulierungsverfahren, extrem hohe Investitionen mit unsicherem Ertrag, steigende Verschuldung. Zahlen teils aus Drittquellen und nicht vollständig geprüft.",
-      "belege": [
-        {
-          "wer": "Warren",
-          "zitat": "a business that must deal with fast-moving technology is not going to lend itself to reliable evaluations of its long-term economics.",
-          "quelle": "Aktionärsbrief 1993",
-          "url": "https://www.berkshirehathaway.com/letters/1993.html"
-        }
-      ],
-      "quellen": [
-        {
-          "name": "Alphabet Q4/Gesamtjahr 2025 Earnings Release",
-          "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/2025q4-alphabet-earnings-release.pdf"
-        },
-        {
-          "name": "Alphabet 10-K 2025 (SEC)",
-          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"
-        },
-        {
-          "name": "Alphabet 10-Q Q2 2026 (SEC)",
-          "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000071/goog-20260630.htm"
-        },
-        {
-          "name": "Q2 2026 Zusammenfassung (Quartr)",
-          "url": "https://quartr.com/events/alphabet-inc-goog-q2-2026_3ebmqZlg"
-        }
-      ]
-    },
-    {
       "eingabe": "AMZN",
       "zeitstempel": "02.10.2026 20:38:03",
       "name": "Amazon.com, Inc.",
@@ -258,6 +178,112 @@
           "text": "Put/Call-Volumen 0,47 und rund 79 % der Prämie in Calls (ca. 5,4 Mio. $ gegen 1,4 Mio. $ bei Puts); größter Kontrakt ein Call 85 mit Verfall 19.03.2027 (ca. 1,5 Mio. $). Näherung aus Optionsumsatz, Käufer- oder Verkäuferseite unbekannt."
         },
         "text": "Der Kurs liegt mit 85,64 $ rund 7,0 % über der steigenden 200-Tage-Linie (80,01 $) und an allen 60 der letzten 60 Tage darüber. Kurzfristig steht er aber unter 50-Tage-Linie (87,94 $) und 21er-EMA (87,48 $) und damit ein Stück unter dem 52-Wochen-Hoch (91,99 $). Die Flüsse sind bullisch, aber mit kleinem Umsatz; Lage und Flüsse passen zusammen. Reine Markttechnik, keine Firmenbewertung."
+      }
+    },
+    {
+      "eingabe": "GOOGL",
+      "zeitstempel": "02.10.2026 21:07:52",
+      "name": "Alphabet Inc. (Google)",
+      "ticker": "GOOGL (Nasdaq)",
+      "stand": "02.10.2026",
+      "kennzahlen": [
+        {
+          "k": "Umsatz 2025",
+          "v": "402,8 Mrd. $ (+15 %)"
+        },
+        {
+          "k": "Operatives Ergebnis 2025",
+          "v": "129 Mrd. $ (Marge ca. 32 %); Q2 2026: Marge 34 %"
+        },
+        {
+          "k": "Gewinn je Aktie 2025",
+          "v": "10,81 $ (+34 %)"
+        },
+        {
+          "k": "KGV",
+          "v": "unklar; Drittquelle ca. 16, aber Q2-2026-Gewinn enthält ca. 98 Mrd. $ unrealisierte Buchgewinne"
+        },
+        {
+          "k": "Free Cashflow",
+          "v": "73 Mrd. $ (2025); Q2 2026 negativ (ca. -5,9 Mrd. $)"
+        },
+        {
+          "k": "Investitionen (Capex)",
+          "v": "Q2 2026: 44,9 Mrd. $; Jahresplan 195–205 Mrd. $"
+        },
+        {
+          "k": "Schulden",
+          "v": "ca. 59 Mrd. $ Ende 2025, danach neue Finanzierungen (ca. 70 Mrd. $ in Q2 2026); Netto-Schulden/EBITDA unklar"
+        },
+        {
+          "k": "Aktienrückkäufe",
+          "v": "in Q2 2026 keine"
+        },
+        {
+          "k": "ROIC",
+          "v": "unklar (nicht belegt gefunden)"
+        }
+      ],
+      "warren": {
+        "urteil": "Abwarten",
+        "text": "Suchmaschine und Werbung sind verständlich, der Burggraben aus Reichweite und Gewohnheit ist enorm, die Margen sind hoch. Schwerer fällt mir das Neue: Die Investitionen in KI-Rechenzentren haben sich binnen eines Jahres auf rund 200 Milliarden Dollar verdoppelt, der freie Cashflow ist zuletzt negativ, und das Unternehmen leiht sich wieder Geld, statt Aktien zurückzukaufen. Ob diese Milliarden später hohe Renditen bringen, lässt sich nicht verlässlich vorhersagen. Der Gewinn des letzten Quartals ist zudem durch Buchgewinne aufgebläht, die KGV-Zahl damit nur bedingt aussagekräftig. Ein hervorragendes Kerngeschäft, aber keine planbare Sicherheitsmarge."
+      },
+      "charlie": {
+        "urteil": "Abwarten",
+        "text": "Invertiert: Wie geht das schief? Die KI-Antworten könnten das Suchgeschäft aushöhlen, Kartellverfahren könnten Standard-Deals und Teile des Konzerns treffen, und der Wettlauf um Rechenzentren verleitet alle zu Übertreibung, weil keiner als Erster aufhören will. Ein klassischer Herdentrieb mit Milliardenbeträgen. Die Anreize sind gemischt: Aktienvergütung ist hoch, das Wachstum soll weitergehen, koste es, was es wolle. Im Gegensatz zu Warren würde ich das Kerngeschäft eher noch bewundern, den Kapitaleinsatz aber misstrauischer betrachten. 'Zu schwer' ist hier ein ehrliches Ergebnis."
+      },
+      "risiken": "Verdrängung der klassischen Suche durch KI-Assistenten, Kartell- und Regulierungsverfahren, extrem hohe Investitionen mit unsicherem Ertrag, steigende Verschuldung. Zahlen teils aus Drittquellen und nicht vollständig geprüft.",
+      "belege": [
+        {
+          "wer": "Warren",
+          "zitat": "a business that must deal with fast-moving technology is not going to lend itself to reliable evaluations of its long-term economics.",
+          "quelle": "Aktionärsbrief 1993",
+          "url": "https://www.berkshirehathaway.com/letters/1993.html"
+        }
+      ],
+      "quellen": [
+        {
+          "name": "Alphabet Q4/Gesamtjahr 2025 Earnings Release",
+          "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/2025q4-alphabet-earnings-release.pdf"
+        },
+        {
+          "name": "Alphabet 10-K 2025 (SEC)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"
+        },
+        {
+          "name": "Alphabet 10-Q Q2 2026 (SEC)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000071/goog-20260630.htm"
+        },
+        {
+          "name": "Q2 2026 Zusammenfassung (Quartr)",
+          "url": "https://quartr.com/events/alphabet-inc-goog-q2-2026_3ebmqZlg"
+        }
+      ],
+      "verlauf": [
+        {
+          "stand": "02.10.2026",
+          "warren": "Abwarten",
+          "charlie": "Abwarten",
+          "james": "–"
+        }
+      ],
+      "symbol": "GOOGL",
+      "james": {
+        "urteil": "Über der 200-Tage-Linie",
+        "lage": "knapp über",
+        "kurs": 342.77,
+        "ma200": 338.91,
+        "abstand_pct": 1.1,
+        "ma50": 344.35,
+        "ma200_steigt": true,
+        "waehrung": "USD",
+        "flows": {
+          "richtung": "neutral",
+          "quelle": "Cboe, verzögert",
+          "stand": "02.10.2026",
+          "text": "Put/Call-Volumen 0,47, Call-Prämien 124 Mio. $ gegen 37 Mio. $ Put-Prämien; größter Kontrakt ein Put 345 mit Verfall heute (13.601 Stück, 2,8 Mio. $). Näherung aus Optionsumsatz, Käufer- und Verkäuferseite unbekannt."
+        },
+        "text": "Der Kurs liegt mit 342,77 $ knapp 1,1 % über der steigenden 200-Tage-Linie (338,91 $), 53 der letzten 60 Tage lagen darüber. Er sitzt aber unter der 50-Tage-Linie (344,35 $) und nahe am 21er-EMA (343,16 $), kurzfristig also seitwärts, weit unter dem 52-Wochen-Hoch von 402,62 $. Die Flüsse sind laut Optionsumsatz neutral bis leicht freundlich: viel mehr Calls als Puts, aber viele davon kurzlaufend und die Seite des Geschäfts unklar. Lage und Flüsse passen grob zusammen, der Abstand zur Linie ist allerdings klein."
       }
     }
   ]
