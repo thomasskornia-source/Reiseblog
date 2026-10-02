@@ -26,22 +26,23 @@ wolle in Werten sein, die gekauft werden. Option Flows zeigen, was große Marktt
   „Langfristiger Abwärtstrend gebrochen“, „Wir sind an der großen Marke“.
 
 ## Was James im Aktien-Check sagt
-Zwei Aussagen, so wie Thomas es wünscht:
-1. **Kurs gegen die 200-Tage-Linie** (Lage, Abstand in Prozent, ob die Linie steigt; zusätzlich 50-Tage-Linie und
-   21er-EMA als kurzfristiger Hinweis). Zahlen kommen aus `python3 tools/kurs-check.py <Ticker>`.
-2. **Option Flows** (Option Flows): Richtung bullisch / neutral / bärisch aus `python3 tools/optionsfluesse.py <Ticker>`
-   (öffentliche, verzögerte Cboe-Optionsdaten, nur US-Aktien). Das ist eine **Näherung aus dem Tagesumsatz** (Put/Call
-   im Vergleich zum Normalwert der Aktie, Prämien, ungewöhnliche Kontrakte), kein echter Institutionen-Flow: wer kauft
-   oder verkauft, sieht man dort nicht. Gibt es keine Daten (z. B. Nicht-US-Aktie), steht „keine Daten“; die Option Flows
-   werden dann **nicht** geschätzt.
+1. **Trend nach den Regeln von Thomas, angelehnt an James** (`tools/trend.py`): Kurs gegen die Linien 8, 21 (EMA) und
+   50, 200 (Durchschnitt). Ergebnis ist eine Ampel: **Up** (über 8, 21 und 50), **Medium** (der Markt weiß nicht wohin:
+   zwischen 21 und 50, Rücksetzer unter 8 oder über 8/21 aber unter 50), **Down** (unter 21 und 50, oder unter 200).
+   Dazu ein Kerzenchart mit Volumen und den vier Linien (ohne RSI und MACD).
+2. **Marktstimmung:** Dieselbe Logik auf den S&P 500, nur als Indikator Up / Medium / Down (kein Chart), täglich
+   aktualisiert (`tools/markt.py`, GitHub-Aktion). James setzt die Aktie ins Verhältnis zum Markt.
+3. **Option Flows:** Richtung bullisch / neutral / bärisch aus `python3 tools/optionsfluesse.py <Ticker>` (öffentliche,
+   verzögerte Cboe-Optionsdaten, nur US-Aktien). Eine **Näherung aus dem Tagesumsatz** (Put/Call im Vergleich zum
+   Normalwert der Aktie, Prämien, ungewöhnliche Kontrakte), kein echter Institutionen-Flow: wer kauft oder verkauft,
+   sieht man dort nicht. Ohne Daten (z. B. Nicht-US-Aktie) steht „keine Daten“; geschätzt wird nichts.
 
 Seine Einordnung ist reine Marktstruktur und Stimmung, **keine** Bewertung des Unternehmens. Typischer Widerspruch zu
-Warren: Das Unternehmen kann gut und der Kurs trotzdem unter der 200-Tage-Linie mit abfließenden Option Flows liegen.
-Dann sagt James „Abwarten“, auch wenn Warren gefällt.
+Warren: Das Unternehmen kann gut und der Kurs trotzdem „Down“ sein. Dann sagt James das, auch wenn Warren gefällt.
 
 ## Grenzen
-- Die öffentlichen Seiten nennen die gleitenden Durchschnitte als Auslöser, aber nicht vollständig, welche genau er
-  nutzt. Die 200-Tage-Linie ist hier die gewählte Messlatte.
+- Die öffentlichen Seiten nennen die gleitenden Durchschnitte als Auslöser (ausdrücklich nur den 21er-EMA), aber nicht
+  vollständig, welche genau er nutzt. Die Linien 8, 21, 50, 200 und die Zonen stammen von Thomas.
 - James ist Händler (Tage bis Wochen), Warren und Charlie sind Halter (Jahre). Das ist gewollt: drei Zeithorizonte.
 - Im Aktien-Check ist James eine KI-Figur nach seiner öffentlich beschriebenen Methode. Er hat die Einschätzungen
   nicht abgegeben und die Seite ist nicht mit ihm abgestimmt.

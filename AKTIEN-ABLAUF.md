@@ -15,7 +15,7 @@ Ergebnis: Einträge in `data/aktien.json` (`einschaetzungen`, neueste zuletzt), 
   oder Eingabe): Eintrag **ersetzen** und ans Ende stellen (neueste zuletzt); die alten Urteile als Zeile in `verlauf`
   (`stand`, `warren`, `charlie`, `james` jeweils nur das Urteilswort, höchstens die letzten 10) mitnehmen.
   War der Eintrag höchstens 2 Tage alt, Warren und Charlie **nicht** neu schreiben und keine Webrecherche zur Firma;
-  nur den James-Teil neu berechnen (Kurs, Option Flows), `stand` und `zeitstempel` auf die neue Zeile setzen und den Eintrag
+  nur den James-Teil neu berechnen (Kurs, Trend, Option Flows), `stand` und `zeitstempel` auf die neue Zeile setzen und den Eintrag
   ans Ende stellen. Auch dann ändert sich `zeitstempel`: die Seite erkennt daran, dass die Anfrage erledigt ist.
   Ein Eintrag ohne `james`-Block ist nie „aktuell“: James ergänzen.
 - **Nachlesen vor dem Ende:** Kommen während des Laufs neue Zeilen (die Anfragen kommen manchmal im Abstand von
@@ -30,10 +30,21 @@ nichts erfinden; Unsicheres als „ca.“ oder „unklar“ kennzeichnen. Stand-
 Geschäftsmodell, KGV und Free-Cashflow-Rendite, Verschuldung (Netto-Schulden/EBITDA), Kapitalrendite (ROIC/ROE),
 Gewinn- und Margenentwicklung über mehrere Jahre, Aktienrückkäufe/Verwässerung, Dividende, größte Risiken.
 
-## Kurs und Option Flows für James
-- `python3 tools/kurs-check.py <Yahoo-Ticker>` (US: `KO`, Xetra: `SIE.DE`, London: `.L`, Paris: `.PA`) liefert Kurs,
-  200-Tage-Linie, Abstand, 50-Tage-Linie, 21er-EMA. Das Ergebnis ist die einzige Quelle für diese Zahlen; schlägt es
-  fehl (Ausgabe „FEHLER: …“), Zahlen weglassen und `"kurs_daten": false` setzen, nichts schätzen.
+## Kurs und Trend für James
+- **Trend-Logik** (gemeinsam für Aktien und den S&P 500, Quelle `tools/trend.py`): Linien 8- und 21-Tage-EMA, 50- und
+  200-Tage-Durchschnitt. Einordnung des letzten Schlusskurses: unter 200 = **Down**; über 8, 21 und 50 = **Up**; über 8
+  und 21 aber unter 50, unter 8 aber über 21, oder zwischen 21 und 50 = **Medium** (der Markt weiß nicht wohin, kurzfristige
+  Wetten sind riskanter); unter 21 und 50 (200 hält) = **Down**.
+- **Die Zahlen schreibt das Werkzeug, nicht du:** Erst `python3 tools/kurs-check.py <Yahoo-Ticker>` lesen (US: `KO`, Xetra:
+  `SIE.DE`, London `.L`, Paris `.PA`), dann den Eintrag mit Texten und Urteilen in `data/aktien.json` anlegen oder
+  ersetzen, **danach** `python3 tools/kurs-check.py <Ticker> --schreibe` ausführen: Das trägt Kurs, Linien, `ampel`
+  (Up / Medium / Down), `lage` und den 80-Tage-Verlauf für den Chart in `james` ein. Diese Felder nie von Hand schreiben
+  oder abtippen. Schlägt das Werkzeug fehl („FEHLER: …“): Zahlen weglassen, nichts schätzen.
+- Dein Text bei James nennt `ampel` und `lage` genau so wie das Werkzeug, die Lage zur 200er (steigt oder fällt sie)
+  und das Verhältnis zum Markt (siehe unten). Kein Chart-Wissen aus dem Gedächtnis.
+- **Markt:** `data/markt.json` (S&P 500, aktuell durch eine tägliche GitHub-Aktion, nicht von dir ändern) liefert
+  `ampel` und `lage`. James setzt die Aktie ins Verhältnis: Up-Markt und Up-Aktie = Rückenwind; Down-Markt trotz Up-Aktie
+  oder umgekehrt ausdrücklich nennen.
 - **Option Flows** (so heißen sie überall in Texten und auf der Seite, nie „Flüsse“): `python3 tools/optionsfluesse.py <US-Ticker>` (öffentliche, verzögerte Cboe-Optionsdaten, nur US-Aktien).
   Es liefert Richtung (bullisch / neutral / bärisch), Put/Call-Volumen, Prämien, ungewöhnliche Kontrakte. Die Richtung
   ist eine **Näherung aus dem heutigen Optionsumsatz**, kein echter Institutionen-Flow (Käufer- oder Verkäuferseite
@@ -58,11 +69,9 @@ Gewinn- und Margenentwicklung über mehrere Jahre, Aktienrückkäufe/Verwässeru
   "charlie": {"urteil": "Gefällt mir | Abwarten | Finger weg", "text": "4–6 Sätze"},
   "risiken": "1–3 Sätze",
   "james": {
-    "urteil": "Über der 200-Tage-Linie | Unter der 200-Tage-Linie",
-    "lage": "deutlich über | knapp über | knapp unter | deutlich unter",
-    "kurs": 85.54, "ma200": 80.01, "abstand_pct": 6.9, "ma50": 87.94, "ma200_steigt": true, "waehrung": "USD",
+    "urteil": "Up | Medium | Down",    // wie `ampel`; die Zahlenfelder (kurs, ma8, ma21, ma50, ma200, ampel, lage, serie …) trägt `--schreibe` ein
     "flows": {"richtung": "bullisch | neutral | bärisch | keine Daten", "quelle": "Cboe, verzögert", "stand": "02.10.2026", "text": "1–2 Sätze mit Zahlen"},
-    "text": "3–4 Sätze: Lage zur 200-Tage-Linie, kurzfristiger Trend, Option Flows; reine Markttechnik, keine Firmenbewertung"
+    "text": "3–4 Sätze: Trend-Einordnung (ampel, lage), Lage zur 200er, Verhältnis zum Markt, Option Flows; reine Markttechnik, keine Firmenbewertung"
   },
   "verlauf": [{"stand": "25.09.2026", "warren": "Abwarten", "charlie": "Abwarten", "james": "Über der 200-Tage-Linie"}],
   "belege": [{"wer": "Warren", "zitat": "Wörtlich, englisch, höchstens 40 Wörter", "quelle": "Aktionärsbrief 1996", "url": "https://www.berkshirehathaway.com/letters/1996.html"}],  // Briefe bis 1999 .../<jahr>.html, ab 2004 .../<jahr>ltr.pdf
@@ -86,11 +95,12 @@ Gewinn- und Margenentwicklung über mehrere Jahre, Aktienrückkäufe/Verwässeru
 - Findet sich nichts Passendes, `belege` leer lassen. Nie etwas hineinpressen.
 
 ## James (dritter Gast)
-Nach `wissen/james-bulltard.md`: Händler, Reihenfolge Option Flows → Chart → Fundamentaldaten. Sagt nur zwei Dinge: Lage des
-Kurses zur 200-Tage-Linie (Zahlen aus `tools/kurs-check.py`) und die Option Flows. Kein Urteil über die Firma, keine Kursziele,
-keine Handelsanweisungen. Passen Lage und Option Flows nicht zusammen (z. B. über der Linie, aber abfließende Option Flows), das
-offen sagen. Name auf der Seite ist „James“, nie als Aussage der echten Person ausgeben; keine Inhalte aus seinen
-Bezahlbeiträgen verwenden.
+Nach `wissen/james-bulltard.md`: Händler, Reihenfolge Option Flows → Chart → Fundamentaldaten. Sagt nur drei Dinge:
+den **Trend** (Ampel Up / Medium / Down und Lage zu den Linien 8, 21, 50, 200, Zahlen aus `tools/kurs-check.py`), den
+**Markt** (`data/markt.json`) und die **Option Flows**. Kein Urteil über die Firma, keine Kursziele, keine
+Handelsanweisungen. Passen Trend, Markt und Option Flows nicht zusammen (z. B. Up, aber abfließende Option Flows, oder
+Down-Markt), das offen sagen. Name auf der Seite ist „James“, nie als Aussage der echten Person ausgeben; keine Inhalte
+aus seinen Bezahlbeiträgen verwenden.
 
 ## Die zwei Figuren (nur im Stil, nie als echte Person)
 Beide sind **KI-Figuren im Geist der öffentlich bekannten Grundsätze**, keine Zitate. Nie so tun, als hätten die echten
