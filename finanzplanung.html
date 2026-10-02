@@ -43,11 +43,11 @@
 
 fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 14px; margin: 0 0 14px; display: grid; gap: 12px; min-width: 0; }
 legend { padding: 0 8px 0 0; float: left; width: 100%; margin-bottom: 10px; font-family: var(--f-display); font-weight: 600; font-size: 14px; }
-.grid2 { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+.grid2 { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; align-items: end; }
 .f { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--ink2); min-width: 0; }
 .f > span { display: flex; justify-content: space-between; gap: 6px; }
 .f small { color: var(--muted); font-size: 12px; }
-input[type=number], select { width: 100%; min-width: 0; font: inherit; font-size: 15px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px; font-variant-numeric: tabular-nums; }
+input[type=number], input[type=text], select { box-sizing: border-box; min-height: 42px; width: 100%; min-width: 0; font: inherit; font-size: 15px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px; font-variant-numeric: tabular-nums; }
 input[type=number]:focus-visible, select:focus-visible, button:focus-visible, summary:focus-visible, input[type=range]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 input[type=range] { width: 100%; accent-color: var(--accent); margin: 2px 0; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -387,9 +387,9 @@ body.fp-body { padding-bottom: 0; }
           <select id="beruf"><option value="angestellt">Angestellt</option><option value="selbst">Selbstständig</option><option value="beamte">Beamtin oder Beamter</option></select></label>
         <div class="grid2">
           <label class="f" for="brutto"><span id="bruttoLbl">Brutto pro Jahr</span><input id="brutto" type="number" inputmode="decimal" min="0" step="1000"></label>
-        <label class="f" for="startAge"><span>Berufsstart mit Alter</span><input id="startAge" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
+        <label class="f" for="startAge"><span>Berufsstart (Alter)</span><input id="startAge" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
         </div>
-        <label class="f" for="renteInfo"><span>Rente laut Rentenbescheid oder Renteninformation (optional)</span><input id="renteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"><small>Trage die Bruttorente vor Abzügen ein. Sie ersetzt die Schätzung des Planers.</small></label>
+        <label class="f" for="renteInfo"><span>Rente laut Renteninformation (optional)</span><input id="renteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"><small>Trage die Bruttorente vor Abzügen ein. Sie ersetzt die Schätzung des Planers.</small></label>
 
       <fieldset id="partnerSet" hidden><legend id="parLeg">Partnerin oder Partner</legend>
         <p class="small">Lässt du Brutto leer, zählt die Person ohne eigenes Einkommen.</p>
@@ -401,9 +401,9 @@ body.fp-body { padding-bottom: 0; }
         </div>
         <div class="grid2">
           <label class="f" for="pbrutto"><span>Brutto pro Jahr</span><input id="pbrutto" type="number" inputmode="decimal" min="0" step="1000"></label>
-          <label class="f" for="pstart"><span>Berufsstart mit Alter</span><input id="pstart" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
+          <label class="f" for="pstart"><span>Berufsstart (Alter)</span><input id="pstart" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
         </div>
-        <label class="f" for="prenteInfo"><span>Rente laut Rentenbescheid oder Renteninformation (optional)</span><input id="prenteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"></label>
+        <label class="f" for="prenteInfo"><span>Rente laut Renteninformation (optional)</span><input id="prenteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"></label>
         <div class="small" id="pretNote"></div>
       </fieldset>
 
