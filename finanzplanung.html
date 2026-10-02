@@ -347,7 +347,7 @@ body.fp-body { padding-bottom: 0; }
 <div class="fp">
   <div class="intro" style="display:flex;flex-direction:column;gap:8px">
     <h2 id="h1">Wo stehst du heute, bei Rente und im Wunschalter?</h2>
-    <p class="lead">Der Planer rechnet aus deinem Alter, deiner Lebenssituation, deinem Einkommen und deiner Sparweise hoch, wie viel Vermögen nach Steuern übrig bleibt, wenn du so weitermachst wie bisher.</p>
+    <p class="lead" id="leadTxt">Der Planer rechnet aus deinem Alter, deiner Lebenssituation, deinem Einkommen und deiner Sparweise hoch, wie viel Vermögen nach Steuern übrig bleibt, wenn du so weitermachst wie bisher.</p>
   </div>
   <div class="demo"><span><b>Neu für Einsteiger:</b> Die <a href="zinseszins.html" style="color:var(--rust)">kurze Version mit Szenarien und Zinseszins-Grafik</a> zeigt in zwei Minuten, warum früh sparen sich lohnt.</span></div>
   <div class="demo" id="demo"><span><b>Beispielwerte.</b> Trage unten deine eigenen Angaben ein. Alle Zahlen und Grafiken passen sich sofort an.</span></div>
@@ -1094,7 +1094,9 @@ function compute(P) {
   function render() {
     var P = readP(), R = compute(P), t = tk();
     var nm = P.vorname, pnm = P.partner && P.partner.name;
-    $('h1').textContent = nm ? nm + ', wo stehst du heute, bei Rente und im Wunschalter?' : 'Wo stehst du heute, bei Rente und im Wunschalter?';
+    var two = !!P.partner, names = nm && two ? nm + ' und ' + (pnm || 'Partner/in') : (nm || '');
+    $('h1').textContent = two ? (names ? names + ', wo steht ihr heute, bei Rente und im Wunschalter?' : 'Wo steht ihr heute, bei Rente und im Wunschalter?') : (nm ? nm + ', wo stehst du heute, bei Rente und im Wunschalter?' : 'Wo stehst du heute, bei Rente und im Wunschalter?');
+    $('leadTxt').textContent = two ? 'Der Planer rechnet aus eurem Alter, eurer Lebenssituation, eurem Einkommen und eurer Sparweise hoch, wie viel Vermögen nach Steuern übrig bleibt, wenn ihr so weitermacht wie bisher.' : 'Der Planer rechnet aus deinem Alter, deiner Lebenssituation, deinem Einkommen und deiner Sparweise hoch, wie viel Vermögen nach Steuern übrig bleibt, wenn du so weitermachst wie bisher.';
     $('partnerSet').hidden = !P.partner; $('hhNote').hidden = !P.partner;
     $('nettoLbl').textContent = P.partner ? 'Haushalts-Netto pro Monat' : 'Netto pro Monat';
     $('meLeg').textContent = nm || 'Du'; $('parLeg').textContent = pnm || 'Partnerin oder Partner';
@@ -1632,15 +1634,15 @@ function compute(P) {
   function cfmt(v, f) { return f === 'pct' ? pct(v) : (f === 'num' ? num(v) : eur(v)); }
   var first = function (t) { var i = t.indexOf('. '); t = i > 0 ? t.slice(0, i + 1) : t; return t.length > 150 ? t.slice(0, 147) + '…' : t; };
   function storyCards(L) {
-    var P = L.P, R = L.R, c = [], nm = P.vorname ? esc(P.vorname) : '', infl = function (yrs) { return Math.pow(1 + P.infl, yrs); };
+    var P = L.P, R = L.R, c = [], two = !!P.partner, pn = two ? esc(P.partner.name || 'Partner/in') : '', nm = P.vorname ? esc(P.vorname) + (two ? ' und ' + pn : '') : (two ? 'Ihr' : ''), infl = function (yrs) { return Math.pow(1 + P.infl, yrs); };
     var yrsLeft = Math.max(0, Math.round(R.retAge - R.age0)), ret = R.at.ret;
     // 1 Start
-    c.push({ t: 't-ink', h: '<div class="st-eye">Dein Finanzplan</div><h2>' + (nm ? nm + ', so' : 'So') + ' sieht dein Weg aus</h2>' +
+    c.push({ t: 't-ink', h: '<div class="st-eye">' + (two ? 'Euer' : 'Dein') + ' Finanzplan</div><h2>' + (two ? (P.vorname ? nm + ', so' : 'So') + ' sieht euer Weg aus' : (nm ? nm + ', so' : 'So') + ' sieht dein Weg aus') + '</h2>' +
       (yrsLeft > 0 ? '<div class="st-big">' + cnt(yrsLeft, 'num') + '</div><div class="st-sub">Jahre bis zur Rente mit ' + ageText(R.retAge) + '</div>' : '<div class="st-big">Jetzt</div><div class="st-sub">Du bist schon im Rentenalter</div>') +
-      '<p>Du bist heute ' + R.age0 + ', dein Wunschalter ist ' + R.wunsch + '. Tippe rechts, um durch deine Auswertung zu gehen.</p>' });
+      '<p>' + (two ? 'Ihr seid heute ' + R.age0 + ' und ' + (YEAR - P.partner.by) + ', euer Wunschalter ist ' + R.wunsch + '.' : 'Du bist heute ' + R.age0 + ', dein Wunschalter ist ' + R.wunsch + '.') + ' Tippe rechts, um durch ' + (two ? 'eure' : 'deine') + ' Auswertung zu gehen.</p>' });
     // 2 Heute
-    c.push({ t: 't-sage', h: '<div class="st-eye">Heute</div><h2>Das hast du schon</h2><div class="st-big">' + cnt(P.W0, 'eur') + '</div><div class="st-sub">Vermögen heute</div>' +
-      '<p>Du sparst ' + eur(P.sparrate) + ' pro Monat, das sind ' + pct(L.quote) + ' deines Nettos.' + (L.bm > 0 && L.mult > 0 ? ' Als Faustregel gelten für dein Alter etwa ' + num(L.bm, 1) + '× Jahreseinkommen. Du liegst bei ' + num(L.mult, 1) + '×.' : '') + '</p>' });
+    c.push({ t: 't-sage', h: '<div class="st-eye">Heute</div><h2>Das ' + (two ? 'habt ihr' : 'hast du') + ' schon</h2><div class="st-big">' + cnt(P.W0, 'eur') + '</div><div class="st-sub">Vermögen heute</div>' +
+      '<p>' + (two ? 'Ihr spart ' : 'Du sparst ') + eur(P.sparrate) + ' pro Monat, das sind ' + pct(L.quote) + (two ? ' eures Nettos.' : ' deines Nettos.') + (L.bm > 0 && L.mult > 0 ? ' Als Faustregel gelten für ' + (two ? 'euer Alter' : 'dein Alter') + ' etwa ' + num(L.bm, 1) + '× Jahreseinkommen. ' + (two ? 'Ihr liegt' : 'Du liegst') + ' bei ' + num(L.mult, 1) + '×.' : '') + '</p>' });
     // 3 Renteneintritt
     var gain = Math.max(0, ret.net - ret.paid), wPaid = ret.net > 0 ? Math.min(100, ret.paid / ret.net * 100) : 0;
     c.push({ t: 't-rust', h: '<div class="st-eye">Mit ' + ageText(R.retAge) + ' in Rente, ca. ' + R.retYear + '</div><h2>So viel steht dann bereit</h2><div class="st-big">' + cnt(ret.net, 'eur') + '</div>' +
@@ -1711,8 +1713,8 @@ function compute(P) {
       if (L.ausTot > 0 && need > 0) lv.push('etwas weniger Ausgaben im Ruhestand');
       lever = lv.length ? ' Hebel, die helfen: ' + lv.slice(0, 3).join(', ') + '.' : '';
     }
-    var head = { good: ['Bravo!', 'Dein Plan trägt.'], warn: ['Fast geschafft!', 'Du bist nah dran.'], crit: ['Gut, dass du rechnest!', 'Jetzt weißt du, wo du stehst.'] }[verdict];
-    var msg = { good: 'Mit dem, was du heute tust, bist du für den Ruhestand gut aufgestellt. Bleib dran!', warn: 'Mit kleinen Stellschrauben kommst du ans Ziel.' + lever, crit: 'Das ist der wichtigste Schritt, und aus jeder Lücke lässt sich etwas machen.' + lever }[verdict];
+    var head = (two ? { good: ['Bravo!', 'Euer Plan trägt.'], warn: ['Fast geschafft!', 'Ihr seid nah dran.'], crit: ['Gut, dass ihr rechnet!', 'Jetzt wisst ihr, wo ihr steht.'] } : { good: ['Bravo!', 'Dein Plan trägt.'], warn: ['Fast geschafft!', 'Du bist nah dran.'], crit: ['Gut, dass du rechnest!', 'Jetzt weißt du, wo du stehst.'] })[verdict];
+    var msg = { good: two ? 'Mit dem, was ihr heute tut, seid ihr für den Ruhestand gut aufgestellt. Bleibt dran!' : 'Mit dem, was du heute tust, bist du für den Ruhestand gut aufgestellt. Bleib dran!', warn: (two ? 'Mit kleinen Stellschrauben kommt ihr ans Ziel.' : 'Mit kleinen Stellschrauben kommst du ans Ziel.') + lever, crit: 'Das ist der wichtigste Schritt, und aus jeder Lücke lässt sich etwas machen.' + lever }[verdict];
     var conf = '';
     if (verdict === 'good') { var cc = ['#FAF3E8', '#f2c36b', '#9fdcb8', '#f6a07c', '#d7a5c8']; for (var ci = 0; ci < 34; ci++) conf += '<i class="st-cf" style="left:' + Math.round(Math.random() * 100) + '%;background:' + cc[ci % cc.length] + ';animation-delay:' + (Math.random() * 1.6).toFixed(2) + 's;animation-duration:' + (2.6 + Math.random() * 2).toFixed(2) + 's;width:' + (6 + Math.round(Math.random() * 6)) + 'px"></i>'; }
     var l3 = L.ausTot > 0 ? ['Deine Ausgaben', (need <= 0 ? 'gedeckt' : (dep === null ? 'bis ' + num(P.planAge) + ' gedeckt' : 'bis ' + num(dep) + ' gedeckt'))] : ['Ziel 80 % vom Netto', q >= 0.8 ? 'erreicht' : (q >= 0.65 ? 'knapp' : 'noch nicht')];
@@ -1758,7 +1760,7 @@ function compute(P) {
   }
   function decoFor(html) {
     if (html.indexOf('st-badge') >= 0) return 'stars';
-    var m = [['Dein Finanzplan', ''], ['>Heute<', 'coins'], ['in Rente, ca.', 'curve'], ['Im Ruhestand<', 'euro'], ['Reicht das?', 'waves'], ['Deine Betriebsrente', 'orbit'], ['Deine Absicherung', ''], ['Brutto und netto', 'waves'], ['>Wohnen<', 'orbit'], ['nächsten Schritte', 'stars']];
+    var m = [['Finanzplan</div>', ''], ['>Heute<', 'coins'], ['in Rente, ca.', 'curve'], ['Im Ruhestand<', 'euro'], ['Reicht das?', 'waves'], ['Deine Betriebsrente', 'orbit'], ['Deine Absicherung', ''], ['Brutto und netto', 'waves'], ['>Wohnen<', 'orbit'], ['nächsten Schritte', 'stars']];
     for (var i = 0; i < m.length; i++) if (html.indexOf(m[i][0]) >= 0) return m[i][1];
     return '';
   }
