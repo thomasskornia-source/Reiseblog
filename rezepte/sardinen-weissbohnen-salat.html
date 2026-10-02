@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sardinen-Weißbohnen-Salat mit Limette und Sumach – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .ampel-dot-inline { display:inline-block; width:12px; height:12px; border-radius:50%; background:#4c9a4c; margin-left:8px; vertical-align:middle; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Mittagessen</p>
+      <h1>Sardinen-Weißbohnen-Salat mit Limette und Sumach</h1> <span class="ampel-dot-inline" title="Grün"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 15 Min.</span>
+      <span>🍽 2 Portionen</span>
+      <span>🐟 Omega-3, ungesättigte Fette, Ballaststoffe aus Bohnen</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Sardinen in Olivenöl liefern viel hochwertiges Protein und überwiegend ungesättigte Fette – im Gegensatz zu fettem rotem Fleisch bleibt der Anteil an gesättigtem Fett niedrig. Weiße Bohnen steuern lösliche Ballaststoffe und pflanzliches Protein bei, das native Olivenöl im Dressing zusätzliche einfach ungesättigte Fettsäuren. Ganz ohne Kochen in 15 Minuten fertig.</p>
+      <p style="margin-top:8px; font-size:14px; color: var(--ink-soft);">Nährwerte auf der Originalseite nicht vollständig angegeben (nur 530 kcal genannt). Schätzung pro Portion (bei 2 Portionen) auf Basis gängiger Nährwerttabellen: ca. 29 g Protein, ca. 23 g Fett (davon ca. 3 g gesättigt, überwiegend einfach/mehrfach ungesättigt) und ca. 8–9 g Ballaststoffe.</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten (2 Portionen)</h3>
+      <ul>
+        <li>2 Dosen Sardinen in Olivenöl (je 120 g)</li>
+        <li>1 Dose weiße Bohnen, z. B. Cannellini- oder dicke Bohnen (400 g), abgetropft und abgespült</li>
+        <li>250 g Kirschtomaten, halbiert</li>
+        <li>3 Frühlingszwiebeln, in feinen Ringen</li>
+        <li>1 frische rote Chili, entkernt und fein geschnitten</li>
+        <li>1 große Handvoll glatte Petersilie, grob gehackt</li>
+        <li>1 Knoblauchzehe, fein gerieben</li>
+        <li>Saft und abgeriebene Schale von 1 Limette</li>
+        <li>1 TL Dijon-Senf</li>
+        <li>1 TL Sumach, etwas mehr zum Bestreuen</li>
+        <li>2 EL natives Olivenöl extra</li>
+        <li>Salz, frisch gemahlener Pfeffer</li>
+        <li>Optional: Salatblätter oder geröstetes Brot zum Servieren</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Für das Dressing Knoblauch, Limettenschale und -saft, Senf, Sumach und Olivenöl verrühren, mit Salz und Pfeffer abschmecken.</li>
+        <li>Bohnen, Kirschtomaten, Frühlingszwiebeln, Chili und den Großteil der Petersilie in einer großen Schüssel vermengen, mit dem Dressing beträufeln und vorsichtig durchmischen.</li>
+        <li>Sardinen aus der Dose nehmen, grob in Stücke teilen und vorsichtig unterheben, damit sie nicht komplett zerfallen.</li>
+        <li>Abschmecken, mit der restlichen Petersilie und etwas Sumach bestreuen. Pur, auf Blattsalat oder mit geröstetem Brot servieren.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept nach <a href="https://ellerepublic.de/en/mediterranean-sardine-white-bean-salad/" target="_blank" rel="noopener">Elle Republic</a>.</p>
+
+    <div class="rating-block" data-recipe="sardinen-weissbohnen-salat">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('sardinen-weissbohnen-salat','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('sardinen-weissbohnen-salat','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-sardinen-weissbohnen-salat');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>

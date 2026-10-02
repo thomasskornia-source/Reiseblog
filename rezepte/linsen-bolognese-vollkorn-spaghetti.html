@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linsen-Bolognese mit Vollkorn-Spaghetti – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .ampel-dot-inline { display:inline-block; width:12px; height:12px; border-radius:50%; background:#4c9a4c; margin-left:8px; vertical-align:middle; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Hauptgericht</p>
+      <h1>Linsen-Bolognese mit Vollkorn-Spaghetti</h1> <span class="ampel-dot-inline" title="Grün"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 30 Min.</span>
+      <span>🍽 2 Portionen</span>
+      <span>🌱 Pflanzliches Protein, lösliche Ballaststoffe aus Linsen und Vollkorn</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Braune Linsen ersetzen das Hackfleisch komplett und liefern dabei pflanzliches Protein und lösliche Ballaststoffe statt gesättigtem Fett. Vollkorn-Spaghetti verdoppeln die Ballaststoffmenge gegenüber heller Pasta, Olivenöl bringt die ungesättigten Fette ins Spiel – ein klassisches Bolognese-Gefühl, ganz ohne rotes Fleisch.</p>
+      <p style="margin-top:8px; font-size:14px; color: var(--ink-soft);">Nährwerte laut Quelle pro Portion: 480 kcal, 25 g Protein, 55 g Kohlenhydrate, 10 g Fett. Gesättigtes Fett und Ballaststoffe werden dort nicht genannt; da Olivenöl und Hülsenfrüchte die Hauptfettquellen sind, dürfte der gesättigte Anteil niedrig liegen (Schätzung).</p>
+    </div>
+
+    <div class="recipe-ingredients">
+      <h3>Zutaten (2 Portionen)</h3>
+      <ul>
+        <li>160 g Vollkorn-Spaghetti</li>
+        <li>1 Dose braune Linsen (ca. 400 g), abgetropft und abgespült</li>
+        <li>1 EL Olivenöl</li>
+        <li>1 Zwiebel, gewürfelt</li>
+        <li>2 Knoblauchzehen, fein gehackt</li>
+        <li>1 Karotte, geraspelt</li>
+        <li>400 g gehackte Tomaten (aus der Dose)</li>
+        <li>250 ml Gemüsebrühe</li>
+        <li>1 TL getrockneter Oregano</li>
+        <li>1 TL getrockneter Thymian</li>
+        <li>Salz, Pfeffer</li>
+        <li>Optional: 1 EL Tomatenmark, Spritzer Sojasauce, 1 EL Hefeflocken, Schuss Rotwein- oder Balsamicoessig</li>
+      </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Olivenöl in einer großen Pfanne erhitzen, Zwiebel, Knoblauch und Karotte darin 5–7 Minuten andünsten, bis sie weich sind.</li>
+        <li>Gehackte Tomaten, Oregano, Thymian, Linsen und Gemüsebrühe dazugeben. Offen 15–20 Minuten köcheln lassen, bis die Sauce eingedickt ist. Nach Belieben mit Tomatenmark, Sojasauce, Hefeflocken oder einem Schuss Essig abschmecken.</li>
+        <li>Parallel die Spaghetti in Salzwasser al dente kochen, abgießen und etwas Nudelwasser auffangen.</li>
+        <li>Nudeln mit der Sauce vermengen, bei Bedarf etwas Nudelwasser dazugeben. Heiß servieren, nach Wunsch mit Petersilie oder veganem Käse bestreut.</li>
+      </ol>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept nach <a href="https://veggiefiesta.com/recipe/high-protein-lentil-bolognese-with-whole-wheat-spaghetti/" target="_blank" rel="noopener">Veggie Fiesta</a>.</p>
+
+    <div class="rating-block" data-recipe="linsen-bolognese-vollkorn-spaghetti">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('linsen-bolognese-vollkorn-spaghetti','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('linsen-bolognese-vollkorn-spaghetti','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-linsen-bolognese-vollkorn-spaghetti');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+</body>
+</html>
