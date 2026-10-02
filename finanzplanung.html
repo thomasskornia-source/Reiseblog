@@ -360,47 +360,35 @@ body.fp-body { padding-bottom: 0; }
     <aside id="inputs" class="panel" aria-label="Deine Angaben">
       <header><h2>Deine Angaben</h2><p>Alle Werte bleiben auf deinem Gerät und werden nur zum Rechnen genutzt.</p></header>
 
-      </div>
-
-      <fieldset><legend>Person und Lebenssituation</legend>
-        <label class="f" for="vorname"><span>Vorname (optional)</span><input id="vorname" type="text" maxlength="40" autocomplete="given-name" placeholder="z. B. Anna"><small>Wird nur für die Anrede und die Beschriftung benutzt.</small></label>
-        <div class="grid2">
-          <label class="f" for="by"><span>Geburtsjahr</span><input id="by" type="number" inputmode="numeric" min="1940" max="2010" step="1"></label>
-          <label class="f" for="wunsch"><span>Wunschalter</span><input id="wunsch" type="number" inputmode="numeric" min="30" max="95" step="1"></label>
-        </div>
-        <label class="f" for="status"><span>Familienstand</span>
-          <select id="status"><option value="ledig">Ledig</option><option value="verheiratet">Verheiratet, gemeinsame Veranlagung</option><option value="geschieden">Geschieden</option><option value="verwitwet">Verwitwet</option></select></label>
+      <fieldset><legend>Berechnung und Haushalt</legend>
+        <label class="f" for="calcMode"><span>Wofür rechnest du?</span>
+          <select id="calcMode"><option value="einzel">Einzelberechnung, nur für mich</option><option value="paar">Gemeinsame Berechnung, als Paar</option></select></label>
+        <label class="f" for="coupleType" id="coupleWrap" hidden><span>Ihr seid</span>
+          <select id="coupleType"><option value="verheiratet">Verheiratet, gemeinsame Veranlagung</option><option value="paar">Nicht verheiratet, getrennte Veranlagung</option></select><small>Verheiratete werden mit dem Splittingtarif besteuert. Bei nicht verheirateten Paaren wird jede Person einzeln besteuert.</small></label>
+        <label class="f" for="famEin" id="famWrap"><span>Familienstand</span>
+          <select id="famEin"><option value="ledig">Ledig</option><option value="geschieden">Geschieden</option><option value="verwitwet">Verwitwet</option></select></label>
+        <select id="status" hidden aria-hidden="true"><option value="ledig">Ledig</option><option value="verheiratet">Verheiratet</option><option value="paar">Paar</option><option value="geschieden">Geschieden</option><option value="verwitwet">Verwitwet</option></select>
         <div class="grid2">
           <label class="f" for="kinder"><span>Kinder</span><input id="kinder" type="number" inputmode="numeric" min="0" max="8" step="1"></label>
           <label class="f" for="kirche"><span>Kirchensteuer</span>
             <select id="kirche"><option value="0">Nein</option><option value="9">Ja, 9 %</option><option value="8">Ja, 8 % (BY, BW)</option></select></label>
         </div>
+          <label class="f" for="netto"><span id="nettoLbl">Netto pro Monat</span><input id="netto" type="number" inputmode="decimal" min="0" step="50"></label>
+        <div class="small" id="nettoNote"></div>
+      </fieldset>
+
+      <fieldset id="meSet"><legend id="meLeg">Du</legend>
+        <label class="f" for="vorname"><span>Vorname (optional)</span><input id="vorname" type="text" maxlength="40" autocomplete="given-name" placeholder="z. B. Anna"><small>Wird nur für die Anrede und die Beschriftung benutzt.</small></label>
+        <div class="grid2">
+          <label class="f" for="by"><span>Geburtsjahr</span><input id="by" type="number" inputmode="numeric" min="1940" max="2010" step="1"></label>
+          <label class="f" for="wunsch"><span>Wunschalter</span><input id="wunsch" type="number" inputmode="numeric" min="30" max="95" step="1"></label>
+        </div>
         <label class="f" for="beruf"><span>Beruf</span>
           <select id="beruf"><option value="angestellt">Angestellt</option><option value="selbst">Selbstständig</option><option value="beamte">Beamtin oder Beamter</option></select></label>
-      </fieldset>
-
-      <fieldset id="partnerSet" hidden><legend>Ehepartner oder Ehepartnerin</legend>
-        <p class="small">Bei gemeinsamer Veranlagung rechnet der Planer mit dem Splittingtarif und beiden Einkommen. Lässt du Brutto leer, zählt dein Partner ohne eigenes Einkommen.</p>
-        <label class="f" for="pvorname"><span>Vorname (optional)</span><input id="pvorname" type="text" maxlength="40" placeholder="z. B. Ben"></label>
-        <div class="grid2">
-          <label class="f" for="pby"><span>Geburtsjahr</span><input id="pby" type="number" inputmode="numeric" min="1940" max="2010" step="1"></label>
-          <label class="f" for="pberuf"><span>Beruf</span>
-            <select id="pberuf"><option value="angestellt">Angestellt</option><option value="selbst">Selbstständig</option><option value="beamte">Beamtin oder Beamter</option></select></label>
-        </div>
-        <div class="grid2">
-          <label class="f" for="pbrutto"><span>Brutto pro Jahr</span><input id="pbrutto" type="number" inputmode="decimal" min="0" step="1000"></label>
-          <label class="f" for="pstart"><span>Berufsstart mit Alter</span><input id="pstart" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
-        </div>
-        <label class="f" for="prenteInfo"><span>Rente laut Rentenbescheid oder Renteninformation (optional)</span><input id="prenteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"></label>
-      </fieldset>
-
-      <fieldset><legend>Einkommen</legend>
         <div class="grid2">
           <label class="f" for="brutto"><span id="bruttoLbl">Brutto pro Jahr</span><input id="brutto" type="number" inputmode="decimal" min="0" step="1000"></label>
-          <label class="f" for="netto"><span id="nettoLbl">Netto pro Monat</span><input id="netto" type="number" inputmode="decimal" min="0" step="50"></label>
-        </div>
-        <div class="small" id="nettoNote"></div>
         <label class="f" for="startAge"><span>Berufsstart mit Alter</span><input id="startAge" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
+        </div>
         <label class="f" for="renteInfo"><span>Rente laut Rentenbescheid oder Renteninformation (optional)</span><input id="renteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"><small>Trage die Bruttorente vor Abzügen ein. Sie ersetzt die Schätzung des Planers.</small></label>
         <label class="f" for="bRente"><span>Berufs- oder Betriebsrente (optional)</span><input id="bRente" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat ab Renteneintritt"><small>Betrag laut Mitteilung deines Versorgers. Er wird wie die gesetzliche Rente als Wert in heutigen Preisen behandelt.</small></label>
         <label class="f" for="bRenteTyp"><span>Art der Berufsrente</span>
@@ -413,6 +401,21 @@ body.fp-body { padding-bottom: 0; }
         </div>
         <label class="f" for="retOverride"><span>Eigenes Renteneintrittsalter (optional)</span><input id="retOverride" type="number" inputmode="decimal" min="63" max="70" step="0.5" placeholder="leer = gesetzliche Regelaltersgrenze"><small id="retNote"></small></label>
         <label class="f" for="rentenbeginn"><span>Rentenbeginn, Jahr (optional)</span><input id="rentenbeginn" type="number" inputmode="numeric" min="1990" max="2080" step="1" placeholder="nur falls du schon Rente beziehst"><small>Der Rentenbeginn bestimmt, welcher Anteil der Rente steuerpflichtig ist.</small></label>
+      </fieldset>
+
+      <fieldset id="partnerSet" hidden><legend id="parLeg">Partnerin oder Partner</legend>
+        <p class="small">Lässt du Brutto leer, zählt die Person ohne eigenes Einkommen.</p>
+        <label class="f" for="pvorname"><span>Vorname (optional)</span><input id="pvorname" type="text" maxlength="40" placeholder="z. B. Ben"></label>
+        <div class="grid2">
+          <label class="f" for="pby"><span>Geburtsjahr</span><input id="pby" type="number" inputmode="numeric" min="1940" max="2010" step="1"></label>
+          <label class="f" for="pberuf"><span>Beruf</span>
+            <select id="pberuf"><option value="angestellt">Angestellt</option><option value="selbst">Selbstständig</option><option value="beamte">Beamtin oder Beamter</option></select></label>
+        </div>
+        <div class="grid2">
+          <label class="f" for="pbrutto"><span>Brutto pro Jahr</span><input id="pbrutto" type="number" inputmode="decimal" min="0" step="1000"></label>
+          <label class="f" for="pstart"><span>Berufsstart mit Alter</span><input id="pstart" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
+        </div>
+        <label class="f" for="prenteInfo"><span>Rente laut Rentenbescheid oder Renteninformation (optional)</span><input id="prenteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"></label>
       </fieldset>
 
       <fieldset><legend>Sparen und Anlegen</legend>
@@ -434,7 +437,7 @@ body.fp-body { padding-bottom: 0; }
           <div class="allocbar" id="allocbar" aria-hidden="true"></div>
           <div class="alloclegend" id="alloclegend"></div>
         </div>
-        <div class="small" id="hhNote" hidden>Bei gemeinsamer Veranlagung gelten Netto, Vermögen und Sparrate für euren gemeinsamen Haushalt.</div>
+        <div class="small" id="hhNote" hidden>Bei gemeinsamer Berechnung gelten Netto, Vermögen und Sparrate für euren gemeinsamen Haushalt.</div>
         <label class="f" for="saveUntil"><span>Du sparst bis</span>
           <select id="saveUntil"><option value="rente">Renteneintritt</option><option value="wunsch">Wunschalter</option></select></label>
       </fieldset>
@@ -593,16 +596,17 @@ function svOf(b, beruf, kinder) {
   return Math.min(b, K.BBG_RV) * 0.17;
 }
 function netIncome(P) {
-  const split = P.status === 'verheiratet';
+  const split = P.status === 'verheiratet', sep = P.status === 'paar';
   const ps = [{ b: P.brutto, beruf: P.beruf }];
   if (P.partner) ps.push({ b: P.partner.brutto, beruf: P.partner.beruf });
-  let sumB = 0, sumSv = 0, sumZ = 0;
+  let sumB = 0, sumSv = 0, sumZ = 0, sepTax = 0;
   ps.forEach(p => {
     const b = Math.max(0, p.b), sv = b > 0 ? svOf(b, p.beruf, P.kinder) : 0;
     sumB += b; sumSv += sv; sumZ += b > 0 ? Math.max(0, b - sv - 1230) : 0;
+    if (sep) sepTax += est(Math.max(0, (b > 0 ? Math.max(0, b - sv - 1230) : 0) - 36), false);
   });
   const zve = Math.max(0, sumZ - (split ? 72 : 36));
-  const tax = est(zve, split);
+  const tax = sep ? sepTax : est(zve, split);
   const kist = tax * kistRate(P.kirche);
   return { net: sumB - sumSv - tax - kist, sv: sumSv, tax, kist };
 }
@@ -625,7 +629,11 @@ function versorgungsanteil(y) {
   return 1 - frei;
 }
 function pensionNetHH(P, items) {
-  const split = P.status === 'verheiratet';
+  if (P.status !== 'paar') return pensionCore(P, items, P.status === 'verheiratet');
+  const a = pensionCore(P, items.filter(i => !i.o), false), b = pensionCore(P, items.filter(i => i.o), false);
+  return { gross: a.gross + b.gross, net: a.net + b.net, deductions: a.deductions + b.deductions, share: a.share, taxable: a.taxable, taxable2: b.taxable };
+}
+function pensionCore(P, items, split) {
   let J = 0, KV = 0, taxable = 0, bavSum = 0; const shares = [];
   const FB = 197.75 * 12;
   items.forEach(it => {
@@ -712,7 +720,7 @@ function compute(P) {
   const months = Math.ceil((endAge - age0) * 12);
   const saveEnd = P.saveUntil === 'wunsch' ? wunsch : retAge;
   const saveMonths = Math.max(0, Math.round((saveEnd - age0) * 12));
-  const t = kapStRate(P.kirche), fb = P.status === 'verheiratet' ? 2000 : 1000;
+  const t = kapStRate(P.kirche), fb = P.status === 'verheiratet' || P.status === 'paar' ? 2000 : 1000;
   const aS = Math.max(0, 1 - P.aE - P.aA);
   const mix = { S: aS, E: P.aE, A: P.aA };
   const rates = { S: P.rS, E: P.rE, A: P.rA };
@@ -727,13 +735,13 @@ function compute(P) {
   const netMonth = netYear / 12;
   // Ruhestand
   const pg = pensionGross(P, retAge); pg.v *= rFactor;
-  const hasPartner = !!P.partner && P.status === 'verheiratet';
+  const hasPartner = !!P.partner;
   let pg2 = null, retAge2 = null;
   const items = [{ gross: pg.v, beamte: P.beruf === 'beamte' && !(P.renteInfo > 0), year: retYear }];
   if (hasPartner) {
     const r2 = regelalter(P.partner.by); retAge2 = r2.y + r2.m / 12;
     pg2 = pensionGross(P.partner, retAge2);
-    items.push({ gross: pg2.v, beamte: P.partner.beruf === 'beamte' && !(P.partner.renteInfo > 0), year: Math.floor(P.partner.by + retAge2) });
+    items.push({ gross: pg2.v, beamte: P.partner.beruf === 'beamte' && !(P.partner.renteInfo > 0), year: Math.floor(P.partner.by + retAge2), o: 1 });
   }
   const pn0 = pensionNetHH(P, items);
   const bKap = P.bRenteTyp === 'bav' && P.bKap > 0 ? P.bKap : 0;
@@ -748,7 +756,7 @@ function compute(P) {
   cons.forEach(c => {
     if (!(c.leistung > 0)) return;
     if (c.type === 'riester' || c.type === 'basis' || c.type === 'bav' || c.type === 'prv') {
-      items.push({ gross: c.leistung, kind: c.type, beamte: false, year: retYear, share: c.type === 'prv' ? ertragsanteil(retAge) : 1 });
+      items.push({ gross: c.leistung, kind: c.type, beamte: false, year: retYear, share: c.type === 'prv' ? ertragsanteil(retAge) : 1, o: ownerOf(c) });
       cGross += c.leistung;
     } else if (c.type === 'lv') {
       let tax = 0;
@@ -760,12 +768,14 @@ function compute(P) {
   const cNet = pn.net - pnB.net;
   // Betriebliche Kapitalleistungen (AK/ZV, PVK, AVWL): Ratenzahlung ueber n Jahre oder Einmalzahlung
   const bkRows = []; let bkNom = 0;
+  function ownerOf(c) { const n = P.partner && P.partner.name ? P.partner.name.toLowerCase() : ''; return n && c.insured && String(c.insured).trim().toLowerCase() === n ? 1 : 0; }
   cons.forEach(c => {
     if (c.type !== 'bkap' || !(c.leistung > 0)) return;
     const split = P.status === 'verheiratet', ki = kistRate(P.kirche), K = c.leistung, r = P.rRet, kl = P.kinder === 0 ? 0.006 : 0;
     const kvM = m => 12 * (Math.max(0, m - 197.75) * 0.175 + m * (0.036 + kl));
     const pre = c.jahr > 0 && c.jahr < retYear;
-    const base = pre ? 0.85 * P.brutto : pensionNetHH(P, items).taxable;
+    const own = ownerOf(c), hh = pensionNetHH(P, items);
+    const base = pre ? 0.85 * (own ? P.partner.brutto : P.brutto) + (split && P.partner && !own ? 0.85 * P.partner.brutto : 0) : (own && hh.taxable2 != null ? hh.taxable2 : hh.taxable);
     let pv;
     if (c.form === 'einmal') {
       const kv = 120 * (Math.max(0, K / 120 - 197.75) * 0.175 + K / 120 * (0.036 + kl));
@@ -902,6 +912,9 @@ function compute(P) {
     $('ausGrid').appendChild(l);
   });
   Object.keys(DEF).forEach(function (k) { $(k).value = DEF[k]; });
+  function syncStatus() { var m = $('calcMode').value; $('status').value = m === 'paar' ? $('coupleType').value : $('famEin').value; $('coupleWrap').hidden = m !== 'paar'; $('famWrap').hidden = m === 'paar'; }
+  function syncUI() { var s = $('status').value; if (s === 'verheiratet' || s === 'paar') { $('calcMode').value = 'paar'; $('coupleType').value = s; } else { $('calcMode').value = 'einzel'; $('famEin').value = s; } syncStatus(); }
+  syncUI();
   var nettoAuto = true, mode = 'nom', userTouched = false;
 
   var fmt = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
@@ -933,7 +946,7 @@ function compute(P) {
       contracts: CON.map(conClean)
     };
     var ro = rd('retOverride', 0, 0, 80); P.retOverride = ro >= 60 ? clamp(ro, 63, 70) : 0;
-    if (P.status === 'verheiratet') {
+    if (P.status === 'verheiratet' || P.status === 'paar') {
       P.partner = { name: $('pvorname').value.trim().slice(0, 40), by: Math.round(rd('pby', P.by, 1940, YEAR - 16)), beruf: $('pberuf').value,
         brutto: rd('pbrutto', 0, 0, 5e6), startAge: rd('pstart', 23, 14, 45), renteInfo: rd('prenteInfo', 0, 0, 20000) };
     } else P.partner = null;
@@ -1036,7 +1049,7 @@ function compute(P) {
     $('h1').textContent = nm ? nm + ', wo stehst du heute, bei Rente und im Wunschalter?' : 'Wo stehst du heute, bei Rente und im Wunschalter?';
     $('partnerSet').hidden = !P.partner; $('hhNote').hidden = !P.partner;
     $('nettoLbl').textContent = P.partner ? 'Haushalts-Netto pro Monat' : 'Netto pro Monat';
-    $('bruttoLbl').textContent = P.partner ? 'Dein Brutto pro Jahr' : 'Brutto pro Jahr';
+    $('meLeg').textContent = nm || 'Du'; $('parLeg').textContent = pnm || 'Partnerin oder Partner';
     var adj = function (v, yrs) { return mode === 'real' ? v / Math.pow(1 + P.infl, yrs) : v; };
     var yTo = function (age) { return age - R.age0; };
     var ausTot0 = P.aus.reduce(function (x, y) { return x + y; }, 0);
@@ -1301,7 +1314,7 @@ function compute(P) {
     var gains = wu.gross - wu.paid, taxTotal = wu.tax;
     $('steuer').innerHTML =
       '<div><b>' + pct(R.t, 1) + '</b><span>Steuersatz auf Kapitalerträge (Abgeltungsteuer, Soli' + (P.kirche !== '0' ? ', Kirchensteuer' : '') + ')</span></div>' +
-      '<div><b>' + eur(R.fb) + '</b><span>Sparerpauschbetrag pro Jahr' + (P.status === 'verheiratet' ? ' (zusammen)' : '') + '</span></div>' +
+      '<div><b>' + eur(R.fb) + '</b><span>Sparerpauschbetrag pro Jahr' + (P.status === 'verheiratet' || P.status === 'paar' ? ' (zusammen)' : '') + '</span></div>' +
       '<div><b>' + eur(adj(taxTotal, yW)) + '</b><span>Steuern auf Erträge bis Wunschalter' + (gains > 0 ? ', das sind ' + pct(taxTotal / gains, 0) + ' der Erträge' : '') + '</span></div>' +
       '<div><b>' + pct(R.pn.share, 1) + '</b><span>der Rente sind bei Rentenbeginn ' + R.retYear + ' steuerpflichtig</span></div>' +
       '<div><b>' + eur(R.pn.deductions) + '</b><span>Steuer und Kranken-/Pflegeversicherung pro Monat auf deine Rente</span></div>' +
@@ -1341,7 +1354,7 @@ function compute(P) {
         h.push([buName, buSum > 0 ? 'Deine versicherte Rente von ' + eur(buSum) + ' pro Monat deckt ' + pct(buQ) + ' deines Nettos. Üblich sind 60 bis 80 % des Nettos. Prüfe außerdem Laufzeit bis zum Rentenalter und die Nachversicherungsgarantie.' : 'Trage die versicherte BU-Rente ein, dann kann ich sie mit deinem Netto vergleichen.', buSum > 0 ? (buQ >= 0.6 ? 'good' : 'warn') : '']);
       }
     }
-    if ((P.kinder > 0 || P.status === 'verheiratet') && working && !hasType('rlv')) h.push(['Hinterbliebenenschutz', 'Du hast Familie, aber keine Risikolebensversicherung eingetragen. Sie sichert Partner und Kinder ab, falls dein Einkommen ausfällt. Die Summe sollte Kredite plus mehrere Jahreseinkommen decken, der Vertrag ist als reine Risikoabsicherung günstig.', 'warn']);
+    if ((P.kinder > 0 || P.partner) && working && !hasType('rlv')) h.push(['Hinterbliebenenschutz', 'Du hast Familie, aber keine Risikolebensversicherung eingetragen. Sie sichert Partner und Kinder ab, falls dein Einkommen ausfällt. Die Summe sollte Kredite plus mehrere Jahreseinkommen decken, der Vertrag ist als reine Risikoabsicherung günstig.', 'warn']);
     if (cons.length) {
       var cTxt = 'Deine eingetragenen Verträge kosten ' + eur(cBeitrag) + ' pro Monat' + (netMonth > 0 ? ', das sind ' + pct(cBeitrag / netMonth, 1) + ' deines Nettos' : '') + '. Sie sind in deiner Sparrate von ' + eur(P.sparrate) + ' nicht enthalten.';
       if (R.cGross > 0) cTxt += ' Aus den Rentenverträgen kommen im Ruhestand brutto ' + eur(R.cGross) + ' pro Monat, netto etwa ' + eur(R.cNet) + '.';
@@ -1369,6 +1382,7 @@ function compute(P) {
       : a0 < 60 ? ['Konsolidierung', 'Jetzt lohnt der Blick auf Lücken. Eine höhere Sparrate wirkt noch, und die Renteninformation zeigt, was die gesetzliche Rente wirklich beiträgt.']
       : ['Übergangsphase', 'Wichtig werden ein Entnahmeplan und genug sichere Anlagen für die ersten Jahre, damit du in Börsenkrisen nicht zu Tiefstkursen verkaufen musst.'];
     h.push(['Lebensphase: ' + phase[0], phase[1]]);
+    if (P.status === 'paar') h.push(['Nicht verheiratet', 'Ihr werdet einzeln besteuert, es gibt keinen Splittingtarif, und Hinterbliebenenrente sowie Erbschaftsteuerfreibetrag sind deutlich schlechter als bei Ehepaaren. Prüft Testament, Vorsorgevollmacht und die Begünstigten eurer Verträge. Der Planer rechnet mit zwei getrennten Steuererklärungen.', 'warn']);
     if (P.status === 'verheiratet') h.push(['Verheiratet', 'Der Sparerpauschbetrag beträgt zusammen 2.000 €. Prüfe die Freistellungsaufträge beider Partner und die Hinterbliebenenversorgung. Der Planer rechnet mit Zusammenveranlagung und ' + (P.partner.brutto > 0 || P.partner.renteInfo > 0 ? 'dem Einkommen und der Rente von ' + esc(who2) + '.' : 'ohne eigenes Einkommen des Partners. Trage es links ein, wenn es eines gibt.')]);
     if (P.status === 'geschieden') h.push(['Geschieden', 'Ein Versorgungsausgleich kann deine gesetzliche Rente verändern. Trage den Wert aus deiner aktuellen Renteninformation ein, dann rechnet der Planer damit.']);
     if (P.status === 'verwitwet') h.push(['Verwitwet', 'Eine mögliche Witwen- oder Witwerrente ist hier nicht enthalten. Trage sie über die Renteninformation ein, wenn du sie bekommst.']);
@@ -1410,6 +1424,7 @@ function compute(P) {
       render();
     });
   });
+  ['calcMode', 'coupleType', 'famEin'].forEach(function (id) { $(id).addEventListener('input', function () { syncStatus(); dirty(); render(); }); });
   $('netto').addEventListener('input', function () { dirty(); nettoAuto = false; render(); });
   $('ausEx').addEventListener('click', function () { AUS.forEach(function (a) { $(a[0]).value = a[3]; }); dirty(); render(); });
   $('ausClr').addEventListener('click', function () { AUS.forEach(function (a) { $(a[0]).value = ''; }); render(); });
@@ -1461,6 +1476,7 @@ function compute(P) {
   function applyState(o) {
     if (!o || o.app !== 'finanzplanung' || typeof o.fields !== 'object' || !o.fields) throw new Error('format');
     Object.keys(DEF).forEach(function (k) { if (o.fields[k] != null) $(k).value = String(o.fields[k]).slice(0, 80); });
+    syncUI();
     nettoAuto = o.nettoAuto !== false;
     if (!nettoAuto && o.fields.netto != null) $('netto').value = String(o.fields.netto).slice(0, 20);
     mode = o.mode === 'real' ? 'real' : 'nom';
