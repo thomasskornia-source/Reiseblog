@@ -127,6 +127,86 @@
           "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm"
         }
       ]
+    },
+    {
+      "eingabe": "Alphabet",
+      "zeitstempel": "02.10.2026 19:49:46",
+      "name": "Alphabet Inc. (Google)",
+      "ticker": "GOOGL (Nasdaq)",
+      "stand": "02.10.2026",
+      "kennzahlen": [
+        {
+          "k": "Umsatz 2025",
+          "v": "402,8 Mrd. $ (+15 %)"
+        },
+        {
+          "k": "Operatives Ergebnis 2025",
+          "v": "129 Mrd. $ (Marge ca. 32 %); Q2 2026: Marge 34 %"
+        },
+        {
+          "k": "Gewinn je Aktie 2025",
+          "v": "10,81 $ (+34 %)"
+        },
+        {
+          "k": "KGV",
+          "v": "unklar; Drittquelle ca. 16, aber Q2-2026-Gewinn enthält ca. 98 Mrd. $ unrealisierte Buchgewinne"
+        },
+        {
+          "k": "Free Cashflow",
+          "v": "73 Mrd. $ (2025); Q2 2026 negativ (ca. -5,9 Mrd. $)"
+        },
+        {
+          "k": "Investitionen (Capex)",
+          "v": "Q2 2026: 44,9 Mrd. $; Jahresplan 195–205 Mrd. $"
+        },
+        {
+          "k": "Schulden",
+          "v": "ca. 59 Mrd. $ Ende 2025, danach neue Finanzierungen (ca. 70 Mrd. $ in Q2 2026); Netto-Schulden/EBITDA unklar"
+        },
+        {
+          "k": "Aktienrückkäufe",
+          "v": "in Q2 2026 keine"
+        },
+        {
+          "k": "ROIC",
+          "v": "unklar (nicht belegt gefunden)"
+        }
+      ],
+      "warren": {
+        "urteil": "Abwarten",
+        "text": "Suchmaschine und Werbung sind verständlich, der Burggraben aus Reichweite und Gewohnheit ist enorm, die Margen sind hoch. Schwerer fällt mir das Neue: Die Investitionen in KI-Rechenzentren haben sich binnen eines Jahres auf rund 200 Milliarden Dollar verdoppelt, der freie Cashflow ist zuletzt negativ, und das Unternehmen leiht sich wieder Geld, statt Aktien zurückzukaufen. Ob diese Milliarden später hohe Renditen bringen, lässt sich nicht verlässlich vorhersagen. Der Gewinn des letzten Quartals ist zudem durch Buchgewinne aufgebläht, die KGV-Zahl damit nur bedingt aussagekräftig. Ein hervorragendes Kerngeschäft, aber keine planbare Sicherheitsmarge."
+      },
+      "charlie": {
+        "urteil": "Abwarten",
+        "text": "Invertiert: Wie geht das schief? Die KI-Antworten könnten das Suchgeschäft aushöhlen, Kartellverfahren könnten Standard-Deals und Teile des Konzerns treffen, und der Wettlauf um Rechenzentren verleitet alle zu Übertreibung, weil keiner als Erster aufhören will. Ein klassischer Herdentrieb mit Milliardenbeträgen. Die Anreize sind gemischt: Aktienvergütung ist hoch, das Wachstum soll weitergehen, koste es, was es wolle. Im Gegensatz zu Warren würde ich das Kerngeschäft eher noch bewundern, den Kapitaleinsatz aber misstrauischer betrachten. 'Zu schwer' ist hier ein ehrliches Ergebnis."
+      },
+      "risiken": "Verdrängung der klassischen Suche durch KI-Assistenten, Kartell- und Regulierungsverfahren, extrem hohe Investitionen mit unsicherem Ertrag, steigende Verschuldung. Zahlen teils aus Drittquellen und nicht vollständig geprüft.",
+      "belege": [
+        {
+          "wer": "Warren",
+          "zitat": "a business that must deal with fast-moving technology is not going to lend itself to reliable evaluations of its long-term economics.",
+          "quelle": "Aktionärsbrief 1993",
+          "url": "https://www.berkshirehathaway.com/letters/1993.html"
+        }
+      ],
+      "quellen": [
+        {
+          "name": "Alphabet Q4/Gesamtjahr 2025 Earnings Release",
+          "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/2025q4-alphabet-earnings-release.pdf"
+        },
+        {
+          "name": "Alphabet 10-K 2025 (SEC)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"
+        },
+        {
+          "name": "Alphabet 10-Q Q2 2026 (SEC)",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000071/goog-20260630.htm"
+        },
+        {
+          "name": "Q2 2026 Zusammenfassung (Quartr)",
+          "url": "https://quartr.com/events/alphabet-inc-goog-q2-2026_3ebmqZlg"
+        }
+      ]
     }
   ]
 }
