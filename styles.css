@@ -82,7 +82,7 @@ body {
 
 .site-header.site-header--video .back-link {
   color: var(--paper);
-  border-color: rgba(250,243,232,0.5);
+  border-bottom: 0;
 }
 
 @media (max-width: 600px) {
