@@ -1789,12 +1789,12 @@ function compute(P) {
     if (alone) {
       var kRent = nK * 3 * K.RENTENWERT, entl = 4260 + 240 * Math.max(0, nK - 1), iM2 = Math.pow(1 + P.rE, 1 / 12) - 1, fv50 = yL > 1 && iM2 > 0 ? 50 * (Math.pow(1 + iM2, 12 * yL) - 1) / iM2 : 0;
       c.push({ t: 't-plum', h: '<div class="st-eye">Was dich unterstützt</div><h2>Das arbeitet für dich mit</h2><div class="st-big" style="font-size:clamp(36px,11vw,50px)">+' + cnt(kRent, 'eur') + '</div><div class="st-sub">Rente pro Monat durch Kindererziehung</div>' +
-        '<div class="st-rows"><div class="st-row"><span>Steuer-Entlastungsbetrag</span><b>' + eur(entl) + ' / Jahr</b></div></div>' +
+        '<div class="st-rows"><div class="st-row"><span>Steuer-Entlastung pro Jahr</span><b>' + eur(entl) + '</b></div></div>' +
         '<p>Die Rente schreibt dir pro Kind (ab Jahrgang 1992) drei Jahre gut, der Entlastungsbetrag für Alleinerziehende senkt deine Steuer.' + (fv50 > 0 ? ' Wird später mehr Geld frei: Schon 50 € mehr im Monat sind bis zur Rente ' + eur(fv50) + '.' : '') + '</p>' });
     }
     if (two) {
       c.push({ t: 't-blue', h: '<div class="st-eye">Zu zweit</div><h2>Gemeinsam stärker</h2><div class="st-big" style="font-size:clamp(36px,11vw,50px)">' + cnt(R.pn.net, 'eur') + '</div><div class="st-sub">Renten zusammen, netto pro Monat</div>' +
-        '<div class="st-rows"><div class="st-row"><span>Gemeinsames Vermögen bei Rente</span><b>' + eur(ret.net) + '</b></div><div class="st-row"><span>Gemeinsames Netto heute</span><b>' + eur(L.netMonth) + ' / Monat</b></div></div>' +
+        '<div class="st-rows"><div class="st-row"><span>Vermögen bei Rente</span><b>' + eur(ret.net) + '</b></div><div class="st-row"><span>Netto heute pro Monat</span><b>' + eur(L.netMonth) + '</b></div></div>' +
         '<p>' + (P.status === 'verheiratet' ? 'Als Ehepaar profitiert ihr vom Splittingtarif und zwei Freibeträgen. ' : '') + 'Zwei Einkommen und zwei Renten geben Sicherheit, falls einer mal ausfällt.</p>' });
     }
     // 3 Renteneintritt
