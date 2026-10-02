@@ -28,7 +28,7 @@ jobs:
             -d '{
               "app_id": "'"${ONESIGNAL_APP_ID}"'",
               "included_segments": ["Subscribed Users"],
-              "headings": {"en": "Andrea unterwegs", "de": "Andrea unterwegs"},
+              "headings": {"en": "Unterwegs und zuhause", "de": "Unterwegs und zuhause"},
               "contents": {"en": "Neuer Eintrag: '"${STATUS}"'", "de": "Neuer Eintrag: '"${STATUS}"'"},
               "url": "https://thomasskornia-source.github.io/Reiseblog/"
             }')

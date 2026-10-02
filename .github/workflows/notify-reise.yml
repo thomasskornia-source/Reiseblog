@@ -1,0 +1,49 @@
+name: Push-Benachrichtigung bei neuer Reiseplanung
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/reise-eingang-erledigt.json'
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Titel der neuen Reise ermitteln und Push senden
+        env:
+          ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+          ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          FILE=""
+          if [ -n "$BEFORE" ] && git cat-file -e "$BEFORE" 2>/dev/null; then
+            FILE=$(git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" | grep -- '-reise\.html$' | head -1 || true)
+          fi
+          TITLE=""
+          if [ -n "$FILE" ] && [ -f "$FILE" ]; then
+            TITLE=$(grep -o '<h1>.*</h1>' "$FILE" | head -1 | sed 's/<[^>]*>//g' | sed 's/&nbsp;/ /g')
+          fi
+          if [ -n "$TITLE" ]; then
+            URL="https://thomasskornia-source.github.io/Reiseblog/${FILE}"
+            MSG="Neue Reiseplanung: ${TITLE}"
+          else
+            URL="https://thomasskornia-source.github.io/Reiseblog/reisen.html"
+            MSG="Neue Reiseplanung ist online"
+          fi
+          echo "$MSG -> $URL"
+          jq -n --arg app "$ONESIGNAL_APP_ID" --arg msg "$MSG" --arg url "$URL" \
+            '{app_id:$app, included_segments:["Subscribed Users"], headings:{en:"Unterwegs und zuhause", de:"Unterwegs und zuhause"}, contents:{en:$msg, de:$msg}, url:$url}' \
+            > payload.json
+          curl -s -X POST "https://onesignal.com/api/v1/notifications" \
+            -H "Authorization: Key ${ONESIGNAL_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -d @payload.json

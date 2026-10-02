@@ -31,3 +31,8 @@ Erledigte Zeilen: Zeitstempel in `data/reise-eingang-erledigt.json` (Liste von S
 `git pull --rebase`, committen, auf `main` pushen. Bericht an Thomas: Link der Seite
 (`https://thomasskornia-source.github.io/Reiseblog/<datei>`), Zusammenfassung der Planung (Route, Kosten, Entscheidungen
 bei Lücken), abgelehnte Zeilen.
+
+## Benachrichtigung
+Die GitHub-Aktion `notify-reise.yml` sendet eine Push-Nachricht („Neue Reiseplanung: <Titel>“), sobald ein Push
+`data/reise-eingang-erledigt.json` ändert. Darum die neue Reiseseite und die Änderung dieser Datei im selben Push
+(oder in derselben Push-Serie) hochladen, nicht getrennt. Bei Zeilen, die abgelehnt wurden, kommt die Nachricht ohne Titel.

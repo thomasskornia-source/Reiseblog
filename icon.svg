@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+      <stop offset="0" stop-color="#3F5246"/>
+      <stop offset="1" stop-color="#26322B"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <!-- Weg -->
+  <path d="M256 372 C256 408 196 418 204 448 C212 478 300 478 316 520" fill="none" stroke="#C9643A" stroke-width="15" stroke-linecap="round" stroke-dasharray="1 0"/>
+  <path d="M256 372 C256 408 196 418 204 448 C212 478 300 478 316 520" fill="none" stroke="#FAF3E8" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 16" opacity=".85"/>
+  <!-- Haus -->
+  <path d="M140 296 L256 196 L372 296" fill="none" stroke="#FAF3E8" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M170 276 V372 H342 V276" fill="none" stroke="#FAF3E8" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M232 372 V332 a24 24 0 0 1 48 0 V372 Z" fill="#C9643A"/>
+  <!-- Kompassstern -->
+  <path d="M256 70 L268 116 L314 128 L268 140 L256 186 L244 140 L198 128 L244 116 Z" fill="#E8A87C"/>
+</svg>
