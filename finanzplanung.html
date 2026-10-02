@@ -1737,8 +1737,17 @@ function compute(P) {
       (yrsLeft > 0 ? '<div class="st-big">' + cnt(yrsLeft, 'num') + '</div><div class="st-sub">Jahre bis zur Rente mit ' + ageText(R.retAge) + '</div>' : '<div class="st-big">Jetzt</div><div class="st-sub">Du bist schon im Rentenalter</div>') +
       '<p>' + (two ? 'Ihr seid heute ' + R.age0 + ' und ' + (YEAR - P.partner.by) + ', euer Wunschalter ist ' + R.wunsch + '.' : 'Du bist heute ' + R.age0 + ', dein Wunschalter ist ' + R.wunsch + '.') + ' Tippe rechts, um durch ' + (two ? 'eure' : 'deine') + ' Auswertung zu gehen.</p>' });
     // 2 Heute
-    c.push({ t: 't-sage', h: '<div class="st-eye">Heute</div><h2>Das ' + (two ? 'habt ihr' : 'hast du') + ' schon</h2><div class="st-big">' + cnt(P.W0, 'eur') + '</div><div class="st-sub">Vermögen heute</div>' +
-      '<p>' + (two ? 'Ihr spart ' : 'Du sparst ') + eur(P.sparrate) + ' pro Monat, das sind ' + pct(L.quote) + (two ? ' eures Nettos.' : ' deines Nettos.') + (L.bm > 0 && L.mult > 0 ? ' Als Faustregel gelten für ' + (two ? 'euer Alter' : 'dein Alter') + ' etwa ' + num(L.bm, 1) + '× Jahreseinkommen. ' + (two ? 'Ihr liegt' : 'Du liegst') + ' bei ' + num(L.mult, 1) + '×.' : '') + '</p>' });
+    var accr = 0, accrOf = function (Q, age) { if (Q.renteInfo > 0) return Q.renteInfo * Math.max(0, age - Q.startAge) / Math.max(1, R.retAge - Q.startAge); return pensionGross(Q, Math.max(Q.startAge, age)).v; };
+    accr = accrOf(P, R.age0) + (two ? accrOf(P.partner, YEAR - P.partner.by) : 0);
+    var hv = [];
+    if (accr > 1) hv.push(['Gesetzliche Rente', 'ca. ' + eur(accr) + ' / Monat']);
+    if (P.bRente > 0) hv.push(['Betriebsrente', eur(P.bRente) + ' / Monat']); else if (P.bKap > 0) hv.push(['Betriebsrente', eur(P.bKap) + ' Kapital']);
+    if (R.cGross > 0) hv.push(['Rentenverträge', eur(R.cGross) + ' / Monat']);
+    if (R.bkNom > 1) hv.push(['Betriebliche Leistungen', eur(R.bkNom) + ' netto, einmalig']);
+    if (R.lumpNom - R.bkNom > 1) hv.push(['Kapitalverträge', eur(R.lumpNom - R.bkNom) + ' netto, einmalig']);
+    c.push({ t: 't-sage', h: '<div class="st-eye">Heute</div><h2>Das ist schon da</h2><div class="st-big">' + cnt(P.W0, 'eur') + '</div><div class="st-sub">Vermögen heute</div>' +
+      (hv.length ? '<div class="st-sub" style="margin-top:12px">Dazu schon erworbene Ansprüche</div><div class="st-rows">' + hv.map(function (x) { return '<div class="st-row"><span>' + x[0] + '</span><b>' + x[1] + '</b></div>'; }).join('') + '</div>' : '') +
+      '<p>' + (two ? 'Ihr spart ' : 'Du sparst ') + eur(P.sparrate) + ' pro Monat (' + pct(L.quote) + ' vom Netto)' + (L.bm > 0 && L.mult > 0 ? ', Faustregel fürs Vermögen: ' + num(L.bm, 1) + '× Jahreseinkommen, ' + (two ? 'ihr liegt' : 'du liegst') + ' bei ' + num(L.mult, 1) + '×.' : '.') + '</p>' });
     // Bis zur Rente in Zahlen
     var yL = Math.max(0, R.retAge - R.age0), ni = R.ni, gB = ni.net + ni.sv + ni.tax + ni.kist, cur = new Date();
     if (yL > 0.5 && gB > 0) {
