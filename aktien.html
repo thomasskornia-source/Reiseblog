@@ -217,6 +217,7 @@
       r += '<div><dt>Kurs</dt><dd>' + zahl(j.kurs) + ' ' + esc(j.waehrung || '') + '</dd></div>';
       if (j.ma8 == null) r += '<div><dt>200-Tage-Linie</dt><dd>' + zahl(j.ma200) + '</dd></div>' + (j.ma50 != null ? '<div><dt>50-Tage-Linie</dt><dd>' + zahl(j.ma50) + '</dd></div>' : '');
     }
+    if (j.pos_52w_pct != null) r += '<div><dt>52-Wochen-Spanne</dt><dd>' + (j.pos_52w_pct < 33 ? 'unteres' : j.pos_52w_pct < 67 ? 'mittleres' : 'oberes') + ' Drittel · ' + j.pos_52w_pct + ' %</dd></div>';
     if (f.richtung) r += '<div><dt>Option Flows</dt><dd>' + dot(fcls(f.richtung)) + esc(f.richtung) + '</dd></div>';
     return '<div class="sec who">' + FACE.j + '<h4>James</h4><dl class="rows">' + r + '</dl>' + chart(j.serie, j) + '<p>' + esc(j.text) + (f.text ? ' <i>Option Flows: ' + esc(f.text) + '</i>' : '') + '</p></div>';
   }
