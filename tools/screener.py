@@ -6,7 +6,7 @@ Warren: sieben einfache Qualitäts- und Preisregeln aus den Jahreszahlen der US-
         (XBRL-„Frames“: je Kennzahl ein Abruf für alle Firmen, rund 15 Abrufe insgesamt).
 Rang = je zur Hälfte Anteil erfüllter Warren-Regeln und James-Score (von 12); Aktien „unter der 200-Tage-Linie“ fallen heraus.
 
-Aufruf:  SEC_KONTAKT=<mailadresse> python3 tools/screener.py     schreibt data/top10.json
+Aufruf:  SEC_KONTAKT=<mailadresse> python3 tools/screener.py     schreibt data/top10.json und data/beobachtung.json (eigene Aktien, nur James' Ampel)
 Die SEC verlangt in der Kennung des Abrufs eine Kontaktadresse (Umgebungsvariable SEC_KONTAKT, in GitHub als Secret hinterlegt).
 Ohne SEC_KONTAKT oder bei SEC-Fehler: Rang nur nach James' Trend (Vermerk „warren“: false in der Datei).
 """
@@ -87,6 +87,26 @@ def james(f, bm):
     except Exception:
         return None
 
+def beobachten(bm):
+    """Eigene Aktien aus data/aktien.json: James' Ampel täglich neu (ohne Texte, ohne Token) -> data/beobachtung.json."""
+    try: eintraege = json.load(open(os.path.join(ROOT, 'data', 'aktien.json'), encoding='utf-8'))['einschaetzungen']
+    except Exception: return
+    pfad = os.path.join(ROOT, 'data', 'beobachtung.json')
+    try: alt = {x['ticker']: x for x in json.load(open(pfad, encoding='utf-8')).get('aktien', [])}
+    except Exception: alt = {}
+    heute = datetime.date.today().strftime('%d.%m.%Y')
+    liste = []
+    for e in eintraege:
+        sym = (e.get('symbol') or str(e.get('ticker', '')).split(' ')[0]).upper()
+        j = james({'t': sym}, bm)
+        if not j: continue
+        v = alt.get(sym, {})
+        vorher = v.get('ampel') if v.get('stand') != heute else v.get('ampel_vorher')
+        liste.append({'ticker': sym, 'name': e.get('name', sym), 'kurs': j['kurs'], 'ampel': j['ampel'], 'lage': j['lage'], 'punkte': j['punkte'],
+                      'ampel_vorher': vorher, 'stand': heute})
+    with open(pfad, 'w', encoding='utf-8') as fh:
+        fh.write(json.dumps({'stand': heute, 'aktien': liste}, ensure_ascii=False, indent=1) + '\n')
+
 def main():
     fl = firmen()
     bm = [z[4] for z in trend.holen('^GSPC')[1]]
@@ -113,10 +133,18 @@ def main():
     vorher = [t['ticker'] for t in alt.get('top10', [])]
     if alt.get('stand') == datetime.date.today().strftime('%d.%m.%Y'): vorher = alt.get('vorher', vorher)
     for i, t in enumerate(top): t['platz'] = i + 1; t['neu'] = bool(vorher) and t['ticker'] not in vorher
+    kurz = ('ticker', 'name', 'ampel', 'lage', 'kgv', 'warren_ok', 'warren_von', 'punkte')
+    sektoren = {}
+    for a in kandidaten:
+        liste = sektoren.setdefault(a['sektor'], [])
+        if len(liste) < 5: liste.append({k: a[k] for k in kurz})
+    heute = [t['ticker'] for t in top]
     out = {'stand': datetime.date.today().strftime('%d.%m.%Y'), 'warren': bool(z), 'zahlenjahr': z['jahr'] if z else None,
-           'geprueft': len(alle), 'ohne_down': len(kandidaten), 'vorher': vorher, 'top10': top}
+           'geprueft': len(alle), 'ohne_down': len(kandidaten), 'vorher': vorher, 'raus': [t for t in vorher if t not in heute],
+           'top10': top, 'sektoren': dict(sorted(sektoren.items()))}
     with open(pfad, 'w', encoding='utf-8') as fh:
         fh.write(trend.kompakt(json.dumps(out, ensure_ascii=False, indent=1)) + '\n')
+    beobachten(bm)
     print('Geprüft: %d, Top 10: %s' % (len(alle), ', '.join('%s (%.2f)' % (t['ticker'], t['rang']) for t in top)))
 
 main()

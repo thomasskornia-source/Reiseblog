@@ -1,0 +1,45 @@
+{
+ "stand": "02.10.2026",
+ "aktien": [
+  {
+   "ticker": "AMZN",
+   "name": "Amazon.com, Inc.",
+   "kurs": 251.52,
+   "ampel": "Down",
+   "lage": "unter 21- und 50-Tage-Linie, 200er hält",
+   "punkte": 3,
+   "ampel_vorher": null,
+   "stand": "02.10.2026"
+  },
+  {
+   "ticker": "KO",
+   "name": "The Coca-Cola Company",
+   "kurs": 85.65,
+   "ampel": "Down",
+   "lage": "unter 21- und 50-Tage-Linie, 200er hält",
+   "punkte": 4,
+   "ampel_vorher": null,
+   "stand": "02.10.2026"
+  },
+  {
+   "ticker": "GOOGL",
+   "name": "Alphabet Inc. (Google)",
+   "kurs": 343.5,
+   "ampel": "Medium",
+   "lage": "über 8 und 21, aber unter 50",
+   "punkte": 5,
+   "ampel_vorher": null,
+   "stand": "02.10.2026"
+  },
+  {
+   "ticker": "BRK-B",
+   "name": "Berkshire Hathaway Inc. (Klasse B)",
+   "kurs": 502.65,
+   "ampel": "Down",
+   "lage": "unter 21- und 50-Tage-Linie, 200er hält",
+   "punkte": 3,
+   "ampel_vorher": null,
+   "stand": "02.10.2026"
+  }
+ ]
+}

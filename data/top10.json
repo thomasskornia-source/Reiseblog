@@ -5,6 +5,7 @@
  "geprueft": 464,
  "ohne_down": 114,
  "vorher": [],
+ "raus": [],
  "top10": [
   {
    "ticker": "NVDA",
@@ -236,5 +237,359 @@
    "platz": 10,
    "neu": false
   }
- ]
+ ],
+ "sektoren": {
+  "Communication Services": [
+   {
+    "ticker": "META",
+    "name": "Meta Platforms",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 31.0,
+    "warren_ok": 6,
+    "warren_von": 7,
+    "punkte": 8
+   },
+   {
+    "ticker": "GOOG",
+    "name": "Alphabet Inc. (Class C)",
+    "ampel": "Medium",
+    "lage": "über 8 und 21, aber unter 50",
+    "kgv": 31.5,
+    "warren_ok": 6,
+    "warren_von": 7,
+    "punkte": 6
+   },
+   {
+    "ticker": "GOOGL",
+    "name": "Alphabet Inc. (Class A)",
+    "ampel": "Medium",
+    "lage": "über 8 und 21, aber unter 50",
+    "kgv": 31.8,
+    "warren_ok": 6,
+    "warren_von": 7,
+    "punkte": 5
+   },
+   {
+    "ticker": "WBD",
+    "name": "Warner Bros. Discovery",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 106.7,
+    "warren_ok": 1,
+    "warren_von": 7,
+    "punkte": 10
+   }
+  ],
+  "Consumer Discretionary": [
+   {
+    "ticker": "HLT",
+    "name": "Hilton Worldwide",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 52.2,
+    "warren_ok": 5,
+    "warren_von": 6,
+    "punkte": 7
+   },
+   {
+    "ticker": "WSM",
+    "name": "Williams-Sonoma, Inc.",
+    "ampel": "Medium",
+    "lage": "über 8 und 21, aber unter 50",
+    "kgv": 26.3,
+    "warren_ok": 5,
+    "warren_von": 7,
+    "punkte": 6
+   },
+   {
+    "ticker": "MAR",
+    "name": "Marriott International",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 37.7,
+    "warren_ok": 4,
+    "warren_von": 6,
+    "punkte": 6
+   },
+   {
+    "ticker": "BBY",
+    "name": "Best Buy",
+    "ampel": "Medium",
+    "lage": "zwischen 21 und 50",
+    "kgv": 17.5,
+    "warren_ok": 5,
+    "warren_von": 7,
+    "punkte": 4
+   }
+  ],
+  "Consumer Staples": [
+   {
+    "ticker": "TGT",
+    "name": "Target Corporation",
+    "ampel": "Medium",
+    "lage": "zwischen 21 und 50",
+    "kgv": 19.2,
+    "warren_ok": 5,
+    "warren_von": 7,
+    "punkte": 7
+   }
+  ],
+  "Energy": [
+   {
+    "ticker": "PSX",
+    "name": "Phillips 66",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 24.5,
+    "warren_ok": 6,
+    "warren_von": 7,
+    "punkte": 7
+   },
+   {
+    "ticker": "APA",
+    "name": "APA Corporation",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 10.9,
+    "warren_ok": 6,
+    "warren_von": 6,
+    "punkte": 5
+   },
+   {
+    "ticker": "VLO",
+    "name": "Valero Energy",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 53.7,
+    "warren_ok": 4,
+    "warren_von": 6,
+    "punkte": 9
+   },
+   {
+    "ticker": "MPC",
+    "name": "Marathon Petroleum",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 31.9,
+    "warren_ok": 4,
+    "warren_von": 7,
+    "punkte": 9
+   },
+   {
+    "ticker": "DVN",
+    "name": "Devon Energy",
+    "ampel": "Medium",
+    "lage": "zwischen 21 und 50",
+    "kgv": 11.4,
+    "warren_ok": 6,
+    "warren_von": 7,
+    "punkte": 4
+   }
+  ],
+  "Financials": [
+   {
+    "ticker": "WRB",
+    "name": "W. R. Berkley Corporation",
+    "ampel": "Medium",
+    "lage": "über 8 und 21, aber unter 50",
+    "kgv": 15.5,
+    "warren_ok": 5,
+    "warren_von": 5,
+    "punkte": 3
+   }
+  ],
+  "Health Care": [
+   {
+    "ticker": "A",
+    "name": "Agilent Technologies",
+    "ampel": "Medium",
+    "lage": "Rücksetzer: unter 8, über 21",
+    "kgv": 36.7,
+    "warren_ok": 6,
+    "warren_von": 7,
+    "punkte": 8
+   },
+   {
+    "ticker": "MTD",
+    "name": "Mettler Toledo",
+    "ampel": "Medium",
+    "lage": "Rücksetzer: unter 8, über 21",
+    "kgv": 35.3,
+    "warren_ok": 5,
+    "warren_von": 6,
+    "punkte": 7
+   },
+   {
+    "ticker": "ILMN",
+    "name": "Illumina, Inc.",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 50.1,
+    "warren_ok": 5,
+    "warren_von": 7,
+    "punkte": 8
+   },
+   {
+    "ticker": "MRK",
+    "name": "Merck & Co.",
+    "ampel": "Medium",
+    "lage": "zwischen 21 und 50",
+    "kgv": 19.8,
+    "warren_ok": 7,
+    "warren_von": 7,
+    "punkte": 4
+   },
+   {
+    "ticker": "WAT",
+    "name": "Waters Corporation",
+    "ampel": "Medium",
+    "lage": "Rücksetzer: unter 8, über 21",
+    "kgv": 39.5,
+    "warren_ok": 5,
+    "warren_von": 7,
+    "punkte": 7
+   }
+  ],
+  "Industrials": [
+   {
+    "ticker": "JCI",
+    "name": "Johnson Controls",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 31.1,
+    "warren_ok": 5,
+    "warren_von": 6,
+    "punkte": 10
+   },
+   {
+    "ticker": "ETN",
+    "name": "Eaton Corporation",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 41.7,
+    "warren_ok": 6,
+    "warren_von": 7,
+    "punkte": 9
+   },
+   {
+    "ticker": "FAST",
+    "name": "Fastenal",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 46.6,
+    "warren_ok": 6,
+    "warren_von": 7,
+    "punkte": 9
+   },
+   {
+    "ticker": "AME",
+    "name": "Ametek",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 39.4,
+    "warren_ok": 5,
+    "warren_von": 7,
+    "punkte": 10
+   },
+   {
+    "ticker": "NDSN",
+    "name": "Nordson Corporation",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 39.2,
+    "warren_ok": 5,
+    "warren_von": 7,
+    "punkte": 9
+   }
+  ],
+  "Information Technology": [
+   {
+    "ticker": "NVDA",
+    "name": "Nvidia",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 47.7,
+    "warren_ok": 6,
+    "warren_von": 7,
+    "punkte": 11
+   },
+   {
+    "ticker": "FTNT",
+    "name": "Fortinet",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 74.8,
+    "warren_ok": 6,
+    "warren_von": 7,
+    "punkte": 10
+   },
+   {
+    "ticker": "MPWR",
+    "name": "Monolithic Power Systems",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 112.0,
+    "warren_ok": 6,
+    "warren_von": 7,
+    "punkte": 9
+   },
+   {
+    "ticker": "ACN",
+    "name": "Accenture",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 16.4,
+    "warren_ok": 7,
+    "warren_von": 7,
+    "punkte": 7
+   },
+   {
+    "ticker": "FFIV",
+    "name": "F5, Inc.",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 38.5,
+    "warren_ok": 5,
+    "warren_von": 6,
+    "punkte": 9
+   }
+  ],
+  "Materials": [
+   {
+    "ticker": "FCX",
+    "name": "Freeport-McMoRan",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": null,
+    "warren_ok": 2,
+    "warren_von": 6,
+    "punkte": 5
+   }
+  ],
+  "Real Estate": [
+   {
+    "ticker": "HST",
+    "name": "Host Hotels & Resorts",
+    "ampel": "Medium",
+    "lage": "über 8 und 21, aber unter 50",
+    "kgv": 20.5,
+    "warren_ok": 4,
+    "warren_von": 6,
+    "punkte": 4
+   }
+  ],
+  "Utilities": [
+   {
+    "ticker": "AES",
+    "name": "AES Corporation",
+    "ampel": "Up",
+    "lage": "über 8-, 21- und 50-Tage-Linie",
+    "kgv": 11.8,
+    "warren_ok": 3,
+    "warren_von": 6,
+    "punkte": 7
+   }
+  ]
+ }
 }
