@@ -38,11 +38,15 @@ Gewinn- und Margenentwicklung über mehrere Jahre, Aktienrückkäufe/Verwässeru
 - **Die Zahlen schreibt das Werkzeug, nicht du:** Erst `python3 tools/kurs-check.py <Yahoo-Ticker>` lesen (US: `KO`, Xetra:
   `SIE.DE`, London `.L`, Paris `.PA`), dann den Eintrag mit Texten und Urteilen in `data/aktien.json` anlegen oder
   ersetzen, **danach** `python3 tools/kurs-check.py <Ticker> --schreibe` ausführen: Das trägt Kurs, Linien, `ampel`
-  (Up / Medium / Down), `lage` und den 1-Jahres-Verlauf für den Chart (252 Handelstage) in `james` ein. Diese Felder nie von Hand schreiben
+  (Up / Medium / Down), `lage`, `rsi`, `macd`, `muster` (Bodenbildung, Unterstützungs- und Widerstandslinie), den
+  Setup-Score (`score`, 12 offene Regeln, Stufen Schwach / Beobachten / Momentum im Aufbau / Stark) und den
+  1-Jahres-Verlauf für den Chart (252 Handelstage) in `james` ein. Diese Felder nie von Hand schreiben
   oder abtippen. Schlägt das Werkzeug fehl („FEHLER: …“): Zahlen weglassen, nichts schätzen.
-- Dein Text bei James nennt `ampel` und `lage` genau so wie das Werkzeug, die Lage zur 200er (steigt oder fällt sie)
-  und das Verhältnis zum Markt (siehe unten). Auch die Lage in der 52-Wochen-Spanne (`pos_52w_pct`) darf vorkommen. Alle
-  Bewertungen von Linien und Option Flows gelten auf Jahresbasis. Kein Chart-Wissen aus dem Gedächtnis.
+- Dein James-Text (3–5 Sätze) nennt `ampel` und `lage` genau so wie das Werkzeug, die Lage zur 200er (steigt oder fällt
+  sie), RSI und MACD in einem Halbsatz, den Setup-Score mit Stufe und, falls vorhanden, Bodenbildung oder Trendlinien
+  (`muster`, mit Status intakt / gebrochen / in Bildung / Ausbruch) sowie das Verhältnis zum Markt (siehe unten). Auch die
+  Lage in der 52-Wochen-Spanne (`pos_52w_pct`) darf vorkommen. Nichts davon erfinden: nur sagen, was im Werkzeug-Ergebnis
+  steht. Alle Bewertungen von Linien und Option Flows gelten auf Jahresbasis. Kein Chart-Wissen aus dem Gedächtnis.
 - **Markt:** `data/markt.json` (S&P 500, aktuell durch eine tägliche GitHub-Aktion, nicht von dir ändern) liefert
   `ampel` und `lage`. James setzt die Aktie ins Verhältnis: Up-Markt und Up-Aktie = Rückenwind; Down-Markt trotz Up-Aktie
   oder umgekehrt ausdrücklich nennen.
