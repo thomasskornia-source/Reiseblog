@@ -10,7 +10,7 @@ Einordnung (Kurs = letzter Schlusskurs), von oben nach unten, die erste zutreffe
   unter 21, aber über 50            -> Medium „zwischen 21 und 50“ (der Markt weiß nicht wohin)
   unter 21 und unter 50 (200 hält)  -> Down   „unter 21- und 50-Tage-Linie, 200er hält“
 """
-import datetime, json, urllib.parse, urllib.request
+import datetime, json, re, urllib.parse, urllib.request
 
 def holen(ticker, rng='2y'):
     url = 'https://query1.finance.yahoo.com/v8/finance/chart/%s?range=%s&interval=1d' % (urllib.parse.quote(ticker), rng)
@@ -70,3 +70,8 @@ def analyse(zeilen, meta=None, tage=80):
             'm50': [r(m50[i]) for i in letzte], 'm200': [r(m200[i]) for i in letzte],
         },
     }
+
+def kompakt(text):
+    """Zahlenlisten in einer Zeile halten, damit die JSON-Dateien lesbar und klein bleiben."""
+    return re.sub(r'\[\s*((?:-?[\d.]+(?:e[-+]?\d+)?,?\s*|"[^"]*",?\s*)+)\]',
+                  lambda m: '[' + re.sub(r'\s*\n\s*', ' ', m.group(1)).strip() + ']', text)
