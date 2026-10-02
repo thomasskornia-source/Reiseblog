@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+"""Top-10-Vorauswahl aus dem S&P 500 für WCJ (läuft täglich per GitHub-Aktion, kostet keine Claude-Token).
+
+James: Trend und Setup-Score aus tools/trend.py (Yahoo-Tageskurse).
+Warren: sieben einfache Qualitäts- und Preisregeln aus den Jahreszahlen der US-Börsenaufsicht SEC
+        (XBRL-„Frames“: je Kennzahl ein Abruf für alle Firmen, rund 15 Abrufe insgesamt).
+Rang = je zur Hälfte Anteil erfüllter Warren-Regeln und James-Score (von 12); Aktien „unter der 200-Tage-Linie“ fallen heraus.
+
+Aufruf:  SEC_KONTAKT=<mailadresse> python3 tools/screener.py     schreibt data/top10.json
+Die SEC verlangt in der Kennung des Abrufs eine Kontaktadresse (Umgebungsvariable SEC_KONTAKT, in GitHub als Secret hinterlegt).
+Ohne SEC_KONTAKT oder bei SEC-Fehler: Rang nur nach James' Trend (Vermerk „warren“: false in der Datei).
+"""
+import csv, datetime, io, json, os, sys, time, urllib.request
+from concurrent.futures import ThreadPoolExecutor
+sys.path.insert(0, os.path.dirname(__file__))
+import trend
+
+ROOT = os.path.join(os.path.dirname(__file__), '..')
+LISTE = 'https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv'
+SEC = 'https://data.sec.gov/api/xbrl/frames/us-gaap/%s/%s/%s.json'
+
+def web(url, ua):
+    req = urllib.request.Request(url, headers={'User-Agent': ua})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return r.read()
+
+def firmen():
+    rows = csv.DictReader(io.StringIO(web(LISTE, 'Mozilla/5.0').decode('utf-8')))
+    return [{'t': r['Symbol'], 'name': r['Security'], 'sektor': r['GICS Sector'], 'cik': int(r['CIK'])} for r in rows]
+
+def frame(ua, tag, einheit, periode):
+    try:
+        d = json.loads(web(SEC % (tag, einheit, periode), ua))
+    except Exception:
+        return {}
+    time.sleep(0.2)   # weit unter der SEC-Grenze (10 Abrufe pro Sekunde)
+    return {x['cik']: x['val'] for x in d['data']}
+
+def sec_zahlen():
+    kontakt = os.environ.get('SEC_KONTAKT', '').strip()
+    if not kontakt: return None
+    ua = 'Reiseblog-Screener %s' % kontakt
+    jahr = datetime.date.today().year - 1
+    ni = frame(ua, 'NetIncomeLoss', 'USD', 'CY%d' % jahr)
+    if len(ni) < 1000:                      # Jahr noch nicht komplett veröffentlicht
+        jahr -= 1; ni = frame(ua, 'NetIncomeLoss', 'USD', 'CY%d' % jahr)
+    if len(ni) < 1000: return None
+    z = {'jahr': jahr, 'ni': [frame(ua, 'NetIncomeLoss', 'USD', 'CY%d' % (jahr - k)) for k in range(4, 0, -1)] + [ni]}
+    z['eps'] = frame(ua, 'EarningsPerShareDiluted', 'USD-per-shares', 'CY%d' % jahr)
+    z['eigenkapital'] = frame(ua, 'StockholdersEquity', 'USD', 'CY%dQ4I' % jahr)
+    z['schulden'] = frame(ua, 'LongTermDebt', 'USD', 'CY%dQ4I' % jahr)
+    for cik, v in frame(ua, 'LongTermDebtNoncurrent', 'USD', 'CY%dQ4I' % jahr).items(): z['schulden'].setdefault(cik, v)
+    z['ocf'] = frame(ua, 'NetCashProvidedByUsedInOperatingActivities', 'USD', 'CY%d' % jahr)
+    z['capex'] = frame(ua, 'PaymentsToAcquirePropertyPlantAndEquipment', 'USD', 'CY%d' % jahr)
+    z['umsatz'] = frame(ua, 'Revenues', 'USD', 'CY%d' % jahr)
+    for cik, v in frame(ua, 'RevenueFromContractWithCustomerExcludingAssessedTax', 'USD', 'CY%d' % jahr).items(): z['umsatz'].setdefault(cik, v)
+    return z
+
+def warren(f, kurs, z):
+    """Sieben Regeln: je True / False / None (None = Daten fehlen oder Regel passt nicht, zählt nicht mit)."""
+    cik = f['cik']; bank = f['sektor'] == 'Financials'
+    reihe = [m.get(cik) for m in z['ni']]; ni = reihe[-1]
+    eigen, umsatz, eps = z['eigenkapital'].get(cik), z['umsatz'].get(cik), z['eps'].get(cik)
+    r = []
+    bekannt = [x for x in reihe if x is not None]
+    r.append(('Gewinn in jedem der letzten 5 Jahre', all(x > 0 for x in bekannt) if len(bekannt) >= 4 else None))
+    r.append(('Gewinn höher als vor 4 Jahren', (reihe[-1] > reihe[0]) if None not in (reihe[0], reihe[-1]) and reihe[0] > 0 else None))
+    roe = ni / eigen if ni is not None and eigen and eigen > 0 else None
+    r.append(('Eigenkapitalrendite mindestens 15 %', roe >= 0.15 if roe is not None else None))
+    marge = ni / umsatz if ni is not None and umsatz else None
+    r.append(('Nettomarge mindestens 10 %', marge >= 0.10 if marge is not None else None))
+    sch = z['schulden'].get(cik)
+    if bank or ni is None: r.append(('Schulden höchstens das 4-Fache des Jahresgewinns', None))
+    else: r.append(('Schulden höchstens das 4-Fache des Jahresgewinns', (ni > 0 and (sch or 0) <= 4 * ni)))
+    ocf, capex = z['ocf'].get(cik), z['capex'].get(cik)
+    r.append(('Freier Cashflow positiv', (ocf - (capex or 0)) > 0 if ocf is not None and not bank else None))
+    kgv = kurs / eps if eps and eps > 0 else None
+    r.append(('KGV zwischen 0 und 25', (kgv <= 25) if kgv is not None else (False if eps is not None else None)))
+    return r, (round(kgv, 1) if kgv else None), (round(roe * 100) if roe is not None else None), (round(marge * 100) if marge is not None else None)
+
+def james(f, bm):
+    try:
+        meta, zeilen = trend.holen(f['t'].replace('.', '-'))
+        a = trend.analyse(zeilen, meta, benchmark=bm)
+        return {'kurs': a['kurs'], 'ampel': a['ampel'], 'lage': a['lage'], 'punkte': a['score']['punkte'], 'stufe': a['score']['stufe'],
+                'rsi': a['rsi'], 'abstand_pct': a['abstand_pct'], 'pos_52w_pct': a['pos_52w_pct']}
+    except Exception:
+        return None
+
+def main():
+    fl = firmen()
+    bm = [z[4] for z in trend.holen('^GSPC')[1]]
+    z = None
+    try: z = sec_zahlen()
+    except Exception as e: print('SEC-Zahlen nicht abrufbar:', e)
+    with ThreadPoolExecutor(8) as ex: js = list(ex.map(lambda f: james(f, bm), fl))
+    alle = []
+    for f, j in zip(fl, js):
+        if not j: continue
+        w, kgv, roe, marge = (warren(f, j['kurs'], z) if z else ([], None, None, None))
+        ok = sum(1 for _, v in w if v is True); n = sum(1 for _, v in w if v is not None)
+        if z and n < 4: continue            # zu wenig Zahlen für ein Urteil
+        wp = ok / n if n else 0
+        rang = (0.5 * wp + 0.5 * j['punkte'] / 12) if z else j['punkte'] / 12
+        alle.append({'ticker': f['t'], 'name': f['name'], 'sektor': f['sektor'], **j, 'warren_ok': ok, 'warren_von': n,
+                     'kgv': kgv, 'roe_pct': roe, 'marge_pct': marge,
+                     'warren_gut': [t for t, v in w if v is True], 'warren_fehlt': [t for t, v in w if v is False], 'rang': round(rang, 3)})
+    kandidaten = sorted((a for a in alle if a['ampel'] != 'Down'), key=lambda a: -a['rang'])
+    top = kandidaten[:10]
+    pfad = os.path.join(ROOT, 'data', 'top10.json')
+    try: alt = json.load(open(pfad, encoding='utf-8'))
+    except Exception: alt = {}
+    vorher = [t['ticker'] for t in alt.get('top10', [])]
+    if alt.get('stand') == datetime.date.today().strftime('%d.%m.%Y'): vorher = alt.get('vorher', vorher)
+    for i, t in enumerate(top): t['platz'] = i + 1; t['neu'] = bool(vorher) and t['ticker'] not in vorher
+    out = {'stand': datetime.date.today().strftime('%d.%m.%Y'), 'warren': bool(z), 'zahlenjahr': z['jahr'] if z else None,
+           'geprueft': len(alle), 'ohne_down': len(kandidaten), 'vorher': vorher, 'top10': top}
+    with open(pfad, 'w', encoding='utf-8') as fh:
+        fh.write(trend.kompakt(json.dumps(out, ensure_ascii=False, indent=1)) + '\n')
+    print('Geprüft: %d, Top 10: %s' % (len(alle), ', '.join('%s (%.2f)' % (t['ticker'], t['rang']) for t in top)))
+
+main()

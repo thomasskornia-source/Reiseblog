@@ -77,6 +77,17 @@
   .markt b { color: var(--ink); }
   .markt .body { padding: 6px 0 4px; }
   .markt .cap { font-size: 12.5px; color: var(--ink-soft); margin: 0 0 2px; text-align: center; }
+  .top10 { margin-top: 2px; }
+  .top10 ol { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 6px; }
+  .top10 li { display: grid; grid-template-columns: 24px 1fr auto; gap: 4px 10px; align-items: center; padding: 9px 12px; background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 12px; cursor: pointer; text-align: left; }
+  .top10 li:hover { border-color: var(--rust); }
+  .top10 .n { font-family: 'Fraunces', serif; font-size: 17px; color: var(--ink-soft); text-align: center; }
+  .top10 .t { font-size: 14.5px; line-height: 1.25; }
+  .top10 .t b { color: var(--ink); }
+  .top10 .t small { display: block; color: var(--ink-soft); font-size: 12px; }
+  .top10 .z { font-size: 12.5px; color: var(--ink-soft); text-align: right; white-space: nowrap; }
+  .top10 .neu { font-size: 11px; font-weight: 600; color: var(--rust); margin-left: 6px; }
+  .top10 .hinweis { font-size: 12px; color: var(--ink-soft); margin: 8px 2px 0; text-align: center; }
   .markt .chartbox { margin-top: 4px; }
   .chartbox { grid-column: 1 / -1; margin-top: 10px; }
   .who .chartbox svg { width: 100%; height: auto; display: block; border-radius: 0; }
@@ -118,6 +129,7 @@
       <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="James"><circle cx="60" cy="60" r="60" fill="#F0D5C8"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#B5502E"/><path d="M50 90l10 12 10-12z" fill="#FAF3E8"/><ellipse cx="60" cy="58" rx="25" ry="30" fill="#E8B991"/><path d="M34 52c-3-20 8-31 26-31s29 11 26 31c-2-8-6-12-12-14-8 3-20 3-28 0-6 2-10 6-12 14z" fill="#3a2a22"/><path d="M38 70c2 14 10 22 22 22s20-8 22-22c-3 8-10 12-22 12s-19-4-22-12z" fill="#3a2a22" opacity=".55"/><g fill="#2E3A32"><rect x="40" y="49" width="16" height="6" rx="3"/><rect x="64" y="49" width="16" height="6" rx="3"/></g><circle cx="48" cy="52" r="1.8" fill="#fff"/><circle cx="72" cy="52" r="1.8" fill="#fff"/><path d="M48 72c8 5 16 5 24 0" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/><path d="M30 38c-6-3-8-9-7-14 3 4 7 6 12 7zM90 38c6-3 8-9 7-14-3 4-7 6-12 7z" fill="#FAF3E8" stroke="#8a7a68" stroke-width="1.5"/></svg><b>James</b><small>Kurs und Option Flows</small></div>
     </div>
     <details class="markt" id="markt" hidden><summary id="markt-s"></summary><div class="body" id="markt-c"></div></details>
+    <details class="markt top10" id="top10" hidden><summary id="top10-s"></summary><div class="body" id="top10-c"></div></details>
     <p class="sub">Aktie eintippen, drei Meinungen bekommen. Das Feld sucht auch in den bisherigen.</p>
     <form class="ak-form" id="form" autocomplete="off">
       <input id="inp" type="text" maxlength="60" placeholder="z. B. Apple, KO, Siemens" aria-label="Aktie">
@@ -128,7 +140,7 @@
     <div id="list"><p class="empty">Lädt …</p></div>
   </div>
 
-  <p class="foot">Warren, Charlie und James sind KI-Figuren, keine echten Personen und keine Zitate. Warren und Charlie folgen den öffentlich bekannten Grundsätzen von Warren Buffett und Charlie Munger. James folgt der öffentlich beschriebenen Methode von <a href="https://www.jamesbulltard.com" target="_blank" rel="noopener">James Bulltard</a> (Option Flows und Charts); die Seite ist nicht mit ihm abgestimmt. Die Option Flows sind eine Näherung aus öffentlichen, verzögerten Optionsumsätzen (Cboe), kein Blick auf einzelne Großanleger. Das hier ist keine Anlageberatung; Kennzahlen und Kurse können unvollständig oder veraltet sein.</p>
+  <p class="foot">Warren, Charlie und James sind KI-Figuren, keine echten Personen und keine Zitate. Warren und Charlie folgen den öffentlich bekannten Grundsätzen von Warren Buffett und Charlie Munger. Die Top 10 sind eine Vorauswahl nach festen Regeln (Warren: Jahreszahlen der US-Börsenaufsicht SEC, James: Trend und Setup-Score), keine Empfehlung. James folgt der öffentlich beschriebenen Methode von <a href="https://www.jamesbulltard.com" target="_blank" rel="noopener">James Bulltard</a> (Option Flows und Charts); die Seite ist nicht mit ihm abgestimmt. Die Option Flows sind eine Näherung aus öffentlichen, verzögerten Optionsumsätzen (Cboe), kein Blick auf einzelne Großanleger. Das hier ist keine Anlageberatung; Kennzahlen und Kurse können unvollständig oder veraltet sein.</p>
 </div>
 <script>
 (function () {
@@ -336,6 +348,20 @@
     $('markt-c').innerHTML = '<p class="cap">S&amp;P 500 Index, 1 Jahr (' + (m.serie ? m.serie.c.length : 0) + ' Handelstage)' + (m.kurs != null ? ' · Schlusskurs <b>' + zahl(m.kurs, 0) + '</b>' : '') + '</p>' + chart(m.serie, m);
     if (!m.serie) $('markt').removeAttribute('open');
     $('markt').hidden = false;
+  }, function () {});
+  fetch('data/top10.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (t) {
+    if (!t || !t.top10 || !t.top10.length) return;
+    $('top10-s').innerHTML = 'Top 10 im S&amp;P 500 <span>(Stand ' + esc(String(t.stand).slice(0, 5)) + ')</span>';
+    $('top10-c').innerHTML = '<ol>' + t.top10.map(function (x) {
+      return '<li data-t="' + esc(x.ticker) + '"><span class="n">' + x.platz + '</span><span class="t"><b>' + esc(x.ticker) + '</b> ' + esc(x.name) + (x.neu ? '<span class="neu">neu</span>' : '') +
+        '<small>' + dot(acls(x.ampel)) + ' ' + esc(x.lage) + (x.kgv ? ' · KGV ' + zahl(x.kgv, 1) : '') + '</small></span><span class="z">' +
+        (t.warren ? 'Warren ' + x.warren_ok + '/' + x.warren_von + '<br>' : '') + 'James ' + x.punkte + '/12</span></li>';
+    }).join('') + '</ol><p class="hinweis">Vorauswahl nach festen Regeln aus Kurs- und Jahreszahlen, täglich neu berechnet. Keine Empfehlung. Zeile antippen und „Prüfen“, dann sagen alle drei etwas dazu.</p>';
+    $('top10-c').addEventListener('click', function (ev) {
+      var li = ev.target.closest('li'); if (!li) return;
+      $('inp').value = li.getAttribute('data-t'); $('inp').focus(); $('inp').scrollIntoView({ block: 'center', behavior: 'smooth' });
+    });
+    $('top10').hidden = false;
   }, function () {});
   refresh();
 })();
