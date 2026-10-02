@@ -1,1 +1,64 @@
-{"einschaetzungen": []}
+{
+  "einschaetzungen": [
+    {
+      "eingabe": "Coca-Cola",
+      "zeitstempel": "01.10.2026 12:00:00",
+      "name": "The Coca-Cola Company",
+      "ticker": "KO (NYSE)",
+      "stand": "02.10.2026",
+      "kennzahlen": [
+        {
+          "k": "KGV",
+          "v": "ca. 25"
+        },
+        {
+          "k": "Free-Cashflow-Rendite",
+          "v": "unklar, grob 2–3 %"
+        },
+        {
+          "k": "Netto-Schulden/EBITDA",
+          "v": "ca. 1,4 (Q2 2026)"
+        },
+        {
+          "k": "ROIC",
+          "v": "ca. 13 % (2025, Drittanbieter)"
+        },
+        {
+          "k": "Vergleichbare Operating-Marge",
+          "v": "31,2 % (2025) nach 30,0 % (2024)"
+        },
+        {
+          "k": "Vergleichbarer Gewinn je Aktie",
+          "v": "3,00 $ (2025), +4 %"
+        },
+        {
+          "k": "Dividende gezahlt",
+          "v": "ca. 8,8 Mrd. $ (2025)"
+        }
+      ],
+      "warren": {
+        "urteil": "Abwarten",
+        "text": "Das Geschäft ist leicht zu verstehen: Konzentrat und Marke, die Abfüllung machen meist Partner. Der Burggraben aus Marke und weltweitem Vertrieb ist über Jahrzehnte belegt, die Marge liegt bei rund 31 % und die Verschuldung ist mit etwa dem 1,4-Fachen des EBITDA moderat. Die Gewinne sind sehr planbar. Der Haken ist der Preis: Bei einem KGV von rund 25 und einem Gewinnwachstum im mittleren einstelligen Bereich bleibt wenig Sicherheitsmarge. Ein großartiges Unternehmen, aber nach diesen Prinzipien nicht zu jedem Preis."
+      },
+      "charlie": {
+        "urteil": "Abwarten",
+        "text": "Invertiert gefragt: Wie geht das schief? Weniger Zucker, Gesundheitstrends und Preisgrenzen bei Verbrauchern, dazu Währungsschwankungen. Die Anreize des Managements wirken sauber, der Konzern ist kein Wachstumsversprechen, sondern eine Dividendenmaschine. Ich warne vor dem Denkfehler, Qualität mit einem guten Kaufpreis zu verwechseln: Wer für Sicherheit jeden Preis zahlt, bekommt weniger, als er denkt. Im Gegensatz zu Warren würde ich hier eher auf Geduld als auf Begeisterung setzen; das Unternehmen ist gut, der Zeitpunkt nicht zwingend."
+      },
+      "risiken": "Gesundheitsregulierung und Zuckersteuern, Wandel hin zu weniger gesüßten Getränken, Währungsrisiken und eine hohe Bewertung, die wenig Fehler verzeiht. Zahlen teils aus Drittquellen und nicht vollständig geprüft.",
+      "quellen": [
+        {
+          "name": "Coca-Cola Q4/Gesamtjahr 2025 (SEC 8-K)",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026006642/a2025q4earningsreleaseex-9.htm"
+        },
+        {
+          "name": "Q2 2026 Zusammenfassung (Quartr)",
+          "url": "https://quartr.com/events/the-coca-cola-company-ko-q2-2026_3smRkOd9"
+        },
+        {
+          "name": "Geschäftsbericht 10-K 2025",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm"
+        }
+      ]
+    }
+  ]
+}
