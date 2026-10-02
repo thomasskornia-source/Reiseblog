@@ -189,7 +189,7 @@
     var lo = Infinity, hi = -Infinity, vmax = 0, i;
     for (i = 0; i < n; i++) { lo = Math.min(lo, s.l[i], s.m8[i], s.m21[i], s.m50[i], s.m200[i]); hi = Math.max(hi, s.h[i], s.m8[i], s.m21[i], s.m50[i], s.m200[i]); vmax = Math.max(vmax, s.v[i]); }
     var pad = (hi - lo) * 0.04; lo -= pad; hi += pad;
-    var st = (W - pl - pr) / n, cw = Math.max(1.4, st * 0.6);
+    var st = (W - pl - pr) / n, cw = Math.max(0.9, st * 0.6), wd = cw < 2 ? 0.6 : 0.8;
     function X(k) { return pl + (k + 0.5) * st; }
     function Y(v) { return top + (hi - v) / (hi - lo) * pH; }
     var g = '', ticks = 4;
@@ -197,7 +197,7 @@
     for (i = 0; i < n; i++) {
       var up = s.c[i] >= s.o[i], col = up ? '#3f8f3f' : '#c0392b', x = X(i);
       var yb = Y(Math.max(s.o[i], s.c[i])), hb = Math.max(1, Math.abs(Y(s.o[i]) - Y(s.c[i])));
-      g += '<line x1="' + x.toFixed(1) + '" x2="' + x.toFixed(1) + '" y1="' + Y(s.h[i]).toFixed(1) + '" y2="' + Y(s.l[i]).toFixed(1) + '" stroke="' + col + '" stroke-width=".8"/><rect x="' + (x - cw / 2).toFixed(1) + '" y="' + yb.toFixed(1) + '" width="' + cw.toFixed(1) + '" height="' + hb.toFixed(1) + '" fill="' + col + '"/>';
+      g += '<line x1="' + x.toFixed(1) + '" x2="' + x.toFixed(1) + '" y1="' + Y(s.h[i]).toFixed(1) + '" y2="' + Y(s.l[i]).toFixed(1) + '" stroke="' + col + '" stroke-width="' + wd + '"/><rect x="' + (x - cw / 2).toFixed(1) + '" y="' + yb.toFixed(1) + '" width="' + cw.toFixed(1) + '" height="' + hb.toFixed(1) + '" fill="' + col + '"/>';
       var vh = vmax ? s.v[i] / vmax * vH : 0;
       g += '<rect x="' + (x - cw / 2).toFixed(1) + '" y="' + (top + pH + 6 + vH - vh).toFixed(1) + '" width="' + cw.toFixed(1) + '" height="' + vh.toFixed(1) + '" fill="rgba(46,58,50,.25)"/>';
     }
@@ -301,7 +301,7 @@
   fetch('data/markt.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (m) {
     if (!m || !m.ampel) return;
     $('markt-s').innerHTML = 'Markt · S&amp;P 500 ' + dot(acls(m.ampel)) + '<b>' + esc(m.ampel) + '</b> <span>' + esc(m.lage) + ' (Stand ' + esc(String(m.stand).slice(0, 5)) + ')</span>';
-    $('markt-c').innerHTML = '<p class="cap">S&amp;P 500 Index, 80 Handelstage' + (m.kurs != null ? ' · Schlusskurs <b>' + zahl(m.kurs, 0) + '</b>' : '') + '</p>' + chart(m.serie, m);
+    $('markt-c').innerHTML = '<p class="cap">S&amp;P 500 Index, 1 Jahr (' + (m.serie ? m.serie.c.length : 0) + ' Handelstage)' + (m.kurs != null ? ' · Schlusskurs <b>' + zahl(m.kurs, 0) + '</b>' : '') + '</p>' + chart(m.serie, m);
     if (!m.serie) $('markt').removeAttribute('open');
     $('markt').hidden = false;
   }, function () {});

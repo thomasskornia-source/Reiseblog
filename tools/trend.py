@@ -62,7 +62,7 @@ def analyse(zeilen, meta=None, tage=80):
         'hoch_52w': r(max(c[-252:])), 'tief_52w': r(min(c[-252:])),
         'ampel': ampel, 'lage': zone,
         'serie': {
-            'd': [datetime.datetime.utcfromtimestamp(zeilen[i][0]).strftime('%d.%m.') for i in letzte],
+            'd': [datetime.datetime.utcfromtimestamp(zeilen[i][0]).strftime('%d.%m.%y') for i in letzte],
             'o': [r(zeilen[i][1]) for i in letzte], 'h': [r(zeilen[i][2]) for i in letzte],
             'l': [r(zeilen[i][3]) for i in letzte], 'c': [r(zeilen[i][4]) for i in letzte],
             'v': [int(zeilen[i][5] / 1000) for i in letzte],
