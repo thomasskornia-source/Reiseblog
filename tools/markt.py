@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Marktstimmung S&P 500 (Indikator Up / Medium / Down) nach der Trend-Logik in tools/trend.py.
 
-Aufruf:  python3 tools/markt.py            schreibt data/markt.json (mit 80-Tage-Verlauf für den Chart) (läuft täglich per GitHub-Aktion)
+Aufruf:  python3 tools/markt.py            schreibt data/markt.json (mit 1-Jahres-Verlauf für den Chart) (läuft täglich per GitHub-Aktion)
 Fehler:  Exit-Code 1 und „FEHLER: …“, die Datei bleibt dann unverändert.
 """
 import json, os, sys
@@ -11,7 +11,7 @@ import trend
 def main():
     try:
         meta, zeilen = trend.holen('^GSPC')
-        a = trend.analyse(zeilen, meta)
+        a = trend.analyse(zeilen, meta, tage=252)   # 1 Jahr Verlauf für den Chart
     except Exception as e:
         print('FEHLER: S&P 500 nicht abrufbar (%s)' % e); sys.exit(1)
     a.update({'name': 'S&P 500', 'quelle': 'Yahoo Finance (Tageskurse)'})
