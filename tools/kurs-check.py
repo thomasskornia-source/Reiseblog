@@ -9,16 +9,11 @@ Ticker: US `KO`, Xetra `SIE.DE`, London `.L`, Paris `.PA`.
 ampel, lage, serie) und lässt Texte und Urteile unberührt; gibt es noch keinen Eintrag mit diesem Symbol, passiert nichts.
 Fehler: Exit-Code 1 und „FEHLER: …“ – dann keine Zahlen erfinden.
 """
-import json, os, re, sys
+import json, os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 import trend
 
 PFAD = os.path.join(os.path.dirname(__file__), '..', 'data', 'aktien.json')
-
-def kompakt(text):
-    """Zahlenlisten in einer Zeile halten, damit die Datei lesbar und klein bleibt."""
-    return re.sub(r'\[\s*((?:-?[\d.]+(?:e[-+]?\d+)?,?\s*|"[^"]*",?\s*)+)\]',
-                  lambda m: '[' + re.sub(r'\s*\n\s*', ' ', m.group(1)).strip() + ']', text)
 
 def schreiben(sym, a):
     with open(PFAD, encoding='utf-8') as f:
@@ -33,7 +28,7 @@ def schreiben(sym, a):
     j['kurs_stand'] = a['stand']
     ziel[-1].setdefault('symbol', sym.upper())
     with open(PFAD, 'w', encoding='utf-8') as f:
-        f.write(kompakt(json.dumps(d, ensure_ascii=False, indent=2)) + '\n')
+        f.write(trend.kompakt(json.dumps(d, ensure_ascii=False, indent=2)) + '\n')
     print('OK: Zahlen und Chart in den Eintrag %s geschrieben' % sym.upper())
 
 def main():
