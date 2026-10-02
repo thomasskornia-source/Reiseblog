@@ -1465,7 +1465,7 @@ function compute(P) {
   }
   var dt = function (iso) { try { return new Date(iso).toLocaleString('de-DE', { dateStyle: 'medium', timeStyle: 'short' }); } catch (e) { return ''; } };
   $('svSave').addEventListener('click', function () {
-    var o = collect(), name = 'finanzplanung-' + o.saved.slice(0, 10) + '.json', text = JSON.stringify(o, null, 2);
+    var o = collect(), name = 'finanzplanung.json', text = JSON.stringify(o, null, 2);
     var done = function () { svMsg('Gespeichert als ' + name + '. Die Datei enthält deine Eingaben im Klartext, bewahre sie sicher auf.'); };
     var plain = function () {
       try {
