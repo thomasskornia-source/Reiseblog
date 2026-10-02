@@ -116,3 +116,9 @@ html, body { overflow-x: clip; max-width: 100%; }
 @media (max-width: 900px) {
   input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="button"]):not([type="submit"]), select, textarea { font-size: 16px !important; }
 }
+/* Ampel: nur Farbpunkte, ohne Text */
+.page-list .ampel-btn { width: 44px; height: 44px; padding: 0; justify-content: center; gap: 0; }
+.page-list .ampel-btn i { width: 22px; height: 22px; }
+.page-list .ampel-btn.active { background: #fff; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(46, 58, 50, .18); color: var(--ink); }
+.page-list .ampel-btn.active i { box-shadow: none; transform: scale(1.12); }
+.page-list .filter-bar { align-items: center; }
