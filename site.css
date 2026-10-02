@@ -122,3 +122,37 @@ html, body { overflow-x: clip; max-width: 100%; }
 .page-list .ampel-btn.active { background: #fff; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(46, 58, 50, .18); color: var(--ink); }
 .page-list .ampel-btn.active i { box-shadow: none; transform: scale(1.12); }
 .page-list .filter-bar { align-items: center; }
+
+/* ---------- Rezepte: appetitlicher ---------- */
+.rmedia { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(135deg, var(--c1, #F2A65A), var(--c2, #C8562B)); }
+.rmedia::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 25% 20%, rgba(255, 255, 255, .35), transparent 55%), radial-gradient(circle at 85% 90%, rgba(0, 0, 0, .12), transparent 50%); }
+.rmedia::after { content: ''; position: absolute; width: 180%; height: 60%; left: -40%; bottom: -34%; border-radius: 50%; background: rgba(255, 255, 255, .14); }
+.rmedia .remo { position: relative; z-index: 1; font-size: 72px; line-height: 1; filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .22)); transition: transform .35s cubic-bezier(.2, 1.4, .4, 1); }
+.rmedia img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+
+.page-list .entry-list .entry-preview.has-media, .page-list .entry-list .entry-preview.has-media:first-child { padding: 0 0 20px; }
+.page-list .entry-preview.has-media > :not(.rmedia):not(.ampel-dot) { margin-left: 20px; margin-right: 20px; }
+.page-list .entry-preview.has-media .rmedia { order: 0; height: 168px; margin-bottom: 16px; }
+.page-list .entry-preview.has-media:hover .remo { transform: scale(1.15) rotate(-6deg); }
+.page-list .entry-preview.has-media .ampel-dot { top: 14px; right: 14px; z-index: 3; width: 18px; height: 18px; box-shadow: 0 0 0 4px rgba(255, 255, 255, .95), 0 2px 8px rgba(0, 0, 0, .2); }
+.page-list .entry-preview.has-media::after { z-index: 3; }
+.page-list .entry-preview.has-media h2 { padding-right: 0; }
+@media (min-width: 1000px) { .page-list .entry-list .entry-preview.has-media, .page-list .entry-list .entry-preview.has-media:first-child { padding: 0 0 24px; } .page-list .entry-preview.has-media > :not(.rmedia):not(.ampel-dot) { margin-left: 24px; margin-right: 24px; } .page-list .entry-preview.has-media .rmedia { height: 190px; } }
+
+/* Einzelseite */
+.page-recipe .rhero { height: 200px; border-radius: 24px; margin: 0 0 24px; box-shadow: 0 14px 34px rgba(46, 58, 50, .16); }
+.page-recipe .rhero .remo { font-size: 96px; }
+@media (min-width: 700px) { .page-recipe .rhero { height: 280px; } .page-recipe .rhero .remo { font-size: 120px; } }
+.page-recipe .entry-header h1 { font-size: clamp(30px, 7vw, 46px); }
+.page-recipe .ampel-dot-inline { vertical-align: middle; }
+.recipe-meta { flex-wrap: wrap; gap: 8px; }
+.recipe-meta span { background: #fff; border: 1px solid rgba(46, 58, 50, .1); padding: 6px 13px; border-radius: 99px; font-size: 14px; color: var(--ink); box-shadow: 0 3px 10px rgba(46, 58, 50, .05); }
+.recipe-ingredients { background: #fff; border-radius: 20px; box-shadow: 0 10px 28px rgba(46, 58, 50, .09); border-top: 5px solid var(--rust); }
+.recipe-ingredients ul { list-style: none; padding: 0; }
+.recipe-ingredients li { position: relative; padding: 9px 0 9px 26px; margin: 0; border-bottom: 1px dashed rgba(46, 58, 50, .14); }
+.recipe-ingredients li:last-child { border-bottom: 0; }
+.recipe-ingredients li::before { content: ''; position: absolute; left: 2px; top: 17px; width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, #F0A15A, var(--rust)); }
+.recipe-steps ol { list-style: none; padding: 0; counter-reset: s; }
+.recipe-steps li { counter-increment: s; position: relative; padding: 4px 0 4px 48px; margin-bottom: 16px; min-height: 36px; }
+.recipe-steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #F0A15A, var(--rust)); color: #fff; font: 600 16px 'Fraunces', serif; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(181, 80, 46, .35); }
+.rating-block { background: #fff; border-radius: 20px; box-shadow: 0 10px 28px rgba(46, 58, 50, .09); }
