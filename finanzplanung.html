@@ -1739,15 +1739,19 @@ function compute(P) {
     // 2 Heute
     var accr = 0, accrOf = function (Q, age) { if (Q.renteInfo > 0) return Q.renteInfo * Math.max(0, age - Q.startAge) / Math.max(1, R.retAge - Q.startAge); return pensionGross(Q, Math.max(Q.startAge, age)).v; };
     accr = accrOf(P, R.age0) + (two ? accrOf(P.partner, YEAR - P.partner.by) : 0);
-    var hv = [];
-    if (accr > 1) hv.push(['Gesetzliche Rente', 'ca. ' + eur(accr) + ' / Monat']);
-    if (P.bRente > 0) hv.push(['Betriebsrente', eur(P.bRente) + ' / Monat']); else if (P.bKap > 0) hv.push(['Betriebsrente', eur(P.bKap) + ' Kapital']);
-    if (R.cGross > 0) hv.push(['Rentenverträge', eur(R.cGross) + ' / Monat']);
-    if (R.bkNom > 1) hv.push(['Betriebliche Leistungen', eur(R.bkNom) + ' netto, einmalig']);
-    if (R.lumpNom - R.bkNom > 1) hv.push(['Kapitalverträge', eur(R.lumpNom - R.bkNom) + ' netto, einmalig']);
-    c.push({ t: 't-sage', h: '<div class="st-eye">Heute</div><h2>Das ist schon da</h2><div class="st-big">' + cnt(P.W0, 'eur') + '</div><div class="st-sub">Vermögen heute</div>' +
-      (hv.length ? '<div class="st-sub" style="margin-top:12px">Dazu schon erworbene Ansprüche</div><div class="st-rows">' + hv.map(function (x) { return '<div class="st-row"><span>' + x[0] + '</span><b>' + x[1] + '</b></div>'; }).join('') + '</div>' : '') +
-      '<p>' + (two ? 'Ihr spart ' : 'Du sparst ') + eur(P.sparrate) + ' pro Monat (' + pct(L.quote) + ' vom Netto)' + (L.bm > 0 && L.mult > 0 ? ', Faustregel fürs Vermögen: ' + num(L.bm, 1) + '× Jahreseinkommen, ' + (two ? 'ihr liegt' : 'du liegst') + ' bei ' + num(L.mult, 1) + '×.' : '.') + '</p>' });
+    var once = [['Vermögen heute', P.W0]], mon = [];
+    if (R.bkNom > 1) once.push(['Betriebliche Einmalzahlung', R.bkNom]);
+    if (R.lumpNom - R.bkNom > 1) once.push(['Kapitalverträge', R.lumpNom - R.bkNom]);
+    if (!(P.bRente > 0) && P.bKap > 0) once.push(['Betriebsrente als Kapital', P.bKap]);
+    if (accr > 1) mon.push(['Gesetzliche Rente (erworben)', accr]);
+    if (P.bRente > 0) mon.push(['Betriebsrente', P.bRente]);
+    if (R.cGross > 0) mon.push(['Rentenverträge', R.cGross]);
+    var sumOnce = once.reduce(function (s, x) { return s + x[1]; }, 0), sumMon = mon.reduce(function (s, x) { return s + x[1]; }, 0);
+    var rowsH = function (arr) { if (arr.length === 1) return '<div class="st-sub">' + arr[0][0] + '</div>'; return '<div class="st-rows">' + arr.map(function (x) { return '<div class="st-row"><span>' + x[0] + '</span><b>' + eur(x[1]) + '</b></div>'; }).join('') + '</div>'; };
+    c.push({ t: 't-sage', h: '<div class="st-eye">Heute</div><h2>Das ist schon da</h2>' +
+      '<div class="st-sub">Einmalig</div><div class="st-big" style="font-size:clamp(36px,11vw,50px)">' + cnt(sumOnce, 'eur') + '</div>' + rowsH(once) +
+      (mon.length ? '<div class="st-sub" style="margin-top:16px">Monatlich ab Rente (brutto)</div><div class="st-big" style="font-size:clamp(36px,11vw,50px)">' + cnt(sumMon, 'eur') + '</div>' + rowsH(mon) : '') +
+      '<p class="st-fine">' + (two ? 'Ihr spart ' : 'Du sparst ') + eur(P.sparrate) + ' pro Monat (' + pct(L.quote) + ' vom Netto). Ansprüche geschätzt, Einmalzahlungen bei Rentenbeginn.</p>' });
     // Bis zur Rente in Zahlen
     var yL = Math.max(0, R.retAge - R.age0), ni = R.ni, gB = ni.net + ni.sv + ni.tax + ni.kist, cur = new Date();
     if (yL > 0.5 && gB > 0) {
