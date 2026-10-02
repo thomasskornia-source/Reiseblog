@@ -27,10 +27,14 @@ Gewinn- und Margenentwicklung über mehrere Jahre, Aktienrückkäufe/Verwässeru
 - `python3 tools/kurs-check.py <Yahoo-Ticker>` (US: `KO`, Xetra: `SIE.DE`, London: `.L`, Paris: `.PA`) liefert Kurs,
   200-Tage-Linie, Abstand, 50-Tage-Linie, 21er-EMA. Das Ergebnis ist die einzige Quelle für diese Zahlen; schlägt es
   fehl (Ausgabe „FEHLER: …“), Zahlen weglassen und `"kurs_daten": false` setzen, nichts schätzen.
-- **Flüsse:** In Google Drive (Connector) nach dem Ordner oder der Datei „Stock Terminal“ suchen (Export mit
-  Optionsflüssen). Gibt es Zeilen zur Aktie aus den letzten 10 Handelstagen: Richtung aus dem Verhältnis von
-  Call- zu Put-Käufen (Prämie) ableiten und in einem Satz mit Zahlen begründen. Gibt es nichts zur Aktie oder
-  keinen Export: `"richtung": "keine Daten"`. Nie Flüsse aus dem Gedächtnis oder aus Nachrichten schätzen.
+- **Flüsse:** `python3 tools/optionsfluesse.py <US-Ticker>` (öffentliche, verzögerte Cboe-Optionsdaten, nur US-Aktien).
+  Es liefert Richtung (bullisch / neutral / bärisch), Put/Call-Volumen, Prämien, ungewöhnliche Kontrakte. Die Richtung
+  ist eine **Näherung aus dem heutigen Optionsumsatz**, kein echter Institutionen-Flow (Käufer- oder Verkäuferseite
+  unbekannt). Das so benennen: im Feld `flows.text` ein Satz mit 2–3 Zahlen (z. B. Put/Call-Volumen, größter
+  auffälliger Kontrakt) und der Zusatz „Näherung aus Optionsumsatz“. `flows.quelle` = „Cboe, verzögert“.
+  Schlägt es fehl (kein US-Ticker, keine Optionen, „FEHLER: …“): `"richtung": "keine Daten"`, nichts schätzen.
+  Wurde eine Stock-Terminal-Datei von Thomas in Google Drive abgelegt (Ordner „Stock Terminal“), darf sie zusätzlich
+  genutzt werden; sie ersetzt das Tool nicht.
 - Konzept von James: `wissen/james-bulltard.md`.
 
 ## Eintrag in `data/aktien.json`
@@ -50,7 +54,7 @@ Gewinn- und Margenentwicklung über mehrere Jahre, Aktienrückkäufe/Verwässeru
     "urteil": "Über der 200-Tage-Linie | Unter der 200-Tage-Linie",
     "lage": "deutlich über | knapp über | knapp unter | deutlich unter",
     "kurs": 85.54, "ma200": 80.01, "abstand_pct": 6.9, "ma50": 87.94, "ma200_steigt": true, "waehrung": "USD",
-    "flows": {"richtung": "bullisch | neutral | bärisch | keine Daten", "quelle": "Stock Terminal", "stand": "02.10.2026", "text": "1–2 Sätze mit Zahlen"},
+    "flows": {"richtung": "bullisch | neutral | bärisch | keine Daten", "quelle": "Cboe, verzögert", "stand": "02.10.2026", "text": "1–2 Sätze mit Zahlen"},
     "text": "3–4 Sätze: Lage zur 200-Tage-Linie, kurzfristiger Trend, Flüsse; reine Markttechnik, keine Firmenbewertung"
   },
   "verlauf": [{"stand": "25.09.2026", "warren": "Abwarten", "charlie": "Abwarten", "james": "Über der 200-Tage-Linie"}],

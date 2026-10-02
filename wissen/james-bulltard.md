@@ -29,8 +29,11 @@ wolle in Werten sein, die gekauft werden. Optionsflüsse zeigen, was große Mark
 Zwei Aussagen, so wie Thomas es wünscht:
 1. **Kurs gegen die 200-Tage-Linie** (Lage, Abstand in Prozent, ob die Linie steigt; zusätzlich 50-Tage-Linie und
    21er-EMA als kurzfristiger Hinweis). Zahlen kommen aus `python3 tools/kurs-check.py <Ticker>`.
-2. **Flüsse** (Optionsflüsse): Richtung bullisch / neutral / bärisch aus den Stock-Terminal-Daten, falls vorhanden.
-   Gibt es keine Daten, steht „keine Daten“; die Flüsse werden dann **nicht** geschätzt.
+2. **Flüsse** (Optionsflüsse): Richtung bullisch / neutral / bärisch aus `python3 tools/optionsfluesse.py <Ticker>`
+   (öffentliche, verzögerte Cboe-Optionsdaten, nur US-Aktien). Das ist eine **Näherung aus dem Tagesumsatz** (Put/Call
+   im Vergleich zum Normalwert der Aktie, Prämien, ungewöhnliche Kontrakte), kein echter Institutionen-Flow: wer kauft
+   oder verkauft, sieht man dort nicht. Gibt es keine Daten (z. B. Nicht-US-Aktie), steht „keine Daten“; die Flüsse
+   werden dann **nicht** geschätzt.
 
 Seine Einordnung ist reine Marktstruktur und Stimmung, **keine** Bewertung des Unternehmens. Typischer Widerspruch zu
 Warren: Das Unternehmen kann gut und der Kurs trotzdem unter der 200-Tage-Linie mit abfließenden Flüssen liegen.
