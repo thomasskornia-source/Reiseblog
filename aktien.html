@@ -137,12 +137,12 @@
     return load().filter(function (w) {
       var e = data.filter(function (d) { return passt(d, w.t); })[0];
       var fertig = e && (w.vorher ? e.zeitstempel !== w.vorher : true);
-      return !fertig && Date.now() - w.z < 864e5;
+      return !fertig && Date.now() - w.z < 40 * 60e3;
     });
   }
   function renderPending() {
     var p = wartend(); store(p);
-    $('pend').innerHTML = p.map(function (w) { return '<li><span>⏳ <b>' + esc(w.t) + '</b> wird ' + (w.vorher ? 'aktualisiert' : 'geprüft') + ' …</span><span class="dots"><i></i><i></i><i></i></span></li>'; }).join('');
+    $('pend').innerHTML = p.map(function (w) { var lang = Date.now() - w.z > 12 * 60e3; return '<li><span>⏳ <b>' + esc(w.t) + '</b> wird ' + (w.vorher ? 'aktualisiert' : 'geprüft') + ' …' + (lang ? ' <small>dauert länger als üblich, bitte später nachsehen</small>' : '') + '</span><span class="dots"><i></i><i></i><i></i></span></li>'; }).join('');
     if (p.length && !timer) timer = setInterval(refresh, 20000);
     if (!p.length && timer) { clearInterval(timer); timer = null; }
   }

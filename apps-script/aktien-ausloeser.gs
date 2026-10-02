@@ -40,7 +40,8 @@ function routineStarten(hinweis) {
   var token = PropertiesService.getScriptProperties().getProperty('ROUTINE_TOKEN');
   if (!token) throw new Error('Skripteigenschaft ROUTINE_TOKEN fehlt.');
   var cache = CacheService.getScriptCache();
-  if (cache.get('laeuft')) return;
+  // Läuft die Routine gerade erst an, geht der zweite Eintrag nicht verloren: kurz später noch einmal starten
+  if (cache.get('laeuft')) { nachholenPlanen(); return; }
   var antwort = UrlFetchApp.fetch(ROUTINE_URL, {
     method: 'post',
     contentType: 'application/json',
@@ -57,7 +58,7 @@ function routineStarten(hinweis) {
 
 function nachholenPlanen() {
   var geplant = ScriptApp.getProjectTriggers().some(function (t) { return t.getHandlerFunction() === 'nachholen'; });
-  if (!geplant) ScriptApp.newTrigger('nachholen').timeBased().after(10 * 60 * 1000).create();
+  if (!geplant) ScriptApp.newTrigger('nachholen').timeBased().after(3 * 60 * 1000).create();
 }
 
 function nachholen() {

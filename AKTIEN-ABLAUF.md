@@ -13,8 +13,15 @@ Ergebnis: Einträge in `data/aktien.json` (`einschaetzungen`, neueste zuletzt), 
 - Nur `data/aktien.json` und `data/aktien-eingang-erledigt.json` ändern.
 - **Eine Aktie = ein Eintrag.** Gibt es sie schon in `data/aktien.json` (Vergleich über `symbol`, sonst Ticker, Name
   oder Eingabe): Eintrag **ersetzen** und ans Ende stellen (neueste zuletzt); die alten Urteile als Zeile in `verlauf`
-  (`stand`, `warren`, `charlie`, `james` jeweils nur das Urteilswort, höchstens die letzten 10) mitnehmen. War der
-  Eintrag höchstens 2 Tage alt, nichts neu bewerten, nur den Zeitstempel erledigen.
+  (`stand`, `warren`, `charlie`, `james` jeweils nur das Urteilswort, höchstens die letzten 10) mitnehmen.
+  War der Eintrag höchstens 2 Tage alt, Warren und Charlie **nicht** neu schreiben und keine Webrecherche zur Firma;
+  nur den James-Teil neu berechnen (Kurs, Flüsse), `stand` und `zeitstempel` auf die neue Zeile setzen und den Eintrag
+  ans Ende stellen. Auch dann ändert sich `zeitstempel`: die Seite erkennt daran, dass die Anfrage erledigt ist.
+  Ein Eintrag ohne `james`-Block ist nie „aktuell“: James ergänzen.
+- **Nachlesen vor dem Ende:** Kommen während des Laufs neue Zeilen (die Anfragen kommen manchmal im Abstand von
+  Sekunden), lässt das Apps Script keinen zweiten Lauf starten. Darum nach dem Push die Tabelle **noch einmal lesen**
+  und neue offene Zeilen im selben Lauf mitnehmen (höchstens 3 Zeilen je Lauf bleibt; mehr offene Zeilen beim nächsten
+  Lauf, das im Bericht erwähnen).
 - Mehrdeutiger Name: die bekannteste Börsennotierung wählen (bei US-Konzernen US-Hauptlisting) und den Ticker nennen.
 
 ## Recherche
