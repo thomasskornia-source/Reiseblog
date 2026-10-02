@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reiseberater – Unterwegs und zuhause</title>
+<link rel="stylesheet" href="styles.css?v=10">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+  .rb { display: grid; gap: 20px; margin-top: 8px; }
+  .rb-card { background: var(--paper-warm); border: 1px solid rgba(46,58,50,.1); border-radius: 14px; padding: 20px 22px; }
+  .rb-card h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin: 0 0 12px; }
+  .rb-card h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; margin: 18px 0 8px; }
+  .rb label { display: block; font-size: 13px; color: var(--ink-soft); margin: 0 0 4px; }
+  .rb input, .rb select, .rb textarea { width: 100%; font: inherit; font-size: 16px; padding: 9px 10px; border: 1px solid rgba(46,58,50,.25); border-radius: 8px; background: var(--paper); color: var(--ink); box-sizing: border-box; }
+  .rb textarea { min-height: 80px; resize: vertical; }
+  .rb .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .rb .f { margin-bottom: 12px; }
+  .rb .sl { display: grid; grid-template-columns: 1fr 78px; gap: 10px; align-items: center; margin-bottom: 8px; }
+  .rb .sl label { margin: 0; color: var(--ink); font-size: 14px; }
+  .rb .sl input[type=range] { padding: 0; }
+  .rb .sl output { font-size: 12px; color: var(--ink-soft); text-align: right; }
+  .sl-row { display: grid; gap: 2px; margin-bottom: 10px; }
+  .sl-row .top { display: flex; justify-content: space-between; font-size: 14px; }
+  .sl-row .top span:last-child { font-size: 12px; color: var(--ink-soft); }
+  .rb input[type=range] { padding: 0; accent-color: var(--rust); }
+  .res { display: grid; gap: 12px; }
+  .dest { background: var(--paper); border: 1px solid rgba(46,58,50,.14); border-radius: 12px; padding: 14px 16px; }
+  .dest.top { border-color: var(--rust); box-shadow: 0 2px 0 var(--rust); }
+  .dest .hd { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .dest .hd a { font-family: 'Fraunces', serif; font-size: 19px; color: var(--ink); text-decoration: none; border: 0; }
+  .dest .hd a:hover { color: var(--rust); }
+  .dest .pt { font-family: 'Fraunces', serif; font-size: 22px; color: var(--rust); }
+  .dest .bar { height: 5px; background: rgba(46,58,50,.12); border-radius: 3px; overflow: hidden; margin: 6px 0 8px; }
+  .dest .bar i { display: block; height: 100%; background: var(--rust); }
+  .dest ul { margin: 0; padding: 0; list-style: none; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+  .dest li:before { content: '· '; }
+  .dest li.warn { color: #8a3b12; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; border: 1px solid rgba(46,58,50,.25); border-radius: 999px; padding: 6px 12px; background: var(--paper); cursor: pointer; }
+  .chip input { width: auto; margin: 0; }
+  .btn { font: inherit; font-size: 15px; background: var(--rust); color: #fff; border: 0; border-radius: 999px; padding: 10px 20px; cursor: pointer; }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1px solid rgba(46,58,50,.3); }
+  .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  #msg { white-space: pre-wrap; font-size: 14px; line-height: 1.55; background: var(--paper); border: 1px dashed rgba(46,58,50,.3); border-radius: 10px; padding: 14px; margin-top: 10px; }
+  .note { font-size: 13px; color: var(--ink-soft); line-height: 1.5; margin: 10px 0 0; }
+  @media (min-width: 1000px) {
+    .rb { grid-template-columns: 420px minmax(0, 1fr); gap: 28px; align-items: start; }
+    .rb-form { position: sticky; top: 20px; max-height: calc(100vh - 40px); overflow: auto; }
+  }
+</style>
+</head>
+<body class="page-wide">
+<div class="wrap">
+  <a class="back-link" href="reisen.html">← Zu den Reisen</a>
+  <header class="entry-header">
+    <p class="date">Reiseplanung</p>
+    <h1>Reiseberater</h1>
+    <hr class="rule">
+  </header>
+  <div class="entry-body"><p>Einmal eintippen, dann passiert zweierlei: Rechts siehst du sofort, welches unserer acht Reiseziele am besten passt. Und wenn keines passt, planst du darunter mit denselben Angaben eine ganz neue Reise.</p></div>
+
+  <div class="rb">
+    <section class="rb-card rb-form" aria-label="Reiseparameter">
+      <h2>Deine Reise</h2>
+      <div class="g2">
+        <div><label for="pers">Personen</label><input id="pers" type="number" min="1" max="10" value="3" inputmode="numeric"></div>
+        <div><label for="days">Dauer (Tage)</label><input id="days" type="number" min="3" max="30" value="12" inputmode="numeric"></div>
+      </div>
+      <div class="g2">
+        <div><label for="mon">Reisemonat</label><select id="mon"></select></div>
+        <div><label for="bud">Budget pro Person (€, gesamt)</label><input id="bud" type="number" min="300" step="100" value="1800" inputmode="numeric"></div>
+      </div>
+      <div class="g2">
+        <div><label for="fl">Max. Flugzeit (Std.)</label><select id="fl"><option value="5">bis 5 Std.</option><option value="7" selected>bis 7 Std.</option><option value="14">egal</option></select></div>
+        <div><label for="car">Mietwagen</label><select id="car"><option value="1" selected>gerne selbst fahren</option><option value="0">lieber ohne</option></select></div>
+      </div>
+      <h3>Was soll die Reise bieten?</h3>
+      <div id="sliders"></div>
+
+      <h3>Für eine individuelle Planung</h3>
+      <div class="f"><label for="wish">Wunschziel oder Region (leer = Vorschlag)</label><input id="wish" type="text" placeholder="z. B. Sri Lanka, Portugal-Küste, offen"></div>
+      <div class="g2">
+        <div><label for="from">Abflug / Start</label><input id="from" type="text" value="München"></div>
+        <div><label for="when">Genauer Zeitraum</label><input id="when" type="text" placeholder="z. B. 26.12.–6.1."></div>
+      </div>
+      <div class="g2">
+        <div><label for="stay">Unterkunft</label><select id="stay"><option>einfach</option><option selected>mittel</option><option>gehoben</option></select></div>
+        <div><label for="pace">Tempo</label><select id="pace"><option>ruhig</option><option selected>ausgewogen</option><option>aktiv</option></select></div>
+      </div>
+      <div class="f"><label for="oth">Besonderes (Silvester, Mobilität, Essen, No-Gos …)</label><textarea id="oth"></textarea></div>
+    </section>
+
+    <div>
+      <section class="rb-card">
+        <h2>Was passt am besten?</h2>
+        <div class="res" id="res"></div>
+        <p class="note">Die Wertung beruht auf den Reiseseiten dieses Blogs: grobe Klimaeinschätzung je Monat, Flugzeit ab München, Kosten aus den Kostenübersichten (mittleres Budget, auf deine Tage hochgerechnet) und deine Gewichtung. Sie ist eine Orientierung, keine Buchungsberatung. Sicherheitshinweise bitte immer beim Auswärtigen Amt prüfen.</p>
+      </section>
+      <section class="rb-card" style="margin-top:20px">
+        <h2>Neue Reise planen lassen</h2>
+        <p style="margin:0;font-size:15px;color:var(--ink-soft)">Mit deinen Angaben entsteht unten eine fertige Anfrage. Schick sie weiter, daraus wird eine individuelle Route mit Tagesplan, Hotels und Kosten.</p>
+        <div id="msg"></div>
+        <div class="btns">
+          <button type="button" class="btn" id="share">Anfrage senden</button>
+          <button type="button" class="btn ghost" id="copy">Kopieren</button>
+          <a class="btn ghost" id="wa" target="_blank" rel="noopener" style="text-decoration:none">WhatsApp</a>
+        </div>
+        <p class="note" id="status"></p>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var MON = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+  // Interessen: Kultur · Natur/Wandern · Strand/Meer · Wüste/Abenteuer · Kulinarik/Städte
+  var INT = [['Kultur & Geschichte', 'Kultur'], ['Natur & Wandern', 'Natur'], ['Strand & Meer', 'Strand'], ['Wüste & Abenteuer', 'Abenteuer'], ['Essen & Städte', 'Essen']];
+  // m: Eignung je Monat Jan..Dez (2 ideal, 1 ok, 0 schlecht); c: Kosten pro Person für 12 Tage (mittel, aus den Reiseseiten); fh: Flugstunden ab München (ca.)
+  var D = [
+    { n: 'Jordanien', u: 'jordanien-reise.html', e: '🏺', i: [3,2,1,3,1], m: [1,1,2,2,2,0,0,0,1,2,2,1], c: 1650, fh: 4.5, car: 1, why: 'Petra, Wadi Rum, Rotes Meer' },
+    { n: 'Oman', u: 'oman-reise.html', e: '🐫', i: [2,3,2,3,1], m: [2,2,2,1,0,0,0,0,1,2,2,2], c: 1685, fh: 6.5, car: 1, why: 'Berge, Wadis, Wüste und Küste' },
+    { n: 'Marokko', u: 'marokko-reise.html', e: '🕌', i: [3,2,0,3,3], m: [1,1,2,2,2,0,0,0,2,2,2,1], c: 1200, fh: 4, car: 0, why: 'Marrakesch, Atlas und Wüste' },
+    { n: 'Ägypten', u: 'aegypten-reise.html', e: '🏛️', i: [3,1,2,2,1], m: [2,2,2,2,1,0,0,0,1,2,2,2], c: 1500, fh: 4.5, car: 0, why: 'Pyramiden, Nil und Rotes Meer', warn: 'Aktuell regionale Spannungen, vor Buchung Reisehinweise prüfen.', pen: 0.9 },
+    { n: 'Azoren', u: 'azoren-reise.html', e: '🌋', i: [1,3,1,0,2], m: [0,0,1,1,1,2,2,2,2,1,0,0], c: 1400, fh: 5.5, car: 1, why: 'Vulkanseen, Thermalquellen, Wale' },
+    { n: 'Kapverden', u: 'kapverden-reise.html', e: '🏖️', i: [1,3,3,1,1], m: [2,2,2,2,2,2,1,0,0,0,2,2], c: 1715, fh: 6.5, car: 0, why: 'Strand und Wandern auf den Inseln' },
+    { n: 'Guadeloupe', u: 'guadeloupe-reise.html', e: '🏝️', i: [1,3,3,0,2], m: [2,2,2,2,1,1,1,0,0,0,1,2], c: 2035, fh: 12, car: 1, why: 'Regenwald, Strände, Les Saintes' },
+    { n: 'Äthiopien', u: 'aethiopien-reise.html', e: '☕', i: [3,3,0,1,2], m: [2,2,2,1,1,0,0,0,0,2,2,2], c: 1500, fh: 6.5, car: 0, why: 'Kaffee, Kraterseen, Bale Mountains', warn: 'Teilreisewarnung des Auswärtigen Amts, die Lage ist unsicher.', pen: 0.6, est: 1 }
+  ];
+  var $ = function (id) { return document.getElementById(id); };
+  var KEY = 'reiseberater.v1';
+  var st = {}; try { st = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
+  var now = new Date().getMonth();
+  $('mon').innerHTML = MON.map(function (m, k) { return '<option value="' + k + '">' + m + '</option>'; }).join('');
+  $('mon').value = st.mon != null ? st.mon : 11;
+  var LV = ['egal', 'ein bisschen', 'wichtig', 'sehr wichtig'];
+  $('sliders').innerHTML = INT.map(function (x, k) {
+    return '<div class="sl-row"><div class="top"><span>' + x[0] + '</span><span id="lv' + k + '"></span></div><input type="range" id="s' + k + '" min="0" max="3" value="' + (st.s ? st.s[k] : 2) + '"></div>';
+  }).join('');
+  ['pers', 'days', 'bud', 'fl', 'car', 'wish', 'from', 'when', 'stay', 'pace', 'oth'].forEach(function (id) { if (st[id] != null) $(id).value = st[id]; });
+
+  function val() {
+    var v = { pers: Math.max(1, +$('pers').value || 1), days: Math.max(3, +$('days').value || 12), mon: +$('mon').value, bud: +$('bud').value || 0, fl: +$('fl').value, car: +$('car').value, s: INT.map(function (x, k) { return +$('s' + k).value; }) };
+    return v;
+  }
+  function save() {
+    var o = { mon: $('mon').value, s: INT.map(function (x, k) { return +$('s' + k).value; }) };
+    ['pers', 'days', 'bud', 'fl', 'car', 'wish', 'from', 'when', 'stay', 'pace', 'oth'].forEach(function (id) { o[id] = $(id).value; });
+    try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {}
+  }
+  function eur(x) { return Math.round(x / 10) * 10 === 0 ? '0' : (Math.round(x / 10) * 10).toLocaleString('de-DE'); }
+  function cost(d, days) { return d.c * (0.38 + 0.62 * days / 12); }  // Flug fix, der Rest wächst mit den Tagen
+
+  function score(d, v) {
+    var wsum = v.s.reduce(function (a, b) { return a + b; }, 0);
+    var fit = wsum ? v.s.reduce(function (a, w, k) { return a + w * d.i[k]; }, 0) / (3 * wsum) : 0.5;
+    var mf = [0.1, 0.6, 1][d.m[v.mon]];
+    var c = cost(d, v.days), bf = v.bud <= 0 ? 0.5 : c <= v.bud ? 1 : Math.max(0, 1 - (c - v.bud) / (0.5 * v.bud));
+    var ff = d.fh <= v.fl ? 1 : 0.2;
+    var s = 100 * (0.42 * fit + 0.26 * mf + 0.2 * bf + 0.12 * ff);
+    if (!v.car && d.car) s *= 0.85;
+    if (d.pen) s *= d.pen;
+    return { s: s, fit: fit, mf: d.m[v.mon], c: c, bf: bf, ff: ff };
+  }
+  function render() {
+    var v = val();
+    v.s.forEach(function (x, k) { $('lv' + k).textContent = LV[x]; });
+    var rows = D.map(function (d) { return { d: d, r: score(d, v) }; }).sort(function (a, b) { return b.r.s - a.r.s; });
+    $('res').innerHTML = rows.map(function (x, k) {
+      var d = x.d, r = x.r, tot = r.c * v.pers;
+      var li = [];
+      li.push(d.why + '.');
+      li.push(['Reisezeit im ' + MON[v.mon] + ': eher ungünstig', 'Reisezeit im ' + MON[v.mon] + ': machbar', 'Reisezeit im ' + MON[v.mon] + ': ideal'][r.mf]);
+      li.push('Kosten ca. ' + eur(r.c) + ' € p. P. (' + eur(tot) + ' € für ' + v.pers + ') bei ' + v.days + ' Tagen' + (d.est ? ', grob geschätzt' : '') + (r.bf < 1 ? ', über deinem Budget' : ', im Budget'));
+      li.push('Flug ca. ' + String(d.fh).replace('.', ',') + ' Std.' + (r.ff < 1 ? ', länger als gewünscht' : ''));
+      var html = '<div class="dest' + (k === 0 ? ' top' : '') + '"><div class="hd"><a href="' + d.u + '">' + d.e + ' ' + d.n + '</a><span class="pt">' + Math.round(r.s) + '</span></div><div class="bar"><i style="width:' + Math.max(3, r.s) + '%"></i></div><ul>' + li.map(function (t) { return '<li>' + t + '</li>'; }).join('') + (d.warn ? '<li class="warn">' + d.warn + '</li>' : '') + '</ul></div>';
+      return html;
+    }).join('');
+    // Anfrage
+    var best = rows[0].d.n, wish = $('wish').value.trim();
+    var ints = INT.map(function (x, k) { return v.s[k] ? x[1] + ' (' + LV[v.s[k]] + ')' : ''; }).filter(Boolean).join(', ');
+    var t = 'Reiseanfrage\n' +
+      'Ziel: ' + (wish || 'offen, bitte Vorschlag (Favorit aus dem Reiseberater: ' + best + ')') + '\n' +
+      'Start: ' + ($('from').value || 'München') + '\n' +
+      'Zeitraum: ' + ($('when').value.trim() || MON[v.mon]) + ', ' + v.days + ' Tage\n' +
+      'Personen: ' + v.pers + '\n' +
+      'Budget: ca. ' + eur(v.bud) + ' € pro Person (' + eur(v.bud * v.pers) + ' € gesamt)\n' +
+      'Max. Flugzeit: ' + (v.fl >= 14 ? 'egal' : v.fl + ' Std.') + '\n' +
+      'Mietwagen: ' + (v.car ? 'gerne selbst fahren' : 'lieber ohne') + '\n' +
+      'Unterkunft: ' + $('stay').value + ', Tempo: ' + $('pace').value + '\n' +
+      'Interessen: ' + (ints || 'keine besonderen') + '\n' +
+      ($('oth').value.trim() ? 'Besonderes: ' + $('oth').value.trim() + '\n' : '') +
+      'Bitte plane daraus eine Reise mit Route, Tagesplan, Hotels, Kosten und Sicherheitslage.';
+    $('msg').textContent = t;
+    $('wa').href = 'https://wa.me/?text=' + encodeURIComponent(t);
+    save();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.rb input, .rb select, .rb textarea'), function (el) { el.addEventListener('input', render); el.addEventListener('change', render); });
+  function say(t) { $('status').textContent = t; }
+  $('copy').onclick = function () {
+    var t = $('msg').textContent;
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { say('Kopiert.'); }, function () {
+      var r = document.createRange(); r.selectNodeContents($('msg')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); say('Text markiert, bitte manuell kopieren.');
+    });
+  };
+  $('share').onclick = function () {
+    var t = $('msg').textContent;
+    if (navigator.share) navigator.share({ text: t }).catch(function () {});
+    else $('copy').click();
+  };
+  render();
+})();
+</script>
+</body>
+</html>
