@@ -44,6 +44,7 @@
 fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 14px; margin: 0 0 14px; display: grid; gap: 12px; min-width: 0; }
 legend { padding: 0 8px 0 0; float: left; width: 100%; margin-bottom: 10px; font-family: var(--f-display); font-weight: 600; font-size: 14px; }
 .grid2 { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; align-items: end; }
+#ausGrid { align-items: start; }
 .f { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--ink2); min-width: 0; }
 .f > span { display: flex; justify-content: space-between; gap: 6px; }
 .f small { color: var(--muted); font-size: 12px; }
@@ -459,14 +460,14 @@ body.fp-body { padding-bottom: 0; }
           <p class="small">Renditen sind Annahmen vor Steuern und vor Inflation. Sie sind keine Prognose und nicht garantiert.</p>
         </div>
       </details>
+    </aside>
+
+    <main class="stack" id="results">
       <section class="storyhero" aria-labelledby="h-story">
         <h2 id="h-story">Deine Auswertung als Story</h2>
         <p>Sind deine Angaben komplett? Dann tippe dich durch deine wichtigsten Zahlen und erfahre am Ende, ob dein Plan trägt.</p>
         <button type="button" class="storybtn" data-story>Auswertung als Story ansehen</button>
       </section>
-    </aside>
-
-    <main class="stack" id="results">
       <section class="panel" aria-labelledby="h-verlauf">
         <header class="toolbar">
           <div><h2 id="h-verlauf">Vermögensverlauf</h2><p class="note" id="verlaufNote"></p></div>
