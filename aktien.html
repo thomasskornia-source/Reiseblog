@@ -49,6 +49,10 @@
   @media (min-width: 720px) { .who { grid-template-columns: 48px 1fr; } .who p { grid-column: 2; } .who svg { grid-row: span 2; } }
   .risk { font-size: 13.5px; color: var(--ink-soft); margin: 12px 0 0; line-height: 1.5; }
   .src { font-size: 12px; color: var(--ink-soft); margin: 6px 0 0; }
+  .bel { margin: 12px 0 0; font-size: 13.5px; }
+  .bel summary { cursor: pointer; color: var(--ink-soft); }
+  .bel blockquote { margin: 8px 0 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--gold); line-height: 1.5; }
+  .bel blockquote cite { display: block; font-style: normal; font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
   .empty { font-size: 15px; color: var(--ink-soft); text-align: center; margin: 12px 0; }
   .foot { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; text-align: center; margin: 22px 0 0; }
 </style>
@@ -121,12 +125,20 @@
     if (!x) return '';
     return '<div class="who">' + FACE[k] + '<div class="top"><h4>' + name + '</h4><span class="u ' + cls(x.urteil) + '">' + esc(x.urteil) + '</span></div><p>' + esc(x.text) + '</p></div>';
   }
+  function belege(b) {
+    if (!b || !b.length) return '';
+    return '<details class="bel"><summary>Belege aus Briefen und Versammlungen (' + b.length + ')</summary>' + b.map(function (x) {
+      var q = /^https?:\/\//.test(x.url || '') ? '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.quelle) + '</a>' : esc(x.quelle);
+      return '<blockquote>„' + esc(x.zitat) + '“<cite>' + esc(x.wer) + ' · ' + q + '</cite></blockquote>';
+    }).join('') + '</details>';
+  }
   function card(e, isNew) {
     var kz = (e.kennzahlen || []).map(function (k) { return '<li>' + esc(k.k) + ' <b>' + esc(k.v) + '</b></li>'; }).join('');
     var src = (e.quellen || []).map(function (q) { return /^https?:\/\//.test(q.url) ? '<a href="' + esc(q.url) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>' : esc(q.name); }).join(' · ');
     return '<article class="st' + (isNew ? ' new' : '') + '"><div class="hd"><h3>' + esc(e.name) + (e.ticker ? ' · ' + esc(e.ticker) : '') + '</h3><span>Stand ' + esc(e.stand) + '</span></div>' +
       (kz ? '<ul class="kz">' + kz + '</ul>' : '') +
       '<div class="duo">' + who('w', 'Warren', e.warren) + who('c', 'Charlie', e.charlie) + '</div>' +
+      belege(e.belege) +
       (e.risiken ? '<p class="risk"><b>Was schiefgehen kann:</b> ' + esc(e.risiken) + '</p>' : '') +
       (src ? '<p class="src">Quellen: ' + src + '</p>' : '') + '</article>';
   }
