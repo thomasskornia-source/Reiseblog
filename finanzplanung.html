@@ -237,6 +237,31 @@ th { font-weight: 600; color: var(--ink2); }
 .st-btn { font: inherit; font-weight: 600; font-size: 15px; border-radius: 999px; padding: 10px 20px; cursor: pointer; border: 1px solid #FAF3E8; background: #FAF3E8; color: #2E3A32; }
 .st-btn.ghost { background: transparent; color: #FAF3E8; }
 body.st-open { overflow: hidden; }
+.st-deco { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.st-deco .rg { position: absolute; left: 72%; top: 20%; width: 80px; height: 80px; margin: -40px 0 0 -40px; border-radius: 50%; border: 2px solid rgba(250,243,232,.55); animation: stRing 6s ease-out infinite; opacity: 0; }
+@keyframes stRing { 0% { transform: scale(.4); opacity: .7; } 100% { transform: scale(5.5); opacity: 0; } }
+.st-deco .co { position: absolute; top: -40px; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font: 700 14px var(--f-display); color: #6b4a0c; background: radial-gradient(circle at 35% 30%, #fff1b8, #f2c36b 55%, #c99a3e); border: 2px solid rgba(255,241,184,.8); animation: stCoin linear infinite; }
+@keyframes stCoin { 0% { transform: translateY(0) rotateY(0); opacity: 0; } 8% { opacity: .95; } 100% { transform: translateY(112vh) rotateY(900deg); opacity: .9; } }
+.st-deco .eu { position: absolute; bottom: -50px; font-family: var(--f-display); font-weight: 600; color: rgba(250,243,232,.9); opacity: 0; animation: stRise linear infinite; }
+.st-deco .sv { position: absolute; left: 0; right: 0; bottom: 70px; height: 34%; width: 100%; }
+.st-deco .sv .ln { fill: none; stroke: rgba(250,243,232,.85); stroke-width: 3.5; stroke-linecap: round; stroke-dasharray: 700; stroke-dashoffset: 700; animation: stDraw 2.6s .5s cubic-bezier(.3,.7,.2,1) forwards; }
+.st-deco .sv .ar { fill: rgba(250,243,232,.14); opacity: 0; animation: stFade 1.2s 1.8s ease forwards; }
+.st-deco .sv .dt { fill: #FAF3E8; opacity: 0; animation: stFade .5s 2.9s ease forwards, stBlink 1.8s 3.4s ease-in-out infinite; }
+@keyframes stDraw { to { stroke-dashoffset: 0; } }
+@keyframes stFade { to { opacity: 1; } }
+@keyframes stBlink { 50% { opacity: .35; } }
+.st-deco .wv { position: absolute; left: 0; bottom: 60px; width: 200%; height: 90px; animation: stWave 11s linear infinite; }
+.st-deco .wv.b { bottom: 40px; height: 70px; animation-duration: 16s; animation-direction: reverse; opacity: .6; }
+@keyframes stWave { to { transform: translateX(-50%); } }
+.st-deco .ob { position: absolute; left: 68%; top: 22%; width: 240px; height: 240px; margin: -120px 0 0 -120px; border-radius: 50%; border: 1px dashed rgba(250,243,232,.4); animation: stSpin 22s linear infinite; }
+.st-deco .ob.in { width: 140px; height: 140px; margin: -70px 0 0 -70px; animation-duration: 14s; animation-direction: reverse; }
+.st-deco .ob i { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: #FAF3E8; top: -6px; left: 50%; margin-left: -6px; box-shadow: 0 0 14px rgba(250,243,232,.8); }
+.st-deco .ob i:nth-child(2) { top: auto; bottom: -6px; opacity: .7; }
+@keyframes stSpin { to { transform: rotate(360deg); } }
+.st-deco .sr { position: absolute; color: #FAF3E8; animation: stTwinkle ease-in-out infinite; opacity: 0; }
+@keyframes stTwinkle { 0%, 100% { opacity: 0; transform: scale(.4) rotate(0); } 50% { opacity: .85; transform: scale(1) rotate(35deg); } }
+@media (prefers-reduced-motion: reduce) { .st-deco { display: none; } }
+
 .st-bg::before, .st-bg::after { content: ''; position: absolute; border-radius: 50%; filter: blur(46px); will-change: transform; }
 .st-bg::before { width: 70%; aspect-ratio: 1; left: -15%; top: 8%; background: rgba(255,255,255,.22); animation: stDrift1 15s ease-in-out infinite alternate; }
 .st-bg::after { width: 80%; aspect-ratio: 1; right: -25%; bottom: -5%; background: rgba(0,0,0,.28); animation: stDrift2 19s ease-in-out infinite alternate; }
@@ -796,6 +821,7 @@ function compute(P) {
   <div class="st-frame" id="stFrame">
     <div class="st-bg t-ink" id="stBg"></div>
     <div class="st-dots" id="stDots" aria-hidden="true"></div>
+    <div class="st-deco" id="stDeco" aria-hidden="true"></div>
     <div class="st-prog" id="stProg" aria-hidden="true"></div>
     <button type="button" class="st-x" id="stX" aria-label="Schließen">×</button>
     <button type="button" class="st-tap l" id="stL" tabindex="-1" aria-hidden="true"></button>
@@ -1544,9 +1570,35 @@ function compute(P) {
     els.forEach(function (el) { el.textContent = cfmt(0, el.dataset.f); });
     requestAnimationFrame(step);
   }
+
+
+  var rnd = function (a, b) { return a + Math.random() * (b - a); };
+  function decoHTML(type) {
+    var h = '', i;
+    if (type === 'rings') for (i = 0; i < 3; i++) h += '<i class="rg" style="animation-delay:' + (i * 2) + 's"></i>';
+    else if (type === 'coins') for (i = 0; i < 11; i++) h += '<i class="co" style="left:' + Math.round(rnd(2, 92)) + '%;animation-duration:' + rnd(6, 11).toFixed(1) + 's;animation-delay:-' + rnd(0, 9).toFixed(1) + 's">€</i>';
+    else if (type === 'euro') for (i = 0; i < 12; i++) h += '<i class="eu" style="left:' + Math.round(rnd(2, 92)) + '%;font-size:' + Math.round(rnd(18, 46)) + 'px;--dx:' + Math.round(rnd(-30, 30)) + 'px;animation-duration:' + rnd(9, 17).toFixed(1) + 's;animation-delay:-' + rnd(0, 14).toFixed(1) + 's">€</i>';
+    else if (type === 'curve' || type === 'curve2') {
+      var d = type === 'curve' ? 'M0,185 C110,182 210,150 290,92 S375,14 400,4' : 'M0,190 C140,188 250,170 320,110 S385,20 400,2';
+      h = '<svg class="sv" viewBox="0 0 400 200" preserveAspectRatio="none"><path class="ar" d="' + d + ' L400,200 L0,200 Z"/><path class="ln" d="' + d + '"/></svg>';
+    }
+    else if (type === 'waves') {
+      var w = 'M0,45 Q50,10 100,45 T200,45 T300,45 T400,45 T500,45 T600,45 T700,45 T800,45 V90 H0 Z';
+      h = '<svg class="wv b" viewBox="0 0 800 90" preserveAspectRatio="none"><path d="' + w + '" fill="rgba(250,243,232,.12)"/></svg><svg class="wv" viewBox="0 0 800 90" preserveAspectRatio="none"><path d="' + w + '" fill="rgba(250,243,232,.2)"/></svg>';
+    }
+    else if (type === 'orbit') h = '<div class="ob"><i></i><i></i></div><div class="ob in"><i></i></div>';
+    else if (type === 'stars') for (i = 0; i < 16; i++) h += '<i class="sr" style="left:' + Math.round(rnd(3, 94)) + '%;top:' + Math.round(rnd(4, 90)) + '%;font-size:' + Math.round(rnd(10, 26)) + 'px;animation-duration:' + rnd(2.5, 5).toFixed(1) + 's;animation-delay:-' + rnd(0, 4).toFixed(1) + 's">✦</i>';
+    return h;
+  }
+  function decoFor(html) {
+    if (html.indexOf('st-badge') >= 0) return 'stars';
+    var m = [['Dein Finanzplan', 'rings'], ['>Heute<', 'coins'], ['in Rente, ca.', 'curve'], ['Im Ruhestand<', 'euro'], ['Reicht das?', 'waves'], ['Deine Betriebsrente', 'orbit'], ['Deine Absicherung', 'rings'], ['>Zinseszins<', 'curve2'], ['nächsten Schritte', 'stars']];
+    for (var i = 0; i < m.length; i++) if (html.indexOf(m[i][0]) >= 0) return m[i][1];
+    return '';
+  }
   function showCard() {
     var c = SC[SI]; $('stBg').className = 'st-bg ' + c.t;
-    var card = $('stCard'); card.innerHTML = c.h; card.scrollTop = 0;
+    var card = $('stCard'); card.innerHTML = c.h; card.scrollTop = 0; $('stDeco').innerHTML = decoHTML(decoFor(c.h));
     $('stProg').innerHTML = SC.map(function (x, i) { return '<i class="' + (i <= SI ? 'on' : '') + '"></i>'; }).join('');
     $('stPrev').disabled = SI === 0; $('stNext').disabled = SI === SC.length - 1; $('stPos').textContent = (SI + 1) + ' von ' + SC.length;
     animateCounts();
