@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unterwegs und zuhause – Thomas und Andrea</title>
-<link rel="stylesheet" href="styles.css?v=7">
+<link rel="stylesheet" href="styles.css?v=8">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,7 +22,7 @@
   });
 </script>
 </head>
-<body>
+<body class="home">
 <div class="wrap">
 
   <header class="site-header site-header--video">
@@ -47,149 +47,174 @@
     </div>
   </header>
 
-  <div id="rezept-des-tages" style="margin: 20px 0 0; background: var(--paper-warm); border-radius: 8px; padding: 14px 18px; display: none;">
-    <p style="font-size: 12px; color: var(--ink-soft); margin: 0 0 4px; text-transform: uppercase; letter-spacing: 0.04em;">🍽 Rezept des Tages</p>
-    <a id="rdt-link" href="#" style="text-decoration: none; color: var(--ink);">
-      <strong id="rdt-title" style="font-family: 'Fraunces', serif; font-size: 17px;"></strong>
-      <p id="rdt-teaser" style="font-size: 14px; margin: 4px 0 0; color: var(--ink-soft);"></p>
+  <section class="home-tiles">
+  <div id="rezept-des-tages" class="rdt">
+    <p class="rdt-eye">🍽 Rezept des Tages</p>
+    <a id="rdt-link" href="#">
+      <strong id="rdt-title"></strong>
+      <p id="rdt-teaser"></p>
     </a>
   </div>
 
-  <main class="entry-list">
-
-    <a class="entry-preview" href="reisen.html">
+    <a class="entry-preview entry-preview--topic" href="reisen.html">
       <p class="date">Reiseplanung</p>
       <h2>✈️ Reisen</h2>
       <p>Fünf Routenvorschläge für die kommende Reise zu dritt: Jordanien, Azoren, Kapverden, Marokko, Ägypten ...</p>
     </a>
 
-    <a class="entry-preview" href="notfallvorrat.html">
+    <a class="entry-preview entry-preview--topic" href="notfallvorrat.html">
       <p class="date">Vorsorge</p>
       <h2>🎒 Unser Notfallvorrat</h2>
       <p>Wasser, Vorraete, Ausruestung und Notgepaeck - was wir uns fuer den Ernstfall angelegt haben ...</p>
     </a>
+  </section>
+
+  <h2 class="section-title">Aus dem Tagebuch</h2>
+
+  <main class="entry-list">
 
     <a class="entry-preview" href="eintraege/rueckreise.html">
+      <span class="entry-thumb"><img src="thumbs/rueckreise.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">12. September 2026</p>
       <h2>Die Rückfahrt: 900 km mit Stopp in Bayreuth</h2>
       <p>Zwischenuebernachtung in Bayreuth, ein Spaziergang durch die Eremitage und Einkehr im Gasthof Veldensteiner Forst ...</p>
     </a>
 
     <a class="entry-preview" href="eintraege/letzter-abend.html">
+      <span class="entry-thumb"><img src="thumbs/letzter-abend.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">11. September 2026</p>
       <h2>Letzter Abend am Hundestrand</h2>
       <p>20 Grad, ein Hiddensee Hell und ein letztes Bad - Abschluss von zwei Wochen Urlaub ...</p>
     </a>
 
     <a class="entry-preview" href="eintraege/ferienhaeuser-baabe.html">
+      <span class="entry-thumb"><img src="thumbs/ferienhaeuser-baabe.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">11. September 2026</p>
       <h2>Ferienhäuser in Baabe</h2>
       <p>Ferienhaeuser im Kiefernwald direkt hinter den Duenen ...</p>
     </a>
 
     <a class="entry-preview" href="eintraege/wasserwutz.html">
+      <span class="entry-thumb"><img src="thumbs/wasserwutz.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">11. September 2026</p>
       <h2>Unsere Wasserwutz</h2>
       <p>Kalli und seine grosse Liebe zum Wasser - schwimmen, bis keiner mehr will ...</p>
     </a>
 
     <a class="entry-preview" href="eintraege/hundestrand-baabe.html">
+      <span class="entry-thumb"><img src="thumbs/hundestrand-baabe.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">11. September 2026</p>
       <h2>Der Hundestrand in Baabe</h2>
       <p>Toben, schwimmen, schnueffeln - Kallis Paradies am Strand von Baabe ...</p>
     </a>
 
     <a class="entry-preview" href="eintraege/kuestenradweg-ronne.html">
+      <span class="entry-thumb"><img src="thumbs/kuestenradweg-ronne.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">11. September 2026</p>
       <h2>Küstenradweg Richtung Rønne</h2>
       <p>Immer der Küste nach – mit dem Rad Richtung Rønne, Wind im Rücken …</p>
     </a>
 
     <a class="entry-preview" href="eintraege/strandbar.html">
+      <span class="entry-thumb"><img src="thumbs/strandbar.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">10. September 2026</p>
       <h2>Strandbar am Abend</h2>
       <p>Ein Drink an der Bar aus einem alten Boot, mit Blick aufs Meer ...</p>
     </a>
 
     <a class="entry-preview" href="eintraege/insel-brauerei.html">
+      <span class="entry-thumb"><img src="thumbs/insel-brauerei.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">10. September 2026</p>
       <h2>Zu Besuch bei der Insel-Brauerei</h2>
       <p>Ein ganzes Regal voller Ruegener Bierspezialitaeten ...</p>
     </a>
 
     <a class="entry-preview" href="eintraege/wiek-hafen.html">
+      <span class="entry-thumb"><img src="thumbs/wiek-hafen.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">10. September 2026</p>
       <h2>Am Hafen in Wiek</h2>
       <p>Segelboote, Schilf und viel Ruhe im Nordwesten Ruegens ...</p>
     </a>
 
     <a class="entry-preview" href="eintraege/sundowner.html">
+      <span class="entry-thumb"><img src="thumbs/sundowner.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">10. September 2026</p>
       <h2>Sundowner am Hafen</h2>
       <p>Ein Waldweg, eine Bootsbar und ein Sonnenuntergang zwischen den Masten …</p>
     </a>
 
     <a class="entry-preview" href="eintraege/schaprode.html">
+      <span class="entry-thumb"><img src="thumbs/schaprode.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">10. September 2026</p>
       <h2>Von Gingst zur Insel-Brauerei</h2>
       <p>Yachthafen Schaprode, ein Hofladen-Bummel und die "Alte Pomeranze" …</p>
     </a>
 
     <a class="entry-preview" href="eintraege/baabe.html">
+      <span class="entry-thumb"><img src="thumbs/baabe.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">10. September 2026</p>
       <h2>Kalli beim Frühstück</h2>
       <p>Ein süßer Morgen mit dem Hund in Baabe …</p>
     </a>
 
     <a class="entry-preview" href="eintraege/sellin.html">
+      <span class="entry-thumb"><img src="thumbs/sellin.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">9. September 2026</p>
       <h2>Abendstimmung an der Seebrücke</h2>
       <p>Die berühmte Seebrücke Sellin im Licht der untergehenden Sonne …</p>
     </a>
 
     <a class="entry-preview" href="eintraege/ruegen-eindruecke.html">
+      <span class="entry-thumb"><img src="thumbs/ruegen-eindruecke.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">8.–9. September 2026</p>
       <h2>Erste Eindrücke auf Rügen</h2>
       <p>Kalli am Strand von Baabe und die Seebruecke Sellin im Abendlicht ...</p>
     </a>
 
     <a class="entry-preview" href="eintraege/thiessow.html">
+      <span class="entry-thumb"><img src="thumbs/thiessow.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">8. September 2026</p>
       <h2>Sonnenuntergang und Kite über den Dünen</h2>
       <p>Weiter Sandstrand und ein Kite hoch über den Dünen in Thiessow …</p>
     </a>
 
     <a class="entry-preview" href="eintraege/moenchgut.html">
+      <span class="entry-thumb"><img src="thumbs/moenchgut.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">7. September 2026</p>
       <h2>Ein spontaner Abend an der Strandbar</h2>
       <p>Fish and Chips und Sonnenuntergang über der Ostsee in Mönchgut …</p>
     </a>
 
     <a class="entry-preview" href="eintraege/kreidefelsen.html">
+      <span class="entry-thumb"><img src="thumbs/kreidefelsen.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">7. September 2026</p>
       <h2>Die Kreidefelsen von Jasmund</h2>
       <p>Knapp 20 Meter hoch – und ein kleiner Ausflug in die Erdgeschichte …</p>
     </a>
 
     <a class="entry-preview" href="eintraege/hammershus.html">
+      <span class="entry-thumb"><img src="thumbs/hammershus.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">6. September 2026</p>
       <h2>2. Tag: Bornholm-Umrundung mit dem Rad</h2>
       <p>Von Nexø bis zur Festungsruine Hammershus – mit Nicki, Gegenwind und Routenkarte …</p>
     </a>
 
     <a class="entry-preview" href="eintraege/bornholm-tag1.html">
+      <span class="entry-thumb"><img src="thumbs/bornholm-tag1.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">5. September 2026</p>
       <h2>1. Tag: Mit der Fähre nach Bornholm</h2>
       <p>Von Sassnitz über die Faehre nach Ronne, dann knappe 50 km mit Rueckenwind bis Nexoe ...</p>
     </a>
 
     <a class="entry-preview" href="eintraege/darss-ankunft.html">
+      <span class="entry-thumb"><img src="thumbs/darss-ankunft.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">29. August 2026</p>
       <h2>Ankunft auf Fischland-Darß</h2>
       <p>Erstes Fischbroetchen, Strandspaziergang und abends im "Walfisch" ...</p>
     </a>
 
     <a class="entry-preview" href="eintraege/darss-tag3.html">
+      <span class="entry-thumb"><img src="thumbs/darss-tag3.jpg" alt="" loading="lazy" decoding="async"></span>
       <p class="date">30.–31. August 2026</p>
       <h2>Noch ein paar Tage auf Fischland-Darß</h2>
       <p>Waldspaziergaenge, reetgedeckte Fischerhaeuser und Strandzeit mit Kalli ...</p>
