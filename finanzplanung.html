@@ -812,6 +812,7 @@ function compute(P) {
   // Betriebliche Kapitalleistungen (AK/ZV, PVK, AVWL): Ratenzahlung ueber n Jahre oder Einmalzahlung
   const bkRows = []; let bkNom = 0;
   function ownerOf(c) { const n = P.partner && P.partner.name ? P.partner.name.toLowerCase() : ''; return n && c.insured && String(c.insured).trim().toLowerCase() === n ? 1 : 0; }
+  const stack = [0, 0];
   cons.forEach(c => {
     if (c.type !== 'bkap' || !(c.leistung > 0)) return;
     const split = P.status === 'verheiratet', ki = kistRate(P.kirche), K = c.leistung, r = P.rRet, kl = P.kinder === 0 ? 0.006 : 0;
@@ -826,7 +827,8 @@ function compute(P) {
       pv = (K - kv - tax * (1 + ki)) * (pre ? Math.pow(1 + r, retYear - c.jahr) : 1);
     } else {
       const n = Math.max(2, Math.round(c.n || 20)), rate = r > 0 ? K * r / (1 - Math.pow(1 + r, -n)) : K / n;
-      const net = rate - kvM(rate / 12) - (est(base + rate, split) - est(base, split)) * (1 + ki);
+      const sb = base + stack[own]; stack[own] += rate;
+      const net = rate - kvM(rate / 12) - (est(sb + rate, split) - est(sb, split)) * (1 + ki);
       pv = 0; for (let t = 1; t <= n; t++) pv += net / Math.pow(1 + r, t);
       bkRows.push({ n, grossM: rate / 12, netM: net / 12, real: 1 / infl(retAge - age0) });
     }
@@ -987,7 +989,7 @@ function compute(P) {
       infl: rd('infl', 2, -2, 15) / 100, rRet: rd('rRet', 3, -2, 15) / 100, planAge: rd('planAge', 90, 70, 110), saveUntil: $('saveUntil').value, netto: null,
       bRente: 0, bRenteTyp: 'bav', bKap: 0, bForm: 'rente',
       aus: AUS.map(function (a) { return rd(a[0], 0, 0, 100000); }),
-      contracts: CON.map(conClean),
+      contracts: CON.map(conClean).filter(function (c) { var pn = $('pvorname').value.trim().toLowerCase(), single = $('calcMode').value !== 'paar'; return !(single && pn && String(c.insured || '').trim().toLowerCase() === pn); }),
       kauf: { preis: rd('kfPreis', 0, 0, 1e8), ek: rd('kfEK', 0, 0, 1e8), miete: (rd('kfMiete', 0, 0, 1e5) || rd('aWohnen', 0, 0, 1e5)) * 12, jahre: Math.round(rd('kfJahre', 25, 5, 40)), nk: rd('kfNK', 9.5, 0, 30) / 100, zins: rd('kfZins', 3.8, 0, 15) / 100, tilg: rd('kfTilg', 2, 0, 10) / 100, inst: rd('kfInst', 1, 0, 5) / 100, wert: 0, mietg: 0, rend: 0 }
     };
     P.retOverride = 0;
@@ -1256,7 +1258,7 @@ function compute(P) {
         if (!isFinite(nn)) depl = 'Aus dem Vermögen fehlen ' + eur(need) + ' pro Monat. Die Erträge im Ruhestand (' + pct(P.rRet, 1) + ' vor Inflation) tragen diese Entnahme dauerhaft, das Vermögen schmilzt nicht ab.';
         else {
           var endA = R.retAge + nn / 12;
-          depl = 'Aus dem Vermögen fehlen ' + eur(need) + ' pro Monat. Das Vermögen reicht dafür bis etwa Alter ' + num(endA) + (endA >= P.planAge ? ', also über dein Planungsalter von ' + num(P.planAge) + ' hinaus.' : ', also ' + num(P.planAge - endA) + ' Jahre kürzer als dein Planungsalter von ' + num(P.planAge) + '.');
+          depl = endA > 110 ? 'Aus dem Vermögen fehlen ' + eur(need) + ' pro Monat. Das Vermögen reicht dafür weit über dein Planungsalter von ' + num(P.planAge) + ' hinaus (Erträge im Ruhestand ' + pct(P.rRet, 1) + ' vor Inflation).' : 'Aus dem Vermögen fehlen ' + eur(need) + ' pro Monat. Das Vermögen reicht dafür bis etwa Alter ' + num(endA) + (endA >= P.planAge ? ', also über dein Planungsalter von ' + num(P.planAge) + ' hinaus.' : ', also ' + num(P.planAge - endA) + ' Jahre kürzer als dein Planungsalter von ' + num(P.planAge) + '.');
         }
         depl += ' Das sind ' + pct(need * 12 / Kc, 1) + ' des Vermögens bei Rentenbeginn pro Jahr. Als grober Anhaltspunkt gelten etwa 3 bis 4 % als langfristig tragbar.';
       }
