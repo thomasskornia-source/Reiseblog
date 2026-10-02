@@ -130,6 +130,8 @@
     { n: 'Guadeloupe', u: 'guadeloupe-reise.html', e: '🏝️', i: [1,3,3,0,2], m: [2,2,2,2,1,1,1,0,0,0,1,2], c: 2035, fh: 12, car: 1, why: 'Regenwald, Strände, Les Saintes' },
     { n: 'Äthiopien', u: 'aethiopien-reise.html', e: '☕', i: [3,3,0,1,2], m: [2,2,2,1,1,0,0,0,0,2,2,2], c: 1500, fh: 6.5, car: 0, why: 'Kaffee, Kraterseen, Bale Mountains', warn: 'Teilreisewarnung des Auswärtigen Amts, die Lage ist unsicher.', pen: 0.6, est: 1 }
   ];
+  // Google-Formular für den automatischen Eingang. Leer lassen = nur Teilen/Kopieren.
+var FORM = { url: '', entry: '' };  // url: …/formResponse, entry: 'entry.123456789' (Feld „Anfrage“)
   var $ = function (id) { return document.getElementById(id); };
   var KEY = 'reiseberater.v1';
   var st = {}; try { st = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
@@ -208,6 +210,14 @@
   };
   $('share').onclick = function () {
     var t = $('msg').textContent;
+    if (FORM.url && FORM.entry) {
+      var fd = new FormData(); fd.append(FORM.entry, t);
+      say('Wird gesendet …');
+      fetch(FORM.url, { method: 'POST', mode: 'no-cors', body: fd }).then(function () {
+        say('Gesendet. Die Reise wird geplant, sobald die Anfrage freigegeben ist; danach erscheint sie unter „Reisen“.');
+      }, function () { say('Senden hat nicht geklappt. Bitte „Kopieren“ nutzen und die Anfrage weiterleiten.'); });
+      return;
+    }
     if (navigator.share) navigator.share({ text: t }).catch(function () {});
     else $('copy').click();
   };
