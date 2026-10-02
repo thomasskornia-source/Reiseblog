@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Optionsflüsse (Näherung) für James im Aktien-Check.
+"""Option Flows (Näherung) für James im Aktien-Check.
 
 Aufruf:  python3 tools/optionsfluesse.py KO        (nur US-Aktien mit börsengehandelten Optionen)
 Quelle: öffentliche, verzögerte Optionsdaten der Cboe (cdn.cboe.com, kostenlos, inoffizielle Schnittstelle):
@@ -7,7 +7,7 @@ alle Kontrakte mit Tagesvolumen, offenen Positionen (Open Interest), Geld-/Brief
 Richtung: put_call_relativ = heutiges Put/Call-Volumen geteilt durch das Put/Call-Verhältnis der offenen Positionen;
 bis 0,65 bullisch (heute ungewöhnlich call-lastig), ab 1,4 bärisch, dazwischen neutral.
 Ausgabe: JSON. Fehler (kein US-Ticker, keine Optionen, nicht abrufbar): Exit-Code 1, Zeile "FEHLER: …" – dann
-keine Flüsse angeben („keine Daten“), nichts schätzen.
+keine Option Flows angeben („keine Daten“), nichts schätzen.
 
 WICHTIG, ehrlich einordnen: Das ist KEIN echter Institutionen-Flow. Die Daten zeigen, WO heute Umsatz war
 (Calls oder Puts, Prämie, ungewöhnlich hohes Volumen gegenüber den offenen Positionen), aber nicht, ob gekauft oder

@@ -91,7 +91,7 @@
           "stand": "02.10.2026",
           "text": "Put/Call-Volumen 0,40 und rund 72 % der Prämie fließen in Calls (ca. 143 Mio. $ gegen 57 Mio. $ bei Puts); größter Kontrakt ein Call 245 mit Verfall 05.10. (ca. 5,1 Mio. $ Prämie). Näherung aus Optionsumsatz, Käufer- oder Verkäuferseite unbekannt."
         },
-        "text": "Der Kurs liegt mit 250,63 $ etwa 3,8 % über der steigenden 200-Tage-Linie (241,36 $), aber unter der 50-Tage-Linie (256,53 $) und knapp unter dem 21er-EMA (251,83 $): langfristig intakt, kurzfristig etwas müde. Die Flüsse sind klar bullisch, wobei viele kurzlaufende Kontrakte auch Absicherung oder Stillhalter-Geschäfte sein können. Lage und Flüsse passen zusammen; reine Markttechnik, keine Firmenbewertung."
+        "text": "Der Kurs liegt mit 250,63 $ etwa 3,8 % über der steigenden 200-Tage-Linie (241,36 $), aber unter der 50-Tage-Linie (256,53 $) und knapp unter dem 21er-EMA (251,83 $): langfristig intakt, kurzfristig etwas müde. Die Option Flows sind klar bullisch, wobei viele kurzlaufende Kontrakte auch Absicherung oder Stillhalter-Geschäfte sein können. Lage und Option Flows passen zusammen; reine Markttechnik, keine Firmenbewertung."
       }
     },
     {
@@ -177,7 +177,7 @@
           "stand": "02.10.2026",
           "text": "Put/Call-Volumen 0,47 und rund 79 % der Prämie in Calls (ca. 5,4 Mio. $ gegen 1,4 Mio. $ bei Puts); größter Kontrakt ein Call 85 mit Verfall 19.03.2027 (ca. 1,5 Mio. $). Näherung aus Optionsumsatz, Käufer- oder Verkäuferseite unbekannt."
         },
-        "text": "Der Kurs liegt mit 85,64 $ rund 7,0 % über der steigenden 200-Tage-Linie (80,01 $) und an allen 60 der letzten 60 Tage darüber. Kurzfristig steht er aber unter 50-Tage-Linie (87,94 $) und 21er-EMA (87,48 $) und damit ein Stück unter dem 52-Wochen-Hoch (91,99 $). Die Flüsse sind bullisch, aber mit kleinem Umsatz; Lage und Flüsse passen zusammen. Reine Markttechnik, keine Firmenbewertung."
+        "text": "Der Kurs liegt mit 85,64 $ rund 7,0 % über der steigenden 200-Tage-Linie (80,01 $) und an allen 60 der letzten 60 Tage darüber. Kurzfristig steht er aber unter 50-Tage-Linie (87,94 $) und 21er-EMA (87,48 $) und damit ein Stück unter dem 52-Wochen-Hoch (91,99 $). Die Option Flows sind bullisch, aber mit kleinem Umsatz; Lage und Option Flows passen zusammen. Reine Markttechnik, keine Firmenbewertung."
       }
     },
     {
@@ -283,7 +283,7 @@
           "stand": "02.10.2026",
           "text": "Put/Call-Volumen 0,47, Call-Prämien 124 Mio. $ gegen 37 Mio. $ Put-Prämien; größter Kontrakt ein Put 345 mit Verfall heute (13.601 Stück, 2,8 Mio. $). Näherung aus Optionsumsatz, Käufer- und Verkäuferseite unbekannt."
         },
-        "text": "Der Kurs liegt mit 342,77 $ knapp 1,1 % über der steigenden 200-Tage-Linie (338,91 $), 53 der letzten 60 Tage lagen darüber. Er sitzt aber unter der 50-Tage-Linie (344,35 $) und nahe am 21er-EMA (343,16 $), kurzfristig also seitwärts, weit unter dem 52-Wochen-Hoch von 402,62 $. Die Flüsse sind laut Optionsumsatz neutral bis leicht freundlich: viel mehr Calls als Puts, aber viele davon kurzlaufend und die Seite des Geschäfts unklar. Lage und Flüsse passen grob zusammen, der Abstand zur Linie ist allerdings klein."
+        "text": "Der Kurs liegt mit 342,77 $ knapp 1,1 % über der steigenden 200-Tage-Linie (338,91 $), 53 der letzten 60 Tage lagen darüber. Er sitzt aber unter der 50-Tage-Linie (344,35 $) und nahe am 21er-EMA (343,16 $), kurzfristig also seitwärts, weit unter dem 52-Wochen-Hoch von 402,62 $. Die Option Flows sind laut Optionsumsatz neutral bis leicht freundlich: viel mehr Calls als Puts, aber viele davon kurzlaufend und die Seite des Geschäfts unklar. Lage und Option Flows passen grob zusammen, der Abstand zur Linie ist allerdings klein."
       }
     }
   ]
