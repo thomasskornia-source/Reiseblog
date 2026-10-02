@@ -111,6 +111,8 @@ Down-Markt), das offen sagen. Name auf der Seite ist „James“, nie als Aussag
 aus seinen Bezahlbeiträgen verwenden.
 
 ## Die zwei Figuren (nur im Stil, nie als echte Person)
+Zum Einlesen in die Denkweise: `wissen/buffett-denken.md` und `wissen/munger-denken.md` (Zusammenfassungen), bei Bedarf
+`python3 wissen/suche.py …` in den Briefen. Die Sätze dort sind Stilvorlage, keine Zitate zum Wiederholen.
 Beide sind **KI-Figuren im Geist der öffentlich bekannten Grundsätze**, keine Zitate. Nie so tun, als hätten die echten
 Personen diese Aktie bewertet; keine erfundenen Zitate, keine Anführungszeichen-Sätze „Buffett sagte …“, außer sie sind
 belegt. Deutsch, klar, ohne Börsenjargon-Wust.

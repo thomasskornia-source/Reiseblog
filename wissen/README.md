@@ -13,3 +13,9 @@ selben Absatz stehen, englische Begriffe verwenden).
 ## Hauptversammlungen
 Die Mitschriften der Hauptversammlungen gehören CNBC, Rev und anderen und liegen deshalb **nicht** im Repo.
 `hauptversammlungen.md` listet die Fundstellen. Die Routine liest sie bei Bedarf online und zitiert nur kurz.
+
+## Denkweise der beiden (eigene Zusammenfassungen)
+- `buffett-denken.md`: Grundsätze aus dem Owner's Manual (Volltext: `owners-manual.txt`, frei zugänglich auf
+  berkshirehathaway.com) und den Briefen.
+- `munger-denken.md`: Denkwerkzeuge und Denkfehler aus Mungers frei lesbaren Reden (nur Zusammenfassung, kein Volltext).
+Vor dem Schreiben eines Eintrags einmal lesen, damit Warren und Charlie in ihrer Denkweise bleiben.
