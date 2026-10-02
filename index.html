@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FAF3E8">
 <title>Unterwegs und zuhause – Thomas und Andrea</title>
-<link rel="stylesheet" href="styles.css?v=10">
+<link rel="stylesheet" href="styles.css?v=11">
+<link rel="stylesheet" href="home.css?v=1">
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-180.png?v=2">
+<link rel="apple-touch-icon" href="icon-180.png?v=3">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
@@ -23,61 +25,89 @@
 </script>
 </head>
 <body class="home">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=3" alt="">Unterwegs und zuhause</a>
+    <div class="topnav">
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="muenchen-quiz.html">München-Quiz</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+      <a class="hot" href="reiseberater.html">🧭 Reiseberater</a>
+    </div>
+  </div></nav>
 <div class="wrap">
 
-  <header class="site-header site-header--video">
-    <video class="header-video" autoplay muted loop playsinline preload="auto">
-      <source src="https://assets.mixkit.co/videos/45315/45315-720.mp4" type="video/mp4">
-    </video>
-    <div class="header-video-overlay"></div>
-    <div class="header-video-content">
-    <p class="kicker">Thomas und Andrea</p>
-    <h1>Unterwegs und zuhause</h1>
-    <p style="margin-top: 10px;">
-      <a class="back-link" href="ernaehrung.html">🥗 Ernährung</a>
-      <span style="margin: 0 6px; color: var(--sage);">·</span>
-      <a class="back-link" href="rezepte.html">🍽 Rezepte</a>
-      <span style="margin: 0 6px; color: var(--sage);">·</span>
-      <a class="back-link" href="notfallvorrat.html">🎒 Notfallvorrat</a>
-      <span style="margin: 0 6px; color: var(--sage);">·</span>
-      <a class="back-link" href="finanzplanung.html">💶 Finanzplanung</a>
-      <span style="margin: 0 6px; color: var(--sage);">·</span>
-      <a class="back-link" href="reisen.html">✈️ Reisen</a>
-      <span style="margin: 0 6px; color: var(--sage);">·</span>
-      <a class="back-link" href="muenchen-quiz.html">🗺 München-Quiz</a>
-    </p>
+
+
+  <header class="hero">
+    <div class="blobs" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
+    <div class="floaters" aria-hidden="true"><span>✈️</span><span>🍽️</span><span>🗺️</span></div>
+    <span class="hello"><i></i><span id="hello">Willkommen</span></span>
+    <h1><span class="w1">Unterwegs</span><span class="w2">und</span><span class="w3">zuhause</span></h1>
+    <div class="rotor" aria-live="off"><span class="track">
+      <span>Reisen <b>planen</b>.</span>
+      <span>Rezepte <b>kochen</b>.</span>
+      <span>München <b>entdecken</b>.</span>
+      <span>Geld <b>im Griff</b>.</span>
+      <span>Für den Ernstfall <b>gerüstet</b>.</span>
+      <span>Reisen <b>planen</b>.</span>
+    </span></div>
+    <div class="cta">
+      <a class="pill" href="reiseberater.html">🧭 Wohin geht's als Nächstes?</a>
+      <a class="pill alt" href="muenchen-quiz.html">🗺️ München-Quiz starten</a>
     </div>
   </header>
 
-  <section class="home-tiles">
-  <div id="rezept-des-tages" class="rdt">
-    <p class="rdt-eye">🍽 Rezept des Tages</p>
-    <a id="rdt-link" href="#">
-      <strong id="rdt-title"></strong>
+  <div class="ticker" aria-hidden="true"><div class="row" id="tickrow">
+    <a href="reisen.html">✈️ Reisen</a><a href="reiseberater.html">🧭 Reiseberater</a><a href="rezepte.html">🍽️ Rezepte</a><a href="finanzplanung.html">💶 Finanzplanung</a><a href="muenchen-quiz.html">🗺️ München-Quiz</a><a href="ernaehrung.html">🥗 Ernährung</a><a href="notfallvorrat.html">🎒 Notfallvorrat</a>
+  </div></div>
+
+  <section class="bento">
+    <a class="tile wide t-rust rv" href="reisen.html" style="--i:0">
+      <span class="ic">✈️</span><small>Reiseplanung</small>
+      <div class="big" data-count="9">9</div>
+      <h3>Reiseziele für unterwegs</h3>
+      <p>Jordanien, Oman, Kappadokien, Azoren ... jeweils mit Route, Kosten und Sicherheitslage.</p>
+    </a>
+    <a class="tile t-gold rv" href="reiseberater.html" style="--i:1">
+      <span class="badge">Neu</span><span class="ic">🧭</span><small>Reiseberater</small>
+      <h3>Einmal tippen, Ziel finden</h3>
+    </a>
+    <a class="tile t-sky rv" href="reisen.html" style="--i:2" id="cdtile">
+      <span class="ic">⏳</span><small id="cdsmall">Nächste Reise ab 26.12.</small>
+      <div class="big" id="cdnum">–</div>
+      <h3 id="cdtext">Tage noch</h3>
+    </a>
+
+    <a class="tile wide t-sage rdt-tile rv" id="rezept-des-tages" href="rezepte.html" style="--i:3">
+      <span class="ic">🍽️</span><small>Rezept des Tages</small>
+      <h3 id="rdt-title"></h3>
       <p id="rdt-teaser"></p>
     </a>
-  </div>
-
-    <a class="entry-preview entry-preview--topic" href="reisen.html">
-      <p class="date">Reiseplanung</p>
-      <h2>✈️ Reisen</h2>
-      <p>Fünf Routenvorschläge für die kommende Reise zu dritt: Jordanien, Azoren, Kapverden, Marokko, Ägypten ...</p>
+    <a class="tile t-ink rv" href="finanzplanung.html" style="--i:4">
+      <span class="ic">💶</span><small>Rente und Steuern</small>
+      <h3>Finanzplanung</h3>
+    </a>
+    <a class="tile t-warm rv" href="muenchen-quiz.html" style="--i:5">
+      <span class="ic">🗺️</span><small>Spielerisch lernen</small>
+      <h3>München-Quiz</h3>
     </a>
 
-    <a class="entry-preview entry-preview--topic" href="notfallvorrat.html">
-      <p class="date">Vorsorge</p>
-      <h2>🎒 Unser Notfallvorrat</h2>
-      <p>Wasser, Vorraete, Ausruestung und Notgepaeck - was wir uns fuer den Ernstfall angelegt haben ...</p>
+    <a class="tile wide t-warm rv" href="ernaehrung.html" style="--i:6">
+      <span class="ic">🥗</span><small>Essen und Gesundheit</small>
+      <h3>Ernährung</h3>
+      <p>Was gut tut, was sich lohnt und wie wir kochen. Dazu 27 Rezepte.</p>
     </a>
-
-    <a class="entry-preview entry-preview--topic" href="muenchen-quiz.html">
-      <p class="date">München kennenlernen</p>
-      <h2>🗺 München-Quiz</h2>
-      <p>Wo liegt Giesing? Klicke Stadtbezirke und Viertel auf der Karte an und lerne die Stadt Stück für Stück kennen ...</p>
+    <a class="tile wide t-rust rv" href="notfallvorrat.html" style="--i:7; background:linear-gradient(135deg,#4D6B5A,#2E3A32)">
+      <span class="ic">🎒</span><small>Vorsorge</small>
+      <h3>Unser Notfallvorrat</h3>
+      <p>Wasser, Vorräte, Ausrüstung und Notgepäck für den Ernstfall.</p>
     </a>
   </section>
 
-  <h2 class="section-title">Aus dem Tagebuch</h2>
+  <h2 class="section-title">Aus dem Tagebuch <small>die neuesten zuerst</small></h2>
 
   <main class="entry-list">
 
@@ -238,6 +268,25 @@
 
 </div>
 <script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  // Begrüßung nach Tageszeit
+  var h = new Date().getHours();
+  $('hello').textContent = h < 5 ? 'Noch wach?' : h < 11 ? 'Guten Morgen' : h < 14 ? 'Guten Tag' : h < 18 ? 'Schönen Nachmittag' : h < 23 ? 'Guten Abend' : 'Noch wach?';
+
+  // Countdown bis zur Reise am 26.12.
+  function countdown() {
+    var now = new Date(), y = now.getFullYear();
+    var start = new Date(y, 11, 26), end = new Date(y + 1, 0, 6, 23, 59);
+    var endThis = new Date(y, 0, 6, 23, 59);
+    var num = $('cdnum'), txt = $('cdtext'), sm = $('cdsmall');
+    if (now >= start || now <= endThis) { num.textContent = '🎉'; txt.textContent = 'Reisezeit!'; sm.textContent = 'Gute Reise'; return; }
+    var days = Math.ceil((start - now) / 86400000);
+    num.textContent = days; txt.textContent = days === 1 ? 'Tag noch' : 'Tage noch'; sm.textContent = 'Nächste Reise ab 26.12.';
+  }
+  countdown();
+
+  // Rezept des Tages
   function renderRezeptDesTages() {
     var rezepte = [
       { title: "Haferkleie-Porridge mit Leinsamen und Beeren", teaser: "Beta-Glucan, Omega-3 und Antioxidantien zum Start in den Tag", url: "rezepte/haferkleie-porridge.html" },
@@ -248,24 +297,53 @@
       { title: "Skyr-Bowl mit Walnüssen, Leinsamen und Beeren", teaser: "Ca. 28 g Protein, Omega-3 und Antioxidantien in 5 Minuten", url: "rezepte/skyr-bowl-walnuss.html" },
       { title: "Vollkorn-Fusilli mit Brokkoli-Walnuss-Pesto und Kichererbsen", teaser: "Pflanzensterine, Ballaststoffe und Pflanzenprotein in einer Schüssel", url: "rezepte/fusilli-brokkoli-walnuss-pesto.html" }
     ];
-    var start = new Date(2026, 0, 1);
-    var today = new Date();
+    var start = new Date(2026, 0, 1), today = new Date();
     var dayOfYear = Math.floor((today - start) / 86400000);
-    var idx = ((dayOfYear % rezepte.length) + rezepte.length) % rezepte.length;
-    var pick = rezepte[idx];
-    var box = document.getElementById('rezept-des-tages');
+    var pick = rezepte[((dayOfYear % rezepte.length) + rezepte.length) % rezepte.length];
+    var box = $('rezept-des-tages');
     if (!box) return;
-    document.getElementById('rdt-title').textContent = pick.title;
-    document.getElementById('rdt-teaser').textContent = pick.teaser;
-    document.getElementById('rdt-link').href = pick.url;
-    box.style.display = 'block';
+    $('rdt-title').textContent = pick.title;
+    $('rdt-teaser').textContent = pick.teaser;
+    box.href = pick.url;
+    box.style.display = 'flex';
   }
   renderRezeptDesTages();
-  // Safari (v.a. iOS) stellt Seiten beim Zuruecknavigieren oft aus dem bfcache wieder her,
-  // ohne Skripte neu auszufuehren. "pageshow" feuert in beiden Faellen zuverlaessig.
-  window.addEventListener('pageshow', function (event) {
-    renderRezeptDesTages();
-  });
+  // Safari stellt Seiten beim Zurücknavigieren oft aus dem bfcache wieder her
+  window.addEventListener('pageshow', function () { renderRezeptDesTages(); countdown(); });
+
+  // Ticker doppeln, damit er nahtlos läuft
+  var row = $('tickrow'); row.innerHTML += row.innerHTML;
+
+  // Kopfleiste: Schatten beim Scrollen
+  var bar = $('topbar');
+  window.addEventListener('scroll', function () { bar.classList.toggle('stuck', window.scrollY > 8); }, { passive: true });
+
+  // Beim Scrollen einblenden (gestaffelt)
+  var items = [].slice.call(document.querySelectorAll('.bento .tile'));
+  [].slice.call(document.querySelectorAll('.entry-list .entry-preview')).forEach(function (el, k) { el.classList.add('rv'); el.style.setProperty('--i', k % 3); items.push(el); });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  } else { items.forEach(function (el) { el.classList.add('in'); }); }
+
+  // Kacheln neigen sich zur Maus (nur mit Maus, nicht auf Touch)
+  if (window.matchMedia('(hover: hover)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    [].slice.call(document.querySelectorAll('.tile')).forEach(function (t) {
+      t.addEventListener('pointermove', function (e) {
+        var r = t.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        t.style.setProperty('--ry', (x * 8).toFixed(2) + 'deg'); t.style.setProperty('--rx', (-y * 8).toFixed(2) + 'deg');
+      });
+      t.addEventListener('pointerleave', function () { t.style.setProperty('--rx', '0deg'); t.style.setProperty('--ry', '0deg'); });
+    });
+  }
+
+  // Zahl in der Reisen-Kachel zählt hoch
+  var big = document.querySelector('[data-count]');
+  if (big && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var to = +big.getAttribute('data-count'), n = 0; big.textContent = '0';
+    var t0 = setInterval(function () { n++; big.textContent = n; if (n >= to) clearInterval(t0); }, 90);
+  }
+})();
 </script>
 </body>
 </html>

@@ -1,18 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
-      <stop offset="0" stop-color="#3F5246"/>
-      <stop offset="1" stop-color="#26322B"/>
-    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F0A15A"/>
+      <stop offset=".55" stop-color="#D4673A"/>
+      <stop offset="1" stop-color="#9E3F26"/>
+    </linearGradient>
+    <linearGradient id="pin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF9EF"/>
+      <stop offset="1" stop-color="#F3E3C8"/>
+    </linearGradient>
   </defs>
   <rect width="512" height="512" fill="url(#bg)"/>
-  <!-- Weg -->
-  <path d="M256 372 C256 408 196 418 204 448 C212 478 300 478 316 520" fill="none" stroke="#C9643A" stroke-width="15" stroke-linecap="round" stroke-dasharray="1 0"/>
-  <path d="M256 372 C256 408 196 418 204 448 C212 478 300 478 316 520" fill="none" stroke="#FAF3E8" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 16" opacity=".85"/>
-  <!-- Haus -->
-  <path d="M140 296 L256 196 L372 296" fill="none" stroke="#FAF3E8" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M170 276 V372 H342 V276" fill="none" stroke="#FAF3E8" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M232 372 V332 a24 24 0 0 1 48 0 V372 Z" fill="#C9643A"/>
-  <!-- Kompassstern -->
-  <path d="M256 70 L268 116 L314 128 L268 140 L256 186 L244 140 L198 128 L244 116 Z" fill="#E8A87C"/>
+  <circle cx="400" cy="112" r="150" fill="#FFD9A0" opacity=".16"/>
+  <ellipse cx="256" cy="446" rx="82" ry="15" fill="#5E1F10" opacity=".35"/>
+  <path d="M256 438 C256 438 118 318 118 232 A138 138 0 1 1 394 232 C394 318 256 438 256 438 Z" fill="url(#pin)"/>
+  <!-- Haus im Pin -->
+  <path d="M188 246 L256 186 L324 246 L324 292 Q324 300 316 300 L196 300 Q188 300 188 292 Z" fill="#B5502E"/>
+  <path d="M236 300 V262 a20 20 0 0 1 40 0 V300 Z" fill="#FFF9EF"/>
+  <rect x="293" y="198" width="16" height="30" rx="3" fill="#B5502E"/>
+  <!-- Funke / Stern -->
+  <path d="M390 74 L398 100 L424 108 L398 116 L390 142 L382 116 L356 108 L382 100 Z" fill="#FFF3DC"/>
 </svg>

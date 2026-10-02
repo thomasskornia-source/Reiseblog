@@ -580,75 +580,7 @@ body {
 .share-btn svg { width: 16px; height: 16px; display: block; }
 .share-btn:hover, .share-btn:active { color: var(--ink); }
 
-/* --- Startseite: Rezept des Tages, Themen-Kacheln --- */
-
-.rdt { display: none; margin: 20px 0 0; background: var(--paper-warm); border-radius: 8px; padding: 14px 18px; }
-.rdt-eye { font-size: 12px; color: var(--ink-soft); margin: 0 0 4px; text-transform: uppercase; letter-spacing: 0.04em; }
-.rdt a { text-decoration: none; color: var(--ink); display: block; }
-.rdt strong { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; }
-.rdt p:not(.rdt-eye) { font-size: 14px; margin: 4px 0 0; color: var(--ink-soft); }
-
-.home .section-title { display: none; }
-.home .entry-thumb { display: none; }
-.home .entry-list .entry-preview:first-child { border-top: 1px solid rgba(46, 58, 50, 0.14); }
-
-/* --- Startseite am großen Bildschirm --- */
-
-@media (min-width: 900px) {
-  .home .wrap { max-width: 1160px; padding: 40px 40px 96px; }
-
-  .home .site-header--video {
-    margin: 0 0 40px;
-    width: 100%;
-    min-height: 400px;
-    padding: 48px 56px 52px;
-    border-radius: 18px;
-  }
-  .home .site-header--video h1 { font-size: clamp(52px, 6vw, 76px); line-height: 1.04; margin: 0 0 22px; }
-  .home .site-header--video .kicker { font-size: 20px; }
-  .home .site-header--video .header-video-content p:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 8px; margin-top: 0; }
-  .home .site-header--video .back-link {
-    margin: 0; font-size: 15px; padding: 8px 16px; border-radius: 999px;
-    background: rgba(250, 243, 232, 0.16); border: 1px solid rgba(250, 243, 232, 0.35);
-    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-    transition: background .2s;
-  }
-  .home .site-header--video .back-link:hover { background: rgba(250, 243, 232, 0.32); color: var(--paper); }
-  .home .site-header--video .header-video-content span { display: none; }
-
-  .home-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 56px; }
-  .home-tiles > * { margin: 0; }
-  .home .rdt { display: none; }
-  .home .rdt[style*="block"] { display: flex; flex-direction: column; justify-content: center; }
-  .home .rdt, .home .entry-preview--topic {
-    background: var(--paper-warm); border: 1px solid rgba(46, 58, 50, 0.1); border-radius: 14px; padding: 24px 26px; border-top: 1px solid rgba(46, 58, 50, 0.1);
-  }
-  .home .rdt strong { font-size: 22px; line-height: 1.25; }
-  .home .rdt p:not(.rdt-eye) { font-size: 15px; }
-  .home .entry-preview--topic { transition: transform .2s, box-shadow .2s; }
-  .home .entry-preview--topic:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46, 58, 50, 0.1); }
-  .home .entry-preview--topic h2 { font-size: 24px; }
-  .home .entry-preview--topic .date { text-transform: uppercase; letter-spacing: 0.04em; font-size: 12px; }
-
-  .home .section-title {
-    display: block; font-family: 'Fraunces', serif; font-weight: 500; font-size: 32px; margin: 0 0 24px;
-    padding-bottom: 14px; border-bottom: 1px solid rgba(46, 58, 50, 0.14);
-  }
-
-  .home .entry-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 32px; }
-  .home .entry-list .entry-preview, .home .entry-list .entry-preview:first-child { padding: 0; border: 0; }
-  .home .entry-thumb {
-    display: block; aspect-ratio: 3 / 2; overflow: hidden; border-radius: 14px; margin-bottom: 14px; background: var(--paper-warm);
-  }
-  .home .entry-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
-  .home .entry-preview:hover .entry-thumb img { transform: scale(1.04); }
-  .home .entry-list .entry-preview h2 { font-size: 24px; line-height: 1.25; }
-  .home .entry-list .entry-preview p:not(.date) { font-size: 15px; }
-}
-
-@media (min-width: 1100px) {
-  .home .entry-list { grid-template-columns: repeat(3, 1fr); }
-}
+/* Startseite: siehe home.css */
 
 /* =====================================================================
    Große Bildschirme (Laptop / PC): erweitertes Layout für alle Seiten
