@@ -56,16 +56,15 @@
     </header>
 
     <div class="entry-body">
-      <p>Rezepte nach dem LDL-Senkungsprinzip: ungesättigte Fette, lösliche Ballaststoffe, pflanzliches Protein und Pflanzensterine. Mit Daumen hoch oder runter kannst du direkt sagen, was schmeckt.</p>
+      <p>Rezepte zum Cholesterinsenken. Mit Daumen hoch oder runter sagst du, was schmeckt.</p>
     </div>
 
     <div class="filter-bar">
-      <button class="ampel-btn gruen" data-filter="gruen" onclick="toggleAmpel('gruen', this)" aria-label="Grün"></button>
-      <button class="ampel-btn gelb" data-filter="gelb" onclick="toggleAmpel('gelb', this)" aria-label="Gelb"></button>
-      <button class="ampel-btn rot" data-filter="rot" onclick="toggleAmpel('rot', this)" aria-label="Rot"></button>
-      <button class="blitz-btn" data-filter="blitz" onclick="toggleBlitz(this)" aria-label="Blitzgerichte">⚡ Blitzgerichte</button>
+      <button class="ampel-btn gruen" data-filter="gruen" onclick="toggleAmpel('gruen', this)" aria-label="Lecker"><i></i>Lecker</button>
+      <button class="ampel-btn gelb" data-filter="gelb" onclick="toggleAmpel('gelb', this)" aria-label="Geht so"><i></i>Geht so</button>
+      <button class="ampel-btn rot" data-filter="rot" onclick="toggleAmpel('rot', this)" aria-label="Nicht so"><i></i>Nicht so</button>
+      <button class="blitz-btn" data-filter="blitz" onclick="toggleBlitz(this)" aria-label="Blitzgerichte, maximal 30 Minuten">⚡ Blitz <small>max. 30 Min</small></button>
     </div>
-    <p style="font-size: 13px; color: var(--ink-soft); margin: -12px 0 16px;">Blitzgerichte: in max. 30 Minuten fertig, ohne ausgefallene Zutaten.</p>
     <input type="search" class="search-field" id="rezept-suche" placeholder="Rezept suchen ..." oninput="applyFilters()">
   </article>
 

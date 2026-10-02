@@ -93,3 +93,20 @@ body .topbar .topnav a.hot { color: #fff !important; }
 .page-single .entry-header + .entry-body p:first-of-type::first-letter { font-family: 'Fraunces', serif; font-size: 3.1em; float: left; line-height: .85; padding: .08em .1em 0 0; color: var(--rust); }
 .page-single .entry-body p { max-width: none; }
 .page-single .entry-body { font-size: 17px; }
+
+/* Rezepte: Filter als Chips */
+.page-list .entry-body p:first-of-type::first-letter { font-family: inherit; font-size: inherit; float: none; padding: 0; color: inherit; line-height: inherit; }
+.page-list .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 14px; }
+.page-list .ampel-btn, .page-list .blitz-btn { width: auto; height: auto; display: inline-flex; align-items: center; gap: 8px; padding: 9px 15px; border-radius: 99px; border: 1.5px solid rgba(46, 58, 50, .14); background: #fff; color: var(--ink); font: 500 14.5px 'Work Sans', sans-serif; opacity: 1; cursor: pointer; box-shadow: 0 3px 10px rgba(46, 58, 50, .06); transition: transform .15s, background .2s, color .2s, border-color .2s; }
+.page-list .ampel-btn i { width: 12px; height: 12px; border-radius: 50%; display: block; background: #4c9a4c; }
+.page-list .ampel-btn.gelb i { background: #e0b83c; }
+.page-list .ampel-btn.rot i { background: #c0392b; }
+.page-list .ampel-btn.gruen, .page-list .ampel-btn.gelb, .page-list .ampel-btn.rot { background: #fff; }
+.page-list .ampel-btn:hover, .page-list .blitz-btn:hover { transform: translateY(-1px); }
+.page-list .ampel-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.page-list .ampel-btn.active i { box-shadow: 0 0 0 3px rgba(255, 255, 255, .85); }
+.page-list .blitz-btn { border-color: rgba(201, 154, 62, .6); }
+.page-list .blitz-btn small { font-size: 12px; color: var(--ink-soft); font-weight: 400; }
+.page-list .blitz-btn.active { background: var(--rust); border-color: var(--rust); color: #fff; }
+.page-list .blitz-btn.active small { color: rgba(255, 255, 255, .85); }
+.page-list .search-field { border: 1.5px solid rgba(46, 58, 50, .14); background: #fff; box-shadow: 0 3px 10px rgba(46, 58, 50, .06); }
