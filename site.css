@@ -1,0 +1,81 @@
+/* Gemeinsames Design für alle Seiten: Kopfleiste, Seitenköpfe, Karten, Boxen. */
+:root { --rust: #B5502E; --ink: #2E3A32; --paper: #FAF3E8; --paper-warm: #F3E9D8; --ink-soft: #5A6A5E; }
+
+/* ---------- Kopfleiste ---------- */
+.topbar { position: sticky; top: 0; z-index: 50; background: rgba(250, 243, 232, .82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(46, 58, 50, .08); transition: box-shadow .25s; font-family: 'Work Sans', sans-serif; line-height: 1.3; }
+.topbar.stuck { box-shadow: 0 6px 24px rgba(46, 58, 50, .1); }
+.topin { max-width: 1180px; margin: 0 auto; padding: 8px 14px; display: flex; align-items: center; gap: 10px; }
+.topbar .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; flex: none; border: 0; }
+.topbar .brand img { width: 34px; height: 34px; border-radius: 9px; display: block; box-shadow: 0 2px 8px rgba(181, 80, 46, .35); }
+.topbar .brand .bt { display: none; }
+.topnav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; flex: 1; min-width: 0; padding: 2px 0; -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); }
+.topnav::-webkit-scrollbar { display: none; }
+.topbar .topnav a { text-decoration: none; color: var(--ink); font-size: 14.5px; padding: 7px 13px; border-radius: 999px; border: 0; white-space: nowrap; flex: none; transition: background .2s, color .2s; }
+.topbar .topnav a:hover { background: rgba(46, 58, 50, .1); }
+.topbar .topnav a[aria-current] { background: var(--ink); color: var(--paper); }
+.topbar .topnav a.hot { background: var(--rust); color: #fff; }
+.topbar .topnav a.hot:hover { background: #8f3d21; }
+@media (min-width: 700px) {
+  .topin { padding: 12px 32px; justify-content: space-between; gap: 16px; }
+  .topbar .brand .bt { display: inline; }
+  .topnav { flex: none; overflow: visible; -webkit-mask-image: none; mask-image: none; }
+}
+
+/* ---------- Seitenköpfe ---------- */
+body[class^="page-"] .wrap { padding-top: 28px; }
+.entry-header { position: relative; }
+.entry-header .date { display: inline-block; font-style: normal; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); background: rgba(181, 80, 46, .1); padding: 5px 12px; border-radius: 99px; margin: 0 0 14px; }
+.entry-header h1 { letter-spacing: -.02em; text-wrap: balance; }
+.rule { width: 72px; height: 5px; border-radius: 99px; background: linear-gradient(90deg, var(--rust), #F0A15A); }
+body[class^="page-"]::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 420px; z-index: -1; pointer-events: none;
+  background: radial-gradient(420px 260px at 85% 70px, rgba(240, 161, 90, .28), transparent 70%), radial-gradient(380px 240px at 8% 150px, rgba(143, 163, 152, .28), transparent 70%); }
+body[class^="page-"] { position: relative; }
+.subhead, .page-info h2.subhead { font-family: 'Fraunces', serif; position: relative; padding-left: 16px; }
+.subhead::before { content: ''; position: absolute; left: 0; top: .22em; bottom: .22em; width: 5px; border-radius: 99px; background: linear-gradient(180deg, var(--rust), #F0A15A); }
+
+/* ---------- Boxen und Tabellen ---------- */
+.tip-box, .safety-box, .note-box, .hotel-group, .chol-card, .recipe-ingredients, .disclaimer { border-radius: 16px; }
+.hotel-group, .tip-box, .note-box { box-shadow: 0 8px 22px rgba(46, 58, 50, .07); }
+article table { border-radius: 14px; }
+article th { background: rgba(181, 80, 46, .08); }
+
+/* ---------- Übersichtskarten (Reisen, Rezepte) ---------- */
+.page-list .entry-list { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 22px; }
+.page-list .entry-list .entry-preview, .page-list .entry-list .entry-preview:first-child { position: relative; display: flex; flex-direction: column; padding: 20px 20px 22px; border: 0; border-radius: 22px; background: #fff; overflow: hidden;
+  box-shadow: 0 2px 0 rgba(46, 58, 50, .05), 0 10px 26px rgba(46, 58, 50, .09); transition: transform .25s cubic-bezier(.2, .9, .3, 1), box-shadow .25s; }
+.page-list .entry-list .entry-preview::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: linear-gradient(90deg, var(--c1, var(--rust)), var(--c2, #F0A15A)); }
+.page-list .entry-list .entry-preview:nth-child(4n+2) { --c1: #2F7E86; --c2: #8FC5B8; }
+.page-list .entry-list .entry-preview:nth-child(4n+3) { --c1: #C99A3E; --c2: #F2D27A; }
+.page-list .entry-list .entry-preview:nth-child(4n+4) { --c1: #5E7B66; --c2: #A9C5A0; }
+.page-list .entry-list .entry-preview:hover { transform: translateY(-4px); box-shadow: 0 2px 0 rgba(46, 58, 50, .05), 0 18px 38px rgba(46, 58, 50, .14); }
+.page-list .entry-list .entry-preview .date { order: 2; font-size: 11.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--c1, var(--rust)); margin: 0 0 6px; }
+.page-list .entry-list .entry-preview h2 { order: 3; font-size: 23px; line-height: 1.2; margin: 0 0 8px; padding-right: 22px; }
+.page-list .entry-list .entry-preview p:not(.date) { order: 4; font-size: 15px; line-height: 1.55; color: var(--ink-soft); }
+.page-list .entry-preview .em { order: 1; display: inline-flex; align-items: center; justify-content: center; width: 58px; height: 58px; font-size: 32px; line-height: 1; border-radius: 18px; margin-bottom: 14px; background: linear-gradient(135deg, color-mix(in srgb, var(--c1, var(--rust)) 18%, #fff), color-mix(in srgb, var(--c2, #F0A15A) 30%, #fff)); transition: transform .3s cubic-bezier(.2, 1.4, .4, 1); }
+.page-list .entry-preview:hover .em { transform: rotate(-8deg) scale(1.1); }
+.page-list .entry-list .entry-preview .ampel-dot { top: 24px; right: 22px; box-shadow: 0 0 0 4px rgba(255, 255, 255, .9); }
+.page-list .entry-preview.hidden { display: none; }
+@media (min-width: 700px) {
+  .page-list .entry-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+}
+@media (min-width: 1000px) {
+  .page-list .entry-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .page-list .entry-list .entry-preview, .page-list .entry-list .entry-preview:first-child { padding: 24px 24px 26px; }
+}
+@media (min-width: 1300px) { .page-list .entry-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Reisen: Kopfband mit Chips */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; }
+.chips span { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; padding: 7px 14px; border-radius: 99px; background: #fff; border: 1px solid rgba(46, 58, 50, .12); box-shadow: 0 4px 14px rgba(46, 58, 50, .06); }
+.page-reisen .entry-list .entry-preview:first-child { background: linear-gradient(135deg, #3E5146, #26322B); }
+.page-reisen .entry-list .entry-preview:first-child h2, .page-reisen .entry-list .entry-preview:first-child p:not(.date) { color: #FAF3E8; }
+.page-reisen .entry-list .entry-preview:first-child .date { color: #F0A15A; }
+.page-reisen .entry-list .entry-preview:first-child .em { background: rgba(255, 255, 255, .14); }
+@media (min-width: 1000px) { .page-reisen .entry-list .entry-preview:first-child { grid-column: span 3; flex-direction: column; } }
+
+/* Rezeptseiten: Ruhe im Layout */
+.page-recipe .recipe-ingredients { box-shadow: 0 8px 22px rgba(46, 58, 50, .07); }
+@media (prefers-reduced-motion: reduce) { .page-list .entry-preview, .page-list .entry-preview .em { transition: none; } }
+body .topbar .topnav a { color: var(--ink) !important; text-decoration: none !important; }
+body .topbar .topnav a[aria-current] { color: var(--paper) !important; }
+body .topbar .topnav a.hot { color: #fff !important; }

@@ -3,19 +3,6 @@ html:has(body.home) { overflow-x: hidden; }
 .home { background: var(--paper); overflow-x: clip; }
 .home .wrap { max-width: 1180px; padding: 0 18px 80px; }
 
-/* ---------- Kopfleiste ---------- */
-.topbar { position: sticky; top: 0; z-index: 30;
-  background: rgba(250, 243, 232, .78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(46, 58, 50, .08); transition: box-shadow .25s; }
-.topin { max-width: 1180px; margin: 0 auto; padding: 10px 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.topbar.stuck { box-shadow: 0 6px 24px rgba(46, 58, 50, .08); }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; border: 0; }
-.brand img { width: 34px; height: 34px; border-radius: 9px; display: block; box-shadow: 0 2px 8px rgba(181, 80, 46, .35); }
-.topnav { display: none; gap: 4px; }
-.topnav a { text-decoration: none; color: var(--ink); font-size: 14.5px; padding: 7px 13px; border-radius: 999px; border: 0; transition: background .2s, color .2s; }
-.topnav a:hover { background: var(--ink); color: var(--paper); }
-.topnav a.hot { background: var(--rust); color: #fff; }
-.topnav a.hot:hover { background: #8f3d21; }
-
 /* ---------- Hero ---------- */
 .hero { position: relative; padding: 46px 0 34px; isolation: isolate; }
 .blobs { position: absolute; inset: -40px -40px 0 -40px; z-index: -1; pointer-events: none; }
@@ -109,8 +96,6 @@ html:has(body.home) { overflow-x: hidden; }
 
 @media (min-width: 700px) {
   .home .wrap { padding: 0 32px 100px; }
-  .topin { padding: 12px 32px; }
-  .topnav { display: flex; }
   .ticker { margin: 6px -32px 36px; }
   .hero { padding: 76px 0 52px; }
   .floaters span:nth-child(2) { display: block; }
