@@ -41,8 +41,7 @@
 .panel > header p { color: var(--ink2); font-size: 13px; }
 .stack { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
 
-fieldset { border: 0; border-top: 1px solid var(--line); padding: 14px 0 0; margin: 0; display: grid; gap: 12px; min-width: 0; }
-fieldset:first-of-type { border-top: 0; padding-top: 0; }
+fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 14px; margin: 0 0 14px; display: grid; gap: 12px; min-width: 0; }
 legend { padding: 0 8px 0 0; float: left; width: 100%; margin-bottom: 10px; font-family: var(--f-display); font-weight: 600; font-size: 14px; }
 .grid2 { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
 .f { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--ink2); min-width: 0; }
@@ -390,15 +389,6 @@ body.fp-body { padding-bottom: 0; }
         <label class="f" for="startAge"><span>Berufsstart mit Alter</span><input id="startAge" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
         </div>
         <label class="f" for="renteInfo"><span>Rente laut Rentenbescheid oder Renteninformation (optional)</span><input id="renteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"><small>Trage die Bruttorente vor Abzügen ein. Sie ersetzt die Schätzung des Planers.</small></label>
-        <label class="f" for="bRente"><span>Berufs- oder Betriebsrente (optional)</span><input id="bRente" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat ab Renteneintritt"><small>Betrag laut Mitteilung deines Versorgers. Er wird wie die gesetzliche Rente als Wert in heutigen Preisen behandelt.</small></label>
-        <label class="f" for="bRenteTyp"><span>Art der Berufsrente</span>
-          <select id="bRenteTyp"><option value="bav">Betriebsrente oder Pensionskasse</option><option value="basis">Versorgungswerk oder Basisrente</option></select>
-          <small>Betriebsrenten sind voll steuerpflichtig, dazu kommen Kranken- und Pflegeversicherungsbeiträge. Versorgungswerk und Basisrente werden wie die gesetzliche Rente besteuert.</small></label>
-        <div id="bKapWrap" style="display:grid;gap:12px">
-          <label class="f" for="bKap"><span>Angesparter Betrag der Betriebsrente (optional)</span><input id="bKap" type="number" inputmode="decimal" min="0" step="1000" placeholder="€ Kapital, falls Auszahlung angeboten wird"><small>Dein Versorger bietet das Kapital als Einmalzahlung oder verteilt über 4 Jahre an? Trage es hier ein und vergleiche die Varianten.</small></label>
-          <label class="f" for="bForm"><span>Betriebsrente rechnen als</span>
-            <select id="bForm"><option value="rente">Monatliche Rente</option><option value="einmal">Einmalzahlung</option><option value="vier">Auszahlung über 4 Jahre</option></select></label>
-        </div>
         <label class="f" for="retOverride"><span>Eigenes Renteneintrittsalter (optional)</span><input id="retOverride" type="number" inputmode="decimal" min="63" max="70" step="0.5" placeholder="leer = gesetzliche Regelaltersgrenze"><small id="retNote"></small></label>
         <label class="f" for="rentenbeginn"><span>Rentenbeginn, Jahr (optional)</span><input id="rentenbeginn" type="number" inputmode="numeric" min="1990" max="2080" step="1" placeholder="nur falls du schon Rente beziehst"><small>Der Rentenbeginn bestimmt, welcher Anteil der Rente steuerpflichtig ist.</small></label>
       </fieldset>
@@ -926,7 +916,7 @@ function compute(P) {
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var DEF = { vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', rentenbeginn: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: 2030, kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: 2, kfMietG: 2.5, kfRend: 4.5 };
-  DEF.bRente = ''; DEF.bRenteTyp = 'bav'; DEF.bKap = ''; DEF.bForm = 'rente'; DEF.retOverride = '';
+  DEF.retOverride = '';
   var AUS = [
     ['aWohnen', 'Wohnen', 'Miete bzw. Wohnkosten, Nebenkosten, Energie', 1100],
     ['aLeben', 'Lebensmittel', 'Lebensmittel und Haushalt', 450],
@@ -992,7 +982,7 @@ function compute(P) {
       aE: rd('aE', 0, 0, 100) / 100, aA: rd('aA', 0, 0, 100) / 100,
       rS: rd('rS', 2.5, -5, 20) / 100, rE: rd('rE', 6, -5, 20) / 100, rA: rd('rA', 6, -5, 20) / 100,
       infl: rd('infl', 2, -2, 15) / 100, rRet: rd('rRet', 3, -2, 15) / 100, planAge: rd('planAge', 90, 70, 110), saveUntil: $('saveUntil').value, netto: null,
-      bRente: rd('bRente', 0, 0, 50000), bRenteTyp: $('bRenteTyp').value, bKap: rd('bKap', 0, 0, 5e7), bForm: $('bForm').value,
+      bRente: 0, bRenteTyp: 'bav', bKap: 0, bForm: 'rente',
       aus: AUS.map(function (a) { return rd(a[0], 0, 0, 100000); }),
       contracts: CON.map(conClean),
       kauf: { preis: rd('kfPreis', 0, 0, 1e8), ek: rd('kfEK', 0, 0, 1e8), miete: rd('kfMiete', 0, 0, 1e5) * 12, jahre: Math.round(rd('kfJahre', 25, 5, 40)), nk: rd('kfNK', 9.5, 0, 30) / 100, zins: rd('kfZins', 3.8, 0, 15) / 100, tilg: rd('kfTilg', 2, 0, 10) / 100, inst: rd('kfInst', 1, 0, 5) / 100, wert: rd('kfWert', 2, -5, 10) / 100, mietg: rd('kfMietG', 2.5, -2, 10) / 100, rend: rd('kfRend', 4.5, -2, 15) / 100 }
@@ -1330,7 +1320,6 @@ function compute(P) {
     }
 
     // Betriebsrente: Varianten
-    $('bKapWrap').hidden = P.bRenteTyp !== 'bav';
     var bv = R.bav; $('bavPanel').hidden = !bv;
     if (bv) {
       var opt = [['rente', 'Monatliche Rente', bv.eqRente, P.bRente > 0 ? eur(bv.eqRente) + ' netto pro Monat, lebenslang. Brutto ' + eur(P.bRente) : 'Trage oben die Rente pro Monat ein, um sie zu vergleichen.'],
@@ -1509,15 +1498,30 @@ function compute(P) {
       render();
     });
   });
-  ['calcMode', 'coupleType', 'famEin'].forEach(function (id) { $(id).addEventListener('input', function () { syncStatus(); dirty(); render(); }); });
+  var lastNm = { vorname: $('vorname').value.trim(), pvorname: $('pvorname').value.trim() };
+  ['vorname', 'pvorname'].forEach(function (id) {
+    $(id).addEventListener('input', function () {
+      var nv = $(id).value.trim(), ov = lastNm[id];
+      if (ov) CON.forEach(function (c) { if (c.insured === ov) c.insured = nv; });
+      lastNm[id] = nv; conRender();
+    });
+  });
+  $('conDet').addEventListener('toggle', function () { if ($('conDet').open) conRender(); });
+  ['calcMode', 'coupleType', 'famEin'].forEach(function (id) { $(id).addEventListener('input', function () { syncStatus(); conRender(); dirty(); render(); }); });
   $('netto').addEventListener('input', function () { dirty(); nettoAuto = false; render(); });
   $('ausEx').addEventListener('click', function () { AUS.forEach(function (a) { $(a[0]).value = a[3]; }); dirty(); render(); });
   $('ausClr').addEventListener('click', function () { AUS.forEach(function (a) { $(a[0]).value = ''; }); render(); });
 
   /* ---------- Versicherungen und Verträge ---------- */
-  var opts = function (sel, list) { return list.map(function (x) { return '<option value="' + x[0] + '"' + (x[0] === sel ? ' selected' : '') + '>' + x[1] + '</option>'; }).join(''); };
+  var opts = function (sel, list) { return list.map(function (x) { return '<option value="' + esc(x[0]) + '"' + (x[0] === sel ? ' selected' : '') + '>' + esc(x[1]) + '</option>'; }).join(''); };
   var typeList = Object.keys(CT).map(function (k) { return [k, CT[k].n]; });
   $('conType').innerHTML = opts('riester', typeList);
+  function personList(cur) {
+    var l = [['', 'Nicht angegeben']], n1 = $('vorname').value.trim(), n2 = $('calcMode').value === 'paar' ? $('pvorname').value.trim() : '';
+    if (n1) l.push([n1, n1]); if (n2 && n2 !== n1) l.push([n2, n2]);
+    if (cur && !l.some(function (x) { return x[0] === cur; })) l.push([cur, cur]);
+    return l;
+  }
   function conRender() {
     $('conList').innerHTML = CON.map(function (c, i) {
       var d = CT[c.type], v = function (x) { return x ? esc(x) : ''; };
@@ -1525,7 +1529,7 @@ function compute(P) {
         '<div class="grid2"><label>Versicherungsgesellschaft<input type="text" maxlength="60" data-i="' + i + '" data-f="name" value="' + v(c.name) + '" placeholder="z. B. Allianz"></label>' +
         '<label>Vertragsnummer<input type="text" maxlength="40" data-i="' + i + '" data-f="nr" value="' + v(c.nr) + '" autocomplete="off"></label></div>' +
         '<label>Tarif<input type="text" maxlength="60" data-i="' + i + '" data-f="tarif" value="' + v(c.tarif) + '" placeholder="Tarifbezeichnung"></label>' +
-        '<label>Versicherte Person<input type="text" maxlength="60" data-i="' + i + '" data-f="insured" value="' + v(c.insured) + '" placeholder="Name"></label>' +
+        '<label>Versicherte Person<select data-i="' + i + '" data-f="insured">' + opts(c.insured || '', personList(c.insured)) + '</select></label>' +
         '<div class="grid2"><label>Beitrag pro Monat<input type="number" inputmode="decimal" min="0" step="10" data-i="' + i + '" data-f="beitrag" value="' + v(c.beitrag) + '" placeholder="€"></label>' +
         '<label>' + d.ben + '<input type="number" inputmode="decimal" min="0" step="' + (c.type === 'lv' || c.type === 'rlv' ? 1000 : 50) + '" data-i="' + i + '" data-f="leistung" value="' + v(c.leistung) + '" placeholder="€"></label></div>' +
         (c.type === 'lv' ? '<div class="grid2"><label>Davon selbst eingezahlt<input type="number" inputmode="decimal" min="0" step="1000" data-i="' + i + '" data-f="paid" value="' + v(c.paid) + '" placeholder="€ gesamt, optional"></label>' +
@@ -1561,12 +1565,14 @@ function compute(P) {
   function applyState(o) {
     if (!o || o.app !== 'finanzplanung' || typeof o.fields !== 'object' || !o.fields) throw new Error('format');
     Object.keys(DEF).forEach(function (k) { if (o.fields[k] != null) $(k).value = String(o.fields[k]).slice(0, 80); });
-    syncUI();
+    syncUI(); lastNm = { vorname: $('vorname').value.trim(), pvorname: $('pvorname').value.trim() };
+    var oldB = parseFloat(String(o.fields.bRente || '').replace(',', '.'));
     nettoAuto = o.nettoAuto !== false;
     if (!nettoAuto && o.fields.netto != null) $('netto').value = String(o.fields.netto).slice(0, 20);
     mode = o.mode === 'real' ? 'real' : 'nom';
     CON = Array.isArray(o.contracts) ? o.contracts.slice(0, 12).map(conClean) : [];
     CON.forEach(function (c) { ['beitrag', 'leistung', 'paid', 'jahr'].forEach(function (k) { if (!c[k]) c[k] = ''; }); });
+    if (oldB > 0) { CON.push({ type: o.fields.bRenteTyp === 'basis' ? 'basis' : 'bav', name: 'Betriebsrente', insured: $('vorname').value.trim(), nr: '', tarif: '', beitrag: '', leistung: oldB, paid: '', zusatz: 'ab2005', form: 'raten', n: 20, jahr: '' }); setTimeout(function () { svMsg('Die frühere Angabe zur Betriebsrente (' + eur(oldB) + ' pro Monat) steht jetzt bei den Verträgen. Lösche sie dort, falls sie nicht stimmt.'); }, 0); }
     conRender(); if (CON.length) $('conDet').open = true;
     userTouched = true; $('demo').hidden = true; render();
   }
