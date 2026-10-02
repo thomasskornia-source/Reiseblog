@@ -75,3 +75,16 @@
     initLightbox();
   }
 })();
+
+
+/* Desktop-Layout: ungerade Fotogruppen bekommen ein breites Eröffnungsfoto */
+(function () {
+  function layout() {
+    var art = document.querySelector('.page-entry article'); if (!art) return;
+    var kids = Array.prototype.slice.call(art.children), run = [];
+    function flush() { if (run.length % 2 === 1) run[0].classList.add('photo-lead'); run = []; }
+    kids.forEach(function (k) { if (k.classList && k.classList.contains('photo-full')) run.push(k); else flush(); });
+    flush();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', layout); else layout();
+})();

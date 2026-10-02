@@ -649,3 +649,73 @@ body {
 @media (min-width: 1100px) {
   .home .entry-list { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* =====================================================================
+   Große Bildschirme (Laptop / PC): erweitertes Layout für alle Seiten
+   ===================================================================== */
+
+@media (min-width: 1000px) {
+  body[class^="page-"] .wrap { max-width: 1120px; padding: 48px 48px 104px; }
+  body[class^="page-"] .entry-header h1 { font-size: 56px; }
+  body[class^="page-"] .entry-header { margin-bottom: 44px; }
+  body[class^="page-"] .entry-body { font-size: 18px; }
+  body[class^="page-"] .site-footer { margin-top: 80px; }
+
+  /* --- Tagebuch-Einträge: Fotos im Raster, Text als lesbare Spalte --- */
+  .page-entry article { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 28px; }
+  .page-entry article > * { grid-column: 1 / -1; margin-top: 0; margin-bottom: 0; min-width: 0; }
+  .page-entry article > .photo-full { grid-column: span 3; }
+  .page-entry article > .photo-full.photo-lead { grid-column: 1 / -1; }
+  .page-entry article > .photo-full.photo-lead .frame { aspect-ratio: 21 / 9; }
+  .page-entry article > .entry-body { grid-column: 2 / span 4; margin: 8px 0; }
+  .page-entry article .map-block #route-map { height: 480px !important; }
+  .page-entry .photo-full .frame { aspect-ratio: 4 / 3; border-radius: 12px; }
+  .page-entry .photo-full figcaption { font-size: 15px; }
+
+  /* --- Rezepte: Zutaten links, Zubereitung rechts --- */
+  .page-recipe article { max-width: 1000px; }
+  .recipe-cols { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 56px; align-items: start; margin: 28px 0; }
+  .page-recipe .recipe-cols .recipe-ingredients { position: sticky; top: 24px; margin: 0; padding: 24px 28px; }
+  .page-recipe .recipe-cols .recipe-steps { margin: 0; font-size: 18px; }
+  .page-recipe .recipe-steps li { margin-bottom: 18px; }
+  .page-recipe .entry-body { max-width: 760px; }
+  .page-recipe .rating-block { max-width: 520px; }
+
+  /* --- Übersichten (Rezepte, Reisen): Karten-Raster --- */
+  .page-list .entry-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 24px; }
+  .page-list .entry-list .entry-preview {
+    position: relative; padding: 24px 28px 26px; border: 1px solid rgba(46, 58, 50, 0.12); border-radius: 14px; background: var(--paper-warm);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .page-list .entry-list .entry-preview:first-child { border-top: 1px solid rgba(46, 58, 50, 0.12); }
+  .page-list .entry-list .entry-preview:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46, 58, 50, 0.1); }
+  .page-list .entry-list .entry-preview h2 { font-size: 24px; line-height: 1.25; padding-right: 22px; }
+  .page-list .entry-list .entry-preview .ampel-dot { top: 28px; right: 26px; }
+
+  /* --- Info- und Reiseseiten: Text in zwei Spalten --- */
+  .page-info article { column-count: 2; column-gap: 72px; }
+  .page-info article > .entry-header { column-span: all; }
+  .page-info article > .entry-header + .entry-body { column-span: all; max-width: 820px; }
+  .page-info article table, .page-info article .tip-box, .page-info article .safety-box, .page-info article .hotel-group,
+  .page-info article .qa-block, .page-info article .note-box, .page-info article .chol-card, .page-info article .good-bad,
+  .page-info article .disclaimer, .page-info article figure, .page-info article .map-link { break-inside: avoid; }
+  .page-info article .subhead, .page-info article h2, .page-info article h3 { break-after: avoid; }
+  .page-info article .entry-body { font-size: 17px; }
+
+  /* --- Praktische Seiten mit Formularen und Karten: breiter, aber einspaltig --- */
+  .page-wide .wrap { max-width: 1040px; }
+  .page-wide article > .entry-body { max-width: 820px; }
+}
+
+@media (min-width: 1300px) {
+  .page-list .entry-list.entry-list--3, .page-list .entry-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1000px) {
+  .page-wide.page-read .wrap { max-width: 920px; }
+}
+
+/* Tabellen am Handy: seitlich scrollbar statt die Seite zu verbreitern */
+@media (max-width: 700px) {
+  article table { display: block; max-width: 100%; overflow-x: auto; }
+}
