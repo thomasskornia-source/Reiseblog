@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kappadokien-Reise 26.12.–6.1. – Andrea unterwegs</title>
+<link rel="stylesheet" href="styles.css?v=10">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Andrea unterwegs">
+<style>
+  .subhead { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 32px 0 8px; }
+  .route-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 15px; }
+  .route-table th, .route-table td { border: 1px solid rgba(46,58,50,0.15); padding: 8px 12px; text-align: left; vertical-align: top; }
+  .route-table th { background: var(--paper-warm); font-family: 'Work Sans', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); }
+  .map-link { display: inline-block; margin: 10px 0 4px; padding: 10px 18px; background: var(--rust); color: #fff; text-decoration: none; border-radius: 6px; font-size: 14px; }
+  .hotel-group { margin: 16px 0; }
+  .hotel-group strong { display: block; font-family: 'Fraunces', serif; font-size: 17px; margin-bottom: 6px; }
+  .hotel-group ul { margin: 0; padding-left: 20px; }
+  .hotel-group li { margin-bottom: 6px; }
+  .tip-box { background: var(--paper-warm); border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
+  .safety-box { background: rgba(197, 92, 60, 0.08); border: 1px solid rgba(197, 92, 60, 0.25); border-radius: 8px; padding: 18px 22px; margin: 16px 0; font-size: 15px; }
+  .practical-list li { margin-bottom: 10px; }
+  #route-map { height: 380px; width: 100%; border-radius: 8px; margin: 14px 0 6px; }
+  .route-tooltip { background: var(--paper, #faf6f0); border: 1px solid rgba(46,58,50,0.25); font-family: 'Work Sans', sans-serif; font-size: 12px; padding: 2px 6px; border-radius: 4px; box-shadow: none; }
+  .route-table .num { white-space: nowrap; }
+  .route-table td:nth-child(n+2) { white-space: normal; }
+  .cost td:nth-child(n+2), .cost th { white-space: nowrap; }
+</style>
+<link rel="stylesheet" href="lib/leaflet/leaflet.css">
+</head>
+<body class="page-info">
+<div class="wrap">
+
+  <a class="back-link" href="reisen.html">← Zu den Reisen</a>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Reiseplanung · aus dem Reiseberater</p>
+      <h1>Kappadokien-Reise <span style="white-space: nowrap;">26.12.–6.1.</span></h1>
+      <hr class="rule">
+    </header>
+
+    <div class="entry-body">
+      <p>12 Tage zu dritt ab München: <strong>Istanbul (3 Nächte) → Kappadokien (8 Nächte)</strong>. Natur, Wandern, gutes Essen, zwei Städte-Tage zum Einstieg, Silvester draußen und mehrere Chancen auf eine Ballonfahrt. Flugzeit ab München etwa 3 Std. bis Istanbul und etwa 1,5 Std. weiter nach Kappadokien, also deutlich unter deinen 7 Std.</p>
+    </div>
+
+    <h2 class="subhead">Kann man mit dem Heißluftballon fahren?</h2>
+    <div class="tip-box">
+      <p><strong>Ja, auch im Winter, aber wetterabhängig.</strong> Kappadokien ist eines der bekanntesten Ballonziele der Welt. Die Fahrten starten bei Sonnenaufgang (ab ca. 6:30 Uhr) und dauern 50–75 Minuten in der Luft, insgesamt rechnet man 3–4 Stunden. Im Dezember und Januar ist es kalt (Dezember ca. −4 bis 11 °C, Januar ca. −5 bis 5 °C, teils Schnee), dafür sind die Landschaft verschneit und die Preise niedriger.</p>
+      <p>Die Kehrseite: <strong>Im Winter fallen viele Fahrten wegen Wind, Regen, Nebel oder schlechter Sicht aus.</strong> Eine konkrete Ausfallquote nennt keine Quelle. Darum bleiben wir 8 Nächte vor Ort und planen <strong>drei Ballon-Termine (1., 2. und 3. Januar)</strong>. Die Anbieter bieten bei Absage in der Regel eine Umbuchung oder Erstattung an; das vor der Buchung schriftlich klären.</p>
+      <p style="margin-bottom:0;">Preise pro Person (Richtwerte): Gruppenfahrt (16–24 Personen) ca. 150–250 €, Komfort/kleine Gruppe ca. 230–290 €, Deluxe ca. 250–350 €, privat ab ca. 500 €. Inklusive sind meist Hotelabholung, Frühstück, Sektempfang nach der Landung und Rückfahrt.</p>
+    </div>
+
+    <h2 class="subhead">Route</h2>
+    <div id="route-map"></div>
+    <a class="map-link" href="https://www.google.com/maps/dir/Istanbul,+Turkey/G%C3%B6reme,+Turkey/Ihlara+Valley,+Turkey/Derinkuyu,+Turkey/Kayseri+Airport,+Turkey" target="_blank">📍 Route in Google Maps öffnen (Navigation)</a>
+    <table class="route-table">
+      <tr><th>Tag</th><th>Station</th><th>Programm</th></tr>
+      <tr><td class="num">1 · Sa 26.12.</td><td>Istanbul</td><td>Flug München–Istanbul, Hotel in der Altstadt, Abendessen</td></tr>
+      <tr><td class="num">2 · So 27.12.</td><td>Istanbul</td><td>Altstadt zu Fuß: Hagia Sophia, Blaue Moschee, Zisterne, Großer Basar</td></tr>
+      <tr><td class="num">3 · Mo 28.12.</td><td>Istanbul</td><td>Bosporus-Fähre, Galata, Kadıköy (Markt, Essen auf der asiatischen Seite)</td></tr>
+      <tr><td class="num">4 · Di 29.12.</td><td>→ Göreme</td><td>Inlandsflug nach Kayseri oder Nevşehir, Mietwagen übernehmen, Fahrt nach Göreme (ca. 1 Std.)</td></tr>
+      <tr><td class="num">5 · Mi 30.12.</td><td>Göreme</td><td>Freilichtmuseum Göreme, Burgfelsen Uçhisar, Sonnenuntergang</td></tr>
+      <tr><td class="num">6 · Do 31.12.</td><td>Göreme</td><td><strong>Silvester:</strong> Wanderung durch Rose Valley und Red Valley, Sonnenuntergang auf der Felsterrasse, Abend draußen (siehe unten)</td></tr>
+      <tr><td class="num">7 · Fr 1.1.</td><td>Göreme</td><td><strong>Ballonfahrt, Termin 1</strong> (früh), danach ausschlafen und Spaziergang</td></tr>
+      <tr><td class="num">8 · Sa 2.1.</td><td>Ihlara-Tal</td><td>Tagesausflug: Wanderung im Ihlara-Tal (Winterwandern empfohlen), <strong>Ballon Termin 2</strong>, falls Termin 1 ausfiel</td></tr>
+      <tr><td class="num">9 · So 3.1.</td><td>Derinkuyu</td><td>Unterirdische Stadt Derinkuyu oder Kaymaklı, <strong>Ballon Termin 3</strong> als letzte Chance</td></tr>
+      <tr><td class="num">10 · Mo 4.1.</td><td>Avanos / Ürgüp</td><td>Töpferstadt Avanos, „Drei Schwestern“ bei Ürgüp, Zelve oder Devrent-Tal</td></tr>
+      <tr><td class="num">11 · Di 5.1.</td><td>Göreme</td><td>Puffer, Wanderung nach Wahl, Abschiedsessen</td></tr>
+      <tr><td class="num">12 · Mi 6.1.</td><td>Rückflug</td><td>Mietwagen zurück, Flug ab Kayseri oder Nevşehir über Istanbul nach München</td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft);">Mietwagen nur für Kappadokien (ab Tag 4), Istanbul geht zu Fuß, mit Fähre und Tram. Wenn das Wetter alle Ballontermine verhindert, bleibt Zeit für Wanderungen, die zum Plan ohnehin dazugehören.</p>
+
+    <h2 class="subhead">Silvester draußen in der Natur</h2>
+    <div class="tip-box">
+      <p>Vorschlag: tagsüber Wanderung durch Rose Valley und Red Valley mit dem Sonnenuntergang als Höhepunkt, abends ein Silvesterdinner oder Feuer unter freiem Himmel. Mehrere Höhlenhotels in Göreme nennen auf Booking eine Feuerstelle im Freien (z. B. Bedrock Cave Hotel, Wonder of Cappadocia, Charming Cave Hotel) und teils Dinner- oder Musikabende (z. B. Stone House Cave Hotel, Anatolian Houses). <strong>Ob und wie dort Silvester gefeiert wird, ist nicht zugesichert</strong> – bitte direkt beim Hotel nach dem Programm für den 31.12. fragen und früh reservieren.</p>
+      <p style="margin-bottom:0;">Es wird kalt (Tiefstwerte bis ca. −4 °C), also warme Schichten, Mütze, Handschuhe und feste Schuhe. Ob um Mitternacht ein Feuerwerk zu sehen ist, lässt sich nicht verlässlich vorhersagen.</p>
+    </div>
+
+    <h2 class="subhead">Kostenübersicht (12 Tage, zu dritt)</h2>
+    <table class="route-table cost">
+      <tr><th></th><th>Medium</th><th>Luxus</th></tr>
+      <tr><td>Flüge München–Istanbul–Kappadokien und zurück (3 Pers.)</td><td>ca. 1.650 €</td><td>ca. 2.400 €</td></tr>
+      <tr><td>Mietwagen 8 Tage inkl. Sprit</td><td>ca. 450 €</td><td>ca. 700 €</td></tr>
+      <tr><td>Hotels (Istanbul 3 Nächte, Göreme 8 Nächte, je 2 Zimmer)</td><td>ca. 1.850 €</td><td>ca. 3.800 €</td></tr>
+      <tr><td>Ballonfahrt 3 Pers. (je 1 Fahrt)</td><td>ca. 600 €</td><td>ca. 1.050 €</td></tr>
+      <tr><td>Essen, Eintritte, Fähre, Silvesterdinner</td><td>ca. 1.200 €</td><td>ca. 2.000 €</td></tr>
+      <tr><td><strong>Gesamt</strong></td><td><strong>≈ 5.750 €</strong></td><td><strong>≈ 9.950 €</strong></td></tr>
+    </table>
+    <div class="tip-box">
+      <p style="margin-bottom:0;"><strong>Das Medium-Budget liegt etwa 350 € über deinem Budget von 5.400 €.</strong> Sparhebel: Istanbul auf 2 Nächte kürzen, Ballon als Gruppenfahrt (ab ca. 150 €), preiswertere Hotels oder ein Dreibettzimmer statt zwei Zimmern, Flüge früh vergleichen. Alle Zahlen sind Schätzungen aus den genannten Quellen. Die Flugpreise zu den Feiertagen sind nicht geprüft und der größte Unsicherheitsfaktor.</p>
+    </div>
+
+    <h2 class="subhead">Hotelvorschläge (Medium-Budget)</h2>
+    <p style="font-style: italic; color: var(--ink-soft); margin-top: -8px; font-size: 14px;">Preise aus der Booking.com-Suche, Stand 2. Oktober 2026, für 3 Personen in 2 Zimmern. Aktuelle Verfügbarkeit bitte beim Buchen prüfen.</p>
+    <div class="hotel-group">
+      <strong>Istanbul, Altstadt (3 Nächte, 26.–29.12.)</strong>
+      <ul>
+        <li><a href="https://www.booking.com/hotel/tr/sadaret-hotel-old-city-sultanahmet.html" target="_blank" rel="noopener">Sadaret Hotel – Old City Sultanahmet</a> – Bewertung 9,0 (1.981 Bew.), ca. 428 € für 3 Nächte (2 Zimmer)</li>
+        <li><a href="https://www.booking.com/hotel/tr/menar-suites-in-old-city.html" target="_blank" rel="noopener">Menar Hotel &amp; Suites – Old City Sultanahmet</a> – Bewertung 9,3 (1.629 Bew.), ca. 605 €</li>
+        <li><a href="https://www.booking.com/hotel/tr/efendadeg.html" target="_blank" rel="noopener">Nowy Efendi Hotel</a> – Bewertung 9,1 (1.656 Bew.), ca. 691 €</li>
+      </ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Göreme, Höhlenhotels (8 Nächte ab 29.12.)</strong>
+      <ul>
+        <li><a href="https://www.booking.com/hotel/tr/goreme-reva.html" target="_blank" rel="noopener">Göreme Reva Hotel</a> – günstigste Option der Suche: ca. 875 € für 5 Nächte (29.12.–3.1., 2 Zimmer), Terrasse, Außenpool</li>
+        <li><a href="https://www.booking.com/hotel/tr/stone-house-cave.html" target="_blank" rel="noopener">Stone House Cave Hotel</a> – ca. 1.199 € für 5 Nächte, Restaurant, Musik- und Dinnerabende</li>
+        <li><a href="https://www.booking.com/hotel/tr/bedrock-cave.html" target="_blank" rel="noopener">Bedrock Cave Hotel</a> – ca. 1.334 € für 5 Nächte, Feuerstelle im Freien, Parkplatz</li>
+      </ul>
+      <p style="font-size:13px; color: var(--ink-soft); margin: 6px 0 0;">Für Göreme lieferte die Suche keine Bewertungen, bitte dort vor dem Buchen die Gästebewertungen prüfen. Die Preise gelten für 5 Nächte rund um Silvester und sind hier auf die 8 Nächte nur grob hochgerechnet.</p>
+    </div>
+
+    <h2 class="subhead">Flugsuche</h2>
+    <ul>
+      <li><a href="https://www.skyscanner.de/transport/fluege/muc/asr/" target="_blank" rel="noopener">Skyscanner: München → Kayseri</a></li>
+      <li><a href="https://www.google.com/travel/flights?q=Flights%20from%20Munich%20to%20Kayseri" target="_blank" rel="noopener">Google Flights: München → Kayseri</a></li>
+      <li><a href="https://www.kayak.de/flights/MUC-ASR" target="_blank" rel="noopener">Kayak: München → Kayseri</a></li>
+      <li><a href="https://www.kayak.de/flights/MUC-IST" target="_blank" rel="noopener">Kayak: München → Istanbul</a></li>
+    </ul>
+    <p style="font-size:14px; color: var(--ink-soft);">Direktflüge München–Kayseri gibt es laut Kayak nur mit SunExpress, etwa einmal pro Woche und rund 3 Std. 15 Min. Flugzeit; typische Preise für Hin- und Rückflug 256–477 €. Ob der Wochentag zu 29.12. und 6.1. passt, muss man prüfen. Sonst bietet sich Istanbul als Einstieg an, dann mit Inlandsflug nach Kayseri oder Nevşehir.</p>
+
+    <h2 class="subhead">Sicherheitslage (Stand: 2. Oktober 2026)</h2>
+    <div class="safety-box">
+      <p>Das Auswärtige Amt warnt laut Presseberichten (Mai 2026) vor Reisen in die Grenzgebiete der Provinzen Şanlıurfa, Mardin, Şırnak und Hakkâri an der Grenze zu Syrien, Irak und Iran. <strong>Istanbul und Kappadokien liegen nicht in diesen Gebieten.</strong> Landesweit ist von einer terroristischen Gefährdung auszugehen: große Menschenansammlungen sowie Regierungs- und Militäreinrichtungen meiden, an belebten Orten aufmerksam sein. Das gilt besonders für Silvester in Istanbul – darum verbringen wir den Jahreswechsel in Kappadokien. Die Lage kann sich ändern; kurz vor Abreise die aktuellen Hinweise prüfen.</p>
+      <ul style="margin-bottom:0;">
+        <li><a href="https://www.auswaertiges-amt.de/de/service/laender/tuerkei-node/tuerkeisicherheit-201962" target="_blank" rel="noopener">Auswärtiges Amt: Türkei – Reise- und Sicherheitshinweise</a></li>
+        <li><a href="https://www.nordbayern.de/service/urlaub/auswaertige-amt-warnt-vor-reisen-in-beliebtes-urlaubsland-urs-rep-14-1.14978705" target="_blank" rel="noopener">nordbayern.de: Warnung des Auswärtigen Amts für Regionen der Türkei</a></li>
+      </ul>
+    </div>
+
+    <h2 class="subhead">Warum diese Reise?</h2>
+    <div class="tip-box">
+      <p>Aus deinem Reiseberater: Natur, Abenteuer und Essen sind dir wichtig, Silvester möglichst draußen, dazu ein bis zwei Städte, ein Ballon und maximal 7 Std. Flug. Kappadokien liefert Wanderungen durch Tuff-Täler, Ballonfahrten als Markenzeichen und eine Landschaft, die im Winter besonders ist. Istanbul sorgt für Stadt, Kultur und Essen und ist gut ausgelastet in 3 Tagen. Andere Ziele mit Ballonfahrten (z. B. Wadi Rum in Jordanien oder Luxor in Ägypten) habe ich nicht geprüft.</p>
+      <p><strong>Selbst fahren?</strong> In Kappadokien gut machbar, die Strecken sind kurz und die Orte nah beieinander (Flughafen Kayseri nach Göreme ca. 1 Std.). Im Winter sind Schnee und Glätte möglich: beim Vermieter nach Winterreifen fragen, Vollkasko wählen, Nachtfahrten meiden. Mietwagen kosten laut Vergleichsportal ab Kayseri etwa 24–65 € pro Tag, SUV ab ca. 42 €.</p>
+      <p style="margin-bottom:0;"><strong>Essen:</strong> Mezze, Gerichte aus dem Lehmofen und Töpfergerichte sind in Kappadokien verbreitet; vegetarisch geht gut. Konkrete Restaurants gerne vor Ort bei den Hotels erfragen.</p>
+    </div>
+
+    <h2 class="subhead">Quellen</h2>
+    <ul>
+      <li><a href="https://geheimtipptuerkei.de/kappadokien-heissluftballon" target="_blank" rel="noopener">Geheimtipp Türkei: Ballonfahrt in Kappadokien</a> – Preise, Dauer, Winterausfälle, 2–3 Nächte Puffer</li>
+      <li><a href="https://www.hotairballoons-cappadocia.com/timings-and-season/" target="_blank" rel="noopener">Hot Air Balloons Cappadocia: Zeiten und Saison</a> – Temperaturen im Dezember und Januar, Startzeiten</li>
+      <li><a href="https://www.kayak.de/fl%C3%BCge/Muenchen-MUC/Kayseri-ASR" target="_blank" rel="noopener">Kayak: Flüge München–Kayseri</a> – Direktflug mit SunExpress, Flugdauer, Preisspanne</li>
+      <li><a href="https://www.billiger-mietwagen.de/mietwagen-flughafen-kayseri.html" target="_blank" rel="noopener">billiger-mietwagen.de: Mietwagen am Flughafen Kayseri</a></li>
+      <li><a href="https://synke-unterwegs.de/kappadokien-tipps-winter/" target="_blank" rel="noopener">Synke unterwegs: 11 Tipps für Kappadokien im Winter</a> – Freilichtmuseum, Derinkuyu, Ihlara-Tal</li>
+    </ul>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Stand: 2. Oktober 2026. Aus dem Reiseberater erstellt; Preise sind Richtwerte und vor der Buchung zu prüfen.</p>
+
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+
+<script src="lib/leaflet/leaflet.js"></script>
+<script>
+  var stops = [
+    { name: "Istanbul",  tag: "Tag 1–3",    lat: 41.0082, lon: 28.9784, info: "Altstadt, Basar, Bosporus" },
+    { name: "Göreme",    tag: "Tag 4–12",   lat: 38.6431, lon: 34.8289, info: "Höhlenhotels, Wanderungen, Ballon, Silvester" },
+    { name: "Ihlara-Tal",tag: "Tag 8",      lat: 38.2536, lon: 34.3050, info: "Schlucht-Wanderung" },
+    { name: "Derinkuyu", tag: "Tag 9",      lat: 38.3731, lon: 34.7352, info: "Unterirdische Stadt" },
+    { name: "Kayseri",   tag: "Tag 4 und 12", lat: 38.7704, lon: 35.4954, info: "Flughafen, Mietwagen" }
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap-Mitwirkende' }).addTo(map);
+  var latlngs = stops.map(function (s) { return [s.lat, s.lon]; });
+  L.polyline([[41.0082, 28.9784], [38.6431, 34.8289]], { color: '#a5622a', weight: 3, dashArray: '6 6' }).addTo(map);
+  stops.forEach(function (s, i) {
+    var marker = L.circleMarker([s.lat, s.lon], { radius: 9, fillColor: '#c98a4b', color: '#fff', weight: 2, fillOpacity: 1 }).addTo(map);
+    marker.bindTooltip(s.name, { permanent: true, direction: 'top', offset: [0, -8], className: 'route-tooltip' });
+    marker.bindPopup('<strong>' + s.name + '</strong><br>' + s.tag + '<br>' + s.info);
+  });
+  map.fitBounds(latlngs, { padding: [30, 30] });
+</script>
+</body>
+</html>
