@@ -203,7 +203,7 @@ th { font-weight: 600; color: var(--ink2); }
 .st-tap { position: absolute; top: 60px; bottom: 80px; z-index: 2; border: 0; background: none; cursor: pointer; padding: 0; -webkit-tap-highlight-color: transparent; }
 .st-tap.l { left: 0; width: 32%; }
 .st-tap.r { right: 0; width: 68%; }
-.st-card { position: absolute; inset: 56px 0 84px; z-index: 1; padding: 20px 28px; display: flex; flex-direction: column; justify-content: center; gap: 14px; overflow-y: auto; pointer-events: none; }
+.st-card { position: absolute; inset: 56px 0 84px; z-index: 3; padding: 20px 28px; display: flex; flex-direction: column; justify-content: center; gap: 14px; overflow-y: auto; pointer-events: none; }
 .st-card .st-btns, .st-card a, .st-card button { pointer-events: auto; }
 .st-card > * { opacity: 0; transform: translateY(14px); animation: stUp .55s cubic-bezier(.2,.7,.2,1) forwards; }
 .st-card > *:nth-child(2) { animation-delay: .08s; } .st-card > *:nth-child(3) { animation-delay: .18s; } .st-card > *:nth-child(4) { animation-delay: .3s; } .st-card > *:nth-child(5) { animation-delay: .42s; } .st-card > *:nth-child(6) { animation-delay: .54s; } .st-card > *:nth-child(n+7) { animation-delay: .66s; }
@@ -237,6 +237,8 @@ th { font-weight: 600; color: var(--ink2); }
 .st-btn { font: inherit; font-weight: 600; font-size: 15px; border-radius: 999px; padding: 10px 20px; cursor: pointer; border: 1px solid #FAF3E8; background: #FAF3E8; color: #2E3A32; }
 .st-btn.ghost { background: transparent; color: #FAF3E8; }
 body.st-open { overflow: hidden; }
+.st-deco .coinc { position: absolute; left: 0; top: 0; }
+
 .st-deco { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .st-deco .rg { position: absolute; left: 72%; top: 20%; width: 80px; height: 80px; margin: -40px 0 0 -40px; border-radius: 50%; border: 2px solid rgba(250,243,232,.55); animation: stRing 6s ease-out infinite; opacity: 0; }
 @keyframes stRing { 0% { transform: scale(.4); opacity: .7; } 100% { transform: scale(5.5); opacity: 0; } }
@@ -1576,7 +1578,7 @@ function compute(P) {
   function decoHTML(type) {
     var h = '', i;
     if (type === 'rings') for (i = 0; i < 3; i++) h += '<i class="rg" style="animation-delay:' + (i * 2) + 's"></i>';
-    else if (type === 'coins') for (i = 0; i < 11; i++) h += '<i class="co" style="left:' + Math.round(rnd(2, 92)) + '%;animation-duration:' + rnd(6, 11).toFixed(1) + 's;animation-delay:-' + rnd(0, 9).toFixed(1) + 's">€</i>';
+    else if (type === 'coins') h = '<canvas class="coinc"></canvas>';
     else if (type === 'euro') for (i = 0; i < 12; i++) h += '<i class="eu" style="left:' + Math.round(rnd(2, 92)) + '%;font-size:' + Math.round(rnd(18, 46)) + 'px;--dx:' + Math.round(rnd(-30, 30)) + 'px;animation-duration:' + rnd(9, 17).toFixed(1) + 's;animation-delay:-' + rnd(0, 14).toFixed(1) + 's">€</i>';
     else if (type === 'curve' || type === 'curve2') {
       var d = type === 'curve' ? 'M0,185 C110,182 210,150 290,92 S375,14 400,4' : 'M0,190 C140,188 250,170 320,110 S385,20 400,2';
@@ -1592,13 +1594,69 @@ function compute(P) {
   }
   function decoFor(html) {
     if (html.indexOf('st-badge') >= 0) return 'stars';
-    var m = [['Dein Finanzplan', 'rings'], ['>Heute<', 'coins'], ['in Rente, ca.', 'curve'], ['Im Ruhestand<', 'euro'], ['Reicht das?', 'waves'], ['Deine Betriebsrente', 'orbit'], ['Deine Absicherung', 'rings'], ['>Zinseszins<', 'curve2'], ['nächsten Schritte', 'stars']];
+    var m = [['Dein Finanzplan', ''], ['>Heute<', 'coins'], ['in Rente, ca.', 'curve'], ['Im Ruhestand<', 'euro'], ['Reicht das?', 'waves'], ['Deine Betriebsrente', 'orbit'], ['Deine Absicherung', ''], ['>Zinseszins<', 'curve2'], ['nächsten Schritte', 'stars']];
     for (var i = 0; i < m.length; i++) if (html.indexOf(m[i][0]) >= 0) return m[i][1];
     return '';
   }
+
+  /* Muenzen: fallen dauerhaft und tuermen sich unten zu einem Haufen */
+  var coinRAF = 0;
+  function stopCoins() { if (coinRAF) { cancelAnimationFrame(coinRAF); coinRAF = 0; } }
+  function startCoins() {
+    stopCoins();
+    var cv = $('stDeco').querySelector('canvas'); if (!cv) return;
+    var fr = $('stFrame'), W = fr.clientWidth, H = fr.clientHeight, dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    var ctx = cv.getContext('2d');
+    var mk = function () { var c = document.createElement('canvas'); c.width = cv.width; c.height = cv.height; return c; };
+    var pile = mk(), tmp = mk(), pc = pile.getContext('2d'), tc = tmp.getContext('2d');
+    pc.scale(dpr, dpr);
+    var R = 13, rr = 10, CW = 8, N = Math.ceil(W / CW) + 1, hs = new Float64Array(N), cap = H * 0.2, coins = [], last = 0, spawn = 0;
+    var colHi = function (x, rad) { var a = Math.max(0, Math.floor((x - rad) / CW)), b = Math.min(N - 1, Math.floor((x + rad) / CW)), m = 0; for (var i = a; i <= b; i++) if (hs[i] > m) m = hs[i]; return m; };
+    var coinPath = function (g, x, y, rx, ry, rot, face) {
+      g.save(); g.translate(x, y); g.rotate(rot);
+      var gr = g.createRadialGradient(-rx * 0.3, -ry * 0.3, 1, 0, 0, Math.max(rx, ry));
+      gr.addColorStop(0, '#fff1b8'); gr.addColorStop(0.55, '#f2c36b'); gr.addColorStop(1, '#c99a3e');
+      g.fillStyle = gr; g.strokeStyle = 'rgba(122,86,12,.75)'; g.lineWidth = 1.4;
+      g.beginPath(); g.ellipse(0, 0, Math.max(1.5, rx), Math.max(1.5, ry), 0, 0, 6.2832); g.fill(); g.stroke();
+      if (face && rx > R * 0.55 && ry > R * 0.55) { g.fillStyle = 'rgba(107,74,12,.85)'; g.font = '700 ' + Math.round(Math.min(rx, ry) * 1.05) + 'px Fraunces, Georgia, serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('€', 0, 1); }
+      g.restore();
+    };
+    var land = function (c) {
+      var x = c.x, hm = colHi(x, rr);
+      for (var k = 0; k < 8; k++) {
+        var hl = colHi(x - rr * 1.3, rr * 0.4), hr = colHi(x + rr * 1.3, rr * 0.4);
+        if (Math.min(hl, hr) < hm - rr * 0.6 && x > rr && x < W - rr) { x += (hl < hr ? -1 : 1) * rr * 0.8; hm = colHi(x, rr); } else break;
+      }
+      var y = H - hm - rr * 0.8;
+      coinPath(pc, x, y, R, R * (0.45 + Math.random() * 0.5), (Math.random() - 0.5) * 0.9, true);
+      var a = Math.max(0, Math.floor((x - rr) / CW)), b = Math.min(N - 1, Math.floor((x + rr) / CW));
+      for (var i = a; i <= b; i++) hs[i] = Math.max(hs[i], hm + rr * 0.55 - Math.abs(i * CW - x) * 0.25);
+    };
+    var frame = function (ts) {
+      coinRAF = requestAnimationFrame(frame);
+      var dt = last ? Math.min(0.05, (ts - last) / 1000) : 0.016; last = ts;
+      spawn -= dt;
+      if (spawn <= 0) { spawn = 0.16 + Math.random() * 0.2; var u = Math.random() < 0.65 ? 0.5 + (Math.random() + Math.random() + Math.random() - 1.5) * 0.5 : Math.random(); coins.push({ x: Math.max(R, Math.min(W - R, u * W)), y: -R - Math.random() * 30, vy: 40 + Math.random() * 60, sp: Math.random() * 6.28, vs: 2 + Math.random() * 4 }); }
+      for (var i = coins.length - 1; i >= 0; i--) {
+        var c = coins[i]; c.vy = Math.min(560, c.vy + 620 * dt); c.y += c.vy * dt; c.sp += c.vs * dt;
+        if (c.y + rr * 0.8 >= H - colHi(c.x, rr)) { land(c); coins.splice(i, 1); }
+      }
+      var mx = 0; for (var j = 0; j < N; j++) if (hs[j] > mx) mx = hs[j];
+      if (mx > cap) {
+        var sk = (0.25 + (mx - cap) * 0.012) * dt * 60;
+        tc.setTransform(1, 0, 0, 1, 0, 0); tc.clearRect(0, 0, tmp.width, tmp.height); tc.drawImage(pile, 0, 0);
+        pc.setTransform(1, 0, 0, 1, 0, 0); pc.clearRect(0, 0, pile.width, pile.height); pc.drawImage(tmp, 0, sk * dpr); pc.scale(dpr, dpr);
+        for (var q = 0; q < N; q++) hs[q] = Math.max(0, hs[q] - sk);
+      }
+      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height); ctx.drawImage(pile, 0, 0); ctx.scale(dpr, dpr);
+      coins.forEach(function (c) { coinPath(ctx, c.x, c.y, R * Math.abs(Math.cos(c.sp)), R, 0, true); });
+    };
+    coinRAF = requestAnimationFrame(frame);
+  }
   function showCard() {
     var c = SC[SI]; $('stBg').className = 'st-bg ' + c.t;
-    var card = $('stCard'); card.innerHTML = c.h; card.scrollTop = 0; $('stDeco').innerHTML = decoHTML(decoFor(c.h));
+    var card = $('stCard'); card.innerHTML = c.h; card.scrollTop = 0; stopCoins(); var dty = decoFor(c.h); $('stDeco').innerHTML = decoHTML(dty); if (dty === 'coins') startCoins();
     $('stProg').innerHTML = SC.map(function (x, i) { return '<i class="' + (i <= SI ? 'on' : '') + '"></i>'; }).join('');
     $('stPrev').disabled = SI === 0; $('stNext').disabled = SI === SC.length - 1; $('stPos').textContent = (SI + 1) + ' von ' + SC.length;
     animateCounts();
@@ -1611,7 +1669,7 @@ function compute(P) {
     SC = storyCards(LAST); SI = 0; stOpener = btn || null;
     $('story').hidden = false; document.body.classList.add('st-open'); showCard(); $('stX').focus();
   }
-  function closeStory() { $('story').hidden = true; document.body.classList.remove('st-open'); if (stOpener) { try { stOpener.focus(); } catch (e) {} } }
+  function closeStory() { stopCoins(); $('story').hidden = true; document.body.classList.remove('st-open'); if (stOpener) { try { stOpener.focus(); } catch (e) {} } }
   Array.prototype.forEach.call(document.querySelectorAll('[data-story]'), function (b) { b.addEventListener('click', function () { openStory(b); }); });
   $('stX').addEventListener('click', closeStory);
   $('stR').addEventListener('click', function () { go(1); }); $('stL').addEventListener('click', function () { go(-1); });
