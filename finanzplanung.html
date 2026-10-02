@@ -141,9 +141,10 @@ th { font-weight: 600; color: var(--ink2); }
 .fp input[type=number], .fp input[type=text], .fp select { background: var(--paper); }
 
 [hidden] { display: none !important; }
-.toolgroup { position: absolute; top: 0; right: 0; display: flex; gap: 8px; }
-.toolbtn { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; padding: 0; color: var(--ink); background: var(--paper-warm); border: 1px solid var(--ink); border-radius: 50%; cursor: pointer; }
-.toolbtn:hover { background: var(--ink); color: var(--paper); }
+.toolgroup { position: absolute; top: 0; right: 0; display: flex; gap: 4px; }
+.toolbtn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; color: var(--ink-soft); background: none; border: 0; border-radius: 0; cursor: pointer; }
+.toolbtn svg { width: 18px; height: 18px; }
+.toolbtn:hover, .toolbtn:active { color: var(--ink); background: none; }
 .toolbtn:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
 .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 10; max-width: 90vw; text-align: center; font-size: 14px; color: var(--paper); background: var(--ink); border-radius: 20px; padding: 8px 16px; box-shadow: 0 2px 10px rgba(0,0,0,.2); }
 .toast:empty { display: none; }
