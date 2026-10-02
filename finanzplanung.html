@@ -1775,7 +1775,7 @@ function compute(P) {
         var gG = A0 < 30 ? 0.04 : 0.03, sAt = function (n) { return gB * Math.pow(1 + gG, n); }, dbl = Math.log(2) / Math.log(1 + gG), n10 = Math.min(10, Math.floor(yL)), n20 = Math.min(20, Math.floor(yL));
         var gRows = [['Heute', eur(gB)], ['In ' + n10 + ' Jahren', eur(sAt(n10))]];
         if (n20 > n10) gRows.push(['In ' + n20 + ' Jahren', eur(sAt(n20))]);
-        c.push({ t: 't-rust', h: '<div class="st-eye">Dein Gehalt wächst mit</div><h2>Das ist erst der Anfang</h2><div class="st-big" style="font-size:clamp(36px,11vw,50px)">×' + cnt(Math.pow(1 + gG, yL), 'num') + '</div><div class="st-sub">Gehalt bis zur Rente bei ' + pct(gG, 0) + ' Plus pro Jahr</div>' +
+        c.push({ t: 't-rust', h: '<div class="st-eye">Dein Gehalt wächst mit</div><h2>Das ist erst der Anfang</h2><div class="st-big" style="font-size:clamp(36px,11vw,50px)">×' + num(Math.pow(1 + gG, yL), 1) + '</div><div class="st-sub">Gehalt (nominal) bis zur Rente bei ' + pct(gG, 0) + ' Plus pro Jahr</div>' +
           '<div class="st-rows">' + gRows.map(function (x) { return '<div class="st-row"><span>' + x[0] + '</span><b>' + x[1] + '</b></div>'; }).join('') + '</div>' +
           '<p>Bei ' + pct(gG, 0) + ' pro Jahr verdoppelt sich dein Gehalt etwa alle ' + Math.round(dbl) + ' Jahre. Brutto pro Jahr, nominal. Eine Annahme, keine Prognose: 2025 stiegen die Nominallöhne laut Destatis um 4,2 %, Beförderungen kommen oben drauf.</p>' });
         var sim2 = simulate(Object.assign({}, R.base, { dyn: gG })).at(R.retAge).net;
