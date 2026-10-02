@@ -1220,7 +1220,7 @@ function compute(P) {
     else gapText = 'Um 80 % deines heutigen Nettos zu erreichen, müsstest du etwa ' + eur(P.sparrate + R.extra) + ' pro Monat sparen, also ' + eur(R.extra) + ' mehr als heute.';
     $('ruhe').innerHTML =
       '<span class="verdict ' + cls + '">' + vt + ' · ' + pct(q) + ' deines heutigen Nettos</span>' +
-      '<div class="incwrap"><div class="target' + (tx > 78 ? ' flip' : '') + '" style="left:' + tx + '%"><span>80 % vom heutigen Netto</span></div>' +
+      '<div class="incwrap"><div class="target' + (tx > 50 ? ' flip' : '') + '" style="left:' + tx + '%"><span>80 % vom heutigen Netto</span></div>' +
       '<div class="incbar" role="img" aria-label="Monatliches Einkommen im Ruhestand: ' + eur(pn0.net) + ' gesetzliche Rente, ' + eur(bNet) + ' Berufsrente, ' + eur(cNet) + ' aus Vorsorgeverträgen und ' + eur(payout) + ' aus Vermögen"><i style="width:' + wP + '%;background:var(--s1)"></i><i style="width:' + wB + '%;background:var(--s3)"></i><i style="width:' + wC + '%;background:var(--s4)"></i><i style="width:' + wK + '%;background:var(--gold)"></i><i style="width:' + wO + '%;background:var(--s2)"></i></div></div>' +
       '<div class="kv"><div><b>' + eur(pn0.net) + '</b><span><i class="dot" style="background:var(--s1)"></i>' + pensionLabel + ', netto. ' + grossDetail + '</span></div>' +
       (P.bRente > 0 && R.selRente ? '<div><b>' + eur(bNet) + '</b><span><i class="dot" style="background:var(--s3)"></i>' + (P.bRenteTyp === 'bav' ? 'Betriebsrente' : 'Versorgungswerk bzw. Basisrente') + ', netto. Brutto ' + eur(P.bRente) + ', Abzüge ' + eur(P.bRente - bNet) + '</span></div>' : '') +
