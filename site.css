@@ -110,3 +110,4 @@ body .topbar .topnav a.hot { color: #fff !important; }
 .page-list .blitz-btn.active { background: var(--rust); border-color: var(--rust); color: #fff; }
 .page-list .blitz-btn.active small { color: rgba(255, 255, 255, .85); }
 .page-list .search-field { border: 1.5px solid rgba(46, 58, 50, .14); background: #fff; box-shadow: 0 3px 10px rgba(46, 58, 50, .06); }
+html, body { overflow-x: clip; max-width: 100%; }

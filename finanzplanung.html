@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
 <title>Finanzplanung – Andrea unterwegs</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="styles.css?v=13">
@@ -446,14 +446,14 @@ body.fp-body { padding-bottom: 0; }
           <select id="saveUntil"><option value="rente">Renteneintritt</option><option value="wunsch">Wunschalter</option></select></label>
       </fieldset>
 
-      <details class="more" id="ausDet"><summary>Ausgaben im Ruhestand (optional)</summary>
+      <details class="more" id="ausDet"><summary>Ausgaben im Ruhestand</summary>
         <p class="small">Trage ein, was du im Ruhestand pro Monat ausgeben willst, in heutigen Preisen. Kranken- und Pflegeversicherung gehören nicht hinein, die sind schon von der Rente abgezogen.</p>
         <div class="grid2" id="ausGrid" style="margin-top:10px"></div>
         <div class="chips" style="margin-top:10px"><button type="button" class="chip" id="ausEx">Beispielwerte einsetzen</button><button type="button" class="chip" id="ausClr">Leeren</button></div>
         <div class="small" id="ausSum" style="margin-top:8px"></div>
       </details>
 
-      <details class="more" id="conDet"><summary>Versicherungen und Vorsorgeverträge (optional)</summary>
+      <details class="more" id="conDet"><summary>Versicherungen und Vorsorgeverträge</summary>
         <p class="small">Riester, Rürup, private Rentenversicherung, Lebensversicherung, Berufsunfähigkeit und mehr. Rentenbeträge trägst du in heutigen Preisen ein, Kapitalauszahlungen als Betrag bei Auszahlung.</p>
         <div style="display:grid;gap:10px;margin-top:10px" id="conList"></div>
         <div class="chips" style="margin-top:10px"><select id="conType" aria-label="Art des Vertrags" style="font:inherit;font-size:14px;border:1px solid var(--line);border-radius:7px;padding:6px 8px;background:var(--paper);color:var(--ink)"></select><button type="button" class="chip" id="conAdd">+ Vertrag hinzufügen</button></div>
@@ -1604,7 +1604,7 @@ function compute(P) {
     CON = Array.isArray(o.contracts) ? o.contracts.slice(0, 12).map(conClean) : [];
     CON.forEach(function (c) { ['beitrag', 'leistung', 'paid', 'jahr'].forEach(function (k) { if (!c[k]) c[k] = ''; }); });
     if (oldB > 0) { CON.push({ type: o.fields.bRenteTyp === 'basis' ? 'basis' : 'bav', name: 'Betriebsrente', insured: $('vorname').value.trim(), nr: '', tarif: '', beitrag: '', leistung: oldB, paid: '', zusatz: 'ab2005', form: 'raten', n: 20, jahr: '' }); setTimeout(function () { svMsg('Die frühere Angabe zur Betriebsrente (' + eur(oldB) + ' pro Monat) steht jetzt bei den Verträgen. Lösche sie dort, falls sie nicht stimmt.'); }, 0); }
-    conRender(); if (CON.length) $('conDet').open = true;
+    conRender();
     userTouched = true; $('demo').hidden = true; render();
   }
   var dt = function (iso) { try { return new Date(iso).toLocaleString('de-DE', { dateStyle: 'medium', timeStyle: 'short' }); } catch (e) { return ''; } };
