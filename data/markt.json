@@ -1,0 +1,17 @@
+{
+  "stand": "02.10.2026",
+  "waehrung": "USD",
+  "kurs": 7722.59,
+  "ma8": 7689.14,
+  "ma21": 7679.66,
+  "ma50": 7657.64,
+  "ma200": 7225.82,
+  "abstand_pct": 6.9,
+  "ma200_steigt": true,
+  "hoch_52w": 7798.99,
+  "tief_52w": 6343.72,
+  "ampel": "Up",
+  "lage": "über 8-, 21- und 50-Tage-Linie",
+  "name": "S&P 500",
+  "quelle": "Yahoo Finance (Tageskurse)"
+}

@@ -56,7 +56,8 @@
   .who p { margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; grid-column: 1 / -1; }
   .rows { grid-column: 1 / -1; margin: 8px 0 0; display: grid; gap: 4px; font-size: 14px; }
   .rows div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(46,58,50,.08); padding: 4px 0; }
-  .rows dt { color: var(--ink-soft); } .rows dd { margin: 0; display: flex; align-items: center; justify-content: flex-end; gap: 6px; text-align: right; font-weight: 600; }
+  .rows dt { color: var(--ink-soft); flex: none; } .rows dd { margin: 0; display: flex; align-items: flex-start; justify-content: flex-end; gap: 6px; text-align: right; font-weight: 600; }
+  .rows dd .dot { margin-top: .5em; }
   .rows { margin-block: 8px 0; } dl.rows { margin-inline: 0; }
   .more { margin-top: 14px; font-size: 14px; }
   .more > summary { cursor: pointer; color: var(--ink-soft); padding: 4px 0; }
@@ -66,6 +67,13 @@
   .more dt { color: var(--ink-soft); font-size: 13px; } .more dd { margin: 0; font-size: 13.5px; }
   .more blockquote { margin: 8px 0 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--gold); line-height: 1.5; }
   .more blockquote cite { display: block; font-style: normal; font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+  .markt { text-align: center; font-size: 13.5px; color: var(--ink-soft); margin: -2px 0 0; display: flex; justify-content: center; align-items: center; gap: 7px; flex-wrap: wrap; }
+  .markt b { color: var(--ink); }
+  .chartbox { grid-column: 1 / -1; margin-top: 10px; }
+  .who .chartbox svg { width: 100%; height: auto; display: block; border-radius: 0; }
+  .leg { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+  .leg b { color: var(--ink); font-weight: 600; }
+  .leg i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
   .risk { font-size: 14px; color: var(--ink); margin: 0; line-height: 1.55; }
   .risk b { display: block; font-size: 11.5px; letter-spacing: .03em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; margin-bottom: 2px; }
   .meta { font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; margin: 14px 0 0; }
@@ -101,6 +109,7 @@
       <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="Charlie"><circle cx="60" cy="60" r="60" fill="#CFDAD3"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#3b4a56"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#C99A3E"/><ellipse cx="60" cy="58" rx="27" ry="31" fill="#EFC6A0"/><path d="M33 56c-3-12 0-22 6-26-4 8-4 16-3 26zM87 56c3-12 0-22-6-26 4 8 4 16 3 26z" fill="#E7E4DE"/><path d="M44 31c6-6 26-6 32 0-8-3-24-3-32 0z" fill="#E7E4DE"/><g fill="#fff" stroke="#2E3A32" stroke-width="3.5"><circle cx="48" cy="56" r="11"/><circle cx="72" cy="56" r="11"/></g><path d="M59 55h2" stroke="#2E3A32" stroke-width="3"/><circle cx="48" cy="56" r="2.6" fill="#2E3A32"/><circle cx="72" cy="56" r="2.6" fill="#2E3A32"/><path d="M47 76c8 5 18 3 26-2" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/></svg><b>Charlie</b><small>Was kann schiefgehen</small></div>
       <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="James"><circle cx="60" cy="60" r="60" fill="#F0D5C8"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#B5502E"/><path d="M50 90l10 12 10-12z" fill="#FAF3E8"/><ellipse cx="60" cy="58" rx="25" ry="30" fill="#E8B991"/><path d="M34 52c-3-20 8-31 26-31s29 11 26 31c-2-8-6-12-12-14-8 3-20 3-28 0-6 2-10 6-12 14z" fill="#3a2a22"/><path d="M38 70c2 14 10 22 22 22s20-8 22-22c-3 8-10 12-22 12s-19-4-22-12z" fill="#3a2a22" opacity=".55"/><g fill="#2E3A32"><rect x="40" y="49" width="16" height="6" rx="3"/><rect x="64" y="49" width="16" height="6" rx="3"/></g><circle cx="48" cy="52" r="1.8" fill="#fff"/><circle cx="72" cy="52" r="1.8" fill="#fff"/><path d="M48 72c8 5 16 5 24 0" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/><path d="M30 38c-6-3-8-9-7-14 3 4 7 6 12 7zM90 38c6-3 8-9 7-14-3 4-7 6-12 7z" fill="#FAF3E8" stroke="#8a7a68" stroke-width="1.5"/></svg><b>James</b><small>Kurs und Option Flows</small></div>
     </div>
+    <p class="markt" id="markt"></p>
     <p class="sub">Aktie eintippen, drei Meinungen bekommen. Das Feld sucht auch in den bisherigen.</p>
     <form class="ak-form" id="form" autocomplete="off">
       <input id="inp" type="text" maxlength="60" placeholder="z. B. Apple, KO, Siemens" aria-label="Aktie">
@@ -155,21 +164,54 @@
     if (!x) return '';
     return '<div class="sec who">' + FACE[k] + '<h4>' + name + '<em class="' + cls(x.urteil) + '">' + dot(cls(x.urteil)) + esc(x.urteil) + '</em></h4><p>' + esc(x.text) + '</p></div>';
   }
+  function acls(a) { return a === 'Up' ? 'g' : a === 'Down' ? 'r' : 'a'; }
+  function ampelVon(j) {
+    if (!j) return null;
+    if (j.ampel) return j.ampel;
+    var l = String(j.lage || ''); // ältere Einträge: nur „deutlich über“ usw.
+    return l.indexOf('deutlich über') === 0 ? 'Up' : l.indexOf('unter') !== -1 ? 'Down' : l ? 'Medium' : null;
+  }
   function jEin(j) {
-    if (!j || !j.lage) return null;
-    return {
-      lage: j.urteil || j.lage,
-      pct: j.abstand_pct != null ? (j.abstand_pct > 0 ? '+' : '') + zahl(j.abstand_pct, 1) + ' %' : '',
-      c: jcls(j.lage)
-    };
+    var a = ampelVon(j);
+    return a ? { a: a, c: acls(a), text: j.lage || '' } : null;
+  }
+  var LINIEN = [['m8', '#2f55c9', '8'], ['m21', '#19a2b3', '21'], ['m50', '#d99a1e', '50'], ['m200', '#3b3b3b', '200']];
+  function chart(s, j) {
+    if (!s || !s.c || s.c.length < 20) return '';
+    var n = s.c.length, W = 360, pl = 2, pr = 36, top = 6, pH = 130, vH = 30, dH = 14, H = top + pH + 6 + vH + dH;
+    var lo = Infinity, hi = -Infinity, vmax = 0, i;
+    for (i = 0; i < n; i++) { lo = Math.min(lo, s.l[i], s.m8[i], s.m21[i], s.m50[i], s.m200[i]); hi = Math.max(hi, s.h[i], s.m8[i], s.m21[i], s.m50[i], s.m200[i]); vmax = Math.max(vmax, s.v[i]); }
+    var pad = (hi - lo) * 0.04; lo -= pad; hi += pad;
+    var st = (W - pl - pr) / n, cw = Math.max(1.4, st * 0.6);
+    function X(k) { return pl + (k + 0.5) * st; }
+    function Y(v) { return top + (hi - v) / (hi - lo) * pH; }
+    var g = '', ticks = 4;
+    for (i = 0; i <= ticks; i++) { var v = lo + (hi - lo) * i / ticks, y = Y(v); g += '<line x1="' + pl + '" x2="' + (W - pr) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="rgba(46,58,50,.1)"/><text x="' + (W - pr + 3) + '" y="' + (y + 3).toFixed(1) + '" font-size="9" fill="#5A6A5E">' + zahl(v, v > 1000 ? 0 : 1) + '</text>'; }
+    for (i = 0; i < n; i++) {
+      var up = s.c[i] >= s.o[i], col = up ? '#3f8f3f' : '#c0392b', x = X(i);
+      var yb = Y(Math.max(s.o[i], s.c[i])), hb = Math.max(1, Math.abs(Y(s.o[i]) - Y(s.c[i])));
+      g += '<line x1="' + x.toFixed(1) + '" x2="' + x.toFixed(1) + '" y1="' + Y(s.h[i]).toFixed(1) + '" y2="' + Y(s.l[i]).toFixed(1) + '" stroke="' + col + '" stroke-width=".8"/><rect x="' + (x - cw / 2).toFixed(1) + '" y="' + yb.toFixed(1) + '" width="' + cw.toFixed(1) + '" height="' + hb.toFixed(1) + '" fill="' + col + '"/>';
+      var vh = vmax ? s.v[i] / vmax * vH : 0;
+      g += '<rect x="' + (x - cw / 2).toFixed(1) + '" y="' + (top + pH + 6 + vH - vh).toFixed(1) + '" width="' + cw.toFixed(1) + '" height="' + vh.toFixed(1) + '" fill="rgba(46,58,50,.25)"/>';
+    }
+    LINIEN.forEach(function (L) {
+      var pts = s[L[0]].map(function (v, k) { return X(k).toFixed(1) + ',' + Y(v).toFixed(1); }).join(' ');
+      g += '<polyline points="' + pts + '" fill="none" stroke="' + L[1] + '" stroke-width="1.3" stroke-linejoin="round"/>';
+    });
+    [0, Math.round((n - 1) / 2), n - 1].forEach(function (k, q) { g += '<text x="' + X(k).toFixed(1) + '" y="' + (H - 2) + '" font-size="9" fill="#5A6A5E" text-anchor="' + (q === 0 ? 'start' : q === 2 ? 'end' : 'middle') + '">' + esc(s.d[k]) + '</text>'; });
+    var leg = LINIEN.map(function (L) { var w = j && j[L[0]] != null ? j[L[0]] : s[L[0]][n - 1]; return '<span><i style="background:' + L[1] + '"></i>' + L[2] + ' Tage <b>' + zahl(w) + '</b></span>'; }).join('');
+    return '<div class="chartbox"><svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Kurschart mit gleitenden Durchschnitten und Volumen">' + g + '</svg><div class="leg">' + leg + '</div></div>';
   }
   function james(j) {
     if (!j) return '';
     var f = j.flows || {}, e = jEin(j), r = '';
-    if (e) r += '<div><dt>Lage zur 200-Tage-Linie</dt><dd>' + dot(e.c) + esc(String(j.lage)) + (e.pct ? ' · ' + e.pct : '') + '</dd></div>';
-    if (j.kurs != null) r += '<div><dt>Kurs</dt><dd>' + zahl(j.kurs) + ' ' + esc(j.waehrung || '') + '</dd></div><div><dt>200-Tage-Linie</dt><dd>' + zahl(j.ma200) + (j.ma200_steigt === true ? ' · steigt' : j.ma200_steigt === false ? ' · fällt' : '') + '</dd></div>' + (j.ma50 != null ? '<div><dt>50-Tage-Linie</dt><dd>' + zahl(j.ma50) + '</dd></div>' : '');
+    if (e) r += '<div><dt>Trend</dt><dd>' + dot(e.c) + '<span>' + esc(e.a) + ' · ' + esc(e.text) + '</span></dd></div>';
+    if (j.kurs != null) {
+      r += '<div><dt>Kurs</dt><dd>' + zahl(j.kurs) + ' ' + esc(j.waehrung || '') + '</dd></div>';
+      if (j.ma8 == null) r += '<div><dt>200-Tage-Linie</dt><dd>' + zahl(j.ma200) + '</dd></div>' + (j.ma50 != null ? '<div><dt>50-Tage-Linie</dt><dd>' + zahl(j.ma50) + '</dd></div>' : '');
+    }
     if (f.richtung) r += '<div><dt>Option Flows</dt><dd>' + dot(fcls(f.richtung)) + esc(f.richtung) + '</dd></div>';
-    return '<div class="sec who">' + FACE.j + '<h4>James</h4><dl class="rows">' + r + '</dl><p>' + esc(j.text) + (f.text ? ' <i>Option Flows: ' + esc(f.text) + '</i>' : '') + '</p></div>';
+    return '<div class="sec who">' + FACE.j + '<h4>James</h4><dl class="rows">' + r + '</dl>' + chart(j.serie, j) + '<p>' + esc(j.text) + (f.text ? ' <i>Option Flows: ' + esc(f.text) + '</i>' : '') + '</p></div>';
   }
   function mehr(e) {
     var kz = (e.kennzahlen || []).map(function (k) { return '<div><dt>' + esc(k.k) + '</dt><dd>' + esc(k.v) + '</dd></div>'; }).join('');
@@ -196,7 +238,7 @@
       '<p class="age' + (alt ? ' old' : '') + '">' + (alt ? 'veraltet · ' : '') + alterText(d) + '</p>' +
       '<div class="vs">' + (e.warren ? zelle('Warren', e.warren.urteil, cls(e.warren.urteil)) : '') +
       (e.charlie ? zelle('Charlie', e.charlie.urteil, cls(e.charlie.urteil)) : '') +
-      (je ? zelle('James · 200-Tage', String(j.lage), je.c) : '') +
+      (je ? zelle('James · Trend', je.a, je.c) : '') +
       (f && f.richtung && f.richtung !== 'keine Daten' ? zelle('Option Flows', f.richtung, fcls(f.richtung)) : '') + '</div></summary>' +
       '<div class="body">' + who('w', 'Warren', e.warren) + who('c', 'Charlie', e.charlie) + james(j) +
       (e.risiken ? '<div class="sec"><p class="risk"><b>Was schiefgehen kann</b>' + esc(e.risiken) + '</p></div>' : '') +
@@ -249,6 +291,10 @@
     var e = data.filter(function (d) { return sym(d) === b.getAttribute('data-upd'); })[0];
     if (e) senden(sym(e), e.zeitstempel);
   });
+  fetch('data/markt.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (m) {
+    if (!m || !m.ampel) return;
+    $('markt').innerHTML = 'Markt · S&amp;P 500 ' + dot(acls(m.ampel)) + '<b>' + esc(m.ampel) + '</b> <span>' + esc(m.lage) + ' (Stand ' + esc(String(m.stand).slice(0, 5)) + ')</span>';
+  }, function () {});
   refresh();
 })();
 </script>
