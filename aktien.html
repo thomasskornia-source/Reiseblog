@@ -87,6 +87,8 @@
   .top10 .t small { display: block; color: var(--ink-soft); font-size: 12px; }
   .top10 .z { font-size: 12.5px; color: var(--ink-soft); text-align: right; white-space: nowrap; }
   .top10 .neu { font-size: 11px; font-weight: 600; color: var(--rust); margin-left: 6px; }
+  .top10 select { width: 100%; padding: 9px 10px; border: 1px solid rgba(46,58,50,.18); border-radius: 10px; background: var(--paper); color: var(--ink); font: inherit; font-size: 14px; }
+  .top10 .leer { grid-template-columns: 1fr; cursor: default; color: var(--ink-soft); }
   .top10 .hinweis { font-size: 12px; color: var(--ink-soft); margin: 8px 2px 0; text-align: center; }
   .markt .chartbox { margin-top: 4px; }
   .chartbox { grid-column: 1 / -1; margin-top: 10px; }
@@ -130,6 +132,7 @@
     </div>
     <details class="markt" id="markt" hidden><summary id="markt-s"></summary><div class="body" id="markt-c"></div></details>
     <details class="markt top10" id="top10" hidden><summary id="top10-s"></summary><div class="body" id="top10-c"></div></details>
+    <details class="markt top10" id="beo" hidden><summary id="beo-s"></summary><div class="body" id="beo-c"></div></details>
     <p class="sub">Aktie eintippen, drei Meinungen bekommen. Das Feld sucht auch in den bisherigen.</p>
     <form class="ak-form" id="form" autocomplete="off">
       <input id="inp" type="text" maxlength="60" placeholder="z. B. Apple, KO, Siemens" aria-label="Aktie">
@@ -349,19 +352,45 @@
     if (!m.serie) $('markt').removeAttribute('open');
     $('markt').hidden = false;
   }, function () {});
+  var SEKTOR = { 'Communication Services': 'Kommunikation', 'Consumer Discretionary': 'Konsum (zyklisch)', 'Consumer Staples': 'Basiskonsum', 'Energy': 'Energie', 'Financials': 'Finanzen', 'Health Care': 'Gesundheit', 'Industrials': 'Industrie', 'Information Technology': 'Technologie', 'Materials': 'Rohstoffe', 'Real Estate': 'Immobilien', 'Utilities': 'Versorger' };
+  function zeile(x, nr, neu, warren) {
+    return '<li data-t="' + esc(x.ticker) + '"><span class="n">' + nr + '</span><span class="t"><b>' + esc(x.ticker) + '</b> ' + esc(x.name) + (neu ? '<span class="neu">neu</span>' : '') +
+      '<small>' + dot(acls(x.ampel)) + ' ' + esc(x.lage) + (x.kgv ? ' · KGV ' + zahl(x.kgv, 1) : '') + '</small></span><span class="z">' +
+      (warren ? 'Warren ' + x.warren_ok + '/' + x.warren_von + '<br>' : '') + 'James ' + x.punkte + '/12</span></li>';
+  }
   fetch('data/top10.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (t) {
     if (!t || !t.top10 || !t.top10.length) return;
+    var namen = {}; t.top10.forEach(function (x) { namen[x.ticker] = x.name; });
+    function zeigen(sek) {
+      var liste = sek ? (t.sektoren[sek] || []) : t.top10;
+      $('top10-l').innerHTML = liste.map(function (x, i) { return zeile(x, i + 1, !sek && x.neu, t.warren); }).join('') || '<li class="leer">Nichts dabei.</li>';
+      $('top10-r').textContent = !sek && t.raus && t.raus.length ? 'Gegenüber dem letzten Stand rausgefallen: ' + t.raus.join(', ') : '';
+    }
     $('top10-s').innerHTML = 'Top 10 im S&amp;P 500 <span>(Stand ' + esc(String(t.stand).slice(0, 5)) + ')</span>';
-    $('top10-c').innerHTML = '<ol>' + t.top10.map(function (x) {
-      return '<li data-t="' + esc(x.ticker) + '"><span class="n">' + x.platz + '</span><span class="t"><b>' + esc(x.ticker) + '</b> ' + esc(x.name) + (x.neu ? '<span class="neu">neu</span>' : '') +
-        '<small>' + dot(acls(x.ampel)) + ' ' + esc(x.lage) + (x.kgv ? ' · KGV ' + zahl(x.kgv, 1) : '') + '</small></span><span class="z">' +
-        (t.warren ? 'Warren ' + x.warren_ok + '/' + x.warren_von + '<br>' : '') + 'James ' + x.punkte + '/12</span></li>';
-    }).join('') + '</ol><p class="hinweis">Vorauswahl nach festen Regeln aus Kurs- und Jahreszahlen, täglich neu berechnet. Keine Empfehlung. Zeile antippen und „Prüfen“, dann sagen alle drei etwas dazu.</p>';
+    var opt = '<option value="">Alle Branchen</option>' + Object.keys(t.sektoren || {}).map(function (k) { return '<option value="' + esc(k) + '">' + esc(SEKTOR[k] || k) + ' (beste 5)</option>'; }).join('');
+    $('top10-c').innerHTML = '<select id="top10-f" aria-label="Branche">' + opt + '</select><ol id="top10-l"></ol><p class="hinweis" id="top10-r"></p>' +
+      '<p class="hinweis">Vorauswahl nach festen Regeln aus Kurs- und Jahreszahlen, täglich neu berechnet. Keine Empfehlung. Zeile antippen und „Prüfen“, dann sagen alle drei etwas dazu.</p>';
+    zeigen('');
+    $('top10-f').addEventListener('change', function () { zeigen(this.value); });
     $('top10-c').addEventListener('click', function (ev) {
-      var li = ev.target.closest('li'); if (!li) return;
+      var li = ev.target.closest('li'); if (!li || !li.getAttribute('data-t')) return;
       $('inp').value = li.getAttribute('data-t'); $('inp').focus(); $('inp').scrollIntoView({ block: 'center', behavior: 'smooth' });
     });
     $('top10').hidden = false;
+  }, function () {});
+  fetch('data/beobachtung.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (b) {
+    if (!b || !b.aktien || !b.aktien.length) return;
+    var wechsel = b.aktien.filter(function (x) { return x.ampel_vorher && x.ampel_vorher !== x.ampel; });
+    $('beo-s').innerHTML = 'Meine Aktien heute <span>(James, Stand ' + esc(String(b.stand).slice(0, 5)) + ')</span>' + (wechsel.length ? ' <b>' + wechsel.length + ' Wechsel</b>' : '');
+    $('beo-c').innerHTML = '<ol>' + b.aktien.map(function (x) {
+      return '<li data-t="' + esc(x.ticker) + '"><span class="n">' + dot(acls(x.ampel)) + '</span><span class="t"><b>' + esc(x.ticker) + '</b> ' + esc(x.name) +
+        '<small>' + esc(x.lage) + (x.ampel_vorher && x.ampel_vorher !== x.ampel ? ' · vorher ' + esc(x.ampel_vorher) : '') + '</small></span><span class="z">James ' + x.punkte + '/12</span></li>';
+    }).join('') + '</ol><p class="hinweis">Nur Kurs und Trend, täglich neu. Die Texte von Warren und Charlie bleiben, bis du die Aktie erneut prüfst.</p>';
+    $('beo-c').addEventListener('click', function (ev) {
+      var li = ev.target.closest('li'); if (!li) return;
+      $('inp').value = li.getAttribute('data-t'); $('inp').focus(); $('inp').scrollIntoView({ block: 'center', behavior: 'smooth' });
+    });
+    $('beo').hidden = false;
   }, function () {});
   refresh();
 })();
