@@ -40,6 +40,16 @@
    "punkte": 3,
    "ampel_vorher": null,
    "stand": "02.10.2026"
+  },
+  {
+   "ticker": "NVDA",
+   "name": "NVIDIA Corporation",
+   "kurs": 233.95,
+   "ampel": "Up",
+   "lage": "über 8-, 21- und 50-Tage-Linie",
+   "punkte": 11,
+   "ampel_vorher": null,
+   "stand": "02.10.2026"
   }
  ]
 }
