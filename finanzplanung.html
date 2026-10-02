@@ -513,6 +513,30 @@ body.fp-body { padding-bottom: 0; }
         <div id="con" class="inc"></div>
       </section>
 
+      <section class="panel" id="buyPanel" aria-labelledby="h-buy">
+        <header><h2 id="h-buy">Kaufen oder mieten?</h2><p>Eine Immobilie zum Selbstbewohnen im Vergleich zu Mieten und das Geld anlegen. Alle Annahmen kannst du ändern.</p></header>
+        <div class="grid2">
+          <label class="f" for="kfPreis"><span>Kaufpreis</span><input id="kfPreis" type="number" inputmode="decimal" min="0" step="10000" placeholder="€"></label>
+          <label class="f" for="kfEK"><span>Eigenkapital</span><input id="kfEK" type="number" inputmode="decimal" min="0" step="10000" placeholder="leer = Vermögen heute"></label>
+          <label class="f" for="kfMiete"><span>Kaltmiete der Vergleichswohnung pro Monat</span><input id="kfMiete" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
+          <label class="f" for="kfJahre"><span>Zeitraum in Jahren</span><input id="kfJahre" type="number" inputmode="numeric" min="5" max="40" step="1"></label>
+        </div>
+        <details class="more"><summary>Annahmen zum Kauf anpassen</summary>
+          <div class="grid2" style="margin-top:10px">
+            <label class="f" for="kfNK"><span>Kaufnebenkosten (%)</span><input id="kfNK" type="number" inputmode="decimal" step="0.5"></label>
+            <label class="f" for="kfZins"><span>Zins Darlehen (%)</span><input id="kfZins" type="number" inputmode="decimal" step="0.1"></label>
+            <label class="f" for="kfTilg"><span>Tilgung (%)</span><input id="kfTilg" type="number" inputmode="decimal" step="0.5"></label>
+            <label class="f" for="kfInst"><span>Instandhaltung pro Jahr (% vom Wert)</span><input id="kfInst" type="number" inputmode="decimal" step="0.25"></label>
+            <label class="f" for="kfWert"><span>Wertsteigerung pro Jahr (%)</span><input id="kfWert" type="number" inputmode="decimal" step="0.5"></label>
+            <label class="f" for="kfMietG"><span>Mietsteigerung pro Jahr (%)</span><input id="kfMietG" type="number" inputmode="decimal" step="0.5"></label>
+            <label class="f" for="kfRend"><span>Rendite der Geldanlage nach Steuern (%)</span><input id="kfRend" type="number" inputmode="decimal" step="0.5"></label>
+          </div>
+        </details>
+        <div id="buyOut" class="inc" style="margin-top:12px"></div>
+        <div class="charts"><canvas id="c5" role="img" aria-label="Vermögen beim Kaufen und beim Mieten über die Jahre"></canvas></div>
+        <p class="small" id="buyNote"></p>
+      </section>
+
       <section class="panel" aria-labelledby="h-scen">
         <header><h2 id="h-scen">Was wäre, wenn die Rendite anders ausfällt?</h2><p id="scenNote"></p></header>
         <div class="legendrow"><span><i class="sw box" style="background:var(--q4)"></i>Vermögen nach Steuern bei gleichbleibender Rendite</span><span><i class="sw dash"></i>Eingezahlt</span></div>
@@ -651,6 +675,33 @@ function pensionCore(P, items, split) {
   const tax = est(taxable, split);
   const kist = tax * kistRate(P.kirche);
   return { gross: J / 12, net: (J - KV - tax - kist) / 12, deductions: (KV + tax + kist) / 12, share: shares[0], taxable };
+}
+function kaufModel(k) {
+  const nkE = k.preis * k.nk, need = k.preis + nkE, loan = Math.max(0, need - k.ek);
+  const extraCash = Math.max(0, k.ek - need);
+  const rateM = loan > 0 ? loan * (k.zins + k.tilg) / 12 : 0;
+  const mr = Math.pow(1 + k.rend, 1 / 12) - 1;
+  const run = appr => {
+    let bal = loan, val = k.preis, invB = extraCash, invR = k.ek, rent = k.miete, paidOff = null;
+    const bs = [invB + val - bal], rs = [invR];
+    for (let y = 0; y < k.jahre; y++) {
+      for (let m = 0; m < 12; m++) {
+        const interest = bal * k.zins / 12;
+        let pay = 0;
+        if (bal > 0) { const pr = Math.min(bal, Math.max(0, rateM - interest)); bal -= pr; pay = pr + interest; if (bal <= 0.5 && paidOff === null) paidOff = y + (m + 1) / 12; }
+        const diff = pay + val * k.inst / 12 - rent / 12;
+        invR = invR * (1 + mr) + Math.max(0, diff);
+        invB = invB * (1 + mr) + Math.max(0, -diff);
+      }
+      val *= 1 + appr; rent *= 1 + k.mietg;
+      bs.push(invB + val - bal); rs.push(invR);
+    }
+    return { bs, rs, bal, paidOff };
+  };
+  const base = run(k.wert);
+  let be = null;
+  for (let a = -0.02; a <= 0.08001; a += 0.0025) { const r = run(a); if (r.bs[r.bs.length - 1] >= r.rs[r.rs.length - 1]) { be = a; break; } }
+  return { nkE, need, loan, rateM, base, be, extraCash };
 }
 function ertragsanteil(age) {
   const T = { 55: 0.26, 56: 0.25, 57: 0.24, 58: 0.23, 59: 0.22, 60: 0.22, 61: 0.22, 62: 0.21, 63: 0.20, 64: 0.19, 65: 0.18, 66: 0.18, 67: 0.17, 68: 0.16, 69: 0.15, 70: 0.15 };
@@ -874,7 +925,7 @@ function compute(P) {
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var DEF = { vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', rentenbeginn: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente' };
+  var DEF = { vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', rentenbeginn: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: 2030, kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: 2, kfMietG: 2.5, kfRend: 4.5 };
   DEF.bRente = ''; DEF.bRenteTyp = 'bav'; DEF.bKap = ''; DEF.bForm = 'rente'; DEF.retOverride = '';
   var AUS = [
     ['aWohnen', 'Wohnen', 'Miete bzw. Wohnkosten, Nebenkosten, Energie', 1100],
@@ -943,7 +994,8 @@ function compute(P) {
       infl: rd('infl', 2, -2, 15) / 100, rRet: rd('rRet', 3, -2, 15) / 100, planAge: rd('planAge', 90, 70, 110), saveUntil: $('saveUntil').value, netto: null,
       bRente: rd('bRente', 0, 0, 50000), bRenteTyp: $('bRenteTyp').value, bKap: rd('bKap', 0, 0, 5e7), bForm: $('bForm').value,
       aus: AUS.map(function (a) { return rd(a[0], 0, 0, 100000); }),
-      contracts: CON.map(conClean)
+      contracts: CON.map(conClean),
+      kauf: { preis: rd('kfPreis', 0, 0, 1e8), ek: rd('kfEK', 0, 0, 1e8), miete: rd('kfMiete', 0, 0, 1e5) * 12, jahre: Math.round(rd('kfJahre', 25, 5, 40)), nk: rd('kfNK', 9.5, 0, 30) / 100, zins: rd('kfZins', 3.8, 0, 15) / 100, tilg: rd('kfTilg', 2, 0, 10) / 100, inst: rd('kfInst', 1, 0, 5) / 100, wert: rd('kfWert', 2, -5, 10) / 100, mietg: rd('kfMietG', 2.5, -2, 10) / 100, rend: rd('kfRend', 4.5, -2, 15) / 100 }
     };
     var ro = rd('retOverride', 0, 0, 80); P.retOverride = ro >= 60 ? clamp(ro, 63, 70) : 0;
     if (P.status === 'verheiratet' || P.status === 'paar') {
@@ -1218,6 +1270,39 @@ function compute(P) {
         '<p class="note">' + depl + '</p>' +
         '<p class="small">Ausgaben ändern sich im Alter oft: erst mehr für Reisen und Freizeit, später mehr für Gesundheit und Pflege. Pflegekosten sind hier nicht enthalten.</p>';
     }
+
+    // Kaufen oder mieten
+    (function () {
+      var k = P.kauf; if (!(k.preis > 0)) { $('buyOut').innerHTML = '<p class="small">Trage einen Kaufpreis ein, um den Vergleich zu sehen.</p>'; return; }
+      if (!(k.ek > 0)) k.ek = P.W0;
+      var M = kaufModel(k), n = k.jahre, b = M.base, bW = b.bs[n], rW = b.rs[n], d = bW - rW;
+      var rateShare = R.netMonth > 0 ? M.rateM / R.netMonth : 0, reserve = P.W0 - k.ek, ekShare = P.W0 > 0 ? k.ek / P.W0 : 0;
+      var warn = [];
+      if (M.loan > 0 && rateShare > 0.35) warn.push('Die Rate liegt über 35 % deines Nettos, das gilt als Obergrenze.');
+      if (reserve < 0) warn.push('Dein Eigenkapital ist größer als dein Vermögen heute. Das Geld müsste von anderswo kommen.');
+      else if (P.W0 > 0 && ekShare > 0.8) warn.push('Du würdest ' + pct(ekShare) + ' deines Vermögens in die Immobilie stecken. Es bleiben nur ' + eur(reserve) + ' als Reserve und zum Anlegen.');
+      if (k.ek < M.nkE) warn.push('Das Eigenkapital deckt nicht einmal die Kaufnebenkosten. Banken finanzieren das nur selten.');
+      var cls = d >= 0 ? 'good' : (d > -0.1 * Math.max(rW, 1) ? 'warn' : 'crit');
+      var vt = d >= 0 ? '✓ Kaufen liegt nach ' + n + ' Jahren vorn' : (cls === 'warn' ? '! Fast gleichauf, Mieten leicht vorn' : '✕ Mieten und Anlegen liegt vorn');
+      $('buyOut').innerHTML =
+        '<span class="verdict ' + cls + '">' + vt + '</span>' +
+        '<div class="kv"><div><b>' + eur(bW) + '</b><span><i class="dot" style="background:var(--s1)"></i>Vermögen nach ' + n + ' Jahren beim Kaufen: Wert der Immobilie minus Restschuld' + (b.bs[n] > 0 ? ' plus angelegte Ersparnis' : '') + '</span></div>' +
+        '<div><b>' + eur(rW) + '</b><span><i class="dot" style="background:var(--s2)"></i>Vermögen nach ' + n + ' Jahren beim Mieten, wenn das Eigenkapital und jede Ersparnis angelegt werden</span></div>' +
+        '<div><b>' + (d >= 0 ? '+' : '−') + eur(Math.abs(d)) + '</b><span>Unterschied zugunsten von ' + (d >= 0 ? 'Kaufen' : 'Mieten') + '</span></div>' +
+        '<div><b>' + (M.be === null ? 'über 8 %' : (M.be <= -0.0199 ? 'immer' : pct(M.be, 2))) + '</b><span>Wertsteigerung pro Jahr, ab der Kaufen vorn liegt. Du rechnest mit ' + pct(k.wert, 1) + '.</span></div>' +
+        '<div><b>' + eur(M.rateM) + '</b><span>Rate pro Monat (Darlehen ' + eur(M.loan) + ')' + (R.netMonth > 0 ? ', ' + pct(rateShare) + ' deines Nettos' : '') + (b.paidOff ? '. Abbezahlt nach etwa ' + num(b.paidOff, 0) + ' Jahren' : '') + '</span></div>' +
+        '<div><b>' + eur(M.nkE) + '</b><span>Kaufnebenkosten. Dieses Geld ist weg und steckt nicht im Wert der Immobilie.</span></div></div>' +
+        (warn.length ? '<p class="note">' + warn.join(' ') + '</p>' : '');
+      var lab5 = []; for (var yy = 0; yy <= n; yy++) lab5.push(String(yy));
+      var o5 = baseOpts(t);
+      o5.scales.x = { grid: { display: false }, border: { color: t.line }, ticks: { color: t.muted, maxRotation: 0, autoSkip: true, maxTicksLimit: 10 }, title: { display: true, text: 'Jahre ab heute', color: t.muted } };
+      o5.plugins.tooltip.callbacks = { title: function (it) { return 'Nach ' + it[0].label + ' Jahren'; }, label: function (c) { return c.dataset.label + ': ' + eur(c.parsed.y); } };
+      upsert('c5', { type: 'line', data: { labels: lab5, datasets: [
+        { label: 'Kaufen', data: b.bs, borderColor: t.s1, backgroundColor: t.s1, pointRadius: 0, borderWidth: 2.5, tension: 0.2 },
+        { label: 'Mieten und anlegen', data: b.rs, borderColor: t.s2, backgroundColor: t.s2, pointRadius: 0, borderWidth: 2.5, tension: 0.2 }
+      ] }, options: o5 });
+      $('buyNote').textContent = 'Vereinfachtes Modell, nominal gerechnet. Der Mieter legt Eigenkapital und jede monatliche Ersparnis an, der Käufer ebenso, falls Mieten teurer wird als die Rate. Eigennutzung ist steuerfrei. Grundsteuer, Hausgeld und Nebenkosten sind nicht enthalten, weil sie in beiden Fällen anfallen. Keine Anlageberatung.';
+    })();
 
     // Ausgaben pro Jahr
     if (ausTotal > 0 && R.retAge < P.planAge) {
