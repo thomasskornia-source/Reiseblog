@@ -1608,7 +1608,7 @@ function compute(P) {
       try {
         var file = new File([text], name, { type: 'application/json' });
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          navigator.share({ files: [file], title: name }).then(function () { svMsg('Datei übergeben. Wähle „In Dateien sichern“ für den Speicherort.'); }, function (e) { if (!e || e.name !== 'AbortError') plain(); });
+          navigator.share({ files: [file] }).then(function () { svMsg('Wähle „In Dateien sichern“ und bei der Rückfrage „Ersetzen“, damit nur eine Datei bleibt.'); }, function (e) { if (!e || e.name !== 'AbortError') plain(); });
           return;
         }
       } catch (e) {}
