@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Option Flows (Näherung) für James im Aktien-Check.
 
-Aufruf:  python3 tools/optionsfluesse.py KO        (nur US-Aktien mit börsengehandelten Optionen)
+Aufruf:  python3 tools/optionsfluesse.py KO        (nur US-Aktien mit börsengehandelten Optionen; BRK.B und BRK-B gehen beide)
 Quelle: öffentliche, verzögerte Optionsdaten der Cboe (cdn.cboe.com, kostenlos, inoffizielle Schnittstelle):
 alle Kontrakte mit Tagesvolumen, offenen Positionen (Open Interest), Geld-/Briefkurs und letztem Preis.
 Richtung: put_call_relativ = heutiges Put/Call-Volumen geteilt durch das Put/Call-Verhältnis der offenen Positionen;
@@ -24,8 +24,8 @@ def holen(sym):
 
 def main():
     if len(sys.argv) != 2: sys.exit(__doc__)
-    sym = sys.argv[1].strip().upper()
-    if not re.fullmatch(r'[A-Z]{1,5}', sym):
+    sym = sys.argv[1].strip().upper().replace('-', '.')   # Yahoo schreibt BRK-B, die Cboe BRK.B
+    if not re.fullmatch(r'[A-Z]{1,5}(\.[A-Z])?', sym):
         print('FEHLER: %s ist kein US-Ticker (nur US-Aktien haben hier Optionsdaten)' % sym); sys.exit(1)
     try:
         j = holen(sym)
@@ -37,7 +37,7 @@ def main():
     zeilen = []
     for o in opts:
         m = re.fullmatch(r'([A-Z]+)(\d{6})([CP])(\d{8})', o.get('option', ''))
-        if not m or m.group(1) != sym: continue
+        if not m or m.group(1) != sym.replace('.', ''): continue   # Kontrakte heißen BRKB…, nicht BRK.B…
         vol = o.get('volume') or 0; oi = o.get('open_interest') or 0
         bid, ask, last = o.get('bid') or 0, o.get('ask') or 0, o.get('last_trade_price') or 0
         preis = (bid + ask) / 2 if ask else last

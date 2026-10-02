@@ -46,7 +46,7 @@ Gewinn- und Margenentwicklung über mehrere Jahre, Aktienrückkäufe/Verwässeru
   `ampel` und `lage`. James setzt die Aktie ins Verhältnis: Up-Markt und Up-Aktie = Rückenwind; Down-Markt trotz Up-Aktie
   oder umgekehrt ausdrücklich nennen.
 - **Option Flows** (so heißen sie überall in Texten und auf der Seite, nie „Flüsse“): `python3 tools/optionsfluesse.py <US-Ticker>` (öffentliche, verzögerte Cboe-Optionsdaten, nur US-Aktien).
-  Es liefert Richtung (bullisch / neutral / bärisch), Put/Call-Volumen, Prämien, ungewöhnliche Kontrakte. Die Richtung
+  Es liefert Richtung (bullisch / neutral / bärisch), Put/Call-Volumen, Prämien, ungewöhnliche Kontrakte. Aktien mit Klassenzusatz (BRK-B, BF-B) gehen wie bei Yahoo mit Bindestrich. Die Richtung
   ist eine **Näherung aus dem heutigen Optionsumsatz**, kein echter Institutionen-Flow (Käufer- oder Verkäuferseite
   unbekannt). Das so benennen: im Feld `flows.text` ein Satz mit 2–3 Zahlen (z. B. Put/Call-Volumen, größter
   auffälliger Kontrakt) und der Zusatz „Näherung aus Optionsumsatz“. `flows.quelle` = „Cboe, verzögert“.
