@@ -11,7 +11,7 @@ import trend
 def main():
     try:
         meta, zeilen = trend.holen('^GSPC')
-        a = trend.analyse(zeilen, meta)   # 1 Jahr Verlauf für den Chart
+        a = trend.analyse(zeilen, meta, mit_score=False)   # 1 Jahr Verlauf für den Chart
     except Exception as e:
         print('FEHLER: S&P 500 nicht abrufbar (%s)' % e); sys.exit(1)
     a.update({'name': 'S&P 500', 'quelle': 'Yahoo Finance (Tageskurse)'})

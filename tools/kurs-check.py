@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Kurs gegen gleitende Durchschnitte (für James im Aktien-Check), Logik in tools/trend.py.
 
-Aufruf:  python3 tools/kurs-check.py KO                  gibt Kurs, Linien, Ampel (Up/Medium/Down) und Lage als JSON aus
+Aufruf:  python3 tools/kurs-check.py KO                  gibt Kurs, Linien, Ampel (Up/Medium/Down), Lage, RSI, MACD, Muster
+                                                         (Bodenbildung, Trendlinien) und den Setup-Score als JSON aus
          python3 tools/kurs-check.py KO --schreibe       schreibt zusätzlich die Zahlen und den 1-Jahres-Verlauf (Chart)
                                                          in den vorhandenen Eintrag in data/aktien.json (Feld "james")
 Ticker: US `KO`, Xetra `SIE.DE`, London `.L`, Paris `.PA`.
 --schreibe setzt nur die Zahlenfelder (kurs, ma8, ma21, ma50, ma200, abstand_pct, ma200_steigt, waehrung, kurs_stand,
-ampel, lage, serie) und lässt Texte und Urteile unberührt; gibt es noch keinen Eintrag mit diesem Symbol, passiert nichts.
+ampel, lage, rsi, macd, muster, score, serie) und lässt Texte und Urteile unberührt; gibt es noch keinen Eintrag mit diesem Symbol, passiert nichts.
 Fehler: Exit-Code 1 und „FEHLER: …“ – dann keine Zahlen erfinden.
 """
 import json, os, sys
@@ -23,7 +24,7 @@ def schreiben(sym, a):
     if not ziel:
         print('HINWEIS: kein Eintrag für %s in data/aktien.json, nichts geschrieben' % sym); return
     j = ziel[-1].setdefault('james', {})
-    for k in ('kurs', 'ma8', 'ma21', 'ma50', 'ma200', 'abstand_pct', 'ma200_steigt', 'pos_52w_pct', 'waehrung', 'ampel', 'lage', 'serie'):
+    for k in ('kurs', 'ma8', 'ma21', 'ma50', 'ma200', 'abstand_pct', 'ma200_steigt', 'pos_52w_pct', 'waehrung', 'ampel', 'lage', 'rsi', 'macd', 'macd_signal', 'macd_hist', 'muster', 'score', 'serie'):
         j[k] = a[k]
     j['kurs_stand'] = a['stand']
     ziel[-1].setdefault('symbol', sym.upper())
@@ -37,7 +38,11 @@ def main():
     sym = args[0].strip().upper()
     try:
         meta, zeilen = trend.holen(sym)
-        a = trend.analyse(zeilen, meta)
+        try:
+            bm = [z[4] for z in trend.holen('^GSPC')[1]]   # S&P 500 für die relative Stärke
+        except Exception:
+            bm = None
+        a = trend.analyse(zeilen, meta, benchmark=bm)
     except Exception as e:
         print('FEHLER: Kursdaten für %s nicht abrufbar oder zu kurz (%s)' % (sym, e)); sys.exit(1)
     kurz = {k: v for k, v in a.items() if k != 'serie'}

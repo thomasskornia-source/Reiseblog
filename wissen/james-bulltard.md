@@ -42,6 +42,17 @@ wolle in Werten sein, die gekauft werden. Option Flows zeigen, was große Marktt
 Seine Einordnung ist reine Marktstruktur und Stimmung, **keine** Bewertung des Unternehmens. Typischer Widerspruch zu
 Warren: Das Unternehmen kann gut und der Kurs trotzdem „Down“ sein. Dann sagt James das, auch wenn Warren gefällt.
 
+## Setup-Score, RSI, MACD und Muster (eigene, offene Regeln, `tools/trend.py` und `tools/muster.py`)
+Angelehnt an Chart-Scanner, wie James sie täglich zeigt (Punktestand aus leuchtenden Signalen), aber **kein Nachbau seines
+Scores**: Seine Schwellen und Gewichte kennen wir nicht. Unser Score hat 12 Regeln, jede erfüllte zählt einen Punkt:
+Trend (Kurs über 8, 21 und 50 geordnet; über der steigenden 200er; über dem 10-Wochen-EMA; höhere Hochs und Tiefs),
+Stärke (höchstens 5 % unter dem 52-Wochen-Hoch; besser als der S&P 500 über 3 Monate), Momentum (RSI(14) 50–75; MACD über
+der Signallinie), Volumen (Auf-/Abtage-Verhältnis über 1,1; On-Balance-Volume steigt), Spannung (Squeeze oder verengte ATR;
+NR7 oder Umsatz-Dry-Up). Stufen: 0–3 Schwach, 4–5 Beobachten, 6–8 Momentum im Aufbau, 9–12 Stark.
+RSI(14) nach Wilder, MACD (12, 26, 9). **Muster im 1-Jahres-Chart:** Unterstützungslinie aus höheren Tiefs, Widerstandslinie aus
+tieferen Hochs, Bodenbildung (Doppelboden oder höheres Tief nach einem Rückgang von mindestens 15 %, mit Nackenlinie). Die
+genauen Regeln stehen im Kopf von `tools/muster.py`. Das sind einfache Faustregeln, keine Prognose.
+
 ## Grenzen
 - Die öffentlichen Seiten nennen die gleitenden Durchschnitte als Auslöser (ausdrücklich nur den 21er-EMA), aber nicht
   vollständig, welche genau er nutzt. Die Linien 8, 21, 50, 200 und die Zonen stammen von Thomas.

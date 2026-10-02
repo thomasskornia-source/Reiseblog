@@ -188,6 +188,9 @@
     var n = s.c.length, W = 360, pl = 2, pr = 36, top = 6, pH = 130, vH = 30, dH = 14, H = top + pH + 6 + vH + dH;
     var lo = Infinity, hi = -Infinity, vmax = 0, i;
     for (i = 0; i < n; i++) { lo = Math.min(lo, s.l[i], s.m8[i], s.m21[i], s.m50[i], s.m200[i]); hi = Math.max(hi, s.h[i], s.m8[i], s.m21[i], s.m50[i], s.m200[i]); vmax = Math.max(vmax, s.v[i]); }
+    var mu = (j && j.muster) || {}, bo = mu.boden, un = mu.unterstuetzung, wi = mu.widerstand;
+    [un, wi].forEach(function (L) { if (L) { lo = Math.min(lo, L.p1, L.ende); hi = Math.max(hi, L.p1, L.ende); } });
+    if (bo) { lo = Math.min(lo, bo.p1); hi = Math.max(hi, bo.nacken); }
     var pad = (hi - lo) * 0.04; lo -= pad; hi += pad;
     var st = (W - pl - pr) / n, cw = Math.max(0.9, st * 0.6), wd = cw < 2 ? 0.6 : 0.8;
     function X(k) { return pl + (k + 0.5) * st; }
@@ -205,8 +208,22 @@
       var pts = s[L[0]].map(function (v, k) { return X(k).toFixed(1) + ',' + Y(v).toFixed(1); }).join(' ');
       g += '<polyline points="' + pts + '" fill="none" stroke="' + L[1] + '" stroke-width="1.3" stroke-linejoin="round"/>';
     });
+    function gerade(L, farbe) {
+      return '<line x1="' + X(L.i1).toFixed(1) + '" y1="' + Y(L.p1).toFixed(1) + '" x2="' + X(n - 1).toFixed(1) + '" y2="' + Y(L.ende).toFixed(1) + '" stroke="' + farbe + '" stroke-width="1.3" stroke-dasharray="5 3"' + (L.status === 'gebrochen' ? ' opacity=".55"' : '') + '/>';
+    }
+    if (un) g += gerade(un, '#2a8f4a');
+    if (wi) g += gerade(wi, '#c0392b');
+    if (bo) {
+      g += '<line x1="' + X(bo.i1).toFixed(1) + '" x2="' + X(n - 1).toFixed(1) + '" y1="' + Y(bo.nacken).toFixed(1) + '" y2="' + Y(bo.nacken).toFixed(1) + '" stroke="#7a6a4a" stroke-width="1" stroke-dasharray="2 3"/>';
+      [[bo.i1, bo.p1], [bo.i2, bo.p2]].forEach(function (q) { g += '<circle cx="' + X(q[0]).toFixed(1) + '" cy="' + Y(q[1]).toFixed(1) + '" r="4" fill="none" stroke="#2a8f4a" stroke-width="1.6"/>'; });
+      g += '<text x="' + X(bo.i1).toFixed(1) + '" y="' + (Y(bo.p1) + 14).toFixed(1) + '" font-size="9" fill="#2a8f4a" text-anchor="middle">Boden</text>';
+    }
     [0, Math.round((n - 1) / 2), n - 1].forEach(function (k, q) { g += '<text x="' + X(k).toFixed(1) + '" y="' + (H - 2) + '" font-size="9" fill="#5A6A5E" text-anchor="' + (q === 0 ? 'start' : q === 2 ? 'end' : 'middle') + '">' + esc(s.d[k]) + '</text>'; });
     var leg = LINIEN.map(function (L) { var w = j && j[L[0]] != null ? j[L[0]] : s[L[0]][n - 1]; return '<span><i style="background:' + L[1] + '"></i>' + L[2] + ' Tage <b>' + zahl(w) + '</b></span>'; }).join('');
+    function lg(farbe, t) { return '<span><i style="background:none;border-top:2px dashed ' + farbe + ';height:0"></i>' + t + '</span>'; }
+    if (un) leg += lg('#2a8f4a', 'Unterstützung (' + un.beruehrungen + ' höhere Tiefs, ' + un.status + ')');
+    if (wi) leg += lg('#c0392b', 'Widerstand (' + wi.beruehrungen + ' tiefere Hochs, ' + wi.status + ')');
+    if (bo) leg += '<span><i style="background:none;border:2px solid #2a8f4a;border-radius:50%;width:8px;height:8px"></i>' + esc(bo.typ) + ', ' + esc(bo.status) + '</span>';
     return '<div class="chartbox"><svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Kurschart mit gleitenden Durchschnitten und Volumen">' + g + '</svg><div class="leg">' + leg + '</div></div>';
   }
   function james(j) {
@@ -218,6 +235,14 @@
       if (j.ma8 == null) r += '<div><dt>200-Tage-Linie</dt><dd>' + zahl(j.ma200) + '</dd></div>' + (j.ma50 != null ? '<div><dt>50-Tage-Linie</dt><dd>' + zahl(j.ma50) + '</dd></div>' : '');
     }
     if (j.pos_52w_pct != null) r += '<div><dt>52-Wochen-Spanne</dt><dd>' + (j.pos_52w_pct < 33 ? 'unteres' : j.pos_52w_pct < 67 ? 'mittleres' : 'oberes') + ' Drittel · ' + j.pos_52w_pct + ' %</dd></div>';
+    var sc = j.score;
+    if (sc) r += '<div><dt>Setup-Score</dt><dd>' + dot(sc.punkte >= 6 ? 'g' : sc.punkte >= 4 ? 'a' : 'r') + sc.punkte + '/' + sc.von + ' · ' + esc(sc.stufe) + '</dd></div>';
+    if (j.rsi != null) r += '<div><dt>RSI (14)</dt><dd>' + zahl(j.rsi, 0) + ' · ' + (j.rsi >= 70 ? 'überkauft' : j.rsi >= 50 ? 'über 50, positiv' : j.rsi > 30 ? 'unter 50, schwach' : 'überverkauft') + '</dd></div>';
+    if (j.macd != null) r += '<div><dt>MACD</dt><dd>' + (j.macd > j.macd_signal ? 'über' : 'unter') + ' der Signallinie · ' + (j.macd > 0 ? 'über' : 'unter') + ' Null</dd></div>';
+    var mu = j.muster || {};
+    if (mu.boden) r += '<div><dt>Bodenbildung</dt><dd>' + esc(mu.boden.typ) + ' · ' + esc(mu.boden.status) + '</dd></div>';
+    if (mu.unterstuetzung) r += '<div><dt>Unterstützungslinie</dt><dd>' + mu.unterstuetzung.beruehrungen + ' höhere Tiefs · ' + esc(mu.unterstuetzung.status) + ' (heute bei ' + zahl(mu.unterstuetzung.ende) + ')</dd></div>';
+    if (mu.widerstand) r += '<div><dt>Widerstandslinie</dt><dd>' + mu.widerstand.beruehrungen + ' tiefere Hochs · ' + esc(mu.widerstand.status) + ' (heute bei ' + zahl(mu.widerstand.ende) + ')</dd></div>';
     if (f.richtung) r += '<div><dt>Option Flows</dt><dd>' + dot(fcls(f.richtung)) + esc(f.richtung) + '</dd></div>';
     return '<div class="sec who">' + FACE.j + '<h4>James</h4><dl class="rows">' + r + '</dl>' + chart(j.serie, j) + '<p>' + esc(j.text) + (f.text ? ' <i>Option Flows: ' + esc(f.text) + '</i>' : '') + '</p></div>';
   }
@@ -228,6 +253,8 @@
       return '<blockquote>„' + esc(x.zitat) + '“<cite>' + esc(x.wer) + ' · ' + q + '</cite></blockquote>';
     }).join('');
     var h = '';
+    var sc = e.james && e.james.score;
+    if (sc) h += '<details class="more"><summary>Setup-Score ' + sc.punkte + '/' + sc.von + ' · Regeln</summary><dl>' + sc.kriterien.map(function (k) { return '<div><dt>' + esc(k.gruppe) + '</dt><dd>' + (k.ok ? '✓ ' : '– ') + esc(k.name) + (k.wert ? ' (' + esc(k.wert) + ')' : '') + '</dd></div>'; }).join('') + '</dl></details>';
     if (kz) h += '<details class="more"><summary>Kennzahlen</summary><dl>' + kz + '</dl></details>';
     if (bel) h += '<details class="more"><summary>Belege aus Briefen und Versammlungen (' + (e.belege || []).length + ')</summary>' + bel + '</details>';
     return h;
