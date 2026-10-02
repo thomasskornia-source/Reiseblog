@@ -13,10 +13,10 @@
   .rb-card { background: var(--paper-warm); border: 1px solid rgba(46,58,50,.1); border-radius: 14px; padding: 20px 22px; }
   .rb-card h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin: 0 0 12px; }
   .rb-card h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; margin: 18px 0 8px; }
-  .rb label { display: block; font-size: 13px; color: var(--ink-soft); margin: 0 0 4px; }
+  .rb label { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 13px; color: var(--ink-soft); margin: 0 0 4px; }
   .rb input, .rb select, .rb textarea { width: 100%; font: inherit; font-size: 16px; padding: 9px 10px; border: 1px solid rgba(46,58,50,.25); border-radius: 8px; background: var(--paper); color: var(--ink); box-sizing: border-box; }
   .rb textarea { min-height: 80px; resize: vertical; }
-  .rb .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .rb .g2 { display: grid; align-items: start; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
   .rb .f { margin-bottom: 12px; }
   .rb .sl { display: grid; grid-template-columns: 1fr 78px; gap: 10px; align-items: center; margin-bottom: 8px; }
   .rb .sl label { margin: 0; color: var(--ink); font-size: 14px; }
@@ -71,11 +71,11 @@
       </div>
       <div class="g2">
         <div><label for="mon">Reisemonat</label><select id="mon"></select></div>
-        <div><label for="bud">Budget pro Person (€, gesamt)</label><input id="bud" type="number" min="300" step="100" value="1800" inputmode="numeric"></div>
+        <div><label for="bud">Budget p. P. (€)</label><input id="bud" type="number" min="300" step="100" value="1800" inputmode="numeric"></div>
       </div>
       <div class="g2">
         <div><label for="fl">Max. Flugzeit (Std.)</label><select id="fl"><option value="5">bis 5 Std.</option><option value="7" selected>bis 7 Std.</option><option value="14">egal</option></select></div>
-        <div><label for="car">Mietwagen</label><select id="car"><option value="1" selected>gerne selbst fahren</option><option value="0">lieber ohne</option></select></div>
+        <div><label for="car">Selbst fahren?</label><select id="car"><option value="1" selected>ja, gern</option><option value="0">lieber nein</option></select></div>
       </div>
       <h3>Was soll die Reise bieten?</h3>
       <div id="sliders"></div>
@@ -189,7 +189,7 @@
       'Personen: ' + v.pers + '\n' +
       'Budget: ca. ' + eur(v.bud) + ' € pro Person (' + eur(v.bud * v.pers) + ' € gesamt)\n' +
       'Max. Flugzeit: ' + (v.fl >= 14 ? 'egal' : v.fl + ' Std.') + '\n' +
-      'Mietwagen: ' + (v.car ? 'gerne selbst fahren' : 'lieber ohne') + '\n' +
+      'Mietwagen: ' + (v.car ? 'gerne selbst fahren' : 'lieber ohne Mietwagen') + '\n' +
       'Unterkunft: ' + $('stay').value + ', Tempo: ' + $('pace').value + '\n' +
       'Interessen: ' + (ints || 'keine besonderen') + '\n' +
       ($('oth').value.trim() ? 'Besonderes: ' + $('oth').value.trim() + '\n' : '') +
