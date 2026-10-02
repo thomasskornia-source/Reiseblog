@@ -1149,7 +1149,7 @@ function compute(P) {
   function exitRender(R, P, netMonth, ausTot0, two) {
     var box = $('exitBox');
     if (!(R.retAge - R.age0 > 0.5)) { box.hidden = true; EXIT = null; return; }
-    box.hidden = false;
+    box.hidden = true; // Box ist ausgeblendet, die Werte erscheinen nur in der Story
     var du = two ? 'ihr' : 'du', dein = two ? 'euer' : 'dein', deine = two ? 'eure' : 'deine';
     var share = Math.min(1, Math.max(0, R.pg.v / Math.max(1, R.pn.gross)));
     var pensAt = function (q, loss) { return R.pn.net * (1 - loss * share); };
