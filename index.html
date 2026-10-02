@@ -44,7 +44,6 @@
 
   <header class="hero">
     <div class="blobs" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
-    <span class="hello"><i></i><span id="hello">Willkommen</span></span>
     <h1><span class="w1">Unterwegs</span><span class="w2">und</span><span class="w3">zuhause</span></h1>
     <div class="rotor" aria-live="off"><span class="track">
       <span>Reisen <b>planen</b>.</span>
@@ -272,7 +271,6 @@
   var $ = function (id) { return document.getElementById(id); };
   // Begrüßung nach Tageszeit
   var h = new Date().getHours();
-  $('hello').textContent = h < 5 ? 'Noch wach?' : h < 11 ? 'Guten Morgen' : h < 14 ? 'Guten Tag' : h < 18 ? 'Schönen Nachmittag' : h < 23 ? 'Guten Abend' : 'Noch wach?';
 
   // Countdown bis zur Reise am 26.12.
   function countdown() {
