@@ -111,3 +111,8 @@ body .topbar .topnav a.hot { color: #fff !important; }
 .page-list .blitz-btn.active small { color: rgba(255, 255, 255, .85); }
 .page-list .search-field { border: 1.5px solid rgba(46, 58, 50, .14); background: #fff; box-shadow: 0 3px 10px rgba(46, 58, 50, .06); }
 html, body { overflow-x: clip; max-width: 100%; }
+
+/* iPhone zoomt beim Antippen von Feldern unter 16 px und bleibt vergrößert: Felder am Handy immer mindestens 16 px */
+@media (max-width: 900px) {
+  input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="button"]):not([type="submit"]), select, textarea { font-size: 16px !important; }
+}
