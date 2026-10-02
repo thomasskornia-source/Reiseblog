@@ -1274,9 +1274,11 @@ function compute(P) {
       $('kfRend').placeholder = pct(P.kauf.rend, 1) + ' (ETF nach Steuer)';
       var wohn = P.aus[AUS.findIndex(function (a) { return a[0] === 'aWohnen'; })] || 0;
       $('kfMiete').placeholder = wohn > 0 ? eur(wohn) + ' (Wohnen)' : '€';
+      KAUF = null;
       var k = P.kauf; if (!(k.preis > 0)) { $('buyOut').innerHTML = '<p class="small">Trage einen Kaufpreis ein, um den Vergleich zu sehen.</p>'; return; }
       if (!(k.ek > 0)) k.ek = P.W0;
       var M = kaufModel(k), n = k.jahre, b = M.base, bW = b.bs[n], rW = b.rs[n], d = bW - rW;
+      KAUF = { n: n, bW: bW, rW: rW, d: d, be: M.be, rateM: M.rateM, wert: k.wert, preis: k.preis };
       var rateShare = R.netMonth > 0 ? M.rateM / R.netMonth : 0, reserve = P.W0 - k.ek, ekShare = P.W0 > 0 ? k.ek / P.W0 : 0;
       var warn = [];
       if (M.loan > 0 && rateShare > 0.35) warn.push('Die Rate liegt über 35 % deines Nettos, das gilt als Obergrenze.');
@@ -1625,7 +1627,7 @@ function compute(P) {
 
 
   /* ---------- Story-Ansicht ---------- */
-  var LAST = null, SI = 0, SC = [], stOpener = null;
+  var LAST = null, KAUF = null, SI = 0, SC = [], stOpener = null;
   var cnt = function (v, f) { return '<span class="cnt" data-v="' + v + '" data-f="' + f + '">' + cfmt(v, f) + '</span>'; };
   function cfmt(v, f) { return f === 'pct' ? pct(v) : (f === 'num' ? num(v) : eur(v)); }
   var first = function (t) { var i = t.indexOf('. '); t = i > 0 ? t.slice(0, i + 1) : t; return t.length > 150 ? t.slice(0, 147) + '…' : t; };
@@ -1653,6 +1655,14 @@ function compute(P) {
       '<div class="st-bar">' + seg.map(function (x) { return '<i style="--w:' + x[0] / scale * 100 + '%;background:' + x[1] + '"></i>'; }).join('') + '<span class="st-mark" style="left:' + R.target / scale * 100 + '%" title="80 %"></span></div>' +
       '<div class="st-leg">' + seg.map(function (x) { return '<span><i class="st-dot" style="background:' + x[1] + '"></i>' + x[2] + '<b>' + eur(x[0]) + '</b></span>'; }).join('') + '</div>' +
       '<p>' + (R.total >= R.target ? 'Damit liegst du über dem Zielwert von 80 % deines heutigen Nettos (' + eur(R.target) + ').' : 'Zum Ziel von 80 % (' + eur(R.target) + ') fehlen ' + eur(R.target - R.total) + ' pro Monat.') + '</p>' });
+    // 4b Brutto zu Netto
+    if (R.pn0.gross > 0) {
+      var gP = R.pn0.gross, nP = R.pn0.net, dd = Math.max(0, gP - nP), wN = gP > 0 ? nP / gP * 100 : 0;
+      c.push({ t: 't-plum', h: '<div class="st-eye">Brutto und netto</div><h2>Was von der Rente bleibt</h2><div class="st-big">' + cnt(nP, 'eur') + '</div><div class="st-sub">netto pro Monat aus der gesetzlichen Rente</div>' +
+        '<div class="st-bar"><i style="--w:' + wN + '%;background:#9fdcb8"></i><i style="--w:' + (100 - wN) + '%;background:#ff9a85"></i></div>' +
+        '<div class="st-leg"><span><i class="st-dot" style="background:#9fdcb8"></i>Netto<b>' + eur(nP) + '</b></span><span><i class="st-dot" style="background:#ff9a85"></i>Steuer, Kranken- und Pflegeversicherung<b>' + eur(dd) + '</b></span></div>' +
+        '<p>Brutto sind es ' + eur(gP) + ' pro Monat. Du behältst ' + pct(gP > 0 ? nP / gP : 0) + ' davon.</p>' });
+    }
     // Urteil: Reicht es?
     var need = Math.max(0, L.ausTot - R.pn.net), dep = L.WD.depAge, verdict;
     if (L.ausTot > 0) verdict = (need <= 0 || dep === null) ? 'good' : (dep >= P.planAge - 5 ? 'warn' : 'crit');
@@ -1679,12 +1689,14 @@ function compute(P) {
       c.push({ t: 't-blue', h: '<div class="st-eye">Deine Absicherung</div><h2>Deine Verträge</h2><div class="st-big">' + cnt(P.contracts.length, 'num') + '</div><div class="st-sub">' + (P.contracts.length === 1 ? 'Vertrag' : 'Verträge') + ' eingetragen</div>' +
         '<p>Zusammen kosten sie ' + eur(cb) + ' pro Monat' + (L.netMonth > 0 ? ' (' + pct(cb / L.netMonth, 1) + ' deines Nettos)' : '') + '.' + (R.cGross > 0 ? ' Im Ruhestand liefern deine Rentenverträge netto etwa ' + eur(R.cNet) + ' pro Monat.' : '') + '</p>' });
     }
-    // 8 Rendite
-    var sc = R.scen, lo = sc[0], hi = sc[sc.length - 1], mxv = Math.max(hi.net, 1);
-    c.push({ t: 't-sage', h: '<div class="st-eye">Zinseszins</div><h2>Die Rendite macht den Unterschied</h2><div class="st-rows">' +
-      '<div class="st-row"><span>Bei ' + num(lo.r * 100) + ' % im Jahr</span><b>' + eur(lo.net) + '</b></div><div class="st-bar"><i style="--w:' + lo.net / mxv * 100 + '%;background:#f2c36b"></i></div>' +
-      '<div class="st-row"><span>Bei ' + num(hi.r * 100) + ' % im Jahr</span><b>' + eur(hi.net) + '</b></div><div class="st-bar"><i style="--w:100%;background:#FAF3E8"></i></div></div>' +
-      '<p>Vermögen mit ' + R.wunsch + ' Jahren. Eingezahlt hast du in beiden Fällen nur ' + eur(hi.paid) + '. Der Rest ist Zinseszins.</p>' });
+    // Kaufen oder mieten
+    if (KAUF && P.W0 >= KAUF.preis * 0.2) {
+      var Kd = KAUF.d, kc = Kd >= 0 ? 't-sage' : 't-gold', kmx = Math.max(KAUF.bW, KAUF.rW, 1);
+      c.push({ t: kc, h: '<div class="st-eye">Wohnen</div><h2>Kaufen oder mieten?</h2><div class="st-big">' + (Kd >= 0 ? 'Kaufen' : 'Mieten') + '</div><div class="st-sub">liegt nach ' + KAUF.n + ' Jahren vorn, um ' + eur(Math.abs(Kd)) + '</div>' +
+        '<div class="st-rows"><div class="st-row"><span>Vermögen beim Kaufen</span><b>' + eur(KAUF.bW) + '</b></div><div class="st-bar"><i style="--w:' + Math.max(0, KAUF.bW) / kmx * 100 + '%;background:#f2c36b"></i></div>' +
+        '<div class="st-row"><span>Vermögen beim Mieten</span><b>' + eur(KAUF.rW) + '</b></div><div class="st-bar"><i style="--w:' + Math.max(0, KAUF.rW) / kmx * 100 + '%;background:#FAF3E8"></i></div></div>' +
+        '<p>Kaufpreis ' + eur(KAUF.preis) + ', Rate ' + eur(KAUF.rateM) + ' pro Monat, Wertsteigerung ' + pct(KAUF.wert, 1) + ' pro Jahr.' + (KAUF.be === null ? '' : (KAUF.be <= -0.0199 ? '' : ' Kaufen lohnt sich ab etwa ' + pct(KAUF.be, 1) + ' Wertsteigerung.')) + '</p>' });
+    }
     // 9 Hinweise
     var tips = L.h.filter(function (x) { return x[2] !== 'sep' && x[1]; }), pri = tips.filter(function (x) { return x[2] === 'crit' || x[2] === 'warn'; });
     var top = pri.concat(tips.filter(function (x) { return pri.indexOf(x) < 0; })).slice(0, 3), dc = { crit: '#ff9a85', warn: '#f2c36b', good: '#9fdcb8' };
@@ -1746,7 +1758,7 @@ function compute(P) {
   }
   function decoFor(html) {
     if (html.indexOf('st-badge') >= 0) return 'stars';
-    var m = [['Dein Finanzplan', ''], ['>Heute<', 'coins'], ['in Rente, ca.', 'curve'], ['Im Ruhestand<', 'euro'], ['Reicht das?', 'waves'], ['Deine Betriebsrente', 'orbit'], ['Deine Absicherung', ''], ['>Zinseszins<', 'curve2'], ['nächsten Schritte', 'stars']];
+    var m = [['Dein Finanzplan', ''], ['>Heute<', 'coins'], ['in Rente, ca.', 'curve'], ['Im Ruhestand<', 'euro'], ['Reicht das?', 'waves'], ['Deine Betriebsrente', 'orbit'], ['Deine Absicherung', ''], ['Brutto und netto', 'waves'], ['>Wohnen<', 'orbit'], ['nächsten Schritte', 'stars']];
     for (var i = 0; i < m.length; i++) if (html.indexOf(m[i][0]) >= 0) return m[i][1];
     return '';
   }
