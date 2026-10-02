@@ -199,7 +199,8 @@ th { font-weight: 600; color: var(--ink2); }
 .st-prog { position: absolute; top: 12px; left: 14px; right: 14px; display: flex; gap: 4px; z-index: 4; }
 .st-prog i { flex: 1; height: 3px; border-radius: 2px; background: rgba(250,243,232,.28); overflow: hidden; }
 .st-prog i.on { background: #FAF3E8; }
-.st-x { position: absolute; top: 24px; right: 12px; z-index: 5; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(0,0,0,.25); color: #FAF3E8; font-size: 22px; line-height: 1; cursor: pointer; }
+.st-x { position: absolute; top: 24px; right: 12px; z-index: 5; width: 40px; height: 40px; border-radius: 50%; border: 0; background: none; color: #FAF3E8; opacity: .6; font-size: 22px; line-height: 1; cursor: pointer; }
+.st-x:hover { opacity: 1; }
 .st-tap { position: absolute; top: 60px; bottom: 80px; z-index: 2; border: 0; background: none; cursor: pointer; padding: 0; -webkit-tap-highlight-color: transparent; }
 .st-tap.l { left: 0; width: 32%; }
 .st-tap.r { right: 0; width: 68%; }
@@ -231,8 +232,9 @@ th { font-weight: 600; color: var(--ink2); }
 .st-tip b { display: block; font-size: 16px; }
 .st-tip .st-dot { margin-top: 6px; }
 .st-nav { position: absolute; left: 0; right: 0; bottom: 20px; z-index: 5; display: flex; justify-content: center; align-items: center; gap: 18px; font-size: 13px; opacity: .9; }
-.st-nav button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(250,243,232,.45); background: rgba(0,0,0,.18); color: #FAF3E8; font-size: 22px; cursor: pointer; }
-.st-nav button:disabled { opacity: .3; cursor: default; }
+.st-nav button { width: 44px; height: 44px; border-radius: 50%; border: 0; background: none; color: #FAF3E8; opacity: .6; font-size: 22px; cursor: pointer; }
+.st-nav button:hover { opacity: 1; }
+.st-nav button:disabled { opacity: .2; cursor: default; }
 .st-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
 .st-btn { font: inherit; font-weight: 600; font-size: 15px; border-radius: 999px; padding: 10px 20px; cursor: pointer; border: 1px solid #FAF3E8; background: #FAF3E8; color: #2E3A32; }
 .st-btn.ghost { background: transparent; color: #FAF3E8; }
