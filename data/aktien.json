@@ -285,6 +285,93 @@
         },
         "text": "Der Kurs liegt mit 342,77 $ knapp 1,1 % über der steigenden 200-Tage-Linie (338,91 $), 53 der letzten 60 Tage lagen darüber. Er sitzt aber unter der 50-Tage-Linie (344,35 $) und nahe am 21er-EMA (343,16 $), kurzfristig also seitwärts, weit unter dem 52-Wochen-Hoch von 402,62 $. Die Option Flows sind laut Optionsumsatz neutral bis leicht freundlich: viel mehr Calls als Puts, aber viele davon kurzlaufend und die Seite des Geschäfts unklar. Lage und Option Flows passen grob zusammen, der Abstand zur Linie ist allerdings klein."
       }
+    },
+    {
+      "eingabe": "BRK.B",
+      "zeitstempel": "02.10.2026 21:37:59",
+      "name": "Berkshire Hathaway Inc. (Klasse B)",
+      "ticker": "BRK.B (NYSE)",
+      "symbol": "BRK-B",
+      "stand": "02.10.2026",
+      "kennzahlen": [
+        {
+          "k": "Operatives Ergebnis Q2 2026",
+          "v": "12,9 Mrd. $ (+16 %)"
+        },
+        {
+          "k": "Nettogewinn Q2 2026",
+          "v": "25,7 Mrd. $ (Vorjahr 12,4 Mrd. $; stark schwankend durch Anlagegewinne)"
+        },
+        {
+          "k": "Operativer Cashflow 2025",
+          "v": "46 Mrd. $"
+        },
+        {
+          "k": "Versicherungs-Float Ende 2025",
+          "v": "176 Mrd. $ (2015: 88 Mrd. $)"
+        },
+        {
+          "k": "Liquidität Juni 2026",
+          "v": "ca. 360 Mrd. $ (überwiegend US-Staatsanleihen)"
+        },
+        {
+          "k": "Aktienrückkäufe H1 2026",
+          "v": "ca. 4,8 Mrd. $"
+        },
+        {
+          "k": "KGV / Free-Cashflow-Rendite",
+          "v": "unklar (nicht belegt)"
+        },
+        {
+          "k": "Dividende",
+          "v": "keine"
+        }
+      ],
+      "warren": {
+        "urteil": "Gefällt mir",
+        "text": "Das ist ein Geschäft, das ich verstehe: Versicherungen, die uns kostenloses Geld zum Anlegen geben, dazu Bahn, Energie und viele Industriefirmen. Der Burggraben ist die Finanzkraft, die kein Konkurrent erreicht, und die Schulden sind gering. Der Float ist in zehn Jahren von 88 auf 176 Mrd. $ gewachsen, der operative Cashflow liegt bei rund 46 Mrd. $. Das Management kauft eigene Aktien nur, wenn der Preis stimmt, und schüttet keine Dividende aus. Der Kurs liegt im oberen Mittelfeld seiner Jahresspanne; eine genaue Sicherheitsmarge kann ich ohne belegtes KGV nicht beziffern. Passt klar zu den Grundsätzen, ist aber kein Kaufsignal."
+      },
+      "charlie": {
+        "urteil": "Abwarten",
+        "text": "Invertiert: Wie geht das schief? Mit rund 360 Mrd. $ Liquidität hat das Unternehmen mehr Geld, als sich sinnvoll anlegen lässt, und die Rendite auf das eingesetzte Kapital sinkt, je größer der Berg wird. Dazu kommt der Wechsel an der Spitze: Die Kultur lässt sich nicht einfach vererben, ob der neue Chef so diszipliniert Kapital verteilt, wird sich erst zeigen. Auch Katastrophenschäden und Waldbrandrisiken im Energiegeschäft können schmerzen. Anders als Warren würde ich den Preis nicht als bequem ansehen. Ein sehr gutes Unternehmen, aber ich warte auf eine wirklich auffällige Gelegenheit."
+      },
+      "risiken": "Sehr hohe Liquidität, die schwer rentabel anzulegen ist; Nachfolge nach Buffett; Großschäden und Waldbrandhaftung im Versicherungs- und Energiegeschäft. Bewertung (KGV) nicht belegt.",
+      "james": {
+        "urteil": "Über der 200-Tage-Linie",
+        "lage": "knapp über",
+        "kurs": 502.97,
+        "ma200": 492.77,
+        "abstand_pct": 2.1,
+        "ma50": 507.39,
+        "ma200_steigt": true,
+        "waehrung": "USD",
+        "flows": {
+          "richtung": "keine Daten",
+          "quelle": "Cboe, verzögert",
+          "stand": "02.10.2026",
+          "text": "Für BRK.B waren keine Optionsdaten abrufbar."
+        },
+        "text": "Der Kurs liegt mit 502,97 $ etwa 2,1 % über der steigenden 200-Tage-Linie (492,77 $), aber unter der 50-Tage-Linie (507,39 $) und unter dem 21er-EMA (505,04 $): langfristig intakt, kurzfristig leicht schwächer. In 57 der letzten 60 Handelstage lag der Kurs über der Linie. Option Flows liegen nicht vor, daher keine Aussage dazu; reine Markttechnik, keine Firmenbewertung."
+      },
+      "verlauf": [],
+      "belege": [
+        {
+          "wer": "Warren",
+          "zitat": "Of equal importance, float is very sticky. Funds attributable to our insurance operations come and go daily, but their aggregate total is immune from precipitous decline.",
+          "quelle": "Aktionärsbrief 2021",
+          "url": "https://www.berkshirehathaway.com/letters/2021ltr.pdf"
+        }
+      ],
+      "quellen": [
+        {
+          "name": "Berkshire Q2 2026 (Überblick)",
+          "url": "https://www.vermoegenszentrum.ch/en/stock-exchange-and-markets/news/berkshire-q2-fy26-net-earnings-more-doubled-usd-2567-billion"
+        },
+        {
+          "name": "Aktionärsbrief 2025",
+          "url": "https://www.berkshirehathaway.com/letters/2025ltr.pdf"
+        }
+      ]
     }
   ]
 }
