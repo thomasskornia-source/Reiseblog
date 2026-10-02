@@ -3,38 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>Aktien-Check – Warren und Charlie</title>
+<title>Aktien-Check – Warren, Charlie und James</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=1">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <style>
-  .ak { display: grid; gap: 16px; margin-top: 4px; }
-  .hero { display: flex; justify-content: center; align-items: center; gap: 14px; margin: 4px 0 2px; }
-  .hero .p { text-align: center; width: 104px; }
-  .hero .p svg { width: 88px; height: 88px; display: block; margin: 0 auto 4px; border-radius: 50%; box-shadow: 0 6px 16px rgba(46,58,50,.18); }
-  .hero .p b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; }
-  .hero .vs { font-size: 13px; color: var(--ink-soft); }
-  .sub { text-align: center; font-size: 15px; color: var(--ink-soft); margin: 0 0 4px; }
+  .ak { display: grid; gap: 14px; margin-top: 4px; }
+  .hero { display: flex; justify-content: center; align-items: flex-start; gap: 12px; margin: 4px 0 2px; }
+  .hero .p { text-align: center; width: 92px; }
+  .hero .p svg { width: 76px; height: 76px; display: block; margin: 0 auto 4px; border-radius: 50%; box-shadow: 0 6px 16px rgba(46,58,50,.18); }
+  .hero .p b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; display: block; }
+  .hero .p small { font-size: 11.5px; color: var(--ink-soft); }
+  .sub { text-align: center; font-size: 15px; color: var(--ink-soft); margin: 0 0 2px; }
   .ak-form { display: flex; gap: 8px; background: var(--paper-warm); border: 1px solid rgba(46,58,50,.12); border-radius: 999px; padding: 6px; }
   .ak-form input { flex: 1; min-width: 0; font: inherit; font-size: 16px; border: 0; background: transparent; padding: 8px 14px; color: var(--ink); outline: 0; }
   .btn { font: inherit; font-size: 15px; background: var(--rust); color: #fff; border: 0; border-radius: 999px; padding: 9px 20px; cursor: pointer; white-space: nowrap; }
+  .btn.ghost { background: transparent; color: var(--rust); border: 1px solid var(--rust); padding: 6px 14px; font-size: 13.5px; }
   .btn[disabled] { opacity: .5; cursor: default; }
-  .msg { font-size: 13.5px; color: var(--ink-soft); text-align: center; margin: -6px 0 0; min-height: 1em; }
+  .msg { font-size: 13.5px; color: var(--ink-soft); text-align: center; margin: -4px 0 0; min-height: 1em; }
   .pend { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
   .pend li { display: flex; align-items: center; gap: 12px; background: var(--paper-warm); border-radius: 12px; padding: 10px 14px; font-size: 14.5px; }
   .pend .dots { display: inline-flex; gap: 4px; margin-left: auto; }
   .pend .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); animation: bl 1.2s infinite ease-in-out; }
   .pend .dots i:nth-child(2) { animation-delay: .2s; } .pend .dots i:nth-child(3) { animation-delay: .4s; }
   @keyframes bl { 0%, 80%, 100% { opacity: .2; transform: scale(.8); } 40% { opacity: 1; transform: scale(1.2); } }
-  .st { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 16px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(46,58,50,.06); animation: up .35s ease both; }
+  .st { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 16px; box-shadow: 0 6px 18px rgba(46,58,50,.06); animation: up .35s ease both; }
   @keyframes up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-  .st.new { border-color: var(--rust); }
-  .st .hd { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-  .st .hd h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0; }
-  .st .hd span { font-size: 12px; color: var(--ink-soft); }
-  .kz { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 12px; padding: 0; list-style: none; }
+  .st.hit { border-color: var(--rust); }
+  .st > summary { list-style: none; cursor: pointer; padding: 13px 16px; display: grid; grid-template-columns: 1fr auto; gap: 6px 10px; align-items: center; }
+  .st > summary::-webkit-details-marker { display: none; }
+  .st h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; margin: 0; }
+  .st h3 small { font-family: inherit; font-size: 12.5px; color: var(--ink-soft); font-weight: 400; margin-left: 4px; }
+  .age { font-size: 12px; color: var(--ink-soft); text-align: right; white-space: nowrap; }
+  .age.old { color: #8e2a1c; font-weight: 600; }
+  .chips { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font-size: 12px; font-weight: 600; border-radius: 999px; padding: 2px 10px; background: var(--paper-warm); }
+  .chip em { font-style: normal; font-weight: 400; color: var(--ink-soft); margin-right: 3px; }
+  .g { background: #dcebd9; color: #2f6a2f; } .a { background: #f4e6c3; color: #7a5a12; } .r { background: #f3d6d1; color: #8e2a1c; }
+  .body { padding: 0 16px 16px; }
+  .kz { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; padding: 0; list-style: none; }
   .kz li { font-size: 12.5px; color: var(--ink-soft); background: var(--paper-warm); border-radius: 999px; padding: 3px 10px; }
   .kz b { color: var(--ink); font-weight: 600; }
   .duo { display: grid; gap: 14px; }
@@ -43,16 +52,20 @@
   .who svg { width: 48px; height: 48px; border-radius: 50%; }
   .who .top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .who h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; margin: 0; }
-  .u { font-size: 12px; font-weight: 600; border-radius: 999px; padding: 2px 10px; background: var(--paper-warm); }
-  .u.g { background: #dcebd9; color: #2f6a2f; } .u.a { background: #f4e6c3; color: #7a5a12; } .u.r { background: #f3d6d1; color: #8e2a1c; }
   .who p { margin: 0; font-size: 14.5px; line-height: 1.55; grid-column: 1 / -1; }
-  @media (min-width: 720px) { .who { grid-template-columns: 48px 1fr; } .who p { grid-column: 2; } .who svg { grid-row: span 2; } }
+  @media (min-width: 720px) { .who p { grid-column: 2; } .who svg { grid-row: span 2; } }
+  .jm { margin-top: 14px; padding-top: 14px; border-top: 1px dashed rgba(46,58,50,.2); }
+  .jm .nums { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--ink-soft); grid-column: 1 / -1; }
+  .jm .nums b { color: var(--ink); }
   .risk { font-size: 13.5px; color: var(--ink-soft); margin: 12px 0 0; line-height: 1.5; }
   .src { font-size: 12px; color: var(--ink-soft); margin: 6px 0 0; }
   .bel { margin: 12px 0 0; font-size: 13.5px; }
   .bel summary { cursor: pointer; color: var(--ink-soft); }
   .bel blockquote { margin: 8px 0 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--gold); line-height: 1.5; }
   .bel blockquote cite { display: block; font-style: normal; font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+  .vl { font-size: 12.5px; color: var(--ink-soft); margin: 10px 0 0; }
+  .act { display: flex; align-items: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  .act span { font-size: 12.5px; color: var(--ink-soft); }
   .empty { font-size: 15px; color: var(--ink-soft); text-align: center; margin: 12px 0; }
   .foot { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; text-align: center; margin: 22px 0 0; }
 </style>
@@ -80,11 +93,11 @@
 
   <div class="ak">
     <div class="hero" aria-hidden="true">
-      <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="Warren"><circle cx="60" cy="60" r="60" fill="#E9D9BF"/><path d="M22 120c2-22 18-30 38-30s36 8 38 30z" fill="#2E3A32"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#B5502E"/><ellipse cx="60" cy="56" rx="26" ry="31" fill="#F0C9A4"/><path d="M34 50c-2-20 10-30 26-30s28 10 26 30c-3-9-8-14-14-15-9 3-19 3-26 0-6 2-10 7-12 15z" fill="#EDEAE4"/><g fill="none" stroke="#2E3A32" stroke-width="3"><rect x="38" y="48" width="18" height="13" rx="3"/><rect x="64" y="48" width="18" height="13" rx="3"/><path d="M56 53h8"/></g><circle cx="47" cy="55" r="2.2" fill="#2E3A32"/><circle cx="73" cy="55" r="2.2" fill="#2E3A32"/><path d="M46 74c9 9 19 9 28 0" fill="#fff" stroke="#8a4b34" stroke-width="2.5" stroke-linejoin="round"/></svg><b>Warren</b></div>
-      <span class="vs">und</span>
-      <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="Charlie"><circle cx="60" cy="60" r="60" fill="#CFDAD3"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#3b4a56"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#C99A3E"/><ellipse cx="60" cy="58" rx="27" ry="31" fill="#EFC6A0"/><path d="M33 56c-3-12 0-22 6-26-4 8-4 16-3 26zM87 56c3-12 0-22-6-26 4 8 4 16 3 26z" fill="#E7E4DE"/><path d="M44 31c6-6 26-6 32 0-8-3-24-3-32 0z" fill="#E7E4DE"/><g fill="#fff" stroke="#2E3A32" stroke-width="3.5"><circle cx="48" cy="56" r="11"/><circle cx="72" cy="56" r="11"/></g><path d="M59 55h2" stroke="#2E3A32" stroke-width="3"/><circle cx="48" cy="56" r="2.6" fill="#2E3A32"/><circle cx="72" cy="56" r="2.6" fill="#2E3A32"/><path d="M47 76c8 5 18 3 26-2" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/></svg><b>Charlie</b></div>
+      <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="Warren"><circle cx="60" cy="60" r="60" fill="#E9D9BF"/><path d="M22 120c2-22 18-30 38-30s36 8 38 30z" fill="#2E3A32"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#B5502E"/><ellipse cx="60" cy="56" rx="26" ry="31" fill="#F0C9A4"/><path d="M34 50c-2-20 10-30 26-30s28 10 26 30c-3-9-8-14-14-15-9 3-19 3-26 0-6 2-10 7-12 15z" fill="#EDEAE4"/><g fill="none" stroke="#2E3A32" stroke-width="3"><rect x="38" y="48" width="18" height="13" rx="3"/><rect x="64" y="48" width="18" height="13" rx="3"/><path d="M56 53h8"/></g><circle cx="47" cy="55" r="2.2" fill="#2E3A32"/><circle cx="73" cy="55" r="2.2" fill="#2E3A32"/><path d="M46 74c9 9 19 9 28 0" fill="#fff" stroke="#8a4b34" stroke-width="2.5" stroke-linejoin="round"/></svg><b>Warren</b><small>Qualität und Preis</small></div>
+      <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="Charlie"><circle cx="60" cy="60" r="60" fill="#CFDAD3"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#3b4a56"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#C99A3E"/><ellipse cx="60" cy="58" rx="27" ry="31" fill="#EFC6A0"/><path d="M33 56c-3-12 0-22 6-26-4 8-4 16-3 26zM87 56c3-12 0-22-6-26 4 8 4 16 3 26z" fill="#E7E4DE"/><path d="M44 31c6-6 26-6 32 0-8-3-24-3-32 0z" fill="#E7E4DE"/><g fill="#fff" stroke="#2E3A32" stroke-width="3.5"><circle cx="48" cy="56" r="11"/><circle cx="72" cy="56" r="11"/></g><path d="M59 55h2" stroke="#2E3A32" stroke-width="3"/><circle cx="48" cy="56" r="2.6" fill="#2E3A32"/><circle cx="72" cy="56" r="2.6" fill="#2E3A32"/><path d="M47 76c8 5 18 3 26-2" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/></svg><b>Charlie</b><small>Was kann schiefgehen</small></div>
+      <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="James"><circle cx="60" cy="60" r="60" fill="#F0D5C8"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#B5502E"/><path d="M50 90l10 12 10-12z" fill="#FAF3E8"/><ellipse cx="60" cy="58" rx="25" ry="30" fill="#E8B991"/><path d="M34 52c-3-20 8-31 26-31s29 11 26 31c-2-8-6-12-12-14-8 3-20 3-28 0-6 2-10 6-12 14z" fill="#3a2a22"/><path d="M38 70c2 14 10 22 22 22s20-8 22-22c-3 8-10 12-22 12s-19-4-22-12z" fill="#3a2a22" opacity=".55"/><g fill="#2E3A32"><rect x="40" y="49" width="16" height="6" rx="3"/><rect x="64" y="49" width="16" height="6" rx="3"/></g><circle cx="48" cy="52" r="1.8" fill="#fff"/><circle cx="72" cy="52" r="1.8" fill="#fff"/><path d="M48 72c8 5 16 5 24 0" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/><path d="M30 38c-6-3-8-9-7-14 3 4 7 6 12 7zM90 38c6-3 8-9 7-14-3 4-7 6-12 7z" fill="#FAF3E8" stroke="#8a7a68" stroke-width="1.5"/></svg><b>James</b><small>Kurs und Flüsse</small></div>
     </div>
-    <p class="sub">Aktie eintippen, zwei Meinungen bekommen.</p>
+    <p class="sub">Aktie eintippen, drei Meinungen bekommen. Das Feld sucht auch in den bisherigen.</p>
     <form class="ak-form" id="form" autocomplete="off">
       <input id="inp" type="text" maxlength="60" placeholder="z. B. Apple, KO, Siemens" aria-label="Aktie">
       <button class="btn" id="go" type="submit">Prüfen</button>
@@ -94,36 +107,56 @@
     <div id="list"><p class="empty">Lädt …</p></div>
   </div>
 
-  <p class="foot">Warren und Charlie sind KI-Figuren im Geist der öffentlich bekannten Grundsätze von Warren Buffett und Charlie Munger, keine echten Personen und keine Zitate. Das hier ist keine Anlageberatung; Kennzahlen können unvollständig oder veraltet sein.</p>
+  <p class="foot">Warren, Charlie und James sind KI-Figuren, keine echten Personen und keine Zitate. Warren und Charlie folgen den öffentlich bekannten Grundsätzen von Warren Buffett und Charlie Munger. James folgt der öffentlich beschriebenen Methode von <a href="https://www.jamesbulltard.com" target="_blank" rel="noopener">James Bulltard</a> (Optionsflüsse und Charts); die Seite ist nicht mit ihm abgestimmt. Das hier ist keine Anlageberatung; Kennzahlen und Kurse können unvollständig oder veraltet sein.</p>
 </div>
 <script>
 (function () {
   // Google-Formular „Aktien Eingang“
   var FORM = { url: 'https://docs.google.com/forms/d/e/1FAIpQLSe7btFK51BH3FOWqMuYN5bYuTT87hQMGRVnk0521wfI416QfA/formResponse', entry: 'entry.1299806996' };
-  var KEY = 'aktien-wartend';
-  var FACE = { w: '<svg viewBox="0 0 120 120" role="img" aria-label="Warren"><circle cx="60" cy="60" r="60" fill="#E9D9BF"/><path d="M22 120c2-22 18-30 38-30s36 8 38 30z" fill="#2E3A32"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#B5502E"/><ellipse cx="60" cy="56" rx="26" ry="31" fill="#F0C9A4"/><path d="M34 50c-2-20 10-30 26-30s28 10 26 30c-3-9-8-14-14-15-9 3-19 3-26 0-6 2-10 7-12 15z" fill="#EDEAE4"/><g fill="none" stroke="#2E3A32" stroke-width="3"><rect x="38" y="48" width="18" height="13" rx="3"/><rect x="64" y="48" width="18" height="13" rx="3"/><path d="M56 53h8"/></g><circle cx="47" cy="55" r="2.2" fill="#2E3A32"/><circle cx="73" cy="55" r="2.2" fill="#2E3A32"/><path d="M46 74c9 9 19 9 28 0" fill="#fff" stroke="#8a4b34" stroke-width="2.5" stroke-linejoin="round"/></svg>', c: '<svg viewBox="0 0 120 120" role="img" aria-label="Charlie"><circle cx="60" cy="60" r="60" fill="#CFDAD3"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#3b4a56"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#C99A3E"/><ellipse cx="60" cy="58" rx="27" ry="31" fill="#EFC6A0"/><path d="M33 56c-3-12 0-22 6-26-4 8-4 16-3 26zM87 56c3-12 0-22-6-26 4 8 4 16 3 26z" fill="#E7E4DE"/><path d="M44 31c6-6 26-6 32 0-8-3-24-3-32 0z" fill="#E7E4DE"/><g fill="#fff" stroke="#2E3A32" stroke-width="3.5"><circle cx="48" cy="56" r="11"/><circle cx="72" cy="56" r="11"/></g><path d="M59 55h2" stroke="#2E3A32" stroke-width="3"/><circle cx="48" cy="56" r="2.6" fill="#2E3A32"/><circle cx="72" cy="56" r="2.6" fill="#2E3A32"/><path d="M47 76c8 5 18 3 26-2" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/></svg>' };
+  var KEY = 'aktien-wartend', FRISCH = 3, VERALTET = 30;
+  var FACE = { w: '<svg viewBox="0 0 120 120" role="img" aria-label="Warren"><circle cx="60" cy="60" r="60" fill="#E9D9BF"/><path d="M22 120c2-22 18-30 38-30s36 8 38 30z" fill="#2E3A32"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#B5502E"/><ellipse cx="60" cy="56" rx="26" ry="31" fill="#F0C9A4"/><path d="M34 50c-2-20 10-30 26-30s28 10 26 30c-3-9-8-14-14-15-9 3-19 3-26 0-6 2-10 7-12 15z" fill="#EDEAE4"/><g fill="none" stroke="#2E3A32" stroke-width="3"><rect x="38" y="48" width="18" height="13" rx="3"/><rect x="64" y="48" width="18" height="13" rx="3"/><path d="M56 53h8"/></g><circle cx="47" cy="55" r="2.2" fill="#2E3A32"/><circle cx="73" cy="55" r="2.2" fill="#2E3A32"/><path d="M46 74c9 9 19 9 28 0" fill="#fff" stroke="#8a4b34" stroke-width="2.5" stroke-linejoin="round"/></svg>', c: '<svg viewBox="0 0 120 120" role="img" aria-label="Charlie"><circle cx="60" cy="60" r="60" fill="#CFDAD3"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#3b4a56"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#C99A3E"/><ellipse cx="60" cy="58" rx="27" ry="31" fill="#EFC6A0"/><path d="M33 56c-3-12 0-22 6-26-4 8-4 16-3 26zM87 56c3-12 0-22-6-26 4 8 4 16 3 26z" fill="#E7E4DE"/><path d="M44 31c6-6 26-6 32 0-8-3-24-3-32 0z" fill="#E7E4DE"/><g fill="#fff" stroke="#2E3A32" stroke-width="3.5"><circle cx="48" cy="56" r="11"/><circle cx="72" cy="56" r="11"/></g><path d="M59 55h2" stroke="#2E3A32" stroke-width="3"/><circle cx="48" cy="56" r="2.6" fill="#2E3A32"/><circle cx="72" cy="56" r="2.6" fill="#2E3A32"/><path d="M47 76c8 5 18 3 26-2" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/></svg>', j: '<svg viewBox="0 0 120 120" role="img" aria-label="James"><circle cx="60" cy="60" r="60" fill="#F0D5C8"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#B5502E"/><path d="M50 90l10 12 10-12z" fill="#FAF3E8"/><ellipse cx="60" cy="58" rx="25" ry="30" fill="#E8B991"/><path d="M34 52c-3-20 8-31 26-31s29 11 26 31c-2-8-6-12-12-14-8 3-20 3-28 0-6 2-10 6-12 14z" fill="#3a2a22"/><path d="M38 70c2 14 10 22 22 22s20-8 22-22c-3 8-10 12-22 12s-19-4-22-12z" fill="#3a2a22" opacity=".55"/><g fill="#2E3A32"><rect x="40" y="49" width="16" height="6" rx="3"/><rect x="64" y="49" width="16" height="6" rx="3"/></g><circle cx="48" cy="52" r="1.8" fill="#fff"/><circle cx="72" cy="52" r="1.8" fill="#fff"/><path d="M48 72c8 5 16 5 24 0" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/><path d="M30 38c-6-3-8-9-7-14 3 4 7 6 12 7zM90 38c6-3 8-9 7-14-3 4-7 6-12 7z" fill="#FAF3E8" stroke="#8a7a68" stroke-width="1.5"/></svg>' };
   function $(i) { return document.getElementById(i); }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function load() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
   function store(a) { try { localStorage.setItem(KEY, JSON.stringify(a.slice(-10))); } catch (e) {} }
-  function norm(s) { return String(s).toLowerCase().replace(/[^a-z0-9äöüß]/g, ''); }
+  function norm(s) { return String(s == null ? '' : s).toLowerCase().replace(/[^a-z0-9äöüß]/g, ''); }
+  function sym(e) { return e.symbol || String(e.ticker || '').split(' ')[0]; }
+  function passt(e, t) { t = norm(t); return !!t && (norm(sym(e)) === t || norm(e.eingabe) === t || norm(e.name) === t || norm(e.name).indexOf(t) === 0); }
   function cls(u) { u = String(u || '').toLowerCase(); return u.indexOf('gefällt') === 0 ? 'g' : u.indexOf('finger') === 0 ? 'r' : 'a'; }
+  function jcls(l) { l = String(l || ''); return l.indexOf('deutlich über') === 0 ? 'g' : l.indexOf('deutlich unter') === 0 ? 'r' : 'a'; }
+  function fcls(r) { r = String(r || '').toLowerCase(); return r.indexOf('bullisch') === 0 ? 'g' : r.indexOf('bärisch') === 0 ? 'r' : 'a'; }
+  function alter(e) {
+    var m = /(\d+)\.(\d+)\.(\d+)/.exec(e.stand || ''); if (!m) return null;
+    return Math.max(0, Math.round((Date.now() - new Date(+m[3], +m[2] - 1, +m[1]).getTime()) / 864e5));
+  }
+  function alterText(d) { return d === null ? '' : d === 0 ? 'heute' : d === 1 ? 'gestern' : 'vor ' + d + ' Tagen'; }
+  function zahl(x, n) { return x == null ? '–' : Number(x).toLocaleString('de-DE', { maximumFractionDigits: n == null ? 2 : n }); }
 
-  var data = [], seen = null, timer = null;
-  function pending() {
+  var data = [], zuletzt = null, timer = null, filter = '';
+  function wartend() {
     return load().filter(function (w) {
-      return !data.some(function (d) { return norm(d.eingabe) === norm(w.t) || norm(d.name) === norm(w.t) || norm(d.ticker) === norm(w.t) || norm(d.ticker).indexOf(norm(w.t)) === 0; }) && Date.now() - w.z < 864e5;
+      var e = data.filter(function (d) { return passt(d, w.t); })[0];
+      var fertig = e && (w.vorher ? e.zeitstempel !== w.vorher : true);
+      return !fertig && Date.now() - w.z < 864e5;
     });
   }
   function renderPending() {
-    var p = pending(); store(p);
-    $('pend').innerHTML = p.map(function (w) { return '<li><span>⏳ <b>' + esc(w.t) + '</b> wird geprüft …</span><span class="dots"><i></i><i></i><i></i></span></li>'; }).join('');
+    var p = wartend(); store(p);
+    $('pend').innerHTML = p.map(function (w) { return '<li><span>⏳ <b>' + esc(w.t) + '</b> wird ' + (w.vorher ? 'aktualisiert' : 'geprüft') + ' …</span><span class="dots"><i></i><i></i><i></i></span></li>'; }).join('');
     if (p.length && !timer) timer = setInterval(refresh, 20000);
     if (!p.length && timer) { clearInterval(timer); timer = null; }
   }
   function who(k, name, x) {
     if (!x) return '';
-    return '<div class="who">' + FACE[k] + '<div class="top"><h4>' + name + '</h4><span class="u ' + cls(x.urteil) + '">' + esc(x.urteil) + '</span></div><p>' + esc(x.text) + '</p></div>';
+    return '<div class="who">' + FACE[k] + '<div class="top"><h4>' + name + '</h4><span class="chip ' + cls(x.urteil) + '">' + esc(x.urteil) + '</span></div><p>' + esc(x.text) + '</p></div>';
+  }
+  function james(j) {
+    if (!j) return '';
+    var f = j.flows || {};
+    var nums = j.kurs == null ? '' : '<div class="nums"><span>Kurs <b>' + zahl(j.kurs) + ' ' + esc(j.waehrung || '') + '</b></span><span>200-Tage <b>' + zahl(j.ma200) + '</b> (' + (j.abstand_pct > 0 ? '+' : '') + zahl(j.abstand_pct, 1) + ' %' + (j.ma200_steigt === true ? ', steigt' : j.ma200_steigt === false ? ', fällt' : '') + ')</span>' + (j.ma50 != null ? '<span>50-Tage <b>' + zahl(j.ma50) + '</b></span>' : '') + '</div>';
+    return '<div class="who jm">' + FACE.j + '<div class="top"><h4>James</h4>' +
+      (j.urteil ? '<span class="chip ' + jcls(j.lage) + '">' + esc(j.urteil) + '</span>' : '') +
+      (f.richtung ? '<span class="chip ' + fcls(f.richtung) + '"><em>Flüsse</em>' + esc(f.richtung) + '</span>' : '') + '</div>' + nums + '<p>' + esc(j.text) + (f.text ? ' <i>Flüsse: ' + esc(f.text) + '</i>' : '') + '</p></div>';
   }
   function belege(b) {
     if (!b || !b.length) return '';
@@ -132,21 +165,33 @@
       return '<blockquote>„' + esc(x.zitat) + '“<cite>' + esc(x.wer) + ' · ' + q + '</cite></blockquote>';
     }).join('') + '</details>';
   }
-  function card(e, isNew) {
+  function verlauf(v) {
+    if (!v || !v.length) return '';
+    return '<p class="vl"><b>Früher:</b> ' + v.slice().reverse().slice(0, 4).map(function (x) { return esc(x.stand) + ': Warren ' + esc(x.warren || '–') + ', Charlie ' + esc(x.charlie || '–') + (x.james ? ', James ' + esc(x.james) : ''); }).join(' · ') + '</p>';
+  }
+  function card(e, offen, treffer) {
+    var d = alter(e), alt = d !== null && d > VERALTET;
     var kz = (e.kennzahlen || []).map(function (k) { return '<li>' + esc(k.k) + ' <b>' + esc(k.v) + '</b></li>'; }).join('');
     var src = (e.quellen || []).map(function (q) { return /^https?:\/\//.test(q.url) ? '<a href="' + esc(q.url) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>' : esc(q.name); }).join(' · ');
-    return '<article class="st' + (isNew ? ' new' : '') + '"><div class="hd"><h3>' + esc(e.name) + (e.ticker ? ' · ' + esc(e.ticker) : '') + '</h3><span>Stand ' + esc(e.stand) + '</span></div>' +
-      (kz ? '<ul class="kz">' + kz + '</ul>' : '') +
-      '<div class="duo">' + who('w', 'Warren', e.warren) + who('c', 'Charlie', e.charlie) + '</div>' +
-      belege(e.belege) +
-      (e.risiken ? '<p class="risk"><b>Was schiefgehen kann:</b> ' + esc(e.risiken) + '</p>' : '') +
-      (src ? '<p class="src">Quellen: ' + src + '</p>' : '') + '</article>';
+    var j = e.james, f = j && j.flows;
+    return '<details class="st' + (treffer ? ' hit' : '') + '" data-sym="' + esc(sym(e)) + '"' + (offen ? ' open' : '') + '><summary>' +
+      '<h3>' + esc(e.name) + '<small>' + esc(e.ticker || '') + '</small></h3><span class="age' + (alt ? ' old' : '') + '">' + (alt ? 'veraltet · ' : '') + alterText(d) + '</span>' +
+      '<div class="chips">' + (e.warren ? '<span class="chip ' + cls(e.warren.urteil) + '"><em>Warren</em>' + esc(e.warren.urteil) + '</span>' : '') +
+      (e.charlie ? '<span class="chip ' + cls(e.charlie.urteil) + '"><em>Charlie</em>' + esc(e.charlie.urteil) + '</span>' : '') +
+      (j && j.lage ? '<span class="chip ' + jcls(j.lage) + '"><em>James</em>' + esc(String(j.lage).replace(/^(deutlich|knapp) /, '$1 ')) + ' 200-Tage</span>' : '') +
+      (f && f.richtung && f.richtung !== 'keine Daten' ? '<span class="chip ' + fcls(f.richtung) + '"><em>Flüsse</em>' + esc(f.richtung) + '</span>' : '') + '</div></summary>' +
+      '<div class="body">' + (kz ? '<ul class="kz">' + kz + '</ul>' : '') +
+      '<div class="duo">' + who('w', 'Warren', e.warren) + who('c', 'Charlie', e.charlie) + '</div>' + james(j) +
+      belege(e.belege) + (e.risiken ? '<p class="risk"><b>Was schiefgehen kann:</b> ' + esc(e.risiken) + '</p>' : '') +
+      verlauf(e.verlauf) + (src ? '<p class="src">Quellen: ' + src + '</p>' : '') +
+      '<div class="act"><button type="button" class="btn ghost" data-upd="' + esc(sym(e)) + '">Aktualisieren</button><span>Stand ' + esc(e.stand) + (!j ? ' · noch ohne James' : '') + '</span></div></div></details>';
   }
   function render() {
-    var l = data.slice().reverse();
-    var fresh = seen === null ? 0 : l.length - seen;
-    $('list').innerHTML = l.length ? '<div class="ak" style="margin:0">' + l.map(function (e, i) { return card(e, i < fresh); }).join('') + '</div>' : '<p class="empty">Noch keine Einschätzung. Gib oben die erste Aktie ein.</p>';
-    seen = l.length;
+    var l = data.slice().reverse(), t = norm(filter);
+    var sicht = l.filter(function (e) { return !t || norm(e.name + ' ' + sym(e) + ' ' + e.eingabe).indexOf(t) !== -1; });
+    $('list').innerHTML = !l.length ? '<p class="empty">Noch keine Einschätzung. Gib oben die erste Aktie ein.</p> ' :
+      !sicht.length ? '<p class="empty">„' + esc(filter) + '“ ist noch nicht dabei. Mit „Prüfen“ lassen wir sie ansehen.</p>' :
+      '<div class="ak" style="margin:0">' + sicht.map(function (e, i) { return card(e, (zuletzt ? sym(e) === zuletzt : i === 0 && !t), zuletzt && sym(e) === zuletzt); }).join('') + '</div>';
     renderPending();
   }
   function refresh() {
@@ -154,21 +199,40 @@
       data = j.einschaetzungen || []; render();
     }, function () { $('list').innerHTML = '<p class="empty">Die Einschätzungen konnten nicht geladen werden.</p>'; });
   }
-  $('form').onsubmit = function (ev) {
-    ev.preventDefault();
-    var t = $('inp').value.trim();
-    if (!t) return;
+  function senden(text, vorher) {
     if (!FORM.url || !FORM.entry) { $('status').textContent = 'Die Anfrage ist noch nicht eingerichtet.'; return; }
     $('go').disabled = true;
-    var fd = new FormData(); fd.append(FORM.entry, t);
+    var fd = new FormData(); fd.append(FORM.entry, text);
     fetch(FORM.url, { method: 'POST', mode: 'no-cors', body: fd }).then(function () {
-      var w = load(); w.push({ t: t, z: Date.now() }); store(w);
-      $('inp').value = '';
-      $('status').textContent = 'Gesendet. Die Meinung erscheint in wenigen Minuten, die Seite kann offen bleiben.';
-      renderPending();
+      var w = load(); w.push({ t: text, z: Date.now(), vorher: vorher || null }); store(w);
+      $('inp').value = ''; filter = '';
+      $('status').textContent = 'Gesendet. Das Ergebnis erscheint in wenigen Minuten, die Seite kann offen bleiben.';
+      render();
     }, function () { $('status').textContent = 'Senden hat nicht geklappt. Bitte später noch einmal versuchen.'; })
     .then(function () { $('go').disabled = false; });
+  }
+  $('inp').addEventListener('input', function () { filter = this.value.trim(); zuletzt = null; $('status').textContent = ''; render(); });
+  $('form').onsubmit = function (ev) {
+    ev.preventDefault();
+    var t = $('inp').value.trim(); if (!t) return;
+    var e = data.filter(function (d) { return passt(d, t); })[0];
+    if (e) {
+      var d = alter(e);
+      if (d !== null && d < FRISCH) {
+        zuletzt = sym(e); filter = ''; $('inp').value = '';
+        $('status').textContent = e.name + ' wurde ' + alterText(d) + ' geprüft, hier das Ergebnis.';
+        render(); var el = document.querySelector('[data-sym="' + zuletzt + '"]'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      return senden(sym(e), e.zeitstempel);
+    }
+    senden(t);
   };
+  $('list').addEventListener('click', function (ev) {
+    var b = ev.target.closest('[data-upd]'); if (!b) return;
+    var e = data.filter(function (d) { return sym(d) === b.getAttribute('data-upd'); })[0];
+    if (e) senden(sym(e), e.zeitstempel);
+  });
   refresh();
 })();
 </script>
