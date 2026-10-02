@@ -1771,6 +1771,18 @@ function compute(P) {
         '<div class="st-bar"><i style="--w:' + tNet / tGross * 100 + '%;background:#9fdcb8"></i><i style="--w:' + tSv / tGross * 100 + '%;background:#f2c36b"></i><i style="--w:' + (tTax / tGross * 100) + '%;background:#ff9a85"></i></div>' +
         '<div class="st-leg"><span><i class="st-dot" style="background:#9fdcb8"></i>Netto<b>' + eur(tNet) + '</b></span><span><i class="st-dot" style="background:#f2c36b"></i>Sozialversicherung<b>' + eur(tSv) + '</b></span><span><i class="st-dot" style="background:#ff9a85"></i>Steuern<b>' + eur(tTax) + '</b></span></div>' +
         (junior ? '<p>Du selbst bist dein stärkster Hebel: Legst du nur 10 % davon an, sind das ' + eur(tNet * 0.1) + ' (ohne Zinsen). Heutige Kaufkraft, ohne Gehaltssteigerungen.</p>' : '<p>Das sind ' + eur(tNet / (yL * 12)) + ' netto pro Monat. Alles in heutiger Kaufkraft, ohne Gehaltssteigerungen.</p>') });
+      if (A0 < 50 && yL > 5) {
+        var gG = A0 < 30 ? 0.04 : 0.03, sAt = function (n) { return gB * Math.pow(1 + gG, n); }, dbl = Math.log(2) / Math.log(1 + gG), n10 = Math.min(10, Math.floor(yL)), n20 = Math.min(20, Math.floor(yL));
+        var gRows = [['Heute', eur(gB)], ['In ' + n10 + ' Jahren', eur(sAt(n10))]];
+        if (n20 > n10) gRows.push(['In ' + n20 + ' Jahren', eur(sAt(n20))]);
+        c.push({ t: 't-rust', h: '<div class="st-eye">Dein Gehalt wächst mit</div><h2>Das ist erst der Anfang</h2><div class="st-big" style="font-size:clamp(36px,11vw,50px)">×' + cnt(Math.pow(1 + gG, yL), 'num') + '</div><div class="st-sub">Gehalt bis zur Rente bei ' + pct(gG, 0) + ' Plus pro Jahr</div>' +
+          '<div class="st-rows">' + gRows.map(function (x) { return '<div class="st-row"><span>' + x[0] + '</span><b>' + x[1] + '</b></div>'; }).join('') + '</div>' +
+          '<p>Bei ' + pct(gG, 0) + ' pro Jahr verdoppelt sich dein Gehalt etwa alle ' + Math.round(dbl) + ' Jahre. Brutto pro Jahr, nominal. Eine Annahme, keine Prognose: 2025 stiegen die Nominallöhne laut Destatis um 4,2 %, Beförderungen kommen oben drauf.</p>' });
+        var sim2 = simulate(Object.assign({}, R.base, { dyn: gG })).at(R.retAge).net;
+        if (gG > P.dyn + 0.001 && sim2 > ret.net) c.push({ t: 't-plum', h: '<div class="st-eye">Wenn deine Sparrate mitwächst</div><h2>Was das fürs Vermögen heißt</h2><div class="st-big" style="font-size:clamp(36px,11vw,50px)">+' + cnt(sim2 - ret.net, 'eur') + '</div><div class="st-sub">mehr Vermögen bei der Rente</div>' +
+          '<div class="st-rows"><div class="st-row"><span>Sparrate wächst um ' + pct(gG, 0) + ' pro Jahr</span><b>' + eur(sim2) + '</b></div><div class="st-row"><span>Dein bisheriger Plan (' + pct(P.dyn, 0) + ')</span><b>' + eur(ret.net) + '</b></div></div>' +
+          '<p>Heißt: Mit jeder Gehaltserhöhung legst du einen Teil mehr zurück. Nominal gerechnet, nach Steuern.</p>' });
+      }
       if (junior && yL > 5) {
         var iM = Math.pow(1 + P.rE, 1 / 12) - 1, fvf = function (n) { return 100 * (Math.pow(1 + iM, 12 * n) - 1) / iM; }, fv0 = fvf(yL), nW = Math.min(10, Math.floor(yL / 2)), fvW = fvf(yL - nW);
         c.push({ t: 't-sage', h: '<div class="st-eye">Der Zinseszins-Effekt</div><h2>Nur 100 € im Monat</h2><div class="st-big">' + cnt(fv0, 'eur') + '</div><div class="st-sub">nach ' + Math.round(yL) + ' Jahren bei ' + pct(P.rE, 1) + ' Rendite</div>' +
