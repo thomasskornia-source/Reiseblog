@@ -14,10 +14,8 @@
 <style>
   .head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
   .head-row .entry-header { flex: 1; min-width: 0; }
-  .berater-tile { flex: none; width: clamp(150px, 46vw, 220px); margin-top: 6px; text-decoration: none; color: var(--ink); display: grid; gap: 6px; text-align: center; transition: transform .15s; }
-  .berater-tile:hover { transform: translateY(-3px) rotate(-1deg); }
-  .berater-tile svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 8px 14px rgba(46,58,50,.18)); }
-  .berater-tile b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; }
+  .berater-tile { flex: none; margin-top: 8px; padding: 12px 22px; border-radius: 99px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; box-shadow: 0 6px 16px rgba(46,58,50,.22); transition: transform .15s; }
+  .berater-tile:hover { transform: translateY(-2px); }
   .trips { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 24px 0 8px; }
   @media (min-width: 700px) { .trips { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; } }
   @media (min-width: 1060px) { .trips { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
@@ -57,36 +55,11 @@
       <h1>Reisen</h1>
       <hr class="rule">
     </header>
-    <a class="berater-tile" href="reiseberater.html" aria-label="Reisebüro: Reiseberater öffnen">
-      <svg viewBox="0 0 200 150" role="img" aria-label="Eine freundliche Reiseberaterin hinter ihrem Schreibtisch fragt: Wohin soll's gehen?">
-        <rect x="2" y="2" width="196" height="146" rx="14" fill="#FCEBC6" stroke="#2E3A32" stroke-width="3"/>
-        <circle cx="30" cy="84" r="1.6" fill="#E3C27D"/><circle cx="44" cy="76" r="1.6" fill="#E3C27D"/><circle cx="58" cy="86" r="1.6" fill="#E3C27D"/><circle cx="20" cy="72" r="1.6" fill="#E3C27D"/>
-        <ellipse cx="135" cy="58" rx="27" ry="29" fill="#5b3a29" stroke="#2E3A32" stroke-width="2"/>
-        <circle cx="135" cy="27" r="10" fill="#5b3a29" stroke="#2E3A32" stroke-width="2"/>
-        <path d="M85 150C88 112 104 98 135 98C166 98 182 112 185 150Z" fill="#2F7E86" stroke="#2E3A32" stroke-width="2.5"/>
-        <rect x="127" y="86" width="16" height="16" fill="#F2C9A0"/>
-        <path d="M122 99L135 118L148 99Z" fill="#fff" stroke="#2E3A32" stroke-width="1.5"/>
-        <rect x="152" y="118" width="15" height="9" rx="1.5" fill="#fff" stroke="#2E3A32" stroke-width="1.2"/>
-        <ellipse cx="135" cy="60" rx="20" ry="23" fill="#F2C9A0" stroke="#2E3A32" stroke-width="2"/>
-        <path d="M115 53C118 36 152 36 155 53C147 46 125 46 115 53Z" fill="#5b3a29"/>
-        <g fill="none" stroke="#2E3A32" stroke-width="1.6"><circle cx="128" cy="60" r="6"/><circle cx="142" cy="60" r="6"/><path d="M134 60h2"/></g>
-        <circle cx="128" cy="60" r="2.2" fill="#2E3A32"/><circle cx="142" cy="60" r="2.2" fill="#2E3A32"/>
-        <circle cx="122" cy="69" r="3.2" fill="#F0A0A0" opacity=".7"/><circle cx="148" cy="69" r="3.2" fill="#F0A0A0" opacity=".7"/>
-        <path d="M127 71Q135 79 143 71" fill="none" stroke="#8a3b2a" stroke-width="2.2" stroke-linecap="round"/>
-        <rect x="10" y="118" width="180" height="30" rx="4" fill="#B5502E" stroke="#2E3A32" stroke-width="2.5"/>
-        <rect x="6" y="109" width="188" height="11" rx="3" fill="#D9794E" stroke="#2E3A32" stroke-width="2.5"/>
-        <path d="M36 118v-6" stroke="#2E3A32" stroke-width="2.5"/><circle cx="36" cy="100" r="11" fill="#8FC5B8" stroke="#2E3A32" stroke-width="2.2"/><path d="M36 89c-6 6-6 16 0 22M26 98c6 3 14 3 20 0" fill="none" stroke="#2E3A32" stroke-width="1.4"/>
-        <path d="M70 116l22-6-22-6 5 6z" fill="#fff" stroke="#2E3A32" stroke-width="1.6" stroke-linejoin="round"/>
-        <path d="M12 10h74a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8H66l-14 12 2-12H12a8 8 0 0 1-8-8V18a8 8 0 0 1 8-8z" fill="#fff" stroke="#2E3A32" stroke-width="2.4" transform="translate(3 0)"/>
-        <text x="53" y="28" font-family="'Work Sans',sans-serif" font-size="12.5" font-weight="700" fill="#2E3A32" text-anchor="middle">Wohin</text>
-        <text x="53" y="43" font-family="'Work Sans',sans-serif" font-size="12.5" font-weight="700" fill="#B5502E" text-anchor="middle">soll's gehen?</text>
-      </svg>
-      <b>Reisebüro</b>
-    </a>
+    <a class="berater-tile" href="reiseberater.html">Reiseplanung</a>
   </div>
 
   <div class="entry-body">
-    <p>Hier stehen die Reisevorschläge vom Reisebüro.</p>
+    <p>Hier stehen die Reisevorschläge der Reiseplanung.</p>
   </div>
 
   <div class="trips">
