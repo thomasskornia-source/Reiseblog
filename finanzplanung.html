@@ -344,7 +344,7 @@ body.fp-body { padding-bottom: 0; }
           <div><h2 id="h-verlauf">Vermögensverlauf</h2><p class="note" id="verlaufNote"></p></div>
           <div class="seg" role="group" aria-label="Anzeige"><button type="button" id="mNom" aria-pressed="true">Nominal</button><button type="button" id="mReal" aria-pressed="false">Kaufkraft heute</button></div>
         </header>
-        <div class="legendrow"><span><i class="sw" style="background:var(--c-net)"></i>Vermögen nach Steuern</span><span><i class="sw" style="background:none;border-top:3px dashed var(--c-paid);height:0"></i>Eingezahlt</span><span id="legWD" hidden><i class="sw" style="background:none;border-top:3px dotted var(--c-wd);height:0"></i>Mit Entnahmen ab Renteneintritt</span></div>
+        <div class="legendrow"><span><i class="sw" style="background:var(--c-net)"></i><span id="legNet">Vermögen nach Steuern</span></span><span><i class="sw" style="background:none;border-top:3px dashed var(--c-paid);height:0"></i>Eingezahlt</span><span id="legWD" hidden><i class="sw" style="background:none;border-top:3px solid var(--c-wd);height:0"></i>Im Ruhestand mit Entnahmen</span><span id="legRef" hidden><i class="sw" style="background:none;border-top:2px dotted var(--c-net);height:0"></i>Ohne Entnahmen (Vergleich)</span></div>
         <div class="charts"><canvas id="c1" role="img" aria-label="Verlauf des Vermögens nach Steuern und der Einzahlungen bis zum Wunschalter"></canvas></div>
         <p class="small" id="modeNote"></p>
         <p class="small" id="withNote"></p>
@@ -900,10 +900,19 @@ function compute(P) {
     $('mNom').setAttribute('aria-pressed', mode === 'nom'); $('mReal').setAttribute('aria-pressed', mode === 'real');
     $('verlaufNote').textContent = 'Vermögen nach Steuern, wenn du heute verkaufen würdest.';
     $('modeNote').textContent = mode === 'real' ? 'Kaufkraft heute: Die Inflation von ' + pct(P.infl, 1) + ' pro Jahr ist herausgerechnet. Die Beträge zeigen, was das Geld nach heutigen Preisen wert wäre.' : 'Nominal: So viel steht dann tatsächlich auf dem Konto. Mit der Inflation von ' + pct(P.infl, 1) + ' pro Jahr kauft man dafür weniger als heute.';
-    var dNet = [], dPaid = [], rows1 = [];
-    R.series.forEach(function (age) {
-      var s = R.sim.at(age), y = adj(s.net, yTo(age)), p = adj(s.paid, yTo(age));
-      dNet.push({ x: age, y: y }); dPaid.push({ x: age, y: p });
+    var dNet = [], dPaid = [], dRef = [], dWD = [];
+    var ages = R.series.slice();
+    if (ages.indexOf(R.retAge) < 0) ages.push(R.retAge);
+    if (hasWD && ages.indexOf(P.planAge) < 0 && P.planAge > R.age0) ages.push(P.planAge);
+    ages.sort(function (x, y) { return x - y; });
+    var split = hasWD && R.retAge < R.endAge;
+    ages.forEach(function (age) {
+      var s = R.sim.at(age), inSim = age <= R.endAge + 1e-9;
+      dPaid.push({ x: age, y: inSim ? adj(s.paid, yTo(age)) : null });
+      dNet.push({ x: age, y: inSim && (!hasWD || age <= R.retAge + 1e-9) ? adj(s.net, yTo(age)) : null });
+      dRef.push({ x: age, y: split && inSim && age >= R.retAge - 1e-9 ? adj(s.net, yTo(age)) : null });
+      var w = hasWD && age >= R.retAge - 1e-9 && age <= P.planAge + 1e-9 ? wdAt(age) : null;
+      dWD.push({ x: age, y: w === null ? null : adj(w, yTo(age)) });
     });
     var marks = [{ x: R.retAge, label: 'Rente ' + ageText(R.retAge), row: 0 }, { x: R.wunsch, label: 'Wunsch ' + R.wunsch, row: 0 }];
     if (Math.abs(R.retAge - R.wunsch) < 4) { marks[1].row = 1; if (R.wunsch < R.retAge) { marks[0].row = 1; marks[1].row = 0; } }
@@ -913,10 +922,22 @@ function compute(P) {
     o1.plugins.tooltip.callbacks = { title: function (it) { return 'Alter ' + num(it[0].parsed.x, 0); }, label: function (c) { return c.dataset.label + ': ' + eur(c.parsed.y); } };
     upsert('c1', { type: 'line', plugins: [markerPlugin], data: { datasets: [
       { label: 'Eingezahlt', data: dPaid, borderColor: t.paid, backgroundColor: rgba(t.paid, 0.16), borderWidth: 2.5, borderDash: [7, 4], pointRadius: 0, pointHoverRadius: 4, fill: 'origin', tension: 0.15 },
-      { label: 'Vermögen nach Steuern', data: dNet, borderColor: t.net, backgroundColor: rgba(t.net, 0.18), borderWidth: 2.5, pointRadius: 0, pointHoverRadius: 5, pointHoverBackgroundColor: t.net, pointHoverBorderColor: t.surface, pointHoverBorderWidth: 2, fill: 0, tension: 0.15 }
-    ].concat(hasWD ? [{ label: 'Mit Entnahmen ab Renteneintritt', data: WD.pts.map(function (p) { return { x: p.age, y: adj(p.bal, yTo(p.age)) }; }), borderColor: t.wd, backgroundColor: rgba(t.wd, 0.14), borderWidth: 2.5, borderDash: [2, 3], pointRadius: 0, pointHoverRadius: 5, fill: false, tension: 0.15 }] : []) }, options: o1 });
-    $('legWD').hidden = !hasWD;
-    $('withNote').textContent = hasWD ? 'Die goldene Linie zeigt dein Vermögen, wenn du ab Renteneintritt jeden Monat ' + eur(wdReal) + ' (in heutiger Kaufkraft) entnimmst' + (ausTot0 > 0 ? ', das ist der Teil deiner Ausgaben, den die Renten nicht decken.' : ', verteilt bis Alter ' + num(P.planAge) + '.') + (WD.depAge !== null ? ' Das Vermögen ist bei dieser Entnahme etwa mit ' + num(WD.depAge) + ' aufgebraucht.' : (wdReal > 0 ? (adj(WD.pts[WD.pts.length - 1].bal, yTo(P.planAge)) < 1000 ? ' Das Vermögen wird bis Alter ' + num(P.planAge) + ' planmäßig aufgebraucht.' : ' Bis Alter ' + num(P.planAge) + ' bleibt noch ' + eur(adj(WD.pts[WD.pts.length - 1].bal, yTo(P.planAge))) + ' übrig.') : '')) : '';
+      { label: hasWD ? 'Vermögen bis Renteneintritt' : 'Vermögen nach Steuern', data: dNet, borderColor: t.net, backgroundColor: rgba(t.net, 0.18), borderWidth: 2.5, pointRadius: 0, pointHoverRadius: 5, pointHoverBackgroundColor: t.net, pointHoverBorderColor: t.surface, pointHoverBorderWidth: 2, fill: 'origin', tension: 0.15 }
+    ].concat(hasWD ? [{ label: 'Im Ruhestand mit Entnahmen', data: dWD, borderColor: t.wd, backgroundColor: rgba(t.wd, 0.16), borderWidth: 3, pointRadius: 0, pointHoverRadius: 5, pointHoverBackgroundColor: t.wd, pointHoverBorderColor: t.surface, pointHoverBorderWidth: 2, fill: 'origin', tension: 0.15 }] : []).concat(split ? [{ label: 'Ohne Entnahmen (Vergleich)', data: dRef, borderColor: rgba(t.net, 0.55), borderWidth: 1.5, borderDash: [2, 4], pointRadius: 0, pointHoverRadius: 3, fill: false, tension: 0.15 }] : []) }, options: o1 });
+    $('legWD').hidden = !hasWD; $('legRef').hidden = !split; $('legNet').textContent = hasWD ? 'Vermögen nach Steuern bis Renteneintritt' : 'Vermögen nach Steuern';
+    var lastBal = hasWD ? adj(WD.pts[WD.pts.length - 1].bal, yTo(P.planAge)) : 0;
+    var wn = '';
+    if (hasWD) {
+      if (ausTot0 > 0 && wdReal <= 0) wn = 'Deine Renten (' + eur(R.pn.net) + ' netto pro Monat) decken deine geplanten Ausgaben von ' + eur(ausTot0) + ' vollständig. Du musst nichts aus dem Vermögen entnehmen, es wächst im Ruhestand nur noch mit der Rendite im Ruhestand von ' + pct(P.rRet, 1) + '.';
+      else {
+        wn = 'Ab Renteneintritt zeigt die goldene Linie dein Vermögen, wenn du jeden Monat ' + eur(wdReal) + ' (in heutiger Kaufkraft) entnimmst.';
+        wn += ausTot0 > 0 ? ' Das ist der Teil deiner Ausgaben (' + eur(ausTot0) + '), den deine Renten (' + eur(R.pn.net) + ') nicht decken.' : ' Das ist der Betrag, der das Vermögen gleichmäßig bis Alter ' + num(P.planAge) + ' verbraucht. Trage unter „Ausgaben im Ruhestand“ deine Kosten ein, dann rechnet der Planer mit deiner tatsächlichen Entnahme.';
+        if (WD.depAge !== null) wn += ' Das Vermögen ist bei dieser Entnahme etwa mit ' + num(WD.depAge) + ' aufgebraucht.';
+        else wn += lastBal < 1000 ? ' Das Vermögen wird bis Alter ' + num(P.planAge) + ' planmäßig aufgebraucht.' : ' Bis Alter ' + num(P.planAge) + ' bleibt noch ' + eur(lastBal) + ' übrig.';
+      }
+      if (split) wn += ' Die gepunktete Linie zeigt zum Vergleich den Verlauf ohne Entnahmen.';
+    }
+    $('withNote').textContent = wn;
     var tAges = []; for (var a = R.age0; a < xMax; a += 5) tAges.push(a);
     [R.retAge, R.wunsch, R.endAge].concat(hasWD ? [P.planAge] : []).forEach(function (x) { if (tAges.indexOf(x) < 0) tAges.push(x); });
     tAges.sort(function (x, y) { return x - y; });
@@ -1267,6 +1288,16 @@ function compute(P) {
   });
   $('mNom').addEventListener('click', function () { mode = 'nom'; render(); });
   $('mReal').addEventListener('click', function () { mode = 'real'; render(); });
+  function hideTips(e) {
+    Object.keys(charts).forEach(function (k) {
+      var c = charts[k]; if (!c || !c.canvas) return;
+      if (e && e.target && c.canvas.contains(e.target)) return;
+      try { c.setActiveElements([]); if (c.tooltip) c.tooltip.setActiveElements([], { x: 0, y: 0 }); c.update('none'); } catch (err) {}
+    });
+  }
+  document.addEventListener('click', hideTips);
+  document.addEventListener('touchstart', hideTips, { passive: true });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hideTips(null); });
   try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render); } catch (e) {}
   try { new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] }); } catch (e) {}
   render();
