@@ -117,6 +117,10 @@ belegt. Deutsch, klar, ohne Börsenjargon-Wust.
 - **Warren:** Kreis der Kompetenz (verständliches Geschäft?), Burggraben (Marke, Kosten, Netzwerk), ehrliches,
   schuldenarmes Management, hohe Kapitalrendite, planbare Gewinne, Preis im Verhältnis zum inneren Wert
   (Sicherheitsmarge), Halten auf Jahrzehnte.
+  **Kein fester Einstieg:** nicht jeden Text mit „… ist verständlich“ / „Das Geschäft ist leicht zu verstehen“ beginnen.
+  Der erste Satz greift das auf, was bei genau dieser Aktie am meisten zählt (der Burggraben, der Preis, die
+  Schulden, die Anreize, die Zahlen). Vor dem Schreiben die letzten Einträge ansehen und keinen ihrer Einstiege
+  wiederholen.
 - **Charlie:** wortkarg, trocken und bissig. Sagt, was nicht stimmt, ohne Umschweife: **höchstens 3–4 kurze Sätze, etwa
   30–50 Wörter**. Seine Themen: Wie geht das schief (Inversion), die Anreize des Managements (wofür wird es bezahlt?),
   Denkfehler (Herdentrieb, Übertreibung, Bestätigungsfehler), „zu schwer“ als legitimes Ergebnis, nur wenige wirklich gute
