@@ -1731,10 +1731,10 @@ function compute(P) {
   var first = function (t) { var i = t.indexOf('. '); t = i > 0 ? t.slice(0, i + 1) : t; return t.length > 150 ? t.slice(0, 147) + '…' : t; };
   function storyCards(L) {
     var P = L.P, R = L.R, c = [], two = !!P.partner, pn = two ? esc(P.partner.name || 'Partner/in') : '', nm = P.vorname ? esc(P.vorname) + (two ? ' und ' + pn : '') : (two ? 'Ihr' : ''), infl = function (yrs) { return Math.pow(1 + P.infl, yrs); };
-    var yrsLeft = Math.max(0, Math.round(R.retAge - R.age0)), ret = R.at.ret;
+    var yrsLeft = Math.max(0, Math.round(R.retAge - R.age0)), ret = R.at.ret, A0 = R.age0, young = A0 < 30, junior = A0 < 45;
     // 1 Start
     c.push({ t: 't-ink', h: '<div class="st-eye">' + (two ? 'Euer' : 'Dein') + ' Finanzplan</div><h2>' + (two ? (P.vorname ? nm + ', so' : 'So') + ' sieht euer Weg aus' : (nm ? nm + ', so' : 'So') + ' sieht dein Weg aus') + '</h2>' +
-      (yrsLeft > 0 ? '<div class="st-big">' + cnt(yrsLeft, 'num') + '</div><div class="st-sub">Jahre bis zur Rente mit ' + ageText(R.retAge) + '</div>' : '<div class="st-big">Jetzt</div><div class="st-sub">Du bist schon im Rentenalter</div>') +
+      (yrsLeft > 0 ? '<div class="st-big">' + cnt(yrsLeft, 'num') + '</div><div class="st-sub">' + (junior ? 'Jahre, in denen dein Geld für ' + (two ? 'euch' : 'dich') + ' arbeitet' : 'Jahre bis zur Rente mit ' + ageText(R.retAge)) + '</div>' : '<div class="st-big">Jetzt</div><div class="st-sub">Du bist schon im Rentenalter</div>') +
       '<p>' + (two ? 'Ihr seid heute ' + R.age0 + ' und ' + (YEAR - P.partner.by) + ', euer Wunschalter ist ' + R.wunsch + '.' : 'Du bist heute ' + R.age0 + ', dein Wunschalter ist ' + R.wunsch + '.') + ' Tippe rechts, um durch ' + (two ? 'eure' : 'deine') + ' Auswertung zu gehen.</p>' });
     // 2 Heute
     var accr = 0, accrOf = function (Q, age) { if (Q.renteInfo > 0) return Q.renteInfo * Math.max(0, age - Q.startAge) / Math.max(1, R.retAge - Q.startAge); return pensionGross(Q, Math.max(Q.startAge, age)).v; };
@@ -1748,6 +1748,11 @@ function compute(P) {
     if (R.cGross > 0) mon.push(['Rentenverträge', R.cGross]);
     var sumOnce = once.reduce(function (s, x) { return s + x[1]; }, 0), sumMon = mon.reduce(function (s, x) { return s + x[1]; }, 0);
     var rowsH = function (arr) { if (arr.length === 1) return '<div class="st-sub">' + arr[0][0] + '</div>'; return '<div class="st-rows">' + arr.map(function (x) { return '<div class="st-row"><span>' + x[0] + '</span><b>' + eur(x[1]) + '</b></div>'; }).join('') + '</div>'; };
+    if (young) {
+      var yBig = sumOnce >= 1000 ? sumOnce : P.sparrate;
+      c.push({ t: 't-sage', h: '<div class="st-eye">Dein Start</div><h2>Los geht\'s</h2><div class="st-big">' + cnt(yBig, 'eur') + '</div><div class="st-sub">' + (sumOnce >= 1000 ? 'Startkapital' : 'Sparrate pro Monat') + '</div>' +
+        '<p>' + (sumOnce >= 1000 ? 'Dazu sparst du ' + eur(P.sparrate) + ' pro Monat. ' : '') + 'Beim Zinseszins zählt vor allem eins: früh anfangen. Jeder Euro hat jetzt ' + yrsLeft + ' Jahre Zeit zu wachsen.</p>' });
+    } else
     c.push({ t: 't-sage', h: '<div class="st-eye">Heute</div><h2>Das ist schon da</h2>' +
       '<div class="st-sub">Einmalig</div><div class="st-big" style="font-size:clamp(36px,11vw,50px)">' + cnt(sumOnce, 'eur') + '</div>' + rowsH(once) +
       (mon.length ? '<div class="st-sub" style="margin-top:16px">Monatlich ab Rente (brutto)</div><div class="st-big" style="font-size:clamp(36px,11vw,50px)">' + cnt(sumMon, 'eur') + '</div>' + rowsH(mon) : '') +
@@ -1759,14 +1764,24 @@ function compute(P) {
       var shTax = (ni.tax + ni.kist) / gB, shAll = (ni.tax + ni.kist + ni.sv) / gB;
       var dayOf = function (sh) { var d = new Date(2026, 0, 1 + Math.round(sh * 365)); return d.getDate() + '. ' + ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'][d.getMonth()]; };
       var hh = two ? ' (Haushalt)' : '';
-      c.push({ t: 't-ink', h: '<div class="st-eye">Bis zur Rente</div><h2>Noch zu arbeiten</h2><div class="st-big">' + cnt(Math.round(wd), 'num') + '</div><div class="st-sub">Arbeitstage bis ' + ageText(R.retAge) + '</div>' +
+      if (!junior) c.push({ t: 't-ink', h: '<div class="st-eye">Bis zur Rente</div><h2>Noch zu arbeiten</h2><div class="st-big">' + cnt(Math.round(wd), 'num') + '</div><div class="st-sub">Arbeitstage bis ' + ageText(R.retAge) + '</div>' +
         '<div class="st-rows"><div class="st-row"><span>Arbeitsstunden (8 h pro Tag)</span><b>' + num(Math.round(hrs / 100) * 100) + '</b></div><div class="st-row"><span>Wochen</span><b>' + num(Math.round(yL * 52.18)) + '</b></div><div class="st-row"><span>Urlaubstage (30 pro Jahr)</span><b>' + num(Math.round(yL * 30)) + '</b></div><div class="st-row"><span>Weihnachtsfeste bis zur Rente</span><b>' + num(Math.max(1, Math.round(yL))) + '</b></div></div>' +
         '<p>Gerechnet mit rund 219 Arbeitstagen pro Jahr (ohne Urlaub und Feiertage).</p>' });
-      c.push({ t: 't-gold', h: '<div class="st-eye">Bis zur Rente' + hh + '</div><h2>Das verdienst du noch</h2><div class="st-big">' + cnt(tGross, 'eur') + '</div><div class="st-sub">brutto, bei gleichbleibendem Gehalt</div>' +
+      c.push({ t: 't-gold', h: '<div class="st-eye">Bis zur Rente' + hh + '</div><h2>' + (junior ? 'Dein größtes Kapital' : 'Das verdienst du noch') + '</h2><div class="st-big">' + cnt(tGross, 'eur') + '</div><div class="st-sub">brutto, bei gleichbleibendem Gehalt</div>' +
         '<div class="st-bar"><i style="--w:' + tNet / tGross * 100 + '%;background:#9fdcb8"></i><i style="--w:' + tSv / tGross * 100 + '%;background:#f2c36b"></i><i style="--w:' + (tTax / tGross * 100) + '%;background:#ff9a85"></i></div>' +
         '<div class="st-leg"><span><i class="st-dot" style="background:#9fdcb8"></i>Netto<b>' + eur(tNet) + '</b></span><span><i class="st-dot" style="background:#f2c36b"></i>Sozialversicherung<b>' + eur(tSv) + '</b></span><span><i class="st-dot" style="background:#ff9a85"></i>Steuern<b>' + eur(tTax) + '</b></span></div>' +
-        '<p>Das sind ' + eur(tNet / (yL * 12)) + ' netto pro Monat. Alles in heutiger Kaufkraft, ohne Gehaltssteigerungen.</p>' });
-      c.push({ t: 't-rust', h: '<div class="st-eye">Bis zur Rente' + hh + '</div><h2>Das geht ans Finanzamt</h2><div class="st-big">' + cnt(tTax, 'eur') + '</div><div class="st-sub">Lohnsteuer, Soli' + (ni.kist > 0 ? ' und Kirchensteuer' : '') + '</div>' +
+        (junior ? '<p>Du selbst bist dein stärkster Hebel: Legst du nur 10 % davon an, sind das ' + eur(tNet * 0.1) + ' (ohne Zinsen). Heutige Kaufkraft, ohne Gehaltssteigerungen.</p>' : '<p>Das sind ' + eur(tNet / (yL * 12)) + ' netto pro Monat. Alles in heutiger Kaufkraft, ohne Gehaltssteigerungen.</p>') });
+      if (junior && yL > 5) {
+        var iM = Math.pow(1 + P.rE, 1 / 12) - 1, fvf = function (n) { return 100 * (Math.pow(1 + iM, 12 * n) - 1) / iM; }, fv0 = fvf(yL), nW = Math.min(10, Math.floor(yL / 2)), fvW = fvf(yL - nW);
+        c.push({ t: 't-sage', h: '<div class="st-eye">Der Zinseszins-Effekt</div><h2>Nur 100 € im Monat</h2><div class="st-big">' + cnt(fv0, 'eur') + '</div><div class="st-sub">nach ' + Math.round(yL) + ' Jahren bei ' + pct(P.rE, 1) + ' Rendite</div>' +
+          '<div class="st-bar"><i style="--w:' + 1200 * yL / fv0 * 100 + '%;background:#FAF3E8"></i><i style="--w:' + (100 - 1200 * yL / fv0) + '%;background:#f2c08c"></i></div>' +
+          '<div class="st-leg"><span><i class="st-dot" style="background:#FAF3E8"></i>Selbst eingezahlt<b>' + eur(1200 * yL) + '</b></span><span><i class="st-dot" style="background:#f2c08c"></i>Zinseszins<b>' + eur(fv0 - 1200 * yL) + '</b></span></div>' +
+          '<p>Der Rest kommt von allein. Ein Vor-Steuer-Beispiel, das zeigt, wie stark die Zeit wirkt.</p>' });
+        c.push({ t: 't-gold', h: '<div class="st-eye">Zeit ist Geld</div><h2>Früh anfangen lohnt sich</h2><div class="st-big">+' + cnt(fv0 - fvW, 'eur') + '</div><div class="st-sub">mehr, wenn du jetzt statt in ' + nW + ' Jahren startest</div>' +
+          '<div class="st-rows"><div class="st-row"><span>Start heute</span><b>' + eur(fv0) + '</b></div><div class="st-row"><span>Start in ' + nW + ' Jahren</span><b>' + eur(fvW) + '</b></div></div>' +
+          '<p>Gleiche 100 € pro Monat, nur früher begonnen.</p>' });
+      }
+      if (!young) c.push({ t: 't-rust', h: '<div class="st-eye">Bis zur Rente' + hh + '</div><h2>Das geht ans Finanzamt</h2><div class="st-big">' + cnt(tTax, 'eur') + '</div><div class="st-sub">Lohnsteuer, Soli' + (ni.kist > 0 ? ' und Kirchensteuer' : '') + '</div>' +
         '<div class="st-rows"><div class="st-row"><span>Pro Arbeitstag</span><b>' + eur(tTax / wd) + '</b></div><div class="st-row"><span>Pro Monat</span><b>' + eur(tTax / (yL * 12)) + '</b></div><div class="st-row"><span>Von jedem verdienten Euro</span><b>' + num(shTax * 100) + ' Cent</b></div></div>' +
         '<p>Mit der Sozialversicherung sind es ' + num(shAll * 100) + ' Cent. Rechnerisch arbeitest du jedes Jahr bis zum ' + dayOf(shAll) + ' nur für Steuern und Abgaben.</p>' });
     }
@@ -1780,7 +1795,7 @@ function compute(P) {
     // 4 Monatlich
     var scale = Math.max(R.netMonth, R.total, R.target) * 1.05 || 1, q = R.quota, seg = [[R.pn0.net, '#7fc3a5', 'Gesetzliche Rente'], [R.bNet, '#f2c36b', 'Betriebs-/Berufsrente'], [R.cNet, '#d7a5c8', 'Vorsorgeverträge'], [R.payout, '#f6a07c', 'Entnahme aus Vermögen']].filter(function (x) { return x[0] > 1; });
     c.push({ t: 't-gold', h: '<div class="st-eye">Im Ruhestand</div><h2>Das bleibt dir pro Monat</h2><div class="st-big">' + cnt(R.total, 'eur') + '</div><div class="st-sub">netto, in heutiger Kaufkraft</div>' +
-      '<span class="st-chip">' + (q >= 0.8 ? '✓ Gute Absicherung' : (q >= 0.65 ? '! Knappe Absicherung' : '✕ Deutliche Lücke')) + ' · ' + pct(q) + ' vom heutigen Netto</span>' +
+      '<span class="st-chip">' + (q >= 0.8 ? '✓ Gute Absicherung' : (junior ? '🌱 Noch viel Zeit zum Gestalten' : (q >= 0.65 ? '! Knappe Absicherung' : '✕ Deutliche Lücke'))) + ' · ' + pct(q) + ' vom heutigen Netto</span>' +
       '<div class="st-bar">' + seg.map(function (x) { return '<i style="--w:' + x[0] / scale * 100 + '%;background:' + x[1] + '"></i>'; }).join('') + '<span class="st-mark" style="left:' + R.target / scale * 100 + '%" title="80 %"></span></div>' +
       '<div class="st-leg">' + seg.map(function (x) { return '<span><i class="st-dot" style="background:' + x[1] + '"></i>' + x[2] + '<b>' + eur(x[0]) + '</b></span>'; }).join('') + '</div>' +
       '<p>' + (R.total >= R.target ? 'Damit liegst du über dem Zielwert von 80 % deines heutigen Nettos (' + eur(R.target) + ').' : 'Zum Ziel von 80 % (' + eur(R.target) + ') fehlen ' + eur(R.target - R.total) + ' pro Monat.') + '</p>' });
@@ -1807,7 +1822,7 @@ function compute(P) {
         '<p>' + (need <= 0 ? 'Dein Einkommen im Ruhestand trägt deine Kosten, ohne dass du an dein Vermögen musst.' : (dep === null ? 'Dein Vermögen trägt die Lücke bis zu deinem Planungsalter von ' + num(P.planAge) + '.' : 'Das Vermögen reicht bis etwa Alter ' + num(dep) + ', danach fehlen ' + eur(need) + ' pro Monat (in heutiger Kaufkraft).')) + '</p>' });
     }
     // Früher aufhören / Altersteilzeit
-    if (EXIT && EXIT.a) {
+    if (EXIT && EXIT.a && A0 >= 50) {
       var X = EXIT, Z = X.atz;
       c.push({ t: 't-blue', h: '<div class="st-eye">Früher aufhören?</div><h2>Zwei Wege raus</h2>' +
         '<div class="st-sub" style="margin-top:6px">' + (X.ok ? (X.now ? 'Aufhören ab heute' : 'Aufhören mit ' + ageText(X.ageE)) : 'Schon mit ' + ageText(X.ageE) + ' aufhören') + '</div><div class="st-big" style="font-size:clamp(34px,10vw,46px)">' + cnt(X.payE, 'eur') + '</div><div class="st-sub">pro Monat bis ' + P.planAge + (X.ok ? ' · deckt deine Ausgaben' : ' · reicht nicht für ' + eur(X.E)) + '</div>' +
@@ -1819,10 +1834,11 @@ function compute(P) {
     if (yL > 0.5) {
       var growth = (ret.net - P.W0) / Math.max(1, yL * 365), rows = [['Vermögen wächst im Schnitt pro Tag', eur(growth)]];
       if (P.sparrate > 0) rows.push(['Du legst pro Arbeitstag zurück', eur(P.sparrate * 12 / 219)]);
-      rows.push(['100 € von heute sind dann noch wert', eur(100 / infl(yL))]);
-      if (yR > 0) rows.push(['Ruhestand bis ' + P.planAge + ' in Tagen', num(Math.round(yR * 365))]);
-      if (yR > 0 && R.pn.net > 0) rows.push(['Rente in dieser Zeit (netto)', eur(R.pn.net * 12 * yR)]);
-      c.push({ t: 't-plum', h: '<div class="st-eye">Zahlen am Rande</div><h2>Was bis zur Rente noch passiert</h2><div class="st-rows">' + rows.map(function (x) { return '<div class="st-row"><span>' + x[0] + '</span><b>' + x[1] + '</b></div>'; }).join('') + '</div><p>Rente in heutiger Kaufkraft. Alles Modellrechnung, keine Prognose.</p>' });
+      if (!junior) rows.push(['100 € von heute sind dann noch wert', eur(100 / infl(yL))]);
+      if (!junior && yR > 0) rows.push(['Ruhestand bis ' + P.planAge + ' in Tagen', num(Math.round(yR * 365))]);
+      if (!junior && yR > 0 && R.pn.net > 0) rows.push(['Rente in dieser Zeit (netto)', eur(R.pn.net * 12 * yR)]);
+      if (junior) rows.push(['Bis zur Rente legst du insgesamt zurück', eur(P.sparrate * 12 * yL)]);
+      c.push({ t: 't-plum', h: '<div class="st-eye">Zahlen am Rande</div><h2>' + (junior ? 'Dein Geld in Zahlen' : 'Was bis zur Rente noch passiert') + '</h2><div class="st-rows">' + rows.map(function (x) { return '<div class="st-row"><span>' + x[0] + '</span><b>' + x[1] + '</b></div>'; }).join('') + '</div><p>Rente in heutiger Kaufkraft. Alles Modellrechnung, keine Prognose.</p>' });
     }
     // 6 Betriebsrente
     if (R.bav) {
@@ -1859,7 +1875,8 @@ function compute(P) {
       lever = lv.length ? ' Hebel, die helfen: ' + lv.slice(0, 3).join(', ') + '.' : '';
     }
     var head = (two ? { good: ['Bravo!', 'Euer Plan trägt.'], warn: ['Fast geschafft!', 'Ihr seid nah dran.'], crit: ['Gut, dass ihr rechnet!', 'Jetzt wisst ihr, wo ihr steht.'] } : { good: ['Bravo!', 'Dein Plan trägt.'], warn: ['Fast geschafft!', 'Du bist nah dran.'], crit: ['Gut, dass du rechnest!', 'Jetzt weißt du, wo du stehst.'] })[verdict];
-    var msg = { good: two ? 'Mit dem, was ihr heute tut, seid ihr für den Ruhestand gut aufgestellt. Bleibt dran!' : 'Mit dem, was du heute tust, bist du für den Ruhestand gut aufgestellt. Bleib dran!', warn: (two ? 'Mit kleinen Stellschrauben kommt ihr ans Ziel.' : 'Mit kleinen Stellschrauben kommst du ans Ziel.') + lever, crit: 'Das ist der wichtigste Schritt, und aus jeder Lücke lässt sich etwas machen.' + lever }[verdict];
+    if (A0 < 40 && verdict !== 'good') head = ['Starker Start!', two ? 'Ihr habt die Zeit auf eurer Seite.' : 'Du hast die Zeit auf deiner Seite.'];
+    var msg = { good: two ? 'Mit dem, was ihr heute tut, seid ihr für den Ruhestand gut aufgestellt. Bleibt dran!' : 'Mit dem, was du heute tust, bist du für den Ruhestand gut aufgestellt. Bleib dran!', warn: (two ? 'Mit kleinen Stellschrauben kommt ihr ans Ziel.' : 'Mit kleinen Stellschrauben kommst du ans Ziel.') + lever, crit: (A0 < 40 ? 'Schon kleine Beträge wirken über viele Jahre enorm. Jeder Euro, den du früh anlegst, zählt doppelt.' : 'Das ist der wichtigste Schritt, und aus jeder Lücke lässt sich etwas machen.') + lever }[verdict];
     var conf = '';
     if (verdict === 'good') { var cc = ['#FAF3E8', '#f2c36b', '#9fdcb8', '#f6a07c', '#d7a5c8']; for (var ci = 0; ci < 34; ci++) conf += '<i class="st-cf" style="left:' + Math.round(Math.random() * 100) + '%;background:' + cc[ci % cc.length] + ';animation-delay:' + (Math.random() * 1.6).toFixed(2) + 's;animation-duration:' + (2.6 + Math.random() * 2).toFixed(2) + 's;width:' + (6 + Math.round(Math.random() * 6)) + 'px"></i>'; }
     var l3 = L.ausTot > 0 ? ['Deine Ausgaben', (need <= 0 ? 'gedeckt' : (dep === null ? 'bis ' + num(P.planAge) + ' gedeckt' : 'bis ' + num(dep) + ' gedeckt'))] : ['Ziel 80 % vom Netto', q >= 0.8 ? 'erreicht' : (q >= 0.65 ? 'knapp' : 'noch nicht')];
