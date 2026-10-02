@@ -507,7 +507,7 @@ body.fp-body { padding-bottom: 0; }
         <div class="grid2">
           <label class="f" for="kfPreis"><span>Kaufpreis</span><input id="kfPreis" type="number" inputmode="decimal" min="0" step="10000" placeholder="€"></label>
           <label class="f" for="kfEK"><span>Eigenkapital</span><input id="kfEK" type="number" inputmode="decimal" min="0" step="10000" placeholder="leer = Vermögen heute"></label>
-          <label class="f" for="kfMiete"><span>Kaltmiete der Vergleichswohnung pro Monat</span><input id="kfMiete" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
+          <label class="f" for="kfMiete"><span>Miete pro Monat</span><input id="kfMiete" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
           <label class="f" for="kfJahre"><span>Zeitraum in Jahren</span><input id="kfJahre" type="number" inputmode="numeric" min="5" max="40" step="1"></label>
         </div>
         <details class="more"><summary>Annahmen zum Kauf anpassen</summary>
@@ -916,7 +916,7 @@ function compute(P) {
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var DEF = { vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: 2030, kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: 2, kfMietG: 2.5, kfRend: 4.5 };
+  var DEF = { vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: '', kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: 2, kfMietG: 2.5, kfRend: 4.5 };
 
   var AUS = [
     ['aWohnen', 'Wohnen', 'Miete bzw. Wohnkosten, Nebenkosten, Energie', 1100],
@@ -987,7 +987,7 @@ function compute(P) {
       bRente: 0, bRenteTyp: 'bav', bKap: 0, bForm: 'rente',
       aus: AUS.map(function (a) { return rd(a[0], 0, 0, 100000); }),
       contracts: CON.map(conClean),
-      kauf: { preis: rd('kfPreis', 0, 0, 1e8), ek: rd('kfEK', 0, 0, 1e8), miete: rd('kfMiete', 0, 0, 1e5) * 12, jahre: Math.round(rd('kfJahre', 25, 5, 40)), nk: rd('kfNK', 9.5, 0, 30) / 100, zins: rd('kfZins', 3.8, 0, 15) / 100, tilg: rd('kfTilg', 2, 0, 10) / 100, inst: rd('kfInst', 1, 0, 5) / 100, wert: rd('kfWert', 2, -5, 10) / 100, mietg: rd('kfMietG', 2.5, -2, 10) / 100, rend: rd('kfRend', 4.5, -2, 15) / 100 }
+      kauf: { preis: rd('kfPreis', 0, 0, 1e8), ek: rd('kfEK', 0, 0, 1e8), miete: (rd('kfMiete', 0, 0, 1e5) || rd('aWohnen', 0, 0, 1e5)) * 12, jahre: Math.round(rd('kfJahre', 25, 5, 40)), nk: rd('kfNK', 9.5, 0, 30) / 100, zins: rd('kfZins', 3.8, 0, 15) / 100, tilg: rd('kfTilg', 2, 0, 10) / 100, inst: rd('kfInst', 1, 0, 5) / 100, wert: rd('kfWert', 2, -5, 10) / 100, mietg: rd('kfMietG', 2.5, -2, 10) / 100, rend: rd('kfRend', 4.5, -2, 15) / 100 }
     };
     P.retOverride = 0;
     if (P.status === 'verheiratet' || P.status === 'paar') {
@@ -1265,6 +1265,9 @@ function compute(P) {
 
     // Kaufen oder mieten
     (function () {
+      $('kfEK').placeholder = P.W0 > 0 ? eur(P.W0) + ' (Vermögen)' : 'Vermögen heute';
+      var wohn = P.aus[AUS.findIndex(function (a) { return a[0] === 'aWohnen'; })] || 0;
+      $('kfMiete').placeholder = wohn > 0 ? eur(wohn) + ' (Wohnen)' : '€';
       var k = P.kauf; if (!(k.preis > 0)) { $('buyOut').innerHTML = '<p class="small">Trage einen Kaufpreis ein, um den Vergleich zu sehen.</p>'; return; }
       if (!(k.ek > 0)) k.ek = P.W0;
       var M = kaufModel(k), n = k.jahre, b = M.base, bW = b.bs[n], rW = b.rs[n], d = bW - rW;
