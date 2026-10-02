@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>Aktien-Check – Warren, Charlie und James</title>
+<title>WCJ – Warren, Charlie und James</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=1">
 <link rel="manifest" href="manifest.json">
@@ -60,6 +60,8 @@
   .rows dd .dot { margin-top: .5em; }
   .rows { margin-block: 8px 0; } dl.rows { margin-inline: 0; }
   .more { margin-top: 14px; font-size: 14px; }
+  .more.tech { grid-column: 1 / -1; margin-top: 10px; }
+  .more.tech .rows { margin: 4px 0 0; }
   .more > summary { cursor: pointer; color: var(--ink-soft); padding: 4px 0; }
   .more dl { margin: 6px 0 0; display: grid; gap: 0; }
   .more dl div { padding: 7px 0; border-bottom: 1px solid rgba(46,58,50,.08); display: grid; gap: 1px; }
@@ -99,14 +101,13 @@
       <a href="muenchen-quiz.html">München-Quiz</a>
       <a href="ernaehrung.html">Ernährung</a>
       <a href="notfallvorrat.html">Notfallvorrat</a>
-      <a class="hot" href="reiseberater.html">🧭 Reiseberater</a>
-      <a class="hot" href="aktien.html">📈 Aktien-Check</a>
+      <a class="hot" href="aktien.html">📈 WCJ</a>
     </div>
   </div></nav>
 <div class="wrap">
   <header class="entry-header">
-    <p class="date">Geldanlage</p>
-    <h1>Aktien-Check</h1>
+    <p class="date">Warren · Charlie · James</p>
+    <h1>WCJ</h1>
     <hr class="rule">
   </header>
 
@@ -228,23 +229,26 @@
   }
   function james(j) {
     if (!j) return '';
-    var f = j.flows || {}, e = jEin(j), r = '';
-    if (e) r += '<div><dt>Trend</dt><dd>' + dot(e.c) + '<span>' + esc(e.a) + ' · ' + esc(e.text) + '</span></dd></div>';
-    if (j.kurs != null) {
-      r += '<div><dt>Kurs</dt><dd>' + zahl(j.kurs) + ' ' + esc(j.waehrung || '') + '</dd></div>';
-      if (j.ma8 == null) r += '<div><dt>200-Tage-Linie</dt><dd>' + zahl(j.ma200) + '</dd></div>' + (j.ma50 != null ? '<div><dt>50-Tage-Linie</dt><dd>' + zahl(j.ma50) + '</dd></div>' : '');
-    }
-    if (j.pos_52w_pct != null) r += '<div><dt>52-Wochen-Spanne</dt><dd>' + (j.pos_52w_pct < 33 ? 'unteres' : j.pos_52w_pct < 67 ? 'mittleres' : 'oberes') + ' Drittel · ' + j.pos_52w_pct + ' %</dd></div>';
-    var sc = j.score;
-    if (sc) r += '<div><dt>Setup-Score</dt><dd>' + dot(sc.punkte >= 6 ? 'g' : sc.punkte >= 4 ? 'a' : 'r') + sc.punkte + '/' + sc.von + ' · ' + esc(sc.stufe) + '</dd></div>';
-    if (j.rsi != null) r += '<div><dt>RSI (14)</dt><dd>' + zahl(j.rsi, 0) + ' · ' + (j.rsi >= 70 ? 'überkauft' : j.rsi >= 50 ? 'über 50, positiv' : j.rsi > 30 ? 'unter 50, schwach' : 'überverkauft') + '</dd></div>';
-    if (j.macd != null) r += '<div><dt>MACD</dt><dd>' + (j.macd > j.macd_signal ? 'über' : 'unter') + ' der Signallinie · ' + (j.macd > 0 ? 'über' : 'unter') + ' Null</dd></div>';
-    var mu = j.muster || {};
-    if (mu.boden) r += '<div><dt>Bodenbildung</dt><dd>' + esc(mu.boden.typ) + ' · ' + esc(mu.boden.status) + '</dd></div>';
-    if (mu.unterstuetzung) r += '<div><dt>Unterstützungslinie</dt><dd>' + mu.unterstuetzung.beruehrungen + ' höhere Tiefs · ' + esc(mu.unterstuetzung.status) + ' (heute bei ' + zahl(mu.unterstuetzung.ende) + ')</dd></div>';
-    if (mu.widerstand) r += '<div><dt>Widerstandslinie</dt><dd>' + mu.widerstand.beruehrungen + ' tiefere Hochs · ' + esc(mu.widerstand.status) + ' (heute bei ' + zahl(mu.widerstand.ende) + ')</dd></div>';
+    var f = j.flows || {}, e = jEin(j), r = '', t = '';
+    if (e) r += '<div><dt>Trend</dt><dd>' + dot(e.c) + '<span>' + esc(e.a) + '</span></dd></div>';
     if (f.richtung) r += '<div><dt>Option Flows</dt><dd>' + dot(fcls(f.richtung)) + esc(f.richtung) + '</dd></div>';
-    return '<div class="sec who">' + FACE.j + '<h4>James</h4><dl class="rows">' + r + '</dl>' + chart(j.serie, j) + '<p>' + esc(j.text) + (f.text ? ' <i>Option Flows: ' + esc(f.text) + '</i>' : '') + '</p></div>';
+    // Technik: eingeklappt
+    if (e) t += '<div><dt>Lage zu den Linien</dt><dd>' + esc(e.text) + '</dd></div>';
+    if (j.kurs != null) {
+      t += '<div><dt>Kurs</dt><dd>' + zahl(j.kurs) + ' ' + esc(j.waehrung || '') + '</dd></div>';
+      if (j.ma8 == null) t += '<div><dt>200-Tage-Linie</dt><dd>' + zahl(j.ma200) + '</dd></div>' + (j.ma50 != null ? '<div><dt>50-Tage-Linie</dt><dd>' + zahl(j.ma50) + '</dd></div>' : '');
+    }
+    if (j.pos_52w_pct != null) t += '<div><dt>52-Wochen-Spanne</dt><dd>' + (j.pos_52w_pct < 33 ? 'unteres' : j.pos_52w_pct < 67 ? 'mittleres' : 'oberes') + ' Drittel · ' + j.pos_52w_pct + ' %</dd></div>';
+    var sc = j.score;
+    if (sc) t += '<div><dt>Setup-Score</dt><dd>' + dot(sc.punkte >= 6 ? 'g' : sc.punkte >= 4 ? 'a' : 'r') + sc.punkte + '/' + sc.von + ' · ' + esc(sc.stufe) + '</dd></div>';
+    if (j.rsi != null) t += '<div><dt>RSI (14)</dt><dd>' + zahl(j.rsi, 0) + ' · ' + (j.rsi >= 70 ? 'überkauft' : j.rsi >= 50 ? 'über 50, positiv' : j.rsi > 30 ? 'unter 50, schwach' : 'überverkauft') + '</dd></div>';
+    if (j.macd != null) t += '<div><dt>MACD</dt><dd>' + (j.macd > j.macd_signal ? 'über' : 'unter') + ' der Signallinie · ' + (j.macd > 0 ? 'über' : 'unter') + ' Null</dd></div>';
+    var mu = j.muster || {};
+    if (mu.boden) t += '<div><dt>Bodenbildung</dt><dd>' + esc(mu.boden.typ) + ' · ' + esc(mu.boden.status) + '</dd></div>';
+    if (mu.unterstuetzung) t += '<div><dt>Unterstützungslinie</dt><dd>' + mu.unterstuetzung.beruehrungen + ' höhere Tiefs · ' + esc(mu.unterstuetzung.status) + ' (heute bei ' + zahl(mu.unterstuetzung.ende) + ')</dd></div>';
+    if (mu.widerstand) t += '<div><dt>Widerstandslinie</dt><dd>' + mu.widerstand.beruehrungen + ' tiefere Hochs · ' + esc(mu.widerstand.status) + ' (heute bei ' + zahl(mu.widerstand.ende) + ')</dd></div>';
+    return '<div class="sec who">' + FACE.j + '<h4>James</h4><dl class="rows">' + r + '</dl><p>' + esc(j.text) + (f.text ? ' <i>Option Flows: ' + esc(f.text) + '</i>' : '') + '</p>' +
+      chart(j.serie, j) + (t ? '<details class="more tech"><summary>Zahlen und Technik</summary><dl class="rows">' + t + '</dl></details>' : '') + '</div>';
   }
   function mehr(e) {
     var kz = (e.kennzahlen || []).map(function (k) { return '<div><dt>' + esc(k.k) + '</dt><dd>' + esc(k.v) + '</dd></div>'; }).join('');
