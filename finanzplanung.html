@@ -229,6 +229,19 @@ th { font-weight: 600; color: var(--ink2); }
 .st-btn { font: inherit; font-weight: 600; font-size: 15px; border-radius: 999px; padding: 10px 20px; cursor: pointer; border: 1px solid #FAF3E8; background: #FAF3E8; color: #2E3A32; }
 .st-btn.ghost { background: transparent; color: #FAF3E8; }
 body.st-open { overflow: hidden; }
+.st-card .st-confetti { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: 1; transform: none; animation: none; }
+.st-cf { position: absolute; top: -14px; height: 12px; border-radius: 2px; opacity: 0; animation: stFall linear infinite; }
+@keyframes stFall { 0% { transform: translateY(0) rotate(0); opacity: 0; } 8% { opacity: 1; } 100% { transform: translateY(105vh) rotate(540deg); opacity: .9; } }
+.st-badge { width: 104px; height: 104px; border-radius: 50%; border: 2px solid rgba(250,243,232,.8); background: rgba(250,243,232,.14); display: flex; align-items: center; justify-content: center; align-self: center; position: relative; }
+.st-badge::after { content: ''; position: absolute; inset: -10px; border-radius: 50%; border: 2px solid rgba(250,243,232,.5); animation: stPulse 2s ease-out infinite; }
+@keyframes stPulse { 0% { transform: scale(.9); opacity: .9; } 100% { transform: scale(1.3); opacity: 0; } }
+.st-badge.good svg { animation: stThumb 1.2s .4s ease-out both; transform-origin: 30% 80%; }
+@keyframes stThumb { 0% { transform: rotate(-25deg) scale(.6); } 60% { transform: rotate(8deg) scale(1.15); } 100% { transform: none; } }
+.st-card h2.st-fin { text-align: center; font-size: clamp(34px, 10vw, 46px); }
+.st-card .st-badge + h2 + .st-sub { text-align: center; }
+.st-fine { font-size: 12px !important; opacity: .7 !important; }
+@media (prefers-reduced-motion: reduce) { .st-cf, .st-badge::after, .st-badge.good svg { animation: none; } .st-cf { display: none; } }
+
 @media (prefers-reduced-motion: reduce) { .st-card > * { animation: none; opacity: 1; transform: none; } .st-bar i { animation: none; width: var(--w); } }
 
 .pr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 18px; font-size: 12px; }
@@ -401,11 +414,10 @@ body.fp-body { padding-bottom: 0; }
           <p class="small">Renditen sind Annahmen vor Steuern und vor Inflation. Sie sind keine Prognose und nicht garantiert.</p>
         </div>
       </details>
-      <div class="storywrap"><button type="button" class="storybtn" data-story>▶ Fertig: Auswertung als Story</button></div>
+      <div class="storywrap"><button type="button" class="storybtn" data-story>▶ Fertig: Auswertung als Story</button><small>Wenn deine Angaben stehen, tippst du dich durch deine wichtigsten Zahlen und siehst am Ende, ob dein Plan trägt.</small></div>
     </aside>
 
     <main class="stack" id="results">
-      <div class="storywrap"><button type="button" class="storybtn" data-story>▶ Meine Auswertung als Story</button><small>Tippe dich durch deine wichtigsten Zahlen, sobald deine Angaben stehen.</small></div>
       <section class="panel" aria-labelledby="h-verlauf">
         <header class="toolbar">
           <div><h2 id="h-verlauf">Vermögensverlauf</h2><p class="note" id="verlaufNote"></p></div>
@@ -1438,12 +1450,19 @@ function compute(P) {
       '<div class="st-bar">' + seg.map(function (x) { return '<i style="--w:' + x[0] / scale * 100 + '%;background:' + x[1] + '"></i>'; }).join('') + '<span class="st-mark" style="left:' + R.target / scale * 100 + '%" title="80 %"></span></div>' +
       '<div class="st-leg">' + seg.map(function (x) { return '<span><i class="st-dot" style="background:' + x[1] + '"></i>' + x[2] + '<b>' + eur(x[0]) + '</b></span>'; }).join('') + '</div>' +
       '<p>' + (R.total >= R.target ? 'Damit liegst du über dem Zielwert von 80 % deines heutigen Nettos (' + eur(R.target) + ').' : 'Zum Ziel von 80 % (' + eur(R.target) + ') fehlen ' + eur(R.target - R.total) + ' pro Monat.') + '</p>' });
+    // Urteil: Reicht es?
+    var need = Math.max(0, L.ausTot - R.pn.net), dep = L.WD.depAge, verdict;
+    if (L.ausTot > 0) verdict = (need <= 0 || dep === null) ? 'good' : (dep >= P.planAge - 5 ? 'warn' : 'crit');
+    else verdict = R.quota >= 0.8 ? 'good' : (R.quota >= 0.65 ? 'warn' : 'crit');
     // 5 Ausgaben
     if (L.ausTot > 0) {
-      var need = Math.max(0, L.ausTot - R.pn.net), sc2 = Math.max(L.ausTot, R.pn.net) * 1.05;
-      c.push({ t: 't-ink', h: '<div class="st-eye">Deine Ausgaben im Ruhestand</div><h2>Reicht das?</h2><div class="st-big">' + cnt(L.ausTot, 'eur') + '</div><div class="st-sub">Ausgaben pro Monat</div>' +
-        '<div class="st-bar"><i style="--w:' + R.pn.net / sc2 * 100 + '%;background:#7fc3a5"></i></div><div class="st-leg"><span><i class="st-dot" style="background:#7fc3a5"></i>Renten netto<b>' + eur(R.pn.net) + '</b></span><span><i class="st-dot" style="background:#FAF3E8"></i>Ausgaben<b>' + eur(L.ausTot) + '</b></span></div>' +
-        '<p>' + (need <= 0 ? 'Deine Renten decken alles. Dein Vermögen bleibt unangetastet.' : 'Aus dem Vermögen fehlen ' + eur(need) + ' pro Monat. ' + (L.WD.depAge !== null ? 'Es reicht bis etwa Alter ' + num(L.WD.depAge) + ', das sind ' + num(P.planAge - L.WD.depAge) + ' Jahre vor deinem Planungsalter von ' + num(P.planAge) + '.' : 'Das trägt bis zu deinem Planungsalter von ' + num(P.planAge) + '.')) + '</p>' });
+      var span = Math.max(1, P.planAge - R.retAge), okTo = dep === null ? P.planAge : dep, wOk = Math.max(0, Math.min(100, (okTo - R.retAge) / span * 100));
+      c.push({ t: verdict === 'good' ? 't-sage' : (verdict === 'warn' ? 't-gold' : 't-blue'), h: '<div class="st-eye">Reicht das? Einnahmen und Vermögen gegen deine Ausgaben</div><h2>Deine Ausgaben von ' + eur(L.ausTot) + ' pro Monat</h2>' +
+        '<div class="st-big">' + (verdict === 'good' ? 'Gedeckt ✓' : (verdict === 'warn' ? 'Fast' : 'Lücke')) + '</div>' +
+        '<div class="st-sub">' + (need <= 0 ? 'Deine Renten decken alles, das Vermögen bleibt unangetastet.' : 'Renten ' + eur(R.pn.net) + ' + ' + eur(need) + ' aus dem Vermögen') + '</div>' +
+        '<div class="st-bar"><i style="--w:' + wOk + '%;background:#9fdcb8"></i><i style="--w:' + (100 - wOk) + '%;background:#ff9a85"></i></div>' +
+        '<div class="st-leg"><span><i class="st-dot" style="background:#9fdcb8"></i>Gedeckt von ' + ageText(R.retAge) + ' bis ' + (need <= 0 || dep === null ? num(P.planAge) : num(dep))+ '</span>' + (dep !== null && need > 0 ? '<span><i class="st-dot" style="background:#ff9a85"></i>Nicht gedeckt von ' + num(dep) + ' bis ' + num(P.planAge) + '</span>' : '') + '</div>' +
+        '<p>' + (need <= 0 ? 'Dein Einkommen im Ruhestand trägt deine Kosten, ohne dass du an dein Vermögen musst.' : (dep === null ? 'Dein Vermögen trägt die Lücke bis zu deinem Planungsalter von ' + num(P.planAge) + '.' : 'Das Vermögen reicht bis etwa Alter ' + num(dep) + ', danach fehlen ' + eur(need) + ' pro Monat (in heutiger Kaufkraft).')) + '</p>' });
     }
     // 6 Betriebsrente
     if (R.bav) {
@@ -1468,9 +1487,25 @@ function compute(P) {
     var top = pri.concat(tips.filter(function (x) { return pri.indexOf(x) < 0; })).slice(0, 3), dc = { crit: '#ff9a85', warn: '#f2c36b', good: '#9fdcb8' };
     c.push({ t: 't-rust', h: '<div class="st-eye">Deine nächsten Schritte</div><h2>Darauf kommt es an</h2>' + top.map(function (x) { return '<div class="st-tip"><i class="st-dot" style="background:' + (dc[x[2]] || '#FAF3E8') + '"></i><div><b>' + x[0] + '</b>' + first(x[1]) + '</div></div>'; }).join('') });
     // 10 Finale
-    c.push({ t: 't-ink', h: '<div class="st-eye">Zusammengefasst</div><h2>Dein Plan in drei Zahlen</h2><div class="st-rows">' +
-      '<div class="st-row"><span>Vermögen bei Rente</span><b>' + eur(ret.net) + '</b></div><div class="st-row"><span>Pro Monat im Ruhestand</span><b>' + eur(R.total) + '</b></div><div class="st-row"><span>Vom heutigen Netto</span><b>' + pct(q) + '</b></div></div>' +
-      '<p>Alle Werte sind Modellrechnungen zur Orientierung, keine Beratung.</p><div class="st-btns"><button type="button" class="st-btn" id="stAgain">Nochmal ansehen</button><button type="button" class="st-btn ghost" id="stDone">Zur Planung</button></div>' });
+    var ico = { good: '<path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>', warn: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>', crit: '<path d="M12 22V12"/><path d="M12 12C12 7 8 5 4 5c0 4 2 7 8 7z"/><path d="M12 14c0-4 3-6 8-6 0 4-2 6-8 6z"/>' };
+    var lever = '';
+    if (verdict !== 'good') {
+      var lv = [];
+      if (R.extraOk && R.extra > 0 && R.retAge > R.age0) lv.push(eur(R.extra) + ' mehr Sparrate pro Monat');
+      if (R.retAge > R.age0 && R.retAge + 1 <= 70) { try { var R2 = compute(Object.assign({}, P, { retOverride: Math.min(70, R.retAge + 2) })); if (R2.quota > R.quota) lv.push('zwei Jahre später in Rente (' + pct(R2.quota) + ' statt ' + pct(R.quota) + ' vom Netto)'); } catch (e) {} }
+      if (L.ausTot > 0 && need > 0) lv.push('etwas weniger Ausgaben im Ruhestand');
+      lever = lv.length ? ' Hebel, die helfen: ' + lv.slice(0, 3).join(', ') + '.' : '';
+    }
+    var head = { good: ['Bravo!', 'Dein Plan trägt.'], warn: ['Fast geschafft!', 'Du bist nah dran.'], crit: ['Gut, dass du rechnest!', 'Jetzt weißt du, wo du stehst.'] }[verdict];
+    var msg = { good: 'Mit dem, was du heute tust, bist du für den Ruhestand gut aufgestellt. Bleib dran!', warn: 'Mit kleinen Stellschrauben kommst du ans Ziel.' + lever, crit: 'Das ist der wichtigste Schritt, und aus jeder Lücke lässt sich etwas machen.' + lever }[verdict];
+    var conf = '';
+    if (verdict === 'good') { var cc = ['#FAF3E8', '#f2c36b', '#9fdcb8', '#f6a07c', '#d7a5c8']; for (var ci = 0; ci < 34; ci++) conf += '<i class="st-cf" style="left:' + Math.round(Math.random() * 100) + '%;background:' + cc[ci % cc.length] + ';animation-delay:' + (Math.random() * 1.6).toFixed(2) + 's;animation-duration:' + (2.6 + Math.random() * 2).toFixed(2) + 's;width:' + (6 + Math.round(Math.random() * 6)) + 'px"></i>'; }
+    var l3 = L.ausTot > 0 ? ['Deine Ausgaben', (need <= 0 ? 'gedeckt' : (dep === null ? 'bis ' + num(P.planAge) + ' gedeckt' : 'bis ' + num(dep) + ' gedeckt'))] : ['Ziel 80 % vom Netto', q >= 0.8 ? 'erreicht' : (q >= 0.65 ? 'knapp' : 'noch nicht')];
+    c.push({ t: verdict === 'good' ? 't-sage' : (verdict === 'warn' ? 't-gold' : 't-blue'), h: '<div class="st-confetti" aria-hidden="true">' + conf + '</div>' +
+      '<div class="st-badge ' + verdict + '"><svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="#FAF3E8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ico[verdict] + '</svg></div>' +
+      '<h2 class="st-fin">' + head[0] + '</h2><div class="st-sub" style="font-size:18px;opacity:1">' + head[1] + '</div>' +
+      '<div class="st-rows"><div class="st-row"><span>Vermögen bei Rente</span><b>' + eur(ret.net) + '</b></div><div class="st-row"><span>Pro Monat im Ruhestand</span><b>' + eur(R.total) + '</b></div><div class="st-row"><span>' + l3[0] + '</span><b>' + l3[1] + '</b></div></div>' +
+      '<p>' + msg + '</p><div class="st-btns"><button type="button" class="st-btn" id="stAgain">Nochmal ansehen</button><button type="button" class="st-btn ghost" id="stDone">Zur Planung</button></div><p class="st-fine">Modellrechnung zur Orientierung, keine Beratung.</p>' });
     return c;
   }
   function animateCounts() {
