@@ -70,6 +70,11 @@ details.tbl > summary { font-size: 13px; color: var(--ink2); font-family: var(--
 .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
 .charts { position: relative; height: 270px; }
 @media (min-width: 700px) { .charts { height: 330px; } }
+.legbtn { font: inherit; font-size: 12px; color: var(--ink2); background: none; border: 1px solid transparent; border-radius: 999px; padding: 3px 9px 3px 7px; cursor: pointer; display: inline-flex; align-items: center; }
+.legbtn:hover { border-color: var(--line); }
+.legbtn[aria-pressed=true] { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); font-weight: 600; }
+.legbtn:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
+.legtip { margin: 0; color: var(--muted); font-size: 11px; }
 .legendrow { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12px; color: var(--ink2); }
 .sw { display: inline-block; width: 12px; height: 3px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
 .sw.box { height: 10px; width: 10px; border-radius: 2px; }
@@ -166,6 +171,66 @@ th { font-weight: 600; color: var(--ink2); }
 .contbl th { font-weight: 600; color: var(--muted); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
 .contbl td:nth-child(n+2), .contbl th:nth-child(n+2) { text-align: right; }
 .tw2 { overflow-x: auto; }
+/* Story-Ansicht */
+.storybtn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--f-display); font-size: 16px; font-weight: 600; color: var(--paper); background: linear-gradient(135deg, var(--rust), #8a3a20); border: 0; border-radius: 999px; padding: 12px 22px; cursor: pointer; box-shadow: 0 4px 14px rgba(181,80,46,.35); }
+.storybtn:hover { filter: brightness(1.06); }
+.storybtn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.storywrap { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.storywrap small { color: var(--muted); font-size: 12px; }
+.story { position: fixed; inset: 0; z-index: 50; background: rgba(20,26,22,.82); display: flex; align-items: center; justify-content: center; overscroll-behavior: contain; }
+.story[hidden] { display: none !important; }
+.st-frame { position: relative; width: 100%; height: 100%; max-width: 480px; max-height: 860px; overflow: hidden; color: #FAF3E8; font-family: var(--f-body); }
+@media (min-width: 520px) { .st-frame { height: min(92vh, 860px); border-radius: 22px; box-shadow: 0 20px 60px rgba(0,0,0,.5); } }
+.st-bg { position: absolute; inset: 0; transition: background .5s ease; }
+.t-ink { background: radial-gradient(120% 80% at 80% 0%, #44584b 0%, #2E3A32 45%, #1b241e 100%); }
+.t-sage { background: radial-gradient(120% 80% at 10% 0%, #5b8f78 0%, #3E6F5C 45%, #244637 100%); }
+.t-rust { background: radial-gradient(120% 80% at 90% 0%, #d97b52 0%, #B5502E 45%, #7a2f17 100%); }
+.t-gold { background: radial-gradient(120% 80% at 10% 0%, #c79a3e 0%, #8f6a1f 45%, #5a420f 100%); }
+.t-plum { background: radial-gradient(120% 80% at 90% 0%, #9a6a8c 0%, #7A4E6D 45%, #432a3b 100%); }
+.t-blue { background: radial-gradient(120% 80% at 10% 0%, #6a9ab6 0%, #3f6f8b 45%, #23425a 100%); }
+.st-prog { position: absolute; top: 12px; left: 14px; right: 14px; display: flex; gap: 4px; z-index: 4; }
+.st-prog i { flex: 1; height: 3px; border-radius: 2px; background: rgba(250,243,232,.28); overflow: hidden; }
+.st-prog i.on { background: #FAF3E8; }
+.st-x { position: absolute; top: 24px; right: 12px; z-index: 5; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(0,0,0,.25); color: #FAF3E8; font-size: 22px; line-height: 1; cursor: pointer; }
+.st-tap { position: absolute; top: 60px; bottom: 80px; z-index: 2; border: 0; background: none; cursor: pointer; padding: 0; -webkit-tap-highlight-color: transparent; }
+.st-tap.l { left: 0; width: 32%; }
+.st-tap.r { right: 0; width: 68%; }
+.st-card { position: absolute; inset: 56px 0 84px; z-index: 1; padding: 20px 28px; display: flex; flex-direction: column; justify-content: center; gap: 14px; overflow-y: auto; pointer-events: none; }
+.st-card .st-btns, .st-card a, .st-card button { pointer-events: auto; }
+.st-card > * { opacity: 0; transform: translateY(14px); animation: stUp .55s cubic-bezier(.2,.7,.2,1) forwards; }
+.st-card > *:nth-child(2) { animation-delay: .08s; } .st-card > *:nth-child(3) { animation-delay: .18s; } .st-card > *:nth-child(4) { animation-delay: .3s; } .st-card > *:nth-child(5) { animation-delay: .42s; } .st-card > *:nth-child(6) { animation-delay: .54s; } .st-card > *:nth-child(n+7) { animation-delay: .66s; }
+@keyframes stUp { to { opacity: 1; transform: none; } }
+.st-eye { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; opacity: .8; font-weight: 600; }
+.st-card h2 { font-family: var(--f-display); font-weight: 500; font-size: clamp(26px, 7vw, 34px); line-height: 1.12; margin: 0; letter-spacing: -.01em; color: inherit; }
+.st-big { font-family: var(--f-display); font-weight: 600; font-size: clamp(46px, 15vw, 76px); line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.st-sub { font-size: 15px; opacity: .88; margin-top: -6px; }
+.st-card p { margin: 0; font-size: 16px; line-height: 1.45; opacity: .95; }
+.st-chip { align-self: flex-start; background: rgba(250,243,232,.18); border: 1px solid rgba(250,243,232,.35); border-radius: 999px; padding: 4px 12px; font-size: 13px; font-weight: 600; }
+.st-bar { display: flex; height: 16px; border-radius: 8px; overflow: hidden; background: rgba(250,243,232,.16); position: relative; }
+.st-bar i { height: 100%; width: 0; animation: stW 1.1s .5s cubic-bezier(.2,.7,.2,1) forwards; }
+@keyframes stW { to { width: var(--w); } }
+.st-mark { position: absolute; top: -3px; bottom: -3px; width: 2px; background: #FAF3E8; }
+.st-leg { display: grid; gap: 6px; font-size: 14px; }
+.st-leg span { display: flex; align-items: center; gap: 8px; }
+.st-leg b { margin-left: auto; font-variant-numeric: tabular-nums; }
+.st-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.st-rows { display: grid; gap: 10px; }
+.st-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(250,243,232,.25); padding-bottom: 8px; }
+.st-row span { font-size: 15px; opacity: .92; }
+.st-row b { font-family: var(--f-display); font-size: 24px; font-variant-numeric: tabular-nums; }
+.st-row.best b::after { content: ' ★'; font-size: 16px; }
+.st-tip { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; line-height: 1.4; }
+.st-tip b { display: block; font-size: 16px; }
+.st-tip .st-dot { margin-top: 6px; }
+.st-nav { position: absolute; left: 0; right: 0; bottom: 20px; z-index: 5; display: flex; justify-content: center; align-items: center; gap: 18px; font-size: 13px; opacity: .9; }
+.st-nav button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(250,243,232,.45); background: rgba(0,0,0,.18); color: #FAF3E8; font-size: 22px; cursor: pointer; }
+.st-nav button:disabled { opacity: .3; cursor: default; }
+.st-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+.st-btn { font: inherit; font-weight: 600; font-size: 15px; border-radius: 999px; padding: 10px 20px; cursor: pointer; border: 1px solid #FAF3E8; background: #FAF3E8; color: #2E3A32; }
+.st-btn.ghost { background: transparent; color: #FAF3E8; }
+body.st-open { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { .st-card > * { animation: none; opacity: 1; transform: none; } .st-bar i { animation: none; width: var(--w); } }
+
 .pr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 18px; font-size: 12px; }
 .pr-grid div { display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--line); padding: 2px 0; }
 .pr-grid span { color: var(--ink2); }
@@ -336,15 +401,18 @@ body.fp-body { padding-bottom: 0; }
           <p class="small">Renditen sind Annahmen vor Steuern und vor Inflation. Sie sind keine Prognose und nicht garantiert.</p>
         </div>
       </details>
+      <div class="storywrap"><button type="button" class="storybtn" data-story>▶ Fertig: Auswertung als Story</button></div>
     </aside>
 
     <main class="stack" id="results">
+      <div class="storywrap"><button type="button" class="storybtn" data-story>▶ Meine Auswertung als Story</button><small>Tippe dich durch deine wichtigsten Zahlen, sobald deine Angaben stehen.</small></div>
       <section class="panel" aria-labelledby="h-verlauf">
         <header class="toolbar">
           <div><h2 id="h-verlauf">Vermögensverlauf</h2><p class="note" id="verlaufNote"></p></div>
           <div class="seg" role="group" aria-label="Anzeige"><button type="button" id="mNom" aria-pressed="true">Nominal</button><button type="button" id="mReal" aria-pressed="false">Kaufkraft heute</button></div>
         </header>
-        <div class="legendrow"><span><i class="sw" style="background:var(--c-net)"></i><span id="legNet">Vermögen nach Steuern</span></span><span><i class="sw" style="background:none;border-top:3px dashed var(--c-paid);height:0"></i><span id="legPaid">Eingezahlt</span></span><span id="legCum" hidden><i class="sw" style="background:none;border-top:3px dotted var(--c-paid);height:0"></i>Bisher entnommen (Summe)</span><span id="legWD" hidden><i class="sw" style="background:none;border-top:3px solid var(--c-wd);height:0"></i>Im Ruhestand mit Entnahmen</span><span id="legRef" hidden><i class="sw" style="background:none;border-top:2px dotted var(--c-net);height:0"></i>Ohne Entnahmen (Vergleich)</span></div>
+        <div class="legendrow" id="leg1"><button type="button" class="legbtn" data-k="net" aria-pressed="false"><i class="sw" style="background:var(--c-net)"></i><span id="legNet">Vermögen nach Steuern</span></button><button type="button" class="legbtn" data-k="paid" aria-pressed="false"><i class="sw" style="background:none;border-top:3px dashed var(--c-paid);height:0"></i><span id="legPaid">Eingezahlt</span></button><button type="button" class="legbtn" id="legCum" data-k="cum" aria-pressed="false" hidden><i class="sw" style="background:none;border-top:3px dotted var(--c-paid);height:0"></i>Bisher entnommen (Summe)</button><button type="button" class="legbtn" id="legWD" data-k="wd" aria-pressed="false" hidden><i class="sw" style="background:none;border-top:3px solid var(--c-wd);height:0"></i>Im Ruhestand mit Entnahmen</button><button type="button" class="legbtn" id="legRef" data-k="ref" aria-pressed="false" hidden><i class="sw" style="background:none;border-top:2px dotted var(--c-net);height:0"></i>Ohne Entnahmen (Vergleich)</button></div>
+        <p class="small legtip">Tippe auf einen Eintrag, um die Linie hervorzuheben. Tippe noch einmal, um zurückzusetzen.</p>
         <div class="charts"><canvas id="c1" role="img" aria-label="Verlauf des Vermögens nach Steuern und der Einzahlungen bis zum Wunschalter"></canvas></div>
         <p class="small" id="modeNote"></p>
         <p class="small" id="withNote"></p>
@@ -359,7 +427,7 @@ body.fp-body { padding-bottom: 0; }
       <section class="panel" id="ausPanel" aria-labelledby="h-aus" hidden>
         <header><h2 id="h-aus">Reicht das für deine Ausgaben?</h2><p>Deine geplanten Ausgaben im Ruhestand gegen deine Einnahmen, alles in heutiger Kaufkraft und netto.</p></header>
         <div id="aus" class="inc"></div>
-        <div class="legendrow" style="margin-top:6px"><span><i class="sw box" style="background:var(--s1)"></i>Durch Rente gedeckt</span><span><i class="sw box" style="background:var(--c-wd)"></i>Aus dem Vermögen</span><span id="legGap" hidden><i class="sw box" style="background:var(--crit)"></i>Nicht gedeckt, Vermögen aufgebraucht</span></div>
+        <div class="legendrow" id="leg4" style="margin-top:6px"><button type="button" class="legbtn" data-k="rente" aria-pressed="false"><i class="sw box" style="background:var(--s1)"></i>Durch Rente gedeckt</button><button type="button" class="legbtn" data-k="verm" aria-pressed="false"><i class="sw box" style="background:var(--c-wd)"></i>Aus dem Vermögen</button><button type="button" class="legbtn" id="legGap" data-k="gap" aria-pressed="false" hidden><i class="sw box" style="background:var(--crit)"></i>Nicht gedeckt, Vermögen aufgebraucht</button></div>
         <div class="charts"><canvas id="c4" role="img" aria-label="Ausgaben pro Jahr im Ruhestand, aufgeteilt nach Rente und Vermögen"></canvas></div>
         <p class="small" id="c4Note"></p>
       </section>
@@ -689,6 +757,18 @@ function compute(P) {
 }
 
 </script>
+
+<div class="story" id="story" hidden role="dialog" aria-modal="true" aria-label="Deine Auswertung als Story">
+  <div class="st-frame" id="stFrame">
+    <div class="st-bg t-ink" id="stBg"></div>
+    <div class="st-prog" id="stProg" aria-hidden="true"></div>
+    <button type="button" class="st-x" id="stX" aria-label="Schließen">×</button>
+    <button type="button" class="st-tap l" id="stL" tabindex="-1" aria-hidden="true"></button>
+    <button type="button" class="st-tap r" id="stR" tabindex="-1" aria-hidden="true"></button>
+    <div class="st-card" id="stCard" aria-live="polite"></div>
+    <div class="st-nav"><button type="button" id="stPrev" aria-label="Zurück">‹</button><span id="stPos"></span><button type="button" id="stNext" aria-label="Weiter">›</button></div>
+  </div>
+</div>
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
@@ -780,7 +860,15 @@ function compute(P) {
     var h = hex.replace('#', ''); if (h.length === 3) h = h.split('').map(function (c) { return c + c; }).join('');
     var n = parseInt(h, 16); return 'rgba(' + (n >> 16 & 255) + ',' + (n >> 8 & 255) + ',' + (n & 255) + ',' + a + ')';
   }
-  var charts = {};
+  var charts = {}, focus1 = null, focus4 = null;
+  function applyFocus(ds, key) {
+    if (!key || !ds.some(function (d) { return d.key === key; })) return;
+    ds.forEach(function (d) {
+      if (d.key === key) { d.borderWidth = (d.borderWidth || 2) + 1.5; return; }
+      d.borderColor = rgba(d._c, 0.2); d.backgroundColor = rgba(d._c, d.stack ? 0.2 : 0.05);
+      if (d.fill) d.fill = false; d.borderWidth = 1.5;
+    });
+  }
   var markerPlugin = {
     id: 'markers',
     afterDatasetsDraw: function (chart, args, o) {
@@ -929,10 +1017,13 @@ function compute(P) {
     o1.scales.x = { type: 'linear', min: R.age0, max: xMax, grid: { display: false }, border: { color: t.line }, ticks: { color: t.muted, stepSize: xMax - R.age0 > 30 ? 5 : 2, callback: function (v) { return Number.isInteger(v) ? v : ''; } }, title: { display: true, text: 'Alter', color: t.muted } };
     o1.plugins.markers = { items: marks, color: t.muted, text: t.ink2, font: t.font, cross: t.muted };
     o1.plugins.tooltip.callbacks = { title: function (it) { return 'Alter ' + num(it[0].parsed.x, 0); }, label: function (c) { return c.dataset.label + ': ' + eur(c.parsed.y); } };
-    upsert('c1', { type: 'line', plugins: [markerPlugin], data: { datasets: [
-      { label: hasWD ? 'Eingezahlt bis Renteneintritt' : 'Eingezahlt', data: dPaid, borderColor: t.paid, backgroundColor: rgba(t.paid, 0.16), borderWidth: 2.5, borderDash: [7, 4], pointRadius: 0, pointHoverRadius: 4, fill: 'origin', tension: 0.15 },
-      { label: hasWD ? 'Vermögen bis Renteneintritt' : 'Vermögen nach Steuern', data: dNet, borderColor: t.net, backgroundColor: rgba(t.net, 0.18), borderWidth: 2.5, pointRadius: 0, pointHoverRadius: 5, pointHoverBackgroundColor: t.net, pointHoverBorderColor: t.surface, pointHoverBorderWidth: 2, fill: 'origin', tension: 0.15 }
-    ].concat(hasWD ? [{ label: 'Im Ruhestand mit Entnahmen', data: dWD, borderColor: t.wd, backgroundColor: rgba(t.wd, 0.16), borderWidth: 3, pointRadius: 0, pointHoverRadius: 5, pointHoverBackgroundColor: t.wd, pointHoverBorderColor: t.surface, pointHoverBorderWidth: 2, fill: 'origin', tension: 0.15 }] : []).concat(hasWD ? [{ label: 'Bisher entnommen (Summe)', data: dCum, borderColor: t.paid, backgroundColor: rgba(t.paid, 0.12), borderWidth: 2.5, borderDash: [2, 3], pointRadius: 0, pointHoverRadius: 4, fill: 'origin', tension: 0.15 }] : []).concat(split ? [{ label: 'Ohne Entnahmen (Vergleich)', data: dRef, borderColor: rgba(t.net, 0.55), borderWidth: 1.5, borderDash: [2, 4], pointRadius: 0, pointHoverRadius: 3, fill: false, tension: 0.15 }] : []) }, options: o1 });
+    var ds1 = [
+      { key: 'paid', _c: t.paid, label: hasWD ? 'Eingezahlt bis Renteneintritt' : 'Eingezahlt', data: dPaid, borderColor: t.paid, backgroundColor: rgba(t.paid, 0.16), borderWidth: 2.5, borderDash: [7, 4], pointRadius: 0, pointHoverRadius: 4, fill: 'origin', tension: 0.15 },
+      { key: 'net', _c: t.net, label: hasWD ? 'Vermögen bis Renteneintritt' : 'Vermögen nach Steuern', data: dNet, borderColor: t.net, backgroundColor: rgba(t.net, 0.18), borderWidth: 2.5, pointRadius: 0, pointHoverRadius: 5, pointHoverBackgroundColor: t.net, pointHoverBorderColor: t.surface, pointHoverBorderWidth: 2, fill: 'origin', tension: 0.15 }
+    ].concat(hasWD ? [{ key: 'wd', _c: t.wd, label: 'Im Ruhestand mit Entnahmen', data: dWD, borderColor: t.wd, backgroundColor: rgba(t.wd, 0.16), borderWidth: 3, pointRadius: 0, pointHoverRadius: 5, pointHoverBackgroundColor: t.wd, pointHoverBorderColor: t.surface, pointHoverBorderWidth: 2, fill: 'origin', tension: 0.15 }] : []).concat(hasWD ? [{ key: 'cum', _c: t.paid, label: 'Bisher entnommen (Summe)', data: dCum, borderColor: t.paid, backgroundColor: rgba(t.paid, 0.12), borderWidth: 2.5, borderDash: [2, 3], pointRadius: 0, pointHoverRadius: 4, fill: 'origin', tension: 0.15 }] : []).concat(split ? [{ key: 'ref', _c: t.net, label: 'Ohne Entnahmen (Vergleich)', data: dRef, borderColor: rgba(t.net, 0.55), borderWidth: 1.5, borderDash: [2, 4], pointRadius: 0, pointHoverRadius: 3, fill: false, tension: 0.15 }] : []);
+    applyFocus(ds1, focus1);
+    upsert('c1', { type: 'line', plugins: [markerPlugin], data: { datasets: ds1 }, options: o1 });
+    $('leg1').querySelectorAll('.legbtn').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.k === focus1)); });
     $('legWD').hidden = !hasWD; $('legCum').hidden = !hasWD; $('legPaid').textContent = hasWD ? 'Eingezahlt bis Renteneintritt' : 'Eingezahlt'; $('legRef').hidden = !split; $('legNet').textContent = hasWD ? 'Vermögen nach Steuern bis Renteneintritt' : 'Vermögen nach Steuern';
     var lastBal = hasWD ? adj(WD.pts[WD.pts.length - 1].bal, yTo(P.planAge)) : 0;
     var wn = '';
@@ -1036,12 +1127,13 @@ function compute(P) {
       o4.scales.x = { stacked: true, grid: { display: false }, border: { color: t.line }, ticks: { color: t.muted, maxRotation: 0, autoSkip: true, maxTicksLimit: 12 }, title: { display: true, text: 'Alter', color: t.muted } };
       o4.scales.y.stacked = true;
       o4.plugins.tooltip.callbacks = { title: function (it) { return 'Alter ' + it[0].label + ', Ausgaben pro Jahr'; }, label: function (c) { return c.dataset.label + ': ' + eur(c.parsed.y); } };
-      upsert('c4', { type: 'bar', data: { labels: lab4, datasets: [
-        { label: 'Durch Rente gedeckt', data: d4a, backgroundColor: t.s1, stack: 's' },
-        { label: 'Aus dem Vermögen', data: d4b, backgroundColor: t.wd, stack: 's' },
-        { label: 'Nicht gedeckt', data: d4c, backgroundColor: t.crit, stack: 's' }
-      ] }, options: o4 });
-      $('legGap').hidden = !anyGap;
+      var ds4 = [
+        { key: 'rente', _c: t.s1, label: 'Durch Rente gedeckt', data: d4a, backgroundColor: t.s1, stack: 's' },
+        { key: 'verm', _c: t.wd, label: 'Aus dem Vermögen', data: d4b, backgroundColor: t.wd, stack: 's' },
+        { key: 'gap', _c: t.crit, label: 'Nicht gedeckt', data: d4c, backgroundColor: t.crit, stack: 's' }
+      ]; applyFocus(ds4, focus4);
+      upsert('c4', { type: 'bar', data: { labels: lab4, datasets: ds4 }, options: o4 });
+      $('legGap').hidden = !anyGap; $('leg4').querySelectorAll('.legbtn').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.k === focus4)); });
       $('c4Note').textContent = 'Deine Ausgaben pro Jahr ab Renteneintritt' + (mode === 'real' ? ' in heutiger Kaufkraft.' : ', nominal mit ' + pct(P.infl, 1) + ' Inflation pro Jahr.') + (anyGap ? ' Ab Alter ' + num(WD.depAge) + ' ist das Vermögen aufgebraucht, danach bleibt eine Lücke.' : needM > 0 ? ' Bis Alter ' + num(P.planAge) + ' reicht das Vermögen für den Teil, den die Renten nicht decken.' : ' Deine Renten decken alles.');
     }
 
@@ -1195,6 +1287,7 @@ function compute(P) {
     if (quote < 0.1) h.push(['Sparquote', 'Du sparst ' + pct(quote) + ' deines Nettos. Viele Planer nennen 10 bis 20 % als Richtwert für die Altersvorsorge.']);
     else if (quote > 0.2) h.push(['Sparquote', 'Du sparst ' + pct(quote) + ' deines Nettos, das ist ein hoher Wert. Halte neben dem Sparen genug Reserve für Unvorhergesehenes.']);
     else h.push(['Sparquote', 'Du sparst ' + pct(quote) + ' deines Nettos und liegst damit im üblichen Richtwert von 10 bis 20 %.']);
+    LAST = { P: P, R: R, WD: WD, h: h, ausTot: ausTot0, quote: quote, bm: bm, mult: mult, bmEur: bmEur, netMonth: netMonth };
     $('hints').innerHTML = h.map(function (x) { return x[2] === 'sep' ? '<li class="sep">' + x[0] + '</li>' : '<li' + (x[2] ? ' class="' + x[2] + '"' : '') + '><b>' + x[0] + '</b>' + x[1] + '</li>'; }).join('');
 
     var an = [];
@@ -1315,6 +1408,113 @@ function compute(P) {
     rd2.readAsText(f);
   });
 
+
+  /* ---------- Story-Ansicht ---------- */
+  var LAST = null, SI = 0, SC = [], stOpener = null;
+  var cnt = function (v, f) { return '<span class="cnt" data-v="' + v + '" data-f="' + f + '">' + cfmt(v, f) + '</span>'; };
+  function cfmt(v, f) { return f === 'pct' ? pct(v) : (f === 'num' ? num(v) : eur(v)); }
+  var first = function (t) { var i = t.indexOf('. '); t = i > 0 ? t.slice(0, i + 1) : t; return t.length > 150 ? t.slice(0, 147) + '…' : t; };
+  function storyCards(L) {
+    var P = L.P, R = L.R, c = [], nm = P.vorname ? esc(P.vorname) : '', infl = function (yrs) { return Math.pow(1 + P.infl, yrs); };
+    var yrsLeft = Math.max(0, Math.round(R.retAge - R.age0)), ret = R.at.ret;
+    // 1 Start
+    c.push({ t: 't-ink', h: '<div class="st-eye">Dein Finanzplan</div><h2>' + (nm ? nm + ', so' : 'So') + ' sieht dein Weg aus</h2>' +
+      (yrsLeft > 0 ? '<div class="st-big">' + cnt(yrsLeft, 'num') + '</div><div class="st-sub">Jahre bis zur Rente mit ' + ageText(R.retAge) + '</div>' : '<div class="st-big">Jetzt</div><div class="st-sub">Du bist schon im Rentenalter</div>') +
+      '<p>Du bist heute ' + R.age0 + ', dein Wunschalter ist ' + R.wunsch + '. Tippe rechts, um durch deine Auswertung zu gehen.</p>' });
+    // 2 Heute
+    c.push({ t: 't-sage', h: '<div class="st-eye">Heute</div><h2>Das hast du schon</h2><div class="st-big">' + cnt(P.W0, 'eur') + '</div><div class="st-sub">Vermögen heute</div>' +
+      '<p>Du sparst ' + eur(P.sparrate) + ' pro Monat, das sind ' + pct(L.quote) + ' deines Nettos.' + (L.bm > 0 && L.mult > 0 ? ' Als Faustregel gelten für dein Alter etwa ' + num(L.bm, 1) + '× Jahreseinkommen. Du liegst bei ' + num(L.mult, 1) + '×.' : '') + '</p>' });
+    // 3 Renteneintritt
+    var gain = Math.max(0, ret.net - ret.paid), wPaid = ret.net > 0 ? Math.min(100, ret.paid / ret.net * 100) : 0;
+    c.push({ t: 't-rust', h: '<div class="st-eye">Mit ' + ageText(R.retAge) + ' in Rente, ca. ' + R.retYear + '</div><h2>So viel steht dann bereit</h2><div class="st-big">' + cnt(ret.net, 'eur') + '</div>' +
+      '<div class="st-sub">In heutiger Kaufkraft ' + eur(ret.net / infl(R.retAge - R.age0)) + '</div>' +
+      '<div class="st-bar"><i style="--w:' + wPaid + '%;background:#FAF3E8"></i><i style="--w:' + (100 - wPaid) + '%;background:#f2c08c"></i></div>' +
+      '<div class="st-leg"><span><i class="st-dot" style="background:#FAF3E8"></i>Selbst eingezahlt<b>' + eur(ret.paid) + '</b></span><span><i class="st-dot" style="background:#f2c08c"></i>Zinseszins und Ertrag<b>' + eur(gain) + '</b></span></div>' +
+      (R.lumpNom > 0 ? '<p>Dazu kommen ' + eur(R.lumpNom) + ' netto aus Kapitalauszahlungen deiner Verträge.</p>' : '<p>Das Geld arbeitet mit: ' + (ret.net > 0 ? pct(gain / ret.net) : '0 %') + ' des Betrags sind Erträge nach Steuern.</p>') });
+    // 4 Monatlich
+    var scale = Math.max(R.netMonth, R.total, R.target) * 1.05 || 1, q = R.quota, seg = [[R.pn0.net, '#7fc3a5', 'Gesetzliche Rente'], [R.bNet, '#f2c36b', 'Betriebs-/Berufsrente'], [R.cNet, '#d7a5c8', 'Vorsorgeverträge'], [R.payout, '#f6a07c', 'Entnahme aus Vermögen']].filter(function (x) { return x[0] > 1; });
+    c.push({ t: 't-gold', h: '<div class="st-eye">Im Ruhestand</div><h2>Das bleibt dir pro Monat</h2><div class="st-big">' + cnt(R.total, 'eur') + '</div><div class="st-sub">netto, in heutiger Kaufkraft</div>' +
+      '<span class="st-chip">' + (q >= 0.8 ? '✓ Gute Absicherung' : (q >= 0.65 ? '! Knappe Absicherung' : '✕ Deutliche Lücke')) + ' · ' + pct(q) + ' vom heutigen Netto</span>' +
+      '<div class="st-bar">' + seg.map(function (x) { return '<i style="--w:' + x[0] / scale * 100 + '%;background:' + x[1] + '"></i>'; }).join('') + '<span class="st-mark" style="left:' + R.target / scale * 100 + '%" title="80 %"></span></div>' +
+      '<div class="st-leg">' + seg.map(function (x) { return '<span><i class="st-dot" style="background:' + x[1] + '"></i>' + x[2] + '<b>' + eur(x[0]) + '</b></span>'; }).join('') + '</div>' +
+      '<p>' + (R.total >= R.target ? 'Damit liegst du über dem Zielwert von 80 % deines heutigen Nettos (' + eur(R.target) + ').' : 'Zum Ziel von 80 % (' + eur(R.target) + ') fehlen ' + eur(R.target - R.total) + ' pro Monat.') + '</p>' });
+    // 5 Ausgaben
+    if (L.ausTot > 0) {
+      var need = Math.max(0, L.ausTot - R.pn.net), sc2 = Math.max(L.ausTot, R.pn.net) * 1.05;
+      c.push({ t: 't-ink', h: '<div class="st-eye">Deine Ausgaben im Ruhestand</div><h2>Reicht das?</h2><div class="st-big">' + cnt(L.ausTot, 'eur') + '</div><div class="st-sub">Ausgaben pro Monat</div>' +
+        '<div class="st-bar"><i style="--w:' + R.pn.net / sc2 * 100 + '%;background:#7fc3a5"></i></div><div class="st-leg"><span><i class="st-dot" style="background:#7fc3a5"></i>Renten netto<b>' + eur(R.pn.net) + '</b></span><span><i class="st-dot" style="background:#FAF3E8"></i>Ausgaben<b>' + eur(L.ausTot) + '</b></span></div>' +
+        '<p>' + (need <= 0 ? 'Deine Renten decken alles. Dein Vermögen bleibt unangetastet.' : 'Aus dem Vermögen fehlen ' + eur(need) + ' pro Monat. ' + (L.WD.depAge !== null ? 'Es reicht bis etwa Alter ' + num(L.WD.depAge) + ', das sind ' + num(P.planAge - L.WD.depAge) + ' Jahre vor deinem Planungsalter von ' + num(P.planAge) + '.' : 'Das trägt bis zu deinem Planungsalter von ' + num(P.planAge) + '.')) + '</p>' });
+    }
+    // 6 Betriebsrente
+    if (R.bav) {
+      var bo = [['Monatliche Rente', R.bav.eqRente], ['Einmalzahlung', R.bav.eq1], ['Auszahlung über 4 Jahre', R.bav.eq4]], mx = Math.max(bo[0][1], bo[1][1], bo[2][1]);
+      c.push({ t: 't-plum', h: '<div class="st-eye">Deine Betriebsrente</div><h2>Rente oder Kapital?</h2><div class="st-rows">' + bo.map(function (o) { return '<div class="st-row' + (o[1] === mx && mx > 0 ? ' best' : '') + '"><span>' + o[0] + '</span><b>' + (o[1] > 0 ? eur(o[1]) : '–') + '</b></div>'; }).join('') + '</div>' +
+        '<p>Jeweils als gleichwertige Monatsrente in heutiger Kaufkraft bis Alter ' + num(P.planAge) + '. Der Stern zeigt, was rechnerisch vorn liegt.</p>' });
+    }
+    // 7 Verträge
+    if (P.contracts.length) {
+      var cb = P.contracts.reduce(function (a, x) { return a + x.beitrag; }, 0);
+      c.push({ t: 't-blue', h: '<div class="st-eye">Deine Absicherung</div><h2>Deine Verträge</h2><div class="st-big">' + cnt(P.contracts.length, 'num') + '</div><div class="st-sub">' + (P.contracts.length === 1 ? 'Vertrag' : 'Verträge') + ' eingetragen</div>' +
+        '<p>Zusammen kosten sie ' + eur(cb) + ' pro Monat' + (L.netMonth > 0 ? ' (' + pct(cb / L.netMonth, 1) + ' deines Nettos)' : '') + '.' + (R.cGross > 0 ? ' Im Ruhestand liefern deine Rentenverträge netto etwa ' + eur(R.cNet) + ' pro Monat.' : '') + '</p>' });
+    }
+    // 8 Rendite
+    var sc = R.scen, lo = sc[0], hi = sc[sc.length - 1], mxv = Math.max(hi.net, 1);
+    c.push({ t: 't-sage', h: '<div class="st-eye">Zinseszins</div><h2>Die Rendite macht den Unterschied</h2><div class="st-rows">' +
+      '<div class="st-row"><span>Bei ' + num(lo.r * 100) + ' % im Jahr</span><b>' + eur(lo.net) + '</b></div><div class="st-bar"><i style="--w:' + lo.net / mxv * 100 + '%;background:#f2c36b"></i></div>' +
+      '<div class="st-row"><span>Bei ' + num(hi.r * 100) + ' % im Jahr</span><b>' + eur(hi.net) + '</b></div><div class="st-bar"><i style="--w:100%;background:#FAF3E8"></i></div></div>' +
+      '<p>Vermögen mit ' + R.wunsch + ' Jahren. Eingezahlt hast du in beiden Fällen nur ' + eur(hi.paid) + '. Der Rest ist Zinseszins.</p>' });
+    // 9 Hinweise
+    var tips = L.h.filter(function (x) { return x[2] !== 'sep' && x[1]; }), pri = tips.filter(function (x) { return x[2] === 'crit' || x[2] === 'warn'; });
+    var top = pri.concat(tips.filter(function (x) { return pri.indexOf(x) < 0; })).slice(0, 3), dc = { crit: '#ff9a85', warn: '#f2c36b', good: '#9fdcb8' };
+    c.push({ t: 't-rust', h: '<div class="st-eye">Deine nächsten Schritte</div><h2>Darauf kommt es an</h2>' + top.map(function (x) { return '<div class="st-tip"><i class="st-dot" style="background:' + (dc[x[2]] || '#FAF3E8') + '"></i><div><b>' + x[0] + '</b>' + first(x[1]) + '</div></div>'; }).join('') });
+    // 10 Finale
+    c.push({ t: 't-ink', h: '<div class="st-eye">Zusammengefasst</div><h2>Dein Plan in drei Zahlen</h2><div class="st-rows">' +
+      '<div class="st-row"><span>Vermögen bei Rente</span><b>' + eur(ret.net) + '</b></div><div class="st-row"><span>Pro Monat im Ruhestand</span><b>' + eur(R.total) + '</b></div><div class="st-row"><span>Vom heutigen Netto</span><b>' + pct(q) + '</b></div></div>' +
+      '<p>Alle Werte sind Modellrechnungen zur Orientierung, keine Beratung.</p><div class="st-btns"><button type="button" class="st-btn" id="stAgain">Nochmal ansehen</button><button type="button" class="st-btn ghost" id="stDone">Zur Planung</button></div>' });
+    return c;
+  }
+  function animateCounts() {
+    var els = $('stCard').querySelectorAll('.cnt'), reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (reduce) return;
+    var t0 = null, dur = 1000;
+    var step = function (ts) {
+      if (t0 === null) t0 = ts; var k = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      els.forEach(function (el) { el.textContent = cfmt(+el.dataset.v * e, el.dataset.f); });
+      if (k < 1) requestAnimationFrame(step); else els.forEach(function (el) { el.textContent = cfmt(+el.dataset.v, el.dataset.f); });
+    };
+    els.forEach(function (el) { el.textContent = cfmt(0, el.dataset.f); });
+    requestAnimationFrame(step);
+  }
+  function showCard() {
+    var c = SC[SI]; $('stBg').className = 'st-bg ' + c.t;
+    var card = $('stCard'); card.innerHTML = c.h; card.scrollTop = 0;
+    $('stProg').innerHTML = SC.map(function (x, i) { return '<i class="' + (i <= SI ? 'on' : '') + '"></i>'; }).join('');
+    $('stPrev').disabled = SI === 0; $('stNext').disabled = SI === SC.length - 1; $('stPos').textContent = (SI + 1) + ' von ' + SC.length;
+    animateCounts();
+    var ag = $('stAgain'); if (ag) ag.onclick = function () { SI = 0; showCard(); };
+    var dn = $('stDone'); if (dn) dn.onclick = closeStory;
+  }
+  function go(d) { var n = SI + d; if (n < 0 || n >= SC.length) return; SI = n; showCard(); }
+  function openStory(btn) {
+    if (!LAST) render();
+    SC = storyCards(LAST); SI = 0; stOpener = btn || null;
+    $('story').hidden = false; document.body.classList.add('st-open'); showCard(); $('stX').focus();
+  }
+  function closeStory() { $('story').hidden = true; document.body.classList.remove('st-open'); if (stOpener) { try { stOpener.focus(); } catch (e) {} } }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-story]'), function (b) { b.addEventListener('click', function () { openStory(b); }); });
+  $('stX').addEventListener('click', closeStory);
+  $('stR').addEventListener('click', function () { go(1); }); $('stL').addEventListener('click', function () { go(-1); });
+  $('stNext').addEventListener('click', function () { go(1); }); $('stPrev').addEventListener('click', function () { go(-1); });
+  $('story').addEventListener('click', function (e) { if (e.target === $('story')) closeStory(); });
+  document.addEventListener('keydown', function (e) {
+    if ($('story').hidden) return;
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); } else if (e.key === 'ArrowLeft') go(-1); else if (e.key === 'Escape') closeStory();
+  });
+  var sx = null;
+  $('stFrame').addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  $('stFrame').addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null; if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1); }, { passive: true });
+
   $('presets').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
     $('aE').value = b.dataset.e; $('aA').value = b.dataset.a; dirty(); render();
@@ -1328,6 +1528,8 @@ function compute(P) {
       try { c.setActiveElements([]); if (c.tooltip) c.tooltip.setActiveElements([], { x: 0, y: 0 }); c.update('none'); } catch (err) {}
     });
   }
+  $('leg1').addEventListener('click', function (e) { var b = e.target.closest('.legbtn'); if (!b) return; focus1 = focus1 === b.dataset.k ? null : b.dataset.k; render(); });
+  $('leg4').addEventListener('click', function (e) { var b = e.target.closest('.legbtn'); if (!b) return; focus4 = focus4 === b.dataset.k ? null : b.dataset.k; render(); });
   document.addEventListener('click', hideTips);
   document.addEventListener('touchstart', hideTips, { passive: true });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hideTips(null); });
