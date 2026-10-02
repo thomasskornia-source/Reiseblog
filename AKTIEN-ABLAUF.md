@@ -32,14 +32,29 @@ Gewinn- und Margenentwicklung über mehrere Jahre, Aktienrückkäufe/Verwässeru
   "warren": {"urteil": "Gefällt mir | Abwarten | Finger weg", "text": "4–6 Sätze"},
   "charlie": {"urteil": "Gefällt mir | Abwarten | Finger weg", "text": "4–6 Sätze"},
   "risiken": "1–3 Sätze",
+  "belege": [{"wer": "Warren", "zitat": "Wörtlich, englisch, höchstens 40 Wörter", "quelle": "Aktionärsbrief 1996", "url": "https://www.berkshirehathaway.com/letters/1996.html"}],  // Briefe bis 1999 .../<jahr>.html, ab 2004 .../<jahr>ltr.pdf
   "quellen": [{"name": "Geschäftsbericht 2025", "url": "https://…"}]
 }
 ```
 `zeitstempel` und `eingabe` müssen mit der Zeile übereinstimmen (die Seite blendet damit „wird geprüft“ aus).
 
+## Wissensbasis (Pflicht, bevor die Figuren schreiben)
+- **Aktionärsbriefe 1977–2025** liegen unter `wissen/briefe/<jahr>.txt` (Englisch). Suche mit
+  `python3 wissen/suche.py Begriff [Begriff …]` (z. B. Firmenname, Branche, Themen wie `moat`, `float`, `buyback`,
+  `debt`, `commodity`). Mindestens 3 Suchen: Firma/Marke, Branche/Geschäftsmodell, ein Prinzip, das zur Aktie
+  passt. Passende Stellen für die Meinung heranziehen; Treffer aus einem ganz anderen Zusammenhang nicht nutzen.
+- **Hauptversammlungen:** `wissen/hauptversammlungen.md` listet Fundstellen. Dort höchstens 1–2 Quellen online
+  lesen (Websuche/Abruf), wenn sie zur Aktie oder zum Thema passen. Nichts davon ins Repo kopieren.
+- Jede wörtliche Stelle kommt als Beleg in `belege` (siehe Format), nur im englischen Original, **höchstens
+  40 Wörter**, mit Jahr und Quelle. Nie Zitate aus dem Gedächtnis oder aus Übersetzungen als wörtlich ausgeben.
+- Warren darf mit Briefstellen belegt werden (sie stammen von ihm). Charlie darf nur belegt werden, wenn der Satz
+  wirklich von ihm in einer Quelle steht (Hauptversammlungs-Mitschrift mit „Munger:“ oder ein Brief, der ihn
+  wörtlich zitiert); sonst bleibt seine Meinung unbelegt („im Geist seiner Grundsätze“) und das Feld leer.
+- Findet sich nichts Passendes, `belege` leer lassen. Nie etwas hineinpressen.
+
 ## Die zwei Figuren (nur im Stil, nie als echte Person)
 Beide sind **KI-Figuren im Geist der öffentlich bekannten Grundsätze**, keine Zitate. Nie so tun, als hätten die echten
-Personen die Aktie bewertet; keine erfundenen Zitate, keine Anführungszeichen-Sätze „Buffett sagte …“, außer sie sind
+Personen diese Aktie bewertet; keine erfundenen Zitate, keine Anführungszeichen-Sätze „Buffett sagte …“, außer sie sind
 belegt. Deutsch, klar, ohne Börsenjargon-Wust.
 - **Warren:** Kreis der Kompetenz (verständliches Geschäft?), Burggraben (Marke, Kosten, Netzwerk), ehrliches,
   schuldenarmes Management, hohe Kapitalrendite, planbare Gewinne, Preis im Verhältnis zum inneren Wert

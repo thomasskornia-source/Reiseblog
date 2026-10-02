@@ -10,32 +10,51 @@
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <style>
-  .ak { display: grid; gap: 20px; margin-top: 8px; }
-  .ak-card { background: var(--paper-warm); border: 1px solid rgba(46,58,50,.1); border-radius: 14px; padding: 20px 22px; }
-  .ak-card h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin: 0 0 12px; }
-  .ak-form { display: flex; gap: 10px; flex-wrap: wrap; }
-  .ak-form input { flex: 1 1 220px; min-width: 0; font: inherit; font-size: 16px; padding: 10px 12px; border: 1px solid rgba(46,58,50,.25); border-radius: 8px; background: var(--paper); color: var(--ink); box-sizing: border-box; }
-  .btn { font: inherit; font-size: 15px; background: var(--rust); color: #fff; border: 0; border-radius: 999px; padding: 10px 20px; cursor: pointer; }
+  .ak { display: grid; gap: 16px; margin-top: 4px; }
+  .hero { display: flex; justify-content: center; align-items: center; gap: 14px; margin: 4px 0 2px; }
+  .hero .p { text-align: center; width: 104px; }
+  .hero .p svg { width: 88px; height: 88px; display: block; margin: 0 auto 4px; border-radius: 50%; box-shadow: 0 6px 16px rgba(46,58,50,.18); }
+  .hero .p b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; }
+  .hero .vs { font-size: 13px; color: var(--ink-soft); }
+  .sub { text-align: center; font-size: 15px; color: var(--ink-soft); margin: 0 0 4px; }
+  .ak-form { display: flex; gap: 8px; background: var(--paper-warm); border: 1px solid rgba(46,58,50,.12); border-radius: 999px; padding: 6px; }
+  .ak-form input { flex: 1; min-width: 0; font: inherit; font-size: 16px; border: 0; background: transparent; padding: 8px 14px; color: var(--ink); outline: 0; }
+  .btn { font: inherit; font-size: 15px; background: var(--rust); color: #fff; border: 0; border-radius: 999px; padding: 9px 20px; cursor: pointer; white-space: nowrap; }
   .btn[disabled] { opacity: .5; cursor: default; }
-  .note { font-size: 13px; color: var(--ink-soft); line-height: 1.5; margin: 10px 0 0; }
-  .pend { font-size: 14px; color: var(--ink-soft); margin: 8px 0 0; }
-  .pend li { margin: 2px 0; }
-  .st { background: var(--paper); border: 1px solid rgba(46,58,50,.14); border-radius: 12px; padding: 16px 18px; }
-  .st .hd { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-  .st .hd h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; margin: 0; }
+  .msg { font-size: 13.5px; color: var(--ink-soft); text-align: center; margin: -6px 0 0; min-height: 1em; }
+  .pend { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .pend li { display: flex; align-items: center; gap: 12px; background: var(--paper-warm); border-radius: 12px; padding: 10px 14px; font-size: 14.5px; }
+  .pend .dots { display: inline-flex; gap: 4px; margin-left: auto; }
+  .pend .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); animation: bl 1.2s infinite ease-in-out; }
+  .pend .dots i:nth-child(2) { animation-delay: .2s; } .pend .dots i:nth-child(3) { animation-delay: .4s; }
+  @keyframes bl { 0%, 80%, 100% { opacity: .2; transform: scale(.8); } 40% { opacity: 1; transform: scale(1.2); } }
+  .st { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 16px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(46,58,50,.06); animation: up .35s ease both; }
+  @keyframes up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .st.new { border-color: var(--rust); }
+  .st .hd { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .st .hd h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0; }
   .st .hd span { font-size: 12px; color: var(--ink-soft); }
-  .kz { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 8px 0 12px; padding: 0; list-style: none; font-size: 13px; color: var(--ink-soft); }
+  .kz { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 12px; padding: 0; list-style: none; }
+  .kz li { font-size: 12.5px; color: var(--ink-soft); background: var(--paper-warm); border-radius: 999px; padding: 3px 10px; }
   .kz b { color: var(--ink); font-weight: 600; }
-  .duo { display: grid; gap: 12px; }
-  @media (min-width: 760px) { .duo { grid-template-columns: 1fr 1fr; } }
-  .who { border-left: 3px solid var(--rust); padding: 2px 0 2px 12px; }
-  .who.c { border-color: var(--sage); }
-  .who h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; margin: 0 0 2px; }
-  .who .u { display: inline-block; font-size: 12px; font-weight: 600; border-radius: 999px; padding: 2px 10px; background: var(--paper-warm); margin-bottom: 6px; }
-  .who p { margin: 0; font-size: 14.5px; line-height: 1.55; }
+  .duo { display: grid; gap: 14px; }
+  @media (min-width: 720px) { .duo { grid-template-columns: 1fr 1fr; gap: 18px; } }
+  .who { display: grid; grid-template-columns: 48px 1fr; gap: 4px 12px; align-items: start; }
+  .who svg { width: 48px; height: 48px; border-radius: 50%; }
+  .who .top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .who h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; margin: 0; }
+  .u { font-size: 12px; font-weight: 600; border-radius: 999px; padding: 2px 10px; background: var(--paper-warm); }
+  .u.g { background: #dcebd9; color: #2f6a2f; } .u.a { background: #f4e6c3; color: #7a5a12; } .u.r { background: #f3d6d1; color: #8e2a1c; }
+  .who p { margin: 0; font-size: 14.5px; line-height: 1.55; grid-column: 1 / -1; }
+  @media (min-width: 720px) { .who { grid-template-columns: 48px 1fr; } .who p { grid-column: 2; } .who svg { grid-row: span 2; } }
   .risk { font-size: 13.5px; color: var(--ink-soft); margin: 12px 0 0; line-height: 1.5; }
-  .src { font-size: 12px; color: var(--ink-soft); margin: 8px 0 0; }
-  .empty { font-size: 15px; color: var(--ink-soft); margin: 0; }
+  .src { font-size: 12px; color: var(--ink-soft); margin: 6px 0 0; }
+  .bel { margin: 12px 0 0; font-size: 13.5px; }
+  .bel summary { cursor: pointer; color: var(--ink-soft); }
+  .bel blockquote { margin: 8px 0 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--gold); line-height: 1.5; }
+  .bel blockquote cite { display: block; font-style: normal; font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+  .empty { font-size: 15px; color: var(--ink-soft); text-align: center; margin: 12px 0; }
+  .foot { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; text-align: center; margin: 22px 0 0; }
 </style>
 </head>
 <body class="page-wide">
@@ -53,67 +72,81 @@
     </div>
   </div></nav>
 <div class="wrap">
-  <a class="back-link" href="finanzplanung.html">← Zur Finanzplanung</a>
   <header class="entry-header">
     <p class="date">Geldanlage</p>
-    <h1>Aktien-Check: Warren und Charlie</h1>
+    <h1>Aktien-Check</h1>
     <hr class="rule">
   </header>
-  <div class="entry-body"><p>Gib eine Aktie ein (Name oder Kürzel, z. B. „Coca-Cola“ oder „KO“). Nach ein paar Minuten steht hier die Einschätzung eines <b>virtuellen Warren</b> und eines <b>virtuellen Charlie</b>, angelehnt an die Prinzipien von Warren Buffett und Charlie Munger.</p></div>
 
   <div class="ak">
-    <section class="ak-card">
-      <h2>Welche Aktie soll ich ansehen?</h2>
-      <form class="ak-form" id="form" autocomplete="off">
-        <input id="inp" type="text" maxlength="60" placeholder="z. B. Apple, KO, Siemens" aria-label="Aktie">
-        <button class="btn" id="go" type="submit">Prüfen lassen</button>
-      </form>
-      <p class="note" id="status"></p>
-      <ul class="pend" id="pend"></ul>
-      <p class="note">Hinweis: Die beiden sind KI-Figuren, keine echten Personen. Ihre Aussagen sind eine Interpretation ihrer öffentlich bekannten Grundsätze, keine Zitate und keine Anlageberatung. Kennzahlen können unvollständig oder veraltet sein.</p>
-    </section>
-
-    <section class="ak-card">
-      <h2>Bisherige Einschätzungen</h2>
-      <div id="list"><p class="empty">Lädt …</p></div>
-    </section>
+    <div class="hero" aria-hidden="true">
+      <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="Warren"><circle cx="60" cy="60" r="60" fill="#E9D9BF"/><path d="M22 120c2-22 18-30 38-30s36 8 38 30z" fill="#2E3A32"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#B5502E"/><ellipse cx="60" cy="56" rx="26" ry="31" fill="#F0C9A4"/><path d="M34 50c-2-20 10-30 26-30s28 10 26 30c-3-9-8-14-14-15-9 3-19 3-26 0-6 2-10 7-12 15z" fill="#EDEAE4"/><g fill="none" stroke="#2E3A32" stroke-width="3"><rect x="38" y="48" width="18" height="13" rx="3"/><rect x="64" y="48" width="18" height="13" rx="3"/><path d="M56 53h8"/></g><circle cx="47" cy="55" r="2.2" fill="#2E3A32"/><circle cx="73" cy="55" r="2.2" fill="#2E3A32"/><path d="M46 74c9 9 19 9 28 0" fill="#fff" stroke="#8a4b34" stroke-width="2.5" stroke-linejoin="round"/></svg><b>Warren</b></div>
+      <span class="vs">und</span>
+      <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="Charlie"><circle cx="60" cy="60" r="60" fill="#CFDAD3"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#3b4a56"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#C99A3E"/><ellipse cx="60" cy="58" rx="27" ry="31" fill="#EFC6A0"/><path d="M33 56c-3-12 0-22 6-26-4 8-4 16-3 26zM87 56c3-12 0-22-6-26 4 8 4 16 3 26z" fill="#E7E4DE"/><path d="M44 31c6-6 26-6 32 0-8-3-24-3-32 0z" fill="#E7E4DE"/><g fill="#fff" stroke="#2E3A32" stroke-width="3.5"><circle cx="48" cy="56" r="11"/><circle cx="72" cy="56" r="11"/></g><path d="M59 55h2" stroke="#2E3A32" stroke-width="3"/><circle cx="48" cy="56" r="2.6" fill="#2E3A32"/><circle cx="72" cy="56" r="2.6" fill="#2E3A32"/><path d="M47 76c8 5 18 3 26-2" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/></svg><b>Charlie</b></div>
+    </div>
+    <p class="sub">Aktie eintippen, zwei Meinungen bekommen.</p>
+    <form class="ak-form" id="form" autocomplete="off">
+      <input id="inp" type="text" maxlength="60" placeholder="z. B. Apple, KO, Siemens" aria-label="Aktie">
+      <button class="btn" id="go" type="submit">Prüfen</button>
+    </form>
+    <p class="msg" id="status"></p>
+    <ul class="pend" id="pend"></ul>
+    <div id="list"><p class="empty">Lädt …</p></div>
   </div>
+
+  <p class="foot">Warren und Charlie sind KI-Figuren im Geist der öffentlich bekannten Grundsätze von Warren Buffett und Charlie Munger, keine echten Personen und keine Zitate. Das hier ist keine Anlageberatung; Kennzahlen können unvollständig oder veraltet sein.</p>
 </div>
 <script>
 (function () {
-  // Google-Formular „Aktien Eingang“: url = …/formResponse, entry = 'entry.123456789' (Feld „Aktie“)
+  // Google-Formular „Aktien Eingang“
   var FORM = { url: 'https://docs.google.com/forms/d/e/1FAIpQLSe7btFK51BH3FOWqMuYN5bYuTT87hQMGRVnk0521wfI416QfA/formResponse', entry: 'entry.1299806996' };
   var KEY = 'aktien-wartend';
+  var FACE = { w: '<svg viewBox="0 0 120 120" role="img" aria-label="Warren"><circle cx="60" cy="60" r="60" fill="#E9D9BF"/><path d="M22 120c2-22 18-30 38-30s36 8 38 30z" fill="#2E3A32"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#B5502E"/><ellipse cx="60" cy="56" rx="26" ry="31" fill="#F0C9A4"/><path d="M34 50c-2-20 10-30 26-30s28 10 26 30c-3-9-8-14-14-15-9 3-19 3-26 0-6 2-10 7-12 15z" fill="#EDEAE4"/><g fill="none" stroke="#2E3A32" stroke-width="3"><rect x="38" y="48" width="18" height="13" rx="3"/><rect x="64" y="48" width="18" height="13" rx="3"/><path d="M56 53h8"/></g><circle cx="47" cy="55" r="2.2" fill="#2E3A32"/><circle cx="73" cy="55" r="2.2" fill="#2E3A32"/><path d="M46 74c9 9 19 9 28 0" fill="#fff" stroke="#8a4b34" stroke-width="2.5" stroke-linejoin="round"/></svg>', c: '<svg viewBox="0 0 120 120" role="img" aria-label="Charlie"><circle cx="60" cy="60" r="60" fill="#CFDAD3"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#3b4a56"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#C99A3E"/><ellipse cx="60" cy="58" rx="27" ry="31" fill="#EFC6A0"/><path d="M33 56c-3-12 0-22 6-26-4 8-4 16-3 26zM87 56c3-12 0-22-6-26 4 8 4 16 3 26z" fill="#E7E4DE"/><path d="M44 31c6-6 26-6 32 0-8-3-24-3-32 0z" fill="#E7E4DE"/><g fill="#fff" stroke="#2E3A32" stroke-width="3.5"><circle cx="48" cy="56" r="11"/><circle cx="72" cy="56" r="11"/></g><path d="M59 55h2" stroke="#2E3A32" stroke-width="3"/><circle cx="48" cy="56" r="2.6" fill="#2E3A32"/><circle cx="72" cy="56" r="2.6" fill="#2E3A32"/><path d="M47 76c8 5 18 3 26-2" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/></svg>' };
   function $(i) { return document.getElementById(i); }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function load() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
   function store(a) { try { localStorage.setItem(KEY, JSON.stringify(a.slice(-10))); } catch (e) {} }
   function norm(s) { return String(s).toLowerCase().replace(/[^a-z0-9äöüß]/g, ''); }
+  function cls(u) { u = String(u || '').toLowerCase(); return u.indexOf('gefällt') === 0 ? 'g' : u.indexOf('finger') === 0 ? 'r' : 'a'; }
 
-  var data = [];
-  function renderPending() {
-    var p = load().filter(function (w) {
-      return !data.some(function (d) { return norm(d.eingabe) === norm(w.t) || norm(d.name) === norm(w.t) || norm(d.ticker) === norm(w.t); }) && Date.now() - w.z < 864e5;
+  var data = [], seen = null, timer = null;
+  function pending() {
+    return load().filter(function (w) {
+      return !data.some(function (d) { return norm(d.eingabe) === norm(w.t) || norm(d.name) === norm(w.t) || norm(d.ticker) === norm(w.t) || norm(d.ticker).indexOf(norm(w.t)) === 0; }) && Date.now() - w.z < 864e5;
     });
-    store(p);
-    $('pend').innerHTML = p.map(function (w) { return '<li>⏳ ' + esc(w.t) + ' – wird geprüft …</li>'; }).join('');
   }
-  function card(e) {
-    function who(cls, name, x) {
-      if (!x) return '';
-      return '<div class="who ' + cls + '"><h4>' + name + '</h4><span class="u">' + esc(x.urteil) + '</span><p>' + esc(x.text) + '</p></div>';
-    }
-    var kz = (e.kennzahlen || []).map(function (k) { return '<li>' + esc(k.k) + ': <b>' + esc(k.v) + '</b></li>'; }).join('');
+  function renderPending() {
+    var p = pending(); store(p);
+    $('pend').innerHTML = p.map(function (w) { return '<li><span>⏳ <b>' + esc(w.t) + '</b> wird geprüft …</span><span class="dots"><i></i><i></i><i></i></span></li>'; }).join('');
+    if (p.length && !timer) timer = setInterval(refresh, 20000);
+    if (!p.length && timer) { clearInterval(timer); timer = null; }
+  }
+  function who(k, name, x) {
+    if (!x) return '';
+    return '<div class="who">' + FACE[k] + '<div class="top"><h4>' + name + '</h4><span class="u ' + cls(x.urteil) + '">' + esc(x.urteil) + '</span></div><p>' + esc(x.text) + '</p></div>';
+  }
+  function belege(b) {
+    if (!b || !b.length) return '';
+    return '<details class="bel"><summary>Belege aus Briefen und Versammlungen (' + b.length + ')</summary>' + b.map(function (x) {
+      var q = /^https?:\/\//.test(x.url || '') ? '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.quelle) + '</a>' : esc(x.quelle);
+      return '<blockquote>„' + esc(x.zitat) + '“<cite>' + esc(x.wer) + ' · ' + q + '</cite></blockquote>';
+    }).join('') + '</details>';
+  }
+  function card(e, isNew) {
+    var kz = (e.kennzahlen || []).map(function (k) { return '<li>' + esc(k.k) + ' <b>' + esc(k.v) + '</b></li>'; }).join('');
     var src = (e.quellen || []).map(function (q) { return /^https?:\/\//.test(q.url) ? '<a href="' + esc(q.url) + '" target="_blank" rel="noopener">' + esc(q.name) + '</a>' : esc(q.name); }).join(' · ');
-    return '<article class="st"><div class="hd"><h3>' + esc(e.name) + (e.ticker ? ' (' + esc(e.ticker) + ')' : '') + '</h3><span>Stand: ' + esc(e.stand) + '</span></div>' +
+    return '<article class="st' + (isNew ? ' new' : '') + '"><div class="hd"><h3>' + esc(e.name) + (e.ticker ? ' · ' + esc(e.ticker) : '') + '</h3><span>Stand ' + esc(e.stand) + '</span></div>' +
       (kz ? '<ul class="kz">' + kz + '</ul>' : '') +
-      '<div class="duo">' + who('w', 'Virtueller Warren', e.warren) + who('c', 'Virtueller Charlie', e.charlie) + '</div>' +
+      '<div class="duo">' + who('w', 'Warren', e.warren) + who('c', 'Charlie', e.charlie) + '</div>' +
+      belege(e.belege) +
       (e.risiken ? '<p class="risk"><b>Was schiefgehen kann:</b> ' + esc(e.risiken) + '</p>' : '') +
       (src ? '<p class="src">Quellen: ' + src + '</p>' : '') + '</article>';
   }
   function render() {
     var l = data.slice().reverse();
-    $('list').innerHTML = l.length ? '<div class="ak" style="margin:0">' + l.map(card).join('') + '</div>' : '<p class="empty">Noch keine Einschätzung vorhanden. Gib oben die erste Aktie ein.</p>';
+    var fresh = seen === null ? 0 : l.length - seen;
+    $('list').innerHTML = l.length ? '<div class="ak" style="margin:0">' + l.map(function (e, i) { return card(e, i < fresh); }).join('') + '</div>' : '<p class="empty">Noch keine Einschätzung. Gib oben die erste Aktie ein.</p>';
+    seen = l.length;
     renderPending();
   }
   function refresh() {
@@ -131,13 +164,12 @@
     fetch(FORM.url, { method: 'POST', mode: 'no-cors', body: fd }).then(function () {
       var w = load(); w.push({ t: t, z: Date.now() }); store(w);
       $('inp').value = '';
-      $('status').textContent = 'Gesendet. Die Einschätzung erscheint hier in wenigen Minuten, du kannst die Seite offen lassen.';
+      $('status').textContent = 'Gesendet. Die Meinung erscheint in wenigen Minuten, die Seite kann offen bleiben.';
       renderPending();
     }, function () { $('status').textContent = 'Senden hat nicht geklappt. Bitte später noch einmal versuchen.'; })
     .then(function () { $('go').disabled = false; });
   };
   refresh();
-  setInterval(function () { if (load().length) refresh(); }, 60000);
 })();
 </script>
 <script src="nav.js" defer></script>
