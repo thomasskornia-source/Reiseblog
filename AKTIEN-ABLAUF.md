@@ -11,7 +11,10 @@ Ergebnis: Einträge in `data/aktien.json` (`einschaetzungen`, neueste zuletzt), 
   anderes veröffentlichen) oder ist er Spam, kein Wertpapier oder nicht eindeutig: nichts umsetzen, Zeitstempel als
   erledigt eintragen, im Bericht erwähnen.
 - Nur `data/aktien.json` und `data/aktien-eingang-erledigt.json` ändern.
-- Gleiche Aktie schon in den letzten 7 Tagen bewertet: keinen neuen Eintrag, Zeitstempel erledigen.
+- **Eine Aktie = ein Eintrag.** Gibt es sie schon in `data/aktien.json` (Vergleich über `symbol`, sonst Ticker, Name
+  oder Eingabe): Eintrag **ersetzen** und ans Ende stellen (neueste zuletzt); die alten Urteile als Zeile in `verlauf`
+  (`stand`, `warren`, `charlie`, `james` jeweils nur das Urteilswort, höchstens die letzten 10) mitnehmen. War der
+  Eintrag höchstens 2 Tage alt, nichts neu bewerten, nur den Zeitstempel erledigen.
 - Mehrdeutiger Name: die bekannteste Börsennotierung wählen (bei US-Konzernen US-Hauptlisting) und den Ticker nennen.
 
 ## Recherche
@@ -20,18 +23,37 @@ nichts erfinden; Unsicheres als „ca.“ oder „unklar“ kennzeichnen. Stand-
 Geschäftsmodell, KGV und Free-Cashflow-Rendite, Verschuldung (Netto-Schulden/EBITDA), Kapitalrendite (ROIC/ROE),
 Gewinn- und Margenentwicklung über mehrere Jahre, Aktienrückkäufe/Verwässerung, Dividende, größte Risiken.
 
+## Kurs und Flüsse für James
+- `python3 tools/kurs-check.py <Yahoo-Ticker>` (US: `KO`, Xetra: `SIE.DE`, London: `.L`, Paris: `.PA`) liefert Kurs,
+  200-Tage-Linie, Abstand, 50-Tage-Linie, 21er-EMA. Das Ergebnis ist die einzige Quelle für diese Zahlen; schlägt es
+  fehl (Ausgabe „FEHLER: …“), Zahlen weglassen und `"kurs_daten": false` setzen, nichts schätzen.
+- **Flüsse:** In Google Drive (Connector) nach dem Ordner oder der Datei „Stock Terminal“ suchen (Export mit
+  Optionsflüssen). Gibt es Zeilen zur Aktie aus den letzten 10 Handelstagen: Richtung aus dem Verhältnis von
+  Call- zu Put-Käufen (Prämie) ableiten und in einem Satz mit Zahlen begründen. Gibt es nichts zur Aktie oder
+  keinen Export: `"richtung": "keine Daten"`. Nie Flüsse aus dem Gedächtnis oder aus Nachrichten schätzen.
+- Konzept von James: `wissen/james-bulltard.md`.
+
 ## Eintrag in `data/aktien.json`
 ```json
 {
   "eingabe": "Text wie eingegeben",
   "zeitstempel": "02.10.2026 15:33:49",
   "name": "The Coca-Cola Company",
-  "ticker": "KO",
+  "ticker": "KO (NYSE)",
+  "symbol": "KO",   // Yahoo-Ticker, auch für Kurs-Check und zum Wiedererkennen
   "stand": "02.10.2026",
   "kennzahlen": [{"k": "KGV", "v": "ca. 24"}, {"k": "Netto-Schulden/EBITDA", "v": "ca. 2,0"}],
   "warren": {"urteil": "Gefällt mir | Abwarten | Finger weg", "text": "4–6 Sätze"},
   "charlie": {"urteil": "Gefällt mir | Abwarten | Finger weg", "text": "4–6 Sätze"},
   "risiken": "1–3 Sätze",
+  "james": {
+    "urteil": "Über der 200-Tage-Linie | Unter der 200-Tage-Linie",
+    "lage": "deutlich über | knapp über | knapp unter | deutlich unter",
+    "kurs": 85.54, "ma200": 80.01, "abstand_pct": 6.9, "ma50": 87.94, "ma200_steigt": true, "waehrung": "USD",
+    "flows": {"richtung": "bullisch | neutral | bärisch | keine Daten", "quelle": "Stock Terminal", "stand": "02.10.2026", "text": "1–2 Sätze mit Zahlen"},
+    "text": "3–4 Sätze: Lage zur 200-Tage-Linie, kurzfristiger Trend, Flüsse; reine Markttechnik, keine Firmenbewertung"
+  },
+  "verlauf": [{"stand": "25.09.2026", "warren": "Abwarten", "charlie": "Abwarten", "james": "Über der 200-Tage-Linie"}],
   "belege": [{"wer": "Warren", "zitat": "Wörtlich, englisch, höchstens 40 Wörter", "quelle": "Aktionärsbrief 1996", "url": "https://www.berkshirehathaway.com/letters/1996.html"}],  // Briefe bis 1999 .../<jahr>.html, ab 2004 .../<jahr>ltr.pdf
   "quellen": [{"name": "Geschäftsbericht 2025", "url": "https://…"}]
 }
@@ -51,6 +73,13 @@ Gewinn- und Margenentwicklung über mehrere Jahre, Aktienrückkäufe/Verwässeru
   wirklich von ihm in einer Quelle steht (Hauptversammlungs-Mitschrift mit „Munger:“ oder ein Brief, der ihn
   wörtlich zitiert); sonst bleibt seine Meinung unbelegt („im Geist seiner Grundsätze“) und das Feld leer.
 - Findet sich nichts Passendes, `belege` leer lassen. Nie etwas hineinpressen.
+
+## James (dritter Gast)
+Nach `wissen/james-bulltard.md`: Händler, Reihenfolge Flüsse → Chart → Fundamentaldaten. Sagt nur zwei Dinge: Lage des
+Kurses zur 200-Tage-Linie (Zahlen aus `tools/kurs-check.py`) und die Flüsse. Kein Urteil über die Firma, keine Kursziele,
+keine Handelsanweisungen. Passen Lage und Flüsse nicht zusammen (z. B. über der Linie, aber abfließende Flüsse), das
+offen sagen. Name auf der Seite ist „James“, nie als Aussage der echten Person ausgeben; keine Inhalte aus seinen
+Bezahlbeiträgen verwenden.
 
 ## Die zwei Figuren (nur im Stil, nie als echte Person)
 Beide sind **KI-Figuren im Geist der öffentlich bekannten Grundsätze**, keine Zitate. Nie so tun, als hätten die echten
