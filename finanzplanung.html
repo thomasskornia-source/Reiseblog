@@ -916,7 +916,7 @@ function compute(P) {
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var DEF = { vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: '', kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: 2, kfMietG: 2.5, kfRend: 4.5 };
+  var DEF = { vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: '', kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: '', kfMietG: '', kfRend: '' };
 
   var AUS = [
     ['aWohnen', 'Wohnen', 'Miete bzw. Wohnkosten, Nebenkosten, Energie', 1100],
@@ -987,9 +987,12 @@ function compute(P) {
       bRente: 0, bRenteTyp: 'bav', bKap: 0, bForm: 'rente',
       aus: AUS.map(function (a) { return rd(a[0], 0, 0, 100000); }),
       contracts: CON.map(conClean),
-      kauf: { preis: rd('kfPreis', 0, 0, 1e8), ek: rd('kfEK', 0, 0, 1e8), miete: (rd('kfMiete', 0, 0, 1e5) || rd('aWohnen', 0, 0, 1e5)) * 12, jahre: Math.round(rd('kfJahre', 25, 5, 40)), nk: rd('kfNK', 9.5, 0, 30) / 100, zins: rd('kfZins', 3.8, 0, 15) / 100, tilg: rd('kfTilg', 2, 0, 10) / 100, inst: rd('kfInst', 1, 0, 5) / 100, wert: rd('kfWert', 2, -5, 10) / 100, mietg: rd('kfMietG', 2.5, -2, 10) / 100, rend: rd('kfRend', 4.5, -2, 15) / 100 }
+      kauf: { preis: rd('kfPreis', 0, 0, 1e8), ek: rd('kfEK', 0, 0, 1e8), miete: (rd('kfMiete', 0, 0, 1e5) || rd('aWohnen', 0, 0, 1e5)) * 12, jahre: Math.round(rd('kfJahre', 25, 5, 40)), nk: rd('kfNK', 9.5, 0, 30) / 100, zins: rd('kfZins', 3.8, 0, 15) / 100, tilg: rd('kfTilg', 2, 0, 10) / 100, inst: rd('kfInst', 1, 0, 5) / 100, wert: 0, mietg: 0, rend: 0 }
     };
     P.retOverride = 0;
+    var kb = function (id, d, lo, hi) { return String($(id).value).trim() === '' ? d : rd(id, d, lo, hi) / 100; };
+    P.kauf.wert = kb('kfWert', P.infl, -5, 10); P.kauf.mietg = kb('kfMietG', P.infl, -2, 10);
+    P.kauf.rend = kb('kfRend', P.rE * (1 - kapStRate(P.kirche) * (1 - K.TEILFREI)), -2, 15);
     if (P.status === 'verheiratet' || P.status === 'paar') {
       P.partner = { name: $('pvorname').value.trim().slice(0, 40), by: Math.round(rd('pby', P.by, 1940, YEAR - 16)), beruf: $('pberuf').value,
         brutto: rd('pbrutto', 0, 0, 5e6), startAge: rd('pstart', 23, 14, 45), renteInfo: rd('prenteInfo', 0, 0, 20000) , retOverride: 0 };
@@ -1266,6 +1269,8 @@ function compute(P) {
     // Kaufen oder mieten
     (function () {
       $('kfEK').placeholder = P.W0 > 0 ? eur(P.W0) + ' (Vermögen)' : 'Vermögen heute';
+      $('kfWert').placeholder = pct(P.infl, 1) + ' (Inflation)'; $('kfMietG').placeholder = pct(P.infl, 1) + ' (Inflation)';
+      $('kfRend').placeholder = pct(P.kauf.rend, 1) + ' (ETF nach Steuer)';
       var wohn = P.aus[AUS.findIndex(function (a) { return a[0] === 'aWohnen'; })] || 0;
       $('kfMiete').placeholder = wohn > 0 ? eur(wohn) + ' (Wohnen)' : '€';
       var k = P.kauf; if (!(k.preis > 0)) { $('buyOut').innerHTML = '<p class="small">Trage einen Kaufpreis ein, um den Vergleich zu sehen.</p>'; return; }
