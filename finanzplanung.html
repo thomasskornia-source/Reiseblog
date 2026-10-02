@@ -376,17 +376,6 @@ body.fp-body { padding-bottom: 0; }
 
   <section class="miles" id="miles" aria-label="Meilensteine"></section>
 
-  <section class="exitbox" id="exitBox" hidden aria-label="Früher aufhören oder Altersteilzeit">
-    <h2>Früher aufhören oder Altersteilzeit?</h2>
-    <p id="exitA"></p>
-    <p id="exitB"></p>
-    <div class="exitin">
-      <label class="f" for="atzY"><span>Altersteilzeit (Jahre)</span><input id="atzY" type="number" inputmode="numeric" min="0" max="8" step="1" value="3"></label>
-      <label class="f" for="atzP"><span>Netto in Teilzeit (%)</span><input id="atzP" type="number" inputmode="numeric" min="40" max="100" step="5" value="80"></label>
-    </div>
-    <p class="exitnote" id="exitN"></p>
-  </section>
-
 
 
   <div class="layout">
@@ -496,6 +485,18 @@ body.fp-body { padding-bottom: 0; }
     </aside>
 
     <main class="stack" id="results">
+      <section class="exitbox" id="exitBox" hidden aria-label="Früher aufhören oder Altersteilzeit">
+        <h2>Früher aufhören oder Altersteilzeit?</h2>
+        <p id="exitA"></p>
+        <p id="exitB"></p>
+        <div class="exitin">
+          <label class="f" for="atzY"><span>Altersteilzeit (Jahre)</span><input id="atzY" type="number" inputmode="numeric" min="0" max="8" step="1" value="3"></label>
+          <label class="f" for="atzP"><span>Netto in Teilzeit (%)</span><input id="atzP" type="number" inputmode="numeric" min="40" max="100" step="5" value="80"></label>
+        </div>
+        <p class="exitnote" id="exitN"></p>
+      </section>
+
+
       <section class="storyhero" aria-labelledby="h-story">
         <h2 id="h-story">Deine Auswertung als Story</h2>
         <p>Sind deine Angaben komplett? Dann tippe dich durch deine wichtigsten Zahlen und erfahre am Ende, ob dein Plan trägt.</p>
@@ -1147,7 +1148,7 @@ function compute(P) {
   }
   function exitRender(R, P, netMonth, ausTot0, two) {
     var box = $('exitBox');
-    if (!(R.retAge - R.age0 > 0.5)) { box.hidden = true; return; }
+    if (!(R.retAge - R.age0 > 0.5)) { box.hidden = true; EXIT = null; return; }
     box.hidden = false;
     var du = two ? 'ihr' : 'du', dein = two ? 'euer' : 'dein', deine = two ? 'eure' : 'deine';
     var share = Math.min(1, Math.max(0, R.pg.v / Math.max(1, R.pn.gross)));
@@ -1171,14 +1172,14 @@ function compute(P) {
       var q2 = Math.max(R.age0, Math.floor(R.retAge - 3));
       a = 'Vor dem Renteneintritt mit ' + ageText(R.retAge) + ' reicht das Vermögen rechnerisch nicht, um ' + what + ' zu ersetzen. Würdest ' + du + ' schon mit ' + ageText(q2) + ' aufhören, blieben etwa <b>' + eur(payQ(q2)) + ' im Monat</b> (heutige Kaufkraft) bis ' + P.planAge + '.';
     }
-    $('exitA').innerHTML = a;
+    $('exitA').innerHTML = a; EXIT = { a: a, b: '' };
     var Y = Math.min(8, Math.max(0, +$('atzY').value || 0)), pc = Math.min(100, Math.max(40, +$('atzP').value || 80));
     Y = Math.min(Y, R.retAge - R.age0);
     if (Y > 0) {
       var start = R.retAge - Y, capR = capAt(R.retAge, start);
       var pensA = pensAt(R.retAge, Math.min(1, 0.1 * Y / Math.max(1, R.retAge - P.startAge)));
       var withA = sustainPay(R, P, capR, R.retAge, pensA, R.lumpNom), without = sustainPay(R, P, R.at.ret.net, R.retAge, R.pn.net, R.lumpNom);
-      $('exitB').innerHTML = 'Gehst ' + du + ' <b>' + Y + ' ' + (Y === 1 ? 'Jahr' : 'Jahre') + ' vor der Rente</b> (ab ' + ageText(start) + ') in Altersteilzeit, bleiben etwa <b>' + eur(pc / 100 * netMonth) + ' netto im Monat</b> (statt ' + eur(netMonth) + '), das Sparen pausiert. Ab dem Renteneintritt stehen ' + (two ? 'euch' : 'dir') + ' aus Rente (' + eur(pensA) + ') und Vermögen (≈ ' + eur(capR) + ') zusammen etwa <b>' + eur(withA) + ' im Monat</b> zur Verfügung, ohne Altersteilzeit wären es ' + eur(without) + '.';
+      $('exitB').innerHTML = EXIT.b = 'Gehst ' + du + ' <b>' + Y + ' ' + (Y === 1 ? 'Jahr' : 'Jahre') + ' vor der Rente</b> (ab ' + ageText(start) + ') in Altersteilzeit, bleiben etwa <b>' + eur(pc / 100 * netMonth) + ' netto im Monat</b> (statt ' + eur(netMonth) + '), das Sparen pausiert. Ab dem Renteneintritt stehen ' + (two ? 'euch' : 'dir') + ' aus Rente (' + eur(pensA) + ') und Vermögen (≈ ' + eur(capR) + ') zusammen etwa <b>' + eur(withA) + ' im Monat</b> zur Verfügung, ohne Altersteilzeit wären es ' + eur(without) + '.';
     } else $('exitB').innerHTML = 'Mit „Altersteilzeit (Jahre)“ unten rechnest ' + du + ' aus, was ' + (two ? 'euch' : 'dir') + ' in der Teilzeit und danach bleibt.';
     $('exitN').textContent = 'Grobe Rechnung in heutiger Kaufkraft, Entnahme bis ' + P.planAge + ' mit ' + pct(P.rRet, 1) + ' Rendite. Bei früherem Aufhören fällt die Rente niedriger aus, in der Altersteilzeit zählen die Rentenbeiträge mit rund 90 %. Die genauen Werte hängen vom Tarifvertrag ab.';
   }
@@ -1722,7 +1723,7 @@ function compute(P) {
 
 
   /* ---------- Story-Ansicht ---------- */
-  var LAST = null, KAUF = null, SI = 0, SC = [], stOpener = null;
+  var EXIT = null, LAST = null, KAUF = null, SI = 0, SC = [], stOpener = null;
   var cnt = function (v, f) { return '<span class="cnt" data-v="' + v + '" data-f="' + f + '">' + cfmt(v, f) + '</span>'; };
   function cfmt(v, f) { return f === 'pct' ? pct(v) : (f === 'num' ? num(v) : eur(v)); }
   var first = function (t) { var i = t.indexOf('. '); t = i > 0 ? t.slice(0, i + 1) : t; return t.length > 150 ? t.slice(0, 147) + '…' : t; };
@@ -1736,6 +1737,24 @@ function compute(P) {
     // 2 Heute
     c.push({ t: 't-sage', h: '<div class="st-eye">Heute</div><h2>Das ' + (two ? 'habt ihr' : 'hast du') + ' schon</h2><div class="st-big">' + cnt(P.W0, 'eur') + '</div><div class="st-sub">Vermögen heute</div>' +
       '<p>' + (two ? 'Ihr spart ' : 'Du sparst ') + eur(P.sparrate) + ' pro Monat, das sind ' + pct(L.quote) + (two ? ' eures Nettos.' : ' deines Nettos.') + (L.bm > 0 && L.mult > 0 ? ' Als Faustregel gelten für ' + (two ? 'euer Alter' : 'dein Alter') + ' etwa ' + num(L.bm, 1) + '× Jahreseinkommen. ' + (two ? 'Ihr liegt' : 'Du liegst') + ' bei ' + num(L.mult, 1) + '×.' : '') + '</p>' });
+    // Bis zur Rente in Zahlen
+    var yL = Math.max(0, R.retAge - R.age0), ni = R.ni, gB = ni.net + ni.sv + ni.tax + ni.kist, cur = new Date();
+    if (yL > 0.5 && gB > 0) {
+      var wd = yL * 219, hrs = wd * 8, tTax = (ni.tax + ni.kist) * yL, tSv = ni.sv * yL, tGross = gB * yL, tNet = ni.net * yL;
+      var shTax = (ni.tax + ni.kist) / gB, shAll = (ni.tax + ni.kist + ni.sv) / gB;
+      var dayOf = function (sh) { var d = new Date(2026, 0, 1 + Math.round(sh * 365)); return d.getDate() + '. ' + ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'][d.getMonth()]; };
+      var hh = two ? ' (Haushalt)' : '';
+      c.push({ t: 't-ink', h: '<div class="st-eye">Bis zur Rente</div><h2>Noch zu arbeiten</h2><div class="st-big">' + cnt(Math.round(wd), 'num') + '</div><div class="st-sub">Arbeitstage bis ' + ageText(R.retAge) + '</div>' +
+        '<div class="st-rows"><div class="st-row"><span>Arbeitsstunden (8 h pro Tag)</span><b>' + num(Math.round(hrs / 100) * 100) + '</b></div><div class="st-row"><span>Wochen</span><b>' + num(Math.round(yL * 52.18)) + '</b></div><div class="st-row"><span>Urlaubstage (30 pro Jahr)</span><b>' + num(Math.round(yL * 30)) + '</b></div><div class="st-row"><span>Weihnachtsfeste bis zur Rente</span><b>' + num(Math.max(1, Math.round(yL))) + '</b></div></div>' +
+        '<p>Gerechnet mit rund 219 Arbeitstagen pro Jahr (ohne Urlaub und Feiertage).</p>' });
+      c.push({ t: 't-gold', h: '<div class="st-eye">Bis zur Rente' + hh + '</div><h2>Das verdienst du noch</h2><div class="st-big">' + cnt(tGross, 'eur') + '</div><div class="st-sub">brutto, bei gleichbleibendem Gehalt</div>' +
+        '<div class="st-bar"><i style="--w:' + tNet / tGross * 100 + '%;background:#9fdcb8"></i><i style="--w:' + tSv / tGross * 100 + '%;background:#f2c36b"></i><i style="--w:' + (tTax / tGross * 100) + '%;background:#ff9a85"></i></div>' +
+        '<div class="st-leg"><span><i class="st-dot" style="background:#9fdcb8"></i>Netto<b>' + eur(tNet) + '</b></span><span><i class="st-dot" style="background:#f2c36b"></i>Sozialversicherung<b>' + eur(tSv) + '</b></span><span><i class="st-dot" style="background:#ff9a85"></i>Steuern<b>' + eur(tTax) + '</b></span></div>' +
+        '<p>Das sind ' + eur(tNet / (yL * 12)) + ' netto pro Monat. Alles in heutiger Kaufkraft, ohne Gehaltssteigerungen.</p>' });
+      c.push({ t: 't-rust', h: '<div class="st-eye">Bis zur Rente' + hh + '</div><h2>Das geht ans Finanzamt</h2><div class="st-big">' + cnt(tTax, 'eur') + '</div><div class="st-sub">Lohnsteuer, Soli' + (ni.kist > 0 ? ' und Kirchensteuer' : '') + '</div>' +
+        '<div class="st-rows"><div class="st-row"><span>Pro Arbeitstag</span><b>' + eur(tTax / wd) + '</b></div><div class="st-row"><span>Pro Monat</span><b>' + eur(tTax / (yL * 12)) + '</b></div><div class="st-row"><span>Von jedem verdienten Euro</span><b>' + num(shTax * 100) + ' Cent</b></div></div>' +
+        '<p>Mit der Sozialversicherung sind es ' + num(shAll * 100) + ' Cent. Rechnerisch arbeitest du jedes Jahr bis zum ' + dayOf(shAll) + ' nur für Steuern und Abgaben.</p>' });
+    }
     // 3 Renteneintritt
     var gain = Math.max(0, ret.net - ret.paid), wPaid = ret.net > 0 ? Math.min(100, ret.paid / ret.net * 100) : 0;
     c.push({ t: 't-rust', h: '<div class="st-eye">Mit ' + ageText(R.retAge) + ' in Rente, ca. ' + R.retYear + '</div><h2>So viel steht dann bereit</h2><div class="st-big">' + cnt(ret.net, 'eur') + '</div>' +
@@ -1771,6 +1790,18 @@ function compute(P) {
         '<div class="st-bar"><i style="--w:' + wOk + '%;background:#9fdcb8"></i><i style="--w:' + (100 - wOk) + '%;background:#ff9a85"></i></div>' +
         '<div class="st-leg"><span><i class="st-dot" style="background:#9fdcb8"></i>Gedeckt von ' + ageText(R.retAge) + ' bis ' + (need <= 0 || dep === null ? num(P.planAge) : num(dep))+ '</span>' + (dep !== null && need > 0 ? '<span><i class="st-dot" style="background:#ff9a85"></i>Nicht gedeckt von ' + num(dep) + ' bis ' + num(P.planAge) + '</span>' : '') + '</div>' +
         '<p>' + (need <= 0 ? 'Dein Einkommen im Ruhestand trägt deine Kosten, ohne dass du an dein Vermögen musst.' : (dep === null ? 'Dein Vermögen trägt die Lücke bis zu deinem Planungsalter von ' + num(P.planAge) + '.' : 'Das Vermögen reicht bis etwa Alter ' + num(dep) + ', danach fehlen ' + eur(need) + ' pro Monat (in heutiger Kaufkraft).')) + '</p>' });
+    }
+    // Früher aufhören / Altersteilzeit
+    if (EXIT && EXIT.a) c.push({ t: 't-blue', h: '<div class="st-eye">Früher aufhören?</div><h2>Altersteilzeit und Ausstieg</h2><p style="max-width:none;font-size:15px">' + EXIT.a + '</p>' + (EXIT.b ? '<p style="max-width:none;font-size:15px">' + EXIT.b + '</p>' : '') + '<p class="st-fine">Grobe Rechnung in heutiger Kaufkraft.</p>' });
+    // Zahlen am Rande
+    var yR = Math.max(0, P.planAge - R.retAge);
+    if (yL > 0.5) {
+      var growth = (ret.net - P.W0) / Math.max(1, yL * 365), rows = [['Vermögen wächst im Schnitt pro Tag', eur(growth)]];
+      if (P.sparrate > 0) rows.push(['Du legst pro Arbeitstag zurück', eur(P.sparrate * 12 / 219)]);
+      rows.push(['100 € von heute sind dann noch wert', eur(100 / infl(yL))]);
+      if (yR > 0) rows.push(['Ruhestand bis ' + P.planAge + ' in Tagen', num(Math.round(yR * 365))]);
+      if (yR > 0 && R.pn.net > 0) rows.push(['Rente in dieser Zeit (netto)', eur(R.pn.net * 12 * yR)]);
+      c.push({ t: 't-plum', h: '<div class="st-eye">Zahlen am Rande</div><h2>Was bis zur Rente noch passiert</h2><div class="st-rows">' + rows.map(function (x) { return '<div class="st-row"><span>' + x[0] + '</span><b>' + x[1] + '</b></div>'; }).join('') + '</div><p>Rente in heutiger Kaufkraft. Alles Modellrechnung, keine Prognose.</p>' });
     }
     // 6 Betriebsrente
     if (R.bav) {
@@ -1853,7 +1884,7 @@ function compute(P) {
   }
   function decoFor(html) {
     if (html.indexOf('st-badge') >= 0) return 'stars';
-    var m = [['Finanzplan</div>', ''], ['>Heute<', 'coins'], ['in Rente, ca.', 'curve'], ['Im Ruhestand<', 'euro'], ['Reicht das?', 'waves'], ['Deine Betriebsrente', 'orbit'], ['Deine Absicherung', ''], ['Brutto und netto', 'waves'], ['>Wohnen<', 'orbit'], ['nächsten Schritte', 'stars']];
+    var m = [['Finanzplan</div>', ''], ['>Heute<', 'coins'], ['in Rente, ca.', 'curve'], ['Im Ruhestand<', 'euro'], ['Reicht das?', 'waves'], ['Noch zu arbeiten', 'rings'], ['Finanzamt', 'euro'], ['Zahlen am Rande', 'stars'], ['Deine Betriebsrente', 'orbit'], ['Deine Absicherung', ''], ['Brutto und netto', 'waves'], ['>Wohnen<', 'orbit'], ['nächsten Schritte', 'stars']];
     for (var i = 0; i < m.length; i++) if (html.indexOf(m[i][0]) >= 0) return m[i][1];
     return '';
   }
