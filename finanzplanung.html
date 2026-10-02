@@ -382,6 +382,11 @@ body.fp-body { padding-bottom: 0; }
           <label class="f" for="by"><span>Geburtsjahr</span><input id="by" type="number" inputmode="numeric" min="1940" max="2010" step="1"></label>
           <label class="f" for="wunsch"><span>Wunschalter</span><input id="wunsch" type="number" inputmode="numeric" min="30" max="95" step="1"></label>
         </div>
+        <div class="grid2">
+          <label class="f" for="bm"><span>Geburtsmonat</span><select id="bm"><option value="">unbekannt</option><option value="1">Januar</option><option value="2">Februar</option><option value="3">März</option><option value="4">April</option><option value="5">Mai</option><option value="6">Juni</option><option value="7">Juli</option><option value="8">August</option><option value="9">September</option><option value="10">Oktober</option><option value="11">November</option><option value="12">Dezember</option></select></label>
+          <label class="f" for="rb"><span>Rentenbeginn (optional)</span><input id="rb" type="month" min="2025-01" max="2090-12"></label>
+        </div>
+        <div class="small" id="retNote"></div>
         <label class="f" for="beruf"><span>Beruf</span>
           <select id="beruf"><option value="angestellt">Angestellt</option><option value="selbst">Selbstständig</option><option value="beamte">Beamtin oder Beamter</option></select></label>
         <div class="grid2">
@@ -389,7 +394,6 @@ body.fp-body { padding-bottom: 0; }
         <label class="f" for="startAge"><span>Berufsstart mit Alter</span><input id="startAge" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
         </div>
         <label class="f" for="renteInfo"><span>Rente laut Rentenbescheid oder Renteninformation (optional)</span><input id="renteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"><small>Trage die Bruttorente vor Abzügen ein. Sie ersetzt die Schätzung des Planers.</small></label>
-        <label class="f" for="retOverride"><span>Renteneintrittsalter</span><select id="retOverride"><option value="">Regelaltersgrenze laut Renteninformation</option><option value="63">63 Jahre</option><option value="64">64 Jahre</option><option value="65">65 Jahre</option><option value="66">66 Jahre</option><option value="67">67 Jahre</option><option value="68">68 Jahre</option><option value="69">69 Jahre</option><option value="70">70 Jahre</option></select><small id="retNote"></small></label>      </fieldset>
 
       <fieldset id="partnerSet" hidden><legend id="parLeg">Partnerin oder Partner</legend>
         <p class="small">Lässt du Brutto leer, zählt die Person ohne eigenes Einkommen.</p>
@@ -404,6 +408,11 @@ body.fp-body { padding-bottom: 0; }
           <label class="f" for="pstart"><span>Berufsstart mit Alter</span><input id="pstart" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
         </div>
         <label class="f" for="prenteInfo"><span>Rente laut Rentenbescheid oder Renteninformation (optional)</span><input id="prenteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"></label>
+        <div class="grid2">
+          <label class="f" for="pbm"><span>Geburtsmonat</span><select id="pbm"><option value="">unbekannt</option><option value="1">Januar</option><option value="2">Februar</option><option value="3">März</option><option value="4">April</option><option value="5">Mai</option><option value="6">Juni</option><option value="7">Juli</option><option value="8">August</option><option value="9">September</option><option value="10">Oktober</option><option value="11">November</option><option value="12">Dezember</option></select></label>
+          <label class="f" for="prb"><span>Rentenbeginn (optional)</span><input id="prb" type="month" min="2025-01" max="2090-12"></label>
+        </div>
+        <div class="small" id="pretNote"></div>
       </fieldset>
 
       <fieldset><legend>Sparen und Anlegen</legend>
@@ -778,8 +787,10 @@ function compute(P) {
   let pg2 = null, retAge2 = null;
   const items = [{ gross: pg.v, beamte: P.beruf === 'beamte' && !(P.renteInfo > 0), year: retYear }];
   if (hasPartner) {
-    const r2 = regelalter(P.partner.by); retAge2 = r2.y + r2.m / 12;
-    pg2 = pensionGross(P.partner, retAge2);
+    const r2 = regelalter(P.partner.by), reg2 = r2.y + r2.m / 12;
+    retAge2 = P.partner.retOverride >= 63 ? Math.min(70, P.partner.retOverride) : reg2;
+    const dM2 = Math.round((retAge2 - reg2) * 12);
+    pg2 = pensionGross(P.partner, retAge2); pg2.v *= dM2 < 0 ? 1 + 0.003 * dM2 : 1 + 0.005 * dM2;
     items.push({ gross: pg2.v, beamte: P.partner.beruf === 'beamte' && !(P.partner.renteInfo > 0), year: Math.floor(P.partner.by + retAge2), o: 1 });
   }
   const pn0 = pensionNetHH(P, items);
@@ -914,7 +925,7 @@ function compute(P) {
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var DEF = { vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: 2030, kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: 2, kfMietG: 2.5, kfRend: 4.5 };
-  DEF.retOverride = '';
+  DEF.bm = ''; DEF.rb = ''; DEF.pbm = ''; DEF.prb = '';
   var AUS = [
     ['aWohnen', 'Wohnen', 'Miete bzw. Wohnkosten, Nebenkosten, Energie', 1100],
     ['aLeben', 'Lebensmittel', 'Lebensmittel und Haushalt', 450],
@@ -970,6 +981,13 @@ function compute(P) {
   var clamp = function (v, lo, hi) { return Math.min(hi, Math.max(lo, v)); };
   var rd = function (id, d, lo, hi) { var v = parseFloat(String($(id).value).replace(',', '.')); if (!isFinite(v)) v = d; return clamp(v, lo, hi); };
 
+  var MON = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+  function regStart(by, bm) { var ra = regelalter(by), reg = ra.y + ra.m / 12, t = by * 12 + (bm ? +bm - 1 : 5) + Math.round(reg * 12) + 1; return { y: Math.floor(t / 12), m: t % 12, t: t, reg: reg }; }
+  function retFrom(by, bm, rb) {
+    var m = /^(\d{4})-(\d{2})$/.exec(rb || ''); if (!m) return 0;
+    var rs = regStart(by, bm), dm = (+m[1] * 12 + (+m[2] - 1)) - rs.t; if (dm === 0) return 0;
+    return clamp(rs.reg + dm / 12, 63, 70);
+  }
   function readP() {
     var P = {
       by: Math.round(rd('by', DEF.by, 1940, YEAR - 16)), wunsch: Math.round(rd('wunsch', 70, 30, 95)),
@@ -985,10 +1003,11 @@ function compute(P) {
       contracts: CON.map(conClean),
       kauf: { preis: rd('kfPreis', 0, 0, 1e8), ek: rd('kfEK', 0, 0, 1e8), miete: rd('kfMiete', 0, 0, 1e5) * 12, jahre: Math.round(rd('kfJahre', 25, 5, 40)), nk: rd('kfNK', 9.5, 0, 30) / 100, zins: rd('kfZins', 3.8, 0, 15) / 100, tilg: rd('kfTilg', 2, 0, 10) / 100, inst: rd('kfInst', 1, 0, 5) / 100, wert: rd('kfWert', 2, -5, 10) / 100, mietg: rd('kfMietG', 2.5, -2, 10) / 100, rend: rd('kfRend', 4.5, -2, 15) / 100 }
     };
-    var ro = rd('retOverride', 0, 0, 80); P.retOverride = ro >= 60 ? clamp(ro, 63, 70) : 0;
+    P.retOverride = retFrom(P.by, $('bm').value, $('rb').value); P.bm = $('bm').value;
     if (P.status === 'verheiratet' || P.status === 'paar') {
       P.partner = { name: $('pvorname').value.trim().slice(0, 40), by: Math.round(rd('pby', P.by, 1940, YEAR - 16)), beruf: $('pberuf').value,
-        brutto: rd('pbrutto', 0, 0, 5e6), startAge: rd('pstart', 23, 14, 45), renteInfo: rd('prenteInfo', 0, 0, 20000) };
+        brutto: rd('pbrutto', 0, 0, 5e6), startAge: rd('pstart', 23, 14, 45), renteInfo: rd('prenteInfo', 0, 0, 20000), bm: $('pbm').value };
+      P.partner.retOverride = retFrom(P.partner.by, $('pbm').value, $('prb').value);
     } else P.partner = null;
     if (!nettoAuto) P.netto = rd('netto', 0, 0, 1e6);
     return P;
@@ -1222,9 +1241,15 @@ function compute(P) {
       (R.pg.src === 'none' && !R.hasPartner ? '<p class="note">Als Selbstständige oder Selbstständiger zählt hier nur dein Vermögen. Hast du Ansprüche aus einem Versorgungswerk oder einer Basisrente, trage sie bei der Renteninformation ein.</p>' : '');
 
     // Renteneintrittsalter-Hinweis
-    var rn = 'Gesetzliche Regelaltersgrenze für Jahrgang ' + P.by + ': ' + ageText(R.regAge) + ' Jahre.';
+    var rsT = function (by, bm) { var r = regStart(by, bm); return bm ? ', Rentenbeginn dann ' + MON[r.m] + ' ' + r.y : '. Mit Geburtsmonat siehst du den genauen Rentenbeginn'; };
+    var rn = 'Gesetzliche Regelaltersgrenze für Jahrgang ' + P.by + ': ' + ageText(R.regAge) + ' Jahre' + rsT(P.by, P.bm) + '.';
     if (P.retOverride) rn += ' Du rechnest mit ' + ageText(R.retAge) + '. Die gesetzliche Rente wird dafür ' + (R.rFactor < 1 ? 'um ' + pct(1 - R.rFactor, 1) + ' gekürzt (0,3 % je Monat früher).' : (R.rFactor > 1 ? 'um ' + pct(R.rFactor - 1, 1) + ' erhöht (0,5 % je Monat später).' : 'nicht verändert.'));
     $('retNote').textContent = rn;
+    if (P.partner) {
+      var rn2 = 'Gesetzliche Regelaltersgrenze für Jahrgang ' + P.partner.by + ': ' + ageText(regelalter(P.partner.by).y + regelalter(P.partner.by).m / 12) + ' Jahre' + rsT(P.partner.by, P.partner.bm) + '.';
+      if (P.partner.retOverride) rn2 += ' Gerechnet wird mit ' + ageText(R.retAge2) + ', die Rente wird entsprechend gekürzt oder erhöht.';
+      $('pretNote').textContent = rn2;
+    }
 
     // Ausgaben im Ruhestand
     var ausTotal = P.aus.reduce(function (x, y) { return x + y; }, 0);
@@ -1564,6 +1589,7 @@ function compute(P) {
     if (!o || o.app !== 'finanzplanung' || typeof o.fields !== 'object' || !o.fields) throw new Error('format');
     Object.keys(DEF).forEach(function (k) { if (o.fields[k] != null) $(k).value = String(o.fields[k]).slice(0, 80); });
     syncUI(); lastNm = { vorname: $('vorname').value.trim(), pvorname: $('pvorname').value.trim() };
+    if (o.fields.retOverride && !o.fields.rb) { var oa = parseFloat(o.fields.retOverride); if (oa >= 63) { var tt = regStart(+$('by').value, $('bm').value).t - Math.round(regStart(+$('by').value, $('bm').value).reg * 12) + Math.round(oa * 12); $('rb').value = Math.floor(tt / 12) + '-' + String(tt % 12 + 1).padStart(2, '0'); } }
     var oldB = parseFloat(String(o.fields.bRente || '').replace(',', '.'));
     nettoAuto = o.nettoAuto !== false;
     if (!nettoAuto && o.fields.netto != null) $('netto').value = String(o.fields.netto).slice(0, 20);
