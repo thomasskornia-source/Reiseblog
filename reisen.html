@@ -14,12 +14,26 @@
 <style>
   .head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
   .head-row .entry-header { flex: 1; min-width: 0; }
-  .berater-tile { flex: none; width: 150px; margin-top: 6px; padding: 12px 14px; border-radius: 16px; background: var(--paper-warm); border: 1px solid rgba(46,58,50,.1); box-shadow: 0 8px 20px rgba(46,58,50,.08); text-decoration: none; color: var(--ink); display: grid; gap: 3px; transition: transform .15s, box-shadow .15s; }
-  .berater-tile:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(46,58,50,.12); }
-  .berater-tile .bt-ic { font-size: 22px; line-height: 1; }
-  .berater-tile b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; }
-  .berater-tile span:last-child { font-size: 12.5px; line-height: 1.4; color: var(--ink-soft); }
-  @media (max-width: 420px) { .berater-tile { width: 128px; padding: 10px 12px; } .berater-tile span:last-child { font-size: 12px; } }
+  .berater-tile { flex: none; width: clamp(150px, 46vw, 220px); margin-top: 6px; text-decoration: none; color: var(--ink); display: grid; gap: 6px; text-align: center; transition: transform .15s; }
+  .berater-tile:hover { transform: translateY(-3px) rotate(-1deg); }
+  .berater-tile svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 8px 14px rgba(46,58,50,.18)); }
+  .berater-tile b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; }
+  .trips { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 24px 0 8px; }
+  @media (min-width: 700px) { .trips { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; } }
+  @media (min-width: 1060px) { .trips { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .trip { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; text-decoration: none; color: var(--ink); box-shadow: 0 10px 26px rgba(46,58,50,.10); transition: transform .18s, box-shadow .18s; }
+  .trip:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(46,58,50,.16); }
+  .trip-top { position: relative; height: 118px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: flex-end; background: linear-gradient(135deg, var(--c1), var(--c2)); overflow: hidden; }
+  .trip-top::before { content: ''; position: absolute; right: -30px; top: -40px; width: 150px; height: 150px; border-radius: 50%; background: rgba(255,255,255,.18); }
+  .trip-top::after { content: ''; position: absolute; left: 36%; bottom: -60px; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,.12); }
+  .trip-ic { position: relative; z-index: 1; font-size: 54px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,.22)); }
+  .trip-when { position: relative; z-index: 1; font-size: 12.5px; font-weight: 600; color: #fff; background: rgba(0,0,0,.22); padding: 4px 11px; border-radius: 99px; white-space: nowrap; }
+  .trip-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .trip-body h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 23px; line-height: 1.2; margin: 0; }
+  .trip-body h2 small { display: block; font-family: 'Work Sans', sans-serif; font-size: 13.5px; font-weight: 500; color: var(--c1); margin-top: 2px; }
+  .trip-body p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
+  .trip-hint { align-self: flex-start; font-size: 12px; font-weight: 600; color: #8e2a1c; background: #f6e3de; border-radius: 99px; padding: 3px 10px; }
+  .trip-go { margin-top: auto; padding-top: 8px; font-size: 14px; font-weight: 600; color: var(--c1); }
 </style>
 </head>
 <body class="page-list page-reisen">
@@ -40,84 +54,130 @@
 
   <div class="head-row">
     <header class="entry-header">
-      <p class="date">Reiseplanung</p>
       <h1>Reisen</h1>
       <hr class="rule">
     </header>
-    <a class="berater-tile" href="reiseberater.html">
-      <span class="bt-ic">🧭</span>
-      <b>Reiseberater</b>
-      <span>Reisevorschläge auf Basis des Reiseplaners</span>
+    <a class="berater-tile" href="reiseberater.html" aria-label="Reisebüro: Reiseberater öffnen">
+      <svg viewBox="0 0 200 150" role="img" aria-label="Eine freundliche Reiseberaterin hinter ihrem Schreibtisch fragt: Wohin soll's gehen?">
+        <rect x="2" y="2" width="196" height="146" rx="14" fill="#FCEBC6" stroke="#2E3A32" stroke-width="3"/>
+        <circle cx="30" cy="84" r="1.6" fill="#E3C27D"/><circle cx="44" cy="76" r="1.6" fill="#E3C27D"/><circle cx="58" cy="86" r="1.6" fill="#E3C27D"/><circle cx="20" cy="72" r="1.6" fill="#E3C27D"/>
+        <ellipse cx="135" cy="58" rx="27" ry="29" fill="#5b3a29" stroke="#2E3A32" stroke-width="2"/>
+        <circle cx="135" cy="27" r="10" fill="#5b3a29" stroke="#2E3A32" stroke-width="2"/>
+        <path d="M85 150C88 112 104 98 135 98C166 98 182 112 185 150Z" fill="#2F7E86" stroke="#2E3A32" stroke-width="2.5"/>
+        <rect x="127" y="86" width="16" height="16" fill="#F2C9A0"/>
+        <path d="M122 99L135 118L148 99Z" fill="#fff" stroke="#2E3A32" stroke-width="1.5"/>
+        <rect x="152" y="118" width="15" height="9" rx="1.5" fill="#fff" stroke="#2E3A32" stroke-width="1.2"/>
+        <ellipse cx="135" cy="60" rx="20" ry="23" fill="#F2C9A0" stroke="#2E3A32" stroke-width="2"/>
+        <path d="M115 53C118 36 152 36 155 53C147 46 125 46 115 53Z" fill="#5b3a29"/>
+        <g fill="none" stroke="#2E3A32" stroke-width="1.6"><circle cx="128" cy="60" r="6"/><circle cx="142" cy="60" r="6"/><path d="M134 60h2"/></g>
+        <circle cx="128" cy="60" r="2.2" fill="#2E3A32"/><circle cx="142" cy="60" r="2.2" fill="#2E3A32"/>
+        <circle cx="122" cy="69" r="3.2" fill="#F0A0A0" opacity=".7"/><circle cx="148" cy="69" r="3.2" fill="#F0A0A0" opacity=".7"/>
+        <path d="M127 71Q135 79 143 71" fill="none" stroke="#8a3b2a" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="10" y="118" width="180" height="30" rx="4" fill="#B5502E" stroke="#2E3A32" stroke-width="2.5"/>
+        <rect x="6" y="109" width="188" height="11" rx="3" fill="#D9794E" stroke="#2E3A32" stroke-width="2.5"/>
+        <path d="M36 118v-6" stroke="#2E3A32" stroke-width="2.5"/><circle cx="36" cy="100" r="11" fill="#8FC5B8" stroke="#2E3A32" stroke-width="2.2"/><path d="M36 89c-6 6-6 16 0 22M26 98c6 3 14 3 20 0" fill="none" stroke="#2E3A32" stroke-width="1.4"/>
+        <path d="M70 116l22-6-22-6 5 6z" fill="#fff" stroke="#2E3A32" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M12 10h74a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8H66l-14 12 2-12H12a8 8 0 0 1-8-8V18a8 8 0 0 1 8-8z" fill="#fff" stroke="#2E3A32" stroke-width="2.4" transform="translate(3 0)"/>
+        <text x="53" y="28" font-family="'Work Sans',sans-serif" font-size="12.5" font-weight="700" fill="#2E3A32" text-anchor="middle">Wohin</text>
+        <text x="53" y="43" font-family="'Work Sans',sans-serif" font-size="12.5" font-weight="700" fill="#B5502E" text-anchor="middle">soll's gehen?</text>
+      </svg>
+      <b>Reisebüro</b>
     </a>
   </div>
 
   <div class="entry-body">
-    <p>Reisevorschläge für die kommende Reise zu dritt, jeweils als 12-Tage-Route mit Hotels, Sicherheitslage und Flugsuche.</p>
+    <p>Hier stehen die Reisevorschläge vom Reisebüro.</p>
   </div>
 
-  <div class="entry-list">
-  <a class="entry-preview" href="srilanka-natur-reise.html">
-    <p class="date">Aus dem Reiseberater</p>
-    <h2>🐘 Sri-Lanka-Reise: Natur &amp; Schnorcheln <span style="white-space: nowrap;">26.12.–6.1.</span></h2>
-    <p>Sigiriya, Kandy, Silvester in den Bergen von Ella, Elefanten-Safari, Strand, Wale und Korallenriff - mit Fahrer statt Selbstfahren ...</p>
-  </a>
-  <a class="entry-preview" href="srilanka-kultur-reise.html">
-    <p class="date">Aus dem Reiseberater</p>
-    <h2>🛕 Sri-Lanka-Reise: Kultur &amp; Küste <span style="white-space: nowrap;">26.12.–6.1.</span></h2>
-    <p>Löwenfelsen, Polonnaruwa, Zahntempel in Kandy, dann vier Tage Südküste mit Walen, Surfen und Schnorcheln ...</p>
-  </a>
-  <a class="entry-preview" href="kappadokien-reise.html">
-    <p class="date">Aus dem Reiseberater</p>
-    <h2>🎈 Kappadokien-Reise <span style="white-space: nowrap;">26.12.–6.1.</span></h2>
-    <p>Istanbul und Kappadokien: Silvester draußen in den Tälern, drei Chancen auf eine Ballonfahrt, Wanderungen und gutes Essen ...</p>
-  </a>
-  <a class="entry-preview" href="aethiopien-reise.html">
-    <p class="date">Reiseplanung</p>
-    <h2>☕ Äthiopien-Reise (12 Tage)</h2>
-    <p>Addis Abeba, Kraterseen, Hawassa und Bale Mountains - ohne Inlandsflüge. Achtung: Teilreisewarnung des Auswärtigen Amts, Details auf der Seite ...</p>
-  </a>
-
-  <a class="entry-preview" href="guadeloupe-reise.html">
-    <p class="date">Reiseplanung</p>
-    <h2>🏝️ Guadeloupe-Reise (12 Tage)</h2>
-    <p>Die Schmetterlingsinsel: Regenwald und Vulkan auf Basse-Terre, Trauminseln Les Saintes, Traumstrände auf Grande-Terre - einziges Karibik-Ziel, EU-Gebiet ...</p>
-  </a>
-
-  <a class="entry-preview" href="oman-reise.html">
-    <p class="date">Reiseplanung</p>
-    <h2>🐫 Oman-Reise (12 Tage)</h2>
-    <p>Der "sanfte" Nahost-Trip: Maskat, Jabal Akhdar, Wahiba-Wüste, Wadi Shab, Schildkröten bei Ras al Jinz - Kultur, Berge, Wüste und Küste, ohne Inlandsflug ...</p>
-  </a>
-
-  <a class="entry-preview" href="jordanien-reise.html">
-    <p class="date">Reiseplanung</p>
-    <h2>✈️ Jordanien-Reise <span style="white-space: nowrap;">26.12.–6.1.</span></h2>
-    <p>Route, Hotelvorschläge und Silvester in der Wüste - 12 Tage von Amman bis Aqaba ...</p>
-  </a>
-
-  <a class="entry-preview" href="azoren-reise.html">
-    <p class="date">Reiseplanung</p>
-    <h2>🌋 Azoren-Reise (12 Tage)</h2>
-    <p>Grüne Vulkaninseln im Atlantik - Wandern, Kraterseen, Walbeobachtung, Weinberge. Einziges EU-Ziel, unkomplizierte Einreise ...</p>
-  </a>
-
-  <a class="entry-preview" href="kapverden-reise.html">
-    <p class="date">Reiseplanung</p>
-    <h2>🏖️ Kapverden-Reise (12 Tage)</h2>
-    <p>Der entspannteste Vorschlag - Strand auf Sal, Musik/Kultur in Mindelo, Bergwandern auf Santo Antão ...</p>
-  </a>
-
-  <a class="entry-preview" href="marokko-reise.html">
-    <p class="date">Reiseplanung</p>
-    <h2>🐪 Marokko-Reise (12 Tage)</h2>
-    <p>Medina-Kultur, Atlasgebirge und Sahara - von Marrakesch über Erg Chebbi bis Fes ...</p>
-  </a>
-
-  <a class="entry-preview" href="aegypten-reise.html">
-    <p class="date">Reiseplanung</p>
-    <h2>🏛️ Ägypten-Reise (12 Tage)</h2>
-    <p>Klassische Kombination aus Antike, Nil und Baden - Kairo, Nachtzug nach Assuan, Nilkreuzfahrt Assuan-Luxor, Hurghada, ohne Inlandsflug ...</p>
-  </a>
+  <div class="trips">
+    <a class="trip" href="srilanka-natur-reise.html" style="--c1:#2F7E86;--c2:#8FC5B8">
+      <div class="trip-top"><span class="trip-ic">🐘</span><span class="trip-when">26.12.–6.1.</span></div>
+      <div class="trip-body">
+        <h2>Sri Lanka <small>Natur &amp; Schnorcheln</small></h2>
+        <p>Elefanten-Safari, Strand, Wale und Korallenriff – Silvester in den Bergen von Ella.</p>
+        <span class="trip-go">Ansehen →</span>
+      </div>
+    </a>
+    <a class="trip" href="srilanka-kultur-reise.html" style="--c1:#B5502E;--c2:#F0A15A">
+      <div class="trip-top"><span class="trip-ic">🛕</span><span class="trip-when">26.12.–6.1.</span></div>
+      <div class="trip-body">
+        <h2>Sri Lanka <small>Kultur &amp; Küste</small></h2>
+        <p>Löwenfelsen, Tempel und vier Tage Südküste mit Walen und Schnorcheln.</p>
+        <span class="trip-go">Ansehen →</span>
+      </div>
+    </a>
+    <a class="trip" href="kappadokien-reise.html" style="--c1:#D9794E;--c2:#F2B66D">
+      <div class="trip-top"><span class="trip-ic">🎈</span><span class="trip-when">26.12.–6.1.</span></div>
+      <div class="trip-body">
+        <h2>Kappadokien</h2>
+        <p>Silvester draußen in den Tälern, Ballonfahrt, Wanderungen und gutes Essen.</p>
+        <span class="trip-go">Ansehen →</span>
+      </div>
+    </a>
+    <a class="trip" href="aethiopien-reise.html" style="--c1:#7A5A3A;--c2:#C9A36B">
+      <div class="trip-top"><span class="trip-ic">☕</span><span class="trip-when">12 Tage</span></div>
+      <div class="trip-body">
+        <h2>Äthiopien</h2>
+        <p>Kraterseen, Hawassa und Bale Mountains, ohne Inlandsflüge.</p><span class="trip-hint">⚠️ Hinweis des Auswärtigen Amts</span>
+        <span class="trip-go">Ansehen →</span>
+      </div>
+    </a>
+    <a class="trip" href="guadeloupe-reise.html" style="--c1:#1F8FA3;--c2:#7FD1C7">
+      <div class="trip-top"><span class="trip-ic">🏝️</span><span class="trip-when">12 Tage</span></div>
+      <div class="trip-body">
+        <h2>Guadeloupe</h2>
+        <p>Regenwald und Vulkan, Les Saintes und Traumstrände – EU-Gebiet in der Karibik.</p>
+        <span class="trip-go">Ansehen →</span>
+      </div>
+    </a>
+    <a class="trip" href="oman-reise.html" style="--c1:#C99A3E;--c2:#F2D27A">
+      <div class="trip-top"><span class="trip-ic">🐫</span><span class="trip-when">12 Tage</span></div>
+      <div class="trip-body">
+        <h2>Oman</h2>
+        <p>Maskat, Berge, Wahiba-Wüste und Küste – der sanfte Nahost-Trip.</p>
+        <span class="trip-go">Ansehen →</span>
+      </div>
+    </a>
+    <a class="trip" href="jordanien-reise.html" style="--c1:#B8574B;--c2:#E9A38E">
+      <div class="trip-top"><span class="trip-ic">✈️</span><span class="trip-when">26.12.–6.1.</span></div>
+      <div class="trip-body">
+        <h2>Jordanien</h2>
+        <p>Von Amman bis Aqaba, Silvester in der Wüste.</p>
+        <span class="trip-go">Ansehen →</span>
+      </div>
+    </a>
+    <a class="trip" href="azoren-reise.html" style="--c1:#4F8A5B;--c2:#A9C5A0">
+      <div class="trip-top"><span class="trip-ic">🌋</span><span class="trip-when">12 Tage</span></div>
+      <div class="trip-body">
+        <h2>Azoren</h2>
+        <p>Grüne Vulkaninseln: Wandern, Kraterseen, Wale und Weinberge.</p>
+        <span class="trip-go">Ansehen →</span>
+      </div>
+    </a>
+    <a class="trip" href="kapverden-reise.html" style="--c1:#E39A3B;--c2:#F6D06F">
+      <div class="trip-top"><span class="trip-ic">🏖️</span><span class="trip-when">12 Tage</span></div>
+      <div class="trip-body">
+        <h2>Kapverden</h2>
+        <p>Der entspannteste Vorschlag: Strand, Musik und Bergwandern.</p>
+        <span class="trip-go">Ansehen →</span>
+      </div>
+    </a>
+    <a class="trip" href="marokko-reise.html" style="--c1:#A8422F;--c2:#E58C5A">
+      <div class="trip-top"><span class="trip-ic">🐪</span><span class="trip-when">12 Tage</span></div>
+      <div class="trip-body">
+        <h2>Marokko</h2>
+        <p>Medina-Kultur, Atlasgebirge und Sahara von Marrakesch bis Fes.</p>
+        <span class="trip-go">Ansehen →</span>
+      </div>
+    </a>
+    <a class="trip" href="aegypten-reise.html" style="--c1:#8C6A2F;--c2:#D9B867">
+      <div class="trip-top"><span class="trip-ic">🏛️</span><span class="trip-when">12 Tage</span></div>
+      <div class="trip-body">
+        <h2>Ägypten</h2>
+        <p>Antike, Nil und Baden: Kairo, Nilkreuzfahrt und Hurghada.</p>
+        <span class="trip-go">Ansehen →</span>
+      </div>
+    </a>
   </div>
 
   <footer class="site-footer">
