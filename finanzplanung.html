@@ -172,6 +172,10 @@ th { font-weight: 600; color: var(--ink2); }
 .contbl th { font-weight: 600; color: var(--muted); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
 .contbl td:nth-child(n+2), .contbl th:nth-child(n+2) { text-align: right; }
 .tw2 { overflow-x: auto; }
+.conrow { display: grid; gap: 2px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.conrow b { font-weight: 600; }
+.conrow .small { overflow-wrap: anywhere; }
+.conval { font-size: 13px; font-variant-numeric: tabular-nums; }
 /* Story-Ansicht */
 .storybtn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--f-display); font-size: 16px; font-weight: 600; color: #2E3A32; background: #FAF3E8; border: 0; border-radius: 999px; padding: 12px 24px; cursor: pointer; box-shadow: none; }
 .storyhero { position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 26px 20px 24px; border-radius: 16px; color: #FAF3E8; background: radial-gradient(120% 90% at 85% 0%, #d97b52 0%, #B5502E 45%, #7a2f17 100%); }
@@ -1250,12 +1254,12 @@ function compute(P) {
     if (pc.length) {
       var cb = pc.reduce(function (s, c) { return s + c.beitrag; }, 0);
       $('con').innerHTML =
-        '<div class="tw2"><table class="contbl"><thead><tr><th>Vertrag</th><th>Beitrag pro Monat</th><th>Leistung</th></tr></thead><tbody>' +
+        '<div class="conlist">' +
         pc.map(function (c) {
           var d = CT[c.type], l = c.leistung > 0 ? eur(c.leistung) + ' ' + d.unit : '–';
           var sub = [c.name ? d.n : '', c.insured ? 'Versicherte Person: ' + esc(c.insured) : '', c.nr ? 'Nr. ' + esc(c.nr) : '', c.tarif ? 'Tarif ' + esc(c.tarif) : ''].filter(Boolean).join(' · ');
-          return '<tr><td>' + esc(c.name || d.n) + (sub ? '<br><span class="small">' + sub + '</span>' : '') + '</td><td>' + (c.beitrag > 0 ? eur(c.beitrag) : '–') + '</td><td>' + l + '</td></tr>';
-        }).join('') + '</tbody></table></div>' +
+          return '<div class="conrow"><b>' + esc(c.name || d.n) + '</b>' + (sub ? '<span class="small">' + sub + '</span>' : '') + '<span class="conval">Beitrag ' + (c.beitrag > 0 ? eur(c.beitrag) + ' pro Monat' : '–') + ' · Leistung ' + l + '</span></div>';
+        }).join('') + '</div>' +
         '<div class="kv"><div><b>' + eur(cb) + '</b><span>Beiträge pro Monat' + (netMonth > 0 ? ', ' + pct(cb / netMonth, 1) + ' deines Nettos' : '') + '</span></div>' +
         (R.cGross > 0 ? '<div><b>' + eur(R.cNet) + '</b><span>Renten aus Verträgen im Ruhestand, netto pro Monat. Brutto ' + eur(R.cGross) + '</span></div>' : '') +
         (R.lumpGross > 0 ? '<div><b>' + eur(R.lvNom) + '</b><span>Kapitalauszahlung bei Renteneintritt, nach geschätzten Abgaben (Steuer, Kranken- und Pflegeversicherung) von ' + eur(R.lumpTax) + '</span></div>' : '') + '</div>' +
