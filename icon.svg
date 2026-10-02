@@ -1,23 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#F0A15A"/>
-      <stop offset=".55" stop-color="#D4673A"/>
-      <stop offset="1" stop-color="#9E3F26"/>
-    </linearGradient>
-    <linearGradient id="pin" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFF9EF"/>
-      <stop offset="1" stop-color="#F3E3C8"/>
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" fill="url(#bg)"/>
-  <circle cx="400" cy="112" r="150" fill="#FFD9A0" opacity=".16"/>
-  <ellipse cx="256" cy="446" rx="82" ry="15" fill="#5E1F10" opacity=".35"/>
-  <path d="M256 438 C256 438 118 318 118 232 A138 138 0 1 1 394 232 C394 318 256 438 256 438 Z" fill="url(#pin)"/>
-  <!-- Haus im Pin -->
-  <path d="M188 246 L256 186 L324 246 L324 292 Q324 300 316 300 L196 300 Q188 300 188 292 Z" fill="#B5502E"/>
-  <path d="M236 300 V262 a20 20 0 0 1 40 0 V300 Z" fill="#FFF9EF"/>
-  <rect x="293" y="198" width="16" height="30" rx="3" fill="#B5502E"/>
-  <!-- Funke / Stern -->
-  <path d="M390 74 L398 100 L424 108 L398 116 L390 142 L382 116 L356 108 L382 100 Z" fill="#FFF3DC"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="o" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0A15A"/><stop offset="1" stop-color="#B5502E"/></linearGradient><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3E5146"/><stop offset="1" stop-color="#1F2A24"/></linearGradient><linearGradient id="t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4FA3A5"/><stop offset="1" stop-color="#2B6E73"/></linearGradient></defs><rect width="512" height="512" fill="#FAF3E8"/>
+<circle cx="256" cy="270" r="150" fill="url(#o)"/>
+<path d="M0 330 Q130 250 256 320 T512 300 V512H0z" fill="#5E7B66"/><path d="M0 400 Q150 340 300 400 T512 380 V512H0z" fill="#2E3A32"/>
+<path d="M200 330l56-46 56 46v52H200z" fill="#FAF3E8"/><rect x="240" y="342" width="32" height="40" rx="6" fill="#B5502E"/></svg>
