@@ -1,134 +1,6 @@
 {
   "einschaetzungen": [
     {
-      "eingabe": "Coca-Cola",
-      "zeitstempel": "01.10.2026 12:00:00",
-      "name": "The Coca-Cola Company",
-      "ticker": "KO (NYSE)",
-      "stand": "02.10.2026",
-      "kennzahlen": [
-        {
-          "k": "KGV",
-          "v": "ca. 25"
-        },
-        {
-          "k": "Free-Cashflow-Rendite",
-          "v": "unklar, grob 2–3 %"
-        },
-        {
-          "k": "Netto-Schulden/EBITDA",
-          "v": "ca. 1,4 (Q2 2026)"
-        },
-        {
-          "k": "ROIC",
-          "v": "ca. 13 % (2025, Drittanbieter)"
-        },
-        {
-          "k": "Vergleichbare Operating-Marge",
-          "v": "31,2 % (2025) nach 30,0 % (2024)"
-        },
-        {
-          "k": "Vergleichbarer Gewinn je Aktie",
-          "v": "3,00 $ (2025), +4 %"
-        },
-        {
-          "k": "Dividende gezahlt",
-          "v": "ca. 8,8 Mrd. $ (2025)"
-        }
-      ],
-      "warren": {
-        "urteil": "Abwarten",
-        "text": "Das Geschäft ist leicht zu verstehen: Konzentrat und Marke, die Abfüllung machen meist Partner. Der Burggraben aus Marke und weltweitem Vertrieb ist über Jahrzehnte belegt, die Marge liegt bei rund 31 % und die Verschuldung ist mit etwa dem 1,4-Fachen des EBITDA moderat. Die Gewinne sind sehr planbar. Der Haken ist der Preis: Bei einem KGV von rund 25 und einem Gewinnwachstum im mittleren einstelligen Bereich bleibt wenig Sicherheitsmarge. Ein großartiges Unternehmen, aber nach diesen Prinzipien nicht zu jedem Preis."
-      },
-      "charlie": {
-        "urteil": "Abwarten",
-        "text": "Invertiert gefragt: Wie geht das schief? Weniger Zucker, Gesundheitstrends und Preisgrenzen bei Verbrauchern, dazu Währungsschwankungen. Die Anreize des Managements wirken sauber, der Konzern ist kein Wachstumsversprechen, sondern eine Dividendenmaschine. Ich warne vor dem Denkfehler, Qualität mit einem guten Kaufpreis zu verwechseln: Wer für Sicherheit jeden Preis zahlt, bekommt weniger, als er denkt. Im Gegensatz zu Warren würde ich hier eher auf Geduld als auf Begeisterung setzen; das Unternehmen ist gut, der Zeitpunkt nicht zwingend."
-      },
-      "risiken": "Gesundheitsregulierung und Zuckersteuern, Wandel hin zu weniger gesüßten Getränken, Währungsrisiken und eine hohe Bewertung, die wenig Fehler verzeiht. Zahlen teils aus Drittquellen und nicht vollständig geprüft.",
-      "quellen": [
-        {
-          "name": "Coca-Cola Q4/Gesamtjahr 2025 (SEC 8-K)",
-          "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026006642/a2025q4earningsreleaseex-9.htm"
-        },
-        {
-          "name": "Q2 2026 Zusammenfassung (Quartr)",
-          "url": "https://quartr.com/events/the-coca-cola-company-ko-q2-2026_3smRkOd9"
-        },
-        {
-          "name": "Geschäftsbericht 10-K 2025",
-          "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm"
-        }
-      ]
-    },
-    {
-      "eingabe": "Amazon",
-      "zeitstempel": "02.10.2026 19:40:25",
-      "name": "Amazon.com, Inc.",
-      "ticker": "AMZN (Nasdaq)",
-      "stand": "02.10.2026",
-      "kennzahlen": [
-        {
-          "k": "Umsatz Q2 2026",
-          "v": "200,6 Mrd. $ (+20 %)"
-        },
-        {
-          "k": "Operatives Ergebnis Q2 2026",
-          "v": "27,5 Mrd. $ (Vorjahr 19,2 Mrd. $)"
-        },
-        {
-          "k": "Nettogewinn 2025",
-          "v": "77,7 Mrd. $, 7,17 $ je Aktie"
-        },
-        {
-          "k": "AWS Q2 2026",
-          "v": "42,2 Mrd. $ Umsatz (+37 %), 16,6 Mrd. $ operatives Ergebnis"
-        },
-        {
-          "k": "Free Cashflow (12 Monate bis Q2 2026)",
-          "v": "ca. -7,6 Mrd. $ (2025: 11,2 Mrd. $; 2024: 38,2 Mrd. $)"
-        },
-        {
-          "k": "Langfristige Schulden",
-          "v": "ca. 65,6 Mrd. $ (Ende 2025); Netto-Schulden/EBITDA unklar"
-        },
-        {
-          "k": "KGV",
-          "v": "unklar (aktueller Kurs nicht belegt)"
-        },
-        {
-          "k": "Dividende / Rückkäufe",
-          "v": "keine Dividende; Rückkäufe unklar"
-        }
-      ],
-      "warren": {
-        "urteil": "Abwarten",
-        "text": "Amazon ist verständlich genug: Onlinehandel, Marktplatz, Cloud (AWS) und Werbung. Der Burggraben aus Logistik, Größe und Cloud-Geschäft ist breit, und die Gewinne wachsen stark. Was mich zögern lässt: Die Investitionen in KI haben den Free Cashflow von 38 Mrd. $ (2024) auf zuletzt rund minus 8 Mrd. $ gedrückt. Ob diese Milliarden später hohe Kapitalrenditen bringen, lässt sich nicht sicher beurteilen. Ohne verlässlich bezifferbaren Cashflow fehlt die Grundlage für eine Sicherheitsmarge. Gutes Unternehmen, aber die Rechnung geht heute nicht eindeutig auf."
-      },
-      "charlie": {
-        "urteil": "Abwarten",
-        "text": "Invertiert: Wie geht das schief? Wenn die KI-Rechenzentren mehr kosten, als sie später abwerfen, und alle großen Konkurrenten gleichzeitig dasselbe bauen, entsteht ein teures Wettrüsten. Herdentrieb in Reinform. Die Anreize des Managements sind auf Wachstum ausgerichtet, nicht auf Kapitaldisziplin, und Aktienrückkäufe oder Dividenden helfen den Eignern derzeit nicht. Im Unterschied zu Warren würde ich die Frage, ob das noch im Kreis der Kompetenz liegt, strenger stellen: Die Ertragskraft der KI-Investitionen ist für Außenstehende schwer zu prüfen. Und „zu schwer“ ist ein gültiges Ergebnis."
-      },
-      "risiken": "Sehr hohe KI-Investitionen mit unsicherer Rendite und negativem Free Cashflow, Regulierung und Kartellverfahren, Konkurrenz im Cloud-Geschäft. Bewertung nicht geprüft, Zahlen teils aus Suchergebnissen zusammengefasst.",
-      "belege": [
-        {
-          "wer": "Warren",
-          "zitat": "The might of their brand names, the attributes of their products, and the strength of their distribution systems give them an enormous competitive advantage, setting up a protective moat around their economic castles.",
-          "quelle": "Aktionärsbrief 1993 (über Coke und Gillette, als Prinzip)",
-          "url": "https://www.berkshirehathaway.com/letters/1993.html"
-        }
-      ],
-      "quellen": [
-        {
-          "name": "Amazon Q2 2026 Pressemitteilung",
-          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results"
-        },
-        {
-          "name": "Amazon 10-K 2025",
-          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm"
-        }
-      ]
-    },
-    {
       "eingabe": "Alphabet",
       "zeitstempel": "02.10.2026 19:49:46",
       "name": "Alphabet Inc. (Google)",
@@ -207,6 +79,186 @@
           "url": "https://quartr.com/events/alphabet-inc-goog-q2-2026_3ebmqZlg"
         }
       ]
+    },
+    {
+      "eingabe": "AMZN",
+      "zeitstempel": "02.10.2026 20:38:03",
+      "name": "Amazon.com, Inc.",
+      "ticker": "AMZN (Nasdaq)",
+      "stand": "02.10.2026",
+      "kennzahlen": [
+        {
+          "k": "Umsatz Q2 2026",
+          "v": "200,6 Mrd. $ (+20 %)"
+        },
+        {
+          "k": "Operatives Ergebnis Q2 2026",
+          "v": "27,5 Mrd. $ (Vorjahr 19,2 Mrd. $)"
+        },
+        {
+          "k": "Nettogewinn 2025",
+          "v": "77,7 Mrd. $, 7,17 $ je Aktie"
+        },
+        {
+          "k": "AWS Q2 2026",
+          "v": "42,2 Mrd. $ Umsatz (+37 %), 16,6 Mrd. $ operatives Ergebnis"
+        },
+        {
+          "k": "Free Cashflow (12 Monate bis Q2 2026)",
+          "v": "ca. -7,6 Mrd. $ (2025: 11,2 Mrd. $; 2024: 38,2 Mrd. $)"
+        },
+        {
+          "k": "Langfristige Schulden",
+          "v": "ca. 65,6 Mrd. $ (Ende 2025); Netto-Schulden/EBITDA unklar"
+        },
+        {
+          "k": "KGV",
+          "v": "unklar (aktueller Kurs nicht belegt)"
+        },
+        {
+          "k": "Dividende / Rückkäufe",
+          "v": "keine Dividende; Rückkäufe unklar"
+        }
+      ],
+      "warren": {
+        "urteil": "Abwarten",
+        "text": "Amazon ist verständlich genug: Onlinehandel, Marktplatz, Cloud (AWS) und Werbung. Der Burggraben aus Logistik, Größe und Cloud-Geschäft ist breit, und die Gewinne wachsen stark. Was mich zögern lässt: Die Investitionen in KI haben den Free Cashflow von 38 Mrd. $ (2024) auf zuletzt rund minus 8 Mrd. $ gedrückt. Ob diese Milliarden später hohe Kapitalrenditen bringen, lässt sich nicht sicher beurteilen. Ohne verlässlich bezifferbaren Cashflow fehlt die Grundlage für eine Sicherheitsmarge. Gutes Unternehmen, aber die Rechnung geht heute nicht eindeutig auf."
+      },
+      "charlie": {
+        "urteil": "Abwarten",
+        "text": "Invertiert: Wie geht das schief? Wenn die KI-Rechenzentren mehr kosten, als sie später abwerfen, und alle großen Konkurrenten gleichzeitig dasselbe bauen, entsteht ein teures Wettrüsten. Herdentrieb in Reinform. Die Anreize des Managements sind auf Wachstum ausgerichtet, nicht auf Kapitaldisziplin, und Aktienrückkäufe oder Dividenden helfen den Eignern derzeit nicht. Im Unterschied zu Warren würde ich die Frage, ob das noch im Kreis der Kompetenz liegt, strenger stellen: Die Ertragskraft der KI-Investitionen ist für Außenstehende schwer zu prüfen. Und „zu schwer“ ist ein gültiges Ergebnis."
+      },
+      "risiken": "Sehr hohe KI-Investitionen mit unsicherer Rendite und negativem Free Cashflow, Regulierung und Kartellverfahren, Konkurrenz im Cloud-Geschäft. Bewertung nicht geprüft, Zahlen teils aus Suchergebnissen zusammengefasst.",
+      "belege": [
+        {
+          "wer": "Warren",
+          "zitat": "The might of their brand names, the attributes of their products, and the strength of their distribution systems give them an enormous competitive advantage, setting up a protective moat around their economic castles.",
+          "quelle": "Aktionärsbrief 1993 (über Coke und Gillette, als Prinzip)",
+          "url": "https://www.berkshirehathaway.com/letters/1993.html"
+        }
+      ],
+      "quellen": [
+        {
+          "name": "Amazon Q2 2026 Pressemitteilung",
+          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results"
+        },
+        {
+          "name": "Amazon 10-K 2025",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm"
+        }
+      ],
+      "verlauf": [
+        {
+          "stand": "02.10.2026",
+          "warren": "Abwarten",
+          "charlie": "Abwarten",
+          "james": "–"
+        }
+      ],
+      "symbol": "AMZN",
+      "james": {
+        "urteil": "Über der 200-Tage-Linie",
+        "lage": "deutlich über",
+        "kurs": 250.63,
+        "ma200": 241.36,
+        "abstand_pct": 3.8,
+        "ma50": 256.53,
+        "ma200_steigt": true,
+        "waehrung": "USD",
+        "flows": {
+          "richtung": "bullisch",
+          "quelle": "Cboe, verzögert",
+          "stand": "02.10.2026",
+          "text": "Put/Call-Volumen 0,40 und rund 72 % der Prämie fließen in Calls (ca. 143 Mio. $ gegen 57 Mio. $ bei Puts); größter Kontrakt ein Call 245 mit Verfall 05.10. (ca. 5,1 Mio. $ Prämie). Näherung aus Optionsumsatz, Käufer- oder Verkäuferseite unbekannt."
+        },
+        "text": "Der Kurs liegt mit 250,63 $ etwa 3,8 % über der steigenden 200-Tage-Linie (241,36 $), aber unter der 50-Tage-Linie (256,53 $) und knapp unter dem 21er-EMA (251,83 $): langfristig intakt, kurzfristig etwas müde. Die Flüsse sind klar bullisch, wobei viele kurzlaufende Kontrakte auch Absicherung oder Stillhalter-Geschäfte sein können. Lage und Flüsse passen zusammen; reine Markttechnik, keine Firmenbewertung."
+      }
+    },
+    {
+      "eingabe": "KO",
+      "zeitstempel": "02.10.2026 21:03:48",
+      "name": "The Coca-Cola Company",
+      "ticker": "KO (NYSE)",
+      "stand": "02.10.2026",
+      "kennzahlen": [
+        {
+          "k": "KGV",
+          "v": "ca. 25"
+        },
+        {
+          "k": "Free-Cashflow-Rendite",
+          "v": "unklar, grob 2–3 %"
+        },
+        {
+          "k": "Netto-Schulden/EBITDA",
+          "v": "ca. 1,4 (Q2 2026)"
+        },
+        {
+          "k": "ROIC",
+          "v": "ca. 13 % (2025, Drittanbieter)"
+        },
+        {
+          "k": "Vergleichbare Operating-Marge",
+          "v": "31,2 % (2025) nach 30,0 % (2024)"
+        },
+        {
+          "k": "Vergleichbarer Gewinn je Aktie",
+          "v": "3,00 $ (2025), +4 %"
+        },
+        {
+          "k": "Dividende gezahlt",
+          "v": "ca. 8,8 Mrd. $ (2025)"
+        }
+      ],
+      "warren": {
+        "urteil": "Abwarten",
+        "text": "Das Geschäft ist leicht zu verstehen: Konzentrat und Marke, die Abfüllung machen meist Partner. Der Burggraben aus Marke und weltweitem Vertrieb ist über Jahrzehnte belegt, die Marge liegt bei rund 31 % und die Verschuldung ist mit etwa dem 1,4-Fachen des EBITDA moderat. Die Gewinne sind sehr planbar. Der Haken ist der Preis: Bei einem KGV von rund 25 und einem Gewinnwachstum im mittleren einstelligen Bereich bleibt wenig Sicherheitsmarge. Ein großartiges Unternehmen, aber nach diesen Prinzipien nicht zu jedem Preis."
+      },
+      "charlie": {
+        "urteil": "Abwarten",
+        "text": "Invertiert gefragt: Wie geht das schief? Weniger Zucker, Gesundheitstrends und Preisgrenzen bei Verbrauchern, dazu Währungsschwankungen. Die Anreize des Managements wirken sauber, der Konzern ist kein Wachstumsversprechen, sondern eine Dividendenmaschine. Ich warne vor dem Denkfehler, Qualität mit einem guten Kaufpreis zu verwechseln: Wer für Sicherheit jeden Preis zahlt, bekommt weniger, als er denkt. Im Gegensatz zu Warren würde ich hier eher auf Geduld als auf Begeisterung setzen; das Unternehmen ist gut, der Zeitpunkt nicht zwingend."
+      },
+      "risiken": "Gesundheitsregulierung und Zuckersteuern, Wandel hin zu weniger gesüßten Getränken, Währungsrisiken und eine hohe Bewertung, die wenig Fehler verzeiht. Zahlen teils aus Drittquellen und nicht vollständig geprüft.",
+      "quellen": [
+        {
+          "name": "Coca-Cola Q4/Gesamtjahr 2025 (SEC 8-K)",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026006642/a2025q4earningsreleaseex-9.htm"
+        },
+        {
+          "name": "Q2 2026 Zusammenfassung (Quartr)",
+          "url": "https://quartr.com/events/the-coca-cola-company-ko-q2-2026_3smRkOd9"
+        },
+        {
+          "name": "Geschäftsbericht 10-K 2025",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm"
+        }
+      ],
+      "verlauf": [
+        {
+          "stand": "02.10.2026",
+          "warren": "Abwarten",
+          "charlie": "Abwarten",
+          "james": "–"
+        }
+      ],
+      "symbol": "KO",
+      "james": {
+        "urteil": "Über der 200-Tage-Linie",
+        "lage": "deutlich über",
+        "kurs": 85.64,
+        "ma200": 80.01,
+        "abstand_pct": 7.0,
+        "ma50": 87.94,
+        "ma200_steigt": true,
+        "waehrung": "USD",
+        "flows": {
+          "richtung": "bullisch",
+          "quelle": "Cboe, verzögert",
+          "stand": "02.10.2026",
+          "text": "Put/Call-Volumen 0,47 und rund 79 % der Prämie in Calls (ca. 5,4 Mio. $ gegen 1,4 Mio. $ bei Puts); größter Kontrakt ein Call 85 mit Verfall 19.03.2027 (ca. 1,5 Mio. $). Näherung aus Optionsumsatz, Käufer- oder Verkäuferseite unbekannt."
+        },
+        "text": "Der Kurs liegt mit 85,64 $ rund 7,0 % über der steigenden 200-Tage-Linie (80,01 $) und an allen 60 der letzten 60 Tage darüber. Kurzfristig steht er aber unter 50-Tage-Linie (87,94 $) und 21er-EMA (87,48 $) und damit ein Stück unter dem 52-Wochen-Hoch (91,99 $). Die Flüsse sind bullisch, aber mit kleinem Umsatz; Lage und Flüsse passen zusammen. Reine Markttechnik, keine Firmenbewertung."
+      }
     }
   ]
 }
