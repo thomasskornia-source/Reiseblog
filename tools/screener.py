@@ -13,7 +13,7 @@ Ohne SEC_KONTAKT oder bei SEC-Fehler: Rang nur nach James' Trend (Vermerk „war
 import csv, datetime, io, json, os, sys, time, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 sys.path.insert(0, os.path.dirname(__file__))
-import trend
+import trend, insider
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 LISTE = 'https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv'
@@ -122,7 +122,7 @@ def main():
         if z and n < 4: continue            # zu wenig Zahlen für ein Urteil
         wp = ok / n if n else 0
         rang = (0.5 * wp + 0.5 * j['punkte'] / 12) if z else j['punkte'] / 12
-        alle.append({'ticker': f['t'], 'name': f['name'], 'sektor': f['sektor'], **{k: v for k, v in j.items() if k != '_a'}, '_a': j['_a'], 'warren_ok': ok, 'warren_von': n,
+        alle.append({'ticker': f['t'], 'cik': f['cik'], 'name': f['name'], 'sektor': f['sektor'], **{k: v for k, v in j.items() if k != '_a'}, '_a': j['_a'], 'warren_ok': ok, 'warren_von': n,
                      'kgv': kgv, 'roe_pct': roe, 'marge_pct': marge,
                      'warren_gut': [t for t, v in w if v is True], 'warren_fehlt': [t for t, v in w if v is False], 'rang': round(rang, 3)})
     kandidaten = sorted((a for a in alle if a['ampel'] != 'Down'), key=lambda a: -a['rang'])
@@ -136,12 +136,18 @@ def main():
     for t in top:   # Detail für die Aufklapp-Ansicht (Chart und Chartanalyse), nur für die Top 10
         a = t['_a']
         t['detail'] = {k: a[k] for k in ('serie', 'muster', 'ma8', 'ma21', 'ma50', 'ma200', 'ma200_steigt', 'macd', 'macd_signal', 'hoch_52w', 'tief_52w', 'kreuz', 'kreuz_kurz', 'score') if k in a}
+    kontakt = os.environ.get('SEC_KONTAKT', '').strip()
+    for t in top:   # Insiderkäufe (Form 4, 90 Tage) und Datum der letzten Zahlen aus den SEC-Meldungen
+        if not kontakt: break
+        try: t.update(insider.holen(t['cik'], kontakt))
+        except Exception as e: print('Insider-Daten fehlen für %s: %s' % (t['ticker'], e))
     for t in alle: t.pop('_a', None)
     kurz = ('ticker', 'name', 'ampel', 'lage', 'kgv', 'roe_pct', 'marge_pct', 'rsi', 'abstand_pct', 'pos_52w_pct', 'warren_gut', 'warren_fehlt', 'warren_ok', 'warren_von', 'punkte')
     sektoren = {}
     for a in kandidaten:
         liste = sektoren.setdefault(a['sektor'], [])
         if len(liste) < 5: liste.append({k: a[k] for k in kurz})
+    for t in top: t.pop('cik', None)
     heute = [t['ticker'] for t in top]
     out = {'stand': datetime.date.today().strftime('%d.%m.%Y'), 'warren': bool(z), 'zahlenjahr': z['jahr'] if z else None,
            'geprueft': len(alle), 'ohne_down': len(kandidaten), 'vorher': vorher, 'raus': [t for t in vorher if t not in heute],

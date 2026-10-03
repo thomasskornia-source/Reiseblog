@@ -121,6 +121,9 @@
   <h3>Option Flows</h3>
   <p>Aus den öffentlichen, verzögerten Optionsumsätzen der Cboe wird ein Verhältnis von Put- zu Call-Umsatz gebildet. Viel Call-Kauf gilt als bullisch, viel Put-Kauf als bärisch. Bewertet wird gegen den Verlauf des letzten Jahres, sobald genug Tageswerte gesammelt sind; bis dahin gilt eine einfache Faustregel (≤ 0,65 bullisch, ≥ 1,4 bärisch). Es ist eine <b>Näherung</b>, kein Blick auf einzelne Großanleger.</p>
 
+  <h3>Insiderkäufe und Quartalszahlen</h3>
+  <p>In der aufgeklappten Top-10-Zeile steht außerdem, was die SEC über die letzten 90 Tage meldet: wie viele <b>Käufe am offenen Markt</b> Vorstände, Direktoren oder Großaktionäre getätigt haben (Meldung „Form 4“, Transaktionscode P), von wie vielen Personen und für wie viel Geld. <b>Verkäufe</b> werden nur gezählt und sind schwach zu deuten, weil sie oft planmäßig oder steuerlich bedingt sind. Dazu das Datum der letzten Quartals- oder Jahreszahlen (10-Q / 10-K). Liegen sie höchstens 60 Tage zurück, steht dort „noch frisch im Blick“: Der Markt reagiert nach guten Zahlen oft noch Wochen später weiter in dieselbe Richtung („PEAD“, ein Thema, das James häufig nennt). Das nächste Zahlendatum gibt es bei den frei zugänglichen Quellen nicht verlässlich, deshalb zeigen wir nur das letzte. Beides ist Information, es fließt nicht in den Rang ein.</p>
+
   <h2 id="top10">Die Top 10 im S&amp;P 500</h2>
   <p>Jeden Börsentag werden alle rund 500 Werte durchgesehen, ohne KI. Aussortiert werden Werte unter der 200-Tage-Linie. Der Rang besteht je zur Hälfte aus Warrens Regeln und James' Setup-Score.</p>
   <h3>Warrens sieben Regeln (aus den Jahreszahlen)</h3>
@@ -163,6 +166,7 @@
   <table>
     <tr><th>Was</th><th>Quelle</th></tr>
     <tr><td>Kurse, Umsatz, Charts, S&amp;P 500</td><td>Yahoo Finance, Tageskurse (<a href="https://finance.yahoo.com" target="_blank" rel="noopener">finance.yahoo.com</a>). Inoffizielle, kostenlose Schnittstelle, Kurse sind Schlusskurse des letzten Börsentags.</td></tr>
+    <tr><td>Insiderkäufe und -verkäufe, Datum der letzten Zahlen</td><td>US-Börsenaufsicht SEC, Einreichungen je Firma (<a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">EDGAR</a>, Meldungen „Form 4“, 10-Q, 10-K).</td></tr>
     <tr><td>Gewinn, Eigenkapital, Schulden, Cashflow, Umsatz, Gewinn je Aktie</td><td>US-Börsenaufsicht SEC, Jahresabschlüsse in strukturierter Form (<a href="https://www.sec.gov/search-filings/edgar-application-programming-interfaces" target="_blank" rel="noopener">EDGAR XBRL</a>). Nur für US-Firmen, jeweils das letzte abgeschlossene Geschäftsjahr.</td></tr>
     <tr><td>Welche Firmen im S&amp;P 500 sind</td><td>Offene Liste auf GitHub (<a href="https://github.com/datasets/s-and-p-500-companies" target="_blank" rel="noopener">datasets/s-and-p-500-companies</a>).</td></tr>
     <tr><td>Option Flows</td><td>Cboe, öffentliche verzögerte Optionsdaten (<a href="https://www.cboe.com/delayed_quotes/" target="_blank" rel="noopener">cboe.com</a>), nur für US-Werte mit Optionen.</td></tr>

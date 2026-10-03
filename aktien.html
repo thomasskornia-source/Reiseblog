@@ -465,6 +465,10 @@
     if (d && d.kreuz) pk.push(esc(d.kreuz.typ) + ' vor ' + d.kreuz.tage + ' Handelstagen (50- gegen 200-Tage-Linie)' + (d.kreuz.tage <= 30 ? ', frisch' : ''));
     else if (d) pk.push('Keine Kreuzung von 50- und 200-Tage-Linie in den letzten zwei Jahren');
     if (d && d.kreuz_kurz) pk.push('Kurzfristig: 8-Tage-Linie ' + (d.kreuz_kurz.richtung === 'hoch' ? 'über' : 'unter') + ' der 21er seit ' + d.kreuz_kurz.tage + ' Tagen');
+    var ins = voll && voll.insider || x.insider;
+    if (ins) pk.push(ins.kaeufe ? 'Insider (SEC, ' + ins.tage + ' Tage): ' + ins.kaeufe + (ins.kaeufe === 1 ? ' Kauf' : ' Käufe') + ' am Markt von ' + ins.kaeufer + ' Person' + (ins.kaeufer === 1 ? '' : 'en') + ', zusammen ca. ' + (ins.summe_usd >= 1e6 ? zahl(ins.summe_usd / 1e6, 1) + ' Mio.' : zahl(ins.summe_usd / 1e3, 0) + ' Tsd.') + ' $' : 'Insider (SEC, ' + ins.tage + ' Tage): keine Käufe am Markt' + (ins.verkaeufe ? ', ' + ins.verkaeufe + ' Verkäufe (oft planmäßig)' : ''));
+    var zh = voll && voll.zahlen || x.zahlen;
+    if (zh) pk.push('Zahlen zuletzt vor ' + zh.tage + ' Tagen eingereicht (' + esc(zh.form) + ')' + (zh.tage <= 60 ? ', der Markt hat sie noch frisch im Blick' : ''));
     var mu = (d && d.muster) || {};
     if (mu.unterstuetzung) pk.push('Unterstützungslinie aus ' + mu.unterstuetzung.beruehrungen + ' höheren Tiefs (' + esc(mu.unterstuetzung.status) + ')');
     if (mu.widerstand) pk.push('Widerstandslinie aus ' + mu.widerstand.beruehrungen + ' tieferen Hochs (' + esc(mu.widerstand.status) + ')');
