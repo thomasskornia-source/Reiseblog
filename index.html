@@ -7,7 +7,7 @@
 <title>Unterwegs und zuhause – Thomas und Andrea</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=4">
-<link rel="stylesheet" href="home.css?v=3">
+<link rel="stylesheet" href="home.css?v=4">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -64,45 +64,37 @@
   </div></div>
 
   <section class="bento">
-    <a class="tile wide t-rust rv" href="reisen.html" style="--i:0">
-      <span class="ic">🌴</span><small>Reiseplanung</small>
-      <div class="big" data-count="9">9</div>
-      <h3>Reiseziele für unterwegs</h3>
-      <p>Jordanien, Oman, Kappadokien, Azoren ... jeweils mit Route, Kosten und Sicherheitslage.</p>
+    <a class="tile wide rv" href="reisen.html" style="--i:0;background:linear-gradient(170deg,#EA7A3E,#BE4128)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="330" cy="70" r="70" fill="#FFE29A" opacity=".45"/><circle cx="330" cy="70" r="40" fill="#FFF3E6" opacity=".8"/><path d="M0 196 Q70 150 140 190 T290 180 T400 196V232H0z" fill="#8F2F1F" opacity=".7"/></svg>
+      <div class="in"><div class="q">Wohin geht es <i>als Nächstes</i>?</div><span class="go">Reisen · <span data-count="9">9</span> Ziele</span></div>
     </a>
-    <a class="tile t-gold rv" href="reiseberater.html" style="--i:1">
-      <span class="badge">Neu</span><span class="ic">🧭</span><small>Reiseberater</small>
-      <h3>Einmal tippen, Ziel finden</h3>
+    <a class="tile rv" href="reisen.html" id="cdtile" style="--i:1;background:linear-gradient(170deg,#2B96A0,#0E4A52)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M0 190 Q50 160 100 190 T200 190 T300 190 T400 190V232H0z" fill="#16626A" opacity=".8"/><path d="M0 214 Q50 186 100 214 T200 214 T300 214 T400 214V232H0z" fill="#0E4A52"/></svg>
+      <div class="in"><div class="q"><span class="n" id="cdnum">–</span> <span id="cdtext">Tage noch</span><span id="cdtail">, <i>dann sind wir weg.</i></span></div><span class="go" id="cdsmall">Nächste Reise ab 26.12.</span></div>
     </a>
-    <a class="tile t-sky rv" href="reisen.html" style="--i:2" id="cdtile">
-      <span class="ic">⏳</span><small id="cdsmall">Nächste Reise ab 26.12.</small>
-      <div class="big" id="cdnum">–</div>
-      <h3 id="cdtext">Tage noch</h3>
+    <a class="tile rv dark-ink" href="reiseberater.html" style="--i:2;background:linear-gradient(170deg,#FFD875,#F2B63D)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><text x="320" y="214" font-family="Fraunces,serif" font-size="250" fill="#FFF0BE" text-anchor="middle">?</text></svg>
+      <div class="in"><div class="q">Kein Ziel im Kopf? <i>Lass dich überraschen.</i></div><span class="go">Reiseberater</span></div>
     </a>
-
-    <a class="tile wide t-sage rdt-tile rv" id="rezept-des-tages" href="rezepte.html" style="--i:3">
-      <span class="ic">🍽️</span><small>Rezept des Tages</small>
-      <h3 id="rdt-title"></h3>
-      <p id="rdt-teaser"></p>
+    <a class="tile wide rv dark-ink rdt-tile" id="rezept-des-tages" href="rezepte.html" style="--i:3;background:linear-gradient(170deg,#F8B7A5,#EE8F7A)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="330" cy="116" r="86" fill="#FFF3E6" opacity=".55"/><circle cx="330" cy="116" r="54" fill="#FFF3E6" opacity=".8"/><circle cx="330" cy="116" r="22" fill="#F6C253"/></svg>
+      <div class="in"><div class="q">Heute auf dem Tisch: <i id="rdt-title"></i></div><span class="go">Rezept des Tages</span><p id="rdt-teaser"></p></div>
     </a>
-    <a class="tile t-ink rv" href="finanzplanung.html" style="--i:4">
-      <span class="ic">💶</span><small>Rente und Steuern</small>
-      <h3>Finanzplanung</h3>
+    <a class="tile rv" href="finanzplanung.html" style="--i:4;background:linear-gradient(170deg,#7A3A7E,#3E1A41)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M40 210 A140 140 0 0 1 320 210" fill="none" stroke="#F6C253" stroke-width="2" opacity=".8"/><path d="M80 210 A100 100 0 0 1 280 210" fill="none" stroke="#EE8F7A" stroke-width="2" opacity=".8"/><circle cx="340" cy="52" r="22" fill="#F6C253"/></svg>
+      <div class="in"><div class="q">Was bleibt, <i>wenn wir so weitermachen?</i></div><span class="go">Finanzplanung</span></div>
     </a>
-    <a class="tile t-warm rv" href="muenchen-quiz.html" style="--i:5">
-      <span class="ic">🧩</span><small>Spielerisch lernen</small>
-      <h3>München-Quiz</h3>
+    <a class="tile rv" href="muenchen-quiz.html" style="--i:5;background:linear-gradient(170deg,#6F7D2E,#4A5620)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M310 40l9 20 22 3-16 15 4 22-19-11-19 11 4-22-16-15 22-3z" fill="#F6C253"/><circle cx="360" cy="150" r="16" fill="#E2683C"/><rect x="262" y="140" width="30" height="30" rx="6" fill="#FBF3E4" transform="rotate(16 277 155)"/></svg>
+      <div class="in"><div class="q">Wie gut kennst du <i>deine Stadt</i>?</div><span class="go">München-Quiz</span></div>
     </a>
-
-    <a class="tile wide t-warm rv" href="ernaehrung.html" style="--i:6">
-      <span class="ic">🥗</span><small>Essen und Gesundheit</small>
-      <h3>Ernährung</h3>
-      <p>Was gut tut, was sich lohnt und wie wir kochen. Dazu 27 Rezepte.</p>
+    <a class="tile rv" href="ernaehrung.html" style="--i:6;background:linear-gradient(170deg,#3C9370,#1F6B4A)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M280 220c-14-80 24-140 100-150 4 80-24 140-100 150z" fill="#7FCBA2" opacity=".6"/><path d="M280 220c14-54 50-100 100-150" fill="none" stroke="#FBF3E4" stroke-width="2"/></svg>
+      <div class="in"><div class="q">Was tut uns <i>wirklich gut</i>?</div><span class="go">Ernährung · 27 Rezepte</span></div>
     </a>
-    <a class="tile wide t-rust rv" href="notfallvorrat.html" style="--i:7; background:linear-gradient(135deg,#4D6B5A,#2E3A32)">
-      <span class="ic">🎒</span><small>Vorsorge</small>
-      <h3>Unser Notfallvorrat</h3>
-      <p>Wasser, Vorräte, Ausrüstung und Notgepäck für den Ernstfall.</p>
+    <a class="tile rv" href="notfallvorrat.html" style="--i:7;background:linear-gradient(170deg,#2E4A5F,#1D2B3A)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="50" cy="40" r="2" fill="#FBF3E4"/><circle cx="170" cy="24" r="1.6" fill="#FBF3E4"/><circle cx="260" cy="50" r="2.2" fill="#FBF3E4"/><path d="M0 200 L70 150 L130 188 L210 120 L290 190 L340 160 L390 196V232H0z" fill="#1D2B3A" opacity=".8"/><circle cx="330" cy="62" r="22" fill="#F6C253"/></svg>
+      <div class="in"><div class="q">Wofür sind wir <i>gewappnet</i>?</div><span class="go">Notfallvorrat</span></div>
     </a>
   </section>
 
@@ -278,9 +270,9 @@
     var start = new Date(y, 11, 26), end = new Date(y + 1, 0, 6, 23, 59);
     var endThis = new Date(y, 0, 6, 23, 59);
     var num = $('cdnum'), txt = $('cdtext'), sm = $('cdsmall');
-    if (now >= start || now <= endThis) { num.textContent = '🎉'; txt.textContent = 'Reisezeit!'; sm.textContent = 'Gute Reise'; return; }
+    if (now >= start || now <= endThis) { num.textContent = '🎉'; txt.textContent = 'Reisezeit!'; sm.textContent = 'Gute Reise'; $('cdtail').textContent = ''; return; }
     var days = Math.ceil((start - now) / 86400000);
-    num.textContent = days; txt.textContent = days === 1 ? 'Tag noch' : 'Tage noch'; sm.textContent = 'Nächste Reise ab 26.12.';
+    num.textContent = days; txt.textContent = days === 1 ? 'Tag noch' : 'Tage noch'; sm.textContent = 'Nächste Reise ab 26.12.'; $('cdtail').innerHTML = ', <i>dann sind wir weg.</i>';
   }
   countdown();
 
@@ -303,7 +295,7 @@
     $('rdt-title').textContent = pick.title;
     $('rdt-teaser').textContent = pick.teaser;
     box.href = pick.url;
-    box.style.display = 'grid';
+    box.style.display = 'block';
   }
   renderRezeptDesTages();
   // Safari stellt Seiten beim Zurücknavigieren oft aus dem bfcache wieder her
