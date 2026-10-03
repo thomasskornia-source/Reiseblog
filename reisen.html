@@ -14,6 +14,9 @@
 <style>
   .head-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
   .head-row .entry-header { flex: 1; min-width: 0; }
+  .h1-sep { color: var(--ink-soft); opacity: .55; font-weight: 400; }
+  .h1-link { color: var(--rust); text-decoration: none; border: 0; }
+  .h1-link:hover { text-decoration: underline; }
   .berater-tile { flex: none; margin-top: 8px; padding: 12px 22px; border-radius: 99px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; box-shadow: 0 6px 16px rgba(46,58,50,.22); transition: transform .15s; }
   .berater-tile:hover { transform: translateY(-2px); }
   .trips { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 24px 0 8px; }
@@ -50,13 +53,10 @@
 <div class="wrap">
 
 
-  <div class="head-row">
-    <header class="entry-header">
-      <h1>Reisen</h1>
-      <hr class="rule">
-    </header>
-    <a class="berater-tile" href="reiseberater.html">Reiseplanung</a>
-  </div>
+  <header class="entry-header">
+    <h1>Reisen <span class="h1-sep">/</span> <a class="h1-link" href="reiseberater.html">Reiseplanung</a></h1>
+    <hr class="rule">
+  </header>
 
   <div class="entry-body">
     <p>Hier stehen die Reisevorschläge der Reiseplanung.</p>
