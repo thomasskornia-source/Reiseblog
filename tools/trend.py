@@ -78,6 +78,26 @@ def wochen_ema(zeilen, n=10):
     reihe = ema_reihe(list(woche.values()), n)
     return reihe[-1]
 
+def wochenchart(zeilen):
+    """Wochenschlusskurse (die laufende Woche mit dem letzten Kurs): 8-Wochen-EMA und Wochen-MACD (12, 26, 9).
+    Liefert: Kurs gegen den 8-Wochen-EMA, MACD gegen Signallinie und gegen Null, und seit wie vielen Wochen die MACD-Lage gilt."""
+    woche = {}
+    for z in zeilen:
+        d = datetime.datetime.utcfromtimestamp(z[0]).isocalendar()
+        woche[(d[0], d[1])] = z[4]
+    w = list(woche.values())
+    if len(w) < 40: return None
+    e8 = ema_reihe(w, 8); linie, signal = macd_reihen(w)
+    if None in (e8[-1], linie[-1], signal[-1]): return None
+    ueber = [None if a is None or b is None else a > b for a, b in zip(linie, signal)]
+    n = 1
+    while n < len(ueber) and ueber[-1 - n] is not None and ueber[-1 - n] == ueber[-1]: n += 1
+    neg = [None if a is None else a < 0 for a in linie]
+    m = 1
+    while m < len(neg) and neg[-1 - m] is not None and neg[-1 - m] == neg[-1]: m += 1
+    return {'ema8': round(e8[-1], 2), 'ueber_ema8': bool(w[-1] > e8[-1]), 'abstand_pct': round((w[-1] / e8[-1] - 1) * 100, 1),
+            'macd_ueber_signal': bool(ueber[-1]), 'macd_wochen': n, 'macd_unter_null': bool(neg[-1]), 'macd_null_wochen': m}
+
 def score(zeilen, c, m8, m21, m50, m200, rsi, macd, signal, benchmark):
     """Eigener Setup-Score mit 12 offenen Regeln (angelehnt an Chart-Scanner, kein Nachbau eines fremden Scores)."""
     h = [z[2] for z in zeilen]; l = [z[3] for z in zeilen]; v = [z[5] for z in zeilen]; n = len(c)
@@ -159,6 +179,7 @@ def analyse(zeilen, meta=None, tage=252, benchmark=None, mit_score=True):
         'macd_hist': round(mlinie[-1] - msignal[-1], 2), 'muster': mus,
         'kreuz': kreuzung(m50, m200, letzte[0], ('Golden Cross', 'Death Cross')),
         'kreuz_kurz': kreuzung(m8, m21, letzte[0], ('8 über 21', '8 unter 21')),
+        'woche': wochenchart(zeilen),
         'serie': {
             'd': [datetime.datetime.utcfromtimestamp(zeilen[i][0]).strftime('%d.%m.%y') for i in letzte],
             'o': [r(zeilen[i][1]) for i in letzte], 'h': [r(zeilen[i][2]) for i in letzte],

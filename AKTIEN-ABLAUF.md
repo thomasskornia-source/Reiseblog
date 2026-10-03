@@ -109,6 +109,9 @@ den **Trend** (Ampel Up / Medium / Down und Lage zu den Linien 8, 21, 50, 200, Z
 Handelsanweisungen. Passen Trend, Markt und Option Flows nicht zusammen (z. B. Up, aber abfließende Option Flows, oder
 Down-Markt), das offen sagen. Name auf der Seite ist „James“, nie als Aussage der echten Person ausgeben; keine Inhalte
 aus seinen Bezahlbeiträgen verwenden.
+**Megacaps und Wochenchart:** `data/breite.json` (`megacaps`) zeigt, wie viele der sieben größten Werte über der 8-Tage-Linie liegen; im Wochenchart (`woche` im
+`james`-Block und in `data/markt.json`) zählen 8-Wochen-EMA und Wochen-MACD. James nennt sie kurz, wenn sie ein Warnzeichen geben (Kurs unter dem 8-Wochen-EMA,
+Wochen-MACD fällt unter die Signallinie, nur ≤ 2 der 7 Megacaps über der 8er).
 **Sektor-Rotation:** `data/sektoren.json` zeigt je Branche Rang, Status (heiß, interessant, kühlt ab, kalt, ruhig) und Verlauf. James nennt den Status des Sektors der Aktie in
 einem Halbsatz, wenn er heiß ist (Rückenwind) oder abkühlt (Gegenwind); Quelle `GICS Sector` aus `data/top10.json` oder der Firmenliste.
 **Marktbreite:** `data/breite.json` (letzter Eintrag in `verlauf`) zeigt, wie viele S&P-500-Werte über der 8-, 21-, 50- und 200-Tage-Linie liegen. James nennt

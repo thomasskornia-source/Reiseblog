@@ -350,6 +350,7 @@
     if (j.rsi != null) t += '<div><dt>RSI (14)</dt><dd>' + zahl(j.rsi, 0) + ' · ' + (j.rsi >= 70 ? 'überkauft' : j.rsi >= 50 ? 'über 50, positiv' : j.rsi > 30 ? 'unter 50, schwach' : 'überverkauft') + '</dd></div>';
     if (j.macd != null) t += '<div><dt>MACD</dt><dd>' + (j.macd > j.macd_signal ? 'über' : 'unter') + ' der Signallinie · ' + (j.macd > 0 ? 'über' : 'unter') + ' Null</dd></div>';
     var mu = j.muster || {};
+    if (j.woche) t += '<div><dt>Wochenchart</dt><dd>Kurs ' + (j.woche.ueber_ema8 ? 'über' : 'unter') + ' dem 8-Wochen-EMA · Wochen-MACD ' + (j.woche.macd_ueber_signal ? 'über' : 'unter') + ' der Signallinie seit ' + j.woche.macd_wochen + ' Wo.</dd></div>';
     if (j.kreuz) t += '<div><dt>' + esc(j.kreuz.typ) + '</dt><dd>vor ' + j.kreuz.tage + ' Handelstagen (50- gegen 200-Tage-Linie)</dd></div>';
     if (j.kreuz_kurz) t += '<div><dt>Kurzfristig</dt><dd>8-Tage-Linie ' + (j.kreuz_kurz.richtung === 'hoch' ? 'kreuzte vor ' + j.kreuz_kurz.tage + ' Tagen über' : 'kreuzte vor ' + j.kreuz_kurz.tage + ' Tagen unter') + ' die 21er</dd></div>';
     if (mu.boden) t += '<div><dt>Bodenbildung</dt><dd>' + esc(mu.boden.typ) + ' · ' + esc(mu.boden.status) + '</dd></div>';
@@ -452,6 +453,11 @@
       $('markt-s').innerHTML += ' <span>· Breite ' + bv.ueber21 + ' % über der 21er</span>';
       $('markt-c').innerHTML += '<div class="breite"><p class="cap">Marktbreite: Anteil der S&amp;P-500-Aktien über der jeweiligen Linie (' + br.n + ' Werte, Stand ' + esc(String(br.stand).slice(0, 5)) + ')</p><div class="bz">' + pf('ueber8', '8 Tage') + pf('ueber21', '21 Tage') + pf('ueber50', '50 Tage') + pf('ueber200', '200 Tage') + '</div><p class="cap">' + esc(tx.charAt(0).toUpperCase() + tx.slice(1)) + '.</p></div>';
     }
+    if (m.woche) $('markt-c').innerHTML += '<p class="cap">Wochenchart: Index ' + (m.woche.ueber_ema8 ? 'über' : 'unter') + ' dem 8-Wochen-EMA, Wochen-MACD ' + (m.woche.macd_ueber_signal ? 'über' : 'unter') + ' der Signallinie seit ' + m.woche.macd_wochen + (m.woche.macd_wochen === 1 ? ' Woche' : ' Wochen') + (m.woche.macd_ueber_signal ? '' : ' (Warnzeichen für Bullen)') + '.</p>';
+    if (br && br.megacaps && br.megacaps.length) {
+      var an = br.megacaps.filter(function (x) { return x.ueber8; }).length;
+      $('markt-c').innerHTML += '<div class="breite"><p class="cap">Die sieben größten Werte: <b>' + an + ' von ' + br.megacaps.length + '</b> über der 8-Tage-Linie</p><div class="bz">' + br.megacaps.map(function (x) { return '<span>' + (x.ueber8 ? '✓' : '✗') + ' <b>' + esc(x.t) + '</b> <em>' + (Math.abs(x.abstand8_pct) < 0.05 ? '±0' : (x.abstand8_pct > 0 ? '+' : '') + zahl(x.abstand8_pct, 1)) + ' %</em></span>'; }).join('') + '</div><p class="cap">' + (an <= 2 ? 'Die Schwergewichte sind schwach, das zieht den Index mit.' : an >= 6 ? 'Die Schwergewichte sind stark.' : 'Gemischtes Bild bei den Schwergewichten.') + '</p></div>';
+    }
     if (!m.serie) $('markt').removeAttribute('open');
     $('markt').hidden = false;
   }, function () {});
@@ -481,6 +487,7 @@
     if (x.rsi != null) pk.push('RSI ' + zahl(x.rsi, 0) + (x.rsi > 70 ? ' (heiß gelaufen)' : x.rsi < 30 ? ' (überverkauft)' : ''));
     if (d && d.macd != null) pk.push('MACD ' + (d.macd > d.macd_signal ? 'über' : 'unter') + ' der Signallinie');
     if (x.pos_52w_pct != null) pk.push(x.pos_52w_pct + ' % der Spanne des Jahres (0 = Tief, 100 = Hoch)');
+    if (d && d.woche) { var wk = d.woche; pk.push('Wochenchart: Kurs ' + (wk.ueber_ema8 ? 'über' : 'unter') + ' dem 8-Wochen-EMA (' + zahl(Math.abs(wk.abstand_pct), 1) + ' % ' + (wk.ueber_ema8 ? 'darüber' : 'darunter') + '), Wochen-MACD ' + (wk.macd_ueber_signal ? 'über' : 'unter') + ' der Signallinie seit ' + wk.macd_wochen + (wk.macd_wochen === 1 ? ' Woche' : ' Wochen') + (wk.macd_unter_null ? ', unter Null' : ', über Null')); }
     if (d && d.kreuz) pk.push(esc(d.kreuz.typ) + ' vor ' + d.kreuz.tage + ' Handelstagen (50- gegen 200-Tage-Linie)' + (d.kreuz.tage <= 30 ? ', frisch' : ''));
     else if (d) pk.push('Keine Kreuzung von 50- und 200-Tage-Linie in den letzten zwei Jahren');
     if (d && d.kreuz_kurz) pk.push('Kurzfristig: 8-Tage-Linie ' + (d.kreuz_kurz.richtung === 'hoch' ? 'über' : 'unter') + ' der 21er seit ' + d.kreuz_kurz.tage + ' Tagen');

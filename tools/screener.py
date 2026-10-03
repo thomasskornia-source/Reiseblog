@@ -15,7 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 sys.path.insert(0, os.path.dirname(__file__))
 import trend, insider
 
-DETAIL = ('serie', 'muster', 'ma8', 'ma21', 'ma50', 'ma200', 'ma200_steigt', 'macd', 'macd_signal', 'hoch_52w', 'tief_52w', 'kreuz', 'kreuz_kurz', 'score')
+DETAIL = ('serie', 'muster', 'ma8', 'ma21', 'ma50', 'ma200', 'ma200_steigt', 'macd', 'macd_signal', 'hoch_52w', 'tief_52w', 'kreuz', 'kreuz_kurz', 'woche', 'score')
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 LISTE = 'https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv'
 SEC = 'https://data.sec.gov/api/xbrl/frames/us-gaap/%s/%s/%s.json'
@@ -158,7 +158,9 @@ def sektor_rotation(fl, js, sp_zeilen):
         fh.write(json.dumps({'verlauf': arch['verlauf'][-1500:]}, ensure_ascii=False).replace('},', '},\n') + '\n')
     return out
 
-def breite(js):
+MEGA = ('AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'META', 'TSLA')
+
+def breite(js, fl=None):
     """Marktbreite: Anteil der S&P-500-Aktien über ihrer 8-, 21-, 50- und 200-Tage-Linie (alle Werte mit Kursdaten), Verlauf in data/breite.json."""
     a = [j['_a'] for j in js if j]
     if len(a) < 100: return
@@ -170,8 +172,13 @@ def breite(js):
     verlauf = [v for v in d.get('verlauf', []) if v['datum'] != heute]
     verlauf.append({'datum': heute, 'ueber8': pro('ma8'), 'ueber21': pro('ma21'), 'ueber50': pro('ma50'), 'ueber200': pro('ma200')})
     verlauf = verlauf[-260:]
+    mega = []
+    for f, j in zip(fl or [], js):   # die sieben größten Werte: über dem 8-Tage-EMA? (James zählt, wie viele der Megacaps stark sind)
+        if j and f['t'] in MEGA:
+            x = j['_a']; mega.append({'t': f['t'], 'name': f['name'], 'ueber8': x['kurs'] > x['ma8'], 'ueber21': x['kurs'] > x['ma21'], 'abstand8_pct': round((x['kurs'] / x['ma8'] - 1) * 100, 1)})
+    mega.sort(key=lambda m: MEGA.index(m['t']))
     with open(pfad, 'w', encoding='utf-8') as fh:
-        fh.write(json.dumps({'stand': heute, 'n': len(a), 'verlauf': verlauf}, ensure_ascii=False, indent=None).replace('},', '},\n') + '\n')
+        fh.write(json.dumps({'stand': heute, 'n': len(a), 'megacaps': mega, 'verlauf': verlauf}, ensure_ascii=False, indent=None).replace('},', '},\n') + '\n')
 
 def beobachten(bm):
     """Eigene Aktien aus data/aktien.json: James' Ampel täglich neu (ohne Texte, ohne Token) -> data/beobachtung.json."""
@@ -203,7 +210,7 @@ def main():
     try: z = sec_zahlen()
     except Exception as e: print('SEC-Zahlen nicht abrufbar:', e)
     with ThreadPoolExecutor(8) as ex: js = list(ex.map(lambda f: james(f, bm), fl))
-    breite(js)
+    breite(js, fl)
     sek = sektor_rotation(fl, js, sp_z)
     alle = []
     for f, j in zip(fl, js):
