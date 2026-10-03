@@ -108,6 +108,48 @@ nicht im Repo. Alles unten sind Selbstaussagen von James, nicht geprüft.
   Menge und Richtung bewerten, nicht einzelne Großgeschäfte. (4) Kurz, direkt, ohne Schnörkel: „Chart sieht gut aus“ oder nicht.
   (5) Unsere Linien enthalten die 100er nicht; wir lassen sie weg (50 und 200 reichen).
 
+## Alte Newsletter-Mails von James (2023, aus Thomas' Postfach; nur sinngemäß, die Mails selbst liegen nicht im Repo)
+Gelesen wurden zehn Mails aus dem Ordner „James“ (Tages-Recaps, „Best Idea For The Week Ahead“, „10 Charts Of Strength“, „How Do You Utilize
+This Data?“, „The Process“, ein Zahlenausblick zu Amazon). Zusammenfassung in eigenen Worten; keine Handelsideen, Positionen, Gewinne
+oder Rechnungs- und Kontodaten übernommen.
+- **Aufbau seiner Tages-Recaps:** (1) kurze Marktlage mit Index-Chart (Tages- und Wochenchart, Lage zu den Linien, Divergenzen, gescheiterte
+  Ausbrüche); (2) **„Trends“**: Ranking der Flows über Woche bis heute, 2 Wochen, 1 Monat, später auch 2 Monate (nur Geschäfte, deren
+  Laufzeit noch offen ist); (3) **ungewöhnliche Optionsaktivität** des Tages mit Zahl der Geschäfte (rund 90 bis 110) und was auffiel;
+  (4) eigene Positionen und was er getan hat; freitags (Verfallstag) nur eine kurze Fassung. Am Wochenende eine „beste Idee“ und
+  „Charts der Stärke“ mit den zugehörigen Flows.
+- **Seine Prozess-Reihenfolge** (Gliederung von „The Process“): Option Flows → Trends (was suche ich, Ideen, Timing, Richtung) → Charts
+  (welche Durchschnitte, welche Zeitrahmen, warum) → Umsetzung (welche Optionen, wie einsteigen).
+- **Der Sinn der „Trends“:** Namen, die über längere Zeit wiederholt bullische Flows sehen, sind die, in denen man sein will; Namen mit
+  bärischen Flows meidet er. Gedacht, um Stärke und Schwäche zu erkennen: Puts in Stärke verkaufen, Schwäche meiden. Seine Leser nutzen
+  dieselben Daten unterschiedlich (Aktien, Calls, Put-Verkauf je nach Kontogröße); es gebe nicht die eine richtige Methode.
+- **Denkregeln und Sätze, die sich wiederholen:**
+  - Der Markt irrt nie, nur die Teilnehmer; Charts sagen die Wahrheit „ohne eingebaute Geschichte“.
+  - Der Optionsmarkt läuft Nachrichten voraus (viele weit entfernte Calls vor einer Meldung); darum schaut er zuerst auf Flows, weniger auf
+    Fundamentaldaten. Makro sei schwer zu deuten, Kursverlauf und Flows nicht.
+  - Im Aufwärtstrend ist jeder kleine Rücksetzer eine Kaufgelegenheit; wer dagegen shortet, „kämpft gegen die Schwerkraft“. Davor
+    beobachtet er: viele lange Kerzendochte nach unten (Dips werden gekauft), RSI noch nicht überkauft, Ausbruch über Marken, die ein
+    Jahr lang hielten.
+  - **Marktbreite:** Er zählt, wie viele Großwerte über dem 8-EMA liegen. Sind es nur wenige, sind die „Innereien“ schwach, auch wenn der
+    Index oben steht. Ist der Index unter dem 8-EMA, aber eine bullische Divergenz baut sich auf, heißt es: abwarten, bis der Kurs
+    eindeutig ist, solange gilt der Aufwärtstrend.
+  - **Nach einem Abverkauf** zählen Aktien, die den **8-EMA im Wochenchart** halten: Sie zeigen relative Stärke.
+  - **Golden Cross** (50 kreuzt über 200) führe „typischerweise zu einem längeren Lauf“; wichtig auch Marken, an denen der Kurs im letzten
+    Jahr mehrfach abgewiesen wurde (Ausbruch darüber).
+  - „Je länger die Basis, desto höher der Raum“: lange Seitwärtsphasen vor Ausbrüchen.
+  - Warnzeichen: unter der 200er brechende Branchenindizes zusammen mit vielen Put-Käufen (Beispiel Regionalbanken); Übertreibung bei
+    heißen Neuemissionen („viel Schaum“); sehr niedrige Angst (VIX unter 15), während niemand Absicherung kauft.
+  - Kalender: Zahlen, Notenbank-Treffen, Verfallstage nennt er als Auslöser, die Kurs und Flow bewegen.
+  - **Gewinne mitnehmen:** Wer in einer Woche stark im Plus ist, soll nicht gierig werden; „es kommt immer der nächste Trade“. Er sagt auch
+    offen, wenn ein Erfolg Glück war.
+- **Stil in den Mails:** persönlich („ich“), direkt, mit klarer Meinung auch gegen große Firmen und Manager (z. B. zu hohen Investitionen),
+  Zahlen und Chartbilder als Belege, kurze Absätze, Humor, einladend zur Community („wie nutzt ihr die Daten?“). Er schreibt von sich,
+  dass er über 20 Jahre handelt und fast drei Jahrzehnte gebraucht habe, seine Methode zu verfeinern.
+- **Was daraus für unseren James folgt (Vorschläge):** (1) **Marktbreite** als eigener Wert ergänzen: Anteil der S&P-500-Aktien über 8-,
+  21-, 50- und 200-Tage-Linie, täglich aus unserer eigenen Berechnung (kostenlos). (2) Als Stärke-Regel den **Wochen-8-EMA** ansehen
+  (heute zählt der 10-Wochen-EMA im Score). (3) Golden Cross und Marken, an denen der Kurs im letzten Jahr mehrfach abprallte, sind
+  schon bzw. teilweise drin. (4) Flow-Ranking über mehrere Zeiträume bräuchte ein tägliches Sammeln der Optionsdaten für viele Aktien;
+  unsere frei verfügbare Cboe-Näherung reicht dafür nur eingeschränkt.
+
 ## Grenzen
 - Die öffentlichen Seiten nennen die gleitenden Durchschnitte als Auslöser (ausdrücklich nur den 21er-EMA), aber nicht
   vollständig, welche genau er nutzt. Die Linien 8, 21, 50, 200 und die Zonen stammen von Thomas.
