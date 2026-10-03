@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Weiße Bohnen in Tomatensauce – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css?v=13">
+<link rel="stylesheet" href="../site.css?v=2">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+</head>
+<body class="page-recipe">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="../index.html"><img src="../icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="../reisen.html">Reisen</a>
+      <a href="../rezepte.html">Rezepte</a>
+      <a href="../finanzplanung.html">Finanzplanung</a>
+      <a href="../muenchen-quiz.html">München-Quiz</a>
+      <a href="../ernaehrung.html">Ernährung</a>
+      <a href="../notfallvorrat.html">Notfallvorrat</a>
+      <a class="hot" href="../reiseberater.html">🧭 Reiseberater</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Beilage</p>
+      <h1>Weiße Bohnen in Tomatensauce</h1> <span class="ampel-dot-inline" title="Grün"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 30 Min.</span>
+      <span>🍽 6 Portionen</span>
+      <span>🫘 Bohnen, Tomaten, Olivenöl</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Weiße Bohnen in einer würzigen Tomatensauce mit Rotwein und Thymian: schnell gemacht, mit Ballaststoffen und Olivenöl genau nach den LDL-Empfehlungen. Im Heft gehört das Gericht zum Menü mit den <a href="meraner-antipasti.html">Meraner Antipasti</a>, schmeckt aber auch allein mit Brot als Hauptgericht.</p>
+    </div>
+
+    <div class="recipe-cols">
+    <div class="recipe-ingredients">
+      <h3>Zutaten (6 Personen)</h3>
+            <ul>
+              <li>500 g weiße Bohnenkerne (aus Dose oder Glas)</li>
+              <li>1 Zwiebel</li>
+              <li>2 Knoblauchzehen</li>
+              <li>ca. 2 EL Olivenöl</li>
+              <li>400 g stückige Tomaten</li>
+              <li>1 Schuss trockener Rotwein</li>
+              <li>2 Zweige frischer Thymian</li>
+              <li>1 Prise Zucker</li>
+              <li>Salz, Pfeffer</li>
+            </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Die Bohnen in ein Sieb abgießen, gründlich abbrausen und gut abtropfen lassen. Zwiebel und Knoblauch fein würfeln bzw. hacken und im heißen Öl 3–4 Min. glasig dünsten. Tomaten zugeben und den Rotwein angießen.</li>
+        <li>Die Sauce unter gelegentlichem Rühren 10 Min. köcheln lassen. Thymianblättchen abzupfen und mit den Bohnen zur Sauce geben. Nach Belieben noch 5 Min. einkochen, bis die Konsistenz passt, und mit Salz, Pfeffer und Zucker abschmecken.</li>
+        <li>Bohnen samt Sauce in einer Schale anrichten und mit aufgeschnittenem Brot oder Baguette servieren.</li>
+      </ol>
+      <p style="margin-top:18px;"><strong>Mehr Pep:</strong> Mit Chili oder Cayennepfeffer würzen und nach Wunsch klein geschnittene Peperoni zugeben.</p>
+    </div>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept aus einem Magazin mit Südtiroler Küche, hier mit eigenen Worten zusammengefasst.</p>
+
+    <div class="rating-block" data-recipe="weisse-bohnen-tomatensauce">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('weisse-bohnen-tomatensauce','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('weisse-bohnen-tomatensauce','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-weisse-bohnen-tomatensauce');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+<script src="../nav.js" defer></script>
+<script src="../rezepte.js" defer></script>
+</body>
+</html>

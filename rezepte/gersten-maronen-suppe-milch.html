@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Gersten-Maronen-Suppe mit Milch – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css?v=13">
+<link rel="stylesheet" href="../site.css?v=2">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+</head>
+<body class="page-recipe">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="../index.html"><img src="../icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="../reisen.html">Reisen</a>
+      <a href="../rezepte.html">Rezepte</a>
+      <a href="../finanzplanung.html">Finanzplanung</a>
+      <a href="../muenchen-quiz.html">München-Quiz</a>
+      <a href="../ernaehrung.html">Ernährung</a>
+      <a href="../notfallvorrat.html">Notfallvorrat</a>
+      <a class="hot" href="../reiseberater.html">🧭 Reiseberater</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Suppe</p>
+      <h1>Gersten-Maronen-Suppe mit Milch</h1> <span class="ampel-dot-inline" title="Grün"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 1¼ Std.</span>
+      <span>💧 6–8 Std. einweichen</span>
+      <span>🍽 4 Portionen</span>
+      <span>🌾 Gerste, Gemüse, Maronen</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Eine wärmende Wintersuppe mit Rollgerste, viel Gemüse und Maronen, die mit Milch statt Sahne cremig wird. Gerste liefert lösliche Ballaststoffe (Beta-Glucan), das passt gut zu den LDL-Empfehlungen auf der Ernährungsseite. Die Gerste muss am Vortag eingeweicht werden.</p>
+    </div>
+
+    <div class="recipe-cols">
+    <div class="recipe-ingredients">
+      <h3>Zutaten (4 Personen)</h3>
+            <ul>
+              <li>150 g Rollgerste</li>
+              <li>2 Möhren</li>
+              <li>300 g mehligkochende Kartoffeln</li>
+              <li>2 Stiele Staudensellerie</li>
+              <li>100 g Lauch</li>
+              <li>1 Zwiebel</li>
+              <li>1 Knoblauchzehe</li>
+              <li>3 EL Olivenöl</li>
+              <li>400 ml Gemüsebrühe</li>
+              <li>400 ml Milch</li>
+              <li>200 g geschälte, gegarte Maronen</li>
+              <li>1 EL Schnittlauchröllchen</li>
+              <li>Salz, Pfeffer</li>
+            </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Die Gerste 6–8 Std. in kaltem Wasser einweichen, dann abgießen und abtropfen lassen.</li>
+        <li>Möhren und Kartoffeln schälen, die Möhren fein, die Kartoffeln in 1-cm-Würfel schneiden. Sellerie und Lauch putzen und klein würfeln, Zwiebel und Knoblauch fein würfeln.</li>
+        <li>Das Öl im Topf erhitzen, Zwiebel und Knoblauch hell anbraten, das übrige Gemüse kurz mitbraten und mit der Brühe ablöschen. Gerste zugeben, salzen, pfeffern und 15 Min. ohne Deckel köcheln lassen.</li>
+        <li>Milch angießen, Maronen unterrühren und weitere 15–20 Min. köcheln lassen. Je nach gewünschter Konsistenz noch etwas einkochen oder mit Milch verdünnen, dann abschmecken.</li>
+        <li>Mit Pfeffer und Schnittlauch bestreuen und nach Belieben mit Schüttelbrot (knuspriges Südtiroler Fladenbrot) servieren.</li>
+      </ol>
+    </div>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept aus einem Magazin mit Südtiroler Küche, hier mit eigenen Worten zusammengefasst.</p>
+
+    <div class="rating-block" data-recipe="gersten-maronen-suppe-milch">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('gersten-maronen-suppe-milch','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('gersten-maronen-suppe-milch','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-gersten-maronen-suppe-milch');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+<script src="../nav.js" defer></script>
+<script src="../rezepte.js" defer></script>
+</body>
+</html>

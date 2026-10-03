@@ -27,7 +27,13 @@
     'putenwurst-gruenkohl-bohnen-suppe': ['🍲', '#B5D08B', '#5C8F4F'],
     'puten-hackbaellchen-weisse-bohnen': ['🍅', '#F0907A', '#C23B2B'],
     'sardinen-weissbohnen-salat': ['🥗', '#A7D1C8', '#4C8E85'],
-    'linsen-bolognese-vollkorn-spaghetti': ['🍝', '#F2A07B', '#BF4B2B']
+    'linsen-bolognese-vollkorn-spaghetti': ['🍝', '#F2A07B', '#BF4B2B'],
+    'pustertaler-kaese-polenta': ['🧀', '#F6D27A', '#D9A23E'],
+    'gersten-maronen-suppe-milch': ['🌾', '#E8D6A8', '#A8884F'],
+    'suedtiroler-kuerbiscremesuppe': ['🎃', '#F6B873', '#D9742E'],
+    'herbstsalat-pastinaken-speck-almkaese': ['🥗', '#BFD98A', '#6E9A4F'],
+    'weisse-bohnen-tomatensauce': ['🫘', '#F0907A', '#C23B2B'],
+    'meraner-antipasti': ['🍐', '#D7D58A', '#8E9A4A']
   };
   function slugOf(href) { var m = /([^\/]+)\.html/.exec(href || ''); return m ? m[1] : ''; }
   function media(slug, base) {

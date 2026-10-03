@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Cremige Pustertaler Käse-Polenta – Andrea unterwegs</title>
+<link rel="stylesheet" href="../styles.css?v=13">
+<link rel="stylesheet" href="../site.css?v=2">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+</head>
+<body class="page-recipe">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="../index.html"><img src="../icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="../reisen.html">Reisen</a>
+      <a href="../rezepte.html">Rezepte</a>
+      <a href="../finanzplanung.html">Finanzplanung</a>
+      <a href="../muenchen-quiz.html">München-Quiz</a>
+      <a href="../ernaehrung.html">Ernährung</a>
+      <a href="../notfallvorrat.html">Notfallvorrat</a>
+      <a class="hot" href="../reiseberater.html">🧭 Reiseberater</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="../rezepte.html">← Zu den Rezepten</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Rezept teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <p class="date">Hauptgericht</p>
+      <h1>Cremige Pustertaler Käse-Polenta</h1> <span class="ampel-dot-inline" title="Gelb"></span>
+      <hr class="rule">
+    </header>
+
+    <div class="recipe-meta">
+      <span>⏱ 45 Min.</span>
+      <span>🍽 4 Portionen</span>
+      <span>🧀 Bergkäse, Sardellen, Salat</span>
+    </div>
+
+    <div class="entry-body">
+      <p>Cremiger Maisgrieß mit Bergkäse, Sardellen und knackigem Salat, ein herzhaftes Gericht aus dem Pustertal. Käse und Butter bringen aber viel gesättigtes Fett mit, deshalb Gelb: sehr lecker, eher etwas für zwischendurch als für jeden Tag.</p>
+    </div>
+
+    <div class="recipe-cols">
+    <div class="recipe-ingredients">
+      <h3>Zutaten (4 Personen)</h3>
+            <ul>
+              <li>500 ml Milch</li>
+              <li>ca. 750 ml Gemüsebrühe</li>
+              <li>250 g Maisgrieß</li>
+              <li>250 g Bergkäse</li>
+              <li>40 g Butter</li>
+              <li>1 Salatherz</li>
+              <li>40 g Sardellenfilets</li>
+              <li>Salz, schwarzer Pfeffer</li>
+            </ul>
+    </div>
+
+    <div class="recipe-steps">
+      <h3>Zubereitung</h3>
+      <ol>
+        <li>Milch und Brühe im Topf aufkochen, den Maisgrieß einrieseln lassen und mit dem Schneebesen glatt rühren. Bei kleiner Hitze 25–30 Min. unter häufigem Rühren cremig quellen lassen, bei Bedarf noch etwas Brühe nachgießen.</li>
+        <li>Die Hälfte des Bergkäses reiben, die andere Hälfte würfeln. Den geriebenen Käse mit der Butter unter die Polenta rühren und mit Salz und Pfeffer abschmecken.</li>
+        <li>Salatherz waschen, putzen, trocken schütteln und in Streifen schneiden.</li>
+        <li>Polenta auf tiefe Teller geben, mit Käsewürfeln und Sardellen belegen, pfeffern und mit dem Salat servieren.</li>
+      </ol>
+      <p style="margin-top:18px;"><strong>Tipp:</strong> Polenta zieht beim Stehen stark an. Kurz vor dem Servieren mit etwas heißer Brühe oder Milch wieder cremig rühren.</p>
+    </div>
+    </div>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Rezept aus einem Magazin mit Südtiroler Küche, hier mit eigenen Worten zusammengefasst.</p>
+
+    <div class="rating-block" data-recipe="pustertaler-kaese-polenta">
+      <p class="rating-label">Wie hat's geschmeckt?</p>
+      <div class="rating-buttons">
+        <button class="rate-btn" data-vote="up" onclick="rateRecipe('pustertaler-kaese-polenta','up',this)">👍 Lecker</button>
+        <button class="rate-btn" data-vote="down" onclick="rateRecipe('pustertaler-kaese-polenta','down',this)">👎 Nicht so</button>
+      </div>
+      <p class="rating-note">Deine Bewertung wird auf diesem Gerät gespeichert.</p>
+    </div>
+
+    <script>
+      function rateRecipe(slug, vote, btn) {
+        try {
+          localStorage.setItem('rating-' + slug, vote);
+          var buttons = btn.parentElement.querySelectorAll('.rate-btn');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var note = btn.closest('.rating-block').querySelector('.rating-note');
+          note.textContent = vote === 'up' ? 'Danke - gemerkt als "lecker"!' : 'Danke - gemerkt als "eher nicht"!';
+        } catch(e) {}
+      }
+      (function() {
+        try {
+          var saved = localStorage.getItem('rating-pustertaler-kaese-polenta');
+          if (saved) {
+            var btn = document.querySelector('.rate-btn[data-vote="' + saved + '"]');
+            if (btn) btn.classList.add('active');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <script>
+      function shareRecipe(btn) {
+        var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function(){});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(function(){
+            var original = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+            setTimeout(function(){ btn.innerHTML = original; }, 2000);
+          });
+        }
+      }
+    </script>
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+<script src="../nav.js" defer></script>
+<script src="../rezepte.js" defer></script>
+</body>
+</html>
