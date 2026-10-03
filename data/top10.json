@@ -133,6 +133,20 @@
       }
      ]
     }
+   },
+   "insider": {
+    "kaeufe": 0,
+    "kaeufer": 0,
+    "summe_usd": 0,
+    "verkaeufe": 25,
+    "tage": 90,
+    "letzter_kauf": null,
+    "meldungen": 16
+   },
+   "zahlen": {
+    "form": "10-Q",
+    "datum": "26.08.2026",
+    "tage": 38
    }
   },
   {
@@ -274,6 +288,20 @@
       }
      ]
     }
+   },
+   "insider": {
+    "kaeufe": 0,
+    "kaeufer": 0,
+    "summe_usd": 0,
+    "verkaeufe": 15,
+    "tage": 90,
+    "letzter_kauf": null,
+    "meldungen": 20
+   },
+   "zahlen": {
+    "form": "10-Q",
+    "datum": "30.07.2026",
+    "tage": 65
    }
   },
   {
@@ -410,6 +438,20 @@
       }
      ]
     }
+   },
+   "insider": {
+    "kaeufe": 0,
+    "kaeufer": 0,
+    "summe_usd": 0,
+    "verkaeufe": 3,
+    "tage": 90,
+    "letzter_kauf": null,
+    "meldungen": 5
+   },
+   "zahlen": {
+    "form": "10-Q",
+    "datum": "29.07.2026",
+    "tage": 66
    }
   },
   {
@@ -543,6 +585,20 @@
       }
      ]
     }
+   },
+   "insider": {
+    "kaeufe": 2,
+    "kaeufer": 1,
+    "summe_usd": 92162,
+    "verkaeufe": 2,
+    "tage": 90,
+    "letzter_kauf": "14.08.2026",
+    "meldungen": 5
+   },
+   "zahlen": {
+    "form": "10-Q",
+    "datum": "31.07.2026",
+    "tage": 64
    }
   },
   {
@@ -692,6 +748,20 @@
       }
      ]
     }
+   },
+   "insider": {
+    "kaeufe": 0,
+    "kaeufer": 0,
+    "summe_usd": 0,
+    "verkaeufe": 6,
+    "tage": 90,
+    "letzter_kauf": null,
+    "meldungen": 5
+   },
+   "zahlen": {
+    "form": "10-Q",
+    "datum": "16.07.2026",
+    "tage": 79
    }
   },
   {
@@ -828,6 +898,20 @@
       }
      ]
     }
+   },
+   "insider": {
+    "kaeufe": 0,
+    "kaeufer": 0,
+    "summe_usd": 0,
+    "verkaeufe": 33,
+    "tage": 90,
+    "letzter_kauf": null,
+    "meldungen": 12
+   },
+   "zahlen": {
+    "form": "10-Q",
+    "datum": "05.08.2026",
+    "tage": 59
    }
   },
   {
@@ -964,6 +1048,20 @@
       }
      ]
     }
+   },
+   "insider": {
+    "kaeufe": 0,
+    "kaeufer": 0,
+    "summe_usd": 0,
+    "verkaeufe": 6,
+    "tage": 90,
+    "letzter_kauf": null,
+    "meldungen": 43
+   },
+   "zahlen": {
+    "form": "10-Q",
+    "datum": "18.06.2026",
+    "tage": 107
    }
   },
   {
@@ -1105,6 +1203,20 @@
       }
      ]
     }
+   },
+   "insider": {
+    "kaeufe": 0,
+    "kaeufer": 0,
+    "summe_usd": 0,
+    "verkaeufe": 28,
+    "tage": 90,
+    "letzter_kauf": null,
+    "meldungen": 15
+   },
+   "zahlen": {
+    "form": "10-Q",
+    "datum": "06.08.2026",
+    "tage": 58
    }
   },
   {
@@ -1233,6 +1345,20 @@
       }
      ]
     }
+   },
+   "insider": {
+    "kaeufe": 0,
+    "kaeufer": 0,
+    "summe_usd": 0,
+    "verkaeufe": 278,
+    "tage": 90,
+    "letzter_kauf": null,
+    "meldungen": 36
+   },
+   "zahlen": {
+    "form": "10-Q",
+    "datum": "05.08.2026",
+    "tage": 59
    }
   },
   {
@@ -1369,6 +1495,20 @@
       }
      ]
     }
+   },
+   "insider": {
+    "kaeufe": 1,
+    "kaeufer": 1,
+    "summe_usd": 1023400,
+    "verkaeufe": 1,
+    "tage": 90,
+    "letzter_kauf": "12.08.2026",
+    "meldungen": 2
+   },
+   "zahlen": {
+    "form": "10-Q",
+    "datum": "04.08.2026",
+    "tage": 60
    }
   }
  ],

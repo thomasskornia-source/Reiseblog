@@ -50,6 +50,16 @@
    "punkte": 11,
    "ampel_vorher": "Up",
    "stand": "03.10.2026"
+  },
+  {
+   "ticker": "TTWO",
+   "name": "Take-Two Interactive Software, Inc.",
+   "kurs": 202.73,
+   "ampel": "Down",
+   "lage": "unter der 200-Tage-Linie",
+   "punkte": 2,
+   "ampel_vorher": null,
+   "stand": "03.10.2026"
   }
  ]
 }
