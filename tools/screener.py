@@ -83,7 +83,7 @@ def james(f, bm):
         meta, zeilen = trend.holen(f['t'].replace('.', '-'))
         a = trend.analyse(zeilen, meta, benchmark=bm)
         return {'kurs': a['kurs'], 'ampel': a['ampel'], 'lage': a['lage'], 'punkte': a['score']['punkte'], 'stufe': a['score']['stufe'],
-                'rsi': a['rsi'], 'abstand_pct': a['abstand_pct'], 'pos_52w_pct': a['pos_52w_pct']}
+                'rsi': a['rsi'], 'abstand_pct': a['abstand_pct'], 'pos_52w_pct': a['pos_52w_pct'], '_a': a}
     except Exception:
         return None
 
@@ -122,7 +122,7 @@ def main():
         if z and n < 4: continue            # zu wenig Zahlen für ein Urteil
         wp = ok / n if n else 0
         rang = (0.5 * wp + 0.5 * j['punkte'] / 12) if z else j['punkte'] / 12
-        alle.append({'ticker': f['t'], 'name': f['name'], 'sektor': f['sektor'], **j, 'warren_ok': ok, 'warren_von': n,
+        alle.append({'ticker': f['t'], 'name': f['name'], 'sektor': f['sektor'], **{k: v for k, v in j.items() if k != '_a'}, '_a': j['_a'], 'warren_ok': ok, 'warren_von': n,
                      'kgv': kgv, 'roe_pct': roe, 'marge_pct': marge,
                      'warren_gut': [t for t, v in w if v is True], 'warren_fehlt': [t for t, v in w if v is False], 'rang': round(rang, 3)})
     kandidaten = sorted((a for a in alle if a['ampel'] != 'Down'), key=lambda a: -a['rang'])
@@ -133,7 +133,11 @@ def main():
     vorher = [t['ticker'] for t in alt.get('top10', [])]
     if alt.get('stand') == datetime.date.today().strftime('%d.%m.%Y'): vorher = alt.get('vorher', vorher)
     for i, t in enumerate(top): t['platz'] = i + 1; t['neu'] = bool(vorher) and t['ticker'] not in vorher
-    kurz = ('ticker', 'name', 'ampel', 'lage', 'kgv', 'warren_ok', 'warren_von', 'punkte')
+    for t in top:   # Detail für die Aufklapp-Ansicht (Chart und Chartanalyse), nur für die Top 10
+        a = t['_a']
+        t['detail'] = {k: a[k] for k in ('serie', 'muster', 'ma8', 'ma21', 'ma50', 'ma200', 'ma200_steigt', 'macd', 'macd_signal', 'hoch_52w', 'tief_52w', 'score') if k in a}
+    for t in alle: t.pop('_a', None)
+    kurz = ('ticker', 'name', 'ampel', 'lage', 'kgv', 'roe_pct', 'marge_pct', 'rsi', 'abstand_pct', 'pos_52w_pct', 'warren_gut', 'warren_fehlt', 'warren_ok', 'warren_von', 'punkte')
     sektoren = {}
     for a in kandidaten:
         liste = sektoren.setdefault(a['sektor'], [])

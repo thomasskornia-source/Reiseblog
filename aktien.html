@@ -89,6 +89,18 @@
   .top10 .neu { font-size: 11px; font-weight: 600; color: var(--rust); margin-left: 6px; }
   .top10 select { width: 100%; padding: 9px 10px; border: 1px solid rgba(46,58,50,.18); border-radius: 10px; background: var(--paper); color: var(--ink); font: inherit; font-size: 14px; }
   .top10 .leer { grid-template-columns: 1fr; cursor: default; color: var(--ink-soft); }
+  .top10 li.auf { cursor: default; border-color: var(--rust); }
+  .top10 .det { grid-column: 1 / -1; border-top: 1px solid rgba(46,58,50,.12); margin-top: 6px; padding-top: 8px; text-align: left; display: grid; gap: 12px; }
+  .top10 .dsec h5 { margin: 0 0 4px; font-family: 'Fraunces', serif; font-weight: 500; font-size: 15px; }
+  .top10 .dsec p { margin: 0 0 6px; font-size: 14px; }
+  .top10 .klein { font-size: 12.5px; color: var(--ink-soft); }
+  .top10 ul.pk { list-style: none; margin: 4px 0; padding: 0; display: grid; gap: 3px; font-size: 13.5px; color: var(--ink-soft); }
+  .top10 ul.pk li { display: block; padding: 0; background: none; border: 0; cursor: default; }
+  .top10 .more { margin-top: 6px; }
+  .top10 .chartbox .zoom a { color: var(--ink); }
+  .top10 .chartbox .zoom a.on { color: #fff; }
+  .top10 .dsec p .dot { margin-right: 4px; }
+  .top10 .btn { font-size: 14px; }
   .top10 .hinweis { font-size: 12px; color: var(--ink-soft); margin: 8px 2px 0; text-align: center; }
   .markt .chartbox { margin-top: 4px; }
   .chartbox { grid-column: 1 / -1; margin-top: 10px; }
@@ -434,23 +446,65 @@
       '<small>' + dot(acls(x.ampel)) + ' ' + esc(x.lage) + (x.kgv ? ' · KGV ' + zahl(x.kgv, 1) : '') + '</small></span><span class="z">' +
       (warren ? 'Warren ' + x.warren_ok + '/' + x.warren_von + '<br>' : '') + 'James ' + x.punkte + '/12</span></li>';
   }
+  function pruefen(tk) {
+    $('inp').value = tk; $('form').onsubmit({ preventDefault: function () {} });
+    $('status').scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+  function detail(x, voll) {
+    var d = x.detail || (voll && voll.detail), h = '';
+    var e = data.filter(function (z) { return sym(z).toUpperCase().replace('.', '-') === x.ticker.toUpperCase().replace('.', '-'); })[0];
+    h += '<div class="dsec"><h5>James · Trend und Chart</h5><p>' + dot(acls(x.ampel)) + '<b>' + esc(x.ampel) + '</b> · ' + esc(x.lage) + '</p>';
+    if (d && d.serie) h += chart(d.serie, d);
+    var pk = ['Setup-Score ' + x.punkte + ' von 12'];
+    if (x.abstand_pct != null) pk.push((x.abstand_pct >= 0 ? 'Kurs ' + zahl(x.abstand_pct, 1) + ' % über' : 'Kurs ' + zahl(-x.abstand_pct, 1) + ' % unter') + ' der 200-Tage-Linie' + (d && d.ma200_steigt != null ? (d.ma200_steigt ? ', die Linie steigt' : ', die Linie fällt') : ''));
+    if (x.rsi != null) pk.push('RSI ' + zahl(x.rsi, 0) + (x.rsi > 70 ? ' (heiß gelaufen)' : x.rsi < 30 ? ' (überverkauft)' : ''));
+    if (d && d.macd != null) pk.push('MACD ' + (d.macd > d.macd_signal ? 'über' : 'unter') + ' der Signallinie');
+    if (x.pos_52w_pct != null) pk.push(x.pos_52w_pct + ' % der Spanne des Jahres (0 = Tief, 100 = Hoch)');
+    var mu = (d && d.muster) || {};
+    if (mu.unterstuetzung) pk.push('Unterstützungslinie aus ' + mu.unterstuetzung.beruehrungen + ' höheren Tiefs (' + esc(mu.unterstuetzung.status) + ')');
+    if (mu.widerstand) pk.push('Widerstandslinie aus ' + mu.widerstand.beruehrungen + ' tieferen Hochs (' + esc(mu.widerstand.status) + ')');
+    if (mu.boden) pk.push(esc(mu.boden.typ) + ' (' + esc(mu.boden.status) + ')');
+    h += '<ul class="pk">' + pk.map(function (q) { return '<li>' + q + '</li>'; }).join('') + '</ul>';
+    if (d && d.score && d.score.kriterien) h += '<details class="more"><summary>Setup-Score · Regeln</summary><dl>' + d.score.kriterien.map(function (k) { return '<div><dt>' + esc(k.gruppe) + '</dt><dd>' + (k.ok ? '✓ ' : '– ') + esc(k.name) + '</dd></div>'; }).join('') + '</dl></details>';
+    h += '</div>';
+    if (x.warren_von) {
+      h += '<div class="dsec"><h5>Warren · Qualität und Preis (Regeln)</h5><ul class="pk">' +
+        (x.warren_gut || []).map(function (q) { return '<li>✓ ' + esc(q) + '</li>'; }).join('') + (x.warren_fehlt || []).map(function (q) { return '<li>– ' + esc(q) + '</li>'; }).join('') + '</ul>' +
+        '<p class="klein">' + (x.kgv ? 'KGV ' + zahl(x.kgv, 1) : '') + (x.roe_pct != null ? ' · Eigenkapitalrendite ' + x.roe_pct + ' %' : '') + (x.marge_pct != null ? ' · Nettomarge ' + x.marge_pct + ' %' : '') + '</p></div>';
+    }
+    h += '<div class="dsec"><h5>Meinung von Warren und Charlie</h5>';
+    if (e && e.warren) {
+      h += '<p>' + dot(cls(e.warren.urteil)) + 'Warren: <b>' + esc(e.warren.urteil) + '</b> · ' + dot(cls(e.charlie.urteil)) + 'Charlie: <b>' + esc(e.charlie.urteil) + '</b> <span class="klein">(Stand ' + esc(e.stand) + ')</span></p>' +
+        '<button class="btn" type="button" data-pr="' + esc(x.ticker) + '">Ganze Meinung ansehen</button>';
+    } else {
+      h += '<p class="klein">Noch nicht geschrieben. Ein Klick startet die Prüfung, das Ergebnis erscheint nach wenigen Minuten oben in der Liste.</p><button class="btn" type="button" data-pr="' + esc(x.ticker) + '">Warren und Charlie fragen</button>';
+    }
+    return h + '</div>';
+  }
   fetch('data/top10.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (t) {
     if (!t || !t.top10 || !t.top10.length) return;
-    var namen = {}; t.top10.forEach(function (x) { namen[x.ticker] = x.name; });
+    var liste = [];
     function zeigen(sek) {
-      var liste = sek ? (t.sektoren[sek] || []) : t.top10;
+      liste = sek ? (t.sektoren[sek] || []) : t.top10;
       $('top10-l').innerHTML = liste.map(function (x, i) { return zeile(x, i + 1, !sek && x.neu, t.warren); }).join('') || '<li class="leer">Nichts dabei.</li>';
       $('top10-r').textContent = !sek && t.raus && t.raus.length ? 'Gegenüber dem letzten Stand rausgefallen: ' + t.raus.join(', ') : '';
     }
     $('top10-s').innerHTML = 'Top 10 im S&amp;P 500 <span>(Stand ' + esc(String(t.stand).slice(0, 5)) + ')</span>';
     var opt = '<option value="">Alle Branchen</option>' + Object.keys(t.sektoren || {}).map(function (k) { return '<option value="' + esc(k) + '">' + esc(SEKTOR[k] || k) + ' (beste 5)</option>'; }).join('');
     $('top10-c').innerHTML = '<select id="top10-f" aria-label="Branche">' + opt + '</select><ol id="top10-l"></ol><p class="hinweis" id="top10-r"></p>' +
-      '<p class="hinweis">Vorauswahl nach festen Regeln aus Kurs- und Jahreszahlen, täglich neu berechnet. Keine Empfehlung. Zeile antippen und „Prüfen“, dann sagen alle drei etwas dazu.</p>';
+      '<p class="hinweis">Vorauswahl nach festen Regeln aus Kurs- und Jahreszahlen, täglich neu berechnet. Keine Empfehlung. Zeile antippen: Trend, Chart und Regeln klappen auf. Die Texte von Warren und Charlie gibt es erst nach einem weiteren Klick.</p>';
     zeigen('');
     $('top10-f').addEventListener('change', function () { zeigen(this.value); });
     $('top10-c').addEventListener('click', function (ev) {
+      var bt = ev.target.closest('[data-pr]'); if (bt) { pruefen(bt.getAttribute('data-pr')); return; }
+      if (ev.target.closest('.det')) return;
       var li = ev.target.closest('li'); if (!li || !li.getAttribute('data-t')) return;
-      $('inp').value = li.getAttribute('data-t'); $('inp').focus(); $('inp').scrollIntoView({ block: 'center', behavior: 'smooth' });
+      var d = li.querySelector('.det');
+      if (d) { d.remove(); li.classList.remove('auf'); return; }
+      var x = liste.filter(function (q) { return q.ticker === li.getAttribute('data-t'); })[0]; if (!x) return;
+      var voll = t.top10.filter(function (q) { return q.ticker === x.ticker; })[0];
+      var el = document.createElement('div'); el.className = 'det'; el.innerHTML = detail(x, voll);
+      li.appendChild(el); li.classList.add('auf');
     });
     $('top10').hidden = false;
   }, function () {});
