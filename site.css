@@ -166,3 +166,32 @@ html, body { overflow-x: clip; max-width: 100%; }
 @keyframes lb-an { 0% { opacity: 1; filter: drop-shadow(0 0 5px #FFE066); } 50% { opacity: .25; filter: none; } }
 @keyframes pfeil-puls { 0%, 100% { transform: rotate(32deg) translateX(0) scale(1); } 50% { transform: rotate(32deg) translateX(12px) scale(1.07); } }
 @media (prefers-reduced-motion: reduce) { .logo-pfeil, .logo-pfeil circle { animation: none !important; } }
+
+/* ---------- Seitenköpfe als Farbwelt (wie auf der Startseite), Welt per nav.js: body[data-welt] ---------- */
+body[data-welt] .entry-header { margin: -28px -18px 26px; padding: 44px 22px 34px; min-height: 170px; display: flex; flex-direction: column; justify-content: center; background-size: cover, cover; background-position: center, center; background-repeat: no-repeat; color: var(--wc, #fff); }
+body[data-welt] .entry-header h1 { color: inherit; margin: 0; }
+body[data-welt] .entry-header .date { background: rgba(255, 255, 255, .22); color: inherit; align-self: flex-start; }
+body[data-welt] .entry-header .rule { background: currentColor; opacity: .55; }
+body[data-welt] .entry-header a:not(.toolbtn) { color: inherit; }
+body[data-welt] .entry-header .h1-link { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+body[data-welt] .entry-header .toolbtn { color: inherit; border-color: currentColor; background: rgba(255, 255, 255, .16); }
+@media (min-width: 700px) {
+  body[data-welt] .entry-header { margin: 0 0 40px; padding: 56px 44px 44px; min-height: 230px; border-radius: 22px; box-shadow: 0 10px 26px rgba(29, 43, 58, .16); }
+}
+body[data-welt="reise"] { --wc: #fff; }
+body[data-welt="reise"] .entry-header { background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 390 232%22 preserveAspectRatio=%22xMidYMid slice%22%3E%3Ccircle cx=%22330%22 cy=%2270%22 r=%2270%22 fill=%22%23FFE29A%22 opacity=%22.45%22/%3E%3Ccircle cx=%22330%22 cy=%2270%22 r=%2240%22 fill=%22%23FFF3E6%22 opacity=%22.8%22/%3E%3Cpath d=%22M0 196 Q70 150 140 190 T290 180 T400 196V232H0z%22 fill=%22%238F2F1F%22 opacity=%22.7%22/%3E%3C/svg%3E"), linear-gradient(170deg,#EA7A3E,#BE4128); }
+body[data-welt="berater"] { --wc: #1D2B3A; }
+body[data-welt="berater"] .entry-header { background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 390 232%22 preserveAspectRatio=%22xMidYMid slice%22%3E%3Ctext x=%22320%22 y=%22214%22 font-family=%22Georgia,serif%22 font-size=%22250%22 fill=%22%23FFF0BE%22 text-anchor=%22middle%22%3E%3F%3C/text%3E%3C/svg%3E"), linear-gradient(170deg,#FFD875,#F2B63D); }
+body[data-welt="rezept"] { --wc: #3B1A18; }
+body[data-welt="rezept"] .entry-header { background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 390 232%22 preserveAspectRatio=%22xMidYMid slice%22%3E%3Ccircle cx=%22330%22 cy=%22116%22 r=%2286%22 fill=%22%23FFF3E6%22 opacity=%22.55%22/%3E%3Ccircle cx=%22330%22 cy=%22116%22 r=%2254%22 fill=%22%23FFF3E6%22 opacity=%22.8%22/%3E%3Ccircle cx=%22330%22 cy=%22116%22 r=%2222%22 fill=%22%23F6C253%22/%3E%3C/svg%3E"), linear-gradient(170deg,#F8B7A5,#EE8F7A); }
+body[data-welt="geld"] { --wc: #fff; }
+body[data-welt="geld"] .entry-header { background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 390 232%22 preserveAspectRatio=%22xMidYMid slice%22%3E%3Cpath d=%22M40 210 A140 140 0 0 1 320 210%22 fill=%22none%22 stroke=%22%23F6C253%22 stroke-width=%222%22 opacity=%22.8%22/%3E%3Cpath d=%22M80 210 A100 100 0 0 1 280 210%22 fill=%22none%22 stroke=%22%23EE8F7A%22 stroke-width=%222%22 opacity=%22.8%22/%3E%3Ccircle cx=%22340%22 cy=%22150%22 r=%2222%22 fill=%22%23F6C253%22/%3E%3C/svg%3E"), linear-gradient(170deg,#7A3A7E,#3E1A41); }
+body[data-welt="quiz"] { --wc: #fff; }
+body[data-welt="quiz"] .entry-header { background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 390 232%22 preserveAspectRatio=%22xMidYMid slice%22%3E%3Cpath d=%22M310 40l9 20 22 3-16 15 4 22-19-11-19 11 4-22-16-15 22-3z%22 fill=%22%23F6C253%22/%3E%3Ccircle cx=%22360%22 cy=%22150%22 r=%2216%22 fill=%22%23E2683C%22/%3E%3Crect x=%22262%22 y=%22140%22 width=%2230%22 height=%2230%22 rx=%226%22 fill=%22%23FBF3E4%22 transform=%22rotate(16 277 155)%22/%3E%3C/svg%3E"), linear-gradient(170deg,#6F7D2E,#4A5620); }
+body[data-welt="essen"] { --wc: #fff; }
+body[data-welt="essen"] .entry-header { background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 390 232%22 preserveAspectRatio=%22xMidYMid slice%22%3E%3Cpath d=%22M280 220c-14-80 24-140 100-150 4 80-24 140-100 150z%22 fill=%22%237FCBA2%22 opacity=%22.6%22/%3E%3Cpath d=%22M280 220c14-54 50-100 100-150%22 fill=%22none%22 stroke=%22%23FBF3E4%22 stroke-width=%222%22/%3E%3C/svg%3E"), linear-gradient(170deg,#3C9370,#1F6B4A); }
+body[data-welt="nacht"] { --wc: #fff; }
+body[data-welt="nacht"] .entry-header { background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 390 232%22 preserveAspectRatio=%22xMidYMid slice%22%3E%3Ccircle cx=%2250%22 cy=%2240%22 r=%222%22 fill=%22%23FBF3E4%22/%3E%3Ccircle cx=%22170%22 cy=%2224%22 r=%221.6%22 fill=%22%23FBF3E4%22/%3E%3Ccircle cx=%22260%22 cy=%2250%22 r=%222.2%22 fill=%22%23FBF3E4%22/%3E%3Cpath d=%22M0 200 L70 150 L130 188 L210 120 L290 190 L340 160 L390 196V232H0z%22 fill=%22%231D2B3A%22 opacity=%22.8%22/%3E%3Ccircle cx=%22330%22 cy=%2262%22 r=%2222%22 fill=%22%23F6C253%22/%3E%3C/svg%3E"), linear-gradient(170deg,#2E4A5F,#1D2B3A); }
+body[data-welt] .entry-header .rule { display: none; }
+body[data-welt] .entry-header .toolgroup { top: 10px; right: 12px; gap: 6px; }
+body[data-welt] .entry-header .toolbtn, body[data-welt] .entry-header .toolbtn:hover, body[data-welt] .entry-header .toolbtn:active { color: inherit; background: rgba(255, 255, 255, .2) !important; border: 0 !important; border-radius: 10px; box-shadow: none; }

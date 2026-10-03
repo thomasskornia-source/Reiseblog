@@ -14,6 +14,18 @@
       if (nav && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = Math.max(0, links[i].offsetLeft - 60);
     }
   }
+  // Farbwelt der Seite (Kopfbereich)
+  (function () {
+    var f = location.pathname.split('/').pop() || 'index.html', w = '';
+    if (location.pathname.indexOf('/rezepte/') === -1 && f === 'rezepte.html') w = 'rezept';
+    else if (f === 'reiseberater.html') w = 'berater';
+    else if (f === 'reisen.html' || /-reise\.html$/.test(f)) w = 'reise';
+    else if (/^(finanzplanung|zinseszins|immobiliensuche|gedaechtnistest)\.html$/.test(f)) w = 'geld';
+    else if (f === 'muenchen-quiz.html') w = 'quiz';
+    else if (/^(ernaehrung|cholesterin|lebensmittel-basics|podcast-richtig-essen)\.html$/.test(f)) w = 'essen';
+    else if (f === 'notfallvorrat.html') w = 'nacht';
+    if (w && document.querySelector('.entry-header')) document.body.setAttribute('data-welt', w);
+  })();
   function onScroll() { bar.classList.toggle('stuck', window.scrollY > 6); }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
