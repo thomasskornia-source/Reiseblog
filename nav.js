@@ -51,7 +51,7 @@
       n++;
     }
   }
-  svg += '<text x="180" y="79" text-anchor="middle" font-family="Work Sans, sans-serif" font-weight="800" font-size="30" fill="#fff" stroke="#0E5E2B" stroke-width="1" paint-order="stroke">Übersicht</text></svg>';
+  svg += '<text x="180" y="79" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="32" fill="#fff" stroke="#0E5E2B" stroke-width="1" paint-order="stroke">Übersicht</text></svg>';
   var box = document.createElement('div');
   box.className = 'logo-pfeil';
   box.setAttribute('role', 'note');
@@ -64,5 +64,5 @@
   box.addEventListener('click', weg);
   document.addEventListener('click', weg, { once: true });
   window.addEventListener('scroll', weg, { once: true, passive: true });
-  setTimeout(weg, 10000);
+  setTimeout(weg, 6000);
 })();
