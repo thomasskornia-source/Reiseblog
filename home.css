@@ -68,18 +68,18 @@ html:has(body.home) { overflow-x: hidden; }
 .rdt-tile { display: none; height: 300px; }
 .rdt-tile[style*="block"] { display: block; }
 
-/* ---------- Tagebuch ---------- */
-.home .section-title { display: flex; align-items: baseline; justify-content: space-between; font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(30px, 6vw, 44px); margin: 0 0 20px; padding: 0; border: 0; }
-.home .section-title small { font-family: 'Work Sans', sans-serif; font-size: 14px; color: var(--ink-soft); font-weight: 400; }
-.home .entry-list { display: grid; grid-template-columns: 1fr; gap: 22px; }
-.home .entry-list .entry-preview, .home .entry-list .entry-preview:first-child { display: block; padding: 0; border: 0; text-decoration: none; color: var(--ink); background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 2px 0 rgba(46, 58, 50, .05), 0 10px 26px rgba(46, 58, 50, .08); transition: transform .3s cubic-bezier(.2, .9, .3, 1), box-shadow .3s; }
-.home .entry-list .entry-preview:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(46, 58, 50, .16); }
-.home .entry-thumb { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--paper-warm); }
+/* ---------- Tagebuch: Fotos randlos wie die Farbwelten ---------- */
+.home .section-title { display: block; font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(30px, 6vw, 44px); margin: 0 0 18px; padding: 0; border: 0; }
+.home .section-title small { display: block; font-family: 'Fraunces', serif; font-style: italic; font-size: 15px; color: var(--rust); font-weight: 500; margin-top: 2px; }
+.home .entry-list { display: flex; flex-direction: column; gap: 0; margin: 0 -18px; }
+.home .entry-list .entry-preview, .home .entry-list .entry-preview:first-child { display: block; padding: 0 0 26px; border: 0; text-decoration: none; color: var(--ink); background: transparent; border-radius: 0; overflow: hidden; box-shadow: none; transition: transform .3s cubic-bezier(.2, .9, .3, 1); }
+.home .entry-thumb { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--paper-warm); position: relative; }
+.home .entry-thumb::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(29, 43, 58, 0) 55%, rgba(29, 43, 58, .28)); pointer-events: none; }
 .home .entry-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s cubic-bezier(.2, .9, .3, 1); }
-.home .entry-preview:hover .entry-thumb img { transform: scale(1.07); }
-.home .entry-preview .date { margin: 14px 18px 0; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--rust); }
-.home .entry-preview h2 { font-size: 22px; line-height: 1.22; margin: 4px 18px 6px; }
-.home .entry-preview p:not(.date) { margin: 0 18px 18px; font-size: 14.5px; color: var(--ink-soft); }
+.home .entry-preview:hover .entry-thumb img { transform: scale(1.05); }
+.home .entry-preview .date { margin: 16px 22px 0; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--rust); font-weight: 600; }
+.home .entry-preview h2 { font-size: 26px; line-height: 1.15; margin: 5px 22px 8px; }
+.home .entry-preview p:not(.date) { margin: 0 22px; font-size: 15px; color: var(--ink-soft); }
 
 /* ---------- Einblenden beim Scrollen ---------- */
 .rv { opacity: 0; transform: translateY(26px) scale(.98); transition: opacity .7s cubic-bezier(.2, .9, .3, 1), transform .7s cubic-bezier(.2, .9, .3, 1); transition-delay: calc(var(--i, 0) * 70ms); }
@@ -100,7 +100,8 @@ html:has(body.home) { overflow-x: hidden; }
   .tile.wide { grid-column: 1 / -1; }
   .tile .in { left: 30px; right: 30px; }
   .tile .q { font-size: 36px; }
-  .home .entry-list { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .home .entry-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin: 0; }
+  .home .entry-list .entry-preview, .home .entry-list .entry-preview:first-child { padding-bottom: 24px; background: #fff; border-radius: 22px; box-shadow: 0 10px 26px rgba(29, 43, 58, .12); }
 }
 @media (min-width: 1050px) {
   .home .entry-list { grid-template-columns: repeat(3, 1fr); }
