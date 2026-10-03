@@ -15,6 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 sys.path.insert(0, os.path.dirname(__file__))
 import trend, insider
 
+DETAIL = ('serie', 'muster', 'ma8', 'ma21', 'ma50', 'ma200', 'ma200_steigt', 'macd', 'macd_signal', 'hoch_52w', 'tief_52w', 'kreuz', 'kreuz_kurz', 'score')
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 LISTE = 'https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv'
 SEC = 'https://data.sec.gov/api/xbrl/frames/us-gaap/%s/%s/%s.json'
@@ -102,10 +103,12 @@ def beobachten(bm):
         if not j: continue
         v = alt.get(sym, {})
         vorher = v.get('ampel') if v.get('stand') != heute else v.get('ampel_vorher')
+        a = j['_a']
         liste.append({'ticker': sym, 'name': e.get('name', sym), 'kurs': j['kurs'], 'ampel': j['ampel'], 'lage': j['lage'], 'punkte': j['punkte'],
-                      'ampel_vorher': vorher, 'stand': heute})
+                      'rsi': j['rsi'], 'abstand_pct': j['abstand_pct'], 'pos_52w_pct': j['pos_52w_pct'],
+                      'detail': {k: a[k] for k in DETAIL if k in a}, 'ampel_vorher': vorher, 'stand': heute})
     with open(pfad, 'w', encoding='utf-8') as fh:
-        fh.write(json.dumps({'stand': heute, 'aktien': liste}, ensure_ascii=False, indent=1) + '\n')
+        fh.write(trend.kompakt(json.dumps({'stand': heute, 'aktien': liste}, ensure_ascii=False, indent=1)) + '\n')
 
 def main():
     fl = firmen()
@@ -135,7 +138,7 @@ def main():
     for i, t in enumerate(top): t['platz'] = i + 1; t['neu'] = bool(vorher) and t['ticker'] not in vorher
     for t in top:   # Detail für die Aufklapp-Ansicht (Chart und Chartanalyse), nur für die Top 10
         a = t['_a']
-        t['detail'] = {k: a[k] for k in ('serie', 'muster', 'ma8', 'ma21', 'ma50', 'ma200', 'ma200_steigt', 'macd', 'macd_signal', 'hoch_52w', 'tief_52w', 'kreuz', 'kreuz_kurz', 'score') if k in a}
+        t['detail'] = {k: a[k] for k in DETAIL if k in a}
     kontakt = os.environ.get('SEC_KONTAKT', '').strip()
     for t in top:   # Insiderkäufe (Form 4, 90 Tage) und Datum der letzten Zahlen aus den SEC-Meldungen
         if not kontakt: break
