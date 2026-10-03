@@ -25,7 +25,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/top10.json data/beobachtung.json data/breite.json
+          git add data/top10.json data/beobachtung.json data/breite.json data/sektoren.json data/sektoren-archiv.json
           if git diff --cached --quiet; then echo "Keine Änderung"; exit 0; fi
           git commit -m "Top 10 S&P 500 aktualisiert"
           git pull --rebase origin main
