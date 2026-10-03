@@ -1,1 +1,7 @@
-{"stand": "03.10.2026", "n": 499, "verlauf": [{"datum": "03.10.2026", "ueber8": 37, "ueber21": 26, "ueber50": 24, "ueber200": 42}]}
+{"stand": "03.10.2026", "n": 499, "megacaps": [{"t": "AAPL", "name": "Apple Inc.", "ueber8": false, "ueber21": true, "abstand8_pct": -0.0},
+ {"t": "MSFT", "name": "Microsoft", "ueber8": true, "ueber21": true, "abstand8_pct": 1.5},
+ {"t": "GOOGL", "name": "Alphabet Inc. (Class A)", "ueber8": true, "ueber21": true, "abstand8_pct": 0.2},
+ {"t": "AMZN", "name": "Amazon", "ueber8": true, "ueber21": false, "abstand8_pct": 0.7},
+ {"t": "NVDA", "name": "Nvidia", "ueber8": true, "ueber21": true, "abstand8_pct": 2.3},
+ {"t": "META", "name": "Meta Platforms", "ueber8": true, "ueber21": true, "abstand8_pct": 0.2},
+ {"t": "TSLA", "name": "Tesla, Inc.", "ueber8": true, "ueber21": true, "abstand8_pct": 2.0}], "verlauf": [{"datum": "03.10.2026", "ueber8": 37, "ueber21": 26, "ueber50": 24, "ueber200": 42}]}

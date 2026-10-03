@@ -1073,6 +1073,15 @@
      "i": 241,
      "tage": 10
     },
+    "woche": {
+     "ema8": 223.14,
+     "ueber_ema8": true,
+     "abstand_pct": 4.8,
+     "macd_ueber_signal": true,
+     "macd_wochen": 9,
+     "macd_unter_null": false,
+     "macd_null_wochen": 68
+    },
     "score": {
      "punkte": 11,
      "von": 12,
@@ -2238,6 +2247,15 @@
      "i": 237,
      "tage": 14
     },
+    "woche": {
+     "ema8": 166.76,
+     "ueber_ema8": true,
+     "abstand_pct": 8.5,
+     "macd_ueber_signal": true,
+     "macd_wochen": 1,
+     "macd_unter_null": false,
+     "macd_null_wochen": 22
+    },
     "score": {
      "punkte": 10,
      "von": 12,
@@ -3398,6 +3416,15 @@
      "i": 243,
      "tage": 8
     },
+    "woche": {
+     "ema8": 148.14,
+     "ueber_ema8": true,
+     "abstand_pct": 5.5,
+     "macd_ueber_signal": true,
+     "macd_wochen": 1,
+     "macd_unter_null": false,
+     "macd_null_wochen": 75
+    },
     "score": {
      "punkte": 10,
      "von": 12,
@@ -4554,6 +4581,15 @@
      "richtung": "hoch",
      "i": 242,
      "tage": 9
+    },
+    "woche": {
+     "ema8": 426.88,
+     "ueber_ema8": true,
+     "abstand_pct": 2.2,
+     "macd_ueber_signal": true,
+     "macd_wochen": 2,
+     "macd_unter_null": false,
+     "macd_null_wochen": 34
     },
     "score": {
      "punkte": 9,
@@ -5728,6 +5764,15 @@
      "i": 244,
      "tage": 7
     },
+    "woche": {
+     "ema8": 49.8,
+     "ueber_ema8": true,
+     "abstand_pct": 1.9,
+     "macd_ueber_signal": true,
+     "macd_wochen": 17,
+     "macd_unter_null": false,
+     "macd_null_wochen": 35
+    },
     "score": {
      "punkte": 9,
      "von": 12,
@@ -6888,6 +6933,15 @@
      "i": 244,
      "tage": 7
     },
+    "woche": {
+     "ema8": 1333.01,
+     "ueber_ema8": true,
+     "abstand_pct": 8.0,
+     "macd_ueber_signal": false,
+     "macd_wochen": 15,
+     "macd_unter_null": false,
+     "macd_null_wochen": 2
+    },
     "score": {
      "punkte": 9,
      "von": 12,
@@ -8047,6 +8101,15 @@
      "richtung": "hoch",
      "i": 250,
      "tage": 1
+    },
+    "woche": {
+     "ema8": 182.4,
+     "ueber_ema8": true,
+     "abstand_pct": 9.0,
+     "macd_ueber_signal": true,
+     "macd_wochen": 10,
+     "macd_unter_null": true,
+     "macd_null_wochen": 36
     },
     "score": {
      "punkte": 7,
@@ -9213,6 +9276,15 @@
      "i": 236,
      "tage": 15
     },
+    "woche": {
+     "ema8": 422.96,
+     "ueber_ema8": true,
+     "abstand_pct": 7.3,
+     "macd_ueber_signal": true,
+     "macd_wochen": 1,
+     "macd_unter_null": false,
+     "macd_null_wochen": 29
+    },
     "score": {
      "punkte": 9,
      "von": 12,
@@ -10364,6 +10436,15 @@
      "richtung": "hoch",
      "i": 207,
      "tage": 44
+    },
+    "woche": {
+     "ema8": 197.82,
+     "ueber_ema8": true,
+     "abstand_pct": 4.8,
+     "macd_ueber_signal": true,
+     "macd_wochen": 25,
+     "macd_unter_null": false,
+     "macd_null_wochen": 64
     },
     "score": {
      "punkte": 12,
@@ -11524,6 +11605,15 @@
      "richtung": "hoch",
      "i": 244,
      "tage": 7
+    },
+    "woche": {
+     "ema8": 244.57,
+     "ueber_ema8": true,
+     "abstand_pct": 3.0,
+     "macd_ueber_signal": false,
+     "macd_wochen": 6,
+     "macd_unter_null": false,
+     "macd_null_wochen": 66
     },
     "score": {
      "punkte": 10,
