@@ -40,7 +40,7 @@
     <hr class="rule">
   </header>
   <nav class="inhalt" aria-label="Inhalt">
-    <a href="#seite">Die Seite</a><a href="#chart">Der Chart</a><a href="#analyse">Chartanalyse</a><a href="#top10">Die Top 10</a><a href="#figuren">Die drei Figuren</a><a href="#daten">Woher die Daten kommen</a>
+    <a href="#seite">Die Seite</a><a href="#chart">Der Chart</a><a href="#analyse">Chartanalyse</a><a href="#sektoren">Sektor-Rotation</a><a href="#top10">Die Top 10</a><a href="#figuren">Die drei Figuren</a><a href="#daten">Woher die Daten kommen</a>
   </nav>
 
   <h2 id="seite">Wie die Seite funktioniert, in Kürze</h2>
@@ -126,6 +126,16 @@
 
   <h3>Insiderkäufe und Quartalszahlen</h3>
   <p>In der aufgeklappten Top-10-Zeile steht außerdem, was die SEC über die letzten 90 Tage meldet: wie viele <b>Käufe am offenen Markt</b> Vorstände, Direktoren oder Großaktionäre getätigt haben (Meldung „Form 4“, Transaktionscode P), von wie vielen Personen und für wie viel Geld. <b>Verkäufe</b> werden nur gezählt und sind schwach zu deuten, weil sie oft planmäßig oder steuerlich bedingt sind. Dazu das Datum der letzten Quartals- oder Jahreszahlen (10-Q / 10-K). Liegen sie höchstens 60 Tage zurück, steht dort „noch frisch im Blick“: Der Markt reagiert nach guten Zahlen oft noch Wochen später weiter in dieselbe Richtung („PEAD“, ein Thema, das James häufig nennt). Das nächste Zahlendatum gibt es bei den frei zugänglichen Quellen nicht verlässlich, deshalb zeigen wir nur das letzte. Beides ist Information, es fließt nicht in den Rang ein.</p>
+
+  <h2 id="sektoren">Sektor-Rotation</h2>
+  <p>Auf der Seite <a href="sektoren.html">Sektor-Rotation</a> stehen die elf Branchen des S&amp;P 500 nach Beliebtheit sortiert. Wird ein Sektor weniger gefragt, wandert das Geld oft in einen anderen. Als Beliebtheit (0 bis 100) zählt der Mittelwert aus drei Rangplätzen unter den elf Sektoren: Stärke gegenüber dem S&amp;P 500 über 1 Monat, über 3 Monate (jeweils der mittlere Wert der Aktien des Sektors) und der Anteil der Aktien über ihrer 21-Tage-Linie. Die Werte werden über fünf Tage geglättet, weil Rangplätze sonst täglich springen. Alle Aktien zählen gleich, nicht nach Börsenwert.</p>
+  <ul>
+    <li><b>Heiß:</b> 70 oder mehr Punkte, gefragt und stärker als der Markt.</li>
+    <li><b>Interessant:</b> Die Beliebtheit steigt um mindestens 10 Punkte in 10 Tagen und liegt noch unter 70. Hier kann sich etwas drehen.</li>
+    <li><b>Kühlt ab:</b> Die Beliebtheit fällt um mindestens 10 Punkte in 10 Tagen, nachdem sie im Mittelfeld oder darüber lag.</li>
+    <li><b>Kalt:</b> unter 35 Punkte. <b>Ruhig:</b> alles dazwischen.</li>
+  </ul>
+  <p>Die Linie auf jeder Karte wird jedes Mal aus den Kursen des letzten Jahres neu berechnet und zusätzlich wird der Tageswert in einem Archiv gespeichert, damit die Linie später länger als ein Jahr werden kann. Die Top 10 listet die Branchen in derselben Reihenfolge, die beliebteste zuerst. Das zeigt vergangene Geldflüsse und ist keine Empfehlung.</p>
 
   <h2 id="top10">Die Top 10 im S&amp;P 500</h2>
   <p>Jeden Börsentag werden alle rund 500 Werte durchgesehen, ohne KI. Aussortiert werden Werte unter der 200-Tage-Linie. Der Rang besteht je zur Hälfte aus Warrens Regeln und James' Setup-Score.</p>

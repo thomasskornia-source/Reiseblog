@@ -518,8 +518,11 @@
       $('top10-r').textContent = !sek && t.raus && t.raus.length ? 'Gegenüber dem letzten Stand rausgefallen: ' + t.raus.join(', ') : '';
     }
     $('top10-s').innerHTML = 'Top 10 im S&amp;P 500 <span>(Stand ' + esc(String(t.stand).slice(0, 5)) + ')</span>';
-    var opt = '<option value="">Alle Branchen</option>' + Object.keys(t.sektoren || {}).map(function (k) { return '<option value="' + esc(k) + '">' + esc(SEKTOR[k] || k) + ' (beste 5)</option>'; }).join('');
-    $('top10-c').innerHTML = '<select id="top10-f" aria-label="Branche">' + opt + '</select><ol id="top10-l"></ol><p class="hinweis" id="top10-r"></p>' +
+    var EMO = { heiss: '🔥 ', interessant: '👀 ', kuehlt: '🧊 ', kalt: '❄️ ', ruhig: '' };
+    var reih = (t.sektor_reihenfolge || []).filter(function (x) { return t.sektoren[x.sektor]; });
+    Object.keys(t.sektoren || {}).forEach(function (k) { if (!reih.some(function (x) { return x.sektor === k; })) reih.push({ sektor: k }); });
+    var opt = '<option value="">Alle Branchen</option>' + reih.map(function (x, i) { return '<option value="' + esc(x.sektor) + '">' + (x.status ? (i + 1) + '. ' : '') + (EMO[x.status] || '') + esc(SEKTOR[x.sektor] || x.sektor) + ' (beste 5)</option>'; }).join('');
+    $('top10-c').innerHTML = '<p class="hinweis" style="margin:0 0 6px">Branchen nach aktueller Beliebtheit sortiert · <a href="sektoren.html">Sektor-Rotation ansehen</a></p><select id="top10-f" aria-label="Branche">' + opt + '</select><ol id="top10-l"></ol><p class="hinweis" id="top10-r"></p>' +
       '<p class="hinweis">Vorauswahl nach festen Regeln aus Kurs- und Jahreszahlen, täglich neu berechnet. Keine Empfehlung. Zeile antippen: Trend, Chart und Regeln klappen auf. Die Texte von Warren und Charlie gibt es erst nach einem weiteren Klick.</p>';
     zeigen('');
     $('top10-f').addEventListener('change', function () { zeigen(this.value); });

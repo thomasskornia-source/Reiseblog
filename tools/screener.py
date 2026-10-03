@@ -84,9 +84,79 @@ def james(f, bm):
         meta, zeilen = trend.holen(f['t'].replace('.', '-'))
         a = trend.analyse(zeilen, meta, benchmark=bm)
         return {'kurs': a['kurs'], 'ampel': a['ampel'], 'lage': a['lage'], 'punkte': a['score']['punkte'], 'stufe': a['score']['stufe'],
-                'rsi': a['rsi'], 'abstand_pct': a['abstand_pct'], 'pos_52w_pct': a['pos_52w_pct'], '_a': a}
+                'rsi': a['rsi'], 'abstand_pct': a['abstand_pct'], 'pos_52w_pct': a['pos_52w_pct'], '_a': a, '_h': verlauf(zeilen)}
     except Exception:
         return None
+
+def verlauf(zeilen):
+    c = [z[4] for z in zeilen]
+    return {'d': [datetime.datetime.utcfromtimestamp(z[0]).strftime('%d.%m.%y') for z in zeilen], 'c': c,
+            'm21': trend.ema_reihe(c, 21), 'm50': trend.sma_reihe(c, 50)}
+
+SEKTOR_NAMEN = {'Communication Services': 'Kommunikation', 'Consumer Discretionary': 'Konsum (zyklisch)', 'Consumer Staples': 'Basiskonsum',
+                'Energy': 'Energie', 'Financials': 'Finanzen', 'Health Care': 'Gesundheit', 'Industrials': 'Industrie',
+                'Information Technology': 'Technologie', 'Materials': 'Rohstoffe', 'Real Estate': 'Immobilien', 'Utilities': 'Versorger'}
+
+def sektor_rotation(fl, js, sp_zeilen):
+    """Sektor-Rotation: je GICS-Sektor die Beliebtheit (0-100) über das letzte Jahr, aus den Kursen aller S&P-500-Aktien (gleich gewichtet).
+    Beliebtheit (5 Tage geglättet) = Mittel aus Rangplatz (unter den 11 Sektoren) von: Stärke gegenüber dem S&P 500 über 1 Monat (21 Tage, Median der Aktien),
+    über 3 Monate (63 Tage) und Anteil der Aktien über ihrer 21-Tage-Linie. Der Verlauf wird jedes Mal aus den Kursen neu berechnet
+    (Rückrechnung), zusätzlich wird der Tageswert in data/sektoren-archiv.json fortgeschrieben (für Zeiträume über ein Jahr hinaus)."""
+    sp = verlauf(sp_zeilen); tage = sp['d'][-252:]
+    nach = {}
+    for f, j in zip(fl, js):
+        if not j: continue
+        h = j['_h']; nach.setdefault(f['sektor'], []).append((h, {d: i for i, d in enumerate(h['d'])}))
+    if len(nach) < 8: return None
+    spp = {d: i for i, d in enumerate(sp['d'])}
+    med = lambda x: sorted(x)[len(x) // 2]
+    roh = {k: [] for k in nach}   # je Sektor: Liste (rs1, rs3, b21, b50) je Tag
+    for d in tage:
+        t = spp[d]; s1 = sp['c'][t] / sp['c'][t - 21] - 1; s3 = sp['c'][t] / sp['c'][t - 63] - 1
+        for k, lst in nach.items():
+            r1, r3, b21, b50 = [], [], 0, 0; n = 0
+            for h, pos in lst:
+                i = pos.get(d)
+                if i is None or i < 63 or h['m21'][i] is None or h['m50'][i] is None: continue
+                n += 1; r1.append(h['c'][i] / h['c'][i - 21] - 1); r3.append(h['c'][i] / h['c'][i - 63] - 1)
+                b21 += h['c'][i] > h['m21'][i]; b50 += h['c'][i] > h['m50'][i]
+            roh[k].append(((med(r1) - s1) * 100, (med(r3) - s3) * 100, 100 * b21 / n, 100 * b50 / n, n) if n >= 5 else None)
+    namen = list(nach); score = {k: [] for k in namen}
+    pr = lambda x, alle: 100 * sum(1 for y in alle if y < x) / max(1, len(alle) - 1)
+    for ti in range(len(tage)):
+        werte = {k: roh[k][ti] for k in namen if roh[k][ti]}
+        if len(werte) < 8:
+            for k in namen: score[k].append(score[k][-1] if score[k] else 50)
+            continue
+        for k in namen:
+            w = werte.get(k)
+            if not w: score[k].append(score[k][-1] if score[k] else 50); continue
+            a1 = [v[0] for v in werte.values()]; a3 = [v[1] for v in werte.values()]; ab = [v[2] for v in werte.values()]
+            score[k].append(round(0.35 * pr(w[0], a1) + 0.35 * pr(w[1], a3) + 0.30 * pr(w[2], ab)))
+    for k in namen:   # 5-Tage-Glättung: Rangplätze springen täglich, der Verlauf soll lesbar sein
+        sc = score[k]; score[k] = [round(sum(sc[max(0, i - 4):i + 1]) / len(sc[max(0, i - 4):i + 1])) for i in range(len(sc))]
+    liste = []
+    for k in namen:
+        sc = score[k]; last = sc[-1]; vor10 = sc[-11]; slope = last - vor10
+        status = ('kuehlt' if slope <= -10 and vor10 >= 50 else 'heiss' if last >= 70 else 'interessant' if slope >= 10 else 'kalt' if last < 35 else 'ruhig')
+        w = roh[k][-1] or (0, 0, 0, 0, 0)
+        liste.append({'sektor': k, 'name': SEKTOR_NAMEN.get(k, k), 'aktien': w[4], 'score': last, 'delta10': slope, 'status': status,
+                      'rs1m': round(w[0], 1), 'rs3m': round(w[1], 1), 'ueber21': round(w[2]), 'ueber50': round(w[3]), 'verlauf': sc})
+    liste.sort(key=lambda x: (-x['score'], -x['delta10']))
+    for r, x in enumerate(liste): x['rang'] = r + 1
+    for x in liste:   # Rang vor 20 Handelstagen
+        alle = sorted(liste, key=lambda y: -y['verlauf'][-21]); x['rang_vor20'] = [y['sektor'] for y in alle].index(x['sektor']) + 1
+    heute = datetime.date.today().strftime('%d.%m.%Y')
+    out = {'stand': heute, 'tage': tage, 'sektoren': liste}
+    with open(os.path.join(ROOT, 'data', 'sektoren.json'), 'w', encoding='utf-8') as fh:
+        fh.write(trend.kompakt(json.dumps(out, ensure_ascii=False, indent=1)) + '\n')
+    pfad = os.path.join(ROOT, 'data', 'sektoren-archiv.json')
+    try: arch = json.load(open(pfad, encoding='utf-8'))
+    except Exception: arch = {'verlauf': []}
+    arch['verlauf'] = [v for v in arch['verlauf'] if v['datum'] != heute] + [{'datum': heute, 'score': {x['sektor']: x['score'] for x in liste}}]
+    with open(pfad, 'w', encoding='utf-8') as fh:
+        fh.write(json.dumps({'verlauf': arch['verlauf'][-1500:]}, ensure_ascii=False).replace('},', '},\n') + '\n')
+    return out
 
 def breite(js):
     """Marktbreite: Anteil der S&P-500-Aktien über ihrer 8-, 21-, 50- und 200-Tage-Linie (alle Werte mit Kursdaten), Verlauf in data/breite.json."""
@@ -127,12 +197,14 @@ def beobachten(bm):
 
 def main():
     fl = firmen()
-    bm = [z[4] for z in trend.holen('^GSPC')[1]]
+    sp_z = trend.holen('^GSPC')[1]
+    bm = [z[4] for z in sp_z]
     z = None
     try: z = sec_zahlen()
     except Exception as e: print('SEC-Zahlen nicht abrufbar:', e)
     with ThreadPoolExecutor(8) as ex: js = list(ex.map(lambda f: james(f, bm), fl))
     breite(js)
+    sek = sektor_rotation(fl, js, sp_z)
     alle = []
     for f, j in zip(fl, js):
         if not j: continue
@@ -170,7 +242,8 @@ def main():
     heute = [t['ticker'] for t in top]
     out = {'stand': datetime.date.today().strftime('%d.%m.%Y'), 'warren': bool(z), 'zahlenjahr': z['jahr'] if z else None,
            'geprueft': len(alle), 'ohne_down': len(kandidaten), 'vorher': vorher, 'raus': [t for t in vorher if t not in heute],
-           'top10': top, 'sektoren': dict(sorted(sektoren.items()))}
+           'top10': top, 'sektoren': dict(sorted(sektoren.items())),
+           'sektor_reihenfolge': [{'sektor': x['sektor'], 'status': x['status'], 'score': x['score']} for x in (sek['sektoren'] if sek else [])]}
     with open(pfad, 'w', encoding='utf-8') as fh:
         fh.write(trend.kompakt(json.dumps(out, ensure_ascii=False, indent=1)) + '\n')
     beobachten(bm)

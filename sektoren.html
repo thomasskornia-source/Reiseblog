@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>WCJ – Sektor-Rotation</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=1">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+  .sr { max-width: 640px; margin: 0 auto; padding-bottom: 40px; }
+  .sr .zurueck { display: inline-block; margin: 8px 0 0; font-size: 14.5px; color: var(--ink-soft); }
+  .sr h1 { margin-bottom: 4px; }
+  .sr .sub { color: var(--ink-soft); font-size: 15px; line-height: 1.55; margin: 6px 0 14px; }
+  .sr .kopf { display: grid; gap: 6px; margin: 4px 0 16px; font-size: 14.5px; }
+  .sr .kopf div { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 12px; padding: 9px 12px; }
+  .sr .kopf b { font-weight: 600; }
+  .sk { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 14px; margin-bottom: 10px; }
+  .sk > summary { list-style: none; cursor: pointer; padding: 12px 14px; display: grid; grid-template-columns: 26px 1fr auto; gap: 2px 10px; align-items: center; }
+  .sk > summary::-webkit-details-marker { display: none; }
+  .sk .r { font-family: 'Fraunces', serif; font-size: 19px; color: var(--ink-soft); text-align: center; grid-row: span 2; }
+  .sk .nm { font-size: 16.5px; font-weight: 600; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .sk .bd { font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 99px; color: #fff; white-space: nowrap; }
+  .sk .bd.heiss { background: #c8502d; } .sk .bd.interessant { background: #2a8f6a; } .sk .bd.kuehlt { background: #d99a1e; }
+  .sk .bd.kalt { background: #5b7a99; } .sk .bd.ruhig { background: #8a9490; }
+  .sk .sc { font-size: 13px; color: var(--ink-soft); }
+  .sk .sc b { color: var(--ink); font-size: 15px; }
+  .sk svg.mini { width: 92px; height: 30px; grid-row: span 2; }
+  .sk .body { padding: 0 14px 14px; border-top: 1px solid rgba(46,58,50,.1); }
+  .sk .body p { font-size: 14px; line-height: 1.55; margin: 10px 0 6px; }
+  .sk .zahlen { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13.5px; color: var(--ink-soft); }
+  .sk .zahlen b { color: var(--ink); }
+  .sk svg.gross { width: 100%; height: auto; display: block; margin-top: 8px; }
+  .sr .hinweis { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 16px 2px 0; }
+  .sr .legende { display: flex; flex-wrap: wrap; gap: 6px 10px; margin: 0 0 14px; font-size: 12.5px; color: var(--ink-soft); }
+</style>
+</head>
+<body class="page-wide">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a class="hot" href="aktien.html">📈 WCJ</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="muenchen-quiz.html">München-Quiz</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+    </div>
+  </div></nav>
+<div class="wrap sr">
+  <a class="zurueck" href="aktien.html">← Zurück zu WCJ</a>
+  <header class="entry-header">
+    <h1>Sektor-Rotation</h1>
+    <hr class="rule">
+  </header>
+  <p class="sub">Wohin fließt das Geld? Die elf Branchen des S&amp;P 500, sortiert nach Beliebtheit. Wird ein Sektor weniger gefragt, wandert das Geld oft in einen anderen. Die Linie zeigt, wie sich die Beliebtheit über das letzte Jahr entwickelt hat.</p>
+  <div class="kopf" id="kopf"></div>
+  <div id="liste"><p class="sub">Lädt …</p></div>
+  <p class="hinweis" id="hinweis"></p>
+</div>
+<script>
+(function () {
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var TEXT = {
+    heiss: 'Heiß: Hier fließt gerade das Geld hin. Der Sektor liegt vorn und ist stärker als der Markt.',
+    interessant: 'Interessant: Der Sektor gewinnt an Beliebtheit, kommt aber noch von weiter unten. Hier kann sich gerade etwas drehen.',
+    kuehlt: 'Kühlt ab: Der Sektor war gefragt, aber die Beliebtheit fällt in den letzten zwei Wochen deutlich.',
+    kalt: 'Kalt: Wenig gefragt und schwächer als der Markt.',
+    ruhig: 'Ruhig: Keine deutliche Bewegung, weder nach oben noch nach unten.'
+  };
+  var LABEL = { heiss: 'Heiß', interessant: 'Interessant', kuehlt: 'Kühlt ab', kalt: 'Kalt', ruhig: 'Ruhig' };
+  var FARBE = { heiss: '#c8502d', interessant: '#2a8f6a', kuehlt: '#d99a1e', kalt: '#5b7a99', ruhig: '#8a9490' };
+  function zahl(x, n) { return Number(x).toLocaleString('de-DE', { minimumFractionDigits: n || 0, maximumFractionDigits: n || 0 }); }
+  function vz(x) { return (x > 0 ? '+' : x < 0 ? '−' : '') + zahl(Math.abs(x), 1); }
+  function linie(v, W, H, pad, farbe, voll, tage) {
+    var n = v.length, x = function (i) { return pad + i * (W - 2 * pad) / (n - 1); }, y = function (s) { return pad + (100 - s) / 100 * (H - 2 * pad); };
+    var g = '';
+    if (voll) {
+      [[0, '0'], [35, ''], [50, '50'], [70, '70'], [100, '100']].forEach(function (l) { g += '<line x1="' + pad + '" x2="' + (W - 22) + '" y1="' + y(l[0]).toFixed(1) + '" y2="' + y(l[0]).toFixed(1) + '" stroke="rgba(46,58,50,.12)"' + (l[0] === 50 ? ' stroke-dasharray="4 3"' : '') + '/>' + (l[1] ? '<text x="' + (W - 20) + '" y="' + (y(l[0]) + 3).toFixed(1) + '" font-size="9" fill="#5A6A5E">' + l[1] + '</text>' : ''); });
+    } else g += '<line x1="' + pad + '" x2="' + (W - pad) + '" y1="' + y(50).toFixed(1) + '" y2="' + y(50).toFixed(1) + '" stroke="rgba(46,58,50,.18)" stroke-dasharray="3 3"/>';
+    var pts = v.map(function (s, i) { return x(i).toFixed(1) + ',' + y(s).toFixed(1); }).join(' ');
+    g += '<polyline points="' + pts + '" fill="none" stroke="' + farbe + '" stroke-width="' + (voll ? 2 : 1.6) + '" stroke-linejoin="round" stroke-linecap="round"/><circle cx="' + x(n - 1).toFixed(1) + '" cy="' + y(v[n - 1]).toFixed(1) + '" r="' + (voll ? 3.5 : 2.6) + '" fill="' + farbe + '"/>';
+    if (voll && tage) [0, Math.round((n - 1) / 2), n - 1].forEach(function (k, q) { g += '<text x="' + Math.min(x(k), W - 24).toFixed(1) + '" y="' + (H - 2) + '" font-size="9" fill="#5A6A5E" text-anchor="' + (q === 0 ? 'start' : q === 2 ? 'end' : 'middle') + '">' + esc(tage[k]) + '</text>'; });
+    return g;
+  }
+  fetch('data/sektoren.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) {
+    var L = d.sektoren, nm = function (st) { return L.filter(function (x) { return x.status === st; }).map(function (x) { return x.name; }).join(', ') || '–'; };
+    document.getElementById('kopf').innerHTML =
+      '<div>🔥 <b>Gefragt:</b> ' + esc(L.slice(0, 3).map(function (x) { return x.name; }).join(', ')) + '</div>' +
+      '<div>👀 <b>Gewinnen an Beliebtheit:</b> ' + esc(nm('interessant')) + '</div>' +
+      '<div>🧊 <b>Kühlen ab:</b> ' + esc(nm('kuehlt')) + '</div>';
+    document.getElementById('liste').innerHTML = '<div class="legende">Beliebtheit 0 bis 100 (Mittel aus drei Rangplätzen, siehe unten). Tippen für das Jahr.</div>' + L.map(function (x, i) {
+      var f = FARBE[x.status], dl = x.delta10;
+      var vor = x.rang_vor20 - x.rang;
+      return '<details class="sk"><summary><span class="r">' + x.rang + '</span><span class="nm">' + esc(x.name) + '<span class="bd ' + x.status + '">' + LABEL[x.status] + '</span></span>' +
+        '<svg class="mini" viewBox="0 0 92 30" aria-hidden="true">' + linie(x.verlauf.slice(-126), 92, 30, 2, f, false) + '</svg>' +
+        '<span class="sc"><b>' + x.score + '</b> von 100 · ' + (dl > 0 ? '▲ ' : dl < 0 ? '▼ ' : '') + (dl ? Math.abs(dl) + ' in 10 Tagen' : 'unverändert') + '</span></summary>' +
+        '<div class="body"><p>' + esc(TEXT[x.status]) + '</p>' +
+        '<svg class="gross" viewBox="0 0 360 150" role="img" aria-label="Beliebtheit ' + esc(x.name) + ' über ein Jahr">' + linie(x.verlauf, 360, 150, 6, f, true, d.tage) + '</svg>' +
+        '<div class="zahlen"><span>Stärke gegen den Markt, 1 Monat <b>' + vz(x.rs1m) + ' %-Pkt</b></span><span>3 Monate <b>' + vz(x.rs3m) + ' %-Pkt</b></span><span>Über der 21er <b>' + x.ueber21 + ' %</b></span><span>Über der 50er <b>' + x.ueber50 + ' %</b></span><span>Aktien <b>' + x.aktien + '</b></span></div>' +
+        '<p>Platz ' + x.rang + ' heute, vor vier Wochen Platz ' + x.rang_vor20 + (vor > 0 ? ' (aufgestiegen)' : vor < 0 ? ' (abgestiegen)' : ' (gleich)') + '.</p></div></details>';
+    }).join('');
+    document.getElementById('hinweis').innerHTML = 'Stand ' + esc(d.stand) + ', täglich nach Börsenschluss neu berechnet. Beliebtheit (über fünf Tage geglättet) = Mittel aus den Rangplätzen der elf Sektoren bei (1) Stärke gegenüber dem S&amp;P 500 über 1 Monat, (2) über 3 Monate (jeweils der mittlere Wert der Aktien des Sektors) und (3) Anteil der Aktien über ihrer 21-Tage-Linie. Gleich gewichtet, nicht nach Börsenwert. Einordnung: Heiß ab 70 Punkten, Interessant bei einem Anstieg von mindestens 10 Punkten in 10 Tagen, Kühlt ab bei einem Rückgang von mindestens 10 Punkten aus dem oberen Mittelfeld, Kalt unter 35. Das ist eine Information über Geldflüsse in der Vergangenheit, keine Empfehlung. <a href="wcj-info.html#sektoren">Mehr dazu</a>';
+  }, function () { document.getElementById('liste').innerHTML = '<p class="sub">Die Daten konnten nicht geladen werden.</p>'; });
+})();
+</script>
+<script src="nav.js" defer></script>
+</body>
+</html>
