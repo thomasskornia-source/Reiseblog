@@ -87,6 +87,9 @@
   .top10 .t small { display: block; color: var(--ink-soft); font-size: 12px; }
   .top10 .z { font-size: 12.5px; color: var(--ink-soft); text-align: right; white-space: nowrap; }
   .top10 .neu { font-size: 11px; font-weight: 600; color: var(--rust); margin-left: 6px; }
+  .t10-kopf { display: flex; gap: 8px; align-items: stretch; }
+  .t10-kopf select { flex: 1; min-width: 0; }
+  .t10-rot { flex: none; display: flex; align-items: center; padding: 0 12px; border: 1px solid rgba(181,80,46,.35); border-radius: 10px; background: #fff7f1; color: #B5502E; font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap; }
   .top10 select { width: 100%; padding: 9px 10px; border: 1px solid rgba(46,58,50,.18); border-radius: 10px; background: var(--paper); color: var(--ink); font: inherit; font-size: 14px; }
   .top10 .leer { grid-template-columns: 1fr; cursor: default; color: var(--ink-soft); }
   .top10 li.auf { cursor: default; border-color: var(--rust); }
@@ -552,7 +555,7 @@
     var reih = (t.sektor_reihenfolge || []).filter(function (x) { return t.sektoren[x.sektor]; });
     Object.keys(t.sektoren || {}).forEach(function (k) { if (!reih.some(function (x) { return x.sektor === k; })) reih.push({ sektor: k }); });
     var opt = '<option value="">Alle Branchen</option>' + reih.map(function (x, i) { return '<option value="' + esc(x.sektor) + '">' + (x.status ? (i + 1) + '. ' : '') + (EMO[x.status] || '') + esc(SEKTOR[x.sektor] || x.sektor) + ' (beste 5)</option>'; }).join('');
-    $('top10-c').innerHTML = '<p class="hinweis" style="margin:0 0 6px">Branchen nach aktueller Beliebtheit sortiert · <a href="sektoren.html">Sektor-Rotation ansehen</a></p><select id="top10-f" aria-label="Branche">' + opt + '</select><ol id="top10-l"></ol><p class="hinweis" id="top10-r"></p>' +
+    $('top10-c').innerHTML = '<div class="t10-kopf"><select id="top10-f" aria-label="Branche, nach Beliebtheit sortiert">' + opt + '</select><a class="t10-rot" href="sektoren.html">🔥 Sektor-Rotation</a></div><ol id="top10-l"></ol><p class="hinweis" id="top10-r"></p>' +
       '<p class="hinweis">Vorauswahl nach festen Regeln aus Kurs- und Jahreszahlen, täglich neu berechnet. Keine Empfehlung. Zeile antippen: Trend, Chart und Regeln klappen auf. Die Texte von Warren und Charlie gibt es erst nach einem weiteren Klick.</p>';
     zeigen('');
     $('top10-f').addEventListener('change', function () { zeigen(this.value); });
