@@ -7,7 +7,7 @@ Aufruf:  python3 tools/kurs-check.py KO                  gibt Kurs, Linien, Ampe
                                                          in den vorhandenen Eintrag in data/aktien.json (Feld "james")
 Ticker: US `KO`, Xetra `SIE.DE`, London `.L`, Paris `.PA`.
 --schreibe setzt nur die Zahlenfelder (kurs, ma8, ma21, ma50, ma200, abstand_pct, ma200_steigt, waehrung, kurs_stand,
-ampel, lage, rsi, macd, muster, score, serie) und lässt Texte und Urteile unberührt; gibt es noch keinen Eintrag mit diesem Symbol, passiert nichts.
+ampel, lage, rsi, macd, muster, kreuz, kreuz_kurz, score, serie) und lässt Texte und Urteile unberührt; gibt es noch keinen Eintrag mit diesem Symbol, passiert nichts.
 Fehler: Exit-Code 1 und „FEHLER: …“ – dann keine Zahlen erfinden.
 """
 import json, os, sys
@@ -24,7 +24,7 @@ def schreiben(sym, a):
     if not ziel:
         print('HINWEIS: kein Eintrag für %s in data/aktien.json, nichts geschrieben' % sym); return
     j = ziel[-1].setdefault('james', {})
-    for k in ('kurs', 'ma8', 'ma21', 'ma50', 'ma200', 'abstand_pct', 'ma200_steigt', 'pos_52w_pct', 'waehrung', 'ampel', 'lage', 'rsi', 'macd', 'macd_signal', 'macd_hist', 'muster', 'score', 'serie'):
+    for k in ('kurs', 'ma8', 'ma21', 'ma50', 'ma200', 'abstand_pct', 'ma200_steigt', 'pos_52w_pct', 'waehrung', 'ampel', 'lage', 'rsi', 'macd', 'macd_signal', 'macd_hist', 'muster', 'kreuz', 'kreuz_kurz', 'score', 'serie'):
         j[k] = a[k]
     j['kurs_stand'] = a['stand']
     ziel[-1].setdefault('symbol', sym.upper())

@@ -97,8 +97,6 @@
   .top10 ul.pk { list-style: none; margin: 4px 0; padding: 0; display: grid; gap: 3px; font-size: 13.5px; color: var(--ink-soft); }
   .top10 ul.pk li { display: block; padding: 0; background: none; border: 0; cursor: default; }
   .top10 .more { margin-top: 6px; }
-  .top10 .chartbox .zoom a { color: var(--ink); }
-  .top10 .chartbox .zoom a.on { color: #fff; }
   .top10 .dsec p .dot { margin-right: 4px; }
   .top10 .btn { font-size: 14px; }
   .top10 .hinweis { font-size: 12px; color: var(--ink-soft); margin: 8px 2px 0; text-align: center; }
@@ -106,8 +104,8 @@
   .chartbox { grid-column: 1 / -1; margin-top: 10px; }
   .chartbox svg { touch-action: pan-y; user-select: none; -webkit-user-select: none; }
   .zoom { font-size: 12px; color: var(--ink-soft); margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
-  .chartbox .zoom a { cursor: pointer; color: var(--ink); text-decoration: none; padding: 2px 8px; border-radius: 99px; border: 1px solid rgba(46,58,50,.2); }
-  .chartbox .zoom a.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .chartbox .zoom a { cursor: pointer; color: var(--ink) !important; text-decoration: none; padding: 2px 8px; border-radius: 99px; border: 1px solid rgba(46,58,50,.2); }
+  .chartbox .zoom a.on { background: var(--ink); color: #fff !important; border-color: var(--ink); }
   .zoom em { font-style: normal; flex-basis: 100%; font-size: 11.5px; }
   .who .chartbox svg { width: 100%; height: auto; display: block; border-radius: 0; }
   .leg { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
@@ -147,6 +145,7 @@
       <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="Charlie"><circle cx="60" cy="60" r="60" fill="#CFDAD3"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#3b4a56"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#C99A3E"/><ellipse cx="60" cy="58" rx="27" ry="31" fill="#EFC6A0"/><path d="M33 56c-3-12 0-22 6-26-4 8-4 16-3 26zM87 56c3-12 0-22-6-26 4 8 4 16 3 26z" fill="#E7E4DE"/><path d="M44 31c6-6 26-6 32 0-8-3-24-3-32 0z" fill="#E7E4DE"/><g fill="#fff" stroke="#2E3A32" stroke-width="3.5"><circle cx="48" cy="56" r="11"/><circle cx="72" cy="56" r="11"/></g><path d="M59 55h2" stroke="#2E3A32" stroke-width="3"/><circle cx="48" cy="56" r="2.6" fill="#2E3A32"/><circle cx="72" cy="56" r="2.6" fill="#2E3A32"/><path d="M47 76c8 5 18 3 26-2" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/></svg><b>Charlie</b><small>Was kann schiefgehen</small></div>
       <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="James"><circle cx="60" cy="60" r="60" fill="#F0D5C8"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#B5502E"/><path d="M50 90l10 12 10-12z" fill="#FAF3E8"/><ellipse cx="60" cy="58" rx="25" ry="30" fill="#E8B991"/><path d="M34 52c-3-20 8-31 26-31s29 11 26 31c-2-8-6-12-12-14-8 3-20 3-28 0-6 2-10 6-12 14z" fill="#3a2a22"/><path d="M38 70c2 14 10 22 22 22s20-8 22-22c-3 8-10 12-22 12s-19-4-22-12z" fill="#3a2a22" opacity=".55"/><g fill="#2E3A32"><rect x="40" y="49" width="16" height="6" rx="3"/><rect x="64" y="49" width="16" height="6" rx="3"/></g><circle cx="48" cy="52" r="1.8" fill="#fff"/><circle cx="72" cy="52" r="1.8" fill="#fff"/><path d="M48 72c8 5 16 5 24 0" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/><path d="M30 38c-6-3-8-9-7-14 3 4 7 6 12 7zM90 38c6-3 8-9 7-14-3 4-7 6-12 7z" fill="#FAF3E8" stroke="#8a7a68" stroke-width="1.5"/></svg><b>James</b><small>Kurs und Option Flows</small></div>
     </div>
+    <p class="sub"><a href="wcj-info.html">Wie funktioniert das? Charts, Quellen und die drei Figuren</a></p>
     <details class="markt" id="markt" hidden><summary id="markt-s"></summary><div class="body" id="markt-c"></div></details>
     <details class="markt top10" id="top10" hidden><summary id="top10-s"></summary><div class="body" id="top10-c"></div></details>
     <details class="markt top10" id="beo" hidden><summary id="beo-s"></summary><div class="body" id="beo-c"></div></details>
@@ -160,7 +159,7 @@
     <div id="list"><p class="empty">Lädt …</p></div>
   </div>
 
-  <p class="foot">Warren, Charlie und James sind KI-Figuren, keine echten Personen und keine Zitate. Warren und Charlie folgen den öffentlich bekannten Grundsätzen von Warren Buffett und Charlie Munger. Die Top 10 sind eine Vorauswahl nach festen Regeln (Warren: Jahreszahlen der US-Börsenaufsicht SEC, James: Trend und Setup-Score), keine Empfehlung. James folgt der öffentlich beschriebenen Methode von <a href="https://www.jamesbulltard.com" target="_blank" rel="noopener">James Bulltard</a> (Option Flows und Charts); die Seite ist nicht mit ihm abgestimmt. Die Option Flows sind eine Näherung aus öffentlichen, verzögerten Optionsumsätzen (Cboe), kein Blick auf einzelne Großanleger. Das hier ist keine Anlageberatung; Kennzahlen und Kurse können unvollständig oder veraltet sein.</p>
+  <p class="foot"><a href="wcj-info.html">Infos und Quellen</a> · Warren, Charlie und James sind KI-Figuren, keine echten Personen und keine Zitate. Warren und Charlie folgen den öffentlich bekannten Grundsätzen von Warren Buffett und Charlie Munger. Die Top 10 sind eine Vorauswahl nach festen Regeln (Warren: Jahreszahlen der US-Börsenaufsicht SEC, James: Trend und Setup-Score), keine Empfehlung. James folgt der öffentlich beschriebenen Methode von <a href="https://www.jamesbulltard.com" target="_blank" rel="noopener">James Bulltard</a> (Option Flows und Charts); die Seite ist nicht mit ihm abgestimmt. Die Option Flows sind eine Näherung aus öffentlichen, verzögerten Optionsumsätzen (Cboe), kein Blick auf einzelne Großanleger. Das hier ist keine Anlageberatung; Kennzahlen und Kurse können unvollständig oder veraltet sein.</p>
 </div>
 <script>
 (function () {
@@ -257,6 +256,11 @@
       [[bo.i1, bo.p1], [bo.i2, bo.p2]].forEach(function (q) { m += '<circle cx="' + X(q[0]).toFixed(1) + '" cy="' + Y(q[1]).toFixed(1) + '" r="4" fill="none" stroke="#2a8f4a" stroke-width="1.6"/>'; });
       m += '<text x="' + X(bo.i1).toFixed(1) + '" y="' + (Y(bo.p1) + 14).toFixed(1) + '" font-size="9" fill="#2a8f4a" text-anchor="middle">Boden</text>';
     }
+    var kz = j && j.kreuz;
+    if (kz && kz.i != null && kz.i >= a && kz.i < b) {
+      var kx = X(kz.i), ky = Y(s.m50[kz.i]), gc = kz.richtung === 'hoch', kf = gc ? '#2a8f4a' : '#c0392b';
+      m += '<path d="M' + kx.toFixed(1) + ' ' + (ky + (gc ? -7 : 7)).toFixed(1) + 'l-5 ' + (gc ? 9 : -9) + 'h10z" fill="' + kf + '"/><text x="' + Math.max(32, Math.min(W - pr - 32, kx)).toFixed(1) + '" y="' + (ky + (gc ? -11 : 17)).toFixed(1) + '" font-size="9" font-weight="600" fill="' + kf + '" text-anchor="middle">' + esc(kz.typ) + '</text>';
+    }
     g += '<g clip-path="url(#cl' + id + ')">' + m + '</g>';
     [a, Math.round((a + b - 1) / 2), b - 1].forEach(function (k, q) { g += '<text x="' + X(k).toFixed(1) + '" y="' + (H - 2) + '" font-size="9" fill="#5A6A5E" text-anchor="' + (q === 0 ? 'start' : q === 2 ? 'end' : 'middle') + '">' + esc(s.d[k]) + '</text>'; });
     return g;
@@ -271,6 +275,7 @@
     function lg(farbe, t) { return '<span><i style="background:none;border-top:2px dashed ' + farbe + ';height:0"></i>' + t + '</span>'; }
     if (un) leg += lg('#2a8f4a', 'Unterstützung (' + un.beruehrungen + ' höhere Tiefs, ' + un.status + ')');
     if (wi) leg += lg('#c0392b', 'Widerstand (' + wi.beruehrungen + ' tiefere Hochs, ' + wi.status + ')');
+    if (j && j.kreuz) leg += '<span style="color:' + (j.kreuz.richtung === 'hoch' ? '#2a8f4a' : '#c0392b') + '">' + (j.kreuz.richtung === 'hoch' ? '▲ ' : '▼ ') + esc(j.kreuz.typ) + ' vor ' + j.kreuz.tage + ' Handelstagen</span>';
     if (bo) leg += '<span><i style="background:none;border:2px solid #2a8f4a;border-radius:50%;width:8px;height:8px"></i>' + esc(bo.typ) + ', ' + esc(bo.status) + '</span>';
     var zoom = '<div class="zoom">Zoom <a data-z="63">3 Monate</a><a data-z="126">6 Monate</a><a data-z="0" class="on">1 Jahr</a><em>Zwei Finger oder Strg + Mausrad, ziehen zum Verschieben</em></div>';
     return '<div class="chartbox" data-cid="' + id + '"><svg viewBox="0 0 ' + GW + ' ' + H + '" role="img" aria-label="Kurschart mit gleitenden Durchschnitten und Volumen, zoombar">' + chartInner(V, id) + '</svg><div class="leg">' + leg + '</div>' + zoom + '</div>';
@@ -347,6 +352,8 @@
     if (j.rsi != null) t += '<div><dt>RSI (14)</dt><dd>' + zahl(j.rsi, 0) + ' · ' + (j.rsi >= 70 ? 'überkauft' : j.rsi >= 50 ? 'über 50, positiv' : j.rsi > 30 ? 'unter 50, schwach' : 'überverkauft') + '</dd></div>';
     if (j.macd != null) t += '<div><dt>MACD</dt><dd>' + (j.macd > j.macd_signal ? 'über' : 'unter') + ' der Signallinie · ' + (j.macd > 0 ? 'über' : 'unter') + ' Null</dd></div>';
     var mu = j.muster || {};
+    if (j.kreuz) t += '<div><dt>' + esc(j.kreuz.typ) + '</dt><dd>vor ' + j.kreuz.tage + ' Handelstagen (50- gegen 200-Tage-Linie)</dd></div>';
+    if (j.kreuz_kurz) t += '<div><dt>Kurzfristig</dt><dd>8-Tage-Linie ' + (j.kreuz_kurz.richtung === 'hoch' ? 'kreuzte vor ' + j.kreuz_kurz.tage + ' Tagen über' : 'kreuzte vor ' + j.kreuz_kurz.tage + ' Tagen unter') + ' die 21er</dd></div>';
     if (mu.boden) t += '<div><dt>Bodenbildung</dt><dd>' + esc(mu.boden.typ) + ' · ' + esc(mu.boden.status) + '</dd></div>';
     if (mu.unterstuetzung) t += '<div><dt>Unterstützungslinie</dt><dd>' + mu.unterstuetzung.beruehrungen + ' höhere Tiefs · ' + esc(mu.unterstuetzung.status) + ' (heute bei ' + zahl(mu.unterstuetzung.ende) + ')</dd></div>';
     if (mu.widerstand) t += '<div><dt>Widerstandslinie</dt><dd>' + mu.widerstand.beruehrungen + ' tiefere Hochs · ' + esc(mu.widerstand.status) + ' (heute bei ' + zahl(mu.widerstand.ende) + ')</dd></div>';
@@ -460,6 +467,9 @@
     if (x.rsi != null) pk.push('RSI ' + zahl(x.rsi, 0) + (x.rsi > 70 ? ' (heiß gelaufen)' : x.rsi < 30 ? ' (überverkauft)' : ''));
     if (d && d.macd != null) pk.push('MACD ' + (d.macd > d.macd_signal ? 'über' : 'unter') + ' der Signallinie');
     if (x.pos_52w_pct != null) pk.push(x.pos_52w_pct + ' % der Spanne des Jahres (0 = Tief, 100 = Hoch)');
+    if (d && d.kreuz) pk.push(esc(d.kreuz.typ) + ' vor ' + d.kreuz.tage + ' Handelstagen (50- gegen 200-Tage-Linie)' + (d.kreuz.tage <= 30 ? ', frisch' : ''));
+    else if (d) pk.push('Keine Kreuzung von 50- und 200-Tage-Linie in den letzten zwei Jahren');
+    if (d && d.kreuz_kurz) pk.push('Kurzfristig: 8-Tage-Linie ' + (d.kreuz_kurz.richtung === 'hoch' ? 'über' : 'unter') + ' der 21er seit ' + d.kreuz_kurz.tage + ' Tagen');
     var mu = (d && d.muster) || {};
     if (mu.unterstuetzung) pk.push('Unterstützungslinie aus ' + mu.unterstuetzung.beruehrungen + ' höheren Tiefs (' + esc(mu.unterstuetzung.status) + ')');
     if (mu.widerstand) pk.push('Widerstandslinie aus ' + mu.widerstand.beruehrungen + ' tieferen Hochs (' + esc(mu.widerstand.status) + ')');
