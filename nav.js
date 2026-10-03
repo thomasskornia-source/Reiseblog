@@ -28,3 +28,23 @@
     var card = hs[j].parentNode; card.insertBefore(s, card.firstChild); card.classList.add('has-em');
   }
 })();
+
+// Start-Hinweis: dicker, pulsierender Pfeil aufs Logo – einmal pro Sitzung
+(function () {
+  var brand = document.querySelector('#topbar .brand');
+  if (!brand) return;
+  try { if (sessionStorage.getItem('pfeil-gesehen')) return; sessionStorage.setItem('pfeil-gesehen', '1'); } catch (e) {}
+  var r = brand.getBoundingClientRect();
+  var box = document.createElement('div');
+  box.className = 'logo-pfeil';
+  box.setAttribute('role', 'note');
+  box.style.left = Math.max(6, r.left + r.width / 2 - 28) + 'px';
+  box.style.top = (r.bottom + 6) + 'px';
+  box.innerHTML = '<svg viewBox="0 0 56 64" width="56" height="64" aria-hidden="true"><path d="M28 3 L52 30 H36 V61 H20 V30 H4 Z" fill="#B5502E" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg><span>Übersicht – hier geht’s immer zurück</span>';
+  document.body.appendChild(box);
+  function weg() { if (box.parentNode) box.parentNode.removeChild(box); }
+  box.addEventListener('click', weg);
+  document.addEventListener('click', weg, { once: true });
+  window.addEventListener('scroll', weg, { once: true, passive: true });
+  setTimeout(weg, 9000);
+})();

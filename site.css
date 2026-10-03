@@ -156,3 +156,11 @@ html, body { overflow-x: clip; max-width: 100%; }
 .recipe-steps li { counter-increment: s; position: relative; padding: 4px 0 4px 48px; margin-bottom: 16px; min-height: 36px; }
 .recipe-steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #F0A15A, var(--rust)); color: #fff; font: 600 16px 'Fraunces', serif; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(181, 80, 46, .35); }
 .rating-block { background: #fff; border-radius: 20px; box-shadow: 0 10px 28px rgba(46, 58, 50, .09); }
+
+/* Start-Hinweis: Pfeil aufs Logo */
+.logo-pfeil { position: fixed; z-index: 60; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; font-family: 'Work Sans', sans-serif; pointer-events: auto; animation: pfeil-puls 1s ease-in-out infinite; filter: drop-shadow(0 4px 10px rgba(46, 58, 50, .3)); }
+.logo-pfeil svg { display: block; }
+.logo-pfeil span { background: #B5502E; color: #fff; font-weight: 600; font-size: 15px; line-height: 1.25; padding: 8px 12px; border-radius: 12px; max-width: 220px; animation: pfeil-blink 1s steps(2, jump-none) infinite; }
+@keyframes pfeil-puls { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-9px) scale(1.12); } }
+@keyframes pfeil-blink { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) { .logo-pfeil, .logo-pfeil span { animation: none; } }
