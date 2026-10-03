@@ -441,6 +441,19 @@
     var e = data.filter(function (d) { return sym(d) === b.getAttribute('data-upd'); })[0];
     if (e) senden(sym(e), e.zeitstempel);
   });
+  function breiteChart(v) {
+    if (!v || v.length < 20) return '';
+    var W = 360, H = 120, pl = 2, pr = 26, top = 6, pb = 16, n = v.length;
+    var X = function (i) { return pl + i * (W - pl - pr) / (n - 1); }, Y = function (p) { return top + (100 - p) / 100 * (H - top - pb); };
+    var g = '';
+    [0, 25, 50, 75, 100].forEach(function (p) { g += '<line x1="' + pl + '" x2="' + (W - pr) + '" y1="' + Y(p).toFixed(1) + '" y2="' + Y(p).toFixed(1) + '" stroke="rgba(46,58,50,' + (p === 50 ? '.25' : '.1') + ')"' + (p === 50 ? ' stroke-dasharray="4 3"' : '') + '/><text x="' + (W - pr + 3) + '" y="' + (Y(p) + 3).toFixed(1) + '" font-size="9" fill="#5A6A5E">' + p + '</text>'; });
+    [['ueber200', '#3b3b3b', '200 Tage'], ['ueber50', '#d99a1e', '50 Tage'], ['ueber21', '#19a2b3', '21 Tage']].forEach(function (L) {
+      g += '<polyline points="' + v.map(function (x, i) { return X(i).toFixed(1) + ',' + Y(x[L[0]]).toFixed(1); }).join(' ') + '" fill="none" stroke="' + L[1] + '" stroke-width="1.5" stroke-linejoin="round"/>';
+    });
+    [0, Math.round((n - 1) / 2), n - 1].forEach(function (k, q) { g += '<text x="' + X(k).toFixed(1) + '" y="' + (H - 3) + '" font-size="9" fill="#5A6A5E" text-anchor="' + (q === 0 ? 'start' : q === 2 ? 'end' : 'middle') + '">' + esc(v[k].datum) + '</text>'; });
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Marktbreite über ein Jahr" style="width:100%;height:auto;display:block;margin-top:6px">' + g + '</svg>' +
+      '<div class="leg"><span><i style="background:#19a2b3"></i>über der 21er</span><span><i style="background:#d99a1e"></i>über der 50er</span><span><i style="background:#3b3b3b"></i>über der 200er</span></div>';
+  }
   function holeJson(u) { return fetch(u, { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return null; }); }
   Promise.all([holeJson('data/markt.json'), holeJson('data/breite.json')]).then(function (r) {
     var m = r[0], br = r[1];
@@ -453,7 +466,7 @@
       var tx = bv.ueber21 >= 70 ? 'breit getragen' : bv.ueber21 >= 40 ? 'gemischt' : 'innen schwach';
       if (bv.ueber21 < 45 && m.ampel !== 'Down') tx = 'der Index steht oben, aber nur ' + bv.ueber21 + ' % der Werte liegen über der 21er: innen schwach';
       $('markt-s').innerHTML += ' <span>· ' + bv.ueber21 + ' % der Aktien über der 21er</span>';
-      $('markt-c').innerHTML += '<div class="breite"><p class="cap"><b>Marktbreite</b> = wie viele der S&amp;P-500-Aktien über ihrer jeweiligen Linie liegen (' + br.n + ' Werte, Stand ' + esc(String(br.stand).slice(0, 5)) + ')</p><div class="bz">' + pf('ueber8', '8 Tage') + pf('ueber21', '21 Tage') + pf('ueber50', '50 Tage') + pf('ueber200', '200 Tage') + '</div><p class="cap">' + esc(tx.charAt(0).toUpperCase() + tx.slice(1)) + '.</p></div>';
+      $('markt-c').innerHTML += '<div class="breite"><p class="cap"><b>Marktbreite</b> = wie viele der S&amp;P-500-Aktien über ihrer jeweiligen Linie liegen (' + br.n + ' Werte, Stand ' + esc(String(br.stand).slice(0, 5)) + ')</p><div class="bz">' + pf('ueber8', '8 Tage') + pf('ueber21', '21 Tage') + pf('ueber50', '50 Tage') + pf('ueber200', '200 Tage') + '</div>' + breiteChart(br.verlauf) + '<p class="cap">' + esc(tx.charAt(0).toUpperCase() + tx.slice(1)) + '.</p></div>';
     }
     if (m.woche) $('markt-c').innerHTML += '<p class="cap">Wochenchart: Index ' + (m.woche.ueber_ema8 ? 'über' : 'unter') + ' dem 8-Wochen-EMA, Wochen-MACD ' + (m.woche.macd_ueber_signal ? 'über' : 'unter') + ' der Signallinie seit ' + m.woche.macd_wochen + (m.woche.macd_wochen === 1 ? ' Woche' : ' Wochen') + (m.woche.macd_ueber_signal ? '' : ' (Warnzeichen für Bullen)') + '.</p>';
     if (br && br.megacaps && br.megacaps.length) {
