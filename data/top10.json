@@ -56,6 +56,13 @@
     "macd_signal": 2.66,
     "hoch_52w": 235.74,
     "tief_52w": 165.17,
+    "kreuz": null,
+    "kreuz_kurz": {
+     "typ": "8 über 21",
+     "richtung": "hoch",
+     "i": 241,
+     "tage": 10
+    },
     "score": {
      "punkte": 11,
      "von": 12,
@@ -185,6 +192,18 @@
     "macd_signal": 4.44,
     "hoch_52w": 180.95,
     "tief_52w": 75.23,
+    "kreuz": {
+     "typ": "Golden Cross",
+     "richtung": "hoch",
+     "i": 149,
+     "tage": 102
+    },
+    "kreuz_kurz": {
+     "typ": "8 über 21",
+     "richtung": "hoch",
+     "i": 237,
+     "tage": 14
+    },
     "score": {
      "punkte": 10,
      "von": 12,
@@ -314,6 +333,13 @@
     "macd_signal": 0.86,
     "hoch_52w": 156.24,
     "tief_52w": 105.55,
+    "kreuz": null,
+    "kreuz_kurz": {
+     "typ": "8 über 21",
+     "richtung": "hoch",
+     "i": 243,
+     "tage": 8
+    },
     "score": {
      "punkte": 10,
      "von": 12,
@@ -435,6 +461,18 @@
     "macd_signal": 4.09,
     "hoch_52w": 459.96,
     "tief_52w": 315.82,
+    "kreuz": {
+     "typ": "Golden Cross",
+     "richtung": "hoch",
+     "i": 113,
+     "tage": 138
+    },
+    "kreuz_kurz": {
+     "typ": "8 über 21",
+     "richtung": "hoch",
+     "i": 242,
+     "tage": 9
+    },
     "score": {
      "punkte": 9,
      "von": 12,
@@ -572,6 +610,18 @@
     "macd_signal": 0.15,
     "hoch_52w": 52.38,
     "tief_52w": 39.15,
+    "kreuz": {
+     "typ": "Golden Cross",
+     "richtung": "hoch",
+     "i": 106,
+     "tage": 145
+    },
+    "kreuz_kurz": {
+     "typ": "8 über 21",
+     "richtung": "hoch",
+     "i": 244,
+     "tage": 7
+    },
     "score": {
      "punkte": 9,
      "von": 12,
@@ -701,6 +751,13 @@
     "macd_signal": 8.73,
     "hoch_52w": 1689.89,
     "tief_52w": 856.96,
+    "kreuz": null,
+    "kreuz_kurz": {
+     "typ": "8 über 21",
+     "richtung": "hoch",
+     "i": 244,
+     "tage": 7
+    },
     "score": {
      "punkte": 9,
      "von": 12,
@@ -830,6 +887,13 @@
     "macd_signal": 2.11,
     "hoch_52w": 288.54,
     "tief_52w": 124.44,
+    "kreuz": null,
+    "kreuz_kurz": {
+     "typ": "8 über 21",
+     "richtung": "hoch",
+     "i": 250,
+     "tage": 1
+    },
     "score": {
      "punkte": 7,
      "von": 12,
@@ -959,6 +1023,18 @@
     "macd_signal": 11.07,
     "hoch_52w": 455.99,
     "tief_52w": 223.99,
+    "kreuz": {
+     "typ": "Golden Cross",
+     "richtung": "hoch",
+     "i": 137,
+     "tage": 114
+    },
+    "kreuz_kurz": {
+     "typ": "8 über 21",
+     "richtung": "hoch",
+     "i": 236,
+     "tage": 15
+    },
     "score": {
      "punkte": 9,
      "von": 12,
@@ -1080,6 +1156,13 @@
     "macd_signal": 3.71,
     "hoch_52w": 210.5,
     "tief_52w": 116.13,
+    "kreuz": null,
+    "kreuz_kurz": {
+     "typ": "8 über 21",
+     "richtung": "hoch",
+     "i": 207,
+     "tage": 44
+    },
     "score": {
      "punkte": 12,
      "von": 12,
@@ -1209,6 +1292,13 @@
     "macd_signal": 1.47,
     "hoch_52w": 258.52,
     "tief_52w": 179.28,
+    "kreuz": null,
+    "kreuz_kurz": {
+     "typ": "8 über 21",
+     "richtung": "hoch",
+     "i": 244,
+     "tage": 7
+    },
     "score": {
      "punkte": 10,
      "von": 12,

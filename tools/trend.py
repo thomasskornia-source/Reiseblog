@@ -122,6 +122,19 @@ def score(zeilen, c, m8, m21, m50, m200, rsi, macd, signal, benchmark):
     return {'punkte': punkte, 'von': 12, 'stufe': stufe,
             'kriterien': [{'gruppe': a, 'name': b, 'ok': bool(ok), **({'wert': w} if w else {})} for a, b, ok, w in k]}
 
+def kreuzung(schnell, langsam, start, namen):
+    """Letzte Kreuzung zweier Linien: 'hoch' = die schnelle kreuzt von unten über die langsame (Golden Cross bei 50/200),
+    'runter' = von oben (Death Cross). start = Index des ersten Tags im Chartfenster; i ist relativ dazu (None, wenn davor)."""
+    letzte = None
+    for i in range(1, len(schnell)):
+        if None in (schnell[i - 1], langsam[i - 1], schnell[i], langsam[i]): continue
+        v, h = schnell[i - 1] - langsam[i - 1], schnell[i] - langsam[i]
+        if v <= 0 < h: letzte = (i, 'hoch')
+        elif v >= 0 > h: letzte = (i, 'runter')
+    if not letzte: return None
+    i, richtung = letzte
+    return {'typ': namen[0] if richtung == 'hoch' else namen[1], 'richtung': richtung, 'i': (i - start) if i >= start else None, 'tage': len(schnell) - 1 - i}
+
 def analyse(zeilen, meta=None, tage=252, benchmark=None, mit_score=True):
     c = [z[4] for z in zeilen]
     if len(c) < 210: raise ValueError('zu wenig Kursverlauf (%d Tage)' % len(c))
@@ -144,6 +157,8 @@ def analyse(zeilen, meta=None, tage=252, benchmark=None, mit_score=True):
         'ampel': ampel, 'lage': zone,
         'rsi': round(rsi[-1], 1), 'macd': round(mlinie[-1], 2), 'macd_signal': round(msignal[-1], 2),
         'macd_hist': round(mlinie[-1] - msignal[-1], 2), 'muster': mus,
+        'kreuz': kreuzung(m50, m200, letzte[0], ('Golden Cross', 'Death Cross')),
+        'kreuz_kurz': kreuzung(m8, m21, letzte[0], ('8 über 21', '8 unter 21')),
         'serie': {
             'd': [datetime.datetime.utcfromtimestamp(zeilen[i][0]).strftime('%d.%m.%y') for i in letzte],
             'o': [r(zeilen[i][1]) for i in letzte], 'h': [r(zeilen[i][2]) for i in letzte],

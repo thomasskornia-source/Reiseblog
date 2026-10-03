@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<meta name="robots" content="noindex">
+<title>WCJ – Infos und Quellen</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=1">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+  .info { max-width: 720px; margin: 0 auto; padding-bottom: 40px; }
+  .info .zurueck { display: inline-block; margin: 8px 0 0; font-size: 14.5px; color: var(--ink-soft); }
+  .info h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 24px; margin: 34px 0 8px; }
+  .info h3 { font-size: 16px; margin: 18px 0 4px; }
+  .info p, .info li { font-size: 15.5px; line-height: 1.6; }
+  .info p { margin: 0 0 10px; }
+  .info ul, .info ol { margin: 4px 0 10px; padding-left: 20px; }
+  .info li { margin: 3px 0; }
+  .info .kurz { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 14px; padding: 12px 16px; margin: 10px 0; }
+  .info table { width: 100%; border-collapse: collapse; font-size: 14.5px; margin: 8px 0 12px; }
+  .info td, .info th { text-align: left; padding: 7px 8px; border-bottom: 1px solid rgba(46,58,50,.12); vertical-align: top; }
+  .info th { font-weight: 600; color: var(--ink-soft); font-size: 13px; }
+  .info .sw { display: inline-block; width: 22px; height: 4px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+  .info .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: baseline; }
+  .info .g { background: #3f8f3f; } .info .a { background: #d99a1e; } .info .r { background: #c0392b; }
+  .info svg { width: 100%; max-width: 560px; height: auto; display: block; margin: 8px auto; }
+  .info .warn { font-size: 14px; color: var(--ink-soft); border-left: 3px solid var(--rust); padding-left: 12px; margin: 14px 0; }
+  .info nav.inhalt { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; margin: 14px 0 0; }
+</style>
+</head>
+<body>
+<div class="wrap info">
+  <a class="zurueck" href="aktien.html">← Zurück zu WCJ</a>
+  <header class="entry-header">
+    <p class="date">Infos und Quellen</p>
+    <h1>So funktioniert WCJ</h1>
+    <hr class="rule">
+  </header>
+  <nav class="inhalt" aria-label="Inhalt">
+    <a href="#seite">Die Seite</a><a href="#chart">Der Chart</a><a href="#analyse">Chartanalyse</a><a href="#top10">Die Top 10</a><a href="#figuren">Die drei Figuren</a><a href="#daten">Woher die Daten kommen</a>
+  </nav>
+
+  <h2 id="seite">Wie die Seite funktioniert, in Kürze</h2>
+  <div class="kurz"><ol>
+    <li><b>Aktie eintippen</b> (Name oder Kürzel) und „Prüfen“ tippen. Das Wort geht in eine Tabelle.</li>
+    <li>Ein Programm in der Cloud (Claude) holt die Zahlen, liest bei Warren und Charlie nach, was sie in ihren Texten sagen würden, und schreibt drei kurze Meinungen: Warren zu Qualität und Preis, Charlie zu dem, was schiefgehen kann, James zu Kurs und Trend.</li>
+    <li>Das Ergebnis erscheint nach wenigen Minuten auf der Seite. Eine Aktie hat immer genau einen Eintrag; wird sie erneut geprüft, wird er ersetzt.</li>
+    <li>Jeden Börsentag nach Handelsschluss rechnet ein Skript <b>ohne KI</b> den S&amp;P 500, die <b>Top 10</b> aus allen rund 500 Werten und die Ampeln der bisher geprüften Aktien neu.</li>
+    <li>Einmal pro Woche schreiben die Figuren automatisch zu den besten Werten der Top 10, höchstens drei, damit nicht jede Aktie selbst geprüft werden muss.</li>
+  </ol></div>
+  <p class="warn">Warren, Charlie und James sind <b>KI-Figuren</b>, keine echten Personen. Die Texte sind keine Zitate und keine Anlageberatung. Zahlen können unvollständig oder veraltet sein.</p>
+
+  <h2 id="chart">So ist der Chart aufgebaut</h2>
+  <svg viewBox="0 0 560 190" role="img" aria-label="Aufbau einer Kerze">
+    <rect x="0" y="0" width="560" height="190" rx="12" fill="#FAF3E8"/>
+    <line x1="110" y1="26" x2="110" y2="150" stroke="#3f8f3f" stroke-width="2"/><rect x="92" y="56" width="36" height="66" fill="#3f8f3f"/>
+    <line x1="270" y1="26" x2="270" y2="150" stroke="#c0392b" stroke-width="2"/><rect x="252" y="56" width="36" height="66" fill="#c0392b"/>
+    <g font-size="12" fill="#2E3A32" font-family="sans-serif">
+      <text x="136" y="40">Höchstkurs des Tages</text><text x="136" y="63">Schlusskurs</text><text x="136" y="126">Eröffnung</text><text x="136" y="156">Tiefstkurs</text>
+      <text x="92" y="176" fill="#3f8f3f" font-weight="600">grün: Schluss über Eröffnung</text>
+      <text x="296" y="63">Eröffnung</text><text x="296" y="126">Schluss</text><text x="252" y="176" fill="#c0392b" font-weight="600">rot: Schluss unter Eröffnung</text>
+    </g>
+  </svg>
+  <ul>
+    <li><b>Kerzen:</b> Jede Kerze ist ein Handelstag. Der Körper reicht von Eröffnung bis Schlusskurs, der dünne Strich zeigt Höchst- und Tiefstkurs. Grün heißt: der Tag ging höher aus, rot: tiefer.</li>
+    <li><b>Grau darunter: Umsatz.</b> Hohe Balken bedeuten, dass an dem Tag viel gehandelt wurde.</li>
+    <li><b>Zeitraum:</b> ein Jahr, 252 Handelstage. Mit „3 Monate / 6 Monate / 1 Jahr“, mit zwei Fingern oder mit Strg + Mausrad kann man hineinzoomen, mit Ziehen verschieben, Doppelklick springt zurück.</li>
+  </ul>
+  <h3>Die vier Linien</h3>
+  <table>
+    <tr><th>Linie</th><th>Bedeutung</th></tr>
+    <tr><td><span class="sw" style="background:#2f55c9"></span>8 Tage</td><td>Schneller Durchschnitt (EMA). Jüngere Tage zählen mehr. Zeigt den Schwung der letzten Wochen.</td></tr>
+    <tr><td><span class="sw" style="background:#19a2b3"></span>21 Tage</td><td>Durchschnitt (EMA) über etwa einen Monat. Rutscht der Kurs darunter, wird es kurzfristig schwächer.</td></tr>
+    <tr><td><span class="sw" style="background:#d99a1e"></span>50 Tage</td><td>Durchschnitt über etwa zehn Wochen (einfacher Durchschnitt). Die mittlere Trendlinie.</td></tr>
+    <tr><td><span class="sw" style="background:#3b3b3b"></span>200 Tage</td><td>Die große Linie über etwa ein Jahr. Darüber gilt eine Aktie als gesund, darunter als angeschlagen.</td></tr>
+  </table>
+
+  <h3>Die Trend-Ampel</h3>
+  <p>Aus dem letzten Schlusskurs und den vier Linien entsteht eine Ampel. Es gilt die erste zutreffende Zeile:</p>
+  <table>
+    <tr><th>Ampel</th><th>Lage des Kurses</th></tr>
+    <tr><td><span class="dot r"></span><b>Down</b></td><td>unter der 200-Tage-Linie</td></tr>
+    <tr><td><span class="dot g"></span><b>Up</b></td><td>über 8, 21 und 50</td></tr>
+    <tr><td><span class="dot a"></span><b>Medium</b></td><td>über 8 und 21, aber unter 50 · oder unter 8, aber über 21 (Rücksetzer) · oder zwischen 21 und 50</td></tr>
+    <tr><td><span class="dot r"></span><b>Down</b></td><td>unter 21 und unter 50 (die 200er hält noch)</td></tr>
+  </table>
+  <p>Der Gedanke dahinter: Viel Handel läuft nach festen Regeln der Computer, und die Durchschnitte sind die Marken, an denen sie kaufen oder verkaufen. „Medium“ heißt: der Markt weiß nicht, wohin. Der S&amp;P 500 oben auf der Seite bekommt dieselbe Ampel.</p>
+
+  <h2 id="analyse">Die Chartanalyse</h2>
+  <p>Die Regeln sind bewusst einfach und offen. Das ist keine Formenerkennung wie in teuren Chart-Programmen, sondern Mathematik, die sich nachrechnen lässt.</p>
+  <h3>Unterstützungs- und Widerstandslinie (Trendlinien)</h3>
+  <ul>
+    <li><b>Unterstützung</b> (grün gestrichelt): die letzten Tiefs steigen, jedes mindestens 1 % höher, mit mindestens 10 Tagen Abstand. Liegen drei Tiefs auf einer Linie (Abweichung höchstens 2 %), zählen sie als drei Berührungen, sonst zählen die letzten zwei.</li>
+    <li><b>Widerstand</b> (rot gestrichelt): dasselbe spiegelverkehrt mit fallenden Hochs.</li>
+    <li><b>Gebrochen</b> heißt: der Schlusskurs liegt mehr als 1 % auf der falschen Seite der Linie. Die Linie wird dann blasser gezeichnet.</li>
+    <li>Ein Wendepunkt ist ein Tief (Hoch), wenn es das niedrigste (höchste) in fünf Tagen davor und danach ist. Der jüngste Wendepunkt steht deshalb erst fünf Tage später fest.</li>
+  </ul>
+  <h3>Bodenbildung</h3>
+  <p>Das Jahrestief liegt mindestens 15 Tage zurück, davor fiel der Kurs um mindestens 15 %. Danach kommt ein zweites Tief (Doppelboden: höchstens 3 % über dem ersten, höheres Tief: bis 15 % darüber), dazwischen eine Erholung von mindestens 6 % (die Nackenlinie). Status: <i>in Bildung</i>, solange der Kurs über dem zweiten Tief liegt, <i>Ausbruch</i>, wenn er über der Nackenlinie steht (höchstens 10 % darüber).</p>
+  <h3>Golden Cross und Death Cross</h3>
+  <p>Kreuzt die 50-Tage-Linie die 200-Tage-Linie <b>von unten nach oben</b>, heißt das <b>Golden Cross</b> (▲ grün im Chart), von oben nach unten <b>Death Cross</b> (▼ rot). Gesucht wird die letzte Kreuzung in den vergangenen zwei Jahren; im Chart steht ein Marker, wenn sie im angezeigten Zeitraum liegt, und die Analyse nennt, wie viele Handelstage sie zurückliegt. Zusätzlich steht dort, ob die 8-Tage-Linie zuletzt über oder unter die 21er gekreuzt ist (kurzfristig). Wichtig: Die Linien laufen dem Kurs immer hinterher. Ein Kreuz ist eine Information, kein Kaufsignal.</p>
+  <h3>RSI und MACD</h3>
+  <ul>
+    <li><b>RSI (14)</b> misst, wie stark die letzten 14 Tage gestiegen oder gefallen sind, auf einer Skala von 0 bis 100. Über 70 gilt als heiß gelaufen, unter 30 als überverkauft. Im Score zählt 50 bis 75 als gesunder Schwung.</li>
+    <li><b>MACD</b> (12, 26, 9) vergleicht zwei Durchschnitte und eine Signallinie. Liegt der MACD über der Signallinie, nimmt der Schwung zu, darunter nimmt er ab.</li>
+  </ul>
+  <h3>Der Setup-Score (0 bis 12)</h3>
+  <p>Zwölf Ja-Nein-Regeln, jede erfüllte gibt einen Punkt. Ab 9 gilt „Stark“, ab 6 „Momentum im Aufbau“, ab 4 „Beobachten“, darunter „Schwach“.</p>
+  <table>
+    <tr><th>Gruppe</th><th>Regel</th></tr>
+    <tr><td>Trend</td><td>Kurs über 8, 21 und 50, geordnet · über der 200er, und sie steigt · über dem 10-Wochen-EMA · höhere Hochs und höhere Tiefs</td></tr>
+    <tr><td>Stärke</td><td>höchstens 5 % unter dem 52-Wochen-Hoch · besser als der S&amp;P 500 (3 Monate)</td></tr>
+    <tr><td>Momentum</td><td>RSI zwischen 50 und 75 · MACD über der Signallinie</td></tr>
+    <tr><td>Volumen</td><td>mehr Umsatz an Auf- als an Abtagen (50 Tage) · On-Balance-Volume steigt</td></tr>
+    <tr><td>Spannung</td><td>Squeeze oder verengte Schwankung · NR7 (engster Tag der letzten sieben) oder austrocknender Umsatz</td></tr>
+  </table>
+  <p class="warn">Der Score ist eine eigene Rechnung, angelehnt an Chart-Scanner, kein Nachbau eines fremden Scores und kein Prognosewerkzeug.</p>
+  <h3>Option Flows</h3>
+  <p>Aus den öffentlichen, verzögerten Optionsumsätzen der Cboe wird ein Verhältnis von Put- zu Call-Umsatz gebildet. Viel Call-Kauf gilt als bullisch, viel Put-Kauf als bärisch. Bewertet wird gegen den Verlauf des letzten Jahres, sobald genug Tageswerte gesammelt sind; bis dahin gilt eine einfache Faustregel (≤ 0,65 bullisch, ≥ 1,4 bärisch). Es ist eine <b>Näherung</b>, kein Blick auf einzelne Großanleger.</p>
+
+  <h2 id="top10">Die Top 10 im S&amp;P 500</h2>
+  <p>Jeden Börsentag werden alle rund 500 Werte durchgesehen, ohne KI. Aussortiert werden Werte unter der 200-Tage-Linie. Der Rang besteht je zur Hälfte aus Warrens Regeln und James' Setup-Score.</p>
+  <h3>Warrens sieben Regeln (aus den Jahreszahlen)</h3>
+  <ol>
+    <li>Gewinn in jedem der letzten fünf Jahre</li>
+    <li>Gewinn höher als vor vier Jahren</li>
+    <li>Eigenkapitalrendite mindestens 15 %</li>
+    <li>Nettomarge mindestens 10 %</li>
+    <li>Schulden höchstens das Vierfache des Jahresgewinns (bei Banken nicht geprüft)</li>
+    <li>Freier Cashflow positiv (bei Banken nicht geprüft)</li>
+    <li>KGV zwischen 0 und 25</li>
+  </ol>
+  <p>Fehlen Zahlen, zählt die Regel nicht mit. Weniger als vier prüfbare Regeln: der Wert fällt aus der Auswahl. Das KGV ist Kurs geteilt durch den Gewinn je Aktie des letzten Geschäftsjahres.</p>
+  <p>Antippen einer Zeile klappt Trend, Chart und Regeln auf. Die Meinung von Warren und Charlie mit Text gibt es erst nach einem weiteren Klick („Warren und Charlie fragen“) oder wenn die wöchentliche Auswahl sie schon geschrieben hat. Die Top 10 ist eine Vorauswahl nach festen Regeln, <b>keine Empfehlung</b>.</p>
+
+  <h2 id="figuren">Die drei Figuren und ihre Quellen</h2>
+  <p>Alle drei sind KI-Figuren im Stil öffentlich bekannter Denkweisen. Es sind keine Zitate, und die echten Personen haben die Aktien nicht bewertet. Wörtliche Stellen stehen nur dort, wo sie nachweislich im Original stehen (englisch, höchstens 40 Wörter, mit Jahr und Link).</p>
+  <h3>Warren (Qualität und Preis)</h3>
+  <p>Angelehnt an Warren Buffetts Grundsätze: verständliches Geschäft, Burggraben, ehrliches Management, wenig Schulden, hohe Kapitalrendite, Preis mit Sicherheitsmarge.</p>
+  <ul>
+    <li><a href="https://www.berkshirehathaway.com/letters/letters.html" target="_blank" rel="noopener">Aktionärsbriefe 1977–2025</a> (berkshirehathaway.com, frei zugänglich)</li>
+    <li><a href="https://www.berkshirehathaway.com/ownman.pdf" target="_blank" rel="noopener">Owner's Manual</a> (Berkshire Hathaway, frei zugänglich)</li>
+  </ul>
+  <h3>Charlie (was kann schiefgehen)</h3>
+  <p>Angelehnt an Charlie Mungers Denkweise: umgekehrt denken, Anreize prüfen, Denkfehler erkennen, nur wenige gute Gelegenheiten, „zu schwer“ als gültiges Ergebnis. Knapp und bissig, die Schärfe gilt der Sache.</p>
+  <ul>
+    <li><a href="https://fs.blog/a-lesson-on-worldly-wisdom/" target="_blank" rel="noopener">„A Lesson on Elementary, Worldly Wisdom“</a> (Rede 1994)</li>
+    <li><a href="https://fs.blog/great-talks/psychology-human-misjudgment/" target="_blank" rel="noopener">„The Psychology of Human Misjudgment“</a> (Rede 1995)</li>
+    <li><a href="https://buffett.cnbc.com/annual-meetings/" target="_blank" rel="noopener">Hauptversammlungen von Berkshire Hathaway</a> (CNBC-Archiv, Mitschriften werden nicht kopiert)</li>
+  </ul>
+  <h3>James (Kurs und Option Flows)</h3>
+  <p>Angelehnt an die öffentlich beschriebene Methode von James Bulltard: erst Option Flows, dann Charts, zuletzt Fundamentaldaten; gleitende Durchschnitte als Marken. Verwendet werden nur öffentliche Seiten, keine Bezahl-Beiträge und keine Datenbank. Die Seite ist nicht mit ihm abgestimmt.</p>
+  <ul>
+    <li><a href="https://www.jamesbulltard.com" target="_blank" rel="noopener">jamesbulltard.com</a> (Startseite, „About“, öffentliche Vorschautexte)</li>
+  </ul>
+  <p>Die Zusammenfassungen, nach denen die Figuren schreiben, stehen im Quelltext-Verzeichnis „wissen“ des Blogs (eigene Worte, keine Volltexte fremder Autoren).</p>
+
+  <h2 id="daten">Woher die Börsenwerte kommen</h2>
+  <table>
+    <tr><th>Was</th><th>Quelle</th></tr>
+    <tr><td>Kurse, Umsatz, Charts, S&amp;P 500</td><td>Yahoo Finance, Tageskurse (<a href="https://finance.yahoo.com" target="_blank" rel="noopener">finance.yahoo.com</a>). Inoffizielle, kostenlose Schnittstelle, Kurse sind Schlusskurse des letzten Börsentags.</td></tr>
+    <tr><td>Gewinn, Eigenkapital, Schulden, Cashflow, Umsatz, Gewinn je Aktie</td><td>US-Börsenaufsicht SEC, Jahresabschlüsse in strukturierter Form (<a href="https://www.sec.gov/search-filings/edgar-application-programming-interfaces" target="_blank" rel="noopener">EDGAR XBRL</a>). Nur für US-Firmen, jeweils das letzte abgeschlossene Geschäftsjahr.</td></tr>
+    <tr><td>Welche Firmen im S&amp;P 500 sind</td><td>Offene Liste auf GitHub (<a href="https://github.com/datasets/s-and-p-500-companies" target="_blank" rel="noopener">datasets/s-and-p-500-companies</a>).</td></tr>
+    <tr><td>Option Flows</td><td>Cboe, öffentliche verzögerte Optionsdaten (<a href="https://www.cboe.com/delayed_quotes/" target="_blank" rel="noopener">cboe.com</a>), nur für US-Werte mit Optionen.</td></tr>
+    <tr><td>Texte, Kennzahlen im Einzel-Check</td><td>Firmenseiten, Geschäftsberichte, Börsenportale; Quellen stehen am jeweiligen Eintrag unter „Kennzahlen“ und „Belege“.</td></tr>
+  </table>
+  <p>Alle Quellen sind frei zugänglich. Es werden keine Bezahlinhalte verwendet. Kurse und Kennzahlen können fehlerhaft, verzögert oder unvollständig sein.</p>
+  <p class="warn">Das ist keine Anlageberatung und keine Aufforderung zum Kauf oder Verkauf. Aktien können an Wert verlieren.</p>
+  <a class="zurueck" href="aktien.html">← Zurück zu WCJ</a>
+</div>
+</body>
+</html>

@@ -135,7 +135,7 @@ def main():
     for i, t in enumerate(top): t['platz'] = i + 1; t['neu'] = bool(vorher) and t['ticker'] not in vorher
     for t in top:   # Detail für die Aufklapp-Ansicht (Chart und Chartanalyse), nur für die Top 10
         a = t['_a']
-        t['detail'] = {k: a[k] for k in ('serie', 'muster', 'ma8', 'ma21', 'ma50', 'ma200', 'ma200_steigt', 'macd', 'macd_signal', 'hoch_52w', 'tief_52w', 'score') if k in a}
+        t['detail'] = {k: a[k] for k in ('serie', 'muster', 'ma8', 'ma21', 'ma50', 'ma200', 'ma200_steigt', 'macd', 'macd_signal', 'hoch_52w', 'tief_52w', 'kreuz', 'kreuz_kurz', 'score') if k in a}
     for t in alle: t.pop('_a', None)
     kurz = ('ticker', 'name', 'ampel', 'lage', 'kgv', 'roe_pct', 'marge_pct', 'rsi', 'abstand_pct', 'pos_52w_pct', 'warren_gut', 'warren_fehlt', 'warren_ok', 'warren_von', 'punkte')
     sektoren = {}
