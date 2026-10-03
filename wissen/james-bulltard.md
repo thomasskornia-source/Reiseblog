@@ -53,6 +53,27 @@ RSI(14) nach Wilder, MACD (12, 26, 9). **Muster im 1-Jahres-Chart:** Unterstütz
 tieferen Hochs, Bodenbildung (Doppelboden oder höheres Tief nach einem Rückgang von mindestens 15 %, mit Nackenlinie). Die
 genauen Regeln stehen im Kopf von `tools/muster.py`. Das sind einfache Faustregeln, keine Prognose.
 
+## YouTube-Kanal (öffentlich sichtbar: Kanalbeschreibung und Titel der Videos, Stand 03.10.2026)
+Quelle: https://www.youtube.com/@jamesbulltard (Videos selbst nicht angesehen, kein Zugriff auf Inhalte; keine Mitschriften, nur
+Titel und Beschreibungen aus dem öffentlichen Kanal-Feed, in eigenen Worten).
+- **Selbstbeschreibung des Kanals:** ungeschnittene Marktkommentare, „Technical Analysis Does Matter“, Ziel: Märkte
+  verständlicher machen. Bildung laut Kanalseite: Mathematical Economic Analysis (BA) und Financial Engineering (SM).
+  Der Name ist ein Online-Name; nicht zu verwechseln mit James Bullard, dem früheren Präsidenten der Fed-Filiale St. Louis.
+- **Schwerpunkt (nach eigener Aussage):** **PEAD** (Post-Earnings-Announcement-Drift: Kurse laufen nach guten
+  Quartalszahlen oft noch weiter in dieselbe Richtung) und das **Verkaufen von Optionsprämie in Stärke** (Put-Verkauf,
+  wenn der Wert stark ist). Dazu tägliche Recaps und ungewöhnliche Optionsumsätze, das meiste hinter einer Bezahlschranke
+  (Substack mit Datenbank, Scanner, Rankings und Discord-Community).
+- **Typisches Videoformat (Juni 2026):** „Ticker, ein tieferer Blick auf die Aktie: Options Flow, Charts und Trade-Ideen“,
+  jeweils zu einer großen Aktie (Intel, Amazon, Coupang, Fiserv, Deere, Zoetis, SpaceX …). Die Reihenfolge der Titel ist
+  gleich: erst Options Flow, dann Charts, dann Trade-Ideen. Bei Insiderkäufen oder großen Optionskäufen („30-Mio.-Call“)
+  werden diese als Auslöser genannt.
+- **Weitere Themen:** der Blick auf einen eigenen Scanner und auf Charts; Einordnung von Marktschwäche (z. B. „Semi-Crash,
+  nicht Markt-Crash“); große Risk Reversals und Optionsgeschäfte; Marktstimmung rund um Zahlen großer Konzerne.
+- **Was wir daraus mitnehmen:** (1) Reihenfolge Flows → Chart → Idee bestätigt unsere Darstellung; (2) die Haltung
+  „nicht gegen den Trend und nicht in schwache Werte“; (3) Hinweis auf Insiderkäufe und Zahlen als zusätzliche Auslöser
+  (heute nicht in unseren Zahlen). Nicht übernommen: Renditeversprechen („höchste Konversion auf Substack“), Handelsideen,
+  Aussagen über Dritte.
+
 ## Grenzen
 - Die öffentlichen Seiten nennen die gleitenden Durchschnitte als Auslöser (ausdrücklich nur den 21er-EMA), aber nicht
   vollständig, welche genau er nutzt. Die Linien 8, 21, 50, 200 und die Zonen stammen von Thomas.
