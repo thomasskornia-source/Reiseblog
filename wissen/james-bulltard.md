@@ -109,7 +109,8 @@ nicht im Repo. Alles unten sind Selbstaussagen von James, nicht geprüft.
   (5) Unsere Linien enthalten die 100er nicht; wir lassen sie weg (50 und 200 reichen).
 
 ## Alte Newsletter-Mails von James (2023, aus Thomas' Postfach; nur sinngemäß, die Mails selbst liegen nicht im Repo)
-Gelesen wurden zehn Mails aus dem Ordner „James“ (Tages-Recaps, „Best Idea For The Week Ahead“, „10 Charts Of Strength“, „How Do You Utilize
+Gelesen wurden 35 Mails aus dem Ordner „James“ (Mai bis September 2023 plus die Willkommensmail vom Dezember 2023; die restlichen sind
+weitere Tages-Recaps derselben Art) (Tages-Recaps, „Best Idea For The Week Ahead“, „10 Charts Of Strength“, „How Do You Utilize
 This Data?“, „The Process“, ein Zahlenausblick zu Amazon). Zusammenfassung in eigenen Worten; keine Handelsideen, Positionen, Gewinne
 oder Rechnungs- und Kontodaten übernommen.
 - **Aufbau seiner Tages-Recaps:** (1) kurze Marktlage mit Index-Chart (Tages- und Wochenchart, Lage zu den Linien, Divergenzen, gescheiterte
@@ -141,6 +142,35 @@ oder Rechnungs- und Kontodaten übernommen.
   - Kalender: Zahlen, Notenbank-Treffen, Verfallstage nennt er als Auslöser, die Kurs und Flow bewegen.
   - **Gewinne mitnehmen:** Wer in einer Woche stark im Plus ist, soll nicht gierig werden; „es kommt immer der nächste Trade“. Er sagt auch
     offen, wenn ein Erfolg Glück war.
+- **Ergänzungen aus den weiteren Mails (Mai bis September 2023):**
+  - **Der 8-EMA ist sein Kurzfrist-Barometer** (zusammen mit dem 10-EMA und dem 21-EMA): darüber stark, darunter schwach. Beim Index
+    schaut er auf das Verhältnis zur Aufwärtstrendlinie, die seit den Tiefs im Oktober 2022 reicht; solange sie hält, ist es für ihn
+    ein Bullenmarkt und ein Rücksetzer nur „ein Rücksetzer im Trend“. Die Reparatur technischer Schäden dauere meist mehrere Wochen
+    (die Durchschnitte müssen abflachen und zurückerobert werden).
+  - **Wochenchart:** Schluss über oder unter dem 8-Wochen-EMA und ein erstmals seit Monaten negativer Wochen-MACD gelten bei ihm als
+    wichtige Warnzeichen („jetzt vorsichtig sein“: Cash aufbauen oder Absicherung nutzen, **nicht in Panik verfallen**). Lücken im Chart wirken
+    wie Magnete und werden oft gefüllt; offene Kurslücken unter dem Kurs sind für ihn ein Grund, nicht mehr stark zuzukaufen.
+  - **Megacaps als Stimmungsmesser:** Er zählt, wie viele der sieben größten Werte über dem 8-EMA stehen, weil sie rund ein Drittel des
+    Index ausmachen; die Starken (nie unter dem 8er gefallen) und die Schwachen trennt er klar (Schwache kommen auf eine „Meiden-Liste“,
+    bis sie wieder drüber sind). Schwäche der Megacaps bedeutet Schwäche im Index, auch wenn „der Rest“ steigt.
+  - **Rotation:** Bei Schwäche in Technologie schaut er auf Branchen mit Stärke (Gesundheit, Versorger, Industrie, Energie) und wählt Ideen
+    von dort. Auch einzelne Branchen („Regionalbanken“) beobachtet er mit Chart, RSI, Volumenspitzen am Tief und Insiderkäufen.
+  - **Ruhige Tage vor Feiertagen** (wenig Umsatz) wertet er nicht aus; an Tagen mit Zinsentscheiden oder Inflationszahlen rät er zu
+    **keinem Hebel**. Hohe RSI-Werte („überkauft“) können lange anhalten, eine Atempause sei normal; Spitzen rät er nicht zu erraten,
+    sondern auf Bestätigung zu warten. Bei gebrochenen Charts („Basis nach unten verlassen“): nicht anfassen, bis sich eine neue Basis
+    bildet; relative Schwäche im Aufschwung ist ein Warnzeichen. Fundamentaldaten (KGV und Ähnliches) nennt er in Aufwärtsphasen
+    „nicht relevant“, es zähle der Kurs über dem 8-EMA.
+  - **Seine Ideen-Prozedur:** Aktive Namen in den Flows über mehrere Zeiträume suchen, dann einen starken Chart mit nahem Tief wählen,
+    dort **Puts unterhalb der letzten Tiefs verkaufen**; solange das jüngste Tief nicht fällt, sei die Aktie „in Ordnung“. Große,
+    dividendenstarke Firmen nennt er als Dauerbestand für mehrere Monate, auch ohne Optionen. Als Zusatz zählt er Insiderkäufe,
+    aktivistische Investoren und Katalysatoren (Zahlen, Fusionen). Beim Flow beachtet er die Zahl der Geschäfte je Name (Netto-Wert
+    bullischer minus bärischer Geschäfte) und prüft das offene Volumen; Calls und Puts „gekauft“ können Absicherung sein, darum schaut er
+    auf Chart und Leerverkaufsquote. Seine Filter: ungewöhnliche Größe im Vergleich zum üblichen Umsatz der Aktie (z. B. das Achtfache).
+  - **Verluste:** Ein Trade müsse fast sofort funktionieren, sonst war man falsch und schneidet ab („Pflaster abreißen“). Er schildert
+    Quartalsergebnisse ehrlich, auch Schwächephasen, und nennt Renditen nur im Vergleich zu Index und über zwölf Monate statt „seit Jahresanfang“
+    (Eigenangaben, nicht übernommen).
+  - **Was ich nicht übernommen habe:** Persönliche Urteile über Firmenchefs und andere Personen, Politik, Gewinnzahlen, Positionen und
+    Handelsdetails.
 - **Stil in den Mails:** persönlich („ich“), direkt, mit klarer Meinung auch gegen große Firmen und Manager (z. B. zu hohen Investitionen),
   Zahlen und Chartbilder als Belege, kurze Absätze, Humor, einladend zur Community („wie nutzt ihr die Daten?“). Er schreibt von sich,
   dass er über 20 Jahre handelt und fast drei Jahrzehnte gebraucht habe, seine Methode zu verfeinern.
