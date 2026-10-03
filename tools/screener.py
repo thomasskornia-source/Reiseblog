@@ -91,7 +91,7 @@ def james(f, bm):
 def verlauf(zeilen):
     c = [z[4] for z in zeilen]
     return {'d': [datetime.datetime.utcfromtimestamp(z[0]).strftime('%d.%m.%y') for z in zeilen], 'c': c,
-            'm21': trend.ema_reihe(c, 21), 'm50': trend.sma_reihe(c, 50)}
+            'm8': trend.ema_reihe(c, 8), 'm21': trend.ema_reihe(c, 21), 'm50': trend.sma_reihe(c, 50), 'm200': trend.sma_reihe(c, 200)}
 
 SEKTOR_NAMEN = {'Communication Services': 'Kommunikation', 'Consumer Discretionary': 'Konsum (zyklisch)', 'Consumer Staples': 'Basiskonsum',
                 'Energy': 'Energie', 'Financials': 'Finanzen', 'Health Care': 'Gesundheit', 'Industrials': 'Industrie',
@@ -160,7 +160,7 @@ def sektor_rotation(fl, js, sp_zeilen):
 
 MEGA = ('AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'META', 'TSLA')
 
-def breite(js, fl=None):
+def breite(js, fl=None, sp_z=None):
     """Marktbreite: Anteil der S&P-500-Aktien über ihrer 8-, 21-, 50- und 200-Tage-Linie (alle Werte mit Kursdaten), Verlauf in data/breite.json."""
     a = [j['_a'] for j in js if j]
     if len(a) < 100: return
@@ -169,16 +169,28 @@ def breite(js, fl=None):
     pfad = os.path.join(ROOT, 'data', 'breite.json')
     try: d = json.load(open(pfad, encoding='utf-8'))
     except Exception: d = {'verlauf': []}
-    verlauf = [v for v in d.get('verlauf', []) if v['datum'] != heute]
-    verlauf.append({'datum': heute, 'ueber8': pro('ma8'), 'ueber21': pro('ma21'), 'ueber50': pro('ma50'), 'ueber200': pro('ma200')})
-    verlauf = verlauf[-260:]
+    verl = []
+    if sp_z:   # Verlauf über das letzte Jahr aus den Kursen zurückgerechnet (heutige Indexmitglieder, kein Archiv nötig)
+        sp = verlauf(sp_z); lst = [(j['_h'], {x: i for i, x in enumerate(j['_h']['d'])}) for j in js if j]
+        for dd in sp['d'][-252:]:
+            z = {'m8': [0, 0], 'm21': [0, 0], 'm50': [0, 0], 'm200': [0, 0]}
+            for h, pos in lst:
+                i = pos.get(dd)
+                if i is None: continue
+                for k in z:
+                    if h[k][i] is not None: z[k][1] += 1; z[k][0] += h['c'][i] > h[k][i]
+            if min(v[1] for v in z.values()) >= 100:
+                verl.append({'datum': dd, 'ueber8': round(100 * z['m8'][0] / z['m8'][1]), 'ueber21': round(100 * z['m21'][0] / z['m21'][1]),
+                             'ueber50': round(100 * z['m50'][0] / z['m50'][1]), 'ueber200': round(100 * z['m200'][0] / z['m200'][1])})
+    if len(verl) < 100: verl = [v for v in d.get('verlauf', []) if v['datum'] != heute] + [{'datum': heute, 'ueber8': pro('ma8'), 'ueber21': pro('ma21'), 'ueber50': pro('ma50'), 'ueber200': pro('ma200')}]
+    verlauf_liste = verl[-260:]
     mega = []
     for f, j in zip(fl or [], js):   # die sieben größten Werte: über dem 8-Tage-EMA? (James zählt, wie viele der Megacaps stark sind)
         if j and f['t'] in MEGA:
             x = j['_a']; mega.append({'t': f['t'], 'name': f['name'], 'ueber8': x['kurs'] > x['ma8'], 'ueber21': x['kurs'] > x['ma21'], 'abstand8_pct': round((x['kurs'] / x['ma8'] - 1) * 100, 1)})
     mega.sort(key=lambda m: MEGA.index(m['t']))
     with open(pfad, 'w', encoding='utf-8') as fh:
-        fh.write(json.dumps({'stand': heute, 'n': len(a), 'megacaps': mega, 'verlauf': verlauf}, ensure_ascii=False, indent=None).replace('},', '},\n') + '\n')
+        fh.write(json.dumps({'stand': heute, 'n': len(a), 'megacaps': mega, 'verlauf': verlauf_liste}, ensure_ascii=False, indent=None).replace('},', '},\n') + '\n')
 
 def beobachten(bm):
     """Eigene Aktien aus data/aktien.json: James' Ampel täglich neu (ohne Texte, ohne Token) -> data/beobachtung.json."""
@@ -210,7 +222,7 @@ def main():
     try: z = sec_zahlen()
     except Exception as e: print('SEC-Zahlen nicht abrufbar:', e)
     with ThreadPoolExecutor(8) as ex: js = list(ex.map(lambda f: james(f, bm), fl))
-    breite(js, fl)
+    breite(js, fl, sp_z)
     sek = sektor_rotation(fl, js, sp_z)
     alle = []
     for f, j in zip(fl, js):
