@@ -448,6 +448,12 @@
       '<small>' + dot(acls(x.ampel)) + ' ' + esc(x.lage) + (x.kgv ? ' · KGV ' + zahl(x.kgv, 1) : '') + '</small></span><span class="z">' +
       (warren ? 'Warren ' + x.warren_ok + '/' + x.warren_von + '<br>' : '') + 'James ' + x.punkte + '/12</span></li>';
   }
+  function zeigeKarte(tk) {
+    var e = data.filter(function (z) { return sym(z).toUpperCase().replace('.', '-') === tk.toUpperCase().replace('.', '-'); })[0];
+    if (!e) return;
+    zuletzt = sym(e); filter = ''; $('inp').value = ''; render();
+    var el = document.querySelector('[data-sym="' + zuletzt + '"]'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
   function pruefen(tk) {
     $('inp').value = tk; $('form').onsubmit({ preventDefault: function () {} });
     $('status').scrollIntoView({ block: 'center', behavior: 'smooth' });
@@ -484,7 +490,7 @@
     h += '<div class="dsec"><h5>Meinung von Warren und Charlie</h5>';
     if (e && e.warren) {
       h += '<p>' + dot(cls(e.warren.urteil)) + 'Warren: <b>' + esc(e.warren.urteil) + '</b> · ' + dot(cls(e.charlie.urteil)) + 'Charlie: <b>' + esc(e.charlie.urteil) + '</b> <span class="klein">(Stand ' + esc(e.stand) + ')</span></p>' +
-        '<button class="btn" type="button" data-pr="' + esc(x.ticker) + '">Ganze Meinung ansehen</button>';
+        '<button class="btn" type="button" data-karte="' + esc(x.ticker) + '">Ganze Meinung ansehen</button>';
     } else {
       h += '<p class="klein">Noch nicht geschrieben. Ein Klick startet die Prüfung, das Ergebnis erscheint nach wenigen Minuten oben in der Liste.</p><button class="btn" type="button" data-pr="' + esc(x.ticker) + '">Warren und Charlie fragen</button>';
     }
@@ -505,6 +511,7 @@
     zeigen('');
     $('top10-f').addEventListener('change', function () { zeigen(this.value); });
     $('top10-c').addEventListener('click', function (ev) {
+      var kb = ev.target.closest('[data-karte]'); if (kb) { zeigeKarte(kb.getAttribute('data-karte')); return; }
       var bt = ev.target.closest('[data-pr]'); if (bt) { pruefen(bt.getAttribute('data-pr')); return; }
       if (ev.target.closest('.det')) return;
       var li = ev.target.closest('li'); if (!li || !li.getAttribute('data-t')) return;
@@ -524,10 +531,17 @@
     $('beo-c').innerHTML = '<ol>' + b.aktien.map(function (x) {
       return '<li data-t="' + esc(x.ticker) + '"><span class="n">' + dot(acls(x.ampel)) + '</span><span class="t"><b>' + esc(x.ticker) + '</b> ' + esc(x.name) +
         '<small>' + esc(x.lage) + (x.ampel_vorher && x.ampel_vorher !== x.ampel ? ' · vorher ' + esc(x.ampel_vorher) : '') + '</small></span><span class="z">James ' + x.punkte + '/12</span></li>';
-    }).join('') + '</ol><p class="hinweis">Nur Kurs und Trend, täglich neu. Die Texte von Warren und Charlie bleiben, bis du die Aktie erneut prüfst.</p>';
+    }).join('') + '</ol><p class="hinweis">Nur Kurs und Trend, täglich neu. Zeile antippen: Trend, Chart und die Meinung von Warren und Charlie klappen auf. Die Texte bleiben, bis du die Aktie erneut prüfst.</p>';
     $('beo-c').addEventListener('click', function (ev) {
-      var li = ev.target.closest('li'); if (!li) return;
-      $('inp').value = li.getAttribute('data-t'); $('inp').focus(); $('inp').scrollIntoView({ block: 'center', behavior: 'smooth' });
+      var kb = ev.target.closest('[data-karte]'); if (kb) { zeigeKarte(kb.getAttribute('data-karte')); return; }
+      var bt = ev.target.closest('[data-pr]'); if (bt) { pruefen(bt.getAttribute('data-pr')); return; }
+      if (ev.target.closest('.det')) return;
+      var li = ev.target.closest('li'); if (!li || !li.getAttribute('data-t')) return;
+      var d = li.querySelector('.det');
+      if (d) { d.remove(); li.classList.remove('auf'); return; }
+      var x = b.aktien.filter(function (q) { return q.ticker === li.getAttribute('data-t'); })[0]; if (!x) return;
+      var el = document.createElement('div'); el.className = 'det'; el.innerHTML = detail(x, null);
+      li.appendChild(el); li.classList.add('auf');
     });
     $('beo').hidden = false;
   }, function () {});
