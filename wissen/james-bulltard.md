@@ -74,6 +74,40 @@ Titel und Beschreibungen aus dem öffentlichen Kanal-Feed, in eigenen Worten).
   (heute nicht in unseren Zahlen). Nicht übernommen: Renditeversprechen („höchste Konversion auf Substack“), Handelsideen,
   Aussagen über Dritte.
 
+## Podcast-Interview „The Atomic Level“ (Substack, 2026; 67 Minuten, frei zugänglich)
+Quelle: Podcast-Folge „The Faceless Trader Beating the Biggest Names in Finance“ (Gastgeber Chris Snook; James nur als Stimme, sein Gesicht
+bleibt ein Avatar). Per Spracherkennung selbst transkribiert und **nur in eigenen Worten zusammengefasst**; die Mitschrift selbst liegt
+nicht im Repo. Alles unten sind Selbstaussagen von James, nicht geprüft.
+- **Grundhaltung:** Ein Chart sieht entweder gut aus oder nicht, er verschwendet keine Zeit. Auf lange Sicht gehe jede gute Aktie hoch;
+  schwer sei der Zeitpunkt, und den zeige der Chart. Große Firmen seien nicht automatisch gute Käufe zu jedem Preis; **jede Aktie ist
+  irgendwo auf dem Chart ein Kauf**, nur nicht überall. Er bleibt bei Aktien, kein Handel mit Anleihen oder Rohstoffen.
+- **Warum gleitende Durchschnitte:** Der Großteil des Marktes sei Computerhandel, der keine Bilanzen liest, sondern feste Marken kauft und
+  verkauft. Kurse bewegten sich tagsüber „aus Nichts“, aber Durchschnitte brechen. Wer kurzfristig handelt, müsse wie diese Computer denken.
+- **Der 21-Tage-EMA ist die wichtigste Linie** (etwa ein Monat). Darüber: Risiko ausbauen („pressen“), nichts zu fürchten. Darunter:
+  aufpassen. 90 % der Brüche darunter bleiben folgenlos, aber **jeder große Abverkauf begann mit einem Bruch unter dem 21er**. Seine Regel:
+  unter der 21er kurzfristige Positionen verkleinern oder in Cash gehen; bei mehreren schlechten Tagen in Folge ist man im Abwärtstrend
+  und fängt keine fallenden Messer. Er nutzt fünf Linien: **8-EMA und 21-EMA (kurzfristig), 50, 100 und 200 Tage (langfristig)**.
+- **Nicht shorten:** Zuletzt 2018 geshortet. Es gebe zu oft künstliche Pumps oder Nachrichten. Statt Gegenwette: **warten, bis der Markt
+  wieder über den Schlüssellinien steht**. Er hält ein Handelsbuch (wenige Positionen, Verlust verkraftbar) getrennt von langfristigen
+  Anlagen, die er kaum anschaut.
+- **Option Flows (seine Hauptquelle):** Alle Optionsdaten stammen von der Cboe; entscheidend sei der Filter. Er protokolliert von Hand
+  rund 150 relevante Geschäfte pro Tag nach festen Regeln, eine KI baut aus der Datenbank Handelsideen. Wichtige Ideen:
+  1. **Menge zählt, nicht ein einzelnes Geschäft:** Er zählt und rankt die Flows. Namen mit immer mehr Flow sind die, in denen man sein
+     will; Namen im Abwärtstrend bekommen keine Call-Käufe. Große Bewegungen kämen selten ohne vorherige Optionsaktivität.
+  2. **Große Put-Verkäufe zeigen, wo Großanleger kaufen wollen** (eine Einstiegsmarke nach Stunden Beratung im Fonds). Er baut daraus
+     etwas darunter (z. B. 5 % tiefer) für sich. Selbstangabe: von rund 14.000 so markierten Put-Verkäufen seien 80 % wertlos verfallen.
+  3. **13F-Meldungen sind zu spät** (Monate alt); Optionsflüsse zeigen, was jetzt passiert, auch Rotation zwischen Branchen (z. B. in
+     einer Phase Öl und Dünger statt Chips).
+- **Stil:** Kurz, offen, direkt, humorvoll („Bulltards“), warnt, wenn der Markt unter der 21er steht („was ihr hier tut, geht auf euch“),
+  legt Einstiege und Ausstiege offen. Für Anfänger ist es nach eigener Aussage nicht gedacht, die meisten seiner Leser kennen sich aus.
+  Zeithorizont: „die nächste 15-Minuten-Kerze“, nicht 90 Tage; er macht keine Prognosen über Monate.
+- **Nicht übernommen:** seine Renditen, Positionen, Abozahlen und Umsätze (Eigenangaben, ungeprüft, Werbung), Aussagen über Politiker
+  und andere Dritte, Marktprognosen.
+- **Was daraus für unseren James folgt:** (1) Die 21er und das Verhältnis Kurs zu den Linien stehen im Vordergrund, wie bei uns.
+  (2) Unter der 21er sagt James klar: keine neuen Käufe, abwarten, nicht gegen den Trend wetten und nicht shorten. (3) Flows nach
+  Menge und Richtung bewerten, nicht einzelne Großgeschäfte. (4) Kurz, direkt, ohne Schnörkel: „Chart sieht gut aus“ oder nicht.
+  (5) Unsere Linien enthalten die 100er nicht; wir lassen sie weg (50 und 200 reichen).
+
 ## Grenzen
 - Die öffentlichen Seiten nennen die gleitenden Durchschnitte als Auslöser (ausdrücklich nur den 21er-EMA), aber nicht
   vollständig, welche genau er nutzt. Die Linien 8, 21, 50, 200 und die Zonen stammen von Thomas.
