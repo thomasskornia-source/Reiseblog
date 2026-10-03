@@ -29,22 +29,40 @@
   }
 })();
 
-// Start-Hinweis: dicker, pulsierender Pfeil aufs Logo – einmal pro Sitzung
+// Start-Hinweis: grüner Leuchtreklame-Pfeil „Übersicht“ quer aufs Logo – einmal pro Sitzung
 (function () {
   var brand = document.querySelector('#topbar .brand');
   if (!brand) return;
   try { if (sessionStorage.getItem('pfeil-gesehen')) return; sessionStorage.setItem('pfeil-gesehen', '1'); } catch (e) {}
   var r = brand.getBoundingClientRect();
+  var pts = [[6, 70], [76, 6], [76, 44], [284, 44], [284, 96], [76, 96], [76, 134]];
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = '<svg viewBox="0 0 290 140" width="290" height="140" aria-hidden="true">' +
+    '<polygon points="' + pts.map(function (q) { return q.join(','); }).join(' ') + '" fill="#1F9D4D" stroke="#0E5E2B" stroke-width="6" stroke-linejoin="round"/>' +
+    '<polygon points="' + pts.map(function (q) { return q.join(','); }).join(' ') + '" fill="none" stroke="#7CFFA6" stroke-width="2" stroke-linejoin="round" opacity=".55" transform="translate(0 0)"/>';
+  var n = 0;
+  for (var i = 0; i < pts.length; i++) {
+    var a = pts[i], b = pts[(i + 1) % pts.length];
+    var len = Math.hypot(b[0] - a[0], b[1] - a[1]);
+    var k = Math.max(1, Math.round(len / 17));
+    for (var j = 0; j < k; j++) {
+      var x = a[0] + (b[0] - a[0]) * j / k, y = a[1] + (b[1] - a[1]) * j / k;
+      svg += '<circle class="lb' + (n % 2) + '" cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="4.6"/>';
+      n++;
+    }
+  }
+  svg += '<text x="180" y="79" text-anchor="middle" font-family="Work Sans, sans-serif" font-weight="800" font-size="30" fill="#fff" stroke="#0E5E2B" stroke-width="1" paint-order="stroke">Übersicht</text></svg>';
   var box = document.createElement('div');
   box.className = 'logo-pfeil';
   box.setAttribute('role', 'note');
-  box.style.left = Math.max(6, r.left + r.width / 2 - 28) + 'px';
-  box.style.top = (r.bottom + 6) + 'px';
-  box.innerHTML = '<svg viewBox="0 0 56 64" width="56" height="64" aria-hidden="true"><path d="M28 3 L52 30 H36 V61 H20 V30 H4 Z" fill="#B5502E" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg><span>Übersicht – hier geht’s immer zurück</span>';
+  box.setAttribute('aria-label', 'Übersicht – hier geht’s immer zurück');
+  box.style.left = (r.left + r.width * 0.6 - 6) + 'px';
+  box.style.top = (r.bottom + 2 - 70) + 'px';
+  box.innerHTML = svg;
   document.body.appendChild(box);
   function weg() { if (box.parentNode) box.parentNode.removeChild(box); }
   box.addEventListener('click', weg);
   document.addEventListener('click', weg, { once: true });
   window.addEventListener('scroll', weg, { once: true, passive: true });
-  setTimeout(weg, 9000);
+  setTimeout(weg, 10000);
 })();
