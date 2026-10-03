@@ -100,6 +100,9 @@
   .top10 .dsec p .dot { margin-right: 4px; }
   .top10 .btn { font-size: 14px; }
   .top10 .hinweis { font-size: 12px; color: var(--ink-soft); margin: 8px 2px 0; text-align: center; }
+  .markt .breite { margin-top: 10px; border-top: 1px solid rgba(46,58,50,.12); padding-top: 8px; }
+  .markt .bz { display: flex; flex-wrap: wrap; gap: 4px 14px; justify-content: center; font-size: 13.5px; margin: 4px 0; }
+  .markt .bz em { font-style: normal; font-size: 11.5px; color: var(--ink-soft); }
   .markt .chartbox { margin-top: 4px; }
   .chartbox { grid-column: 1 / -1; margin-top: 10px; }
   .chartbox svg { touch-action: pan-y; user-select: none; -webkit-user-select: none; }
@@ -435,10 +438,20 @@
     var e = data.filter(function (d) { return sym(d) === b.getAttribute('data-upd'); })[0];
     if (e) senden(sym(e), e.zeitstempel);
   });
-  fetch('data/markt.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (m) {
+  function holeJson(u) { return fetch(u, { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return null; }); }
+  Promise.all([holeJson('data/markt.json'), holeJson('data/breite.json')]).then(function (r) {
+    var m = r[0], br = r[1];
     if (!m || !m.ampel) return;
     $('markt-s').innerHTML = 'Markt · S&amp;P 500 ' + dot(acls(m.ampel)) + '<b>' + esc(m.ampel) + '</b> <span>' + esc(m.lage) + ' (Stand ' + esc(String(m.stand).slice(0, 5)) + ')</span>';
     $('markt-c').innerHTML = '<p class="cap">S&amp;P 500 Index, 1 Jahr (' + (m.serie ? m.serie.c.length : 0) + ' Handelstage)' + (m.kurs != null ? ' · Schlusskurs <b>' + zahl(m.kurs, 0) + '</b>' : '') + '</p>' + chart(m.serie, m);
+    var bv = br && br.verlauf && br.verlauf.length ? br.verlauf[br.verlauf.length - 1] : null, bg = br && br.verlauf && br.verlauf.length > 1 ? br.verlauf[br.verlauf.length - 2] : null;
+    if (bv) {
+      var pf = function (k, n) { var d = bg ? bv[k] - bg[k] : null; return '<span>' + n + ' <b>' + bv[k] + ' %</b>' + (d ? ' <em>' + (d > 0 ? '+' : '') + d + '</em>' : '') + '</span>'; };
+      var tx = bv.ueber21 >= 70 ? 'breit getragen' : bv.ueber21 >= 40 ? 'gemischt' : 'innen schwach';
+      if (bv.ueber21 < 45 && m.ampel !== 'Down') tx = 'der Index steht oben, aber nur ' + bv.ueber21 + ' % der Werte liegen über der 21er: innen schwach';
+      $('markt-s').innerHTML += ' <span>· Breite ' + bv.ueber21 + ' % über der 21er</span>';
+      $('markt-c').innerHTML += '<div class="breite"><p class="cap">Marktbreite: Anteil der S&amp;P-500-Aktien über der jeweiligen Linie (' + br.n + ' Werte, Stand ' + esc(String(br.stand).slice(0, 5)) + ')</p><div class="bz">' + pf('ueber8', '8 Tage') + pf('ueber21', '21 Tage') + pf('ueber50', '50 Tage') + pf('ueber200', '200 Tage') + '</div><p class="cap">' + esc(tx.charAt(0).toUpperCase() + tx.slice(1)) + '.</p></div>';
+    }
     if (!m.serie) $('markt').removeAttribute('open');
     $('markt').hidden = false;
   }, function () {});

@@ -88,6 +88,21 @@ def james(f, bm):
     except Exception:
         return None
 
+def breite(js):
+    """Marktbreite: Anteil der S&P-500-Aktien über ihrer 8-, 21-, 50- und 200-Tage-Linie (alle Werte mit Kursdaten), Verlauf in data/breite.json."""
+    a = [j['_a'] for j in js if j]
+    if len(a) < 100: return
+    pro = lambda k: round(100 * sum(1 for x in a if x['kurs'] > x[k]) / len(a))
+    heute = datetime.date.today().strftime('%d.%m.%Y')
+    pfad = os.path.join(ROOT, 'data', 'breite.json')
+    try: d = json.load(open(pfad, encoding='utf-8'))
+    except Exception: d = {'verlauf': []}
+    verlauf = [v for v in d.get('verlauf', []) if v['datum'] != heute]
+    verlauf.append({'datum': heute, 'ueber8': pro('ma8'), 'ueber21': pro('ma21'), 'ueber50': pro('ma50'), 'ueber200': pro('ma200')})
+    verlauf = verlauf[-260:]
+    with open(pfad, 'w', encoding='utf-8') as fh:
+        fh.write(json.dumps({'stand': heute, 'n': len(a), 'verlauf': verlauf}, ensure_ascii=False, indent=None).replace('},', '},\n') + '\n')
+
 def beobachten(bm):
     """Eigene Aktien aus data/aktien.json: James' Ampel täglich neu (ohne Texte, ohne Token) -> data/beobachtung.json."""
     try: eintraege = json.load(open(os.path.join(ROOT, 'data', 'aktien.json'), encoding='utf-8'))['einschaetzungen']
@@ -117,6 +132,7 @@ def main():
     try: z = sec_zahlen()
     except Exception as e: print('SEC-Zahlen nicht abrufbar:', e)
     with ThreadPoolExecutor(8) as ex: js = list(ex.map(lambda f: james(f, bm), fl))
+    breite(js)
     alle = []
     for f, j in zip(fl, js):
         if not j: continue
