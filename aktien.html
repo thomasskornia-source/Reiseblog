@@ -100,6 +100,7 @@
   .top10 .dsec p .dot { margin-right: 4px; }
   .top10 .btn { font-size: 14px; }
   .top10 .hinweis { font-size: 12px; color: var(--ink-soft); margin: 8px 2px 0; text-align: center; }
+  .ak .links { text-align: center; font-size: 14.5px; margin: 2px 0 8px; }
   .markt .breite { margin-top: 10px; border-top: 1px solid rgba(46,58,50,.12); padding-top: 8px; }
   .markt .bz { display: flex; flex-wrap: wrap; gap: 4px 14px; justify-content: center; font-size: 13.5px; margin: 4px 0; }
   .markt .bz em { font-style: normal; font-size: 11.5px; color: var(--ink-soft); }
@@ -143,6 +144,7 @@
       <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="Charlie"><circle cx="60" cy="60" r="60" fill="#CFDAD3"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#3b4a56"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#C99A3E"/><ellipse cx="60" cy="58" rx="27" ry="31" fill="#EFC6A0"/><path d="M33 56c-3-12 0-22 6-26-4 8-4 16-3 26zM87 56c3-12 0-22-6-26 4 8 4 16 3 26z" fill="#E7E4DE"/><path d="M44 31c6-6 26-6 32 0-8-3-24-3-32 0z" fill="#E7E4DE"/><g fill="#fff" stroke="#2E3A32" stroke-width="3.5"><circle cx="48" cy="56" r="11"/><circle cx="72" cy="56" r="11"/></g><path d="M59 55h2" stroke="#2E3A32" stroke-width="3"/><circle cx="48" cy="56" r="2.6" fill="#2E3A32"/><circle cx="72" cy="56" r="2.6" fill="#2E3A32"/><path d="M47 76c8 5 18 3 26-2" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/></svg><b>Charlie</b><small>Was kann schiefgehen</small></div>
       <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="James"><circle cx="60" cy="60" r="60" fill="#F0D5C8"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#B5502E"/><path d="M50 90l10 12 10-12z" fill="#FAF3E8"/><ellipse cx="60" cy="58" rx="25" ry="30" fill="#E8B991"/><path d="M34 52c-3-20 8-31 26-31s29 11 26 31c-2-8-6-12-12-14-8 3-20 3-28 0-6 2-10 6-12 14z" fill="#3a2a22"/><path d="M38 70c2 14 10 22 22 22s20-8 22-22c-3 8-10 12-22 12s-19-4-22-12z" fill="#3a2a22" opacity=".55"/><g fill="#2E3A32"><rect x="40" y="49" width="16" height="6" rx="3"/><rect x="64" y="49" width="16" height="6" rx="3"/></g><circle cx="48" cy="52" r="1.8" fill="#fff"/><circle cx="72" cy="52" r="1.8" fill="#fff"/><path d="M48 72c8 5 16 5 24 0" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/><path d="M30 38c-6-3-8-9-7-14 3 4 7 6 12 7zM90 38c6-3 8-9 7-14-3 4-7 6-12 7z" fill="#FAF3E8" stroke="#8a7a68" stroke-width="1.5"/></svg><b>James</b><small>Kurs und Option Flows</small></div>
     </div>
+    <p class="links"><a href="sektoren.html">Sektor-Analyse</a> · <a href="wcj-info.html">Was bedeutet das alles?</a></p>
     <details class="markt" id="markt" open hidden><summary id="markt-s"></summary><div class="body" id="markt-c"></div></details>
     <details class="markt top10" id="top10" hidden><summary id="top10-s"></summary><div class="body" id="top10-c"></div></details>
     <details class="markt top10" id="beo" hidden><summary id="beo-s"></summary><div class="body" id="beo-c"></div></details>
@@ -450,8 +452,8 @@
       var pf = function (k, n) { var d = bg ? bv[k] - bg[k] : null; return '<span>' + n + ' <b>' + bv[k] + ' %</b>' + (d ? ' <em>' + (d > 0 ? '+' : '') + d + '</em>' : '') + '</span>'; };
       var tx = bv.ueber21 >= 70 ? 'breit getragen' : bv.ueber21 >= 40 ? 'gemischt' : 'innen schwach';
       if (bv.ueber21 < 45 && m.ampel !== 'Down') tx = 'der Index steht oben, aber nur ' + bv.ueber21 + ' % der Werte liegen über der 21er: innen schwach';
-      $('markt-s').innerHTML += ' <span>· Breite ' + bv.ueber21 + ' % über der 21er</span>';
-      $('markt-c').innerHTML += '<div class="breite"><p class="cap">Marktbreite: Anteil der S&amp;P-500-Aktien über der jeweiligen Linie (' + br.n + ' Werte, Stand ' + esc(String(br.stand).slice(0, 5)) + ')</p><div class="bz">' + pf('ueber8', '8 Tage') + pf('ueber21', '21 Tage') + pf('ueber50', '50 Tage') + pf('ueber200', '200 Tage') + '</div><p class="cap">' + esc(tx.charAt(0).toUpperCase() + tx.slice(1)) + '.</p></div>';
+      $('markt-s').innerHTML += ' <span>· ' + bv.ueber21 + ' % der Aktien über der 21er</span>';
+      $('markt-c').innerHTML += '<div class="breite"><p class="cap"><b>Marktbreite</b> = wie viele der S&amp;P-500-Aktien über ihrer jeweiligen Linie liegen (' + br.n + ' Werte, Stand ' + esc(String(br.stand).slice(0, 5)) + ')</p><div class="bz">' + pf('ueber8', '8 Tage') + pf('ueber21', '21 Tage') + pf('ueber50', '50 Tage') + pf('ueber200', '200 Tage') + '</div><p class="cap">' + esc(tx.charAt(0).toUpperCase() + tx.slice(1)) + '.</p></div>';
     }
     if (m.woche) $('markt-c').innerHTML += '<p class="cap">Wochenchart: Index ' + (m.woche.ueber_ema8 ? 'über' : 'unter') + ' dem 8-Wochen-EMA, Wochen-MACD ' + (m.woche.macd_ueber_signal ? 'über' : 'unter') + ' der Signallinie seit ' + m.woche.macd_wochen + (m.woche.macd_wochen === 1 ? ' Woche' : ' Wochen') + (m.woche.macd_ueber_signal ? '' : ' (Warnzeichen für Bullen)') + '.</p>';
     if (br && br.megacaps && br.megacaps.length) {
