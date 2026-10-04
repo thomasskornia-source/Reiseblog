@@ -91,7 +91,6 @@ html:has(body.home) { overflow-x: hidden; }
 @media (min-width: 700px) {
   .home .wrap { padding: 0 32px 100px; }
   .ticker { margin: 6px -32px 36px; }
-  .song-bar { margin: 6px -32px 36px; padding-left: 32px; padding-right: 32px; }
   .hero { padding: 76px 0 18px; }
   .floaters span:nth-child(2) { display: block; }
   .floaters span { font-size: 54px; }
@@ -117,9 +116,9 @@ html:has(body.home) { overflow-x: hidden; }
 /* ---------- Song des Tages: feste Leiste unten ---------- */
 /* ---------- Song des Tages (anstelle des Laufbands) ---------- */
 /* ---------- Song des Tages: volle Breite, links eine drehende Schallplatte ---------- */
-.song-bar { display: none; align-items: center; gap: 14px; margin: 6px -18px 28px; padding: 18px 20px 18px 18px; color: #fff; background: linear-gradient(105deg, #3A57C4 0%, #2A3F9E 45%, #1B2866 100%); box-shadow: 0 12px 28px rgba(27, 40, 102, .32); position: relative; overflow: hidden; }
+.song-bar { display: none; align-items: center; gap: 14px; margin: 6px -18px 0; padding: 26px 20px 26px 124px; color: #fff; background: linear-gradient(105deg, #3A57C4 0%, #2A3F9E 45%, #1B2866 100%); box-shadow: 0 12px 28px rgba(27, 40, 102, .32); position: relative; overflow: hidden; }
 .song-bar::before { content: ''; position: absolute; left: -60px; top: -80px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(120, 160, 255, .35), transparent 70%); pointer-events: none; }
-.song-bar .vinyl { flex: none; width: 76px; height: 76px; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .4)); animation: spinrec 7s linear infinite; }
+.song-bar .vinyl { position: absolute; left: -48px; top: 50%; margin-top: -76px; width: 152px; height: 152px; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .4)); animation: spinrec 7s linear infinite; }
 .song-bar:has(.sb-note.spielt) .vinyl { animation-duration: 1.8s; }
 @keyframes spinrec { to { transform: rotate(360deg); } }
 .song-bar.on { display: flex; }
@@ -137,4 +136,7 @@ html:has(body.home) { overflow-x: hidden; }
 .song-bar #sdt-by { font-size: 14px; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .song-bar .sb-go { flex: none; font-size: 28px; line-height: 1; opacity: .8; }
 @media (min-width: 700px) {
+}
+@media (min-width: 700px) {
+  .song-bar { margin: 6px 0 0; padding-left: 130px; padding-right: 28px; border-radius: 26px 26px 0 0; }
 }
