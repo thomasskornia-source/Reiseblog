@@ -55,3 +55,21 @@
   pos(); window.addEventListener('resize', pos);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(pos);
 })();
+
+// Logo blinkt zu Beginn sechsmal unregelmäßig und dezent auf (einmal pro Sitzung): so findet man den Weg zur Übersicht
+(function () {
+  var img = document.querySelector('#topbar .brand img');
+  if (!img || !img.animate) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  try { if (sessionStorage.getItem('logo-blink')) return; sessionStorage.setItem('logo-blink', '1'); } catch (e) {}
+  var n = 0;
+  function blink() {
+    img.animate([
+      { transform: 'scale(1)', boxShadow: '0 2px 8px rgba(181,80,46,.35)' },
+      { transform: 'scale(1.1)', boxShadow: '0 0 0 5px rgba(181,80,46,.22), 0 0 14px rgba(181,80,46,.5)', offset: 0.4 },
+      { transform: 'scale(1)', boxShadow: '0 2px 8px rgba(181,80,46,.35)' }
+    ], { duration: 850, easing: 'ease-in-out' });
+    if (++n < 6) setTimeout(blink, 1300 + Math.random() * 2700);
+  }
+  setTimeout(blink, 1200 + Math.random() * 800);
+})();
