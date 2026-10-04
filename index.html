@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=12">
 <link rel="stylesheet" href="home.css?v=9">
+<link rel="stylesheet" href="lesebuehne.css?v=1">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -313,7 +314,7 @@
   // Vorlesen direkt auf der Startseite
   var songPick = null, songAudio = false, songPlayer = null, songSpeaking = false;
   function songStop() {
-    songSpeaking = false;
+    songSpeaking = false; if (window.Lesebuehne) Lesebuehne.close();
     if (songPlayer) { songPlayer.pause(); songPlayer = null; }
     if ('speechSynthesis' in window) speechSynthesis.cancel();
     var pb = $('sdt-play'); if (pb) { pb.classList.remove('spielt'); pb.setAttribute('aria-label', 'Song-Geschichte vorlesen'); }
@@ -321,11 +322,14 @@
   function songSpeech(s) {
     if (!('speechSynthesis' in window)) return;
     var text = s.title + ', von ' + s.artist + '. Woher kommt der Song? ' + s.herkunft + ' Was bedeutet er? ' + s.bedeutung;
-    var parts = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text], keep = [];
+    var parts = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text], keep = [], n = parts.length;
     songSpeaking = true;
+    if (window.Lesebuehne) Lesebuehne.followSpeech(parts.slice());
     (function next() {
       if (!songSpeaking) return;
       if (!parts.length) { songStop(); return; }
+      var idx = n - parts.length;
+      if (window.Lesebuehne) Lesebuehne.sentence(idx);
       var u = new SpeechSynthesisUtterance(parts.shift()); keep.push(u); u.lang = 'de-DE'; u.rate = 0.95;
       u.onend = next; u.onerror = function (e) { if (!e || (e.error !== 'canceled' && e.error !== 'interrupted')) songStop(); };
       speechSynthesis.speak(u);
@@ -335,9 +339,11 @@
     var t = ev.target.closest && ev.target.closest('#sdt-play'); if (!t || !songPick) return;
     ev.preventDefault();
     if (songPlayer || songSpeaking) { songStop(); return; }
+    if (window.Lesebuehne) Lesebuehne.open(Lesebuehne.songParts(songPick), songStop);
     t.classList.add('spielt'); t.setAttribute('aria-label', 'Vorlesen stoppen');
     if (songAudio && window.Audio) {
       var a = new Audio('audio/' + encodeURIComponent(songPick.id) + '.mp3'); songPlayer = a;
+      if (window.Lesebuehne) Lesebuehne.followAudio(a);
       a.onended = songStop;
       a.onerror = function () { songPlayer = null; songSpeech(songPick); };
       var p = a.play(); if (p && p.catch) p.catch(function () { if (songPlayer === a) { songPlayer = null; songSpeech(songPick); } });
@@ -399,6 +405,7 @@
   }
 })();
 </script>
+<script src="lesebuehne.js?v=1"></script>
 <script src="nav.js?v=11" defer></script>
 </body>
 </html>

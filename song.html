@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=12">
 <link rel="stylesheet" href="song.css?v=1">
+<link rel="stylesheet" href="lesebuehne.css?v=1">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -69,14 +70,14 @@
   var $ = function (id) { return document.getElementById(id); };
   var MONATE = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
   var synth = ('speechSynthesis' in window) ? window.speechSynthesis : null;
-  var reading = false, queue = [];
+  var reading = false, queue = [], total = 0;
 
   function spotifyUrl(s) { return s.spotify ? 'https://open.spotify.com/track/' + encodeURIComponent(s.spotify) : 'https://open.spotify.com/search/' + encodeURIComponent(s.title + ' ' + s.artist); }
 
   var keep = [], started = false, timer = null;
   function note(msg) { var n = $('s-note'); n.textContent = msg; n.hidden = !msg; }
   function stop(silent) {
-    reading = false; queue = []; clearTimeout(timer); stopAudio();
+    reading = false; queue = []; clearTimeout(timer); stopAudio(); if (window.Lesebuehne) Lesebuehne.close();
     if (synth && (synth.speaking || synth.pending)) synth.cancel();
     var b = $('s-read'); b.textContent = '🔊 Vorlesen'; b.setAttribute('aria-pressed', 'false');
   }
@@ -89,11 +90,13 @@
   function speakNext() {
     if (!reading) return;
     if (!queue.length) { stop(); return; }
+    var idx = total - queue.length;
     var u = new SpeechSynthesisUtterance(queue.shift());
+    if (window.Lesebuehne) Lesebuehne.sentence(idx);
     keep.push(u); if (keep.length > 6) keep.shift();   // Safari/Chrome werfen sonst Utterances vorzeitig weg
     u.lang = 'de-DE'; u.rate = 0.95; u.volume = 1;
     var v = germanVoice(); if (v) u.voice = v;
-    u.onstart = function () { started = true; clearTimeout(timer); note(''); };
+    u.onstart = function () { started = true; if (window.Lesebuehne) Lesebuehne.sentence(idx); clearTimeout(timer); note(''); };
     u.onend = speakNext;
     u.onerror = function (e) {
       if (e && (e.error === 'canceled' || e.error === 'interrupted')) return;
@@ -108,12 +111,14 @@
     var a = new Audio('audio/' + encodeURIComponent(s.id) + '.mp3');
     player = a; a.preload = 'auto';
     var b = $('s-read'); b.textContent = '⏹ Stopp'; b.setAttribute('aria-pressed', 'true'); reading = true;
+    if (window.Lesebuehne) Lesebuehne.followAudio(a);
     a.onended = function () { stop(); };
     a.onerror = function () { player = null; reading = false; fallback(); };
     var p = a.play();
     if (p && p.catch) p.catch(function () { if (player === a) { player = null; reading = false; fallback(); } });
   }
   function startReading(s) {
+    if (window.Lesebuehne) Lesebuehne.open(Lesebuehne.songParts(s), function () { stop(); });
     var fb = function () { if (synth) startSpeech(s); else note('Vorlesen geht auf diesem Gerät leider nicht.'); };
     if (hasAudio && window.Audio) playFile(s, fb); else fb();   // Entscheidung ohne Wartezeit, damit iPhones den Tipp noch als Nutzeraktion zählen
   }
@@ -121,6 +126,7 @@
     var text = s.title + ', von ' + s.artist + ', ' + s.year + '. Woher kommt der Song? ' + s.herkunft + ' Was bedeutet er? ' + s.bedeutung + (s.fun ? ' Noch ein Detail. ' + s.fun : '');
     queue = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
     if (synth.speaking || synth.pending) synth.cancel();
+    total = queue.length; if (window.Lesebuehne) Lesebuehne.followSpeech(queue.slice());
     reading = true; started = false; note('');
     var b = $('s-read'); b.textContent = '⏹ Stopp'; b.setAttribute('aria-pressed', 'true');
     speakNext();
@@ -175,6 +181,7 @@
   window.addEventListener('pageshow', function (e) { if (e.persisted) stop(); });
 })();
 </script>
+<script src="lesebuehne.js?v=1"></script>
 <script src="nav.js?v=11" defer></script>
 </body>
 </html>
