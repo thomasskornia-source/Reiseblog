@@ -69,6 +69,26 @@
   .more dt { color: var(--ink-soft); font-size: 13px; } .more dd { margin: 0; font-size: 13.5px; }
   .more blockquote { margin: 8px 0 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--gold); line-height: 1.5; }
   .more blockquote cite { display: block; font-style: normal; font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+  .mg { max-width: 560px; margin: 0 auto; }
+  .mg .tabs { display: flex; gap: 6px; margin: 4px 0 12px; flex-wrap: wrap; }
+  .mg .tabs button { flex: 1 1 0; min-width: 0; padding: 9px 3px; border: 1px solid rgba(46,58,50,.18); border-radius: 999px; background: var(--paper); color: var(--ink); font: inherit; font-size: 13px; line-height: 1.15; cursor: pointer; }
+  .mg .tabs button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  @media (max-width: 360px) { .mg .tabs button:first-child { flex-basis: 100%; } }
+  .mg .leg { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
+  .mg .leg button { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid rgba(46,58,50,.18); border-radius: 999px; background: var(--paper); color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }
+  .mg .leg button i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .mg .leg button[aria-pressed="false"] { opacity: .45; text-decoration: line-through; }
+  .mg .box { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 14px; padding: 12px 8px 8px; }
+  .mg svg.ch { width: 100%; height: auto; display: block; touch-action: pan-y; }
+  .mg .lese { min-height: 2.6em; font-size: 13px; color: var(--ink-soft); padding: 4px 8px 2px; line-height: 1.5; }
+  .mg .lese b { color: var(--ink); }
+  .mg table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+  .mg th, .mg td { padding: 8px 6px; text-align: right; border-bottom: 1px solid rgba(46,58,50,.1); }
+  .mg th:first-child, .mg td:first-child { text-align: left; }
+  .mg th { font-weight: 500; color: var(--ink-soft); font-size: 12.5px; }
+  .mg td i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 7px; }
+  .mg .pl { color: #2e7d4f; font-weight: 600; } .mg .mi { color: #b23a2a; font-weight: 600; }
+  .mg .hinweis { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 16px 2px 0; }
   .wtabs { display: flex; width: fit-content; max-width: 100%; margin: 10px auto 12px; gap: 1px; padding: 2px; background: rgba(46,58,50,.07); border-radius: 999px; overflow-x: auto; scrollbar-width: none; }
   .entf { margin: 12px 0 0; text-align: right; font-size: 12.5px; }
   .lk { background: none; border: 0; padding: 0; color: var(--rust); text-decoration: underline; font: inherit; cursor: pointer; }
@@ -174,12 +194,26 @@
       <button type="button" role="tab" data-tab="watch" aria-selected="false">Watchlist</button>
       <button type="button" role="tab" data-tab="lynx" aria-selected="false">Lynx</button>
       <button type="button" role="tab" data-tab="pruefen" aria-selected="false">Prüfen</button>
-      <a class="ext" href="megas.html" title="Eigene Seite">Megas ↗</a>
+      <button type="button" role="tab" data-tab="megas" aria-selected="false">Megas</button>
     </div>
     <details class="markt" id="markt" data-panel="sp" open hidden><summary id="markt-s"></summary><div class="body" id="markt-c"></div></details>
     <details class="markt top10" id="top10" data-panel="top10" hidden><summary id="top10-s"></summary><div class="body" id="top10-c"></div></details>
     <details class="markt top10" id="lynx" data-panel="lynx" hidden><summary id="lynx-s"></summary><div class="body" id="lynx-c"></div></details>
     <details class="markt top10" id="beo" data-panel="watch" hidden><summary id="beo-s"></summary><div class="body" id="beo-c"></div></details>
+    <div data-panel="megas" class="tab-aus mg" id="pnl-megas">
+      <p class="sub" id="mg-sub">Die Unternehmen mit mehr als einer Billion Dollar Börsenwert.</p>
+      <div class="tabs" id="mg-tabs" role="group" aria-label="Darstellung">
+        <button type="button" data-m="wert" aria-pressed="true">Unternehmenswert</button>
+        <button type="button" data-m="perf" aria-pressed="false">Performance %</button>
+        <button type="button" data-m="kgv" aria-pressed="false">KGV</button>
+      </div>
+      <div class="leg" id="mg-leg"></div>
+      <div class="box"><svg class="ch" id="mg-ch" viewBox="0 0 640 360" role="img" aria-label="Verlauf der Megas"></svg><div class="lese" id="mg-kappe" style="min-height:0"></div><div class="lese" id="mg-lese">Tippe oder fahre über den Chart, um die Werte eines Tages zu sehen.</div></div>
+      <div class="rng" id="mg-bereich" role="group" aria-label="Zeitraum"></div>
+      <table id="mg-tab"></table>
+      <p class="hinweis" id="mg-hin"></p>
+      <p class="hinweis">Börsenwert = Kurs mal Aktienzahl (aus den SEC-Meldungen der Firmen). KGV = Kurs geteilt durch den Gewinn je Aktie der letzten vier Quartale, nur mit zum Tag bereits veröffentlichten Zahlen. Wo der Gewinn negativ war, gibt es kein KGV. Kursdaten: Yahoo Finance, Aktiensplits sind herausgerechnet. Keine Empfehlung.</p>
+    </div>
     <div data-panel="pruefen" class="tab-aus" id="pnl-pruefen">
     <p class="sub">Aktie eintippen, drei Meinungen bekommen. Das Feld sucht auch in den bisherigen.</p>
     <form class="ak-form" id="form" autocomplete="off">
@@ -542,10 +576,11 @@
   }
   function tab(n) {
     [].forEach.call(document.querySelectorAll('[data-panel]'), function (el) { el.classList.toggle('tab-aus', el.getAttribute('data-panel') !== n); if (el.getAttribute('data-panel') === n && el.tagName === 'DETAILS' && el.id !== 'markt') el.open = true; });
+    if (n === 'megas' && window.megasStart) window.megasStart();
     [].forEach.call(document.querySelectorAll('#wtabs [data-tab]'), function (b) { b.setAttribute('aria-selected', b.getAttribute('data-tab') === n ? 'true' : 'false'); });
   }
   $('wtabs').addEventListener('click', function (ev) { var b = ev.target.closest('[data-tab]'); if (b) tab(b.getAttribute('data-tab')); });
-  tab('sp');
+  tab(location.hash === '#megas' ? 'megas' : 'sp');
   function pruefen(tk) {
     tab('pruefen');
     $('inp').value = tk; $('form').onsubmit({ preventDefault: function () {} });
@@ -718,6 +753,126 @@
     fetch('data/beobachtung.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return null; }),
     fetch('data/universum.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return null; })
   ]).then(function (r) { beoB = r[0]; uni = r[1]; renderBeo(); });
+(function () {
+  var FARBEN = ['#2a6fdb', '#d9534f', '#2e9e6b', '#e0a12b', '#8a5cc7', '#0e9aa7', '#e07a2d', '#6b7a8f', '#c2457a', '#7b8c2a', '#444'];
+  var BEREICHE = [['1M', '1 Monat', 21], ['3M', '3 Monate', 63], ['6M', '6 Monate', 126], ['YTD', 'seit Jahresbeginn', 0], ['1J', '1 Jahr', 252], ['2J', '2 Jahre', 0]];
+  var D = null, modus = 'wert', bereich = 'YTD', aus = {}, V = null;
+  var MON = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+  function $(i) { return document.getElementById(i); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function z(x, n) { return Number(x).toLocaleString('de-DE', { minimumFractionDigits: n, maximumFractionDigits: n }); }
+  function fmt(m, v) {
+    if (v == null) return '–';
+    if (m === 'wert') return v >= 1000 ? z(v / 1000, 2) + ' Bio. $' : z(v, 0) + ' Mrd. $';
+    if (m === 'perf') return (v >= 0 ? '+' : '') + z(v, 1) + ' %';
+    return z(v, 1);
+  }
+  function achse(m, v) { return m === 'wert' ? z(v / 1000, 1) + ' Bio.' : m === 'perf' ? (v > 0 ? '+' : '') + z(v, 0) + ' %' : z(v, 0); }
+  function schoen(lo, hi) {
+    var span = hi - lo || 1, roh = span / 5, mag = Math.pow(10, Math.floor(Math.log10(roh))), r = roh / mag;
+    var st = (r < 1.5 ? 1 : r < 3 ? 2 : r < 7 ? 5 : 10) * mag;
+    var a = Math.floor(lo / st) * st, b = Math.ceil(hi / st) * st, t = [];
+    for (var v = a; v <= b + st / 2; v += st) t.push(Math.round(v / st) * st);
+    return t;
+  }
+  // Ausschnitt: Startindex je Bereich (YTD: letzter Schlusskurs des Vorjahres ist die Basis)
+  function start() {
+    var n = D.tage.length, b = BEREICHE.filter(function (x) { return x[0] === bereich; })[0];
+    if (bereich === 'YTD') { var j = D.tage[n - 1].slice(6), i0 = 0; for (var i = 0; i < n; i++) if (D.tage[i].slice(6) === j) { i0 = i; break; } return Math.max(0, i0 - 1); }
+    if (bereich === '2J') return 0;
+    return Math.max(0, n - 1 - b[2]);
+  }
+  function ansicht() {
+    var s0 = start(), n = D.tage.length;
+    V = { tage: D.tage.slice(s0), firmen: D.firmen.map(function (f) {
+      var k0 = f.kurs[s0];
+      return { t: f.t, farbe: f.farbe, wert: f.wert.slice(s0), kgv: f.kgv.slice(s0), perf: f.kurs.slice(s0).map(function (k) { return k == null || !k0 ? null : (k / k0 - 1) * 100; }), wert_heute: f.wert_heute, kgv_heute: f.kgv_heute };
+    }) };
+  }
+  function zeichnen() {
+    var W = 640, H = 360, L = 52, R = 12, T = 12, B = 30, n = V.tage.length;
+    var fs = V.firmen.filter(function (f) { return !aus[f.t]; });
+    var all = []; fs.forEach(function (f) { f[modus].forEach(function (v) { if (v != null) all.push(v); }); });
+    if (!all.length) { $('mg-ch').innerHTML = '<text x="320" y="180" text-anchor="middle" fill="#666">Keine Werte</text>'; return; }
+    var mx = Math.max.apply(null, all), gekappt = false;
+    if (modus === 'kgv' && mx > 100) { mx = 100; gekappt = true; }
+    var ticks = schoen(Math.min.apply(null, all), mx), lo = ticks[0], hi = ticks[ticks.length - 1];
+    $('mg-kappe').textContent = gekappt ? 'Skala bis ' + z(hi, 0) + ': höhere Werte (' + fs.filter(function (f) { return f.kgv.some(function (v) { return v != null && v > hi; }); }).map(function (f) { return f.t + ' ' + z(f.kgv_heute, 0); }).join(', ') + ') laufen aus dem Bild. Tippen auf den Chart zeigt sie trotzdem.' : '';
+    var X = function (i) { return L + (W - L - R) * i / Math.max(1, n - 1); };
+    var Y = function (v) { return T + (H - T - B) * (1 - (v - lo) / (hi - lo || 1)); };
+    var s = '';
+    ticks.forEach(function (t) { s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(t).toFixed(1) + '" y2="' + Y(t).toFixed(1) + '" stroke="' + (modus === 'perf' && t === 0 ? '#888' : '#00000018') + '"/><text x="' + (L - 6) + '" y="' + (Y(t) + 4).toFixed(1) + '" text-anchor="end" font-size="11.5" fill="#666">' + esc(achse(modus, t)) + '</text>'; });
+    if (n <= 70) {
+      for (var k = 0; k < 5; k++) { var i2 = Math.round(k * (n - 1) / 4); s += '<text x="' + X(i2).toFixed(1) + '" y="' + (H - 8) + '" font-size="11.5" fill="#666" text-anchor="' + (k === 0 ? 'start' : k === 4 ? 'end' : 'middle') + '">' + V.tage[i2].slice(0, 5) + '.</text>'; }
+    } else {
+      var last = '', stride = n > 300 ? 3 : 1;
+      for (var i = 0; i < n; i++) {
+        var mo = V.tage[i].slice(3, 5), ym = V.tage[i].slice(3);
+        if (ym !== last) { last = ym; if ((+mo - 1) % stride === 0 && (i > 0 || n < 400)) s += '<text x="' + X(i).toFixed(1) + '" y="' + (H - 8) + '" font-size="11.5" fill="#666" text-anchor="start">' + MON[+mo - 1] + (mo === '01' || i === 0 ? ' ' + V.tage[i].slice(6) : '') + '</text>'; }
+      }
+    }
+    s += '<clipPath id="cp"><rect x="' + L + '" y="' + T + '" width="' + (W - L - R) + '" height="' + (H - T - B) + '"/></clipPath><g clip-path="url(#cp)">';
+    fs.forEach(function (f) {
+      var d = '', pen = false;
+      f[modus].forEach(function (v, i) { if (v == null) { pen = false; return; } d += (pen ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Y(v).toFixed(1); pen = true; });
+      s += '<path d="' + d + '" fill="none" stroke="' + f.farbe + '" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>';
+    });
+    s += '</g><g id="cur" visibility="hidden"><line id="cl" y1="' + T + '" y2="' + (H - B) + '" stroke="#333" stroke-dasharray="3 3"/></g>';
+    $('mg-ch').innerHTML = s;
+    var svg = $('mg-ch');
+    function pos(ev) {
+      var r = svg.getBoundingClientRect(), x = (ev.clientX - r.left) / r.width * W;
+      var i = Math.round((x - L) / (W - L - R) * (n - 1)); i = Math.max(0, Math.min(n - 1, i));
+      $('cur').setAttribute('visibility', 'visible'); $('cl').setAttribute('x1', X(i)); $('cl').setAttribute('x2', X(i));
+      var zeile = fs.map(function (f) { return { f: f, v: f[modus][i] }; }).filter(function (q) { return q.v != null; }).sort(function (a, b) { return b.v - a.v; });
+      $('mg-lese').innerHTML = '<b>' + esc(V.tage[i]) + '</b> · ' + zeile.map(function (q) { return '<span style="color:' + q.f.farbe + '">●</span> ' + esc(q.f.t) + ' ' + esc(fmt(modus, q.v)); }).join(' · ');
+    }
+    svg.onpointermove = pos; svg.onpointerdown = pos;
+  }
+  function tabelle() {
+    var b = BEREICHE.filter(function (x) { return x[0] === bereich; })[0][1];
+    var h = '<tr><th>Firma</th><th>Börsenwert</th><th>' + esc(b) + '</th><th>KGV</th></tr>';
+    V.firmen.forEach(function (f) {
+      var p = f.perf[f.perf.length - 1];
+      h += '<tr><td><i style="background:' + f.farbe + '"></i>' + esc(f.t) + '</td><td>' + esc(fmt('wert', f.wert_heute)) + '</td><td class="' + (p >= 0 ? 'pl' : 'mi') + '">' + esc(fmt('perf', p)) + '</td><td>' + esc(fmt('kgv', f.kgv_heute)) + '</td></tr>';
+    });
+    $('mg-tab').innerHTML = h;
+  }
+  function legende() {
+    $('mg-leg').innerHTML = D.firmen.map(function (f) { return '<button type="button" data-t="' + esc(f.t) + '" aria-pressed="' + !aus[f.t] + '"><i style="background:' + f.farbe + '"></i>' + esc(f.t) + '</button>'; }).join('');
+  }
+  function alles() { ansicht(); zeichnen(); tabelle(); $('mg-lese').textContent = 'Tippe oder fahre über den Chart, um die Werte eines Tages zu sehen.'; }
+  $('mg-tabs').addEventListener('click', function (ev) {
+    var b = ev.target.closest('button'); if (!b || !D) return;
+    modus = b.getAttribute('data-m');
+    [].forEach.call($('mg-tabs').querySelectorAll('button'), function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    alles();
+  });
+  $('mg-bereich').addEventListener('click', function (ev) {
+    var b = ev.target.closest('button'); if (!b || !D) return;
+    bereich = b.getAttribute('data-b');
+    [].forEach.call($('mg-bereich').querySelectorAll('button'), function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    alles();
+  });
+  $('mg-leg').addEventListener('click', function (ev) {
+    var b = ev.target.closest('button'); if (!b || !D) return;
+    var t = b.getAttribute('data-t'); aus[t] = !aus[t];
+    if (D.firmen.every(function (f) { return aus[f.t]; })) aus[t] = false;
+    legende(); zeichnen();
+  });
+  $('mg-bereich').innerHTML = BEREICHE.map(function (x) { return '<button type="button" data-b="' + x[0] + '" aria-pressed="' + (x[0] === bereich) + '" title="' + esc(x[1]) + '">' + x[0] + '</button>'; }).join('');
+  window.megasStart = function () {
+    if (window.megasStart.l) return; window.megasStart.l = true;
+  fetch('data/megas.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) {
+    if (!d || !d.firmen || !d.firmen.length) throw 0;
+    d.firmen.forEach(function (f, i) { f.farbe = FARBEN[i % FARBEN.length]; });
+    D = d; legende(); alles();
+    $('mg-hin').textContent = 'Stand ' + d.stand + ' · ' + d.firmen.length + ' Unternehmen mit mehr als ' + (d.schwelle_mrd / 1000) + ' Billion Dollar Börsenwert.';
+  }).catch(function () { $('mg-lese').textContent = 'Die Daten sind noch nicht da. Sie werden täglich nach US-Börsenschluss berechnet.'; });
+  };
+  if (location.hash === '#megas') window.megasStart();
+})();
+
   refresh();
 })();
 </script>
