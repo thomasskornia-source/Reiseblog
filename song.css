@@ -25,3 +25,22 @@
 .page-song .entry-body p::first-letter,
 .page-song .entry-body p:first-of-type::first-letter { font-family: inherit; font-size: inherit; float: none; line-height: inherit; padding: 0; margin: 0; color: inherit; }
 .page-song .song-wait { visibility: hidden; }
+
+/* Feste Leiste unten: Vorlesen (gelber Play-Knopf) und Spotify */
+.page-song .wrap { padding-bottom: 120px; }
+.page-song .song-dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px calc(12px + env(safe-area-inset-bottom)); background: linear-gradient(105deg, #3A57C4 0%, #2A3F9E 45%, #1B2866 100%); box-shadow: 0 -8px 24px rgba(27, 40, 102, .28); }
+.page-song .dock-play { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 12px; color: #fff; font-size: 17px; font-weight: 500; white-space: nowrap; }
+.page-song .dock-play .pc { width: 58px; height: 58px; border-radius: 50%; background: #F6C253; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(0, 0, 0, .3); transition: transform .15s; }
+.page-song .dock-play:active .pc { transform: scale(.94); }
+.page-song .dock-play:focus-visible, .page-song .dock-spot:focus-visible { outline: 3px solid #fff; outline-offset: 3px; border-radius: 999px; }
+.page-song .dock-play svg { width: 30px; height: 30px; fill: #262F63; }
+.page-song .dock-play .st { display: none; }
+.page-song .dock-play.spielt .pl { display: none; }
+.page-song .dock-play.spielt .st { display: inline; }
+.page-song .dock-spot { display: inline-flex; align-items: center; gap: 9px; height: 46px; padding: 0 20px 0 14px; border-radius: 999px; background: #1DB954; color: #08240F; font-size: 16px; font-weight: 600; text-decoration: none; white-space: nowrap; box-shadow: 0 3px 10px rgba(0, 0, 0, .25); }
+.page-song .dock-spot svg { width: 24px; height: 24px; fill: none; stroke: #08240F; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.page-song .dock-spot svg circle { fill: #08240F; stroke: none; }
+.page-song .dock-spot:hover { background: #22d062; }
+@media (min-width: 700px) {
+  .page-song .song-dock { left: 50%; right: auto; width: min(620px, calc(100% - 40px)); transform: translateX(-50%); bottom: 16px; border-radius: 999px; padding: 10px 16px 10px 12px; }
+}

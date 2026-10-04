@@ -6,7 +6,7 @@
 <title>Song des Tages – Unterwegs und zuhause</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=12">
-<link rel="stylesheet" href="song.css?v=1">
+<link rel="stylesheet" href="song.css?v=2">
 <link rel="stylesheet" href="lesebuehne.css?v=2">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
@@ -41,10 +41,6 @@
       <hr class="rule">
     </header>
 
-    <div class="song-actions">
-      <button type="button" class="song-btn" id="s-read" aria-pressed="false">🔊 Vorlesen</button>
-      <a class="song-btn alt" id="s-spotify" href="#" target="_blank" rel="noopener">▶ Auf Spotify</a>
-    </div>
     <p class="song-note" id="s-note" hidden></p>
 
     <div class="entry-body song-body">
@@ -58,6 +54,15 @@
     <h2 class="song-more">Die letzten Tage</h2>
     <ul class="song-list" id="s-list"></ul>
   </article>
+
+  <div class="song-dock" id="song-dock">
+    <button type="button" class="dock-play" id="s-read" aria-pressed="false">
+      <span class="pc"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></span><span class="lbl">Vorlesen</span>
+    </button>
+    <a class="dock-spot" id="s-spotify" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17.5V6.8l9-1.8v10.7"/><circle cx="6.8" cy="17.6" r="2.4"/><circle cx="15.8" cy="15.8" r="2.4"/></svg><span>Spotify</span>
+    </a>
+  </div>
 
   <p id="s-error" class="song-note" hidden>Der Song konnte gerade nicht geladen werden. Bitte später noch einmal versuchen.</p>
 
@@ -75,11 +80,12 @@
   function spotifyUrl(s) { return s.spotify ? 'https://open.spotify.com/track/' + encodeURIComponent(s.spotify) : 'https://open.spotify.com/search/' + encodeURIComponent(s.title + ' ' + s.artist); }
 
   var keep = [], started = false, timer = null;
+  function setBtn(on) { var b = $('s-read'); b.classList.toggle('spielt', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.querySelector('.lbl').textContent = on ? 'Stopp' : 'Vorlesen'; }
   function note(msg) { var n = $('s-note'); n.textContent = msg; n.hidden = !msg; }
   function stop(silent) {
     reading = false; queue = []; clearTimeout(timer); stopAudio(); if (window.Lesebuehne) Lesebuehne.close();
     if (synth && (synth.speaking || synth.pending)) synth.cancel();
-    var b = $('s-read'); b.textContent = '🔊 Vorlesen'; b.setAttribute('aria-pressed', 'false');
+    setBtn(false);
   }
   function germanVoice() {
     var vs = synth.getVoices() || [], i;
@@ -110,7 +116,7 @@
   function playFile(s, fallback) {
     var a = new Audio('audio/' + encodeURIComponent(s.id) + '.mp3');
     player = a; a.preload = 'auto';
-    var b = $('s-read'); b.textContent = '⏹ Stopp'; b.setAttribute('aria-pressed', 'true'); reading = true;
+    setBtn(true); reading = true;
     if (window.Lesebuehne) Lesebuehne.followAudio(a);
     a.onended = function () { stop(); };
     a.onerror = function () { player = null; reading = false; fallback(); };
@@ -128,7 +134,7 @@
     if (synth.speaking || synth.pending) synth.cancel();
     total = queue.length; if (window.Lesebuehne) Lesebuehne.followSpeech(queue.slice());
     reading = true; started = false; note('');
-    var b = $('s-read'); b.textContent = '⏹ Stopp'; b.setAttribute('aria-pressed', 'true');
+    setBtn(true);
     speakNext();
     timer = setTimeout(function () {
       if (reading && !started) { stop(); note('Es kommt kein Ton. Bitte den Stummschalter am Gerät und die Lautstärke prüfen. Falls es weiter nicht geht, unterstützt dieser Browser das Vorlesen vermutlich nicht.'); }
