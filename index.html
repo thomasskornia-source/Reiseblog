@@ -7,7 +7,7 @@
 <title>Unterwegs und zuhause – Thomas und Andrea</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=12">
-<link rel="stylesheet" href="home.css?v=7">
+<link rel="stylesheet" href="home.css?v=8">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -262,11 +262,13 @@
   </footer>
 
 </div>
-<a class="song-bar" id="song-bar" href="song.html" aria-label="Song des Tages">
-  <span class="sb-note" aria-hidden="true">♪</span>
-  <span class="sb-txt"><small>Song des Tages</small><b id="sdt-title"></b><span id="sdt-by"></span></span>
-  <span class="sb-go" aria-hidden="true">›</span>
-</a>
+<div class="song-bar" id="song-bar">
+  <button type="button" class="sb-note" id="sdt-play" aria-label="Song-Geschichte vorlesen">▶</button>
+  <a class="sb-link" id="sdt-link" href="song.html" aria-label="Song des Tages öffnen">
+    <span class="sb-txt"><small>Song des Tages · vorlesen</small><b id="sdt-title"></b><span id="sdt-by"></span></span>
+    <span class="sb-go" aria-hidden="true">›</span>
+  </a>
+</div>
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
@@ -308,6 +310,41 @@
   }
   renderRezeptDesTages();
 
+  // Vorlesen direkt auf der Startseite
+  var songPick = null, songAudio = false, songPlayer = null, songSpeaking = false;
+  function songStop() {
+    songSpeaking = false;
+    if (songPlayer) { songPlayer.pause(); songPlayer = null; }
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    var pb = $('sdt-play'); if (pb) { pb.textContent = '▶'; pb.setAttribute('aria-label', 'Song-Geschichte vorlesen'); }
+  }
+  function songSpeech(s) {
+    if (!('speechSynthesis' in window)) return;
+    var text = s.title + ', von ' + s.artist + '. Woher kommt der Song? ' + s.herkunft + ' Was bedeutet er? ' + s.bedeutung;
+    var parts = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text], keep = [];
+    songSpeaking = true;
+    (function next() {
+      if (!songSpeaking) return;
+      if (!parts.length) { songStop(); return; }
+      var u = new SpeechSynthesisUtterance(parts.shift()); keep.push(u); u.lang = 'de-DE'; u.rate = 0.95;
+      u.onend = next; u.onerror = function (e) { if (!e || (e.error !== 'canceled' && e.error !== 'interrupted')) songStop(); };
+      speechSynthesis.speak(u);
+    })();
+  }
+  document.addEventListener('click', function (ev) {
+    var t = ev.target.closest && ev.target.closest('#sdt-play'); if (!t || !songPick) return;
+    ev.preventDefault();
+    if (songPlayer || songSpeaking) { songStop(); return; }
+    t.textContent = '⏹'; t.setAttribute('aria-label', 'Vorlesen stoppen');
+    if (songAudio && window.Audio) {
+      var a = new Audio('audio/' + encodeURIComponent(songPick.id) + '.mp3'); songPlayer = a;
+      a.onended = songStop;
+      a.onerror = function () { songPlayer = null; songSpeech(songPick); };
+      var p = a.play(); if (p && p.catch) p.catch(function () { if (songPlayer === a) { songPlayer = null; songSpeech(songPick); } });
+    } else songSpeech(songPick);
+  });
+  window.addEventListener('pagehide', songStop);
+
   // Song des Tages
   function renderSongDesTages() {
     var box = $('song-bar');
@@ -318,7 +355,9 @@
       var pick = songs[0];
       $('sdt-title').textContent = pick.title;
       $('sdt-by').textContent = pick.artist;
-      box.href = 'song.html?id=' + encodeURIComponent(pick.id);
+      $('sdt-link').href = 'song.html?id=' + encodeURIComponent(pick.id);
+      songPick = pick; songAudio = false;
+      fetch('audio/' + encodeURIComponent(pick.id) + '.mp3', { method: 'HEAD' }).then(function (r) { songAudio = r.ok; }).catch(function () {});
       box.classList.add('on');
     }).catch(function () {});
   }

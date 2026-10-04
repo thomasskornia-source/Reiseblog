@@ -35,6 +35,10 @@
   .wp .slot > i { font-style: normal; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); }
   .wp .slot .wahl { all: unset; display: block; cursor: pointer; min-width: 0; }
   .wp .slot .wahl b { display: block; font-weight: 500; font-size: 15.5px; line-height: 1.25; }
+  .wp .slot a.rlink { color: var(--rust); text-decoration: none; }
+  .wp .slot a.rlink b { text-decoration: underline; text-underline-offset: 3px; }
+  .wp .slot .aendern { all: unset; cursor: pointer; font-size: 12.5px; color: var(--ink-soft); text-decoration: underline; margin-top: 2px; display: block; }
+  .wp .slot > div > small { display: block; color: var(--ink-soft); font-size: 12.5px; margin-top: 2px; }
   .wp .slot .wahl small { display: block; color: var(--ink-soft); font-size: 12.5px; margin-top: 2px; }
   .wp .slot .leer { color: var(--rust); font-weight: 600; }
   .wp .slot .x { width: 30px; height: 30px; border: 0; border-radius: 50%; background: rgba(46,58,50,.08); color: var(--ink-soft); font-size: 17px; cursor: pointer; }
@@ -192,7 +196,9 @@
     var r = BY[it.id]; if (!r) return '';
     it.slot = slot + ':' + i;
     var meta = (r.min ? r.min + ' Min. · ' : '') + 'für ' + (it.mehr ? p + ' + 2 für morgen' : p) + (vb ? ' · ' + vb + ' von gestern übrig' : '');
-    return '<div class="slot"><i>' + lab + '</i><div><button type="button" class="wahl" data-wahl="' + slot + ':' + i + '"><b>' + esc(r.titel) + '</b><small>' + meta + '</small></button>' + chips(it, slot) + '</div><button type="button" class="x" data-x="' + slot + ':' + i + '" aria-label="Leeren">×</button></div>';
+    var hat = r.quelle === 'rezept';
+    var kopf = hat ? '<a class="wahl rlink" href="rezepte/' + encodeURIComponent(r.id) + '.html"><b>' + esc(r.titel) + ' ›</b></a><button type="button" class="aendern" data-wahl="' + slot + ':' + i + '">ändern</button><small>' + meta + '</small>' : '<button type="button" class="wahl" data-wahl="' + slot + ':' + i + '"><b>' + esc(r.titel) + '</b><small>' + meta + '</small></button>';
+    return '<div class="slot"><i>' + lab + '</i><div>' + kopf + chips(it, slot) + '</div><button type="button" class="x" data-x="' + slot + ':' + i + '" aria-label="Leeren">×</button></div>';
   }
   function zeichnen() {
     $('n-blitz').textContent = S.blitz; $('n-veggie').textContent = S.veggie;
