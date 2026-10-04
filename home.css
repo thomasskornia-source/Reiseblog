@@ -91,6 +91,7 @@ html:has(body.home) { overflow-x: hidden; }
 @media (min-width: 700px) {
   .home .wrap { padding: 0 32px 100px; }
   .ticker { margin: 6px -32px 36px; }
+  .song-bar { margin: 6px -32px 36px; padding-left: 32px; padding-right: 32px; }
   .hero { padding: 76px 0 18px; }
   .floaters span:nth-child(2) { display: block; }
   .floaters span { font-size: 54px; }
@@ -107,7 +108,7 @@ html:has(body.home) { overflow-x: hidden; }
   .home .entry-list { grid-template-columns: repeat(3, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .blob, .floaters span, .ticker .row, .rotor .track, .hello i { animation: none !important; }
+  .blob, .floaters span, .ticker .row, .song-bar .vinyl, .rotor .track, .hello i { animation: none !important; }
   .hero h1 .w1, .hero h1 .w2, .hero h1 .w3, .hello { animation: none !important; opacity: 1; transform: none; }
   .hero h1 .w3::after { animation: none; transform: scaleX(1); }
   .rv { opacity: 1; transform: none; transition: none; }
@@ -115,7 +116,12 @@ html:has(body.home) { overflow-x: hidden; }
 
 /* ---------- Song des Tages: feste Leiste unten ---------- */
 /* ---------- Song des Tages (anstelle des Laufbands) ---------- */
-.song-bar { display: none; align-items: center; gap: 12px; margin: 6px 0 28px; padding: 16px 16px 16px 24px; color: #fff; background: linear-gradient(170deg, #4E5FA6, #262F63); border-radius: 26px; box-shadow: 0 12px 28px rgba(38, 47, 99, .3); }
+/* ---------- Song des Tages: volle Breite, links eine drehende Schallplatte ---------- */
+.song-bar { display: none; align-items: center; gap: 14px; margin: 6px -18px 28px; padding: 18px 20px 18px 18px; color: #fff; background: linear-gradient(105deg, #3A57C4 0%, #2A3F9E 45%, #1B2866 100%); box-shadow: 0 12px 28px rgba(27, 40, 102, .32); position: relative; overflow: hidden; }
+.song-bar::before { content: ''; position: absolute; left: -60px; top: -80px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(120, 160, 255, .35), transparent 70%); pointer-events: none; }
+.song-bar .vinyl { flex: none; width: 76px; height: 76px; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .4)); animation: spinrec 7s linear infinite; }
+.song-bar:has(.sb-note.spielt) .vinyl { animation-duration: 1.8s; }
+@keyframes spinrec { to { transform: rotate(360deg); } }
 .song-bar.on { display: flex; }
 .song-bar .sb-link { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; }
 .song-bar .sb-note { all: unset; cursor: pointer; flex: none; width: 58px; height: 58px; border-radius: 50%; background: #F6C253; color: #262F63; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(0, 0, 0, .28), inset 0 -2px 0 rgba(0, 0, 0, .08); transition: transform .15s; }
