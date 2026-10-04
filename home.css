@@ -67,9 +67,6 @@ html:has(body.home) { overflow-x: hidden; }
 .tile p { margin: 12px 0 0; font-size: 14px; line-height: 1.4; opacity: .85; max-width: 30ch; }
 .rdt-tile { display: none; height: 300px; }
 .rdt-tile[style*="block"] { display: block; }
-.song-tile { display: none; }
-.song-tile[style*="block"] { display: block; }
-.song-tile .q .by { display: block; margin-top: 6px; font-family: 'Work Sans', sans-serif; font-style: normal; font-size: 17px; font-weight: 500; opacity: .9; }
 
 /* ---------- Tagebuch: Fotos randlos wie die Farbwelten ---------- */
 .home .section-title { display: block; font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(30px, 6vw, 44px); margin: 0 0 18px; padding: 0; border: 0; }
@@ -114,4 +111,18 @@ html:has(body.home) { overflow-x: hidden; }
   .hero h1 .w1, .hero h1 .w2, .hero h1 .w3, .hello { animation: none !important; opacity: 1; transform: none; }
   .hero h1 .w3::after { animation: none; transform: scaleX(1); }
   .rv { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Song des Tages: feste Leiste unten ---------- */
+.song-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: none; align-items: center; gap: 12px; padding: 11px 16px calc(11px + env(safe-area-inset-bottom)); color: #fff; text-decoration: none; background: linear-gradient(170deg, #4E5FA6, #262F63); box-shadow: 0 -6px 22px rgba(29, 43, 58, .28); border: 0; }
+.song-bar.on { display: flex; }
+.song-bar .sb-note { flex: none; width: 38px; height: 38px; border-radius: 50%; background: #F6C253; color: #262F63; display: flex; align-items: center; justify-content: center; font-size: 22px; line-height: 1; }
+.song-bar .sb-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
+.song-bar small { font: 600 11px 'Work Sans', sans-serif; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+.song-bar b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.song-bar #sdt-by { font-size: 14px; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.song-bar .sb-go { flex: none; font-size: 28px; line-height: 1; opacity: .8; }
+.home:has(.song-bar.on) .wrap { padding-bottom: 150px; }
+@media (min-width: 700px) {
+  .song-bar { left: 50%; right: auto; width: min(560px, calc(100% - 40px)); transform: translateX(-50%); bottom: 16px; border-radius: 999px; padding: 10px 22px 10px 14px; }
 }

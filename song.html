@@ -44,7 +44,7 @@
       <button type="button" class="song-btn" id="s-read" aria-pressed="false">🔊 Vorlesen</button>
       <a class="song-btn alt" id="s-spotify" href="#" target="_blank" rel="noopener">▶ Auf Spotify</a>
     </div>
-    <p class="song-note" id="s-note" hidden>Dein Gerät kann leider nicht vorlesen.</p>
+    <p class="song-note" id="s-note" hidden></p>
 
     <div class="entry-body song-body">
       <h2>Woher kommt der Song?</h2>
@@ -73,9 +73,11 @@
 
   function spotifyUrl(s) { return s.spotify ? 'https://open.spotify.com/track/' + encodeURIComponent(s.spotify) : 'https://open.spotify.com/search/' + encodeURIComponent(s.title + ' ' + s.artist); }
 
-  function stop() {
-    reading = false; queue = [];
-    if (synth) synth.cancel();
+  var keep = [], started = false, timer = null;
+  function note(msg) { var n = $('s-note'); n.textContent = msg; n.hidden = !msg; }
+  function stop(silent) {
+    reading = false; queue = []; clearTimeout(timer);
+    if (synth && (synth.speaking || synth.pending)) synth.cancel();
     var b = $('s-read'); b.textContent = '🔊 Vorlesen'; b.setAttribute('aria-pressed', 'false');
   }
   function germanVoice() {
@@ -88,17 +90,28 @@
     if (!reading) return;
     if (!queue.length) { stop(); return; }
     var u = new SpeechSynthesisUtterance(queue.shift());
-    u.lang = 'de-DE'; u.rate = 0.95;
+    keep.push(u); if (keep.length > 6) keep.shift();   // Safari/Chrome werfen sonst Utterances vorzeitig weg
+    u.lang = 'de-DE'; u.rate = 0.95; u.volume = 1;
     var v = germanVoice(); if (v) u.voice = v;
-    u.onend = speakNext; u.onerror = function () { stop(); };
+    u.onstart = function () { started = true; clearTimeout(timer); note(''); };
+    u.onend = speakNext;
+    u.onerror = function (e) {
+      if (e && (e.error === 'canceled' || e.error === 'interrupted')) return;
+      stop(); note('Vorlesen hat nicht geklappt (' + ((e && e.error) || 'Fehler') + '). Bitte Lautstärke und Stummschalter prüfen.');
+    };
     synth.speak(u);
+    if (synth.paused) synth.resume();
   }
   function startReading(s) {
     var text = s.title + ', von ' + s.artist + ', ' + s.year + '. Woher kommt der Song? ' + s.herkunft + ' Was bedeutet er? ' + s.bedeutung + (s.fun ? ' Noch ein Detail. ' + s.fun : '');
     queue = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
-    synth.cancel(); reading = true;
+    if (synth.speaking || synth.pending) synth.cancel();
+    reading = true; started = false; note('');
     var b = $('s-read'); b.textContent = '⏹ Stopp'; b.setAttribute('aria-pressed', 'true');
     speakNext();
+    timer = setTimeout(function () {
+      if (reading && !started) { stop(); note('Es kommt kein Ton. Bitte den Stummschalter am Gerät und die Lautstärke prüfen. Falls es weiter nicht geht, unterstützt dieser Browser das Vorlesen vermutlich nicht.'); }
+    }, 5000);
   }
 
   function show(songs, s, isToday) {
@@ -113,7 +126,7 @@
     document.title = s.title + ' – ' + s.artist + ' – Unterwegs und zuhause';
 
     var read = $('s-read');
-    if (!synth) { read.hidden = true; $('s-note').hidden = false; }
+    if (!synth) { read.hidden = true; note('Dein Gerät kann leider nicht vorlesen.'); }
     else {
       read.onclick = function () { if (reading) stop(); else startReading(s); };
       if (synth.getVoices) synth.getVoices();
