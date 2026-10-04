@@ -33,7 +33,9 @@
     'suedtiroler-kuerbiscremesuppe': ['🎃', '#F6B873', '#D9742E'],
     'herbstsalat-pastinaken-speck-almkaese': ['🥗', '#BFD98A', '#6E9A4F'],
     'weisse-bohnen-tomatensauce': ['🫘', '#F0907A', '#C23B2B'],
-    'meraner-antipasti': ['🍐', '#D7D58A', '#8E9A4A']
+    'meraner-antipasti': ['🍐', '#D7D58A', '#8E9A4A'],
+    'thunfisch-kichererbsen-avocado-salat': ['🐟', '#9CD9CB', '#3E8F80'],
+    'schwarze-bohnen-quinoa-bowl-avocado': ['🥑', '#AAD68A', '#5D9A52']
   };
   function slugOf(href) { var m = /([^\/]+)\.html/.exec(href || ''); return m ? m[1] : ''; }
   function media(slug, base) {
