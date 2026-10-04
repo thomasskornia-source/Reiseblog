@@ -69,11 +69,12 @@
   .more dt { color: var(--ink-soft); font-size: 13px; } .more dd { margin: 0; font-size: 13.5px; }
   .more blockquote { margin: 8px 0 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--gold); line-height: 1.5; }
   .more blockquote cite { display: block; font-style: normal; font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
-  .wtabs { display: flex; gap: 2px; max-width: 560px; margin: 10px auto 12px; padding: 4px; background: #1d2b3a; border-radius: 999px; overflow-x: auto; scrollbar-width: none; }
+  .wtabs { display: flex; width: fit-content; max-width: 100%; margin: 10px auto 12px; gap: 1px; padding: 2px; background: rgba(46,58,50,.07); border-radius: 999px; overflow-x: auto; scrollbar-width: none; }
+  .entf { margin: 12px 0 0; text-align: right; font-size: 12.5px; }
+  .lk { background: none; border: 0; padding: 0; color: var(--rust); text-decoration: underline; font: inherit; cursor: pointer; }
   .wtabs::-webkit-scrollbar { display: none; }
-  .wtabs button, .wtabs a { flex: 1 1 auto; padding: 9px 7px; border: 0; border-radius: 999px; background: transparent; color: #e8e2d6; font: inherit; font-size: 13.5px; font-weight: 500; cursor: pointer; white-space: nowrap; text-decoration: none; text-align: center; }
-  .wtabs button[aria-selected="true"] { background: #B5502E; color: #fff; }
-  .wtabs a { color: #F0A15A; }
+  .wtabs button, .wtabs a { flex: 1 0 auto; padding: 6px 7px; border: 0; border-radius: 999px; background: transparent; color: var(--ink-soft); font: inherit; font-size: 12.5px; font-weight: 500; line-height: 1.2; cursor: pointer; white-space: nowrap; text-decoration: none; text-align: center; }
+  .wtabs button[aria-selected="true"] { background: #fff; color: var(--rust); box-shadow: 0 1px 3px rgba(46,58,50,.18); }
   .tab-aus { display: none !important; }
   .markt { max-width: 560px; margin: -2px auto 0; width: 100%; }
   .markt > summary { list-style: none; cursor: pointer; text-align: center; font-size: 13.5px; color: var(--ink-soft); display: flex; justify-content: center; align-items: center; gap: 7px; flex-wrap: wrap; padding: 4px 0; }
@@ -171,11 +172,13 @@
       <button type="button" role="tab" data-tab="sp" aria-selected="true">S&amp;P 500</button>
       <button type="button" role="tab" data-tab="top10" aria-selected="false">Top 10</button>
       <button type="button" role="tab" data-tab="watch" aria-selected="false">Watchlist</button>
+      <button type="button" role="tab" data-tab="lynx" aria-selected="false">Lynx</button>
       <button type="button" role="tab" data-tab="pruefen" aria-selected="false">Prüfen</button>
-      <a href="megas.html">Megas ›</a>
+      <a href="megas.html" title="Eigene Seite">Megas ↗</a>
     </div>
     <details class="markt" id="markt" data-panel="sp" open hidden><summary id="markt-s"></summary><div class="body" id="markt-c"></div></details>
     <details class="markt top10" id="top10" data-panel="top10" hidden><summary id="top10-s"></summary><div class="body" id="top10-c"></div></details>
+    <details class="markt top10" id="lynx" data-panel="lynx" hidden><summary id="lynx-s"></summary><div class="body" id="lynx-c"></div></details>
     <details class="markt top10" id="beo" data-panel="watch" hidden><summary id="beo-s"></summary><div class="body" id="beo-c"></div></details>
     <div data-panel="pruefen" class="tab-aus" id="pnl-pruefen">
     <p class="sub">Aktie eintippen, drei Meinungen bekommen. Das Feld sucht auch in den bisherigen.</p>
@@ -428,16 +431,24 @@
       (f && f.richtung && f.richtung !== 'keine Daten' ? zelle('Option Flows', f.richtung, fcls(f.richtung)) : '') + '</div></summary>' +
       '<div class="body">' + who('w', 'Warren', e.warren) + who('c', 'Charlie', e.charlie) + james(j) +
       (e.risiken ? '<div class="sec"><p class="risk"><b>Was schiefgehen kann</b>' + esc(e.risiken) + '</p></div>' : '') +
-      mehr(e) + meta(e) + '</div></details>';
+      mehr(e) + meta(e) + '<p class="entf"><button type="button" class="lk" data-pweg="' + esc(pkey(e)) + '">Dieses Ergebnis entfernen</button></p></div></details>';
   }
+  function pkey(e) { return sym(e) + '|' + (e.zeitstempel || e.stand || ''); }
+  function pweg() { try { return JSON.parse(localStorage.getItem('aktien-pweg') || '[]'); } catch (x) { return []; } }
   function render() {
-    var l = data.slice().reverse(), t = norm(filter);
+    var ph = pweg(), alle = data.slice().reverse(), l = alle.filter(function (e) { return ph.indexOf(pkey(e)) < 0; }), ausg = alle.length - l.length, t = norm(filter);
     var sicht = l.filter(function (e) { return !t || norm(e.name + ' ' + sym(e) + ' ' + e.eingabe).indexOf(t) !== -1; });
     $('list').innerHTML = !l.length ? '<p class="empty">Noch keine Einschätzung. Gib oben die erste Aktie ein.</p> ' :
       !sicht.length ? '<p class="empty">„' + esc(filter) + '“ ist noch nicht dabei. Mit „Prüfen“ lassen wir sie ansehen.</p>' :
       '<div class="ak" style="margin:0">' + sicht.map(function (e, i) { return card(e, (zuletzt ? sym(e) === zuletzt : i === 0 && !t), zuletzt && sym(e) === zuletzt); }).join('') + '</div>';
+    if (ausg) $('list').innerHTML += '<p class="hinweis" style="text-align:center">' + ausg + ' entfernt · <button type="button" class="lk" data-palle="1">alle zurückholen</button> (gilt nur auf diesem Gerät)</p>';
     renderPending();
   }
+  $('list').addEventListener('click', function (ev) {
+    var b = ev.target.closest('[data-pweg]'), al = ev.target.closest('[data-palle]');
+    if (b) { var a = pweg(); a.push(b.getAttribute('data-pweg')); try { localStorage.setItem('aktien-pweg', JSON.stringify(a)); } catch (x) {} zuletzt = null; render(); }
+    else if (al) { try { localStorage.setItem('aktien-pweg', '[]'); } catch (x) {} render(); }
+  });
   function refresh() {
     fetch('data/aktien.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (j) {
       data = j.einschaetzungen || []; render();
@@ -610,87 +621,98 @@
     });
     $('top10').hidden = false;
   }, function () {});
-  // Meine Aktien heute: einzelne Titel ausblenden (nur auf diesem Gerät), Watchlist mit „＋“ (aus dem S&P-500-Tagesstand)
-  var WEG = 'aktien-weg', WATCH = 'aktien-watch';
+  // Watchlist und Lynx-Depot (nur auf diesem Gerät): Tageswerte aus data/universum.json (alle S&P-500-Aktien)
+  var WEG = 'aktien-weg', WATCH = 'aktien-watch', DEPOT = 'aktien-depot', PWEG = 'aktien-pweg';
   function lies(k) { try { return JSON.parse(localStorage.getItem(k) || '[]'); } catch (e) { return []; } }
   function schreib(k, a) { try { localStorage.setItem(k, JSON.stringify(a)); } catch (e) {} }
   function normT(t) { return String(t || '').trim().toUpperCase().replace('.', '-'); }
-  var beoB = null, uni = null, beoMsg = '';
+  var beoB = null, uni = null, msg = {}; msg[WATCH] = ''; msg[DEPOT] = '';
   function sparkline(sp) {
     if (!sp || sp.length < 2) return '';
     var w = 300, h = 46, pts = sp.map(function (v, i) { return (i * w / (sp.length - 1)).toFixed(1) + ',' + (h - 4 - v * (h - 8) / 100).toFixed(1); }).join(' ');
     return '<svg viewBox="0 0 ' + w + ' ' + h + '" width="100%" height="' + h + '" role="img" aria-label="Kursverlauf der letzten 40 Handelstage"><polyline points="' + pts + '" fill="none" stroke="#B5502E" stroke-width="2" stroke-linejoin="round"/></svg>';
   }
+  function listeBlock(key, pre, leer) {
+    var tl = lies(key).map(normT), u = {};
+    if (uni && uni.aktien) uni.aktien.forEach(function (x) { u[normT(x.t)] = x; });
+    var h = '<ol id="' + pre + '-l">' + tl.map(function (t) {
+      var x = u[t], del = '<button type="button" class="xb" data-wdel="' + esc(t) + '" data-liste="' + key + '" aria-label="' + esc(t) + ' entfernen" title="Entfernen">×</button>';
+      if (!x) return '<li class="wl" data-w="' + esc(t) + '"><span class="n"><i class="dot"></i></span><span class="t"><b>' + esc(t) + '</b><small>Nicht im S&amp;P 500, keine Tageswerte. Unter „Prüfen“ prüfen lassen.</small></span><span class="z">' + del + '</span></li>';
+      return '<li class="wl" data-w="' + esc(t) + '"><span class="n">' + dot(acls(x.a)) + '</span><span class="t"><b>' + esc(x.t) + '</b> ' + esc(x.n) + '<small>' + esc(x.l) + '</small></span><span class="z"><span class="' + (x.d1 >= 0 ? 'pl' : 'mi') + '">' + (x.d1 >= 0 ? '+' : '') + zahl(x.d1, 2) + ' %</span> ' + del + '</span></li>';
+    }).join('') + '</ol>';
+    if (!tl.length) h += '<p class="hinweis">' + leer + '</p>';
+    h += '<form class="wl-form" id="' + pre + '-form" data-liste="' + key + '" autocomplete="off"><input id="' + pre + '-inp" type="text" maxlength="12" placeholder="Ticker, z. B. NVDA" aria-label="Ticker hinzufügen" autocapitalize="characters"><button type="submit" class="plus" aria-label="Hinzufügen">＋</button></form>';
+    h += '<p class="hinweis">' + esc(msg[key]) + '</p>';
+    return { html: h, n: tl.length };
+  }
   function renderBeo() {
-    var weg = lies(WEG).map(normT), watch = lies(WATCH).map(normT);
+    var weg = lies(WEG).map(normT);
     var eigene = beoB && beoB.aktien ? beoB.aktien.filter(function (x) { return weg.indexOf(normT(x.ticker)) < 0; }) : [];
     var ausg = beoB && beoB.aktien ? beoB.aktien.length - eigene.length : 0;
     var wechsel = eigene.filter(function (x) { return x.ampel_vorher && x.ampel_vorher !== x.ampel; });
     var stand = beoB ? beoB.stand : (uni && uni.stand);
-    $('beo-s').innerHTML = 'Watchlist und meine Aktien <span>(James, Stand ' + esc(String(stand || '').slice(0, 5)) + ')</span>' + (wechsel.length ? ' <b>' + wechsel.length + ' Wechsel</b>' : '');
+    var standT = '<span>(James, Stand ' + esc(String(stand || '').slice(0, 5)) + ')</span>';
+    var wl = listeBlock(WATCH, 'wl', 'Noch leer. Ticker eintippen und mit ＋ merken, oder bei einer Aktie auf „Zur Watchlist“ tippen.');
+    $('beo-s').innerHTML = 'Watchlist ' + standT;
+    $('beo-c').innerHTML = '<h4 class="wl-h" style="margin-top:4px"><small>Aktien im Blick behalten, ohne sie prüfen zu lassen. Gilt nur auf diesem Gerät und kennt alle Aktien des S&amp;P 500.</small></h4>' + wl.html;
     var h2 = '<ol>' + eigene.map(function (x) {
       return '<li data-t="' + esc(x.ticker) + '"><span class="n">' + dot(acls(x.ampel)) + '</span><span class="t"><b>' + esc(x.ticker) + '</b> ' + esc(x.name) +
-        '<small>' + esc(x.lage) + (x.ampel_vorher && x.ampel_vorher !== x.ampel ? ' · vorher ' + esc(x.ampel_vorher) : '') + '</small></span><span class="z">James ' + x.punkte + '/12 <button type="button" class="xb" data-weg="' + esc(x.ticker) + '" aria-label="' + esc(x.ticker) + ' entfernen" title="Entfernen">×</button></span></li>';
+        '<small>' + esc(x.lage) + (x.ampel_vorher && x.ampel_vorher !== x.ampel ? ' · vorher ' + esc(x.ampel_vorher) : '') + '</small></span><span class="z">James ' + x.punkte + '/12 <button type="button" class="xb" data-weg="' + esc(x.ticker) + '" aria-label="' + esc(x.ticker) + ' ausblenden" title="Ausblenden">×</button></span></li>';
     }).join('') + '</ol>';
     if (!eigene.length) h2 = '<p class="hinweis">Keine Aktien in der Liste.</p>';
     if (ausg) h2 += '<p class="hinweis">' + ausg + ' ausgeblendet · <button type="button" class="lk" data-alle="1">alle zurückholen</button> (gilt nur auf diesem Gerät)</p>';
-    var h = '';
-    h += '<h4 class="wl-h" style="margin-top:4px">Watchlist <small>Aktien im Blick behalten, ohne sie prüfen zu lassen</small></h4>';
-    var u = {}; if (uni && uni.aktien) uni.aktien.forEach(function (x) { u[normT(x.t)] = x; });
-    h += '<ol id="wl-l">' + watch.map(function (t) {
-      var x = u[t];
-      if (!x) return '<li class="wl" data-w="' + esc(t) + '"><span class="n"><i class="dot"></i></span><span class="t"><b>' + esc(t) + '</b><small>Nicht im S&amp;P 500, keine Tageswerte. Oben prüfen lassen.</small></span><span class="z"><button type="button" class="xb" data-wdel="' + esc(t) + '" aria-label="' + esc(t) + ' aus der Watchlist nehmen" title="Entfernen">×</button></span></li>';
-      return '<li class="wl" data-w="' + esc(t) + '"><span class="n">' + dot(acls(x.a)) + '</span><span class="t"><b>' + esc(x.t) + '</b> ' + esc(x.n) + '<small>' + esc(x.l) + '</small></span><span class="z"><span class="' + (x.d1 >= 0 ? 'pl' : 'mi') + '">' + (x.d1 >= 0 ? '+' : '') + zahl(x.d1, 2) + ' %</span> <button type="button" class="xb" data-wdel="' + esc(x.t) + '" aria-label="' + esc(x.t) + ' aus der Watchlist nehmen" title="Entfernen">×</button></span></li>';
-    }).join('') + '</ol>';
-    if (!watch.length) h += '<p class="hinweis">Noch leer. Ticker eintippen und mit ＋ merken, oder bei einer Aktie oben auf „Zur Watchlist“ tippen.</p>';
-    h += '<form class="wl-form" id="wl-form" autocomplete="off"><input id="wl-inp" type="text" maxlength="12" placeholder="Ticker, z. B. NVDA" aria-label="Ticker für die Watchlist" autocapitalize="characters"><button type="submit" class="plus" aria-label="Zur Watchlist hinzufügen">＋</button></form>';
-    h += '<p class="hinweis" id="wl-msg">' + esc(beoMsg) + '</p><p class="hinweis">Die Watchlist gilt nur auf diesem Gerät und kennt alle Aktien des S&amp;P 500.</p>';
-    h += '<h4 class="wl-h">Meine Aktien heute <small>Zeile antippen: Trend, Chart und die Meinung von Warren und Charlie klappen auf. Nur Kurs und Trend, täglich neu.</small></h4>' + h2;
-    var offen = $('beo-c').querySelector('li.auf'); var tk = offen && (offen.getAttribute('data-t') || offen.getAttribute('data-w'));
-    $('beo-c').innerHTML = h;
-    if (tk) { var li = $('beo-c').querySelector('[data-t="' + tk + '"],[data-w="' + tk + '"]'); if (li) toggleBeo(li); }
-    $('beo').hidden = !(eigene.length || watch.length || ausg || uni);
+    var dp = listeBlock(DEPOT, 'ly', 'Hier kannst du weitere Aktien aus deinem Depot eintragen.');
+    $('lynx-s').innerHTML = 'Lynx-Depot ' + standT + (wechsel.length ? ' <b>' + wechsel.length + ' Wechsel</b>' : '');
+    $('lynx-c').innerHTML = '<h4 class="wl-h" style="margin-top:4px"><small>Meine Aktien im Depot. Zeile antippen: Trend, Chart und die Meinung von Warren und Charlie klappen auf. Nur Kurs und Trend, täglich neu.</small></h4>' + h2 + (dp.n || true ? '<h4 class="wl-h">Weitere Depotwerte</h4>' + dp.html : '');
+    ['beo-c', 'lynx-c'].forEach(function (cid) {
+      var c = $(cid), li0 = c.getAttribute('data-offen');
+      if (li0) { var li = c.querySelector('[data-t="' + li0 + '"],[data-w="' + li0 + '"]'); if (li) toggleBeo(li); }
+    });
+    $('beo').hidden = false; $('lynx').hidden = false;
   }
-  function addWatch(raw) {
+  function addTicker(raw, key) {
     var t = normT(raw); if (!t) return;
-    var w = lies(WATCH).map(normT);
-    if (w.indexOf(t) >= 0) { beoMsg = t + ' ist schon in der Watchlist.'; return; }
-    w.push(t); schreib(WATCH, w);
+    var w = lies(key).map(normT);
+    if (w.indexOf(t) >= 0) { msg[key] = t + ' steht schon in der Liste.'; return; }
+    w.push(t); schreib(key, w);
     var ok = uni && uni.aktien && uni.aktien.some(function (x) { return normT(x.t) === t; });
-    beoMsg = t + ' ist in der Watchlist.' + (ok ? '' : ' Hinweis: nicht im S&P 500, daher ohne Tageswerte.');
+    msg[key] = t + ' ist eingetragen.' + (ok ? '' : ' Hinweis: nicht im S&P 500, daher ohne Tageswerte.');
   }
   function toggleBeo(li) {
-    var d = li.querySelector('.det');
-    if (d) { d.remove(); li.classList.remove('auf'); return; }
+    var d = li.querySelector('.det'), c = li.closest('[data-offen]') || li.parentNode.parentNode;
+    if (d) { d.remove(); li.classList.remove('auf'); c.removeAttribute('data-offen'); return; }
     var el = document.createElement('div'); el.className = 'det';
     if (li.getAttribute('data-t')) {
       var x = beoB.aktien.filter(function (q) { return q.ticker === li.getAttribute('data-t'); })[0]; if (!x) return;
-      el.innerHTML = detail(x, null);
+      el.innerHTML = detail(x, null); c.setAttribute('data-offen', li.getAttribute('data-t'));
     } else {
       var t = li.getAttribute('data-w'), y = uni && uni.aktien.filter(function (q) { return normT(q.t) === t; })[0];
       el.innerHTML = y ? '<div class="dsec"><h5>' + esc(y.t) + ' · ' + esc(y.n) + '</h5><p>Kurs ' + zahl(y.k, 2) + ' USD · James ' + y.p + '/12 · ' + esc(y.l) + '</p>' + sparkline(y.sp) + '<p class="klein">Verlauf der letzten 40 Handelstage. Branche: ' + esc(SEKTOR[y.s] || y.s) + '.</p><button class="btn" type="button" data-pr="' + esc(y.t) + '">Warren und Charlie fragen</button></div>'
-        : '<div class="dsec"><p class="klein">Diese Aktie gehört nicht zum S&amp;P 500, deshalb gibt es keine Tageswerte. Ein Klick startet die Prüfung, das Ergebnis erscheint nach wenigen Minuten oben in der Liste.</p><button class="btn" type="button" data-pr="' + esc(t) + '">Warren und Charlie fragen</button></div>';
+        : '<div class="dsec"><p class="klein">Diese Aktie gehört nicht zum S&amp;P 500, deshalb gibt es keine Tageswerte. Ein Klick startet die Prüfung, das Ergebnis erscheint nach wenigen Minuten unter „Prüfen“.</p><button class="btn" type="button" data-pr="' + esc(t) + '">Warren und Charlie fragen</button></div>';
+      c.setAttribute('data-offen', t);
     }
     li.appendChild(el); li.classList.add('auf');
   }
-  $('beo-c').addEventListener('click', function (ev) {
+  function beoKlick(ev) {
     var kb = ev.target.closest('[data-karte]'); if (kb) { zeigeKarte(kb.getAttribute('data-karte')); return; }
     var bt = ev.target.closest('[data-pr]'); if (bt) { pruefen(bt.getAttribute('data-pr')); return; }
-    var wl = ev.target.closest('[data-wl]'); if (wl) { addWatch(wl.getAttribute('data-wl')); renderBeo(); return; }
-    var xw = ev.target.closest('[data-weg]'); if (xw) { var w = lies(WEG); w.push(xw.getAttribute('data-weg')); schreib(WEG, w); beoMsg = xw.getAttribute('data-weg') + ' ist ausgeblendet.'; renderBeo(); return; }
-    if (ev.target.closest('[data-alle]')) { schreib(WEG, []); beoMsg = ''; renderBeo(); return; }
-    var xd = ev.target.closest('[data-wdel]'); if (xd) { schreib(WATCH, lies(WATCH).filter(function (t) { return normT(t) !== normT(xd.getAttribute('data-wdel')); })); beoMsg = ''; renderBeo(); return; }
+    var wl = ev.target.closest('[data-wl]'); if (wl) { addTicker(wl.getAttribute('data-wl'), WATCH); renderBeo(); return; }
+    var xw = ev.target.closest('[data-weg]'); if (xw) { var w = lies(WEG); w.push(xw.getAttribute('data-weg')); schreib(WEG, w); renderBeo(); return; }
+    if (ev.target.closest('[data-alle]')) { schreib(WEG, []); renderBeo(); return; }
+    var xd = ev.target.closest('[data-wdel]'); if (xd) { var key = xd.getAttribute('data-liste'); schreib(key, lies(key).filter(function (t) { return normT(t) !== normT(xd.getAttribute('data-wdel')); })); msg[key] = ''; renderBeo(); return; }
     if (ev.target.closest('.det') || ev.target.closest('form')) return;
     var li = ev.target.closest('li'); if (!li || !(li.getAttribute('data-t') || li.getAttribute('data-w'))) return;
     toggleBeo(li);
-  });
-  $('beo-c').addEventListener('submit', function (ev) {
-    if (!ev.target.closest('#wl-form')) return;
-    ev.preventDefault(); addWatch($('wl-inp').value); renderBeo();
-  });
+  }
+  function beoSubmit(ev) {
+    var f = ev.target.closest('form.wl-form'); if (!f) return;
+    ev.preventDefault(); var key = f.getAttribute('data-liste'); addTicker(f.querySelector('input').value, key); renderBeo();
+  }
+  $('beo-c').addEventListener('click', beoKlick); $('lynx-c').addEventListener('click', beoKlick);
+  $('beo-c').addEventListener('submit', beoSubmit); $('lynx-c').addEventListener('submit', beoSubmit);
   $('top10-c').addEventListener('click', function (ev) {
     var wl = ev.target.closest('[data-wl]'); if (!wl) return;
-    addWatch(wl.getAttribute('data-wl')); renderBeo(); wl.textContent = '✓ In der Watchlist'; wl.disabled = true;
+    addTicker(wl.getAttribute('data-wl'), WATCH); renderBeo(); wl.textContent = '✓ In der Watchlist'; wl.disabled = true;
   });
   Promise.all([
     fetch('data/beobachtung.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return null; }),
