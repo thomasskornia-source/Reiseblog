@@ -2,7 +2,7 @@
   var bar = document.getElementById('topbar');
   if (!bar) return;
   var file = location.pathname.split('/').pop() || 'index.html';
-  var map = { 'sektoren.html': 'aktien.html', 'wcj-info.html': 'aktien.html', 'megas.html': 'aktien.html', 'cholesterin.html': 'ernaehrung.html', 'lebensmittel-basics.html': 'ernaehrung.html', 'podcast-richtig-essen.html': 'ernaehrung.html' };
+  var map = { 'wochenplaner.html': 'rezepte.html', 'sektoren.html': 'aktien.html', 'wcj-info.html': 'aktien.html', 'megas.html': 'aktien.html', 'cholesterin.html': 'ernaehrung.html', 'lebensmittel-basics.html': 'ernaehrung.html', 'podcast-richtig-essen.html': 'ernaehrung.html' };
   if (/-reise\.html$/.test(file)) file = 'reisen.html';
   if (location.pathname.indexOf('/rezepte/') !== -1) file = 'rezepte.html';
   file = map[file] || file;
@@ -17,7 +17,7 @@
   // Farbwelt der Seite (Kopfbereich)
   (function () {
     var f = location.pathname.split('/').pop() || 'index.html', w = '';
-    if (location.pathname.indexOf('/rezepte/') === -1 && f === 'rezepte.html') w = 'rezept';
+    if (location.pathname.indexOf('/rezepte/') === -1 && (f === 'rezepte.html' || f === 'wochenplaner.html')) w = 'rezept';
     else if (f === 'reiseberater.html') w = 'berater';
     else if (f === 'reisen.html' || /-reise\.html$/.test(f)) w = 'reise';
     else if (/^(finanzplanung|zinseszins|immobiliensuche|gedaechtnistest)\.html$/.test(f)) w = 'geld';
