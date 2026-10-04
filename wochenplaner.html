@@ -226,11 +226,12 @@
   function bereinigen(n) { n = n.replace(/\s*\(.*?\)/g, '').split(',')[0].replace(/^(von|der|die|das)\s+/i, '').replace(/^Bio-/i, '').replace(/^((große|großer|großes|kleine|kleiner|kleines|mittelgroße|mittelgroßer|frische|frischer|frisches|reife|reifer|unbehandelte|unbehandelter|festfleischige|festkochende|getrocknete|getrockneter|gehackte|passierte|stückige)\s+)+/i, function (m) { return /(getrocknet|gehackt|passiert|stückig)/i.test(m) ? m : ''; }).replace(/\s+/g, ' ').trim(); return n.charAt(0).toUpperCase() + n.slice(1); }
   function schluessel(n) { var k = n.toLowerCase(); if (/(el|en)n?$/.test(k) && k.length > 5) k = k.replace(/n$/, ''); return k.replace(/e$/, ''); }
   function ersatzName(n) { return /hack/i.test(n) ? 'vegetarisches Hack (Soja)' : /wurst|brät/i.test(n) ? 'vegetarische Bratwurst' : /schinken|speck/i.test(n) ? 'vegetarischer Aufschnitt' : 'Fleischersatz (Tofu, Seitan oder Soja)'; }
-  var FLUESSIG = /(öl|essig|brühe|saft|milch|sahne|sauce|soße|wein)$/i;
+  var FLUESSIG = /(öl|essig|brühe|saft|milch|sahne|sauce|soße|wein|melasse|sirup)$/i;
+  var KRAUT = /^(?:(Tasse|Handvoll)\s+)?(?:frische[rn]?\s+)?(?:glatte[rn]?\s+)?(petersilie|koriander|minze|dill|basilikum|schnittlauch)\b/i;
   var SPEZIES = /^(kreuzkümmel|koriander|paprikapulver|geräuchertes paprikapulver|kurkuma|zimt|cayennepfeffer|chilipulver|currypulver)$/i;
   var WASSER = /^((warmes|heißes|kochendes|kaltes|lauwarmes|frisches)\s+)?(leitungs)?wasser$/i;
   function gleich(n) {
-    n = n.replace(/^natives\s+olivenöl.*$/i, 'Olivenöl').replace(/^(kreuzkümmel|koriander)(samen|pulver)$/i, '$1').replace(/^(gemahlene[rn]?|gemahlen)\s+/i, '').replace(/\s+(gemahlen[e]?|gerieben[e]?)$/i, '').replace(/^cumin$/i, 'Kreuzkümmel');
+    n = n.replace(/^natives\s+olivenöl.*$/i, 'Olivenöl').replace(/^brokkoli(röschen)$/i, 'Brokkoli').replace(/^(gelbe|orange|bunte)\s+karotte/i, 'Karotte').replace(/^(kreuzkümmel|koriander)(samen|pulver)$/i, '$1').replace(/^(gemahlene[rn]?|gemahlen)\s+/i, '').replace(/\s+(gemahlen[e]?|gerieben[e]?)$/i, '').replace(/^cumin$/i, 'Kreuzkümmel').replace(/^(geriebener\s+)?(parmesan|parmigiano[- ]reggiano)(\s+.*)?$/i, 'Parmesan').replace(/^salz und schwarzer pfeffer$/i, 'Salz und Pfeffer');
     return n.charAt(0).toUpperCase() + n.slice(1);
   }
   function zutatenVon(it, p) {
@@ -251,10 +252,12 @@
       var mix = /^gewürzmischung\s+(\S+)\s*(?:&|und)\s+(\S+)/i.exec(nm);
       var teile = mix ? [mix[1], mix[2]] : [nm];
       teile.forEach(function (n1) {
-        var q1 = q, e1 = e;
+        var q1 = q, e1 = e, km = KRAUT.exec(n1);
+        if (km) { if (q1 != null && km[1]) { q1 = q1 * (/^h/i.test(km[1]) ? 15 : 20); e1 = 'g'; } if (q1 != null && e1 === 'EL' && !/koriander/i.test(km[2])) { q1 = q1 * 3; e1 = 'g'; } n1 = km[2]; }
         n1 = gleich(n1);
         if (mix && q1 != null) q1 = q1 / 2;
         if (q1 != null && e1 === 'g' && SPEZIES.test(n1)) { q1 = q1 / 2; e1 = 'TL'; }
+        if (q1 != null && (e1 === 'EL' || e1 === 'TL') && /^butter$/i.test(n1)) { q1 = q1 * (e1 === 'EL' ? 15 : 5); e1 = 'g'; }
         if (q1 != null && (e1 === 'EL' || e1 === 'TL')) { if (FLUESSIG.test(n1)) { q1 = q1 * (e1 === 'EL' ? 15 : 5); e1 = 'ml'; } else { if (e1 === 'EL') q1 = q1 * 3; e1 = 'TL'; } }
         if (q1 != null && e1 === 'Dose') { var gw = /(kichererbse|bohne|linse|mais)/i.test(n1) ? 240 : /tomate/i.test(n1) ? 400 : 0; if (gw) { q1 = q1 * gw; e1 = 'g'; } }
         out.push({ q: q1, einheit: e1, name: n1 });
@@ -293,6 +296,7 @@
         });
       });
     });
+    ord = ord.filter(function (k) { var a = m[k]; if (a.q != null) return true; return !ord.some(function (k2) { return k2 !== k && m[k2].q != null && schluessel(m[k2].name) === schluessel(a.name); }); });
     var out = ord.map(function (k) { var p = m[k]; p.text = (mengeText(p.q, p.einheit) + ' ' + p.name).trim(); p.gruppe = gruppe(p.name); p.nk = schluessel(p.name); return p; });
     var rang = {}; ['Obst und Gemüse', 'Milch, Käse und Eier', 'Fleisch und Fisch', 'Brot und Backwaren', 'Vorrat und Gewürze'].forEach(function (g, i) { rang[g] = i; });
     out.sort(function (a, b) { return rang[a.gruppe] - rang[b.gruppe] || a.name.localeCompare(b.name, 'de'); });
