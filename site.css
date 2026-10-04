@@ -195,3 +195,9 @@ body[data-welt="nacht"] .entry-header { background-image: url("data:image/svg+xm
 body[data-welt] .entry-header .rule { display: none; }
 body[data-welt] .entry-header .toolgroup { top: 10px; right: 12px; gap: 6px; }
 body[data-welt] .entry-header .toolbtn, body[data-welt] .entry-header .toolbtn:hover, body[data-welt] .entry-header .toolbtn:active { color: inherit; background: rgba(255, 255, 255, .2) !important; border: 0 !important; border-radius: 10px; box-shadow: none; }
+
+/* ---------- Zeitraum-Leiste (Charts): schmal und dezent ---------- */
+.rng { display: flex; width: fit-content; max-width: 100%; margin: 10px auto 0; gap: 2px; padding: 2px; background: rgba(46, 58, 50, .07); border-radius: 999px; overflow-x: auto; scrollbar-width: none; }
+.rng::-webkit-scrollbar { display: none; }
+.rng button { flex: 1 0 auto; border: 0; background: transparent; color: var(--ink-soft); font: inherit; font-size: 12.5px; font-weight: 500; line-height: 1.2; padding: 5px 12px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+.rng button[aria-pressed="true"] { background: #fff; color: var(--rust); box-shadow: 0 1px 3px rgba(46, 58, 50, .18); }
