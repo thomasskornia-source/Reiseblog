@@ -19,7 +19,9 @@ jobs:
       - name: Audiodateien erzeugen (Gemini-Sprachausgabe)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python3 tools/song-audio.py
+        run: |
+          set -o pipefail
+          python3 tools/song-audio.py 2>&1 | tee audio/last-run.log
       - name: Audiodateien hochladen
         if: always()
         run: |
