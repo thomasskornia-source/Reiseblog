@@ -117,7 +117,13 @@ html:has(body.home) { overflow-x: hidden; }
 .song-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: none; align-items: center; gap: 12px; padding: 11px 16px calc(11px + env(safe-area-inset-bottom)); color: #fff; text-decoration: none; background: linear-gradient(170deg, #4E5FA6, #262F63); box-shadow: 0 -6px 22px rgba(29, 43, 58, .28); border: 0; }
 .song-bar.on { display: flex; }
 .song-bar .sb-link { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; }
-.song-bar .sb-note { all: unset; cursor: pointer; flex: none; width: 38px; height: 38px; border-radius: 50%; background: #F6C253; color: #262F63; display: flex; align-items: center; justify-content: center; font-size: 18px; line-height: 1; }
+.song-bar .sb-note { all: unset; cursor: pointer; flex: none; width: 38px; height: 38px; border-radius: 50%; background: #F6C253; color: #262F63; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(0, 0, 0, .28), inset 0 -2px 0 rgba(0, 0, 0, .08); transition: transform .15s; }
+.song-bar .sb-note:active { transform: scale(.94); }
+.song-bar .sb-note:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.song-bar .sb-note svg { width: 22px; height: 22px; fill: #262F63; }
+.song-bar .sb-note .st { display: none; }
+.song-bar .sb-note.spielt .pl { display: none; }
+.song-bar .sb-note.spielt .st { display: inline; }
 .song-bar .sb-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
 .song-bar small { font: 600 11px 'Work Sans', sans-serif; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
 .song-bar b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
