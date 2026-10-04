@@ -195,3 +195,5 @@ h1.mit-zurueck { position: relative; padding-left: 52px; }
 .back-ico { position: absolute; left: 0; top: 0; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(46, 58, 50, .08); color: var(--ink) !important; text-decoration: none !important; border: 0 !important; transition: background .2s; }
 .back-ico:hover { background: rgba(181, 80, 46, .18); }
 body[data-welt] .back-ico { background: rgba(255, 255, 255, .22); color: inherit !important; }
+.h1-sep { color: var(--ink-soft); opacity: .55; font-weight: 400; }
+.h1-link { color: var(--rust); text-decoration: none; border: 0; }

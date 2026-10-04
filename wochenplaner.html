@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Wochenplaner – Unterwegs und zuhause</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=12">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+  .wp { max-width: 640px; margin: 0 auto; padding-bottom: 60px; }
+  .wp .zurueck { display: inline-block; margin: 8px 0 0; font-size: 14.5px; color: var(--ink-soft); }
+  .wp .sub { color: var(--ink-soft); font-size: 15px; line-height: 1.5; margin: 6px 0 14px; }
+  .wp h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin: 26px 0 8px; }
+  .wp .regeln { display: grid; gap: 8px; margin: 4px 0 12px; }
+  .wp .regel { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 14px; padding: 8px 12px; font-size: 15px; }
+  .wp .regel small { display: block; color: var(--ink-soft); font-size: 12.5px; }
+  .wp .step { display: inline-flex; align-items: center; gap: 2px; background: rgba(46,58,50,.07); border-radius: 999px; padding: 2px; }
+  .wp .step button { width: 34px; height: 34px; border: 0; border-radius: 50%; background: transparent; font-size: 20px; line-height: 1; color: var(--ink); cursor: pointer; }
+  .wp .step button:active { background: #fff; }
+  .wp .step b { min-width: 28px; text-align: center; font-size: 17px; }
+  .wp .aktionen { display: flex; gap: 8px; margin: 12px 0 8px; }
+  .wp .btn1 { flex: 1; padding: 12px 14px; border: 0; border-radius: 12px; background: var(--rust); color: #fff; font: inherit; font-size: 15.5px; font-weight: 600; cursor: pointer; }
+  .wp .btn2 { padding: 12px 16px; border: 1px solid rgba(46,58,50,.2); border-radius: 12px; background: var(--paper); color: var(--ink); font: inherit; font-size: 15px; cursor: pointer; }
+  .wp .bilanz { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 14px; font-size: 13.5px; }
+  .wp .bilanz span { padding: 4px 11px; border-radius: 999px; background: rgba(46,58,50,.07); color: var(--ink-soft); }
+  .wp .bilanz span.ok { background: #e3f1e7; color: #226a3d; }
+  .wp .bilanz span.off { background: #fbeadd; color: #9a4b1d; }
+  .wp .tag { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 16px; margin-bottom: 10px; overflow: hidden; }
+  .wp .tag > h3 { margin: 0; padding: 10px 14px 4px; display: flex; justify-content: space-between; align-items: baseline; font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; }
+  .wp .tag > h3 small { font: 400 12.5px 'Work Sans', sans-serif; color: var(--ink-soft); }
+  .wp .slot { display: grid; grid-template-columns: 62px 1fr auto; gap: 8px; align-items: center; padding: 9px 14px; border-top: 1px solid rgba(46,58,50,.08); }
+  .wp .slot > i { font-style: normal; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); }
+  .wp .slot .wahl { all: unset; display: block; cursor: pointer; min-width: 0; }
+  .wp .slot .wahl b { display: block; font-weight: 500; font-size: 15.5px; line-height: 1.25; }
+  .wp .slot .wahl small { display: block; color: var(--ink-soft); font-size: 12.5px; margin-top: 2px; }
+  .wp .slot .leer { color: var(--rust); font-weight: 600; }
+  .wp .slot .x { width: 30px; height: 30px; border: 0; border-radius: 50%; background: rgba(46,58,50,.08); color: var(--ink-soft); font-size: 17px; cursor: pointer; }
+  .wp .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+  .wp .chip { padding: 2px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 600; background: rgba(46,58,50,.08); color: var(--ink-soft); border: 0; font-family: inherit; }
+  .wp .chip.blitz { background: #fdf0cf; color: #8a5a00; }
+  .wp .chip.veg { background: #e3f1e7; color: #226a3d; }
+  .wp .chip.fisch { background: #e1eef6; color: #245f86; }
+  .wp .chip.fleisch { background: #f6e2dc; color: #8f3d21; }
+  .wp button.chip { cursor: pointer; }
+  .wp button.chip[aria-pressed="true"] { background: #226a3d; color: #fff; }
+  .wp .list { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 16px; padding: 4px 14px 10px; }
+  .wp .list h4 { margin: 14px 0 4px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); }
+  .wp .list label { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid rgba(46,58,50,.07); font-size: 15px; cursor: pointer; }
+  .wp .list input { width: 18px; height: 18px; accent-color: #226a3d; flex: none; transform: translateY(3px); }
+  .wp .list label.an span { text-decoration: line-through; color: var(--ink-soft); }
+  .wp .list .menge { color: var(--ink-soft); min-width: 62px; flex: none; font-variant-numeric: tabular-nums; }
+  .wp .exp { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 6px; }
+  .wp details.hilfe { margin-top: 10px; font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+  .wp details.hilfe summary { cursor: pointer; color: var(--ink); }
+  .wp details.hilfe ol { padding-left: 20px; margin: 6px 0; }
+  .wp .hinweis { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 12px 2px 0; }
+  .sheet-bg { position: fixed; inset: 0; background: rgba(29,43,58,.45); z-index: 80; display: none; }
+  .sheet-bg.auf { display: block; }
+  .sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 81; max-height: 82vh; background: var(--paper); border-radius: 20px 20px 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,.2); display: none; flex-direction: column; max-width: 640px; margin: 0 auto; }
+  .sheet.auf { display: flex; }
+  .sheet header { padding: 14px 16px 6px; display: flex; justify-content: space-between; align-items: center; }
+  .sheet header b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; }
+  .sheet header button { border: 0; background: rgba(46,58,50,.08); border-radius: 50%; width: 32px; height: 32px; font-size: 18px; cursor: pointer; }
+  .sheet .filter { display: flex; gap: 6px; flex-wrap: wrap; padding: 4px 16px 8px; }
+  .sheet .filter button { padding: 5px 12px; border: 1px solid rgba(46,58,50,.18); border-radius: 999px; background: transparent; font: inherit; font-size: 13px; color: var(--ink); cursor: pointer; }
+  .sheet .filter button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .sheet .liste { overflow-y: auto; padding: 0 12px 20px; }
+  .sheet .liste button.z { display: block; width: 100%; text-align: left; background: #fff; border: 1px solid rgba(46,58,50,.1); border-radius: 12px; padding: 10px 12px; margin-bottom: 6px; font: inherit; cursor: pointer; }
+  .sheet .liste button.z b { font-weight: 500; font-size: 15.5px; }
+  .sheet .liste .nix { color: var(--rust); font-weight: 600; }
+</style>
+</head>
+<body class="page-wide">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="muenchen-quiz.html">München-Quiz</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+    </div>
+  </div></nav>
+<div class="wrap wp">
+  <a class="zurueck" href="rezepte.html">← Zu den Rezepten</a>
+  <header class="entry-header">
+    <h1>Wochenplaner</h1>
+    <hr class="rule">
+  </header>
+  <p class="sub">Mittags etwas Warmes für zwei (am Wochenende für drei), abends Brotzeit für drei. Stell die Regeln ein, lass die Woche vorschlagen und tausche, was dir nicht passt.</p>
+
+  <div class="regeln">
+    <div class="regel"><div>Blitzgerichte pro Woche<small>mittags, höchstens 30 Minuten</small></div><div class="step"><button type="button" data-r="blitz" data-d="-1" aria-label="weniger">−</button><b id="n-blitz">2</b><button type="button" data-r="blitz" data-d="1" aria-label="mehr">+</button></div></div>
+    <div class="regel"><div>Vegetarisch pro Woche, mindestens<small>ohne Fleisch und Fisch, auch mit Fleischersatz</small></div><div class="step"><button type="button" data-r="veggie" data-d="-1" aria-label="weniger">−</button><b id="n-veggie">3</b><button type="button" data-r="veggie" data-d="1" aria-label="mehr">+</button></div></div>
+  </div>
+  <div class="aktionen"><button type="button" class="btn1" id="vorschlag">Woche vorschlagen</button><button type="button" class="btn2" id="leeren">Leeren</button></div>
+  <div class="bilanz" id="bilanz"></div>
+
+  <div id="woche"></div>
+
+  <h2>Einkaufsliste</h2>
+  <div id="einkauf"></div>
+
+  <p class="hinweis">Mengen sind auf die Personenzahl umgerechnet (Mo–Fr mittags 2, sonst 3). Wo ein Rezept mit Fleisch ist, lässt sich mit „Veggie-Ersatz“ der Fleischanteil durch Fleischersatz tauschen oder das Fleisch separat zubereiten. Der Plan liegt nur auf diesem Gerät.</p>
+</div>
+
+<div class="sheet-bg" id="bg"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-t">
+  <header><b id="sheet-t">Auswählen</b><button type="button" id="zu" aria-label="Schließen">×</button></header>
+  <div class="filter" id="filter"></div>
+  <div class="liste" id="liste"></div>
+</div>
+
+<script>
+(function () {
+  var TAGE = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
+  var KEY = 'wochenplan-v1', HAKEN = 'wochenplan-haken';
+  var REZ = [], BY = {}, S = null, offen = null, filt = 'alle';
+  function $(i) { return document.getElementById(i); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function pers(slot, tag) { return slot === 'mittag' && tag < 5 ? 2 : 3; }
+  function leer() { return { mittag: [null, null, null, null, null, null, null], abend: [null, null, null, null, null, null, null], blitz: 2, veggie: 3 }; }
+  function laden() { try { var s = JSON.parse(localStorage.getItem(KEY)); if (s && s.mittag && s.abend) return s; } catch (e) {} return leer(); }
+  function sichern() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+  function haken() { try { return JSON.parse(localStorage.getItem(HAKEN) || '{}'); } catch (e) { return {}; } }
+  function hakenSichern(h) { try { localStorage.setItem(HAKEN, JSON.stringify(h)); } catch (e) {} }
+
+  // ---- Eigenschaften eines gewählten Gerichts
+  function istBlitz(r) { return !!r && r.warm && r.min != null && r.min <= 30; }
+  function art(it) { var r = BY[it.id]; if (!r) return 'veggie'; return r.typ === 'fleisch' && it.mode === 'ersatz' ? 'veggie' : r.typ; }
+  function mittagPool() { return REZ.filter(function (r) { return r.warm && r.quelle !== 'brotzeit'; }); }
+  function abendPool() { return REZ.filter(function (r) { return r.quelle === 'brotzeit' || !r.warm; }); }
+  function zaehlen() {
+    var c = { blitz: 0, veggie: 0, fisch: 0, fleisch: 0, geplant: 0 };
+    S.mittag.forEach(function (it) { if (!it || it.id === '-') return; c.geplant++; var r = BY[it.id]; if (istBlitz(r)) c.blitz++; var a = art(it); if (a === 'veggie') c.veggie++; else if (a === 'fisch') c.fisch++; else c.fleisch++; });
+    return c;
+  }
+
+  // ---- Darstellung
+  function chips(it, slot) {
+    var r = BY[it.id]; if (!r) return '';
+    var a = art(it), h = '';
+    if (istBlitz(r)) h += '<span class="chip blitz">Blitz</span>';
+    h += '<span class="chip ' + (a === 'veggie' ? 'veg' : a) + '">' + (a === 'veggie' ? 'vegetarisch' : a === 'fisch' ? 'Fisch' : 'mit Fleisch') + '</span>';
+    if (r.typ === 'fleisch' && slot === 'mittag') h += '<button type="button" class="chip" data-ers="' + esc(it.slot) + '" aria-pressed="' + (it.mode === 'ersatz') + '">Veggie-Ersatz</button>';
+    return '<div class="chips">' + h + '</div>';
+  }
+  function slotHtml(slot, i) {
+    var it = S[slot][i], lab = slot === 'mittag' ? 'Mittag' : 'Abend', p = pers(slot, i);
+    if (!it) return '<div class="slot"><i>' + lab + '</i><button type="button" class="wahl" data-wahl="' + slot + ':' + i + '"><b class="leer">+ auswählen</b><small>für ' + p + '</small></button><span></span></div>';
+    if (it.id === '-') return '<div class="slot"><i>' + lab + '</i><button type="button" class="wahl" data-wahl="' + slot + ':' + i + '"><b>nichts / auswärts</b></button><button type="button" class="x" data-x="' + slot + ':' + i + '" aria-label="Leeren">×</button></div>';
+    var r = BY[it.id]; if (!r) return '';
+    it.slot = slot + ':' + i;
+    var meta = (r.min ? r.min + ' Min. · ' : '') + 'für ' + p;
+    return '<div class="slot"><i>' + lab + '</i><div><button type="button" class="wahl" data-wahl="' + slot + ':' + i + '"><b>' + esc(r.titel) + '</b><small>' + meta + '</small></button>' + chips(it, slot) + '</div><button type="button" class="x" data-x="' + slot + ':' + i + '" aria-label="Leeren">×</button></div>';
+  }
+  function zeichnen() {
+    $('n-blitz').textContent = S.blitz; $('n-veggie').textContent = S.veggie;
+    var c = zaehlen();
+    $('bilanz').innerHTML = '<span>Mittag: ' + c.geplant + ' von 7 geplant</span>' +
+      '<span class="' + (c.blitz === S.blitz ? 'ok' : 'off') + '">Blitz ' + c.blitz + ' · Ziel ' + S.blitz + '</span>' +
+      '<span class="' + (c.veggie >= S.veggie ? 'ok' : 'off') + '">Vegetarisch ' + c.veggie + ' · mind. ' + S.veggie + '</span>' +
+      '<span>Fisch ' + c.fisch + '</span><span>Fleisch ' + c.fleisch + '</span>';
+    $('woche').innerHTML = TAGE.map(function (t, i) { return '<div class="tag"><h3>' + t + '<small>' + (i < 5 ? 'Mittag 2 · Abend 3' : 'alle 3') + '</small></h3>' + slotHtml('mittag', i) + slotHtml('abend', i) + '</div>'; }).join('');
+    einkaufszeichnen();
+  }
+
+  // ---- Einkaufsliste
+  var UNITS = { g: ['g', 1], kg: ['g', 1000], ml: ['ml', 1], l: ['ml', 1000], el: ['EL', 1], tl: ['TL', 1], dose: ['Dose', 1], dosen: ['Dose', 1], bund: ['Bund', 1], zehe: ['Zehe', 1], zehen: ['Zehe', 1], pck: ['Pck.', 1], 'pck.': ['Pck.', 1], prise: ['Prise', 1], stange: ['Stange', 1], stangen: ['Stange', 1], zweig: ['Zweig', 1], zweige: ['Zweig', 1], handvoll: ['Handvoll', 1], kopf: ['Kopf', 1], packung: ['Packung', 1], scheibe: ['Scheibe', 1], scheiben: ['Scheibe', 1], stück: ['Stück', 1] };
+  var BRUCH = { '¼': 0.25, '½': 0.5, '¾': 0.75 };
+  function zahlAus(s) {
+    s = s.trim(); var m;
+    if ((m = /^(\d+)\s*([¼½¾])$/.exec(s))) return +m[1] + BRUCH[m[2]];
+    if (BRUCH[s] != null) return BRUCH[s];
+    if ((m = /^(\d+)\/(\d+)$/.exec(s))) return +m[1] / +m[2];
+    return parseFloat(s.replace(',', '.'));
+  }
+  function zerlegen(z) {
+    z = z.trim().replace(/^ca\.\s*/i, '');
+    var m = /^((?:\d+\s*[¼½¾]|\d+\/\d+|\d+(?:[.,]\d+)?|[¼½¾]))(?:\s*[–-]\s*(?:\d+(?:[.,]\d+)?))?\s*(.*)$/.exec(z.trim());
+    if (!m) return { q: null, einheit: '', name: z.trim() };
+    var q = zahlAus(m[1]), rest = m[2], einheit = '', f = 1, mu = /^(g|kg|ml|l|EL|TL|Dosen?|Bund|Zehen?|Pck\.?|Prise|Stangen?|Zweige?|Handvoll|Kopf|Packung|Scheiben?|Stück)\b\.?\s*(.*)$/i.exec(rest);
+    if (mu) { var u = UNITS[mu[1].toLowerCase()]; if (u) { einheit = u[0]; f = u[1]; rest = mu[2]; } }
+    return { q: q * f, einheit: einheit, name: rest };
+  }
+  function bereinigen(n) { n = n.replace(/\s*\(.*?\)/g, '').split(',')[0].replace(/^(von|der|die|das)\s+/i, '').replace(/^Bio-/i, '').replace(/^((große|großer|großes|kleine|kleiner|kleines|mittelgroße|mittelgroßer|frische|frischer|frisches|reife|reifer|unbehandelte|unbehandelter|festfleischige|festkochende|getrocknete|getrockneter|gehackte|passierte|stückige)\s+)+/i, function (m) { return /(getrocknet|gehackt|passiert|stückig)/i.test(m) ? m : ''; }).replace(/\s+/g, ' ').trim(); return n.charAt(0).toUpperCase() + n.slice(1); }
+  function schluessel(n) { var k = n.toLowerCase(); if (/(el|en)n?$/.test(k) && k.length > 5) k = k.replace(/n$/, ''); return k.replace(/e$/, ''); }
+  function ersatzName(n) { return /hack/i.test(n) ? 'vegetarisches Hack (Soja)' : /wurst|brät/i.test(n) ? 'vegetarische Bratwurst' : /schinken|speck/i.test(n) ? 'vegetarischer Aufschnitt' : 'Fleischersatz (Tofu, Seitan oder Soja)'; }
+  function zutatenVon(it, p) {
+    var r = BY[it.id]; if (!r) return [];
+    var f = p / (r.portionen || p), out = [];
+    r.zutaten.forEach(function (z) {
+      var istFl = r.fleisch.indexOf(z) >= 0;
+      var t = zerlegen(z);
+      if (istFl && it.mode === 'ersatz') t.name = ersatzName(t.name);
+      out.push({ q: t.q == null ? null : t.q * f, einheit: t.einheit, name: bereinigen(t.name) });
+    });
+    return out;
+  }
+  function mengeText(q, e) {
+    if (q == null) return '';
+    if (e === 'g' && q >= 1000) { q /= 1000; e = 'kg'; } else if (e === 'ml' && q >= 1000) { q /= 1000; e = 'l'; }
+    var n;
+    if (e === 'g' || e === 'ml') n = String(Math.round(q / (q > 100 ? 5 : 1)) * (q > 100 ? 5 : 1));
+    else if (e === 'kg' || e === 'l') n = String(Math.round(q * 10) / 10).replace('.', ',');
+    else { var h = Math.ceil(q * 2) / 2, g = Math.floor(h), fr = h - g; n = (g ? g : '') + (fr ? '½' : ''); if (!n) n = '½'; }
+    var PL = { Scheibe: 'Scheiben', Dose: 'Dosen', Zehe: 'Zehen', Stange: 'Stangen', Zweig: 'Zweige', Packung: 'Packungen' };
+    return n + (e ? ' ' + (q > 1 && PL[e] ? PL[e] : e) : '');
+  }
+  var GRUPPEN = [
+    ['Obst und Gemüse', /(zwiebel|knoblauch|karotte|möhre|tomate(?!nmark)|paprika(?!pulver)|zucchini|spinat|brokkoli|kohl|kartoffel|kürbis|fenchel|lauch|spargel|gurke|radieschen|salat|rucola|avocado|zitrone|limette|apfel|birne|beere|ingwer|petersilie|schnittlauch|koriander|basilikum|thymian|rosmarin|pastinake|sellerie|pilz|champignon|mais(?!\w)|erbsen|granatapfel|trauben|kräuter|edamame|rote bete|chili(?!pulver)|orange|banane)/i],
+    ['Milch, Käse und Eier', /(milch(?!reis)|joghurt|skyr|käse|feta|mozzarella|parmesan|butter|sahne|quark|\bei\b|eier|obazda|frischkäse|camembert|halloumi)/i],
+    ['Fleisch und Fisch', /(hack|hähnchen|pute|wurst|schinken|speck|lachs|forelle|kabeljau|makrele|sardine|garnele|thunfisch|fisch|brät|salami|räucher|vegetarisch|fleischersatz|tofu|tempeh|seitan)/i],
+    ['Brot und Backwaren', /(brot|brezn|brötchen|ciabatta|baguette|fladen|tortilla|toast|wrap|mehl)/i]
+  ];
+  function gruppe(n) { if (/(essig|getrocknet|pulver|gewürz|salz|pfeffer|\böl\b|öl\b|brühe|tomatenmark|zucker|honig|senf|sojasauce|nudel|spaghetti|lasagne|reis|linse|bohne|kichererbse|quinoa|bulgur|couscher|couscous|haferflocke|nuss|nüsse|mandel|kerne|passierte|gehackte tomaten|stückige|polenta|gerste|maronen|tahini|kokosmilch|oliven|kapern|paste|miso|sesam|walnuss|udon|fusilli)/i.test(n)) return 'Vorrat und Gewürze'; for (var i = 0; i < GRUPPEN.length; i++) if (GRUPPEN[i][1].test(n)) return GRUPPEN[i][0]; return 'Vorrat und Gewürze'; }
+  function einkaufsPosten() {
+    var m = {}, ord = [];
+    ['mittag', 'abend'].forEach(function (slot) {
+      S[slot].forEach(function (it, i) {
+        if (!it || it.id === '-') return;
+        zutatenVon(it, pers(slot, i)).forEach(function (z) {
+          if (!z.name) return;
+          var k = schluessel(z.name) + '|' + (z.q == null ? 'x' : z.einheit);
+          if (!m[k]) { m[k] = { name: z.name, einheit: z.einheit, q: z.q == null ? null : 0, k: k }; ord.push(k); }
+          if (z.q != null && m[k].q != null) m[k].q += z.q;
+        });
+      });
+    });
+    var out = ord.map(function (k) { var p = m[k]; p.text = (mengeText(p.q, p.einheit) + ' ' + p.name).trim(); p.gruppe = gruppe(p.name); return p; });
+    var rang = {}; ['Obst und Gemüse', 'Milch, Käse und Eier', 'Fleisch und Fisch', 'Brot und Backwaren', 'Vorrat und Gewürze'].forEach(function (g, i) { rang[g] = i; });
+    out.sort(function (a, b) { return rang[a.gruppe] - rang[b.gruppe] || a.name.localeCompare(b.name, 'de'); });
+    return out;
+  }
+  function einkaufszeichnen() {
+    var p = einkaufsPosten(), h = haken();
+    if (!p.length) { $('einkauf').innerHTML = '<p class="hinweis" style="margin:0">Sobald Gerichte im Plan stehen, erscheint hier die Einkaufsliste, nach Abteilungen sortiert.</p>'; return; }
+    var gr = '', html = '<div class="list">';
+    p.forEach(function (x) {
+      if (x.gruppe !== gr) { gr = x.gruppe; html += '<h4>' + esc(gr) + '</h4>'; }
+      var m = (mengeText(x.q, x.einheit) || '');
+      html += '<label class="' + (h[x.k] ? 'an' : '') + '"><input type="checkbox" data-h="' + esc(x.k) + '"' + (h[x.k] ? ' checked' : '') + '><span class="menge">' + esc(m) + '</span><span>' + esc(x.name) + '</span></label>';
+    });
+    html += '</div><div class="exp"><button type="button" class="btn2" id="kopie">Liste kopieren</button><button type="button" class="btn2" id="teilen">Teilen</button><button type="button" class="btn2" id="erinn">An Erinnerungen senden</button></div><p class="hinweis" id="exp-msg" style="margin:0"></p>' +
+      '<details class="hilfe"><summary>So kommt die Liste in Erinnerungen</summary><p><b>Am einfachsten:</b> „Liste kopieren“ tippen, dann in Erinnerungen deine Einkaufsliste öffnen und den Text einfügen. Jede Zeile sollte dort eine eigene Erinnerung werden.</p><p><b>Mit einem Tipp:</b> Einmal in der App „Kurzbefehle“ einen Kurzbefehl mit dem Namen <b>Einkaufsliste</b> anlegen:</p><ol><li>„Text“ (Eingabe des Kurzbefehls)</li><li>„Text aufteilen“ nach „Neue Zeilen“</li><li>„Jedes Element wiederholen“</li><li>darin „Neue Erinnerung hinzufügen“ in deine Liste</li></ol><p>Danach öffnet „An Erinnerungen senden“ diesen Kurzbefehl und füllt deine Liste. Eine Webseite kann nicht selbst in eine bestimmte iCloud-Liste schreiben, deshalb braucht es diesen Zwischenschritt.</p></details>';
+    $('einkauf').innerHTML = html;
+  }
+  function listenText() { return einkaufsPosten().filter(function (x) { return !haken()[x.k]; }).map(function (x) { return x.text; }).join('\n'); }
+
+  // ---- Auswahl
+  function oeffnen(slot, i) {
+    offen = { slot: slot, i: i }; filt = 'alle';
+    $('sheet-t').textContent = (slot === 'mittag' ? 'Mittag, ' : 'Abend, ') + TAGE[i];
+    $('bg').classList.add('auf'); $('sheet').classList.add('auf'); filterZeichnen(); listeZeichnen();
+  }
+  function schliessen() { $('bg').classList.remove('auf'); $('sheet').classList.remove('auf'); offen = null; }
+  function filterZeichnen() {
+    var f = [['alle', 'Alle'], ['blitz', 'Blitz'], ['veggie', 'Vegetarisch'], ['fisch', 'Fisch'], ['fleisch', 'Fleisch']];
+    $('filter').innerHTML = f.map(function (x) { return '<button type="button" data-f="' + x[0] + '" aria-pressed="' + (filt === x[0]) + '">' + x[1] + '</button>'; }).join('');
+  }
+  function listeZeichnen() {
+    var pool = offen.slot === 'mittag' ? mittagPool() : abendPool();
+    pool = pool.filter(function (r) { return filt === 'alle' || (filt === 'blitz' ? istBlitz(r) : r.typ === filt); });
+    pool.sort(function (a, b) { return a.titel.localeCompare(b.titel, 'de'); });
+    $('liste').innerHTML = '<button type="button" class="z" data-pick="-"><b class="nix">nichts / auswärts</b></button>' + pool.map(function (r) {
+      return '<button type="button" class="z" data-pick="' + esc(r.id) + '"><b>' + esc(r.titel) + '</b><div class="chips">' + (istBlitz(r) ? '<span class="chip blitz">Blitz</span>' : '') + '<span class="chip ' + (r.typ === 'veggie' ? 'veg' : r.typ) + '">' + (r.typ === 'veggie' ? 'vegetarisch' : r.typ === 'fisch' ? 'Fisch' : 'mit Fleisch') + '</span>' + (r.min ? '<span class="chip">' + r.min + ' Min.</span>' : '') + (r.quelle === 'klassiker' ? '<span class="chip">Klassiker</span>' : '') + '</div></button>';
+    }).join('') || '<p class="hinweis">Nichts dabei.</p>';
+  }
+
+  // ---- Woche vorschlagen
+  function mischen(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function vorschlagen() {
+    var fest = S.mittag.map(function (it) { return it && it.fix ? it : null; });
+    var frei = []; fest.forEach(function (it, i) { if (!it) frei.push(i); });
+    var benutzt = {}; fest.forEach(function (it) { if (it) benutzt[it.id] = 1; });
+    var pool = mittagPool().filter(function (r) { return !benutzt[r.id]; });
+    var haben = { blitz: 0, veggie: 0, fisch: 0 };
+    fest.forEach(function (it) { if (!it || it.id === '-') return; if (istBlitz(BY[it.id])) haben.blitz++; var a = art(it); if (a === 'veggie') haben.veggie++; if (a === 'fisch') haben.fisch++; });
+    var beste = null, bestWert = -1;
+    for (var versuch = 0; versuch < 200; versuch++) {
+      var p = mischen(pool), wahl = [], h = { blitz: haben.blitz, veggie: haben.veggie, fisch: haben.fisch };
+      function nimm(pred, mode) {
+        for (var k = 0; k < p.length && wahl.length < frei.length; k++) {
+          var r = p[k]; if (wahl.some(function (w) { return w.id === r.id; })) continue;
+          if (!pred(r)) continue;
+          var it = { id: r.id, mode: mode || 'normal' }, a = art(it);
+          if (a === 'fisch' && h.fisch >= 2) continue;
+          wahl.push(it); if (istBlitz(r)) h.blitz++; if (a === 'veggie') h.veggie++; if (a === 'fisch') h.fisch++;
+          return true;
+        }
+        return false;
+      }
+      while (wahl.length < frei.length && h.blitz < S.blitz && nimm(function (r) { return istBlitz(r) && (h.veggie < S.veggie ? r.typ === 'veggie' : true); })) {}
+      while (wahl.length < frei.length && h.veggie < S.veggie && nimm(function (r) { return r.typ === 'veggie'; })) {}
+      while (wahl.length < frei.length && h.veggie < S.veggie && nimm(function (r) { return r.typ === 'fleisch'; }, 'ersatz')) {}
+      while (wahl.length < frei.length && nimm(function (r) { return !(istBlitz(r) && h.blitz >= S.blitz); })) {}
+      while (wahl.length < frei.length && nimm(function (r) { return true; })) {}
+      var wert = (Math.min(h.blitz, S.blitz) + Math.min(h.veggie, S.veggie)) * 10 + wahl.length;
+      if (wert > bestWert) { bestWert = wert; beste = wahl; }
+      if (h.blitz >= S.blitz && h.veggie >= S.veggie && wahl.length === frei.length) break;
+    }
+    beste = beste || [];
+    // lange Gerichte aufs Wochenende, Blitzgerichte unter die Woche
+    beste.sort(function (a, b) { return (BY[b.id].min || 60) - (BY[a.id].min || 60); });
+    var ende = frei.filter(function (i) { return i >= 5; }), woche = mischen(frei.filter(function (i) { return i < 5; }));
+    var plaetze = ende.concat(woche), neu = fest.slice();
+    beste.forEach(function (it, k) { neu[plaetze[k]] = it; });
+    S.mittag = neu;
+    // Brotzeit: Lücken füllen, nicht doppelt, wenig Fisch und Fleisch
+    var ab = abendPool(), uB = {}; S.abend.forEach(function (it) { if (it && it.fix) uB[it.id] = 1; });
+    var fl = 0, fi = 0; S.abend.forEach(function (it) { if (it && it.fix && BY[it.id]) { if (BY[it.id].typ === 'fleisch') fl++; if (BY[it.id].typ === 'fisch') fi++; } });
+    var q = mischen(ab);
+    for (var d = 0; d < 7; d++) {
+      if (S.abend[d] && S.abend[d].fix) continue;
+      var pick = q.filter(function (r) { return !uB[r.id] && !(r.typ === 'fleisch' && fl >= 2) && !(r.typ === 'fisch' && fi >= 1); })[0] || q.filter(function (r) { return !uB[r.id]; })[0];
+      if (!pick) { S.abend[d] = null; continue; }
+      uB[pick.id] = 1; if (pick.typ === 'fleisch') fl++; if (pick.typ === 'fisch') fi++;
+      S.abend[d] = { id: pick.id, mode: 'normal' };
+    }
+    sichern(); zeichnen();
+  }
+
+  // ---- Ereignisse
+  document.addEventListener('click', function (ev) {
+    var t = ev.target, b;
+    if ((b = t.closest('[data-r]'))) { var k = b.getAttribute('data-r'); S[k] = Math.max(0, Math.min(7, S[k] + (+b.getAttribute('data-d')))); sichern(); zeichnen(); return; }
+    if ((b = t.closest('[data-ers]'))) { var s = b.getAttribute('data-ers').split(':'), it = S[s[0]][+s[1]]; if (it) { it.mode = it.mode === 'ersatz' ? 'normal' : 'ersatz'; it.fix = true; sichern(); zeichnen(); } return; }
+    if ((b = t.closest('[data-x]'))) { var x = b.getAttribute('data-x').split(':'); S[x[0]][+x[1]] = null; sichern(); zeichnen(); return; }
+    if ((b = t.closest('[data-wahl]'))) { var w = b.getAttribute('data-wahl').split(':'); oeffnen(w[0], +w[1]); return; }
+    if ((b = t.closest('[data-f]'))) { filt = b.getAttribute('data-f'); filterZeichnen(); listeZeichnen(); return; }
+    if ((b = t.closest('[data-pick]'))) { var id = b.getAttribute('data-pick'); S[offen.slot][offen.i] = { id: id, mode: 'normal', fix: true }; sichern(); schliessen(); zeichnen(); return; }
+    if (t.id === 'bg' || t.id === 'zu') { schliessen(); return; }
+    if (t.id === 'vorschlag') { vorschlagen(); return; }
+    if (t.id === 'leeren') { var n = S.blitz, v = S.veggie; S = leer(); S.blitz = n; S.veggie = v; hakenSichern({}); sichern(); zeichnen(); return; }
+    if (t.id === 'kopie') {
+      var txt = listenText();
+      var fertig = function () { $('exp-msg').textContent = 'Kopiert. In Erinnerungen einfügen.'; };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(fertig, function () { $('exp-msg').textContent = 'Kopieren hat nicht geklappt. Nutze „Teilen“.'; });
+      else { var ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); fertig(); } catch (e) {} ta.remove(); }
+      return;
+    }
+    if (t.id === 'teilen') { var t2 = listenText(); if (navigator.share) navigator.share({ title: 'Einkaufsliste', text: t2 }).catch(function () {}); else $('exp-msg').textContent = 'Teilen gibt es hier nicht. Nutze „Liste kopieren“.'; return; }
+    if (t.id === 'erinn') { location.href = 'shortcuts://run-shortcut?name=' + encodeURIComponent('Einkaufsliste') + '&input=text&text=' + encodeURIComponent(listenText()); $('exp-msg').textContent = 'Öffnet den Kurzbefehl „Einkaufsliste“. Falls nichts passiert: unten steht, wie man ihn anlegt.'; return; }
+  });
+  document.addEventListener('change', function (ev) {
+    var c = ev.target.closest && ev.target.closest('[data-h]'); if (!c) return;
+    var h = haken(); if (c.checked) h[c.getAttribute('data-h')] = 1; else delete h[c.getAttribute('data-h')]; hakenSichern(h); c.closest('label').classList.toggle('an', c.checked);
+  });
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && offen) schliessen(); });
+
+  S = laden();
+  fetch('data/wochenplan.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) {
+    REZ = d.rezepte; REZ.forEach(function (r) { BY[r.id] = r; });
+    ['mittag', 'abend'].forEach(function (s) { S[s] = S[s].map(function (it) { return it && it.id !== '-' && !BY[it.id] ? null : it; }); });
+    zeichnen();
+  }).catch(function () { $('woche').innerHTML = '<p class="hinweis">Die Rezeptliste konnte nicht geladen werden.</p>'; });
+})();
+</script>
+<script src="nav.js?v=11" defer></script>
+</body>
+</html>
