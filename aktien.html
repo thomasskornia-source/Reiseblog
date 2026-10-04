@@ -69,6 +69,12 @@
   .more dt { color: var(--ink-soft); font-size: 13px; } .more dd { margin: 0; font-size: 13.5px; }
   .more blockquote { margin: 8px 0 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--gold); line-height: 1.5; }
   .more blockquote cite { display: block; font-style: normal; font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+  .wtabs { display: flex; gap: 2px; max-width: 560px; margin: 10px auto 12px; padding: 4px; background: #1d2b3a; border-radius: 999px; overflow-x: auto; scrollbar-width: none; }
+  .wtabs::-webkit-scrollbar { display: none; }
+  .wtabs button, .wtabs a { flex: 1 1 auto; padding: 9px 7px; border: 0; border-radius: 999px; background: transparent; color: #e8e2d6; font: inherit; font-size: 13.5px; font-weight: 500; cursor: pointer; white-space: nowrap; text-decoration: none; text-align: center; }
+  .wtabs button[aria-selected="true"] { background: #B5502E; color: #fff; }
+  .wtabs a { color: #F0A15A; }
+  .tab-aus { display: none !important; }
   .markt { max-width: 560px; margin: -2px auto 0; width: 100%; }
   .markt > summary { list-style: none; cursor: pointer; text-align: center; font-size: 13.5px; color: var(--ink-soft); display: flex; justify-content: center; align-items: center; gap: 7px; flex-wrap: wrap; padding: 4px 0; }
   .markt > summary::-webkit-details-marker { display: none; }
@@ -163,9 +169,17 @@
       <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="Charlie"><circle cx="60" cy="60" r="60" fill="#CFDAD3"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#3b4a56"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#C99A3E"/><ellipse cx="60" cy="58" rx="27" ry="31" fill="#EFC6A0"/><path d="M33 56c-3-12 0-22 6-26-4 8-4 16-3 26zM87 56c3-12 0-22-6-26 4 8 4 16 3 26z" fill="#E7E4DE"/><path d="M44 31c6-6 26-6 32 0-8-3-24-3-32 0z" fill="#E7E4DE"/><g fill="#fff" stroke="#2E3A32" stroke-width="3.5"><circle cx="48" cy="56" r="11"/><circle cx="72" cy="56" r="11"/></g><path d="M59 55h2" stroke="#2E3A32" stroke-width="3"/><circle cx="48" cy="56" r="2.6" fill="#2E3A32"/><circle cx="72" cy="56" r="2.6" fill="#2E3A32"/><path d="M47 76c8 5 18 3 26-2" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/></svg><b>Charlie</b><small>Was kann schiefgehen</small></div>
       <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="James"><circle cx="60" cy="60" r="60" fill="#F0D5C8"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#B5502E"/><path d="M50 90l10 12 10-12z" fill="#FAF3E8"/><ellipse cx="60" cy="58" rx="25" ry="30" fill="#E8B991"/><path d="M34 52c-3-20 8-31 26-31s29 11 26 31c-2-8-6-12-12-14-8 3-20 3-28 0-6 2-10 6-12 14z" fill="#3a2a22"/><path d="M38 70c2 14 10 22 22 22s20-8 22-22c-3 8-10 12-22 12s-19-4-22-12z" fill="#3a2a22" opacity=".55"/><g fill="#2E3A32"><rect x="40" y="49" width="16" height="6" rx="3"/><rect x="64" y="49" width="16" height="6" rx="3"/></g><circle cx="48" cy="52" r="1.8" fill="#fff"/><circle cx="72" cy="52" r="1.8" fill="#fff"/><path d="M48 72c8 5 16 5 24 0" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/><path d="M30 38c-6-3-8-9-7-14 3 4 7 6 12 7zM90 38c6-3 8-9 7-14-3 4-7 6-12 7z" fill="#FAF3E8" stroke="#8a7a68" stroke-width="1.5"/></svg><b>James</b><small>Kurs und Option Flows</small></div>
     </div>
-    <details class="markt" id="markt" open hidden><summary id="markt-s"></summary><div class="body" id="markt-c"></div></details>
-    <details class="markt top10" id="top10" hidden><summary id="top10-s"></summary><div class="body" id="top10-c"></div></details>
-    <details class="markt top10" id="beo" hidden><summary id="beo-s"></summary><div class="body" id="beo-c"></div></details>
+    <div class="wtabs" id="wtabs" role="tablist" aria-label="Bereiche">
+      <button type="button" role="tab" data-tab="sp" aria-selected="true">S&amp;P 500</button>
+      <button type="button" role="tab" data-tab="top10" aria-selected="false">Top 10</button>
+      <button type="button" role="tab" data-tab="watch" aria-selected="false">Watchlist</button>
+      <button type="button" role="tab" data-tab="pruefen" aria-selected="false">Prüfen</button>
+      <a href="megas.html">Megas ›</a>
+    </div>
+    <details class="markt" id="markt" data-panel="sp" open hidden><summary id="markt-s"></summary><div class="body" id="markt-c"></div></details>
+    <details class="markt top10" id="top10" data-panel="top10" hidden><summary id="top10-s"></summary><div class="body" id="top10-c"></div></details>
+    <details class="markt top10" id="beo" data-panel="watch" hidden><summary id="beo-s"></summary><div class="body" id="beo-c"></div></details>
+    <div data-panel="pruefen" class="tab-aus" id="pnl-pruefen">
     <p class="sub">Aktie eintippen, drei Meinungen bekommen. Das Feld sucht auch in den bisherigen.</p>
     <form class="ak-form" id="form" autocomplete="off">
       <input id="inp" type="text" maxlength="60" placeholder="z. B. Apple, KO, Siemens" aria-label="Aktie">
@@ -174,6 +188,7 @@
     <p class="msg" id="status"></p>
     <ul class="pend" id="pend"></ul>
     <div id="list"><p class="empty">Lädt …</p></div>
+    </div>
   </div>
 
   <p class="foot">Warren, Charlie und James sind KI-Figuren, keine echten Personen und keine Zitate. Warren und Charlie folgen den öffentlich bekannten Grundsätzen von Warren Buffett und Charlie Munger. Die Top 10 sind eine Vorauswahl nach festen Regeln (Warren: Jahreszahlen der US-Börsenaufsicht SEC, James: Trend und Setup-Score), keine Empfehlung. James folgt der öffentlich beschriebenen Methode von <a href="https://www.jamesbulltard.com" target="_blank" rel="noopener">James Bulltard</a> (Option Flows und Charts); die Seite ist nicht mit ihm abgestimmt. Die Option Flows sind eine Näherung aus öffentlichen, verzögerten Optionsumsätzen (Cboe), kein Blick auf einzelne Großanleger. Das hier ist keine Anlageberatung; Kennzahlen und Kurse können unvollständig oder veraltet sein.</p>
@@ -495,7 +510,6 @@
       var an2 = br && br.megacaps ? br.megacaps.filter(function (x) { return x.ueber8; }).length : null;
       $('markt-c').innerHTML += '<details class="mehr-b"><summary>Marktbreite und Mag7' + (bv ? ' · ' + bv.ueber21 + ' % der Aktien über der 21er' : '') + (an2 != null ? ' · ' + an2 + ' von 7 Mag7 über der 8er' : '') + '</summary>' + ex + '</details>';
     }
-    $('markt-c').innerHTML += '<p class="cap" style="margin-top:10px"><a class="mg-pill" href="megas.html">💎 Die Megas im Chart: Börsenwert, Performance, KGV</a></p>';
     if (!m.serie) $('markt').removeAttribute('open');
     $('markt').hidden = false;
   }, function () {});
@@ -506,12 +520,20 @@
       (warren ? 'Warren ' + x.warren_ok + '/' + x.warren_von + '<br>' : '') + 'James ' + x.punkte + '/12</span></li>';
   }
   function zeigeKarte(tk) {
+    tab('pruefen');
     var e = data.filter(function (z) { return sym(z).toUpperCase().replace('.', '-') === tk.toUpperCase().replace('.', '-'); })[0];
     if (!e) return;
     zuletzt = sym(e); filter = ''; $('inp').value = ''; render();
     var el = document.querySelector('[data-sym="' + zuletzt + '"]'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
+  function tab(n) {
+    [].forEach.call(document.querySelectorAll('[data-panel]'), function (el) { el.classList.toggle('tab-aus', el.getAttribute('data-panel') !== n); if (el.getAttribute('data-panel') === n && el.tagName === 'DETAILS' && el.id !== 'markt') el.open = true; });
+    [].forEach.call(document.querySelectorAll('#wtabs [data-tab]'), function (b) { b.setAttribute('aria-selected', b.getAttribute('data-tab') === n ? 'true' : 'false'); });
+  }
+  $('wtabs').addEventListener('click', function (ev) { var b = ev.target.closest('[data-tab]'); if (b) tab(b.getAttribute('data-tab')); });
+  tab('sp');
   function pruefen(tk) {
+    tab('pruefen');
     $('inp').value = tk; $('form').onsubmit({ preventDefault: function () {} });
     $('status').scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
@@ -602,14 +624,15 @@
     var ausg = beoB && beoB.aktien ? beoB.aktien.length - eigene.length : 0;
     var wechsel = eigene.filter(function (x) { return x.ampel_vorher && x.ampel_vorher !== x.ampel; });
     var stand = beoB ? beoB.stand : (uni && uni.stand);
-    $('beo-s').innerHTML = 'Meine Aktien heute <span>(James, Stand ' + esc(String(stand || '').slice(0, 5)) + ')</span>' + (wechsel.length ? ' <b>' + wechsel.length + ' Wechsel</b>' : '');
-    var h = '<ol>' + eigene.map(function (x) {
+    $('beo-s').innerHTML = 'Watchlist und meine Aktien <span>(James, Stand ' + esc(String(stand || '').slice(0, 5)) + ')</span>' + (wechsel.length ? ' <b>' + wechsel.length + ' Wechsel</b>' : '');
+    var h2 = '<ol>' + eigene.map(function (x) {
       return '<li data-t="' + esc(x.ticker) + '"><span class="n">' + dot(acls(x.ampel)) + '</span><span class="t"><b>' + esc(x.ticker) + '</b> ' + esc(x.name) +
         '<small>' + esc(x.lage) + (x.ampel_vorher && x.ampel_vorher !== x.ampel ? ' · vorher ' + esc(x.ampel_vorher) : '') + '</small></span><span class="z">James ' + x.punkte + '/12 <button type="button" class="xb" data-weg="' + esc(x.ticker) + '" aria-label="' + esc(x.ticker) + ' entfernen" title="Entfernen">×</button></span></li>';
     }).join('') + '</ol>';
-    if (!eigene.length) h = '<p class="hinweis">Keine Aktien in der Liste.</p>';
-    if (ausg) h += '<p class="hinweis">' + ausg + ' ausgeblendet · <button type="button" class="lk" data-alle="1">alle zurückholen</button> (gilt nur auf diesem Gerät)</p>';
-    h += '<h4 class="wl-h">Watchlist <small>Aktien im Blick behalten, ohne sie prüfen zu lassen</small></h4>';
+    if (!eigene.length) h2 = '<p class="hinweis">Keine Aktien in der Liste.</p>';
+    if (ausg) h2 += '<p class="hinweis">' + ausg + ' ausgeblendet · <button type="button" class="lk" data-alle="1">alle zurückholen</button> (gilt nur auf diesem Gerät)</p>';
+    var h = '';
+    h += '<h4 class="wl-h" style="margin-top:4px">Watchlist <small>Aktien im Blick behalten, ohne sie prüfen zu lassen</small></h4>';
     var u = {}; if (uni && uni.aktien) uni.aktien.forEach(function (x) { u[normT(x.t)] = x; });
     h += '<ol id="wl-l">' + watch.map(function (t) {
       var x = u[t];
@@ -618,7 +641,8 @@
     }).join('') + '</ol>';
     if (!watch.length) h += '<p class="hinweis">Noch leer. Ticker eintippen und mit ＋ merken, oder bei einer Aktie oben auf „Zur Watchlist“ tippen.</p>';
     h += '<form class="wl-form" id="wl-form" autocomplete="off"><input id="wl-inp" type="text" maxlength="12" placeholder="Ticker, z. B. NVDA" aria-label="Ticker für die Watchlist" autocapitalize="characters"><button type="submit" class="plus" aria-label="Zur Watchlist hinzufügen">＋</button></form>';
-    h += '<p class="hinweis" id="wl-msg">' + esc(beoMsg) + '</p><p class="hinweis">Nur Kurs und Trend, täglich neu. Zeile antippen: Trend, Chart und die Meinung von Warren und Charlie klappen auf. Die Watchlist gilt nur auf diesem Gerät und kennt alle Aktien des S&amp;P 500.</p>';
+    h += '<p class="hinweis" id="wl-msg">' + esc(beoMsg) + '</p><p class="hinweis">Die Watchlist gilt nur auf diesem Gerät und kennt alle Aktien des S&amp;P 500.</p>';
+    h += '<h4 class="wl-h">Meine Aktien heute <small>Zeile antippen: Trend, Chart und die Meinung von Warren und Charlie klappen auf. Nur Kurs und Trend, täglich neu.</small></h4>' + h2;
     var offen = $('beo-c').querySelector('li.auf'); var tk = offen && (offen.getAttribute('data-t') || offen.getAttribute('data-w'));
     $('beo-c').innerHTML = h;
     if (tk) { var li = $('beo-c').querySelector('[data-t="' + tk + '"],[data-w="' + tk + '"]'); if (li) toggleBeo(li); }
