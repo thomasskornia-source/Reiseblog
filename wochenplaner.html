@@ -40,6 +40,10 @@
   .wp .slot .x { width: 30px; height: 30px; border: 0; border-radius: 50%; background: rgba(46,58,50,.08); color: var(--ink-soft); font-size: 17px; cursor: pointer; }
   .wp .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
   .wp .chip { padding: 2px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 600; background: rgba(46,58,50,.08); color: var(--ink-soft); border: 0; font-family: inherit; }
+  .wp .chip.schlicht { background: #ece6d6; color: #6b5a2e; }
+  .wp .chip.aufw { background: #ead9ee; color: #6a3a77; }
+  .wp .slot.rest { background: rgba(34,106,61,.05); }
+  .wp .slot.rest .wahl { cursor: default; }
   .wp .chip.blitz { background: #fdf0cf; color: #8a5a00; }
   .wp .chip.veg { background: #e3f1e7; color: #226a3d; }
   .wp .chip.fisch { background: #e1eef6; color: #245f86; }
@@ -97,7 +101,7 @@
     <h1>Wochenplaner</h1>
     <hr class="rule">
   </header>
-  <p class="sub">Mittags etwas Warmes für zwei (am Wochenende für drei), abends Brotzeit für drei. Stell die Regeln ein, lass die Woche vorschlagen und tausche, was dir nicht passt.</p>
+  <p class="sub">Mittags etwas Warmes für zwei (am Wochenende für drei), abends Brotzeit für drei. Stell die Regeln ein, lass die Woche vorschlagen und tausche, was dir nicht passt. Unter der Woche gibt es nur Blitz und Schlichtes, Aufwändiges landet am Wochenende.</p>
 
   <div class="regeln">
     <div class="regel"><div>Blitzgerichte pro Woche<small>mittags, höchstens 30 Minuten</small></div><div class="step"><button type="button" data-r="blitz" data-d="-1" aria-label="weniger">−</button><b id="n-blitz">2</b><button type="button" data-r="blitz" data-d="1" aria-label="mehr">+</button></div></div>
@@ -111,7 +115,7 @@
   <h2>Einkaufsliste</h2>
   <div id="einkauf"></div>
 
-  <p class="hinweis">Mengen sind auf die Personenzahl umgerechnet (Mo–Fr mittags 2, sonst 3). Wo ein Rezept mit Fleisch ist, lässt sich mit „Veggie-Ersatz“ der Fleischanteil durch Fleischersatz tauschen oder das Fleisch separat zubereiten. Der Plan liegt nur auf diesem Gerät.</p>
+  <p class="hinweis">Mengen sind auf die Personenzahl umgerechnet (Mo–Fr mittags 2, sonst 3). Wo ein Rezept mit Fleisch ist, lässt sich mit „Veggie-Ersatz“ der Fleischanteil durch Fleischersatz tauschen oder das Fleisch separat zubereiten. <b>Mehr kochen</b> macht zwei Portionen extra: Am nächsten Tag steht mittags „Reste“, und die Einkaufsliste wächst mit. <b>Reis, Nudeln und Co. doppelt</b> kocht nur die Beilage für den Folgetag mit. Der Plan liegt nur auf diesem Gerät.</p>
 </div>
 
 <div class="sheet-bg" id="bg"></div>
@@ -140,12 +144,22 @@
 
   // ---- Eigenschaften eines gewählten Gerichts
   function istBlitz(r) { return !!r && r.warm && r.min != null && r.min <= 30; }
+  function aufwand(r) {
+    if (istBlitz(r)) return 'blitz';
+    var m = r.min == null ? 40 : r.min;
+    if (m >= 50 || r.zutaten.length >= 16 || r.id === 'falafel-smash-burger-karotten-zaziki') return 'aufwaendig';
+    return 'schlicht';
+  }
+  var BEIL = [['Reis', /\b(voll\w*|basmati|jasmin)?reis\b/i], ['Nudeln', /(nudel|spaghetti|fusilli|udon|penne)/i], ['Bulgur', /bulgur/i], ['Quinoa', /quinoa/i]];
+  function beilageVon(r) { if (!r) return null; for (var i = 0; i < BEIL.length; i++) if (r.zutaten.some(function (z) { return BEIL[i][1].test(z); })) return BEIL[i][0]; return null; }
+  function istBeilagenZeile(z, b) { for (var i = 0; i < BEIL.length; i++) if (BEIL[i][0] === b) return BEIL[i][1].test(z); return false; }
+  function restQuelle(i, arr) { var q = i > 0 && arr[i - 1]; return q && q.mehr && q.id !== '-' && BY[q.id] && !restQuelle(i - 1, arr) ? q : null; }
   function art(it) { var r = BY[it.id]; if (!r) return 'veggie'; return r.typ === 'fleisch' && it.mode === 'ersatz' ? 'veggie' : r.typ; }
   function mittagPool() { return REZ.filter(function (r) { return r.warm && r.quelle !== 'brotzeit'; }); }
   function abendPool() { return REZ.filter(function (r) { return r.quelle === 'brotzeit' || !r.warm; }); }
   function zaehlen() {
-    var c = { blitz: 0, veggie: 0, fisch: 0, fleisch: 0, geplant: 0 };
-    S.mittag.forEach(function (it) { if (!it || it.id === '-') return; c.geplant++; var r = BY[it.id]; if (istBlitz(r)) c.blitz++; var a = art(it); if (a === 'veggie') c.veggie++; else if (a === 'fisch') c.fisch++; else c.fleisch++; });
+    var c = { blitz: 0, veggie: 0, fisch: 0, fleisch: 0, geplant: 0, aufw: 0 };
+    S.mittag.forEach(function (it, i) { var rq = restQuelle(i, S.mittag); if (rq) it = rq; if (!it || it.id === '-') return; c.geplant++; var r = BY[it.id]; if (!rq && istBlitz(r)) c.blitz++; var a = art(it); if (a === 'veggie') c.veggie++; else if (a === 'fisch') c.fisch++; else c.fleisch++; if (!rq && aufwand(r) === 'aufwaendig') c.aufw++; });
     return c;
   }
 
@@ -153,18 +167,31 @@
   function chips(it, slot) {
     var r = BY[it.id]; if (!r) return '';
     var a = art(it), h = '';
-    if (istBlitz(r)) h += '<span class="chip blitz">Blitz</span>';
+    var au = aufwand(r);
+    h += au === 'blitz' ? '<span class="chip blitz">Blitz</span>' : au === 'schlicht' ? '<span class="chip schlicht">Schlicht</span>' : '<span class="chip aufw">Aufwändig</span>';
     h += '<span class="chip ' + (a === 'veggie' ? 'veg' : a) + '">' + (a === 'veggie' ? 'vegetarisch' : a === 'fisch' ? 'Fisch' : 'mit Fleisch') + '</span>';
     if (r.typ === 'fleisch' && slot === 'mittag') h += '<button type="button" class="chip" data-ers="' + esc(it.slot) + '" aria-pressed="' + (it.mode === 'ersatz') + '">Veggie-Ersatz</button>';
+    var sp = (it.slot || '').split(':'), ti = +sp[1];
+    if (slot === 'mittag' && r.warm && ti < 6) {
+      h += '<button type="button" class="chip" data-mehr="' + esc(it.slot) + '" aria-pressed="' + !!it.mehr + '">Mehr kochen</button>';
+      var bl = beilageVon(r);
+      if (bl && !it.mehr) h += '<button type="button" class="chip" data-beil="' + esc(it.slot) + '" aria-pressed="' + !!it.beilage + '">' + bl + ' doppelt</button>';
+    }
     return '<div class="chips">' + h + '</div>';
   }
   function slotHtml(slot, i) {
     var it = S[slot][i], lab = slot === 'mittag' ? 'Mittag' : 'Abend', p = pers(slot, i);
-    if (!it) return '<div class="slot"><i>' + lab + '</i><button type="button" class="wahl" data-wahl="' + slot + ':' + i + '"><b class="leer">+ auswählen</b><small>für ' + p + '</small></button><span></span></div>';
+    var rq = slot === 'mittag' ? restQuelle(i, S.mittag) : null;
+    if (rq) {
+      var qr = BY[rq.id], qa = art(rq);
+      return '<div class="slot rest"><i>' + lab + '</i><div><div class="wahl"><b>Reste: ' + esc(qr.titel) + '</b><small>von ' + TAGE[i - 1] + ' · für 2, nichts zu kochen</small></div><div class="chips"><span class="chip schlicht">Reste</span><span class="chip ' + (qa === 'veggie' ? 'veg' : qa) + '">' + (qa === 'veggie' ? 'vegetarisch' : qa === 'fisch' ? 'Fisch' : 'mit Fleisch') + '</span></div></div><button type="button" class="x" data-mehr="mittag:' + (i - 1) + '" aria-label="Reste abbrechen">×</button></div>';
+    }
+    var vb = slot === 'mittag' && i > 0 && S.mittag[i - 1] && S.mittag[i - 1].beilage && !S.mittag[i - 1].mehr && BY[S.mittag[i - 1].id] ? beilageVon(BY[S.mittag[i - 1].id]) : null;
+    if (!it) return '<div class="slot"><i>' + lab + '</i><button type="button" class="wahl" data-wahl="' + slot + ':' + i + '"><b class="leer">+ auswählen</b><small>für ' + p + (vb ? ' · ' + vb + ' von gestern übrig' : '') + '</small></button><span></span></div>';
     if (it.id === '-') return '<div class="slot"><i>' + lab + '</i><button type="button" class="wahl" data-wahl="' + slot + ':' + i + '"><b>nichts / auswärts</b></button><button type="button" class="x" data-x="' + slot + ':' + i + '" aria-label="Leeren">×</button></div>';
     var r = BY[it.id]; if (!r) return '';
     it.slot = slot + ':' + i;
-    var meta = (r.min ? r.min + ' Min. · ' : '') + 'für ' + p;
+    var meta = (r.min ? r.min + ' Min. · ' : '') + 'für ' + (it.mehr ? p + ' + 2 für morgen' : p) + (vb ? ' · ' + vb + ' von gestern übrig' : '');
     return '<div class="slot"><i>' + lab + '</i><div><button type="button" class="wahl" data-wahl="' + slot + ':' + i + '"><b>' + esc(r.titel) + '</b><small>' + meta + '</small></button>' + chips(it, slot) + '</div><button type="button" class="x" data-x="' + slot + ':' + i + '" aria-label="Leeren">×</button></div>';
   }
   function zeichnen() {
@@ -173,7 +200,7 @@
     $('bilanz').innerHTML = '<span>Mittag: ' + c.geplant + ' von 7 geplant</span>' +
       '<span class="' + (c.blitz === S.blitz ? 'ok' : 'off') + '">Blitz ' + c.blitz + ' · Ziel ' + S.blitz + '</span>' +
       '<span class="' + (c.veggie >= S.veggie ? 'ok' : 'off') + '">Vegetarisch ' + c.veggie + ' · mind. ' + S.veggie + '</span>' +
-      '<span>Fisch ' + c.fisch + '</span><span>Fleisch ' + c.fleisch + '</span>';
+      '<span class="' + (c.aufw <= 2 ? '' : 'off') + '">Aufwändig ' + c.aufw + '</span><span>Fisch ' + c.fisch + '</span><span>Fleisch ' + c.fleisch + '</span>';
     $('woche').innerHTML = TAGE.map(function (t, i) { return '<div class="tag"><h3>' + t + '<small>' + (i < 5 ? 'Mittag 2 · Abend 3' : 'alle 3') + '</small></h3>' + slotHtml('mittag', i) + slotHtml('abend', i) + '</div>'; }).join('');
     einkaufszeichnen();
   }
@@ -208,7 +235,7 @@
   }
   function zutatenVon(it, p) {
     var r = BY[it.id]; if (!r) return [];
-    var f = p / (r.portionen || p), out = [];
+    var f = (p + (it.mehr ? 2 : 0)) / (r.portionen || p), out = [], bl = it.beilage && !it.mehr ? beilageVon(r) : null, fb = (p + 2) / (r.portionen || p);
     var flach = [];
     r.zutaten.forEach(function (z0) {
       var fl0 = r.fleisch.indexOf(z0) >= 0, fm = /^Für [^:]+:\s*(.*)$/.exec(z0);
@@ -219,7 +246,7 @@
       var z = zf[0], istFl = zf[1];
       var t = zerlegen(z);
       if (istFl && it.mode === 'ersatz') t.name = ersatzName(t.name);
-      var nm = bereinigen(t.name), q = t.q == null ? null : t.q * f, e = t.einheit;
+      var nm = bereinigen(t.name), q = t.q == null ? null : t.q * (bl && istBeilagenZeile(z, bl) ? fb : f), e = t.einheit;
       if (WASSER.test(nm)) return;
       var mix = /^gewürzmischung\s+(\S+)\s*(?:&|und)\s+(\S+)/i.exec(nm);
       var teile = mix ? [mix[1], mix[2]] : [nm];
@@ -257,7 +284,7 @@
     var m = {}, ord = [];
     ['mittag', 'abend'].forEach(function (slot) {
       S[slot].forEach(function (it, i) {
-        if (!it || it.id === '-') return;
+        if (!it || it.id === '-' || (slot === 'mittag' && restQuelle(i, S.mittag))) return;
         zutatenVon(it, pers(slot, i)).forEach(function (z) {
           if (!z.name) return;
           var k = schluessel(z.name) + '|' + (z.q == null ? 'x' : z.einheit);
@@ -292,6 +319,7 @@
   function listenText() { var vo = vorrat(); return einkaufsPosten().filter(function (x) { return !haken()[x.k] && vo.indexOf(x.nk) < 0; }).map(function (x) { return x.text; }).join('\n'); }
 
   // ---- Auswahl
+  function beiVortag(i) { var q = i > 0 && S.mittag[i - 1]; return q && q.beilage && !q.mehr && BY[q.id] ? beilageVon(BY[q.id]) : null; }
   function oeffnen(slot, i) {
     offen = { slot: slot, i: i }; filt = 'alle';
     $('sheet-t').textContent = (slot === 'mittag' ? 'Mittag, ' : 'Abend, ') + TAGE[i];
@@ -299,15 +327,19 @@
   }
   function schliessen() { $('bg').classList.remove('auf'); $('sheet').classList.remove('auf'); offen = null; }
   function filterZeichnen() {
-    var f = [['alle', 'Alle'], ['blitz', 'Blitz'], ['veggie', 'Vegetarisch'], ['fisch', 'Fisch'], ['fleisch', 'Fleisch']];
+    var f = [['alle', 'Alle'], ['blitz', 'Blitz'], ['einfach', 'Schlicht']];
+    var bv = offen && offen.slot === 'mittag' ? beiVortag(offen.i) : null;
+    if (bv) f.push(['beilage', bv + ' von gestern']);
+    f = f.concat([['veggie', 'Vegetarisch'], ['fisch', 'Fisch'], ['fleisch', 'Fleisch']]);
     $('filter').innerHTML = f.map(function (x) { return '<button type="button" data-f="' + x[0] + '" aria-pressed="' + (filt === x[0]) + '">' + x[1] + '</button>'; }).join('');
   }
   function listeZeichnen() {
     var pool = offen.slot === 'mittag' ? mittagPool() : abendPool();
-    pool = pool.filter(function (r) { return filt === 'alle' || (filt === 'blitz' ? istBlitz(r) : r.typ === filt); });
+    var bv = offen.slot === 'mittag' ? beiVortag(offen.i) : null;
+    pool = pool.filter(function (r) { return filt === 'alle' || (filt === 'blitz' ? istBlitz(r) : filt === 'einfach' ? aufwand(r) !== 'aufwaendig' : filt === 'beilage' ? beilageVon(r) === bv : r.typ === filt); });
     pool.sort(function (a, b) { return a.titel.localeCompare(b.titel, 'de'); });
     $('liste').innerHTML = '<button type="button" class="z" data-pick="-"><b class="nix">nichts / auswärts</b></button>' + pool.map(function (r) {
-      return '<button type="button" class="z" data-pick="' + esc(r.id) + '"><b>' + esc(r.titel) + '</b><div class="chips">' + (istBlitz(r) ? '<span class="chip blitz">Blitz</span>' : '') + '<span class="chip ' + (r.typ === 'veggie' ? 'veg' : r.typ) + '">' + (r.typ === 'veggie' ? 'vegetarisch' : r.typ === 'fisch' ? 'Fisch' : 'mit Fleisch') + '</span>' + (r.min ? '<span class="chip">' + r.min + ' Min.</span>' : '') + (r.quelle === 'klassiker' ? '<span class="chip">Klassiker</span>' : '') + '</div></button>';
+      return '<button type="button" class="z" data-pick="' + esc(r.id) + '"><b>' + esc(r.titel) + '</b><div class="chips">' + (aufwand(r) === 'blitz' ? '<span class="chip blitz">Blitz</span>' : aufwand(r) === 'schlicht' ? '<span class="chip schlicht">Schlicht</span>' : '<span class="chip aufw">Aufwändig</span>') + '<span class="chip ' + (r.typ === 'veggie' ? 'veg' : r.typ) + '">' + (r.typ === 'veggie' ? 'vegetarisch' : r.typ === 'fisch' ? 'Fisch' : 'mit Fleisch') + '</span>' + (r.min ? '<span class="chip">' + r.min + ' Min.</span>' : '') + (r.quelle === 'klassiker' ? '<span class="chip">Klassiker</span>' : '') + '</div></button>';
     }).join('') || '<p class="hinweis">Nichts dabei.</p>';
   }
 
@@ -315,21 +347,23 @@
   function mischen(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
   function vorschlagen() {
     var fest = S.mittag.map(function (it) { return it && it.fix ? it : null; });
-    var frei = []; fest.forEach(function (it, i) { if (!it) frei.push(i); });
+    var frei = []; fest.forEach(function (it, i) { if (!it && !restQuelle(i, fest)) frei.push(i); });
+    var endeFrei = frei.filter(function (i) { return i >= 5; }).length;
     var benutzt = {}; fest.forEach(function (it) { if (it) benutzt[it.id] = 1; });
     var pool = mittagPool().filter(function (r) { return !benutzt[r.id]; });
-    var haben = { blitz: 0, veggie: 0, fisch: 0 };
-    fest.forEach(function (it) { if (!it || it.id === '-') return; if (istBlitz(BY[it.id])) haben.blitz++; var a = art(it); if (a === 'veggie') haben.veggie++; if (a === 'fisch') haben.fisch++; });
+    var haben = { blitz: 0, veggie: 0, fisch: 0, auf: 0 };
+    fest.forEach(function (it, i) { var rq = restQuelle(i, fest); if (rq) it = rq; if (!it || it.id === '-') return; if (!rq && istBlitz(BY[it.id])) haben.blitz++; if (!rq && aufwand(BY[it.id]) === 'aufwaendig') haben.auf++; var a = art(it); if (a === 'veggie') haben.veggie++; if (a === 'fisch') haben.fisch++; });
     var beste = null, bestWert = -1;
     for (var versuch = 0; versuch < 200; versuch++) {
-      var p = mischen(pool), wahl = [], h = { blitz: haben.blitz, veggie: haben.veggie, fisch: haben.fisch };
+      var p = mischen(pool), wahl = [], h = { blitz: haben.blitz, veggie: haben.veggie, fisch: haben.fisch, auf: haben.auf };
       function nimm(pred, mode) {
         for (var k = 0; k < p.length && wahl.length < frei.length; k++) {
           var r = p[k]; if (wahl.some(function (w) { return w.id === r.id; })) continue;
           if (!pred(r)) continue;
           var it = { id: r.id, mode: mode || 'normal' }, a = art(it);
           if (a === 'fisch' && h.fisch >= 2) continue;
-          wahl.push(it); if (istBlitz(r)) h.blitz++; if (a === 'veggie') h.veggie++; if (a === 'fisch') h.fisch++;
+          if (aufwand(r) === 'aufwaendig' && h.auf >= endeFrei + haben.auf) continue;
+          wahl.push(it); if (aufwand(r) === 'aufwaendig') h.auf++; if (istBlitz(r)) h.blitz++; if (a === 'veggie') h.veggie++; if (a === 'fisch') h.fisch++;
           return true;
         }
         return false;
@@ -344,8 +378,9 @@
       if (h.blitz >= S.blitz && h.veggie >= S.veggie && wahl.length === frei.length) break;
     }
     beste = beste || [];
-    // lange Gerichte aufs Wochenende, Blitzgerichte unter die Woche
-    beste.sort(function (a, b) { return (BY[b.id].min || 60) - (BY[a.id].min || 60); });
+    // Aufwändiges und Langes aufs Wochenende, Blitz und Schlichtes unter die Woche
+    function rang(it) { var r = BY[it.id]; return (aufwand(r) === 'aufwaendig' ? 1000 : 0) + (r.min || 60); }
+    beste.sort(function (a, b) { return rang(b) - rang(a); });
     var ende = frei.filter(function (i) { return i >= 5; }), woche = mischen(frei.filter(function (i) { return i < 5; }));
     var plaetze = ende.concat(woche), neu = fest.slice();
     beste.forEach(function (it, k) { neu[plaetze[k]] = it; });
@@ -369,6 +404,8 @@
     var t = ev.target, b;
     if ((b = t.closest('[data-r]'))) { var k = b.getAttribute('data-r'); S[k] = Math.max(0, Math.min(7, S[k] + (+b.getAttribute('data-d')))); sichern(); zeichnen(); return; }
     if ((b = t.closest('[data-ers]'))) { var s = b.getAttribute('data-ers').split(':'), it = S[s[0]][+s[1]]; if (it) { it.mode = it.mode === 'ersatz' ? 'normal' : 'ersatz'; it.fix = true; sichern(); zeichnen(); } return; }
+    if ((b = t.closest('[data-mehr]'))) { var m = b.getAttribute('data-mehr').split(':'), mi = S.mittag[+m[1]]; if (mi) { mi.mehr = !mi.mehr; mi.fix = true; if (mi.mehr) delete mi.beilage; sichern(); zeichnen(); } return; }
+    if ((b = t.closest('[data-beil]'))) { var bm = b.getAttribute('data-beil').split(':'), bi = S.mittag[+bm[1]]; if (bi) { bi.beilage = !bi.beilage; bi.fix = true; sichern(); zeichnen(); } return; }
     if ((b = t.closest('[data-x]'))) { var x = b.getAttribute('data-x').split(':'); S[x[0]][+x[1]] = null; sichern(); zeichnen(); return; }
     if ((b = t.closest('[data-wahl]'))) { var w = b.getAttribute('data-wahl').split(':'); oeffnen(w[0], +w[1]); return; }
     if ((b = t.closest('[data-f]'))) { filt = b.getAttribute('data-f'); filterZeichnen(); listeZeichnen(); return; }
