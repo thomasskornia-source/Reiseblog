@@ -312,8 +312,9 @@
     var box = $('song-des-tages');
     if (!box || !window.fetch) return;
     fetch('data/songs.json').then(function (r) { return r.json(); }).then(function (songs) {
-      var d = Math.floor((new Date() - new Date(2026, 0, 1)) / 86400000);
-      var pick = songs[((d % songs.length) + songs.length) % songs.length];
+      songs = songs.filter(function (x) { return x && x.title; }).sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+      if (!songs.length) return;
+      var pick = songs[0];
       $('sdt-title').textContent = pick.title;
       $('sdt-by').textContent = pick.artist;
       box.href = 'song.html?id=' + encodeURIComponent(pick.id);

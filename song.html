@@ -54,14 +54,14 @@
       <div class="song-fun" id="s-funbox" hidden><b>Noch ein Detail</b><p id="s-fun"></p></div>
     </div>
 
-    <h2 class="song-more">Alle Songs</h2>
+    <h2 class="song-more">Die letzten Tage</h2>
     <ul class="song-list" id="s-list"></ul>
   </article>
 
   <p id="s-error" class="song-note" hidden>Der Song konnte gerade nicht geladen werden. Bitte später noch einmal versuchen.</p>
 
   <footer class="site-footer">
-    <p>Jeden Tag ein neuer Song, mit Herkunft und Deutung.</p>
+    <p>Jeden Morgen ein neuer Song, mit Herkunft und Deutung.</p>
   </footer>
 </div>
 <script>
@@ -71,11 +71,7 @@
   var synth = ('speechSynthesis' in window) ? window.speechSynthesis : null;
   var reading = false, queue = [];
 
-  function dayIndex(n) {
-    var d = Math.floor((new Date() - new Date(2026, 0, 1)) / 86400000);
-    return ((d % n) + n) % n;
-  }
-  function spotifyUrl(s) { return 'https://open.spotify.com/search/' + encodeURIComponent(s.title + ' ' + s.artist); }
+  function spotifyUrl(s) { return s.spotify ? 'https://open.spotify.com/track/' + encodeURIComponent(s.spotify) : 'https://open.spotify.com/search/' + encodeURIComponent(s.title + ' ' + s.artist); }
 
   function stop() {
     reading = false; queue = [];
@@ -106,8 +102,8 @@
   }
 
   function show(songs, s, isToday) {
-    var now = new Date();
-    $('s-kicker').textContent = isToday ? 'Song des Tages · ' + now.getDate() + '. ' + MONATE[now.getMonth()] + ' ' + now.getFullYear() : 'Aus der Sammlung';
+    var p = (s.date || '').split('-'), dt = p.length === 3 ? p[2].replace(/^0/, '') + '. ' + MONATE[+p[1] - 1] + ' ' + p[0] : '';
+    $('s-kicker').textContent = (isToday ? 'Song des Tages' : 'Song vom Tag') + (dt ? ' · ' + dt : '');
     $('s-title').textContent = s.title;
     $('s-by').textContent = s.artist + ' · ' + s.year;
     $('s-herkunft').textContent = s.herkunft;
@@ -136,8 +132,10 @@
   }
 
   fetch('data/songs.json').then(function (r) { return r.json(); }).then(function (songs) {
+    songs = songs.filter(function (x) { return x && x.title; }).sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+    if (!songs.length) { $('s-error').hidden = false; return; }
     var id = new URLSearchParams(location.search).get('id'), s = null, i;
-    var today = songs[dayIndex(songs.length)];
+    var today = songs[0];
     for (i = 0; i < songs.length; i++) if (songs[i].id === id) s = songs[i];
     if (!s) s = today;
     show(songs, s, s.id === today.id);
