@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Megas: Unternehmen mit mehr als 1 Billion US-Dollar Börsenwert, laufendes Jahr (YTD) -> data/megas.json
+"""Megas: Unternehmen mit mehr als 1 Billion US-Dollar Börsenwert, Verlauf der letzten zwei Jahre (die Seite zeigt 1 Monat bis 2 Jahre und YTD) -> data/megas.json
 
 Kein Token-Verbrauch, läuft täglich in der GitHub-Aktion „Top 10 S&P 500“ (nach tools/screener.py).
   Kurse:        Yahoo-Finance-Tageskurse (inoffiziell), Aktiensplits werden herausgerechnet.
@@ -18,6 +18,7 @@ import trend
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 KANDIDATEN = ['NVDA', 'MSFT', 'AAPL', 'GOOGL', 'AMZN', 'META', 'AVGO', 'TSLA', 'LLY', 'WMT', 'JPM', 'ORCL', 'V', 'NFLX', 'MA', 'XOM', 'COST', 'PLTR']
 SCHWELLE = 1e12
+FENSTER = 504      # Handelstage im Verlauf (ca. 2 Jahre); die Seite wählt daraus 1 Monat bis 2 Jahre
 
 def web(url, ua):
     for k in range(3):
@@ -108,11 +109,10 @@ def main():
                 return (v[-1] if v else aktien[0])[1]
             letzter = z[-1]
             if letzter[1] * anzahl(letzter[0]) < SCHWELLE: print('unter 1 Bio.:', t, round(letzter[1] * anzahl(letzter[0]) / 1e12, 2)); continue
-            basis = [x for x in z if x[0].year < jahr][-1]       # letzter Schlusskurs des Vorjahres als 0 Prozent
-            ytd = [x for x in z if x[0].year == jahr]
+            ytd = z[-FENSTER:]
             firmen.append({'t': t, 'name': namen.get(t, t).title() if namen.get(t, t).isupper() else namen.get(t, t),
                            'wert': [round(x[1] * anzahl(x[0]) / 1e9) for x in ytd],
-                           'perf': [round((x[2] / basis[2] - 1) * 100, 2) for x in ytd],
+                           'kurs': [round(x[2], 2) for x in ytd],
                            'kgv': [(lambda e: round(x[2] / e, 1) if e and e > 0 and x[2] / e < 400 else None)(ttm(eps, x[0])) for x in ytd],
                            'tage': [x[0].strftime('%d.%m.%y') for x in ytd]})
         except Exception as e:
@@ -121,13 +121,13 @@ def main():
     gemeinsam = sorted(set.intersection(*(set(f['tage']) for f in firmen)), key=lambda s: datetime.datetime.strptime(s, '%d.%m.%y'))
     for f in firmen:
         pos = {t: i for i, t in enumerate(f['tage'])}
-        for k in ('wert', 'perf', 'kgv'): f[k] = [f[k][pos[t]] for t in gemeinsam]
+        for k in ('wert', 'kurs', 'kgv'): f[k] = [f[k][pos[t]] for t in gemeinsam]
         del f['tage']
-        f['wert_heute'] = f['wert'][-1]; f['ytd'] = f['perf'][-1]; f['kgv_heute'] = f['kgv'][-1]
+        f['wert_heute'] = f['wert'][-1]; f['kgv_heute'] = f['kgv'][-1]
     firmen.sort(key=lambda f: -f['wert_heute'])
     out = {'stand': datetime.date.today().strftime('%d.%m.%Y'), 'schwelle_mrd': int(SCHWELLE / 1e9), 'tage': gemeinsam, 'firmen': firmen}
     with open(os.path.join(ROOT, 'data', 'megas.json'), 'w', encoding='utf-8') as fh:
         fh.write(json.dumps(out, ensure_ascii=False, separators=(',', ':')).replace('},{"t"', '},\n{"t"').replace('"firmen":[', '"firmen":[\n') + '\n')
-    print('Megas:', ', '.join('%s %s Mrd, YTD %s %%, KGV %s' % (f['t'], f['wert_heute'], f['ytd'], f['kgv_heute']) for f in firmen))
+    print('Megas:', ', '.join('%s %s Mrd, KGV %s' % (f['t'], f['wert_heute'], f['kgv_heute']) for f in firmen))
 
 main()
