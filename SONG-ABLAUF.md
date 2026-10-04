@@ -29,4 +29,8 @@ in `data/songs.json`.
 10. `git fetch origin main`, auf `main` committen und pushen (Commit-Nachricht: „Song des Tages: <Titel> – <Interpret>“, mit den üblichen Co-Authored-By/Claude-Session-Zeilen).
 11. Nach dem Push kurz berichten: welcher Song, ein Satz zur Geschichte. Der Song erscheint nach etwa ein bis zwei Minuten auf der Startseite.
 
+## Audio
+
+Die Audiodatei zum Vorlesen (`audio/<id>.mp3`) erzeugt **automatisch** der GitHub-Workflow `song-audio.yml` (Skript `tools/song-audio.py`, Gemini-Sprachausgabe, Schlüssel als GitHub-Secret `GEMINI_API_KEY`), sobald `data/songs.json` auf `main` geändert wird. Dafür ist in der täglichen Aufgabe nichts zu tun. Fehlt die Datei, liest die Seite mit der Stimme des Geräts vor.
+
 Bei Fehlern (kein Zugriff auf Drive, Push scheitert): nichts halb Fertiges hinterlassen, den Fehler klar melden.

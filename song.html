@@ -76,7 +76,7 @@
   var keep = [], started = false, timer = null;
   function note(msg) { var n = $('s-note'); n.textContent = msg; n.hidden = !msg; }
   function stop(silent) {
-    reading = false; queue = []; clearTimeout(timer);
+    reading = false; queue = []; clearTimeout(timer); stopAudio();
     if (synth && (synth.speaking || synth.pending)) synth.cancel();
     var b = $('s-read'); b.textContent = '🔊 Vorlesen'; b.setAttribute('aria-pressed', 'false');
   }
@@ -102,7 +102,22 @@
     synth.speak(u);
     if (synth.paused) synth.resume();
   }
+  var player = null, hasAudio = false;
+  function stopAudio() { if (player) { player.pause(); player = null; } }
+  function playFile(s, fallback) {
+    var a = new Audio('audio/' + encodeURIComponent(s.id) + '.mp3');
+    player = a; a.preload = 'auto';
+    var b = $('s-read'); b.textContent = '⏹ Stopp'; b.setAttribute('aria-pressed', 'true'); reading = true;
+    a.onended = function () { stop(); };
+    a.onerror = function () { player = null; reading = false; fallback(); };
+    var p = a.play();
+    if (p && p.catch) p.catch(function () { if (player === a) { player = null; reading = false; fallback(); } });
+  }
   function startReading(s) {
+    var fb = function () { if (synth) startSpeech(s); else note('Vorlesen geht auf diesem Gerät leider nicht.'); };
+    if (hasAudio && window.Audio) playFile(s, fb); else fb();   // Entscheidung ohne Wartezeit, damit iPhones den Tipp noch als Nutzeraktion zählen
+  }
+  function startSpeech(s) {
     var text = s.title + ', von ' + s.artist + ', ' + s.year + '. Woher kommt der Song? ' + s.herkunft + ' Was bedeutet er? ' + s.bedeutung + (s.fun ? ' Noch ein Detail. ' + s.fun : '');
     queue = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
     if (synth.speaking || synth.pending) synth.cancel();
@@ -125,11 +140,13 @@
     $('s-spotify').href = spotifyUrl(s);
     document.title = s.title + ' – ' + s.artist + ' – Unterwegs und zuhause';
 
+    hasAudio = false;
+    if (window.fetch) fetch('audio/' + encodeURIComponent(s.id) + '.mp3', { method: 'HEAD' }).then(function (r) { hasAudio = r.ok; }).catch(function () {});
     var read = $('s-read');
-    if (!synth) { read.hidden = true; note('Dein Gerät kann leider nicht vorlesen.'); }
+    if (!synth && !window.Audio) { read.hidden = true; note('Dein Gerät kann leider nicht vorlesen.'); }
     else {
       read.onclick = function () { if (reading) stop(); else startReading(s); };
-      if (synth.getVoices) synth.getVoices();
+      if (synth && synth.getVoices) synth.getVoices();
     }
 
     var ul = $('s-list'); ul.innerHTML = '';
