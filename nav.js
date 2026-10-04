@@ -2,7 +2,7 @@
   var bar = document.getElementById('topbar');
   if (!bar) return;
   var file = location.pathname.split('/').pop() || 'index.html';
-  var map = { 'cholesterin.html': 'ernaehrung.html', 'lebensmittel-basics.html': 'ernaehrung.html', 'podcast-richtig-essen.html': 'ernaehrung.html' };
+  var map = { 'sektoren.html': 'aktien.html', 'wcj-info.html': 'aktien.html', 'megas.html': 'aktien.html', 'cholesterin.html': 'ernaehrung.html', 'lebensmittel-basics.html': 'ernaehrung.html', 'podcast-richtig-essen.html': 'ernaehrung.html' };
   if (/-reise\.html$/.test(file)) file = 'reisen.html';
   if (location.pathname.indexOf('/rezepte/') !== -1) file = 'rezepte.html';
   file = map[file] || file;

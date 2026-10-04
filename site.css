@@ -13,8 +13,6 @@
 .topbar .topnav a { text-decoration: none; color: var(--ink); font-size: 14.5px; padding: 7px 13px; border-radius: 999px; border: 0; white-space: nowrap; flex: none; transition: background .2s, color .2s; }
 .topbar .topnav a:hover { background: rgba(46, 58, 50, .1); }
 .topbar .topnav a[aria-current] { background: var(--ink); color: var(--paper); }
-.topbar .topnav a.hot { background: var(--rust); color: #fff; }
-.topbar .topnav a.hot:hover { background: #8f3d21; }
 @media (min-width: 700px) {
   .topin { padding: 12px 32px; justify-content: space-between; gap: 16px; }
   .topbar .brand .bt { display: inline; }
@@ -78,7 +76,6 @@ article th { background: rgba(181, 80, 46, .08); }
 @media (prefers-reduced-motion: reduce) { .page-list .entry-preview, .page-list .entry-preview .em { transition: none; } }
 body .topbar .topnav a { color: var(--ink) !important; text-decoration: none !important; }
 body .topbar .topnav a[aria-current] { color: var(--paper) !important; }
-body .topbar .topnav a.hot { color: #fff !important; }
 
 /* Textseiten: eine ruhige Lesespalte statt zwei Spalten */
 @media (min-width: 1000px) {
