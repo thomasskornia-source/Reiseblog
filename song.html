@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Song des Tages – Unterwegs und zuhause</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=12">
+<link rel="stylesheet" href="song.css?v=1">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+</head>
+<body class="page-song">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="muenchen-quiz.html">München-Quiz</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="index.html">← Zur Startseite</a>
+  </div>
+
+  <article id="song" class="song-wait">
+    <header class="entry-header">
+      <p class="date" id="s-kicker"></p>
+      <h1><span id="s-title"></span></h1>
+      <p class="song-by" id="s-by"></p>
+      <hr class="rule">
+    </header>
+
+    <div class="song-actions">
+      <button type="button" class="song-btn" id="s-read" aria-pressed="false">🔊 Vorlesen</button>
+      <a class="song-btn alt" id="s-spotify" href="#" target="_blank" rel="noopener">▶ Auf Spotify</a>
+    </div>
+    <p class="song-note" id="s-note" hidden>Dein Gerät kann leider nicht vorlesen.</p>
+
+    <div class="entry-body song-body">
+      <h2>Woher kommt der Song?</h2>
+      <p id="s-herkunft"></p>
+      <h2>Was bedeutet er?</h2>
+      <p id="s-bedeutung"></p>
+      <div class="song-fun" id="s-funbox" hidden><b>Noch ein Detail</b><p id="s-fun"></p></div>
+    </div>
+
+    <h2 class="song-more">Alle Songs</h2>
+    <ul class="song-list" id="s-list"></ul>
+  </article>
+
+  <p id="s-error" class="song-note" hidden>Der Song konnte gerade nicht geladen werden. Bitte später noch einmal versuchen.</p>
+
+  <footer class="site-footer">
+    <p>Jeden Tag ein neuer Song, mit Herkunft und Deutung.</p>
+  </footer>
+</div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var MONATE = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+  var synth = ('speechSynthesis' in window) ? window.speechSynthesis : null;
+  var reading = false, queue = [];
+
+  function dayIndex(n) {
+    var d = Math.floor((new Date() - new Date(2026, 0, 1)) / 86400000);
+    return ((d % n) + n) % n;
+  }
+  function spotifyUrl(s) { return 'https://open.spotify.com/search/' + encodeURIComponent(s.title + ' ' + s.artist); }
+
+  function stop() {
+    reading = false; queue = [];
+    if (synth) synth.cancel();
+    var b = $('s-read'); b.textContent = '🔊 Vorlesen'; b.setAttribute('aria-pressed', 'false');
+  }
+  function germanVoice() {
+    var vs = synth.getVoices() || [], i;
+    for (i = 0; i < vs.length; i++) if (/^de[-_]DE/i.test(vs[i].lang)) return vs[i];
+    for (i = 0; i < vs.length; i++) if (/^de/i.test(vs[i].lang)) return vs[i];
+    return null;
+  }
+  function speakNext() {
+    if (!reading) return;
+    if (!queue.length) { stop(); return; }
+    var u = new SpeechSynthesisUtterance(queue.shift());
+    u.lang = 'de-DE'; u.rate = 0.95;
+    var v = germanVoice(); if (v) u.voice = v;
+    u.onend = speakNext; u.onerror = function () { stop(); };
+    synth.speak(u);
+  }
+  function startReading(s) {
+    var text = s.title + ', von ' + s.artist + ', ' + s.year + '. Woher kommt der Song? ' + s.herkunft + ' Was bedeutet er? ' + s.bedeutung + (s.fun ? ' Noch ein Detail. ' + s.fun : '');
+    queue = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
+    synth.cancel(); reading = true;
+    var b = $('s-read'); b.textContent = '⏹ Stopp'; b.setAttribute('aria-pressed', 'true');
+    speakNext();
+  }
+
+  function show(songs, s, isToday) {
+    var now = new Date();
+    $('s-kicker').textContent = isToday ? 'Song des Tages · ' + now.getDate() + '. ' + MONATE[now.getMonth()] + ' ' + now.getFullYear() : 'Aus der Sammlung';
+    $('s-title').textContent = s.title;
+    $('s-by').textContent = s.artist + ' · ' + s.year;
+    $('s-herkunft').textContent = s.herkunft;
+    $('s-bedeutung').textContent = s.bedeutung;
+    if (s.fun) { $('s-fun').textContent = s.fun; $('s-funbox').hidden = false; } else { $('s-funbox').hidden = true; }
+    $('s-spotify').href = spotifyUrl(s);
+    document.title = s.title + ' – ' + s.artist + ' – Unterwegs und zuhause';
+
+    var read = $('s-read');
+    if (!synth) { read.hidden = true; $('s-note').hidden = false; }
+    else {
+      read.onclick = function () { if (reading) stop(); else startReading(s); };
+      if (synth.getVoices) synth.getVoices();
+    }
+
+    var ul = $('s-list'); ul.innerHTML = '';
+    songs.forEach(function (x) {
+      var li = document.createElement('li'), a = document.createElement('a');
+      a.href = 'song.html?id=' + encodeURIComponent(x.id);
+      a.innerHTML = '<b></b><span></span>';
+      a.firstChild.textContent = x.title; a.lastChild.textContent = x.artist;
+      if (x.id === s.id) a.setAttribute('aria-current', 'true');
+      li.appendChild(a); ul.appendChild(li);
+    });
+    $('song').classList.remove('song-wait');
+  }
+
+  fetch('data/songs.json').then(function (r) { return r.json(); }).then(function (songs) {
+    var id = new URLSearchParams(location.search).get('id'), s = null, i;
+    var today = songs[dayIndex(songs.length)];
+    for (i = 0; i < songs.length; i++) if (songs[i].id === id) s = songs[i];
+    if (!s) s = today;
+    show(songs, s, s.id === today.id);
+  }).catch(function () { $('s-error').hidden = false; });
+
+  window.addEventListener('pagehide', stop);
+  window.addEventListener('pageshow', function (e) { if (e.persisted) stop(); });
+})();
+</script>
+<script src="nav.js?v=11" defer></script>
+</body>
+</html>

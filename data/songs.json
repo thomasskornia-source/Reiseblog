@@ -1,0 +1,310 @@
+[
+  {
+    "id": "bochum",
+    "title": "Bochum",
+    "artist": "Herbert Grönemeyer",
+    "year": 1984,
+    "herkunft": "Grönemeyer wuchs in Bochum auf und machte die Stadt zum Titelsong seines gleichnamigen Albums von 1984. Mitten im Ruhrgebiet, zwischen Kohle, Stahl und Strukturwandel, schrieb er keine Postkarte, sondern eine raue, zärtliche Liebeserklärung.",
+    "bedeutung": "Das Lied zeigt eine Heimat, die nicht schön sein muss, um geliebt zu werden. Es geht um Zugehörigkeit, um Menschen, die anpacken, und um den Stolz auf einen Ort, den andere gern belächeln.",
+    "fun": "Der Song läuft bis heute im Stadion des VfL Bochum und gilt als inoffizielle Stadthymne."
+  },
+  {
+    "id": "griechischer-wein",
+    "title": "Griechischer Wein",
+    "artist": "Udo Jürgens",
+    "year": 1974,
+    "herkunft": "Udo Jürgens sang 1974 dieses Lied nach einem Text von Michael Kunze. Damals lebten viele Gastarbeiter aus Griechenland in Deutschland, oft fern von Familie und Sonne.",
+    "bedeutung": "Hinter der sanften Melodie steckt Heimweh. Ein Glas Wein wird zum kurzen Weg zurück in die Heimat, und gleichzeitig zeigt das Lied, wie einsam man in der Fremde sein kann.",
+    "fun": "Das Lied war ein großer Erfolg und machte das Thema Gastarbeiter in den Charts hörbar."
+  },
+  {
+    "id": "ueber-den-wolken",
+    "title": "Über den Wolken",
+    "artist": "Reinhard Mey",
+    "year": 1974,
+    "herkunft": "Reinhard Mey, Liedermacher aus Berlin, schrieb das Lied Anfang der Siebzigerjahre. Es entstand aus der Faszination für das Fliegen und den Blick auf den Flughafen, wo Abschied und Aufbruch nah beieinanderliegen.",
+    "bedeutung": "Das Lied erzählt von Freiheit und davon, dass über den Wolken alle Sorgen klein erscheinen. Zugleich schwingt Wehmut mit, denn wer am Boden bleibt, schaut den Fliegenden nur hinterher.",
+    "fun": "Mey ist selbst Privatpilot, das Fliegen ist also kein Fantasiebild."
+  },
+  {
+    "id": "nothing-else-matters",
+    "title": "Nothing Else Matters",
+    "artist": "Metallica",
+    "year": 1991,
+    "herkunft": "Die Ballade steht auf dem sogenannten Black Album von 1991. James Hetfield entwickelte sie während eines Telefonats mit seiner damaligen Freundin, mit einer Gitarre in der Hand, backstage auf Tour.",
+    "bedeutung": "Ein Hardrock-Gigant zeigt Verletzlichkeit. Das Lied handelt von Nähe auf Distanz, von Vertrauen und davon, dass einem am Ende nur wichtig ist, was man mit einem anderen Menschen teilt.",
+    "fun": "Hetfield zögerte zunächst, den sehr persönlichen Song der Band überhaupt zu zeigen."
+  },
+  {
+    "id": "dancing-queen",
+    "title": "Dancing Queen",
+    "artist": "ABBA",
+    "year": 1976,
+    "herkunft": "ABBA kamen aus Schweden und brachten das Lied 1976 heraus. Gesungen wurde es erstmals öffentlich bei einer Fernsehgala am Vorabend der Hochzeit von König Carl XVI. Gustaf und Silvia Sommerlath.",
+    "bedeutung": "Es feiert den Moment, in dem man sich auf der Tanzfläche zum ersten Mal ganz leicht und frei fühlt. Die Melodie klingt nach Sommer, der Text nach Jugend, und dazwischen liegt ein kleiner Schimmer Wehmut.",
+    "fun": "Königin Silvia wurde in Heidelberg geboren, der Gala-Hit hat also eine deutsche Verbindung."
+  },
+  {
+    "id": "dont-stop-me-now",
+    "title": "Don't Stop Me Now",
+    "artist": "Queen",
+    "year": 1978,
+    "herkunft": "Freddie Mercury schrieb diesen Song für das Album „Jazz“ von 1978. Der Klavierrock springt voran wie ein Zug ohne Bremsen und zeigt Queen von ihrer lebenslustigsten Seite.",
+    "bedeutung": "Es ist ein Lied über Übermut und das Gefühl, gerade nichts aufhalten zu können. Dahinter steckt ein Mensch, der das Leben in vollen Zügen feiert, mit allen Risiken, die dazugehören.",
+    "fun": "In Umfragen landet das Lied immer wieder ganz oben, wenn es um Gute-Laune-Songs geht."
+  },
+  {
+    "id": "hotel-california",
+    "title": "Hotel California",
+    "artist": "Eagles",
+    "year": 1976,
+    "herkunft": "Der Titelsong des gleichnamigen Albums von 1976 stammt von den Eagles aus Los Angeles. Die Musik entwickelte Gitarrist Don Felder, den Text schrieben Don Henley und Glenn Frey.",
+    "bedeutung": "Ein Reisender kommt in ein luxuriöses Hotel und findet nicht mehr hinaus. Viele deuten das als Bild für Glamour, Überfluss und Sucht im Kalifornien der Siebziger, aus dem man schwer herauskommt.",
+    "fun": "Das berühmte Gitarren-Duett am Schluss spielten Don Felder und Joe Walsh."
+  },
+  {
+    "id": "imagine",
+    "title": "Imagine",
+    "artist": "John Lennon",
+    "year": 1971,
+    "herkunft": "John Lennon veröffentlichte das Lied 1971 auf seinem gleichnamigen Soloalbum, nach dem Ende der Beatles. Er nahm es größtenteils in seinem Haus in England auf, am weißen Klavier.",
+    "bedeutung": "Der Song lädt dazu ein, sich eine Welt ohne Grenzen, ohne Besitzgier und ohne Krieg vorzustellen. Er ist weniger ein Programm als ein Gedankenspiel, und gerade deshalb bis heute so wirkungsvoll.",
+    "fun": "Seit 2017 ist Yoko Ono offiziell als Mitautorin anerkannt."
+  },
+  {
+    "id": "zwei-kleine-italiener",
+    "title": "Zwei kleine Italiener",
+    "artist": "Conny Froboess",
+    "year": 1962,
+    "herkunft": "Conny Froboess sang das Lied 1962 beim Eurovision Song Contest in Luxemburg für Deutschland und wurde Sechste. Es erschien mitten im Wirtschaftswunder, als die ersten italienischen Gastarbeiter nach Deutschland kamen.",
+    "bedeutung": "Zwei junge Männer träumen in der Fremde von Neapel und der Heimat. Heiter verpackt erzählt das Lied vom Heimweh, vom Fernweh und davon, wie nah beides beieinanderliegt.",
+    "fun": "Froboess war schon als Kind ein Star und sang das Lied mit 18."
+  },
+  {
+    "id": "99-luftballons",
+    "title": "99 Luftballons",
+    "artist": "Nena",
+    "year": 1983,
+    "herkunft": "Der Text stammt von Carlo Karges, Gitarrist der Band Nena. Er sah bei einem Rolling-Stones-Konzert in West-Berlin 1982, wie Luftballons Richtung Osten trieben, und spann die Geschichte von dort aus weiter.",
+    "bedeutung": "Aus einem harmlosen Ballonschwarm wird in der Geschichte ein Alarmfall und schließlich ein Krieg. Das Lied zeigt, wie absurd und gefährlich das Wettrüsten im Kalten Krieg war.",
+    "fun": "Die englische Fassung „99 Red Balloons“ machte das Lied auch international bekannt."
+  },
+  {
+    "id": "westerland",
+    "title": "Westerland",
+    "artist": "Die Ärzte",
+    "year": 1988,
+    "herkunft": "Die Berliner Band Die Ärzte veröffentlichte das Lied Ende der Achtzigerjahre. Westerland ist der bekannteste Ort auf der Nordseeinsel Sylt.",
+    "bedeutung": "Der Song macht sich mit Augenzwinkern über das Klischee lustig, dass Sylt ein Ort für Reiche und Schicke sei. Es ist ein Spottlied, das sich nicht ganz so ernst nimmt, wie es klingt."
+  },
+  {
+    "id": "walking-on-sunshine",
+    "title": "Walking on Sunshine",
+    "artist": "Katrina and the Waves",
+    "year": 1985,
+    "herkunft": "Der Gitarrist der Band, Kimberley Rew, schrieb das Lied. Eine erste Fassung erschien schon vorher, den großen Hit landete die britische Gruppe aber mit der Neuaufnahme von 1985.",
+    "bedeutung": "Es beschreibt pures Glück, ausgelöst durch die Rückkehr einer Liebe. Die Bläser und der Rhythmus machen das Gefühl hörbar, so als würde man tatsächlich über der Erde schweben."
+  },
+  {
+    "id": "here-comes-the-sun",
+    "title": "Here Comes the Sun",
+    "artist": "The Beatles",
+    "year": 1969,
+    "herkunft": "George Harrison schrieb das Lied im Frühjahr 1969 im Garten seines Freundes Eric Clapton, nachdem er ein ödes Geschäftstreffen der Firma Apple geschwänzt hatte. Es erschien auf dem Album „Abbey Road“.",
+    "bedeutung": "Nach einem langen, grauen Winter bricht die Sonne durch. Das Lied steht für Erleichterung und Neubeginn, nach einer Zeit voller Streit und Papierkram bei den Beatles."
+  },
+  {
+    "id": "what-a-wonderful-world",
+    "title": "What a Wonderful World",
+    "artist": "Louis Armstrong",
+    "year": 1967,
+    "herkunft": "Bob Thiele und George David Weiss schrieben das Lied 1967 für den Jazztrompeter Louis Armstrong. In den USA zunächst kaum beachtet, wurde es in Großbritannien 1968 ein Nummer-eins-Hit.",
+    "bedeutung": "Es besingt einfache Dinge: Bäume, Himmel, Menschen, die sich die Hand geben. Gerade in unruhigen Zeiten wirkt der Blick auf das Kleine und Schöne wie ein bewusster Gegenentwurf.",
+    "fun": "Armstrongs warme Reibeisenstimme gibt dem Lied seine unverwechselbare Ruhe."
+  },
+  {
+    "id": "hit-the-road-jack",
+    "title": "Hit the Road Jack",
+    "artist": "Ray Charles",
+    "year": 1961,
+    "herkunft": "Geschrieben hat das Lied der Songwriter Percy Mayfield, aufgenommen und berühmt gemacht hat es Ray Charles 1961. Es ist ein Mix aus Soul, Jazz und Blues, getragen von Charles' Klavier und einem Frauenchor.",
+    "bedeutung": "Der Text ist ein Wortgefecht: Eine Frau wirft ihren Freund hinaus, er bettelt, sie bleibt hart. Das Lied macht daraus ein kleines Theaterstück mit Humor und viel Groove."
+  },
+  {
+    "id": "wind-of-change",
+    "title": "Wind of Change",
+    "artist": "Scorpions",
+    "year": 1990,
+    "herkunft": "Sänger Klaus Meine schrieb das Lied nach einem Besuch in Moskau 1989, wo die Scorpions beim Moscow Music Peace Festival auftraten. Es erschien 1990, kurz nach dem Fall der Berliner Mauer.",
+    "bedeutung": "Der Song fängt die Hoffnung auf ein Ende des Kalten Krieges ein, auf offene Grenzen und Menschen, die einander begegnen. Er wurde zur Hymne einer Zeit des Umbruchs.",
+    "fun": "Das markante Pfeifen am Anfang kennt fast jeder sofort."
+  },
+  {
+    "id": "rock-me-amadeus",
+    "title": "Rock Me Amadeus",
+    "artist": "Falco",
+    "year": 1985,
+    "herkunft": "Der Wiener Sänger Falco machte Mozart zum Popstar: Das Lied erschien 1985 und spielt auf den Film „Amadeus“ an. 1986 stand es in den USA an der Spitze der Charts.",
+    "bedeutung": "Mozart wird als rebellischer Superstar gezeichnet, fast wie ein Rockmusiker. Das Lied verbindet Hochkultur und Popkultur mit viel Augenzwinkern und trockener Wiener Lässigkeit.",
+    "fun": "Es war das erste deutschsprachige Lied an der Spitze der US-Charts."
+  },
+  {
+    "id": "take-me-home-country-roads",
+    "title": "Take Me Home, Country Roads",
+    "artist": "John Denver",
+    "year": 1971,
+    "herkunft": "John Denver schrieb das Lied gemeinsam mit Bill und Taffy Nivert und nahm es 1971 auf. Es besingt West Virginia und die Berge der Appalachen.",
+    "bedeutung": "Es geht um Heimweh nach einem Ort, der sich nach Geborgenheit anfühlt. Man muss ihn nicht kennen, um das Gefühl zu verstehen, und deshalb singen es Menschen überall auf der Welt mit.",
+    "fun": "West Virginia hat das Lied 2014 zu einer seiner offiziellen Staatshymnen erklärt."
+  },
+  {
+    "id": "africa",
+    "title": "Africa",
+    "artist": "Toto",
+    "year": 1982,
+    "herkunft": "Keyboarder David Paich schrieb das Lied nach einer Fernsehdokumentation über das Leid in Afrika. Es erschien 1982 auf dem Album „Toto IV“ der kalifornischen Band.",
+    "bedeutung": "Der Song erzählt von einem Menschen, der sich einen Kontinent vorstellt, den er nie gesehen hat. Es ist Sehnsucht nach einem Ort, den man sich im Kopf gebaut hat.",
+    "fun": "2018 brachte eine Cover-Version von Weezer das Lied noch einmal in die Charts."
+  },
+  {
+    "id": "bohemian-rhapsody",
+    "title": "Bohemian Rhapsody",
+    "artist": "Queen",
+    "year": 1975,
+    "herkunft": "Freddie Mercury schrieb das Stück für das Album „A Night at the Opera“, erschienen 1975. Es ist rund sechs Minuten lang, was damals im Radio fast unvorstellbar war.",
+    "bedeutung": "Das Lied wechselt zwischen Ballade, Oper und Hardrock und erzählt eine düstere Geschichte um Schuld und Befreiung. Was genau gemeint ist, hat Mercury nie erklärt, und das macht seinen Reiz aus.",
+    "fun": "Für die Opernpassage legten die Musiker unzählige Gesangsspuren übereinander."
+  },
+  {
+    "id": "major-tom",
+    "title": "Major Tom (Völlig losgelöst)",
+    "artist": "Peter Schilling",
+    "year": 1982,
+    "herkunft": "Peter Schilling griff 1982 die Figur des Astronauten Major Tom aus David Bowies „Space Oddity“ von 1969 auf. Das Lied gehört zur Neuen Deutschen Welle und entstand in einer Zeit großer Begeisterung für Raumfahrt und Synthesizer.",
+    "bedeutung": "Ein Astronaut löst sich von der Erde, fliegt davon und verliert den Kontakt. Das Lied fragt nach Freiheit und Einsamkeit im All und nach dem Preis des Entkommens.",
+    "fun": "Mit der englischen Fassung „Major Tom (Coming Home)“ kam Schilling auch in die US-Charts."
+  },
+  {
+    "id": "maenner",
+    "title": "Männer",
+    "artist": "Herbert Grönemeyer",
+    "year": 1984,
+    "herkunft": "Das Lied stammt vom Album „Bochum“ von 1984. Grönemeyer spielt darin augenzwinkernd mit der Frage, was einen Mann eigentlich ausmacht.",
+    "bedeutung": "Der Song zählt Schwächen, Macken und Klischees von Männern auf und tut dabei nie so, als wäre er besser. Es ist eine liebevolle Selbstironie, die man zum Lachen und zum Mitsingen nutzen kann."
+  },
+  {
+    "id": "mr-blue-sky",
+    "title": "Mr. Blue Sky",
+    "artist": "Electric Light Orchestra",
+    "year": 1977,
+    "herkunft": "Jeff Lynne schrieb das Stück für das Album „Out of the Blue“ in einem Chalet in den Schweizer Alpen. Aufgenommen wurde das Album größtenteils in München, im Musicland Studio.",
+    "bedeutung": "Das Lied beschreibt, wie sich die Stimmung hebt, wenn nach grauen Tagen endlich die Sonne scheint. Orchester, Chor und Rock verschmelzen zu einem kleinen musikalischen Sonnenaufgang.",
+    "fun": "Das Musicland Studio lag im Keller des Arabellahauses in München."
+  },
+  {
+    "id": "sweet-dreams",
+    "title": "Sweet Dreams (Are Made of This)",
+    "artist": "Eurythmics",
+    "year": 1983,
+    "herkunft": "Annie Lennox und Dave Stewart schrieben das Lied in London und bauten es um einen pulsierenden Synthesizer-Rhythmus. Es wurde 1983 der Durchbruch des Duos.",
+    "bedeutung": "Der Text lässt viele Deutungen zu. Er kann als nüchterner Blick auf Menschen gelesen werden, die um Macht, Erfolg und Anerkennung kämpfen, begleitet von einem kühlen, hypnotischen Beat.",
+    "fun": "Annie Lennox trat im Video mit kurzem, orangefarbenem Haar und Anzug auf."
+  },
+  {
+    "id": "take-on-me",
+    "title": "Take On Me",
+    "artist": "a-ha",
+    "year": 1985,
+    "herkunft": "Die norwegische Band a-ha veröffentlichte das Lied zunächst 1984 ohne großen Erfolg. Erst die neu produzierte Fassung von 1985 wurde ein Welthit.",
+    "bedeutung": "Es ist ein Liebeslied voller Neugier und Drängen. Man spürt die Angst, den Moment zu verpassen, und die Lust, einfach einmal mutig zu sein.",
+    "fun": "Das Video verbindet Zeichentrick und Realfilm in einer aufwendigen Technik, die „Rotoskopie“ heißt."
+  },
+  {
+    "id": "i-will-survive",
+    "title": "I Will Survive",
+    "artist": "Gloria Gaynor",
+    "year": 1978,
+    "herkunft": "Dino Fekaris und Freddie Perren schrieben das Lied, Gloria Gaynor sang es 1978 ein. Ursprünglich war es nur als B-Seite einer anderen Single gedacht.",
+    "bedeutung": "Eine Frau wird verlassen, bricht aber nicht zusammen, sondern kommt gestärkt zurück. Das Lied wurde zur Hymne für Mut nach einer Trennung und für Selbstachtung im Allgemeinen.",
+    "fun": "Aus der B-Seite wurde ein Disco-Klassiker, den bis heute fast jeder mitsingen kann."
+  },
+  {
+    "id": "fields-of-gold",
+    "title": "Fields of Gold",
+    "artist": "Sting",
+    "year": 1993,
+    "herkunft": "Sting schrieb das Lied für sein Album „Ten Summoner's Tales“ von 1993. Inspiriert wurde er von Gerstenfeldern in der Nähe seines Landhauses in England.",
+    "bedeutung": "Es ist eine ruhige Liebesgeschichte, in der Feld, Wind und Sommer zum Sinnbild für ein ganzes Leben werden. Dabei klingt immer auch mit, dass Glück vergänglich ist."
+  },
+  {
+    "id": "sultans-of-swing",
+    "title": "Sultans of Swing",
+    "artist": "Dire Straits",
+    "year": 1978,
+    "herkunft": "Mark Knopfler schrieb das Lied nach einem Abend in einem Pub im Londoner Stadtteil Deptford, in dem eine kleine Jazzband vor wenigen Gästen spielte. Es erschien 1978 auf dem ersten Album der Band.",
+    "bedeutung": "Der Song ehrt Musiker, die aus Leidenschaft spielen, auch wenn kaum jemand zuhört. Er erzählt von Stolz, Bescheidenheit und der leisen Würde des Außenseiters.",
+    "fun": "Knopfler spielt seine Gitarre ohne Plektrum, direkt mit den Fingern."
+  },
+  {
+    "id": "lemon-tree",
+    "title": "Lemon Tree",
+    "artist": "Fool's Garden",
+    "year": 1995,
+    "herkunft": "Die Band stammt aus Pforzheim. Peter Freudenthaler schrieb das Lied an einem Tag, an dem nichts passierte und die Zeit zäh verging.",
+    "bedeutung": "Es geht um Untätigkeit, Warten und die Frage, was man mit einem leeren Nachmittag anfängt. Die heitere Melodie steht in bewusstem Kontrast zur trägen Stimmung des Textes.",
+    "fun": "Der Hit aus Baden-Württemberg landete in vielen Ländern weit oben in den Charts."
+  },
+  {
+    "id": "fast-car",
+    "title": "Fast Car",
+    "artist": "Tracy Chapman",
+    "year": 1988,
+    "herkunft": "Tracy Chapman schrieb und sang das Lied 1988 auf ihrem Debütalbum. Sie begleitete sich selbst mit der Akustikgitarre.",
+    "bedeutung": "Es erzählt von einer jungen Frau, die aus Armut und Perspektivlosigkeit ausbrechen will, und von der Hoffnung, die ein schnelles Auto weckt. Es bleibt offen, ob der Ausbruch gelingt.",
+    "fun": "2023 brachte der Countrysänger Luke Combs eine Cover-Version heraus, die das Lied wieder bekannt machte."
+  },
+  {
+    "id": "ich-war-noch-niemals-in-new-york",
+    "title": "Ich war noch niemals in New York",
+    "artist": "Udo Jürgens",
+    "year": 1982,
+    "herkunft": "Der Österreicher Udo Jürgens veröffentlichte das Lied 1982. Es wurde sein Reiselied schlechthin und später Namensgeber für ein ganzes Musical.",
+    "bedeutung": "Es lädt dazu ein, alles stehen und liegen zu lassen und einfach loszuziehen, in eine Stadt, die man noch nie gesehen hat. Aufbruch als Lebensgefühl, mit einem Schuss Leichtsinn."
+  },
+  {
+    "id": "wild-horses",
+    "title": "Wild Horses",
+    "artist": "The Rolling Stones",
+    "year": 1971,
+    "herkunft": "Die Stones nahmen die Ballade 1969 auf, veröffentlicht wurde sie 1971 auf dem Album „Sticky Fingers“. Den Anfang machte Keith Richards, den Text führte Mick Jagger weiter.",
+    "bedeutung": "Es geht um Bindung und Müdigkeit, um Menschen, die sich nicht trennen können, obwohl sie es vielleicht sollten. Die wilden Pferde stehen für ein Fernweh, das stärker ist als der Wunsch zu bleiben.",
+    "fun": "Der Countryrocker Gram Parsons veröffentlichte mit seiner Band eine Fassung schon vor den Stones."
+  },
+  {
+    "id": "who-let-the-dogs-out",
+    "title": "Who Let the Dogs Out",
+    "artist": "Baha Men",
+    "year": 2000,
+    "herkunft": "Das Lied geht auf eine Karnevalsnummer aus Trinidad von 1998 zurück. Die Band Baha Men von den Bahamas machte daraus im Jahr 2000 einen weltweiten Hit.",
+    "bedeutung": "Ursprünglich ging es um männliches Imponiergehabe auf dem Karneval, die Hunde im Titel sind bildlich gemeint. Für die meisten Hörer ist es heute einfach ein fröhlicher Mitgröl-Song.",
+    "fun": "2001 gab es dafür einen Grammy."
+  },
+  {
+    "id": "vogue",
+    "title": "Vogue",
+    "artist": "Madonna",
+    "year": 1990,
+    "herkunft": "Madonna schrieb den Song gemeinsam mit dem Produzenten Shep Pettibone. Er erschien 1990 und greift den Tanzstil auf, der in den Ballroom-Szenen von New York entstanden war.",
+    "bedeutung": "Das Lied ist eine Aufforderung, sich auf der Tanzfläche selbst zu inszenieren. Es feiert Stil, Selbstbewusstsein und die Idee, dass jeder in der richtigen Pose ein Star sein kann.",
+    "fun": "Das Video im Schwarz-Weiß-Look zitiert den Glamour des alten Hollywood."
+  },
+  {
+    "id": "girls-just-want-to-have-fun",
+    "title": "Girls Just Want to Have Fun",
+    "artist": "Cyndi Lauper",
+    "year": 1983,
+    "herkunft": "Ursprünglich schrieb Robert Hazard das Lied aus der Sicht eines Mannes. Cyndi Lauper veränderte den Text und machte daraus 1983 einen Hit aus Sicht der Frauen.",
+    "bedeutung": "Aus einer eher flapsigen Idee wurde eine freche Hymne darauf, dass Frauen ebenfalls das Recht auf Spaß und Freiheit haben. Der Song ist bunt, laut und verspielt und nimmt sich dabei nicht zu ernst.",
+    "fun": "Im Video tanzen viele Frauen ausgelassen durch die Straßen, es wurde selbst zum Symbol der Achtzigerjahre."
+  }
+]

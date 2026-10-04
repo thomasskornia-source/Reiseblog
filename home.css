@@ -67,6 +67,9 @@ html:has(body.home) { overflow-x: hidden; }
 .tile p { margin: 12px 0 0; font-size: 14px; line-height: 1.4; opacity: .85; max-width: 30ch; }
 .rdt-tile { display: none; height: 300px; }
 .rdt-tile[style*="block"] { display: block; }
+.song-tile { display: none; }
+.song-tile[style*="block"] { display: block; }
+.song-tile .q .by { display: block; margin-top: 6px; font-family: 'Work Sans', sans-serif; font-style: normal; font-size: 17px; font-weight: 500; opacity: .9; }
 
 /* ---------- Tagebuch: Fotos randlos wie die Farbwelten ---------- */
 .home .section-title { display: block; font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(30px, 6vw, 44px); margin: 0 0 18px; padding: 0; border: 0; }

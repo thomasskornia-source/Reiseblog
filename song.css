@@ -1,0 +1,27 @@
+/* Song des Tages: Detailseite */
+.page-song .song-by { font-family: 'Fraunces', serif; font-style: italic; font-size: 20px; color: var(--rust); margin: 6px 0 0; }
+.page-song .song-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 22px; }
+.page-song .song-btn { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; font: inherit; font-size: 16px; line-height: 1.2; text-decoration: none; cursor: pointer; border: 0; padding: 13px 22px; border-radius: 999px; background: var(--rust); color: #fff; box-shadow: 0 8px 22px rgba(181, 80, 46, .3); transition: transform .2s, box-shadow .2s; }
+.page-song .song-btn.alt { background: var(--ink); box-shadow: 0 8px 22px rgba(46, 58, 50, .25); }
+.page-song .song-btn:hover { transform: translateY(-2px); }
+.page-song .song-btn:focus-visible { outline: 3px solid #F0A15A; outline-offset: 2px; }
+.page-song .song-note { color: var(--ink-soft); font-size: 15px; }
+.page-song .song-body h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 24px; margin: 26px 0 6px; }
+.page-song .song-body p { margin: 0 0 8px; }
+.page-song .song-fun { margin-top: 24px; padding: 16px 18px; border-radius: 16px; background: var(--paper-warm); }
+.page-song .song-fun b { display: block; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--rust); margin-bottom: 4px; }
+.page-song .song-fun p { margin: 0; }
+.page-song .song-more { font-family: 'Fraunces', serif; font-weight: 500; font-size: 24px; margin: 38px 0 10px; }
+.page-song .song-list { list-style: none; margin: 0 0 30px; padding: 0; border-top: 1px solid rgba(46, 58, 50, .12); }
+.page-song .song-list li { border-bottom: 1px solid rgba(46, 58, 50, .12); }
+.page-song .song-list a { display: flex; flex-direction: column; gap: 1px; padding: 11px 4px; text-decoration: none; border: 0; color: var(--ink); }
+.page-song .song-list a span { font-size: 14px; color: var(--ink-soft); }
+.page-song .song-list a:hover b { color: var(--rust); }
+.page-song .song-list a[aria-current] b { color: var(--rust); }
+@media (min-width: 700px) {
+  .page-song .song-list { columns: 2; column-gap: 32px; }
+  .page-song .song-list li { break-inside: avoid; }
+}
+.page-song .entry-body p::first-letter,
+.page-song .entry-body p:first-of-type::first-letter { font-family: inherit; font-size: inherit; float: none; line-height: inherit; padding: 0; margin: 0; color: inherit; }
+.page-song .song-wait { visibility: hidden; }

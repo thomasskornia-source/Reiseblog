@@ -7,7 +7,7 @@
 <title>Unterwegs und zuhause – Thomas und Andrea</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=12">
-<link rel="stylesheet" href="home.css?v=5">
+<link rel="stylesheet" href="home.css?v=6">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -83,6 +83,10 @@
     <a class="tile wide rv dark-ink rdt-tile" id="rezept-des-tages" href="rezepte.html" style="--i:3;background:linear-gradient(170deg,#F8B7A5,#EE8F7A)">
       <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="330" cy="116" r="86" fill="#FFF3E6" opacity=".55"/><circle cx="330" cy="116" r="54" fill="#FFF3E6" opacity=".8"/><circle cx="330" cy="116" r="22" fill="#F6C253"/></svg>
       <div class="in"><div class="q">Heute auf dem Tisch: <i id="rdt-title"></i></div><span class="go">Rezept des Tages</span><p id="rdt-teaser"></p></div>
+    </a>
+    <a class="tile wide rv song-tile" id="song-des-tages" href="song.html" style="--i:3;background:linear-gradient(170deg,#4E5FA6,#262F63)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="330" cy="116" r="92" fill="#1B2150" opacity=".55"/><circle cx="330" cy="116" r="70" fill="none" stroke="#7F8FD6" stroke-width="2" opacity=".6"/><circle cx="330" cy="116" r="52" fill="none" stroke="#7F8FD6" stroke-width="2" opacity=".5"/><circle cx="330" cy="116" r="22" fill="#F6C253"/><circle cx="330" cy="116" r="4" fill="#262F63"/></svg>
+      <div class="in"><div class="q"><i id="sdt-title"></i><span class="by" id="sdt-by"></span></div><span class="go">Song des Tages · Geschichte dazu</span></div>
     </a>
     <a class="tile rv" href="finanzplanung.html" style="--i:4;background:linear-gradient(170deg,#7A3A7E,#3E1A41)">
       <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M40 210 A140 140 0 0 1 320 210" fill="none" stroke="#F6C253" stroke-width="2" opacity=".8"/><path d="M80 210 A100 100 0 0 1 280 210" fill="none" stroke="#EE8F7A" stroke-width="2" opacity=".8"/><circle cx="340" cy="52" r="22" fill="#F6C253"/></svg>
@@ -302,8 +306,23 @@
     box.style.display = 'block';
   }
   renderRezeptDesTages();
+
+  // Song des Tages
+  function renderSongDesTages() {
+    var box = $('song-des-tages');
+    if (!box || !window.fetch) return;
+    fetch('data/songs.json').then(function (r) { return r.json(); }).then(function (songs) {
+      var d = Math.floor((new Date() - new Date(2026, 0, 1)) / 86400000);
+      var pick = songs[((d % songs.length) + songs.length) % songs.length];
+      $('sdt-title').textContent = pick.title;
+      $('sdt-by').textContent = pick.artist;
+      box.href = 'song.html?id=' + encodeURIComponent(pick.id);
+      box.style.display = 'block';
+    }).catch(function () {});
+  }
+  renderSongDesTages();
   // Safari stellt Seiten beim Zurücknavigieren oft aus dem bfcache wieder her
-  window.addEventListener('pageshow', function () { renderRezeptDesTages(); countdown(); });
+  window.addEventListener('pageshow', function () { renderRezeptDesTages(); renderSongDesTages(); countdown(); });
 
   // Ticker doppeln, damit er nahtlos läuft
   var row = $('tickrow'); row.innerHTML += row.innerHTML;
