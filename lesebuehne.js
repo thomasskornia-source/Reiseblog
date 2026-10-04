@@ -47,6 +47,7 @@
       var b = el('button', 'lb-x'); b.type = 'button'; b.setAttribute('aria-label', 'Vorlesen beenden');
       b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
       b.onclick = x; root.appendChild(b);
+      root.onclick = x;   // ein Tipp irgendwo auf den Schirm beendet das Vorlesen
       document.body.appendChild(root);
       layout(); place(0);
       window.addEventListener('resize', onResize); document.addEventListener('keydown', onKey);

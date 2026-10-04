@@ -4,7 +4,7 @@ html:has(body.home) { overflow-x: hidden; }
 .home .wrap { max-width: 1180px; padding: 0 18px 80px; }
 
 /* ---------- Hero ---------- */
-.hero { position: relative; padding: 46px 0 34px; isolation: isolate; }
+.hero { position: relative; padding: 46px 0 6px; isolation: isolate; }
 .blobs { position: absolute; inset: -40px -40px 0 -40px; z-index: -1; pointer-events: none; }
 .blob { position: absolute; border-radius: 50%; filter: blur(46px); opacity: .55; will-change: transform; }
 .blob.b1 { width: 340px; height: 340px; background: #F0A15A; left: -60px; top: -10px; animation: drift1 16s ease-in-out infinite alternate; }
@@ -91,7 +91,7 @@ html:has(body.home) { overflow-x: hidden; }
 @media (min-width: 700px) {
   .home .wrap { padding: 0 32px 100px; }
   .ticker { margin: 6px -32px 36px; }
-  .hero { padding: 76px 0 52px; }
+  .hero { padding: 76px 0 18px; }
   .floaters span:nth-child(2) { display: block; }
   .floaters span { font-size: 54px; }
   .floaters span:nth-child(3) { font-size: 62px; }
