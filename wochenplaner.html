@@ -52,6 +52,11 @@
   .wp .list input { width: 18px; height: 18px; accent-color: #226a3d; flex: none; transform: translateY(3px); }
   .wp .list label.an span { text-decoration: line-through; color: var(--ink-soft); }
   .wp .list .menge { color: var(--ink-soft); min-width: 62px; flex: none; font-variant-numeric: tabular-nums; }
+  .wp .list .da { margin-left: auto; flex: none; border: 1px solid rgba(46,58,50,.2); background: transparent; color: var(--ink-soft); font: inherit; font-size: 12px; padding: 1px 9px; border-radius: 999px; cursor: pointer; }
+  .wp .list .nm { min-width: 0; }
+  .wp .vorrat { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+  .wp .vchip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 4px 3px 10px; border-radius: 999px; background: #e3f1e7; color: #226a3d; font-size: 13px; }
+  .wp .vchip button { border: 0; background: transparent; color: inherit; font-size: 16px; line-height: 1; cursor: pointer; }
   .wp .exp { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 6px; }
   .wp details.hilfe { margin-top: 10px; font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
   .wp details.hilfe summary { cursor: pointer; color: var(--ink); }
@@ -119,7 +124,8 @@
 <script>
 (function () {
   var TAGE = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
-  var KEY = 'wochenplan-v1', HAKEN = 'wochenplan-haken';
+  var KEY = 'wochenplan-v1', HAKEN = 'wochenplan-haken', VORRAT = 'wochenplan-vorrat';
+  var STAPEL = /(salz|pfeffer|\böl\b|öl\b|essig|senf|tomatenmark|brühe|mehl|zucker|backpulver|paniermehl|semmelbrösel|nudel|spaghetti|fusilli|udon|reis\b|haferflocke|haferkleie|quinoa|bulgur|leinsamen|kakao|honig|sojasauce|currypulver|paprikapulver|kreuzkümmel|kurkuma|zimt|oregano|thymian|muskat|kardamom|chili|majoran|koriander|lorbeer|vanille|gewürz|zwiebelpulver|knoblauchpulver|sesam|mandel)/i;
   var REZ = [], BY = {}, S = null, offen = null, filt = 'alle';
   function $(i) { return document.getElementById(i); }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -128,6 +134,8 @@
   function laden() { try { var s = JSON.parse(localStorage.getItem(KEY)); if (s && s.mittag && s.abend) return s; } catch (e) {} return leer(); }
   function sichern() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
   function haken() { try { return JSON.parse(localStorage.getItem(HAKEN) || '{}'); } catch (e) { return {}; } }
+  function vorrat() { try { return JSON.parse(localStorage.getItem(VORRAT) || '[]'); } catch (e) { return []; } }
+  function vorratSichern(v) { try { localStorage.setItem(VORRAT, JSON.stringify(v)); } catch (e) {} }
   function hakenSichern(h) { try { localStorage.setItem(HAKEN, JSON.stringify(h)); } catch (e) {} }
 
   // ---- Eigenschaften eines gewählten Gerichts
@@ -232,25 +240,30 @@
         });
       });
     });
-    var out = ord.map(function (k) { var p = m[k]; p.text = (mengeText(p.q, p.einheit) + ' ' + p.name).trim(); p.gruppe = gruppe(p.name); return p; });
+    var out = ord.map(function (k) { var p = m[k]; p.text = (mengeText(p.q, p.einheit) + ' ' + p.name).trim(); p.gruppe = gruppe(p.name); p.nk = schluessel(p.name); return p; });
     var rang = {}; ['Obst und Gemüse', 'Milch, Käse und Eier', 'Fleisch und Fisch', 'Brot und Backwaren', 'Vorrat und Gewürze'].forEach(function (g, i) { rang[g] = i; });
     out.sort(function (a, b) { return rang[a.gruppe] - rang[b.gruppe] || a.name.localeCompare(b.name, 'de'); });
     return out;
   }
   function einkaufszeichnen() {
-    var p = einkaufsPosten(), h = haken();
-    if (!p.length) { $('einkauf').innerHTML = '<p class="hinweis" style="margin:0">Sobald Gerichte im Plan stehen, erscheint hier die Einkaufsliste, nach Abteilungen sortiert.</p>'; return; }
-    var gr = '', html = '<div class="list">';
+    var alle = einkaufsPosten(), h = haken(), vo = vorrat();
+    var p = alle.filter(function (x) { return vo.indexOf(x.nk) < 0; }), da = alle.filter(function (x) { return vo.indexOf(x.nk) >= 0; });
+    if (!alle.length) { $('einkauf').innerHTML = '<p class="hinweis" style="margin:0">Sobald Gerichte im Plan stehen, erscheint hier die Einkaufsliste, nach Abteilungen sortiert.</p>'; return; }
+    var gr = '', html = '<p class="hinweis" style="margin:0 0 6px">' + p.length + ' Posten zu kaufen' + (da.length ? ', ' + da.length + ' schon im Vorrat' : '') + '. Mit „da“ meldest du einen Posten als Vorrat, er verschwindet dann auch bei den nächsten Plänen.</p><div class="list">';
     p.forEach(function (x) {
       if (x.gruppe !== gr) { gr = x.gruppe; html += '<h4>' + esc(gr) + '</h4>'; }
       var m = (mengeText(x.q, x.einheit) || '');
-      html += '<label class="' + (h[x.k] ? 'an' : '') + '"><input type="checkbox" data-h="' + esc(x.k) + '"' + (h[x.k] ? ' checked' : '') + '><span class="menge">' + esc(m) + '</span><span>' + esc(x.name) + '</span></label>';
+      html += '<label class="' + (h[x.k] ? 'an' : '') + '"><input type="checkbox" data-h="' + esc(x.k) + '"' + (h[x.k] ? ' checked' : '') + '><span class="menge">' + esc(m) + '</span><span class="nm">' + esc(x.name) + '</span><button type="button" class="da" data-vor="' + esc(x.nk) + '" title="Habe ich im Vorrat">da</button></label>';
     });
-    html += '</div><div class="exp"><button type="button" class="btn2" id="kopie">Liste kopieren</button><button type="button" class="btn2" id="teilen">Teilen</button><button type="button" class="btn2" id="erinn">An Erinnerungen senden</button></div><p class="hinweis" id="exp-msg" style="margin:0"></p>' +
-      '<details class="hilfe"><summary>So kommt die Liste in Erinnerungen</summary><p><b>Am einfachsten:</b> „Liste kopieren“ tippen, dann in Erinnerungen deine Einkaufsliste öffnen und den Text einfügen. Jede Zeile sollte dort eine eigene Erinnerung werden.</p><p><b>Mit einem Tipp:</b> Einmal in der App „Kurzbefehle“ einen Kurzbefehl mit dem Namen <b>Einkaufsliste</b> anlegen:</p><ol><li>„Text“ (Eingabe des Kurzbefehls)</li><li>„Text aufteilen“ nach „Neue Zeilen“</li><li>„Jedes Element wiederholen“</li><li>darin „Neue Erinnerung hinzufügen“ in deine Liste</li></ol><p>Danach öffnet „An Erinnerungen senden“ diesen Kurzbefehl und füllt deine Liste. Eine Webseite kann nicht selbst in eine bestimmte iCloud-Liste schreiben, deshalb braucht es diesen Zwischenschritt.</p></details>';
+    html += '</div><div class="exp"><button type="button" class="btn2" id="grund">Grundvorrat übernehmen</button><button type="button" class="btn2" id="kopie">Liste kopieren</button><button type="button" class="btn2" id="teilen">Teilen</button><button type="button" class="btn2" id="erinn">An Erinnerungen senden</button></div><p class="hinweis" id="exp-msg" style="margin:0"></p>';
+    if (vo.length) {
+      var namen = {}; alle.forEach(function (x) { namen[x.nk] = x.name; });
+      html += '<details class="hilfe" open><summary>Mein Vorrat (' + vo.length + ')</summary><div class="vorrat">' + vo.map(function (k) { return '<span class="vchip">' + esc(namen[k] || k) + '<button type="button" data-vorzu="' + esc(k) + '" aria-label="Wieder auf die Liste">×</button></span>'; }).join('') + '</div></details>';
+    }
+    html += '<details class="hilfe"><summary>So kommt die Liste in Erinnerungen</summary><p><b>Am einfachsten:</b> „Liste kopieren“ tippen, dann in Erinnerungen deine Einkaufsliste öffnen und den Text einfügen. Jede Zeile sollte dort eine eigene Erinnerung werden.</p><p><b>Mit einem Tipp:</b> Einmal in der App „Kurzbefehle“ einen Kurzbefehl mit dem Namen <b>Einkaufsliste</b> anlegen:</p><ol><li>„Text“ (Eingabe des Kurzbefehls)</li><li>„Text aufteilen“ nach „Neue Zeilen“</li><li>„Jedes Element wiederholen“</li><li>darin „Neue Erinnerung hinzufügen“ in deine Liste</li></ol><p>Danach öffnet „An Erinnerungen senden“ diesen Kurzbefehl und füllt deine Liste. Eine Webseite kann nicht selbst in eine bestimmte iCloud-Liste schreiben, deshalb braucht es diesen Zwischenschritt.</p></details>';
     $('einkauf').innerHTML = html;
   }
-  function listenText() { return einkaufsPosten().filter(function (x) { return !haken()[x.k]; }).map(function (x) { return x.text; }).join('\n'); }
+  function listenText() { var vo = vorrat(); return einkaufsPosten().filter(function (x) { return !haken()[x.k] && vo.indexOf(x.nk) < 0; }).map(function (x) { return x.text; }).join('\n'); }
 
   // ---- Auswahl
   function oeffnen(slot, i) {
@@ -335,6 +348,9 @@
     if ((b = t.closest('[data-f]'))) { filt = b.getAttribute('data-f'); filterZeichnen(); listeZeichnen(); return; }
     if ((b = t.closest('[data-pick]'))) { var id = b.getAttribute('data-pick'); S[offen.slot][offen.i] = { id: id, mode: 'normal', fix: true }; sichern(); schliessen(); zeichnen(); return; }
     if (t.id === 'bg' || t.id === 'zu') { schliessen(); return; }
+    if ((b = t.closest('[data-vor]'))) { ev.preventDefault(); var vv = vorrat(), kk = b.getAttribute('data-vor'); if (vv.indexOf(kk) < 0) vv.push(kk); vorratSichern(vv); einkaufszeichnen(); return; }
+    if ((b = t.closest('[data-vorzu]'))) { var k2 = b.getAttribute('data-vorzu'); vorratSichern(vorrat().filter(function (x) { return x !== k2; })); einkaufszeichnen(); return; }
+    if (t.id === 'grund') { var v3 = vorrat(), n3 = 0; einkaufsPosten().forEach(function (x) { if (STAPEL.test(x.name) && v3.indexOf(x.nk) < 0) { v3.push(x.nk); n3++; } }); vorratSichern(v3); einkaufszeichnen(); $('exp-msg').textContent = n3 + ' Posten als Vorrat übernommen (Salz, Öl, Mehl, Nudeln, Gewürze und Ähnliches). Mit × holst du einen zurück.'; return; }
     if (t.id === 'vorschlag') { vorschlagen(); return; }
     if (t.id === 'leeren') { var n = S.blitz, v = S.veggie; S = leer(); S.blitz = n; S.veggie = v; hakenSichern({}); sichern(); zeichnen(); return; }
     if (t.id === 'kopie') {
