@@ -78,3 +78,18 @@
   window.addEventListener('scroll', weg, { once: true, passive: true });
   setTimeout(weg, 6000);
 })();
+
+// Zurück-Pfeil: der Text-Link „← …“ wird zu einem runden Pfeil auf der Höhe der Überschrift
+(function () {
+  var h1 = document.querySelector('h1'); if (!h1) return;
+  var a = [].filter.call(document.querySelectorAll('a.back-link, a.zurueck'), function (x) { return /^\s*←/.test(x.textContent); })[0];
+  if (!a) return;
+  var ico = document.createElement('a');
+  ico.className = 'back-ico'; ico.href = a.getAttribute('href'); ico.setAttribute('aria-label', a.textContent.replace(/^\s*←\s*/, '').trim() || 'Zurück'); ico.title = ico.getAttribute('aria-label');
+  ico.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  h1.classList.add('mit-zurueck'); h1.insertBefore(ico, h1.firstChild);
+  a.classList.add('back-ersetzt');
+  function pos() { var cs = getComputedStyle(h1), lh = parseFloat(cs.lineHeight); if (isNaN(lh)) lh = parseFloat(cs.fontSize) * 1.2; ico.style.top = Math.round(lh / 2 - 19) + 'px'; }
+  pos(); window.addEventListener('resize', pos);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(pos);
+})();
