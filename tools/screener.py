@@ -192,6 +192,20 @@ def breite(js, fl=None, sp_z=None):
     with open(pfad, 'w', encoding='utf-8') as fh:
         fh.write(json.dumps({'stand': heute, 'n': len(a), 'megacaps': mega, 'verlauf': verlauf_liste}, ensure_ascii=False, indent=None).replace('},', '},\n') + '\n')
 
+def universum(fl, js):
+    """Alle S&P-500-Aktien in Kurzform (Kurs, Ampel, Lage, kleiner Verlauf) -> data/universum.json, für die Watchlist auf der Seite (ohne Token)."""
+    heute = datetime.date.today().strftime('%d.%m.%Y'); liste = []
+    for f, j in zip(fl, js):
+        if not j: continue
+        c = j['_h']['c'][-41:]
+        if len(c) < 5: continue
+        lo, hi = min(c), max(c); sp = [round(100 * (x - lo) / (hi - lo)) if hi > lo else 50 for x in c]
+        liste.append({'t': f['t'], 'n': f['name'], 's': f['sektor'], 'k': round(j['kurs'], 2), 'a': j['ampel'], 'p': j['punkte'], 'l': j['lage'],
+                      'd1': round((c[-1] / c[-2] - 1) * 100, 2), 'sp': sp})
+    liste.sort(key=lambda x: x['t'])
+    with open(os.path.join(ROOT, 'data', 'universum.json'), 'w', encoding='utf-8') as fh:
+        fh.write(json.dumps({'stand': heute, 'aktien': liste}, ensure_ascii=False, separators=(',', ':')).replace('},{', '},\n{') + '\n')
+
 def beobachten(bm):
     """Eigene Aktien aus data/aktien.json: James' Ampel täglich neu (ohne Texte, ohne Token) -> data/beobachtung.json."""
     try: eintraege = json.load(open(os.path.join(ROOT, 'data', 'aktien.json'), encoding='utf-8'))['einschaetzungen']
@@ -223,6 +237,7 @@ def main():
     except Exception as e: print('SEC-Zahlen nicht abrufbar:', e)
     with ThreadPoolExecutor(8) as ex: js = list(ex.map(lambda f: james(f, bm), fl))
     breite(js, fl, sp_z)
+    universum(fl, js)
     sek = sektor_rotation(fl, js, sp_z)
     alle = []
     for f, j in zip(fl, js):
