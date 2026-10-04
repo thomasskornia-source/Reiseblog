@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <title>WCJ – Die Megas</title>
 <link rel="stylesheet" href="styles.css?v=13">
-<link rel="stylesheet" href="site.css?v=7">
+<link rel="stylesheet" href="site.css?v=8">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,8 +15,9 @@
   .mg h1 { margin-bottom: 4px; }
   .mg .sub { color: var(--ink-soft); font-size: 15px; line-height: 1.55; margin: 6px 0 14px; }
   .mg .tabs { display: flex; gap: 6px; margin: 4px 0 12px; flex-wrap: wrap; }
-  .mg .tabs button { flex: 1 1 0; min-width: 0; padding: 9px 6px; border: 1px solid rgba(46,58,50,.18); border-radius: 999px; background: var(--paper); color: var(--ink); font: inherit; font-size: 13.5px; line-height: 1.15; cursor: pointer; }
+  .mg .tabs button { flex: 1 1 0; min-width: 0; padding: 9px 3px; border: 1px solid rgba(46,58,50,.18); border-radius: 999px; background: var(--paper); color: var(--ink); font: inherit; font-size: 13px; line-height: 1.15; cursor: pointer; }
   .mg .tabs button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  @media (max-width: 360px) { .mg .tabs button:first-child { flex-basis: 100%; } }
   .mg .leg { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
   .mg .leg button { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid rgba(46,58,50,.18); border-radius: 999px; background: var(--paper); color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }
   .mg .leg button i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
@@ -25,9 +26,6 @@
   .mg svg.ch { width: 100%; height: auto; display: block; touch-action: pan-y; }
   .mg .lese { min-height: 2.6em; font-size: 13px; color: var(--ink-soft); padding: 4px 8px 2px; line-height: 1.5; }
   .mg .lese b { color: var(--ink); }
-  .mg .rng { display: flex; gap: 2px; margin: 10px 0 0; padding: 4px; background: #1d2b3a; border-radius: 999px; overflow-x: auto; scrollbar-width: none; }
-  .mg .rng button { flex: 1 0 auto; padding: 9px 12px; border: 0; border-radius: 999px; background: transparent; color: #e8e2d6; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; white-space: nowrap; }
-  .mg .rng button[aria-pressed="true"] { background: #B5502E; color: #fff; }
   .mg table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
   .mg th, .mg td { padding: 8px 6px; text-align: right; border-bottom: 1px solid rgba(46,58,50,.1); }
   .mg th:first-child, .mg td:first-child { text-align: left; }
