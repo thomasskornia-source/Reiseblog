@@ -74,6 +74,7 @@
   .mg .tabs button { flex: 1 1 0; min-width: 0; padding: 9px 3px; border: 1px solid rgba(46,58,50,.18); border-radius: 999px; background: var(--paper); color: var(--ink); font: inherit; font-size: 13px; line-height: 1.15; cursor: pointer; }
   .mg .tabs button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
   @media (max-width: 360px) { .mg .tabs button:first-child { flex-basis: 100%; } }
+  .mg .leg { margin-top: 14px !important; }
   .mg .leg { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
   .mg .leg button { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid rgba(46,58,50,.18); border-radius: 999px; background: var(--paper); color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }
   .mg .leg button i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
@@ -201,7 +202,6 @@
     <details class="markt top10" id="lynx" data-panel="lynx" hidden><summary id="lynx-s"></summary><div class="body" id="lynx-c"></div></details>
     <details class="markt top10" id="beo" data-panel="watch" hidden><summary id="beo-s"></summary><div class="body" id="beo-c"></div></details>
     <div data-panel="megas" class="tab-aus mg" id="pnl-megas">
-      <p class="sub" id="mg-sub">Die Unternehmen mit mehr als einer Billion Dollar Börsenwert.</p>
       <div class="rng" id="mg-tabs" role="group" aria-label="Darstellung">
         <button type="button" data-m="wert" aria-pressed="true">Unternehmenswert</button>
         <button type="button" data-m="perf" aria-pressed="false">Performance %</button>
