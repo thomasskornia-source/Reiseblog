@@ -157,16 +157,6 @@ html, body { overflow-x: clip; max-width: 100%; }
 .recipe-steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #F0A15A, var(--rust)); color: #fff; font: 600 16px 'Fraunces', serif; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(181, 80, 46, .35); }
 .rating-block { background: #fff; border-radius: 20px; box-shadow: 0 10px 28px rgba(46, 58, 50, .09); }
 
-/* Start-Hinweis: grüner Leuchtpfeil „Übersicht“ aufs Logo */
-.logo-pfeil { position: fixed; z-index: 60; width: 290px; height: 140px; transform-origin: 6px 70px; transform: rotate(32deg); animation: pfeil-puls 1.1s ease-in-out infinite; filter: drop-shadow(0 6px 12px rgba(0, 0, 0, .35)); }
-.logo-pfeil svg { display: block; overflow: visible; }
-.logo-pfeil circle { fill: #FFF3B0; stroke: #FFB800; stroke-width: 1.2; }
-.logo-pfeil .lb0 { animation: lb-an 0.8s steps(1, end) infinite; }
-.logo-pfeil .lb1 { animation: lb-an 0.8s steps(1, end) infinite .4s; }
-@keyframes lb-an { 0% { opacity: 1; filter: drop-shadow(0 0 5px #FFE066); } 50% { opacity: .25; filter: none; } }
-@keyframes pfeil-puls { 0%, 100% { transform: rotate(32deg) translateX(0) scale(1); } 50% { transform: rotate(32deg) translateX(12px) scale(1.07); } }
-@media (prefers-reduced-motion: reduce) { .logo-pfeil, .logo-pfeil circle { animation: none !important; } }
-
 /* ---------- Seitenköpfe als Farbwelt (wie auf der Startseite), Welt per nav.js: body[data-welt] ---------- */
 body[data-welt] .entry-header { margin: -28px -18px 26px; padding: 44px 22px 34px; min-height: 170px; display: flex; flex-direction: column; justify-content: center; background-size: cover, cover; background-position: center, center; background-repeat: no-repeat; color: var(--wc, #fff); }
 body[data-welt] .entry-header h1 { color: inherit; margin: 0; }
