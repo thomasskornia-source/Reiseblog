@@ -1,6 +1,8 @@
 # Reiseblog – Hinweise für Claude
 
 Überblick über die Aktien-Seite: `aktien.html`, Ablauf der Routine: `AKTIEN-ABLAUF.md`, Wissensbasis: `wissen/`.
+Wochenplaner: `wochenplaner.html` (Plan, Einkaufsliste, Vorrat, Reste im Browser), Rezeptdaten `data/wochenplan.json`, erzeugt von
+`tools/rezept-index.py` über `.github/workflows/wochenplan.yml`. Auf der Startseite als erste Kachel verlinkt.
 
 ## Arbeitsweise (Thomas, 02.10.2026)
 - Änderungen am Reiseblog nach eigener Prüfung **direkt zusammenführen** (Entwurf anlegen, prüfen, mit „squash“ auf `main`
