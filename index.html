@@ -7,7 +7,7 @@
 <title>Unterwegs und zuhause – Thomas und Andrea</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=12">
-<link rel="stylesheet" href="home.css?v=10">
+<link rel="stylesheet" href="home.css?v=11">
 <link rel="stylesheet" href="lesebuehne.css?v=1">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
@@ -60,9 +60,13 @@
     </div>
   </header>
 
-  <div class="ticker" aria-hidden="true"><div class="row" id="tickrow">
-    <a href="wochenplaner.html">📅 Wochenplaner</a><a href="reisen.html">🌴 Reisen</a><a href="rezepte.html">🍽️ Rezepte</a><a href="finanzplanung.html">💶 Finanzplanung</a><a href="muenchen-quiz.html">🧩 München-Quiz</a><a href="ernaehrung.html">🥗 Ernährung</a><a href="notfallvorrat.html">🎒 Notfallvorrat</a><a href="aktien.html">📈 WCJ</a>
-  </div></div>
+
+  <div class="song-bar" id="song-bar">
+  <a class="sb-link" id="sdt-link" href="song.html" aria-label="Song des Tages öffnen">
+    <span class="sb-txt"><b id="sdt-title"></b><span id="sdt-by"></span></span>
+  </a>
+  <button type="button" class="sb-note" id="sdt-play" aria-label="Song-Geschichte vorlesen"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></button>
+</div>
 
   <section class="bento">
     <a class="tile wide rv" href="wochenplaner.html" style="--i:0;background:linear-gradient(170deg,#C8553D,#8F3D21)">
@@ -263,12 +267,7 @@
   </footer>
 
 </div>
-<div class="song-bar" id="song-bar">
-  <a class="sb-link" id="sdt-link" href="song.html" aria-label="Song des Tages öffnen">
-    <span class="sb-txt"><b id="sdt-title"></b><span id="sdt-by"></span></span>
-  </a>
-  <button type="button" class="sb-note" id="sdt-play" aria-label="Song-Geschichte vorlesen"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></button>
-</div>
+
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
@@ -369,9 +368,6 @@
   renderSongDesTages();
   // Safari stellt Seiten beim Zurücknavigieren oft aus dem bfcache wieder her
   window.addEventListener('pageshow', function () { renderRezeptDesTages(); renderSongDesTages(); countdown(); });
-
-  // Ticker doppeln, damit er nahtlos läuft
-  var row = $('tickrow'); row.innerHTML += row.innerHTML;
 
   // Kopfleiste: Schatten beim Scrollen
   var bar = $('topbar');
