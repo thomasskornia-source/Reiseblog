@@ -76,7 +76,7 @@
   }
 
   window.Songmusik = {
-    prepare: function (s) { url = null; info = null; corsOk = false; st = 'Suche läuft'; cleanup(); return lookup(s).then(function () { if (!url && st === 'Suche läuft') st = 'Song nicht gefunden'; }).then(probeCors).then(function () { if (url) st = 'gefunden' + (corsOk ? ' (Regler ja)' : ' (einfach)'); }); },
+    prepare: function (s) { url = null; info = null; corsOk = false; st = 'Suche läuft'; cleanup(); if (s.preview) { url = String(s.preview).replace(/^http:/, 'https:'); st = 'Adresse vorhanden'; return probeCors().then(function () { st = 'gefunden' + (corsOk ? ' (Regler ja)' : ' (einfach)'); }); } return lookup(s).then(function () { if (!url && st === 'Suche läuft') st = 'Song nicht gefunden'; }).then(probeCors).then(function () { if (url) st = 'gefunden' + (corsOk ? ' (Regler ja)' : ' (einfach)'); }); },
     ready: function () { return !!url; },
     /* im Tipp des Nutzers aufrufen, damit iPhones das spätere Starten erlauben */
     arm: function () {

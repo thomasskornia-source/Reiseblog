@@ -34,3 +34,7 @@ in `data/songs.json`.
 Die Audiodatei zum Vorlesen (`audio/<id>.mp3`) erzeugt **automatisch** der GitHub-Workflow `song-audio.yml` (Skript `tools/song-audio.py`, Gemini-Sprachausgabe, Schlüssel als GitHub-Secret `GEMINI_API_KEY`), sobald `data/songs.json` auf `main` geändert wird. Dafür ist in der täglichen Aufgabe nichts zu tun. Fehlt die Datei, liest die Seite mit der Stimme des Geräts vor.
 
 Bei Fehlern (kein Zugriff auf Drive, Push scheitert): nichts halb Fertiges hinterlassen, den Fehler klar melden.
+
+## Musik-Ausschnitt
+
+Den 30-Sekunden-Ausschnitt (Apple/iTunes, nur die Adresse als Feld `preview`) trägt der Workflow `song-audio.yml` automatisch mit `tools/song-preview.py` in `data/songs.json` ein. In der täglichen Aufgabe ist dafür nichts zu tun. Wird nichts gefunden, steht `previewGeprueft: true` am Song, und die Seite spielt nur die Stimme.
