@@ -76,7 +76,7 @@
 /* PC-Ansicht Reise-Detailseiten: Abschnitte (Überschrift + Inhalt) zusammenhalten, damit sie nicht zwischen Spalten umbrechen */
 (function () {
   var b = document.body;
-  if (!b || !b.classList.contains('pc') || !b.classList.contains('page-info')) return;
+  if (!b || !b.classList.contains('pc') || !(b.classList.contains('page-info') || b.classList.contains('page-read'))) return;
   var art = document.querySelector('article');
   if (!art || art.querySelector(':scope > section.sec')) return;
   var kids = [].slice.call(art.children), sec = null;

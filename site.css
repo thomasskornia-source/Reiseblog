@@ -234,6 +234,14 @@ body[data-welt] .back-ico { background: rgba(255, 255, 255, .22); color: inherit
   body.pc.page-read article table { break-inside: avoid; }
   body.pc.page-info article > section.sec { break-inside: avoid; margin-bottom: 8px; }
   body.pc.page-info article .hotel-group, body.pc.page-info article .tip-box, body.pc.page-info article .safety-box, body.pc.page-info article .note-box, body.pc.page-info article table { break-inside: avoid; }
+  body.pc.page-single .wrap { max-width: min(1760px, 100%); }
+  body.pc.page-info.page-single article { column-count: 2; column-gap: 72px; max-width: none; }
+  body.pc.page-info.page-single article > .entry-header, body.pc.page-info.page-single article > .entry-header + .entry-body { column-span: all; max-width: none; }
+  body.pc.page-info.page-single article > section.sec { break-inside: auto; }
+  body.pc.page-info.page-single article > section.sec > h2.subhead { break-after: avoid; }
+  body.pc.page-read article { column-count: auto; column-width: 430px; }
+  body.pc.page-read article > section.sec { break-inside: avoid; margin-bottom: 8px; }
+  body.pc.page-read .controls { width: fit-content; }
 }
 
 /* Trendbruch-Warnung (nav.js) */
