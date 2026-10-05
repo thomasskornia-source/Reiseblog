@@ -2,13 +2,13 @@ name: Marktstimmung S&P 500
 
 on:
   schedule:
-    # Deutsche Zeit: 15:45, 19:00, 21:45 (Stand während des US-Handels) und 00:15 (Schlusskurs nach Börsenschluss).
+    # Deutsche Zeit: 16:00, 19:00, 21:45 (Stand während des US-Handels) und 00:15 (Schlusskurs nach Börsenschluss).
     # GitHub plant nur in UTC: je Uhrzeit eine Sommer- und eine Winterzeit-Variante, die jeweils falsche überspringt der Job „zeit“.
-    - cron: '45 13 * * 1-5'   # Sommer 15:45
+    - cron: '0 14 * * 1-5'    # Sommer 16:00 (Kurse eingeschwungen)
     - cron: '0 17 * * 1-5'    # Sommer 19:00
     - cron: '45 19 * * 1-5'   # Sommer 21:45
     - cron: '15 22 * * 1-5'   # Sommer 00:15 (Schluss)
-    - cron: '45 14 * * 1-5'   # Winter 15:45
+    - cron: '0 15 * * 1-5'    # Winter 16:00
     - cron: '0 18 * * 1-5'    # Winter 19:00
     - cron: '45 20 * * 1-5'   # Winter 21:45
     - cron: '15 23 * * 1-5'   # Winter 00:15 (Schluss)
@@ -30,8 +30,8 @@ jobs:
       - id: g
         env:
           PLAN: ${{ github.event.schedule }}
-          SOMMER: '45 13 * * 1-5|0 17 * * 1-5|45 19 * * 1-5|15 22 * * 1-5'
-          WINTER: '45 14 * * 1-5|0 18 * * 1-5|45 20 * * 1-5|15 23 * * 1-5'
+          SOMMER: '0 14 * * 1-5|0 17 * * 1-5|45 19 * * 1-5|15 22 * * 1-5'
+          WINTER: '0 15 * * 1-5|0 18 * * 1-5|45 20 * * 1-5|15 23 * * 1-5'
         run: |
           los=ja
           if [ -n "$PLAN" ]; then
