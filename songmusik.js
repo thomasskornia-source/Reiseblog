@@ -3,6 +3,7 @@
 (function () {
   var PRE = 5, LOW = 0.16, HIGH = 0.9;
   var url = null, corsOk = false, info = null;
+  var level = 0, fadeT = 0, fadeBase = null, FADE = 3;
   var m = null, ctx = null, gain = null, canVol = false, started = false, finished = false, cb = null, ramp = 0, tmo = 0;
 
   function norm(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim(); }
@@ -30,7 +31,7 @@
     if (!url || !window.fetch) return Promise.resolve();
     return fetch(url, { method: 'HEAD', mode: 'cors' }).then(function (r) { corsOk = r.ok; }).catch(function () { corsOk = false; });
   }
-  function setVol(v) { if (gain) gain.gain.value = v; else if (m) { try { m.volume = Math.max(0, Math.min(1, v)); } catch (e) {} } }
+  function setVol(v) { level = v; if (gain) gain.gain.value = v; else if (m) { try { m.volume = Math.max(0, Math.min(1, v)); } catch (e) {} } }
   function rampTo(from, to, ms) {
     clearInterval(ramp); var t0 = Date.now();
     ramp = setInterval(function () {
@@ -64,7 +65,7 @@
     var f = cb; cb = null; cleanup(); if (f) f();
   }
   function cleanup() {
-    clearInterval(ramp); clearTimeout(tmo);
+    clearInterval(ramp); clearTimeout(tmo); clearInterval(fadeT); fadeBase = null;
     if (m) { try { m.onended = null; m.onerror = null; m.pause(); } catch (e) {} }
     m = null; gain = null; started = false;
   }
@@ -73,6 +74,15 @@
     var p = m.play();
     if (p && p.catch) p.catch(function (e) { st = 'Start abgelehnt'; var r = document.querySelector('.lb-credit'); if (r && r.parentNode) r.parentNode.removeChild(r); if (cb) finish(); else cleanup(); });
     rampTo(0, vol, 2000); setSt(canVol ? 'läuft leise' : 'läuft');
+    // die letzten 3 Sekunden des Ausschnitts leiser werden lassen
+    clearInterval(fadeT); fadeBase = null;
+    if (canVol) fadeT = setInterval(function () {
+      if (!m || !isFinite(m.duration) || m.duration <= 0) return;
+      var rest = m.duration - m.currentTime;
+      if (rest > FADE) return;
+      if (fadeBase === null) { clearInterval(ramp); fadeBase = Math.max(level, 0.05); }
+      setVol(fadeBase * Math.max(0, rest / FADE));
+    }, 100);
   }
 
   window.Songmusik = {
