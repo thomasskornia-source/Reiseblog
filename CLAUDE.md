@@ -6,7 +6,7 @@ Wochenplaner: `wochenplaner.html` (Plan, Einkaufsliste, Vorrat, Reste im Browser
 
 Börsenstimmung: `stimmung.html` (Pfeil, Indikatoren, Barometer), Daten `data/koch.json`, erzeugt von `tools/koch-sammeln.py` über
 `.github/workflows/koch.yml` (Gemini wertet das neueste YouTube-Video von Markus Koch aus; zweimal täglich, plus von Hand startbar).
-Es wird kein Transkript gespeichert, nur die eigene Auswertung mit Quelle. Verlinkt von `aktien.html`.
+Es geht um die Marktlage, nicht um Einzelaktien. Es wird kein Transkript gespeichert, nur die eigene Auswertung mit Quelle. Verlinkt von `aktien.html`.
 
 ## Arbeitsweise (Thomas, 02.10.2026)
 - Änderungen am Reiseblog nach eigener Prüfung **direkt zusammenführen** (Entwurf anlegen, prüfen, mit „squash“ auf `main`

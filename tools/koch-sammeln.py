@@ -17,11 +17,15 @@ MAX_PRO_LAUF, MAX_ALTER_TAGE = int(os.environ.get("MAX_PRO_LAUF") or 4), int(os.
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
       "Accept-Language": "de-DE,de;q=0.9", "Cookie": "CONSENT=YES+1; SOCS=CAI"}
 KATEGORIEN = ["Arbeitsmarkt", "Zinsen & Notenbank", "Inflation", "Öl & Rohstoffe", "Anleihen & Renditen", "Konjunktur",
-              "Unternehmenszahlen", "Einzelwerte", "Geopolitik", "Politik & Zölle", "Saisonalität & Chart", "Stimmung & Volatilität",
-              "Dollar & Währungen", "Sonstiges"]
+              "Gewinnsaison", "Marktbreite & Sektoren", "Geopolitik", "Politik & Zölle", "Saisonalität & Chart",
+              "Stimmung & Volatilität", "Dollar & Währungen", "Sonstiges"]
 
 PROMPT = """Du hörst einen deutschsprachigen Börsen-Beitrag (Marktstimmung, Börsenthemen) von Markus Koch.
-Verstehe SEINE Sicht: woran macht er die Stimmung am US-Aktienmarkt fest? Gib KEIN Transkript wieder, schreibe nichts
+Verstehe SEINE Sicht: woran macht er die Stimmung am US-Aktienmarkt fest? Es geht NUR um die aktuelle Marktlage
+(Indizes, Konjunktur- und Arbeitsmarktdaten, Zinsen, Inflation, Anleihen, Öl, Dollar, Volatilität, Marktbreite, Sektoren,
+Positionierung, Politik, Geopolitik, Saisonalität, Gewinnsaison insgesamt). Einzelne Aktien oder einzelne Unternehmen
+(auch Quartalszahlen oder Kursziele einzelner Firmen) kommen NICHT als Indikator vor und fließen nur insoweit in den
+Score ein, wie sie ausdrücklich als Signal für den Gesamtmarkt gelten. Gib KEIN Transkript wieder, schreibe nichts
 wörtlich ab (höchstens zwei Zitate mit je unter 15 Wörtern). Antworte ausschließlich als JSON mit diesen Feldern:
 - ist_boersenbeitrag: true, wenn es ein Börsen-/Marktbeitrag ist, sonst false (dann reichen die übrigen Felder leer)
 - thema: ein Satz, worum es in diesem Beitrag geht
@@ -30,7 +34,7 @@ wörtlich ab (höchstens zwei Zitate mit je unter 15 Wörtern). Antworte ausschl
 - begruendung: zwei Sätze, warum dieser Score
 - indikatoren: Liste (3 bis 10) von Objekten {kategorie, name, lage, pfeil, rolle}
     kategorie = genau eine aus: %s
-    name = kurzer Name (z.B. "US-Arbeitsmarktbericht", "Ölpreis", "Nike")
+    name = kurzer Name (z.B. "US-Arbeitsmarktbericht", "Ölpreis", "Marktbreite")
     lage = was dort gerade passiert, in wenigen Worten (z.B. "schwächer als erwartet", "fällt")
     pfeil = Wirkung auf die Börse aus SEINER Sicht: "hoch" (stützt), "runter" (belastet), "seitwaerts" (neutral/unklar)
     rolle = ein Satz, warum ihm das wichtig ist
@@ -119,6 +123,8 @@ def aufbereiten(d, v, modell, tokens):
     ind = []
     for i in (d.get("indikatoren") or [])[:10]:
         k = i.get("kategorie") if i.get("kategorie") in KATEGORIEN else "Sonstiges"
+        if i.get("kategorie") in ("Einzelwerte", "Unternehmenszahlen"):
+            continue  # alte Kategorien: Einzelaktien sind nicht gewünscht
         p = i.get("pfeil") if i.get("pfeil") in ("hoch", "runter", "seitwaerts") else "seitwaerts"
         ind.append({"kategorie": k, "name": str(i.get("name", ""))[:60], "lage": str(i.get("lage", ""))[:80], "pfeil": p, "rolle": str(i.get("rolle", ""))[:240]})
     return {"id": v["id"], "titel": v.get("titel"), "datum": v["datum"], "zeit": v.get("zeit"), "art": art_von(v), "score": s, "pfeil": pf, "thema": d.get("thema"),
