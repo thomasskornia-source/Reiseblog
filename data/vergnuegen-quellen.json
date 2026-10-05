@@ -6,7 +6,7 @@
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "info": "Offizielles Stadtportal, Tipps für das kommende Wochenende",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "muenchen-travel-kalender",
@@ -15,7 +15,7 @@
   "url": "https://www.muenchen.travel/rubriken/planen/veranstaltungskalender",
   "info": "Tourismusamt, Highlights je Monat",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "eintrittfrei",
@@ -24,7 +24,7 @@
   "url": "https://www.eintrittfrei-muenchen.de/",
   "info": "Kostenlose Veranstaltungen",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "geheimtipp-events",
@@ -33,7 +33,7 @@
   "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
   "info": "Wochenend-Tipps und Event-Geheimtipps",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "mitvergnuegen-wochenende",
@@ -42,7 +42,7 @@
   "url": "https://muenchen.mitvergnuegen.com/",
   "info": "Persönliche Wochenend-Listen, Ideengeber für diese Rubrik",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "mucbook-neu",
@@ -51,7 +51,7 @@
   "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
   "info": "Neue Restaurants und Cafés",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "insiderei",
@@ -60,7 +60,7 @@
   "url": "https://insiderei.com/listen/neue-lokale-muenchen",
   "info": "Kuratierte Foodie-Listen",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "mrmuenchen-neu",
@@ -69,7 +69,7 @@
   "url": "https://www.mrmuenchen.com/toplisten/essen-trinken/neueroeffnungen-in-muenchen",
   "info": "Toplisten Essen und Trinken",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "geheimtipp-food",
@@ -78,7 +78,7 @@
   "url": "https://geheimtippmuenchen.de/kategorie/essen-und-trinken/",
   "info": "Newcomer und Geheimtipps",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "opentable",
@@ -87,7 +87,7 @@
   "url": "https://www.opentable.de/blog/besten-neuen-restaurants-muenchen/",
   "info": "Neue Restaurants des Jahres",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "entfernt"
  },
  {
   "id": "mrmuenchen-aktivitaeten",
@@ -96,7 +96,7 @@
   "url": "https://www.mrmuenchen.com/toplisten/kultur-freizeit-toplisten/top-aktivitaeten-in-muenchen",
   "info": "Aktivitäten und Kultur in der Stadt",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "muenchen-travel",
@@ -105,7 +105,7 @@
   "url": "https://www.muenchen.travel/",
   "info": "Sehenswertes, Viertel, Kultur",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "geheimtipp",
@@ -114,7 +114,7 @@
   "url": "https://geheimtippmuenchen.de/",
   "info": "Versteckte Orte in der Stadt",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "travel-berge-seen",
@@ -123,7 +123,7 @@
   "url": "https://www.muenchen.travel/rubriken/entdecken/berge-seen",
   "info": "Ausflüge in die Berge und an die Seen",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "travel-bus-bahn",
@@ -132,7 +132,7 @@
   "url": "https://www.muenchen.travel/artikel/berge-seen/ausfluege-bus-bahn",
   "info": "Ohne Auto ins Umland",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "mrmuenchen-ausfluege",
@@ -141,7 +141,7 @@
   "url": "https://www.mrmuenchen.com/toplisten/kultur-freizeit-toplisten/top-ausflugsziele-von-muenchen",
   "info": "Top 15 rund um München",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "phototravellers",
@@ -150,7 +150,7 @@
   "url": "https://phototravellers.de/muenchen-ausfluege/",
   "info": "Ausflugsliste vom Chiemsee zur Zugspitze",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "kino-de",
@@ -159,7 +159,7 @@
   "url": "https://www.kino.de/kinoprogramm/stadt/muenchen/",
   "info": "Kinoprogramm der Stadt",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "artechock",
@@ -168,7 +168,7 @@
   "url": "https://www.artechock.de/film/muenchen/index.htm",
   "info": "Wochenprogramm der Münchner Kinos",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "filmfest",
@@ -177,7 +177,7 @@
   "url": "https://www.filmfest-muenchen.de/de/programm/filme/",
   "info": "Festival und Sommerkino",
   "abruf": true,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "ard-mediathek",
@@ -186,7 +186,7 @@
   "url": "https://www.ardmediathek.de/",
   "info": "Öffentlich-rechtlich streamen (nur Link, kein Abruf)",
   "abruf": false,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "zdf-mediathek",
@@ -195,7 +195,7 @@
   "url": "https://www.zdf.de/",
   "info": "Öffentlich-rechtlich streamen (nur Link, kein Abruf)",
   "abruf": false,
-  "status": "vorschlag"
+  "status": "behalten"
  },
  {
   "id": "justwatch",
@@ -204,6 +204,6 @@
   "url": "https://www.justwatch.com/de",
   "info": "Wo läuft welcher Film im Stream (nur Link, kein Abruf)",
   "abruf": false,
-  "status": "vorschlag"
+  "status": "behalten"
  }
 ]
