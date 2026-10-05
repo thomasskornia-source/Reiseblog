@@ -209,3 +209,5 @@ body[data-welt] .back-ico { background: rgba(255, 255, 255, .22); color: inherit
   body.pc .wrap { max-width: min(1760px, 100%); padding-left: 48px; padding-right: 48px; }
   body.pc .entry-header { max-width: none; }
 }
+/* PC: Platz genug, Schriftzug neben dem Logo wieder zeigen (am Handy und im Querformat bleibt er weg) */
+@media (min-width: 1200px) { .topbar .brand .bt { display: inline; } .topbar .topnav a { padding: 8px 16px; } }
