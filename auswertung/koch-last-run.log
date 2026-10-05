@@ -1,3 +1,5 @@
+Seed 6K6GAqqqIk0 Titel: Jobmarkt kippt! Fed-Hike im Oktober vom Tisch? Datum: None
+Seed l17P53ro9vs Titel: Micron liefert den KI-Hammer. Kursgewinne entstehen aber woanders. Datum: None
 Feed: 15 Videos
    6K6GAqqqIk0 2026-10-02 Jobmarkt kippt! Fed-Hike im Oktober vom Tisch?
    l17P53ro9vs 2026-10-01 Micron liefert den KI-Hammer. Kursgewinne entstehen aber woanders.
@@ -7,4 +9,31 @@ Feed: 15 Videos
    U7K4eJilbPk 2026-09-29 Teil 2 - Nach Stromausfall: Open AI beeindruckt auf Entwickler-Tag. Me
    6HNLFjCIVXM 2026-09-29 Open AI beeindruckt auf Entwickler-Tag. Meta-Aktie atmet auf.
    EU1HuDg9C6Q 2026-09-29 OpenAI-Entwicklertag im Fokus. Oura verschiebt Börsengang.
-Nichts Neues.
+Werte aus: 6K6GAqqqIk0 Jobmarkt kippt! Fed-Hike im Oktober vom Tisch? 2026-10-02 opening
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  Score 30 Pfeil hoch (147837 Tokens)
+Werte aus: l17P53ro9vs Micron liefert den KI-Hammer. Kursgewinne entstehen aber woanders. 2026-10-01 opening
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  Score -15 Pfeil runter (151435 Tokens)

@@ -4,135 +4,151 @@
    "id": "6K6GAqqqIk0",
    "titel": "Jobmarkt kippt! Fed-Hike im Oktober vom Tisch?",
    "datum": "2026-10-02",
+   "zeit": "2026-10-02T13:52:33+00:00",
+   "art": "opening",
    "score": 30,
    "pfeil": "hoch",
-   "thema": "Ein schwächerer US-Arbeitsmarkt und sinkende Ölpreise dämpfen die Zinsängste und sorgen für eine vorbörsliche Erholung an der Wall Street, während Inflations- und geopolitische Risiken weiterhin mahnen.",
-   "gesamtstimmung": "Markus Koch blickt vorsichtig optimistisch auf die anstehende saisonal stärkere Phase im vierten Quartal, da die abkühlende Arbeitsmarktdynamik den Renditedruck mindert. Gleichzeitig warnt er vor verfrühter Euphorie, da hartnäckige Inflationstreiber und geopolitische Spannungen für anhaltende Volatilität sorgen.",
-   "begruendung": "Der schwächere Arbeitsmarktbericht und fallende Energiepreise verringern die Zinssorgen und stützen die Aktienkurse kurzfristig. Dennoch trüben verhaltene Einzelhandelsausblicke wie bei Nike sowie geopolitische Risiken das Gesamtbild.",
+   "thema": "Markus Koch analysiert die schwächeren US-Arbeitsmarktdaten, sinkende Zinserwartungen der Fed sowie geopolitische Risiken und deren Auswirkungen auf die Märkte.",
+   "gesamtstimmung": "Die Stimmung ist verhalten optimistisch, da der abkühlende Arbeitsmarkt und sinkende Renditen die Aktienkurse stützen. Dennoch mahnt Koch zur Vorsicht angesichts bevorstehender Inflationsdaten und geopolitischer Spannungen.",
+   "begruendung": "Der schwächere Arbeitsmarkt senkt den Druck auf die Zinsen und begünstigt eine Zinssenkung der Fed, was die Wall Street kurzfristig beflügelt. Gleichzeitig begrenzen anhaltende Inflationsrisiken, geopolitische Konflikte und schwache Marktbreite das Aufwärtspotenzial.",
    "indikatoren": [
     {
      "kategorie": "Arbeitsmarkt",
-     "name": "US-Arbeitsmarktbericht",
-     "lage": "Stellenaufbau verlangsamt sich, Vormonate nach unten revidiert",
+     "name": "US-Arbeitsmarktdaten",
+     "lage": "Schwächer als erwartet mit Abwärtsrevisionen",
      "pfeil": "hoch",
-     "rolle": "Eine Abkühlung des Arbeitsmarktes nimmt Druck von der US-Notenbank bezüglich weiterer Zinsanhebungen."
+     "rolle": "Ein abkühlender Arbeitsmarkt nimmt den Zinsdruck von der Fed und wird von den Aktienmärkten positiv aufgenommen."
     },
     {
-     "kategorie": "Öl & Rohstoffe",
-     "name": "Ölpreis",
-     "lage": "Fällt spürbar um rund 4 Prozent",
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Wahrscheinlichkeit für Zinsanhebungen sinkt drastisch",
      "pfeil": "hoch",
-     "rolle": "Sinkende Rohstoffpreise entlasten die Anleihemärkte und dämpfen kurzfristig den Inflationsdruck."
+     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
     },
     {
      "kategorie": "Anleihen & Renditen",
      "name": "US-Staatsanleiherenditen",
-     "lage": "Geben nach den jüngsten Hochs wieder nach",
+     "lage": "Leichter Rücklauf von den Wochenhochs",
      "pfeil": "hoch",
-     "rolle": "Niedrigere Renditen stützen insbesondere die Bewertung zinssensitiver Technologiewerte."
+     "rolle": "Sinkende Renditen entlasten die Aktienmärkte und verringern den Refinanzierungsdruck."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Ölpreise",
+     "lage": "Rückläufig trotz geopolitischer Spannungen",
+     "pfeil": "hoch",
+     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
     },
     {
      "kategorie": "Inflation",
-     "name": "ISM Preis-Komponente",
-     "lage": "Deutlich heißer als erwartet ausgefallen",
+     "name": "Bevorstehende Inflationsdaten (CPI)",
+     "lage": "Erwartung heißer Zahlen durch hohe Vormonats-Indikatoren",
      "pfeil": "runter",
-     "rolle": "Starke Preisdynamik im verarbeitenden Gewerbe mahnt zur Vorsicht vor anhaltenden Inflationsrisiken."
+     "rolle": "Anhaltende Preissorgen könnten die Erholung am Anleihe- und Aktienmarkt dämpfen."
     },
     {
-     "kategorie": "Einzelwerte",
-     "name": "Nike",
-     "lage": "Massiv enttäuschender Ausblick und deutliche Kurszielsenkungen",
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite",
+     "lage": "Starke Abhängigkeit von wenigen Tech- und KI-Werten",
      "pfeil": "runter",
-     "rolle": "Die Schwäche des Konsumgüterriesen verdeutlicht anhaltenden Druck auf Margen und Konsumlaune."
+     "rolle": "Ohne KI-Aktien zeigt der breite Markt deutliche Schwächezeichen."
     },
     {
-     "kategorie": "Einzelwerte",
-     "name": "Tesla",
-     "lage": "Lieferzahlen für Q3 schlagen die zuvor gesenkten Schätzungen",
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "Saisonal günstige Phase und bereinigte Positionierungen",
      "pfeil": "hoch",
-     "rolle": "Die übertroffenen Auslieferungserwartungen sorgen für vorbörsliche Kursgewinne und heben die Stimmung im Tech-Sektor."
+     "rolle": "Historisch bietet das vierte Quartal nach bereinigten CTA-Positionen Rückenwind für Aktien."
     },
     {
      "kategorie": "Geopolitik",
-     "name": "Konflikte im Nahen Osten und Ukraine-Krieg",
-     "lage": "Militärische Spannungen und Drohgebärden nehmen zu",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Eskalationsrisiken und erhöhte Truppenpräsenz",
      "pfeil": "runter",
-     "rolle": "Geopolitische Unsicherheiten bleiben ein latentes Risiko für Lieferketten und globale Energiepreise."
+     "rolle": "Geopolitische Unsicherheiten bleiben ein ständiger Belastungsfaktor für das Marktumfeld."
     }
    ],
    "zitate": [
-    "schlechter ist genau das, was die Wall Street sehen wollte",
-    "feiert mal den Arbeitsmarktbericht nicht zu sehr"
+    "Schlechter ist genau das, was die Wall Street sehen wollte.",
+    "Die Erholung wird nicht linear verlaufen."
    ],
    "sicherheit": "hoch",
    "modell": "gemini-3.7-flash",
-   "tokens": 147830,
-   "zeit": "2026-10-02T13:52:33+00:00",
-   "art": "opening"
+   "tokens": 147837
   },
   {
    "id": "l17P53ro9vs",
    "titel": "Micron liefert den KI-Hammer. Kursgewinne entstehen aber woanders.",
    "datum": "2026-10-01",
+   "zeit": "2026-10-01T13:49:50+00:00",
+   "art": "opening",
    "score": -15,
    "pfeil": "runter",
-   "thema": "Markus Koch analysiert die Marktlage an der Wall Street mit Fokus auf die Dominanz der Tech-Schwergewichte, steigende Anleiherenditen und anhaltenden Inflationsdruck.",
-   "gesamtstimmung": "Die Marktstimmung bleibt trotz Kursgewinnen bei großen Tech-Werten angespannt und vorsichtig. Zunehmende Anleiherenditen, hohe Energiepreise und eine historisch schwache Marktbreite mahnen zur Zurückhaltung im Oktober.",
-   "begruendung": "Koch hebt hervor, dass die Kursgewinne fast ausschließlich von wenigen Mega-Cap-Aktien getragen werden, während die Mehrheit der S&P-500-Titel korrigiert. Zudem sorgen robuste Konjunkturdaten und steigende Energiepreise für anhaltende Zins- und Inflationssorgen.",
+   "thema": "Analyse der Wall-Street-Lage zwischen Zins- und Inflationssorgen, anhaltenden Energieengpässen und einer extrem engen Marktbreite.",
+   "gesamtstimmung": "Markus Koch blickt vorsichtig auf das Marktumfeld, da die scheinbare Indexstärke fast ausschließlich von wenigen Mega-Cap-Tech-Werten getragen wird. Gleichzeitig mahnen hohe Anleiherenditen, steigende Kraftstoffpreise und hartnäckige Inflationssignale zur Zurückhaltung.",
+   "begruendung": "Zwar bietet der Rücksetzer im September eine bereinigte Ausgangslage und weniger Hebel im Markt, doch die Fundamentaldaten rund um Zinsen und Energie bleiben belastend. Die massive Diskrepanz zwischen den wenigen Indexschwergewichten und der schwachen Marktbreite birgt zudem spürbare Abwärtsrisiken.",
    "indikatoren": [
     {
      "kategorie": "Anleihen & Renditen",
      "name": "US-Staatsanleiherenditen",
-     "lage": "steigend auf erhöhtem Niveau",
+     "lage": "verharren auf hohem Niveau",
      "pfeil": "runter",
-     "rolle": "Hohe Renditen setzen die Bewertungen an den Aktienmärkten und Finanzwerte massiv unter Druck."
+     "rolle": "Hohe Renditen setzen die breite Aktienbewertung und insbesondere Finanzwerte kontinuierlich unter Druck."
     },
     {
      "kategorie": "Öl & Rohstoffe",
      "name": "Öl- und Dieselpreise",
-     "lage": "ziehen weiter an wegen Engpässen",
+     "lage": "ziehen weiter an",
      "pfeil": "runter",
-     "rolle": "Steigende Energiekosten fachen den Inflationsdruck erneut an und belasten Verbraucher sowie Unternehmen."
+     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "extrem gering, nur 25 % der Aktien über 50-Tage-Linie",
+     "pfeil": "runter",
+     "rolle": "Die Rally steht auf wackeligen Beinen, da nur eine Handvoll Tech-Giganten die Indizes nach oben zieht."
+    },
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "robuster als erhofft",
+     "pfeil": "runter",
+     "rolle": "Hartnäckige Teuerungsraten dämpfen Hoffnungen auf rasche Zinssenkungen der Notenbanken."
     },
     {
      "kategorie": "Stimmung & Volatilität",
-     "name": "Marktbreite im S&P 500",
-     "lage": "extrem schwach, nur ca. 25 % der Aktien über 50-Tage-Linie",
-     "pfeil": "runter",
-     "rolle": "Die massive Divergenz zwischen dem kapitalgewichteten Index und dem Equal-Weight-Index birgt Korrekturrisiken."
-    },
-    {
-     "kategorie": "Einzelwerte",
-     "name": "Mega-Cap Tech (Microsoft, Nvidia, Apple, Meta, Amazon)",
-     "lage": "gefragt und durch positive Analystenkommentare gestützt",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "im September deutlich abgebaut",
      "pfeil": "hoch",
-     "rolle": "Die großen Tech-Konzerne tragen fast die gesamte Performance des Gesamtmarktes."
+     "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal."
     },
     {
      "kategorie": "Konjunktur",
-     "name": "Einkaufsmanagerindizes (PMI / ISM)",
-     "lage": "überwiegend robust und über den Erwartungen",
+     "name": "Industrie- und Exportdaten (Asien & USA)",
+     "lage": "überraschend stark",
      "pfeil": "seitwaerts",
-     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber gleichzeitig den Zinsdruck hoch."
+     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
     }
    ],
    "zitate": [
-    "Der Aktienmarkt ist nicht die Wirtschaft.",
-    "Der Oktober könnte durchaus noch mehr Volatilität bringen."
+    "der Aktienmarkt ist nicht die Wirtschaft",
+    "die Lage unter der Oberfläche des Marktes sehr angespannt bleibt"
    ],
    "sicherheit": "hoch",
-   "modell": "gemini-3.7-flash",
-   "tokens": 151129,
-   "zeit": "2026-10-01T13:49:50+00:00",
-   "art": "opening"
+   "modell": "gemini-3.8-flash",
+   "tokens": 151435
   }
  ],
  "gesehen": [
   "6K6GAqqqIk0",
   "i-B753QP6xY",
+  "l17P53ro9vs",
+  "6K6GAqqqIk0",
   "l17P53ro9vs"
  ],
- "stand": "2026-10-05T07:54Z",
+ "stand": "2026-10-05T08:00Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
@@ -141,8 +157,8 @@
   "Öl & Rohstoffe",
   "Anleihen & Renditen",
   "Konjunktur",
-  "Unternehmenszahlen",
-  "Einzelwerte",
+  "Gewinnsaison",
+  "Marktbreite & Sektoren",
   "Geopolitik",
   "Politik & Zölle",
   "Saisonalität & Chart",
