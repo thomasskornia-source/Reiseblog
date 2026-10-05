@@ -1,7 +1,7 @@
 /* Songmusik: spielt nach dem Vorlesen (bzw. leise schon die letzten Sekunden davor) den 30-Sekunden-Ausschnitt des Songs.
    Quelle: iTunes Search API (Apple), kostenlos und ohne Anmeldung. Wird im Browser abgefragt, der Player bleibt unsichtbar. */
 (function () {
-  var PRE = 10, LOW = 0.16, HIGH = 0.9;
+  var PRE = 5, LOW = 0.16, HIGH = 0.9;
   var url = null, corsOk = false, info = null;
   var m = null, ctx = null, gain = null, canVol = false, started = false, finished = false, cb = null, ramp = 0, tmo = 0;
 
