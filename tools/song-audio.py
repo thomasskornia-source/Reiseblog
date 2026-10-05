@@ -4,7 +4,7 @@
 Braucht die Umgebungsvariable GEMINI_API_KEY und ffmpeg. Songs, zu denen es schon eine Datei gibt, werden übersprungen.
 Schlägt ein Song fehl, läuft das Skript mit den übrigen weiter und beendet sich am Ende mit Fehlercode 1.
 """
-import base64, io, json, os, subprocess, sys, time, urllib.request, urllib.error, wave
+import datetime, base64, io, json, os, subprocess, sys, time, urllib.request, urllib.error, wave
 
 ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions"
 MODEL = os.environ.get("GEMINI_TTS_MODEL", "gemini-3.8-flash-tts")
@@ -85,6 +85,11 @@ def main():
         out = os.path.join(ROOT, "audio", s["id"] + ".mp3")
         if os.path.exists(out):
             continue
+        try:  # ältere Songs bekommen keine Sprachdatei mehr (wird nach 14 Tagen aufgeräumt, tools/aufraeumen.py)
+            if (datetime.date.today() - datetime.date.fromisoformat(s.get("date", ""))).days > 14:
+                continue
+        except ValueError:
+            pass
         try:
             wav = to_wav(request_audio(text_for(s), key))
             subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", "pipe:0", "-ac", "1", "-ar", "24000", "-b:a", "48k", out],

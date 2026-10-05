@@ -133,6 +133,9 @@ def aufbereiten(d, v, modell, tokens):
 
 
 def speichern(db):
+    grenze = str(dt.date.today() - dt.timedelta(days=90))  # Auswertungen älter als 90 Tage fallen heraus
+    db["beitraege"] = [b for b in db["beitraege"] if b["datum"] >= grenze]
+    db["gesehen"] = db["gesehen"][-300:]
     db["beitraege"].sort(key=lambda b: (b["datum"], b.get("zeit") or "", b["id"]), reverse=True)
     db["quelle"] = "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung."
     db["kategorien"] = KATEGORIEN

@@ -7,6 +7,8 @@ Wochenplaner: `wochenplaner.html` (Plan, Einkaufsliste, Vorrat, Reste im Browser
 Börsenstimmung: `stimmung.html` (Pfeil, Indikatoren, Barometer), Daten `data/koch.json`, erzeugt von `tools/koch-sammeln.py` über
 `.github/workflows/koch.yml` (Gemini wertet das neueste YouTube-Video von Markus Koch aus; zweimal täglich, plus von Hand startbar).
 Es geht um die Marktlage, nicht um Einzelaktien. Es wird kein Transkript gespeichert, nur die eigene Auswertung mit Quelle. Verlinkt von `aktien.html`.
+Aufräumen (Thomas, 05.10.2026): Tagesdaten sollen nicht anwachsen. `tools/aufraeumen.py` (läuft in `koch.yml`) löscht Song-Sprachdateien nach 14 Tagen,
+`koch-sammeln.py` behält Auswertungen 90 Tage. Neue Tagesdaten bekommen von Anfang an so eine Frist.
 
 ## Arbeitsweise (Thomas, 02.10.2026)
 - Änderungen am Reiseblog nach eigener Prüfung **direkt zusammenführen** (Entwurf anlegen, prüfen, mit „squash“ auf `main`
