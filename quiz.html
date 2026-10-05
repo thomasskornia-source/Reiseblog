@@ -6,26 +6,28 @@
 <title>Quiz – Unterwegs und zuhause</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=12">
+<link rel="stylesheet" href="home.css?v=18">
+<link rel="stylesheet" href="lesebuehne.css?v=5">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
 <style>
-  .qz { max-width: 640px; margin: 0 auto; padding-bottom: 40px; }
-  .qz .sub { color: var(--ink-soft); font-size: 15px; line-height: 1.55; margin: 6px 0 16px; }
-  .qz-karten { display: grid; gap: 14px; }
-  .qk { position: relative; display: block; overflow: hidden; border-radius: 20px; padding: 24px 22px 22px; min-height: 170px; color: #fff; text-decoration: none; border: 0; box-shadow: 0 10px 26px rgba(46, 58, 50, .18); transition: transform .2s; }
-  .qk:hover { transform: translateY(-2px); }
-  .qk:focus-visible { outline: 3px solid #F6C253; outline-offset: 3px; }
-  .qk svg { position: absolute; right: -10px; top: -10px; width: 190px; height: 190px; opacity: .9; pointer-events: none; }
-  .qk .neu { display: inline-block; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; background: #F6C253; color: #3a2a05; padding: 3px 10px; border-radius: 99px; margin-bottom: 10px; }
-  .qk h2 { position: relative; font-family: 'Fraunces', serif; font-weight: 500; font-size: 28px; line-height: 1.15; margin: 0 0 8px; max-width: 70%; color: #fff; }
-  .qk p { position: relative; margin: 0; font-size: 15px; line-height: 1.5; max-width: 80%; color: rgba(255, 255, 255, .92); }
-  .qk .go { position: relative; display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600; letter-spacing: .02em; }
-  .qk.muc { background: linear-gradient(170deg, #6F7D2E, #4A5620); }
-  .qk.bay { background: linear-gradient(170deg, #2E6FA3, #1B3F66); }
-  @media (min-width: 760px) { .qz { max-width: 820px; } .qz-karten { grid-template-columns: 1fr 1fr; } .qk { min-height: 210px; } }
+  .qz { padding-bottom: 20px; }
+  .qz .bento { margin-top: 18px; margin-bottom: 36px; }
+  .tile .play { all: unset; cursor: pointer; position: absolute; z-index: 2; right: 22px; bottom: 26px; width: 64px; height: 64px; border-radius: 50%; background: #F6C253; color: #262F63; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0, 0, 0, .35); }
+  .tile .play:active { transform: scale(.94); }
+  .tile .play:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+  .tile .play svg { position: static; inset: auto; width: 32px; height: 32px; fill: #262F63; transition: none; }
+  .tile:hover .play svg { transform: none; }
+  .tile .play .st { display: none; }
+  .tile .play.spielt .pl { display: none; }
+  .tile .play.spielt .st { display: inline; }
+  .tile .cover { position: absolute; inset: 0; z-index: 1; }
+  .tile .neu { display: inline-block; font: 600 11px 'Work Sans', sans-serif; letter-spacing: .1em; text-transform: uppercase; background: #F6C253; color: #3a2a05; padding: 3px 10px; border-radius: 99px; margin-bottom: 10px; }
+  .tile .in .q { padding-right: 76px; }
+  @media (min-width: 760px) { .tile .play { right: 30px; } }
 </style>
 </head>
 <body class="page-wide">
@@ -46,32 +48,42 @@
     <h1>Quiz</h1>
     <hr class="rule">
   </header>
-  <p class="sub">Zwei Spiele: München auf der Karte erraten, und jede Woche ein Bayern-Rätsel zum Anhören.</p>
-  <div class="qz-karten">
-    <a class="qk muc" href="muenchen-quiz.html">
-      <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M150 40l9 20 22 3-16 15 4 22-19-11-19 11 4-22-16-15 22-3z" fill="#F6C253"/><circle cx="160" cy="130" r="20" fill="#E2683C"/><rect x="70" y="120" width="60" height="50" rx="8" fill="#FBF3E4" opacity=".35"/></svg>
-      <h2>München-Quiz</h2>
-      <p>Wo liegt welcher Stadtbezirk? Tippe ihn auf der Karte an und lerne die Stadt kennen.</p>
-      <span class="go">Karte öffnen ›</span>
+
+  <section class="bento">
+    <a class="tile wide" href="muenchen-quiz.html" style="background:linear-gradient(170deg,#6F7D2E,#4A5620)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M310 40l9 20 22 3-16 15 4 22-19-11-19 11 4-22-16-15 22-3z" fill="#F6C253"/><circle cx="360" cy="150" r="16" fill="#E2683C"/><rect x="262" y="140" width="30" height="30" rx="6" fill="#FBF3E4" transform="rotate(16 277 155)"/></svg>
+      <div class="in"><div class="q">Wie gut kennst du <i>deine Stadt</i>?</div><span class="go">München-Quiz</span></div>
     </a>
-    <a class="qk bay" href="raetsel.html" id="rk">
-      <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M20 160 L80 70 L110 115 L135 85 L190 160z" fill="#FBF3E4" opacity=".4"/><path d="M80 70 L92 88 L80 84 L68 88z" fill="#fff" opacity=".8"/><circle cx="150" cy="50" r="18" fill="#F6C253"/></svg>
-      <span class="neu" id="rk-neu" hidden>Neu diese Woche</span>
-      <h2>Bayern-Rätsel</h2>
-      <p id="rk-text">Eine kurze Geschichte aus Oberbayern zum Anhören, mit Fragen und Denkpausen.</p>
-      <span class="go">Anhören ›</span>
-    </a>
-  </div>
+    <div class="tile wide" id="rk" style="background:linear-gradient(170deg,#2E6FA3,#1B3F66)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="330" cy="58" r="30" fill="#F6C253" opacity=".9"/><path d="M180 232 L262 110 L296 160 L326 122 L400 232z" fill="#FBF3E4" opacity=".35"/><path d="M262 110 L276 132 L262 128 L248 132z" fill="#fff" opacity=".85"/><path d="M0 214 Q50 196 100 214 T200 214 T300 214 T400 214V232H0z" fill="#16406B" opacity=".7"/></svg>
+      <a class="cover" id="rk-link" href="raetsel.html" aria-label="Bayern-Rätsel öffnen"></a>
+      <div class="in"><span class="neu" id="rk-neu" hidden>Neu diese Woche</span><div class="q">Was weißt du über <i>Bayern</i>?</div><span class="go">Bayern-Rätsel · anhören</span></div>
+      <button type="button" class="play" id="rk-play" aria-label="Bayern-Rätsel anhören" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></button>
+    </div>
+  </section>
+  <p id="rk-note" class="sub" style="color:var(--ink-soft);font-size:14px" hidden></p>
+
   <footer class="site-footer"><p>Das Bayern-Rätsel kommt jede Woche neu.</p></footer>
 </div>
 <script>
-fetch('data/raetsel.json').then(function (r) { return r.json(); }).then(function (l) {
-  l = l.filter(function (x) { return x && x.titel; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
-  if (!l.length) return;
-  document.getElementById('rk-text').textContent = l[0].titel + ': ' + (l[0].teaser || '');
-  var d = new Date(l[0].date + 'T12:00:00'); if (!isNaN(d) && (Date.now() - d) < 7 * 86400000) document.getElementById('rk-neu').hidden = false;
-}).catch(function () {});
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  fetch('data/raetsel.json').then(function (r) { return r.json(); }).then(function (l) {
+    l = l.filter(function (x) { return x && x.titel && x.segmente && x.segmente.length; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    if (!l.length) return;
+    var q = l[0], d = new Date(q.date + 'T12:00:00');
+    if (!isNaN(d) && (Date.now() - d) < 7 * 86400000) $('rk-neu').hidden = false;
+    if (!window.RaetselPlayer || !RaetselPlayer.canRead()) return;
+    var b = $('rk-play'); b.hidden = false;
+    RaetselPlayer.onState(function (on) { b.classList.toggle('spielt', on); b.setAttribute('aria-label', on ? 'Stopp' : 'Bayern-Rätsel anhören'); });
+    RaetselPlayer.onNote(function (m) { $('rk-note').textContent = m; $('rk-note').hidden = !m; });
+    RaetselPlayer.load(q);
+    b.onclick = function () { RaetselPlayer.toggle(); };
+  }).catch(function () {});
+})();
 </script>
+<script src="lesebuehne.js?v=4"></script>
+<script src="raetselplayer.js?v=1"></script>
 <script src="nav.js?v=11" defer></script>
 </body>
 </html>
