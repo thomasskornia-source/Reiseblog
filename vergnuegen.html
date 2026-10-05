@@ -42,16 +42,23 @@
   .vg-act button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
   .vg-ok { font-size: 13px; font-weight: 600; color: #2a8f6a; padding: 0 18px 14px; }
   .vg-leer { color: var(--ink-soft); margin: 18px 0; }
-  .vg-q { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-  .vg-q li { display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 16px; padding: 12px 16px; box-shadow: 0 4px 14px rgba(46,58,50,.08); }
-  .vg-q li.weg { opacity: .5; }
+  .vg-q { margin: 8px 0 0; padding: 0; list-style: none; background: #fff; border-radius: 18px; box-shadow: 0 4px 14px rgba(46,58,50,.08); overflow: hidden; }
+  .vg-q li { border-top: 1px solid #efe8da; }
+  .vg-q li:first-child { border-top: 0; }
+  .vg-q label { display: flex; align-items: center; gap: 14px; padding: 13px 16px; cursor: pointer; }
   .vg-q .qi { flex: 1; min-width: 0; }
-  .vg-q .qi a { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
-  .vg-q .qi small { display: block; color: var(--ink-soft); font-size: 12.5px; margin-top: 2px; }
-  .vg-q button { all: unset; cursor: pointer; padding: 7px 14px; border-radius: 99px; font-size: 13.5px; font-weight: 600; border: 1.5px solid #d9d2c2; white-space: nowrap; }
-  .vg-q button.an { background: #2a8f6a; color: #fff; border-color: #2a8f6a; }
-  .vg-q button.aus { background: #c0392b; color: #fff; border-color: #c0392b; }
-  .vg-copy { all: unset; cursor: pointer; margin-top: 16px; display: inline-block; padding: 10px 20px; border-radius: 99px; background: var(--ink); color: #fff; font-weight: 600; font-size: 14.5px; }
+  .vg-q .qn { display: block; font-size: 15.5px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+  .vg-q .qd { display: block; font-size: 12.5px; color: var(--ink-soft); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vg-q .qd a { color: inherit; }
+  .vg-q li.weg .qn { text-decoration: line-through; color: var(--ink-soft); font-weight: 500; }
+  .vg-q input { position: absolute; opacity: 0; pointer-events: none; }
+  .vg-q .sw { flex: none; width: 46px; height: 28px; border-radius: 99px; background: #d9d2c2; position: relative; transition: background .15s; }
+  .vg-q .sw::after { content: ''; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3); transition: transform .15s; }
+  .vg-q input:checked + .sw { background: #2a8f6a; }
+  .vg-q input:checked + .sw::after { transform: translateX(18px); }
+  .vg-q input:focus-visible + .sw { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .vg-qh { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin: 26px 0 0; }
+  .vg-copy { all: unset; cursor: pointer; margin-top: 22px; display: inline-block; padding: 11px 22px; border-radius: 99px; background: var(--ink); color: #fff; font-weight: 600; font-size: 15px; }
   .vg-reset { all: unset; cursor: pointer; font-size: 13px; color: var(--ink-soft); text-decoration: underline; }
 </style>
 </head>
@@ -89,7 +96,7 @@
   </div>
 
   <div id="quellen" hidden>
-    <div class="entry-body"><p>Diese Seiten schlage ich als Quellen vor. Mit <b>Behalten</b> oder <b>Entfernen</b> entscheidest du. Die Auswahl bleibt auf diesem Gerät, über den Knopf unten kannst du sie mir schicken.</p></div>
+    <div class="entry-body"><p>Alle Quellen sind zunächst dabei. Schalte aus, was du nicht willst. Mit dem Knopf unten kopierst du die Auswahl und schickst sie mir.</p></div>
     <div id="q-liste"></div>
     <button type="button" class="vg-copy" id="q-copy">Auswahl kopieren</button>
     <p class="vg-hint" id="q-msg"></p>
@@ -203,24 +210,25 @@
     var box = $('q-liste'); box.innerHTML = '';
     ORDER.forEach(function (k) {
       var l = quellen.filter(function (q) { return q.rubrik === k; }); if (!l.length) return;
-      box.appendChild(el('h2', 'vg-h', RUBRIKEN[k].name));
+      box.appendChild(el('h2', 'vg-qh', RUBRIKEN[k].name));
       var ul = el('ul', 'vg-q');
       l.forEach(function (q) {
-        var li = el('li', qstat[q.id] === 'aus' ? 'weg' : ''), t = el('div', 'qi'), a = el('a', '', q.name);
-        a.href = q.url; a.target = '_blank'; a.rel = 'noopener'; t.appendChild(a); t.appendChild(el('small', '', q.info + (q.abruf ? '' : '')));
-        var ja = el('button', qstat[q.id] === 'an' ? 'an' : '', 'Behalten'), aus = el('button', qstat[q.id] === 'aus' ? 'aus' : '', 'Entfernen');
-        ja.type = aus.type = 'button';
-        ja.onclick = function () { qstat[q.id] = qstat[q.id] === 'an' ? '' : 'an'; speichereQ(); }; aus.onclick = function () { qstat[q.id] = qstat[q.id] === 'aus' ? '' : 'aus'; speichereQ(); };
-        li.appendChild(t); li.appendChild(ja); li.appendChild(aus); ul.appendChild(li);
+        var li = el('li', qstat[q.id] === 'aus' ? 'weg' : ''), lb = el('label'), t = el('span', 'qi');
+        var cb = el('input'); cb.type = 'checkbox'; cb.checked = qstat[q.id] !== 'aus'; cb.setAttribute('aria-label', q.name);
+        cb.onchange = function () { if (cb.checked) delete qstat[q.id]; else qstat[q.id] = 'aus'; ss('vg-quellen', JSON.stringify(qstat)); li.className = cb.checked ? '' : 'weg'; };
+        t.appendChild(el('span', 'qn', q.name));
+        var d = el('span', 'qd'), a = el('a', '', q.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, ''));
+        a.href = q.url; a.target = '_blank'; a.rel = 'noopener'; a.onclick = function (e) { e.stopPropagation(); };
+        d.appendChild(a); d.appendChild(document.createTextNode(' · ' + q.info)); t.appendChild(d);
+        lb.appendChild(t); lb.appendChild(cb); lb.appendChild(el('span', 'sw')); li.appendChild(lb); ul.appendChild(li);
       });
       box.appendChild(ul);
     });
   }
-  function speichereQ() { ss('vg-quellen', JSON.stringify(qstat)); quellenListe(); }
   $('q-copy').onclick = function () {
-    var an = [], aus = [], offen = [];
-    quellen.forEach(function (q) { (qstat[q.id] === 'an' ? an : qstat[q.id] === 'aus' ? aus : offen).push(q.id); });
-    var t = 'Quellen Vergnügen. Behalten: ' + (an.join(', ') || '-') + '. Entfernen: ' + (aus.join(', ') || '-') + '. Noch offen: ' + (offen.join(', ') || '-') + '.';
+    var an = [], aus = [];
+    quellen.forEach(function (q) { (qstat[q.id] === 'aus' ? aus : an).push(q.id); });
+    var t = 'Quellen Vergnügen. Behalten: ' + (an.join(', ') || '-') + '. Entfernen: ' + (aus.join(', ') || '-') + '.';
     var ok = function () { $('q-msg').textContent = 'Kopiert. Füge den Text in den Chat ein.'; };
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(ok, function () { $('q-msg').textContent = t; }); else $('q-msg').textContent = t;
   };
