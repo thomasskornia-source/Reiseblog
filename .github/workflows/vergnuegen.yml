@@ -13,6 +13,7 @@ concurrency:
 
 jobs:
   sammeln:
+    timeout-minutes: 40
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

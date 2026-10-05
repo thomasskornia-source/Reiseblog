@@ -11,7 +11,7 @@ import datetime as dt, hashlib, html, json, os, re, sys, time, urllib.parse, url
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = lambda n: os.path.join(ROOT, "data", n)
 KEY = os.environ.get("GEMINI_API_KEY", "").strip()
-MODELS = ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-flash-latest"]
+MODELS = ["gemini-3.8-flash", "gemini-flash-latest"]
 BASE = "https://generativelanguage.googleapis.com/v1beta"
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36", "Accept-Language": "de-DE,de;q=0.9"}
 TAGS = {
@@ -56,20 +56,19 @@ def gemini(p):
     body = {"contents": [{"parts": [{"text": p}]}], "generationConfig": {"responseMimeType": "application/json", "temperature": 0.2}}
     fehler = ""
     for m in MODELS:
-        for versuch in range(2):
+        for versuch in range(1):
             req = urllib.request.Request(f"{BASE}/models/{m}:generateContent", data=json.dumps(body).encode(), method="POST",
                                          headers={"x-goog-api-key": KEY, "Content-Type": "application/json"})
             try:
-                with urllib.request.urlopen(req, timeout=180) as r:
+                with urllib.request.urlopen(req, timeout=75) as r:
                     t = json.load(r)["candidates"][0]["content"]["parts"][0]["text"].strip()
                 return json.loads(re.sub(r"^```(?:json)?|```$", "", t).strip())
             except urllib.error.HTTPError as e:
                 fehler = f"{m}: HTTP {e.code}"
-                if e.code in (429, 500, 503) and versuch == 0:
-                    time.sleep(20); continue
+                print(fehler, flush=True)
                 break
             except Exception as e:  # noqa: BLE001
-                fehler = f"{m}: {e}"; break
+                fehler = f"{m}: {e}"; print(fehler, flush=True); break
     raise RuntimeError(fehler)
 
 
@@ -120,7 +119,10 @@ def main():
         alt = []
     db = {x["id"]: x for x in alt}
     ok = fehler = neu = 0
+    start = time.time()
     for q in quellen:
+        if time.time() - start > 1500:
+            print("Zeitbudget erreicht, Rest beim nächsten Lauf"); break
         if q.get("status") == "entfernt" or not q.get("abruf", True):
             continue
         try:
@@ -128,7 +130,7 @@ def main():
             if not isinstance(items, list):
                 raise RuntimeError("keine Liste")
         except Exception as e:  # noqa: BLE001
-            fehler += 1; print("FEHLER", q["id"], str(e)[:200]); continue
+            fehler += 1; print("FEHLER", q["id"], str(e)[:200], flush=True); continue
         ok += 1
         for it in items[:MAX_PRO_QUELLE]:
             if not isinstance(it, dict) or not it.get("titel"):
@@ -149,7 +151,7 @@ def main():
             if iid not in db:
                 neu += 1
             db[iid] = x
-        print("ok", q["id"], len(items), "Tipps")
+        print("ok", q["id"], len(items), "Tipps", flush=True)
     grenze = (HEUTE - dt.timedelta(days=2)).isoformat(); alt_grenze = (HEUTE - dt.timedelta(days=120)).isoformat()
     out = []
     for x in db.values():
