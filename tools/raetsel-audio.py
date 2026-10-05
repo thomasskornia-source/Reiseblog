@@ -4,12 +4,25 @@
 Jedes Segment wird einzeln gesprochen (Gemini-Sprachausgabe, wie tools/song-audio.py). Nach Fragen wird eine Denkpause
 (Segmentfeld "pause", Sekunden) eingefügt. Gesprochen wird "s" (Zahlen ausgeschrieben), sonst "t". Braucht GEMINI_API_KEY und ffmpeg. Vorhandene Dateien werden übersprungen.
 """
-import importlib.util, io, json, os, subprocess, sys, wave
+import importlib.util, io, json, os, re, subprocess, sys, time, wave
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 spec = importlib.util.spec_from_file_location("song_audio", os.path.join(ROOT, "tools", "song-audio.py"))
 SA = importlib.util.module_from_spec(spec); spec.loader.exec_module(SA)
 GAP = 0.7  # Sekunden Luft nach jedem Segment
+TAKT = 21  # Sekunden zwischen zwei Anfragen (kostenloser Zugang: 3 Anfragen pro Minute)
+
+
+def sprechen(text, key):
+    """Eine Anfrage an die Sprachausgabe, bei Tempolimit (429) warten und neu versuchen."""
+    for versuch in range(5):
+        try:
+            return SA.request_audio(text, key)
+        except RuntimeError as e:
+            if "429" not in str(e) or versuch == 4:
+                raise
+            m = re.search(r"retry in (\d+)", str(e))
+            time.sleep(min(90, int(m.group(1)) + 5) if m else 50)
 
 
 def frames(wav_bytes):
@@ -30,8 +43,10 @@ def main():
             continue
         try:
             pcm, params, marks, t = b"", None, [], 0.0
-            for seg in q["segmente"]:
-                p, fr = frames(SA.to_wav(SA.request_audio(seg.get("s") or seg["t"], key)))
+            for n, seg in enumerate(q["segmente"]):
+                if n:
+                    time.sleep(TAKT)
+                p, fr = frames(SA.to_wav(sprechen(seg.get("s") or seg["t"], key)))
                 params = params or p
                 rate, width = params.framerate, params.sampwidth
                 dur = len(fr) / (rate * width * params.nchannels)
