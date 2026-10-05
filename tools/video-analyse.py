@@ -8,7 +8,7 @@ import json, os, sys, time, urllib.request, urllib.error
 
 KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 URL = os.environ.get("VIDEO_URL", "").strip()
-MODELS = [m for m in [os.environ.get("GEMINI_VIDEO_MODEL", "").strip(), "gemini-2.5-flash", "gemini-3-flash", "gemini-2.0-flash"] if m]
+MODELS = [m for m in [os.environ.get("GEMINI_VIDEO_MODEL", "").strip(), "gemini-3.8-flash", "gemini-3.7-flash", "gemini-flash-latest"] if m]
 BASE = "https://generativelanguage.googleapis.com/v1beta"
 
 PROMPT = """Du hörst einen täglichen deutschsprachigen Börsen-Beitrag (Marktstimmung, Börsenthemen).
