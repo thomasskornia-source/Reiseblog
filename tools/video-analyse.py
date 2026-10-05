@@ -4,11 +4,14 @@
 Braucht GEMINI_API_KEY und die Umgebungsvariable VIDEO_URL. Es wird KEIN Transkript gespeichert,
 nur eine Auswertung in eigenen Worten mit höchstens zwei kurzen Zitaten. Ergebnis: auswertung/test.md
 """
-import json, os, sys, time, urllib.request, urllib.error
+import json, os, re, sys, time, urllib.request, urllib.error
 
 KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 URL = os.environ.get("VIDEO_URL", "").strip()
 MODELS = [m for m in [os.environ.get("GEMINI_VIDEO_MODEL", "").strip(), "gemini-3.8-flash", "gemini-3.7-flash", "gemini-flash-latest"] if m]
+_m = re.search(r"(?:youtu\.be/|/live/|/shorts/|[?&]v=)([A-Za-z0-9_-]{11})", URL)
+if _m:
+    URL = "https://www.youtube.com/watch?v=" + _m.group(1)  # Standardform, nur die Video-ID
 BASE = "https://generativelanguage.googleapis.com/v1beta"
 
 PROMPT = """Du hörst einen täglichen deutschsprachigen Börsen-Beitrag (Marktstimmung, Börsenthemen).
