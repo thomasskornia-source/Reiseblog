@@ -23,6 +23,7 @@ TAGS = {
 }
 HEUTE = dt.date.today()
 MAX_ZEICHEN, MAX_PRO_QUELLE, MAX_PRO_RUBRIK = 24000, 10, 80
+MAX_QUELLEN_PRO_LAUF, PAUSE = 8, 12   # schont das gemeinsame kostenlose Gemini-Kontingent (auch Börsenstimmung und Rätsel nutzen es)
 
 
 def get(url):
@@ -120,7 +121,18 @@ def main():
     db = {x["id"]: x for x in alt}
     ok = fehler = neu = 0
     start = time.time()
-    for q in quellen:
+    try:
+        lauf = json.load(open(D("vergnuegen-lauf.json"), encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        lauf = {}
+    quellen = [q for q in quellen if q.get("status") != "entfernt" and q.get("abruf", True)]
+    quellen.sort(key=lambda q: lauf.get(q["id"], ""))   # am längsten nicht abgerufene zuerst
+    hintereinander = 0
+    for q in quellen[:MAX_QUELLEN_PRO_LAUF]:
+        if ok or fehler:
+            time.sleep(PAUSE)
+        if hintereinander >= 2:
+            print("Zwei Mal in Folge Tempolimit, Abbruch bis zum nächsten Lauf"); break
         if time.time() - start > 1500:
             print("Zeitbudget erreicht, Rest beim nächsten Lauf"); break
         if q.get("status") == "entfernt" or not q.get("abruf", True):
@@ -130,8 +142,8 @@ def main():
             if not isinstance(items, list):
                 raise RuntimeError("keine Liste")
         except Exception as e:  # noqa: BLE001
-            fehler += 1; print("FEHLER", q["id"], str(e)[:200], flush=True); continue
-        ok += 1
+            fehler += 1; hintereinander += 1; print("FEHLER", q["id"], str(e)[:200], flush=True); continue
+        ok += 1; hintereinander = 0; lauf[q["id"]] = HEUTE.isoformat()
         for it in items[:MAX_PRO_QUELLE]:
             if not isinstance(it, dict) or not it.get("titel"):
                 continue
@@ -169,6 +181,7 @@ def main():
         if je[x["rubrik"]] <= MAX_PRO_RUBRIK:
             final.append(x)
     json.dump(final, open(D("vergnuegen.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(lauf, open(D("vergnuegen-lauf.json"), "w", encoding="utf-8"), indent=0)
     json.dump(GEO, open(D("vergnuegen-geo.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=0)
     print(f"Fertig: {ok} Quellen ok, {fehler} Fehler, {neu} neue Tipps, {len(final)} gesamt")
     return 1 if ok == 0 and fehler else 0
