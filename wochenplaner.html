@@ -84,9 +84,33 @@
   .sheet .liste button.z { display: block; width: 100%; text-align: left; background: #fff; border: 1px solid rgba(46,58,50,.1); border-radius: 12px; padding: 10px 12px; margin-bottom: 6px; font: inherit; cursor: pointer; }
   .sheet .liste button.z b { font-weight: 500; font-size: 15.5px; }
   .sheet .liste .nix { color: var(--rust); font-weight: 600; }
+
+  /* ---- PC: Woche als Raster, Steuerung in einer Zeile, Einkaufsliste in Spalten ---- */
+  @media (min-width: 1100px) {
+    .wp { max-width: none; }
+    .wp .steuer { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr) auto; gap: 8px 32px; align-items: center; margin-bottom: 8px; }
+    .wp .steuer .sub { margin: 0; grid-column: 1; grid-row: 1; }
+    .wp .steuer .regeln { grid-column: 2; grid-row: 1; grid-template-columns: 1fr 1fr; margin: 0; }
+    .wp .steuer .regel { height: 100%; }
+    .wp .steuer .aktionen { grid-column: 3; grid-row: 1; margin: 0; flex-direction: column; min-width: 190px; }
+    .wp .steuer .bilanz { grid-column: 1 / -1; margin: 4px 0 0; }
+    #woche { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 12px; align-items: start; }
+    .wp .tag { margin-bottom: 0; height: 100%; }
+    .wp .tag > h3 { font-size: 19px; padding: 12px 14px 6px; }
+    .wp .slot { grid-template-columns: 1fr auto; gap: 2px 8px; padding: 10px 14px 12px; }
+    .wp .slot > i { grid-column: 1 / -1; }
+    .wp h2 { font-size: 26px; margin-top: 36px; }
+    .wp .list { column-width: 320px; column-gap: 36px; padding: 6px 22px 16px; }
+    .wp .list h4 { break-after: avoid; }
+    .wp .list label { break-inside: avoid; }
+    .wp .vorrat { max-width: 1100px; }
+    .wp .hinweis { max-width: 980px; }
+    .sheet { left: 50%; right: auto; transform: translateX(-50%); width: min(820px, 92vw); bottom: auto; top: 7vh; max-height: 86vh; border-radius: 22px; }
+    .sheet .liste { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; align-content: start; align-items: start; }
+  }
 </style>
 </head>
-<body class="page-wide">
+<body class="page-wide pc">
 <nav class="topbar" id="topbar"><div class="topin">
     <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
     <div class="topnav">
@@ -105,6 +129,7 @@
     <h1>Wochenplaner</h1>
     <hr class="rule">
   </header>
+  <aside class="steuer">
   <p class="sub">Mittags etwas Warmes für zwei (am Wochenende für drei), abends Brotzeit für drei. Stell die Regeln ein, lass die Woche vorschlagen und tausche, was dir nicht passt. Unter der Woche gibt es nur Blitz und Schlichtes, Aufwändiges landet am Wochenende.</p>
 
   <div class="regeln">
@@ -113,6 +138,7 @@
   </div>
   <div class="aktionen"><button type="button" class="btn1" id="vorschlag">Woche vorschlagen</button><button type="button" class="btn2" id="leeren">Leeren</button></div>
   <div class="bilanz" id="bilanz"></div>
+  </aside>
 
   <div id="woche"></div>
 
