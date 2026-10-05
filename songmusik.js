@@ -21,7 +21,7 @@
         } catch (e) {}
         fin();
       };
-      sc.onerror = fin; t = setTimeout(fin, 6000);
+      sc.onerror = function () { st = 'Suche blockiert'; fin(); }; t = setTimeout(function () { if (!done && !url) st = 'Suche zu langsam'; fin(); }, 6000);
       sc.src = 'https://itunes.apple.com/search?media=music&entity=song&country=de&limit=8&term=' + encodeURIComponent(s.title + ' ' + s.artist) + '&callback=' + name;
       document.head.appendChild(sc);
     });
@@ -50,10 +50,15 @@
     m = el;
     if (gain) canVol = true; else { try { el.volume = 0.5; canVol = Math.abs(el.volume - 0.5) < 0.01; el.volume = 1; } catch (e) { canVol = false; } }
   }
-  function credit() {
-    var root = document.querySelector('.lb'); if (!root || root.querySelector('.lb-credit')) return;
-    var c = document.createElement('div'); c.className = 'lb-credit'; c.textContent = 'Musikausschnitt: Apple Music'; root.appendChild(c);
+  var st = 'Suche läuft';
+  function setSt(t) {
+    st = t;
+    var root = document.querySelector('.lb'); if (!root) return;
+    var c = root.querySelector('.lb-credit');
+    if (!c) { c = document.createElement('div'); c.className = 'lb-credit'; root.appendChild(c); }
+    c.textContent = 'Musikausschnitt: Apple Music · ' + t;
   }
+  function credit() {}
   function finish() {
     if (finished) return; finished = true; clearInterval(ramp); clearTimeout(tmo);
     var f = cb; cb = null; cleanup(); if (f) f();
@@ -66,19 +71,20 @@
   function begin(vol) {
     if (!m || started) return; started = true; m.muted = false; setVol(0);
     var p = m.play();
-    if (p && p.catch) p.catch(function () { if (cb) finish(); else cleanup(); });
-    rampTo(0, vol, 2000); credit();
+    if (p && p.catch) p.catch(function (e) { setSt('Start abgelehnt'); if (cb) finish(); else cleanup(); });
+    rampTo(0, vol, 2000); setSt(canVol ? 'läuft leise' : 'läuft');
   }
 
   window.Songmusik = {
-    prepare: function (s) { url = null; info = null; corsOk = false; cleanup(); return lookup(s).then(probeCors); },
+    prepare: function (s) { url = null; info = null; corsOk = false; st = 'Suche läuft'; cleanup(); return lookup(s).then(function () { if (!url && st === 'Suche läuft') st = 'Song nicht gefunden'; }).then(probeCors).then(function () { if (url) st = 'gefunden' + (corsOk ? ' (Regler ja)' : ' (einfach)'); }); },
     ready: function () { return !!url; },
     /* im Tipp des Nutzers aufrufen, damit iPhones das spätere Starten erlauben */
     arm: function () {
       cleanup(); finished = false; cb = null;
+      setTimeout(function () { setSt(st); }, 400);
       if (!url) return;
       build(corsOk);
-      m.onerror = function () { if (corsOk) { corsOk = false; var u = m; cleanup(); build(false); } else cleanup(); };
+      m.onerror = function () { if (corsOk) { corsOk = false; cleanup(); build(false); setSt('Ladefehler, neuer Versuch'); } else { setSt('Ladefehler'); cleanup(); } };
       m.muted = true; var p = m.play();
       if (p && p.then) p.then(function () { if (m && !started) { m.pause(); m.currentTime = 0; } }).catch(function () {});
     },
