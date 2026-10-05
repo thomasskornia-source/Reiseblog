@@ -15,7 +15,6 @@
 .topbar .topnav a[aria-current] { background: var(--ink); color: var(--paper); }
 @media (min-width: 700px) {
   .topin { padding: 12px 32px; justify-content: space-between; gap: 16px; }
-  .topbar .brand .bt { display: inline; }
   .topnav { flex: none; overflow: visible; -webkit-mask-image: none; mask-image: none; }
 }
 
