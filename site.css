@@ -235,3 +235,10 @@ body[data-welt] .back-ico { background: rgba(255, 255, 255, .22); color: inherit
   body.pc.page-info article > section.sec { break-inside: avoid; margin-bottom: 8px; }
   body.pc.page-info article .hotel-group, body.pc.page-info article .tip-box, body.pc.page-info article .safety-box, body.pc.page-info article .note-box, body.pc.page-info article table { break-inside: avoid; }
 }
+
+/* Trendbruch-Warnung (nav.js) */
+.tw { display: block; padding: 9px 16px; font-size: 14px; line-height: 1.4; text-align: center; text-decoration: none; color: #2E3A32; border-bottom: 1px solid rgba(46,58,50,.15); }
+.tw .tw-s { display: block; font-size: 12px; opacity: .8; }
+.tw1 { background: #F6E3A8; }
+.tw2 { background: #F3C089; }
+.tw3 { background: #E9A08C; }

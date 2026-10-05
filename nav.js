@@ -85,3 +85,31 @@
     if (sec && !el.matches('script,style')) sec.appendChild(el);
   });
 })();
+
+/* Trendbruch-Warnung (Thomas, 05.10.2026): schmaler Hinweis unter der Kopfleiste, wenn der S&P 500 unter die 21-Tage-Linie fällt.
+   Stufe 1 gelb: nur die 21er; Stufe 2 orange: ein weiteres Zeichen; Stufe 3 rot: zwei oder mehr. Weitere Zeichen: 8er unter 21er,
+   Wochen-MACD unter der Signallinie, Kurs unter dem 8-Wochen-EMA, Kurs unter der 50er. Nur auf Startseite und WCJ. Keine Anlageberatung. */
+(function () {
+  var p = location.pathname.split('/').pop() || 'index.html';
+  if (p !== 'index.html' && p !== 'aktien.html' && p !== '') return;
+  var test = (location.search.match(/warntest=([123])/) || [])[1];
+  function zeigen(stufe, zeichen, stand) {
+    var bar = document.getElementById('topbar'); if (!bar || document.getElementById('trendwarnung')) return;
+    var d = document.createElement('a'); d.id = 'trendwarnung'; d.href = 'aktien.html'; d.className = 'tw tw' + stufe;
+    var kopf = ['Hinweis', 'Warnung', 'Alarm'][stufe - 1];
+    d.innerHTML = '<b>' + kopf + ' Markt:</b> S&amp;P 500 unter der 21-Tage-Linie' + (zeichen.length ? ' · ' + zeichen.join(' · ') : '') +
+      ' <span class="tw-s">Stand ' + stand + '. Jede größere Korrektur begann mit so einem Bruch; kann auch ein falscher Bruch sein. Keine Anlageberatung.</span>';
+    bar.parentNode.insertBefore(d, bar.nextSibling);
+  }
+  fetch('data/markt.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (m) {
+    var z = [];
+    if (m.ma8 < m.ma21) z.push('8er unter 21er');
+    if (m.woche && m.woche.macd_ueber_signal === false) z.push('Wochen-MACD unter Signallinie');
+    if (m.woche && m.woche.ueber_ema8 === false) z.push('unter dem 8-Wochen-EMA');
+    if (m.kurs < m.ma50) z.push('unter der 50er');
+    var unter = m.kurs < m.ma21;
+    if (test) { zeigen(+test, z.slice(0, +test - 1), m.stand); return; }
+    if (!unter) return;
+    zeigen(z.length >= 2 ? 3 : z.length === 1 ? 2 : 1, z, m.stand);
+  }).catch(function () {});
+})();
