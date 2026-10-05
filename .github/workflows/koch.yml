@@ -2,9 +2,10 @@ name: Börsenstimmung (Markus Koch)
 
 on:
   schedule:
-    - cron: '20 15 * * *'
-    - cron: '0 17 * * *'
-    - cron: '30 18 * * *'
+    - cron: '45 14 * * *'
+    - cron: '30 16 * * *'
+    - cron: '30 21 * * *'
+    - cron: '0 23 * * *'
   workflow_dispatch:
     inputs:
       seed:

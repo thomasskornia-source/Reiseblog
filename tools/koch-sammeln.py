@@ -6,14 +6,14 @@ werden sicher ausgewertet und bestimmen beim ersten Lauf den Kanal. Sonst wird d
 Videos abgesucht. Es wird KEIN Transkript gespeichert, nur die Auswertung in eigenen Worten
 (höchstens zwei kurze Zitate mit Quelle). Ergebnis: data/koch.json
 """
-import datetime as dt, json, os, re, sys, time, urllib.request, urllib.error
+import datetime as dt, zoneinfo, json, os, re, sys, time, urllib.request, urllib.error
 import xml.etree.ElementTree as ET
 
 KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 MODELS = [m for m in [os.environ.get("GEMINI_VIDEO_MODEL", "").strip(), "gemini-3.8-flash", "gemini-3.7-flash", "gemini-flash-latest"] if m]
 BASE = "https://generativelanguage.googleapis.com/v1beta"
 DB, KANAL = "data/koch.json", "data/koch-kanal.json"
-MAX_PRO_LAUF, MAX_ALTER_TAGE = 2, 4
+MAX_PRO_LAUF, MAX_ALTER_TAGE = int(os.environ.get("MAX_PRO_LAUF") or 4), int(os.environ.get("MAX_ALTER_TAGE") or 4)
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
       "Accept-Language": "de-DE,de;q=0.9", "Cookie": "CONSENT=YES+1; SOCS=CAI"}
 KATEGORIEN = ["Arbeitsmarkt", "Zinsen & Notenbank", "Inflation", "Öl & Rohstoffe", "Anleihen & Renditen", "Konjunktur",
@@ -73,7 +73,7 @@ def feed(kanal):
     ns = {"a": "http://www.w3.org/2005/Atom", "y": "http://www.youtube.com/xml/schemas/2015"}
     out = []
     for e in x.findall("a:entry", ns):
-        out.append({"id": e.find("y:videoId", ns).text, "titel": e.find("a:title", ns).text, "datum": e.find("a:published", ns).text[:10]})
+        out.append({"id": e.find("y:videoId", ns).text, "titel": e.find("a:title", ns).text, "datum": e.find("a:published", ns).text[:10], "zeit": e.find("a:published", ns).text})
     return out
 
 
@@ -102,6 +102,17 @@ def gemini(vid):
     raise RuntimeError(errors[-1] if errors else "keine Antwort")
 
 
+def art_von(v):
+    """opening = vor dem US-Handelsstart (Berliner Zeit bis 19 Uhr), closing = danach; Titel hat Vorrang."""
+    t = (v.get("titel") or "").lower()
+    if "closing" in t: return "closing"
+    if "opening" in t: return "opening"
+    z = v.get("zeit")
+    if not z: return None
+    h = dt.datetime.fromisoformat(z.replace("Z", "+00:00")).astimezone(zoneinfo.ZoneInfo("Europe/Berlin")).hour
+    return "opening" if h < 19 else "closing"
+
+
 def aufbereiten(d, v, modell, tokens):
     s = max(-100, min(100, int(d.get("score") or 0)))
     pf = "hoch" if s >= 15 else "runter" if s <= -15 else "seitwaerts"
@@ -110,7 +121,7 @@ def aufbereiten(d, v, modell, tokens):
         k = i.get("kategorie") if i.get("kategorie") in KATEGORIEN else "Sonstiges"
         p = i.get("pfeil") if i.get("pfeil") in ("hoch", "runter", "seitwaerts") else "seitwaerts"
         ind.append({"kategorie": k, "name": str(i.get("name", ""))[:60], "lage": str(i.get("lage", ""))[:80], "pfeil": p, "rolle": str(i.get("rolle", ""))[:240]})
-    return {"id": v["id"], "titel": v.get("titel"), "datum": v["datum"], "score": s, "pfeil": pf, "thema": d.get("thema"),
+    return {"id": v["id"], "titel": v.get("titel"), "datum": v["datum"], "zeit": v.get("zeit"), "art": art_von(v), "score": s, "pfeil": pf, "thema": d.get("thema"),
             "gesamtstimmung": d.get("gesamtstimmung"), "begruendung": d.get("begruendung"), "indikatoren": ind,
             "zitate": [str(z)[:140] for z in (d.get("zitate") or [])[:2]], "sicherheit": d.get("sicherheit"), "modell": modell, "tokens": tokens}
 
@@ -148,10 +159,11 @@ def main():
             fmap = {e["id"]: e for e in fd}
             for b in db["beitraege"]:  # Titel/Datum nachbessern, falls beim ersten Mal unbekannt
                 if b["id"] in fmap:
-                    b["titel"], b["datum"] = fmap[b["id"]]["titel"], fmap[b["id"]]["datum"]
+                    b["titel"], b["datum"], b["zeit"] = fmap[b["id"]]["titel"], fmap[b["id"]]["datum"], fmap[b["id"]]["zeit"]
+                    b["art"] = art_von(b)
             for t, _ in todo:
                 if t["id"] in fmap:
-                    t["titel"], t["datum"] = fmap[t["id"]]["titel"], fmap[t["id"]]["datum"]
+                    t["titel"], t["datum"], t["zeit"] = fmap[t["id"]]["titel"], fmap[t["id"]]["datum"], fmap[t["id"]]["zeit"]
             neu = [e for e in fd if e["id"] not in db["gesehen"] and e["id"] not in [t[0]["id"] for t in todo]
                    and (heute - dt.date.fromisoformat(e["datum"])).days <= MAX_ALTER_TAGE]
             for e in sorted(neu, key=lambda e: e["datum"])[-MAX_PRO_LAUF:]:
@@ -164,7 +176,7 @@ def main():
         print("Nichts Neues."); return
 
     for v, _ in todo:
-        print("Werte aus:", v["id"], v.get("titel"), v["datum"])
+        print("Werte aus:", v["id"], v.get("titel"), v["datum"], art_von(v))
         try:
             d, m, tok = gemini(v["id"])
         except Exception as e:  # noqa: BLE001
@@ -175,7 +187,7 @@ def main():
         db["beitraege"] = [b for b in db["beitraege"] if b["id"] != v["id"]]
         db["beitraege"].append(aufbereiten(d, v, m, tok))
         print(f"  Score {db['beitraege'][-1]['score']} Pfeil {db['beitraege'][-1]['pfeil']} ({tok} Tokens)")
-    db["beitraege"].sort(key=lambda b: (b["datum"], b["id"]), reverse=True)
+    db["beitraege"].sort(key=lambda b: (b["datum"], b.get("zeit") or "", b["id"]), reverse=True)
     db["stand"] = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
     db["quelle"] = "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung."
     db["kategorien"] = KATEGORIEN
