@@ -1,6 +1,5 @@
-Seed 6K6GAqqqIk0 Titel: Jobmarkt kippt! Fed-Hike im Oktober vom Tisch? Datum: None
-Seed l17P53ro9vs Titel: Micron liefert den KI-Hammer. Kursgewinne entstehen aber woanders. Datum: None
 Feed: 15 Videos
+   VfqdXfUmR68 2026-10-05 54% der Aktien im Bärenmarkt. Kommt jetzt die große Rotation?
    6K6GAqqqIk0 2026-10-02 Jobmarkt kippt! Fed-Hike im Oktober vom Tisch?
    l17P53ro9vs 2026-10-01 Micron liefert den KI-Hammer. Kursgewinne entstehen aber woanders.
    kiYBN--KxKM 2026-09-30 Micron schlägt solide und hebt Aussichten an. Aktie zieht nachbörslich
@@ -8,8 +7,7 @@ Feed: 15 Videos
    Wb1OPHhhlz0 2026-09-30 PCE-Inflation löst Rally aus. Micron meldet heute Abend.
    U7K4eJilbPk 2026-09-29 Teil 2 - Nach Stromausfall: Open AI beeindruckt auf Entwickler-Tag. Me
    6HNLFjCIVXM 2026-09-29 Open AI beeindruckt auf Entwickler-Tag. Meta-Aktie atmet auf.
-   EU1HuDg9C6Q 2026-09-29 OpenAI-Entwicklertag im Fokus. Oura verschiebt Börsengang.
-Werte aus: 6K6GAqqqIk0 Jobmarkt kippt! Fed-Hike im Oktober vom Tisch? 2026-10-02 opening
+Werte aus: VfqdXfUmR68 54% der Aktien im Bärenmarkt. Kommt jetzt die große Rotation? 2026-10-05 opening
 gemini-3.8-flash: HTTP 503 {
   "error": {
     "code": 503,
@@ -26,9 +24,7 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
-  Score 30 Pfeil hoch (147837 Tokens)
-Werte aus: l17P53ro9vs Micron liefert den KI-Hammer. Kursgewinne entstehen aber woanders. 2026-10-01 opening
-gemini-3.8-flash: HTTP 503 {
+gemini-3.7-flash: HTTP 503 {
   "error": {
     "code": 503,
     "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
@@ -36,4 +32,27 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
-  Score -15 Pfeil runter (151435 Tokens)
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-flash-latest: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
