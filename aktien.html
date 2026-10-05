@@ -187,7 +187,7 @@
     /* S&P 500: Chart links, Marktbreite rechts */
     .markt { max-width: none; }
     .markt > summary { font-size: 15px; }
-    #markt-c { display: grid; grid-template-columns: minmax(0, 1040px) minmax(320px, 1fr); gap: 8px 48px; align-items: start; }
+    #markt-c { display: grid; grid-template-columns: minmax(0, 1fr) minmax(380px, 520px); gap: 8px 48px; align-items: start; }
     #markt-c .cap { grid-column: 1 / -1; font-size: 14px; }
     #markt-c .chartbox { grid-column: 1; margin-top: 4px; }
     #markt-c .mehr-b { grid-column: 2; margin-top: 4px; border-top: 0; }
@@ -204,9 +204,12 @@
     #pnl-pruefen .ak > :not(.st) { grid-column: 1 / -1; }
     #pnl-pruefen .ak > .ak-form { max-width: 760px; margin-inline: auto; width: 100%; }
     #pnl-pruefen .st[open] { grid-column: 1 / -1; }
-    #pnl-pruefen .st[open] > .body { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; align-items: start; }
+    #pnl-pruefen .st[open] > .body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); grid-template-rows: auto auto 1fr; gap: 0 40px; align-items: start; }
     #pnl-pruefen .st[open] > .body > .sec { border-top: 0; margin-top: 0; padding-top: 12px; }
-    #pnl-pruefen .st[open] > .body > .sec:nth-child(n+4), #pnl-pruefen .st[open] > .body > :nth-child(n+4) { grid-column: 1 / -1; }
+    #pnl-pruefen .st[open] > .body > :nth-child(1) { grid-column: 1; grid-row: 1; }
+    #pnl-pruefen .st[open] > .body > :nth-child(2) { grid-column: 1; grid-row: 2; }
+    #pnl-pruefen .st[open] > .body > :nth-child(3) { grid-column: 2; grid-row: 1 / span 3; }
+    #pnl-pruefen .st[open] > .body > :nth-child(n+4) { grid-column: 1 / -1; }
     /* Megas: Chart links, Tabelle rechts */
     .mg { max-width: none; margin: 0; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 0 40px; align-items: start; }
     #mg-tabs, .mg > .leg { grid-column: 1 / -1; }
