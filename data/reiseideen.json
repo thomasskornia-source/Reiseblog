@@ -1,0 +1,18 @@
+[
+  {
+    "id": "costa-brava-wandern",
+    "titel": "Costa Brava – Wandern von Frankreich nach Spanien",
+    "ort": "Collioure (F) bis Cadaqués (E)",
+    "art": "Wanderreise",
+    "dauer": "7 Tage",
+    "preis": "ab 979 € p. P.",
+    "kurz": "Küstenwanderung von der Côte Vermeille bis nach Cadaqués, mit Gepäcktransport und Hotels.",
+    "highlights": ["Côte Vermeille", "Weinberge von Banyuls", "Kloster Sant Pere de Rodes", "Naturpark Cap de Creus", "Cadaqués"],
+    "leistungen": "6 Übernachtungen (3–4 Sterne), 6× Frühstück, Gepäcktransport, Reise-App mit Routen",
+    "anbieter": "ASI Reisen",
+    "url": "https://www.asi-reisen.de/r/2ESGRO001W",
+    "stand": "2026-10-05",
+    "farben": ["#2F7E86", "#8FC5B8"],
+    "emoji": "🥾"
+  }
+]

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Reiseideen – Unterwegs und zuhause</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=12">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+<style>
+  .ideen { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 24px 0 8px; }
+  @media (min-width: 700px) { .ideen { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; } }
+  @media (min-width: 1060px) { .ideen { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .idee { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; text-decoration: none; color: var(--ink); box-shadow: 0 10px 26px rgba(46,58,50,.10); transition: transform .18s, box-shadow .18s; min-width: 0; }
+  .idee:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(46,58,50,.16); }
+  .idee-top { position: relative; height: 104px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: flex-end; background: linear-gradient(135deg, var(--c1), var(--c2)); overflow: hidden; }
+  .idee-top::before { content: ''; position: absolute; right: -30px; top: -40px; width: 140px; height: 140px; border-radius: 50%; background: rgba(255,255,255,.18); }
+  .idee-ic { position: relative; font-size: 48px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,.22)); }
+  .idee-art { position: relative; font-size: 12.5px; font-weight: 600; color: #fff; background: rgba(0,0,0,.22); padding: 4px 11px; border-radius: 99px; white-space: nowrap; }
+  .idee-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .idee-body h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 21px; line-height: 1.25; margin: 0; overflow-wrap: anywhere; }
+  .idee-ort { margin: 0; font-size: 13.5px; font-weight: 500; color: var(--c1); }
+  .idee-body p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
+  .idee-facts { display: flex; flex-wrap: wrap; gap: 6px; }
+  .idee-facts span { font-size: 12.5px; font-weight: 600; background: #f1ece2; border-radius: 99px; padding: 3px 10px; }
+  .idee-hl { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; color: var(--ink-soft); }
+  .idee-hl li::before { content: '· '; color: var(--c1); font-weight: 700; }
+  .idee-go { margin-top: auto; padding-top: 8px; font-size: 14px; font-weight: 600; color: var(--c1); }
+  .idee-src { font-size: 12px; color: var(--ink-soft); opacity: .8; }
+  .ideen-leer { color: var(--ink-soft); }
+</style>
+</head>
+<body class="page-list page-reisen">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="reisen.html">← Zu den Reisen</a>
+  </div>
+
+  <header class="entry-header">
+    <h1>Reiseideen</h1>
+    <hr class="rule">
+  </header>
+
+  <div class="entry-body">
+    <p>Gesammelte Anregungen von Anbietern, zum Stöbern und Vergleichen. Ein Tipp öffnet die Seite des Anbieters.</p>
+  </div>
+
+  <div class="ideen" id="ideen"></div>
+  <p class="ideen-leer" id="leer" hidden>Noch keine Reiseideen gesammelt.</p>
+
+  <footer class="site-footer"><p>Preise und Angaben laut Anbieterseite, bitte dort vor einer Buchung prüfen.</p></footer>
+</div>
+<script>
+(function () {
+  var box = document.getElementById('ideen');
+  function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  function datum(s) { var p = (s || '').split('-'); return p.length === 3 ? p[2].replace(/^0/, '') + '.' + p[1].replace(/^0/, '') + '.' + p[0] : ''; }
+  fetch('data/reiseideen.json').then(function (r) { return r.json(); }).then(function (l) {
+    l = (l || []).filter(function (x) { return x && x.titel && /^https?:\/\//.test(x.url || ''); });
+    if (!l.length) { document.getElementById('leer').hidden = false; return; }
+    l.slice().reverse().forEach(function (x) {
+      var a = el('a', 'idee'); a.href = x.url; a.target = '_blank'; a.rel = 'noopener';
+      var f = x.farben || ['#2F7E86', '#8FC5B8']; a.style.setProperty('--c1', f[0]); a.style.setProperty('--c2', f[1]);
+      var top = el('div', 'idee-top'); top.appendChild(el('span', 'idee-ic', x.emoji || '🧭')); if (x.art) top.appendChild(el('span', 'idee-art', x.art));
+      var b = el('div', 'idee-body'); b.appendChild(el('h2', '', x.titel));
+      if (x.ort) b.appendChild(el('p', 'idee-ort', x.ort));
+      if (x.dauer || x.preis) { var fa = el('div', 'idee-facts'); if (x.dauer) fa.appendChild(el('span', '', x.dauer)); if (x.preis) fa.appendChild(el('span', '', x.preis)); b.appendChild(fa); }
+      if (x.kurz) b.appendChild(el('p', '', x.kurz));
+      if (x.highlights && x.highlights.length) { var ul = el('ul', 'idee-hl'); x.highlights.forEach(function (h) { ul.appendChild(el('li', '', h)); }); b.appendChild(ul); }
+      if (x.leistungen) b.appendChild(el('p', '', x.leistungen));
+      b.appendChild(el('span', 'idee-go', 'Beim Anbieter ansehen →'));
+      b.appendChild(el('span', 'idee-src', (x.anbieter || '') + (x.stand ? ' · Stand ' + datum(x.stand) : '')));
+      a.appendChild(top); a.appendChild(b); box.appendChild(a);
+    });
+  }).catch(function () { document.getElementById('leer').hidden = false; });
+})();
+</script>
+<script src="nav.js?v=11" defer></script>
+</body>
+</html>

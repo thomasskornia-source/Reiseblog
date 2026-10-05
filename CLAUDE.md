@@ -9,6 +9,7 @@ Börsenstimmung: `stimmung.html` (Pfeil, Indikatoren, Barometer), Daten `data/ko
 Es geht um die Marktlage, nicht um Einzelaktien. Es wird kein Transkript gespeichert, nur die eigene Auswertung mit Quelle. Verlinkt von `aktien.html`.
 Quiz: `quiz.html` (Übersicht), `muenchen-quiz.html`, `raetsel.html` (Bayern-Rätsel der Woche zum Anhören, Daten `data/raetsel.json`, Ablauf `QUIZ-ABLAUF.md`,
 Audio per `raetsel-audio.yml`). Wöchentlich neu per geplanter Aufgabe, es bleiben 4 Rätsel.
+Reiseideen: `reiseideen.html` liest `data/reiseideen.json` (je Link ein Eintrag: titel, ort, art, dauer, preis, kurz, highlights, leistungen, anbieter, url, stand, farben, emoji). Neue Links dort anhängen, Angaben nur von der Anbieterseite, Bilder nicht kopieren. Verlinkt von `reisen.html`.
 Aufräumen (Thomas, 05.10.2026): Tagesdaten sollen nicht anwachsen. `tools/aufraeumen.py` (läuft in `koch.yml`) löscht Song-Sprachdateien nach 14 Tagen,
 `koch-sammeln.py` behält Auswertungen 90 Tage. Neue Tagesdaten bekommen von Anfang an so eine Frist.
 
