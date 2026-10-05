@@ -9,6 +9,9 @@ on:
       seed:
         description: 'Video-Links oder IDs (optional, durch Leerzeichen getrennt)'
         required: false
+      neu:
+        description: 'Leer lassen; "ja" wertet die angegebenen Videos erneut aus'
+        required: false
 
 permissions:
   contents: write
@@ -25,6 +28,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           SEED_VIDEOS: ${{ inputs.seed }}
+          NEU: ${{ inputs.neu }}
         run: |
           set -o pipefail
           python3 tools/koch-sammeln.py 2>&1 | tee auswertung/koch-last-run.log

@@ -61,6 +61,13 @@ def seite(vid):
     return {"titel": html.unescape(t.group(1)) if t else None, "datum": d.group(1) if d else None, "kanal": c.group(1) if c else None}
 
 
+def oembed_titel(vid):
+    try:
+        return json.loads(get("https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=" + vid)).get("title")
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def feed(kanal):
     x = ET.fromstring(get(f"https://www.youtube.com/feeds/videos.xml?channel_id={kanal}", True))
     ns = {"a": "http://www.w3.org/2005/Atom", "y": "http://www.youtube.com/xml/schemas/2015"}
@@ -119,7 +126,7 @@ def main():
 
     todo = []  # (video, erzwungen)
     for sid in seeds:
-        if sid in db["gesehen"]:
+        if sid in db["gesehen"] and not os.environ.get("NEU"):
             print("Schon ausgewertet:", sid); continue
         try:
             sp = seite(sid)
@@ -128,11 +135,23 @@ def main():
         if sp["kanal"] and not kn.get("kanal"):
             kn = {"kanal": sp["kanal"], "von_video": sid}
             json.dump(kn, open(KANAL, "w", encoding="utf-8"), indent=1); print("Kanal gefunden:", sp["kanal"])
+        if not sp["titel"]:
+            sp["titel"] = oembed_titel(sid)
+        print("Seed", sid, "Titel:", sp["titel"], "Datum:", sp["datum"])
         todo.append(({"id": sid, "titel": sp["titel"], "datum": sp["datum"] or str(heute)}, True))
     if kn.get("kanal"):
         try:
             fd = feed(kn["kanal"])
-            print("Feed:", len(fd), "Videos;", " | ".join(f"{e['datum']} {e['titel'][:40]}" for e in fd[:6]))
+            print("Feed:", len(fd), "Videos")
+            for e in fd[:8]:
+                print("  ", e["id"], e["datum"], e["titel"][:70])
+            fmap = {e["id"]: e for e in fd}
+            for b in db["beitraege"]:  # Titel/Datum nachbessern, falls beim ersten Mal unbekannt
+                if b["id"] in fmap:
+                    b["titel"], b["datum"] = fmap[b["id"]]["titel"], fmap[b["id"]]["datum"]
+            for t, _ in todo:
+                if t["id"] in fmap:
+                    t["titel"], t["datum"] = fmap[t["id"]]["titel"], fmap[t["id"]]["datum"]
             neu = [e for e in fd if e["id"] not in db["gesehen"] and e["id"] not in [t[0]["id"] for t in todo]
                    and (heute - dt.date.fromisoformat(e["datum"])).days <= MAX_ALTER_TAGE]
             for e in sorted(neu, key=lambda e: e["datum"])[-MAX_PRO_LAUF:]:
