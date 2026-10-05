@@ -10,9 +10,10 @@
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <style>
-  .stimm-link { display: flex; justify-content: space-between; align-items: center; gap: 10px; background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 12px; padding: 10px 14px; font-size: 14.5px; color: var(--ink); text-decoration: none; }
-  .stimm-link b { width: 28px; height: 28px; border-radius: 50%; color: #fff; font-size: 13px; display: none; align-items: center; justify-content: center; flex: none; }
-  .stimm-link b.hoch { background: #2a8f6a; display: flex; } .stimm-link b.runter { background: #c0392b; display: flex; } .stimm-link b.seitwaerts { background: #8a9490; display: flex; }
+  .stimm-link { display: flex; justify-content: center; align-items: center; gap: 7px; flex-wrap: wrap; text-align: center; font-size: 13.5px; color: var(--ink-soft); text-decoration: none; padding: 2px 0; margin-bottom: -4px; }
+  .stimm-link::after { content: ''; width: 7px; height: 7px; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(-45deg); margin: 0 0 0 1px; }
+  .stimm-link b { color: var(--ink); display: none; }
+  .stimm-link b.hoch { display: inline; color: #2f7d3a; } .stimm-link b.runter { display: inline; color: #c0392b; } .stimm-link b.seitwaerts { display: inline; color: #6b756f; }
   .ak { display: grid; gap: 14px; margin-top: 4px; }
   .hero { display: flex; justify-content: center; align-items: flex-start; gap: 12px; margin: 4px 0 2px; }
   .hero .p { text-align: center; width: 92px; }
@@ -192,7 +193,7 @@
       <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="Charlie"><circle cx="60" cy="60" r="60" fill="#CFDAD3"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#3b4a56"/><path d="M50 90l10 14 10-14z" fill="#FAF3E8"/><path d="M57 94h6l2 22h-10z" fill="#C99A3E"/><ellipse cx="60" cy="58" rx="27" ry="31" fill="#EFC6A0"/><path d="M33 56c-3-12 0-22 6-26-4 8-4 16-3 26zM87 56c3-12 0-22-6-26 4 8 4 16 3 26z" fill="#E7E4DE"/><path d="M44 31c6-6 26-6 32 0-8-3-24-3-32 0z" fill="#E7E4DE"/><g fill="#fff" stroke="#2E3A32" stroke-width="3.5"><circle cx="48" cy="56" r="11"/><circle cx="72" cy="56" r="11"/></g><path d="M59 55h2" stroke="#2E3A32" stroke-width="3"/><circle cx="48" cy="56" r="2.6" fill="#2E3A32"/><circle cx="72" cy="56" r="2.6" fill="#2E3A32"/><path d="M47 76c8 5 18 3 26-2" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/></svg><b>Charlie</b><small>Was kann schiefgehen</small></div>
       <div class="p"><svg viewBox="0 0 120 120" role="img" aria-label="James"><circle cx="60" cy="60" r="60" fill="#F0D5C8"/><path d="M20 120c2-22 18-30 40-30s38 8 40 30z" fill="#B5502E"/><path d="M50 90l10 12 10-12z" fill="#FAF3E8"/><ellipse cx="60" cy="58" rx="25" ry="30" fill="#E8B991"/><path d="M34 52c-3-20 8-31 26-31s29 11 26 31c-2-8-6-12-12-14-8 3-20 3-28 0-6 2-10 6-12 14z" fill="#3a2a22"/><path d="M38 70c2 14 10 22 22 22s20-8 22-22c-3 8-10 12-22 12s-19-4-22-12z" fill="#3a2a22" opacity=".55"/><g fill="#2E3A32"><rect x="40" y="49" width="16" height="6" rx="3"/><rect x="64" y="49" width="16" height="6" rx="3"/></g><circle cx="48" cy="52" r="1.8" fill="#fff"/><circle cx="72" cy="52" r="1.8" fill="#fff"/><path d="M48 72c8 5 16 5 24 0" fill="none" stroke="#8a4b34" stroke-width="2.5" stroke-linecap="round"/><path d="M30 38c-6-3-8-9-7-14 3 4 7 6 12 7zM90 38c6-3 8-9 7-14-3 4-7 6-12 7z" fill="#FAF3E8" stroke="#8a7a68" stroke-width="1.5"/></svg><b>James</b><small>Kurs und Option Flows</small></div>
     </div>
-    <a class="stimm-link" href="stimmung.html"><span>Börsenstimmung laut Markus Koch</span><b id="stimm-pf" aria-hidden="true"></b></a>
+    <a class="stimm-link" href="stimmung.html"><span>Stimmung · Markus Koch</span><b id="stimm-pf"></b></a>
     <div class="wtabs" id="wtabs" role="tablist" aria-label="Bereiche">
       <button type="button" role="tab" data-tab="sp" aria-selected="true">S&amp;P 500</button>
       <button type="button" role="tab" data-tab="top10" aria-selected="false">Top 10</button>
@@ -543,7 +544,8 @@
     var m = r[0], br = r[1];
     if (!m || !m.ampel) return;
     $('markt-s').innerHTML = 'Markt · S&amp;P 500 ' + dot(acls(m.ampel)) + '<b>' + esc(m.ampel) + '</b> <span>' + esc(m.lage) + ' (Stand ' + esc(String(m.stand).slice(0, 5)) + ')</span>';
-    $('markt-c').innerHTML = '<p class="cap">S&amp;P 500 Index, 1 Jahr (' + (m.serie ? m.serie.c.length : 0) + ' Handelstage)' + (m.kurs != null ? ' · Schlusskurs <b>' + zahl(m.kurs, 0) + '</b>' : '') + '</p>' + chart(m.serie, m);
+    $('markt-c').innerHTML = '<p class="cap">S&amp;P 500 Index' + (m.kurs != null ? ' · Schlusskurs <b>' + zahl(m.kurs, 0) + '</b>' : '') + '</p>' + chart(m.serie, m);
+    (function () { var bx = $('markt-c').querySelector('[data-cid]'); if (bx && m.serie && m.serie.c.length > 63) { var cid = bx.getAttribute('data-cid'); setzen(cid, m.serie.c.length - 63, 63); } })();
     var ex = '';
     var bv = br && br.verlauf && br.verlauf.length ? br.verlauf[br.verlauf.length - 1] : null, bg = br && br.verlauf && br.verlauf.length > 1 ? br.verlauf[br.verlauf.length - 2] : null;
     if (bv) {
@@ -883,7 +885,7 @@
 <script>
 fetch('data/koch.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
   var b = d.beitraege && d.beitraege[0], el = document.getElementById('stimm-pf');
-  if (b && el) { el.className = b.pfeil; el.textContent = { hoch: '▲', runter: '▼', seitwaerts: '▶' }[b.pfeil] || ''; }
+  if (b && el) { el.className = b.pfeil; el.textContent = { hoch: '▲ Gut', runter: '▼ Schlecht', seitwaerts: '▶ Gemischt' }[b.pfeil] || ''; }
 }).catch(function () {});
 </script>
 </body>
