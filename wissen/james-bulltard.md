@@ -180,6 +180,32 @@ oder Rechnungs- und Kontodaten übernommen.
   schon bzw. teilweise drin. (4) Flow-Ranking über mehrere Zeiträume bräuchte ein tägliches Sammeln der Optionsdaten für viele Aktien;
   unsere frei verfügbare Cboe-Näherung reicht dafür nur eingeschränkt.
 
+## Artikel „Marktphilosophie in zehn Punkten“ (Substack, nach einem Kurssturz im Februar 2026; vom Autor als öffentlich markiert)
+Quelle: Beitrag auf https://www.jamesbulltard.com, von Thomas am 05.10.2026 als Screenshots geschickt. Nur sinngemäß in eigenen Worten;
+Text und Charts liegen nicht im Repo. Alles sind Selbstaussagen, nicht geprüft.
+1. **Aufwärtstrend heißt: Kurs über dem 21-Tage-EMA.** Wird er verloren, soll man bei kurzfristigen Käufen nicht den Helden spielen. Im
+   Beispiel wegen der Technik-Gewichtung im Index: bricht der Index, brechen meist auch die Technologiewerte. Einzelwerte können eigene Bilder haben.
+2. **Der Staat stützt Aktien immer wieder** (Vermögenseffekt, Beispiel Corona). Folgerung für ihn: langfristige Positionen sind kurzfristig egal.
+   *Für uns nicht übernommen:* eine Prognose, keine belegte Regel.
+3. **Realität akzeptieren, nicht verlieben.** Er schloss eine große Position, obwohl die Geschichte der Firma unverändert war, weil der 8-EMA
+   unter den 21-EMA kreuzte und der Kurs seitwärts auf dem 50er lag (Bärenflagge). Danach fiel der Wert weiter. Technik schlägt Geschichte.
+4. **Nicht gierig sein.** Einen heißen Wert (RSI weit über der Norm) verkaufte er früh; der Wert stieg noch etwas, fiel dann stark. Er
+   hält sich an seine Regeln und weiß, dass es immer den nächsten Trade gibt.
+5. **Aufbau mit Prämieneinnahme:** Optionen so kombinieren (Calls bezahlt durch verkaufte Puts), dass auch im schlechten Fall nichts Schlimmes
+   passiert außer dem Erwerb einer guten Aktie zu einem sicheren Kurs. *Handelsstrategie, nicht für unsere Seite.*
+6. **Option Flows als Richtungsgeber:** Jeder große Handel steht für Stunden an Überlegung eines Teams; Flows zeigen es in Echtzeit, 13F-Meldungen
+   hinken hinterher. Kurs folgt oft nach großen Optionsgeschäften.
+7. **Put-Verkauf an Schlüsselstellen:** unter einer Kurslücke, in einer Umsatzlücke oder unter einem wichtigen Durchschnitt; man will nicht
+   zugeteilt werden, und wenn doch, dann zu eigenem Preis. Bild: tiefe Gebote abgeben und warten, bezahlt wird man dafürs Warten.
+8. **Hebel nur langsam und mit Absicherung testen;** Fehler gehören zum Lernen.
+9. **Panik vor dem Crash ist unnötig:** große Einbrüche begannen laut ihm immer mit einem sichtbaren Bruch des langfristigen Trends.
+10. **Community nutzen:** mehr Augen auf einem Trade sind besser. *Werbung, nicht übernommen.*
+- **Was daraus für unseren James folgt (Vorschlag, noch nicht umgesetzt):** (a) Die Regel „21er verloren: keine neuen kurzfristigen Käufe“ und
+  „8 kreuzt unter 21, Kurs klebt am 50er: Bärenflagge“ als Warnhinweis in den Trend-Text aufnehmen (dafür wäre ein Kreuzungs-Merker 8/21 in
+  `tools/trend.py` nötig). (b) Überhitzung: RSI weit über dem Normalbereich zusammen mit großem Abstand zum 21er als Hinweis „nicht gierig
+  werden“; RSI haben wir schon. (c) Ton: nüchtern, regelbasiert, „Technik vor Geschichte“. (d) Nicht übernehmen: Staats-Put-Prognosen,
+  Hebel, Optionsstrategien und Community-Werbung.
+
 ## Grenzen
 - Die öffentlichen Seiten nennen die gleitenden Durchschnitte als Auslöser (ausdrücklich nur den 21er-EMA), aber nicht
   vollständig, welche genau er nutzt. Die Linien 8, 21, 50, 200 und die Zonen stammen von Thomas.
