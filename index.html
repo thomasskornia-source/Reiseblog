@@ -7,7 +7,7 @@
 <title>Unterwegs und zuhause – Thomas und Andrea</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=12">
-<link rel="stylesheet" href="home.css?v=16">
+<link rel="stylesheet" href="home.css?v=17">
 <link rel="stylesheet" href="lesebuehne.css?v=4">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
@@ -45,6 +45,7 @@
 
   <header class="hero">
     <div class="blobs" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
+    <p class="heute" id="heute"></p>
     <h1><span class="w1">Unterwegs</span><span class="w2">und</span><span class="w3">zuhause</span></h1>
     <div class="rotor" aria-live="off"><span class="track">
       <span>Reisen <b>planen</b>.</span>
@@ -350,6 +351,21 @@
   });
   window.addEventListener('pagehide', songStop);
 
+  // Datum über der Überschrift: „Montag, der 5. Oktober 2026“
+  function zeigeHeute() {
+    var el = $('heute'); if (!el) return;
+    var d = new Date(), tz = { timeZone: 'Europe/Berlin' }, t;
+    try {
+      var f = function (o) { return d.toLocaleDateString('de-DE', Object.assign({}, o, tz)); };
+      t = f({ weekday: 'long' }) + ', der ' + f({ day: 'numeric' }).replace('.', '') + '. ' + f({ month: 'long' }) + ' ' + f({ year: 'numeric' });
+    } catch (e) {
+      var W = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'], M = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+      t = W[d.getDay()] + ', der ' + d.getDate() + '. ' + M[d.getMonth()] + ' ' + d.getFullYear();
+    }
+    el.textContent = t;
+  }
+  zeigeHeute();
+
   // Song des Tages
   function renderSongDesTages() {
     var box = $('song-bar');
@@ -369,7 +385,7 @@
   }
   renderSongDesTages();
   // Safari stellt Seiten beim Zurücknavigieren oft aus dem bfcache wieder her
-  window.addEventListener('pageshow', function () { renderRezeptDesTages(); renderSongDesTages(); countdown(); });
+  window.addEventListener('pageshow', function () { renderRezeptDesTages(); renderSongDesTages(); countdown(); zeigeHeute(); });
 
   // Kopfleiste: Schatten beim Scrollen
   var bar = $('topbar');

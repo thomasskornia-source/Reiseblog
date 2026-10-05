@@ -4,7 +4,7 @@ html:has(body.home) { overflow-x: hidden; }
 .home .wrap { max-width: 1180px; padding: 0 18px 80px; }
 
 /* ---------- Hero ---------- */
-.hero { position: relative; padding: 46px 0 6px; isolation: isolate; }
+.hero { position: relative; padding: 78px 0 6px; isolation: isolate; }
 .blobs { position: absolute; inset: -40px -40px 0 -40px; z-index: -1; pointer-events: none; }
 .blob { position: absolute; border-radius: 50%; filter: blur(46px); opacity: .55; will-change: transform; }
 .blob.b1 { width: 340px; height: 340px; background: #F0A15A; left: -60px; top: -10px; animation: drift1 16s ease-in-out infinite alternate; }
@@ -17,7 +17,8 @@ html:has(body.home) { overflow-x: hidden; }
 .hello i { width: 8px; height: 8px; border-radius: 50%; background: #4c9a4c; box-shadow: 0 0 0 0 rgba(76, 154, 76, .6); animation: ping 2s infinite; }
 @keyframes ping { 70% { box-shadow: 0 0 0 9px rgba(76, 154, 76, 0); } 100% { box-shadow: 0 0 0 0 rgba(76, 154, 76, 0); } }
 @keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.92); } to { opacity: 1; transform: none; } }
-.hero h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(46px, 13vw, 112px); line-height: .98; letter-spacing: -.02em; margin: 18px 0 14px; color: var(--ink); }
+.hero .heute { margin: 0; font: 500 14px 'Work Sans', system-ui, sans-serif; letter-spacing: .05em; color: var(--ink-soft); min-height: 1.3em; }
+.hero h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(46px, 13vw, 112px); line-height: .98; letter-spacing: -.02em; margin: 14px 0 14px; color: var(--ink); }
 .hero h1 .w1, .hero h1 .w3 { display: block; opacity: 0; animation: slideIn .8s .2s both cubic-bezier(.2, .9, .3, 1); }
 .hero h1 .w1 { transform: translateX(-60px); }
 .hero h1 .w3 { transform: translateX(60px); animation-delay: .45s; }
