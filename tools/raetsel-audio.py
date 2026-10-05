@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Erzeugt zu jedem Bayern-Rätsel in data/raetsel.json audio/raetsel-<id>.mp3 und audio/raetsel-<id>.json (Zeitmarken).
 
-Jedes Segment wird einzeln gesprochen (Gemini-Sprachausgabe, wie tools/song-audio.py). Nach Fragen wird eine Denkpause
+Je Frage wird ein Block aus Segmenten in einer Anfrage gesprochen (Gemini-Sprachausgabe, wie tools/song-audio.py). Nach Fragen wird eine Denkpause
 (Segmentfeld "pause", Sekunden) eingefügt. Gesprochen wird "s" (Zahlen ausgeschrieben), sonst "t". Braucht GEMINI_API_KEY und ffmpeg. Vorhandene Dateien werden übersprungen.
 """
 import importlib.util, io, json, os, re, subprocess, sys, time, wave
@@ -42,16 +42,27 @@ def main():
         if os.path.exists(base + ".mp3") and os.path.exists(base + ".json"):
             continue
         try:
-            pcm, params, marks, t = b"", None, [], 0.0
-            for n, seg in enumerate(q["segmente"]):
+            # Wenige Anfragen: Der kostenlose Zugang erlaubt nur 10 Sprachanfragen pro Tag und 3 pro Minute.
+            # Darum wird je Frage ein Block gesprochen (Geschichte, Antwort, nächste Geschichte, Frage), danach die Denkpause.
+            bloecke, cur = [], []
+            for i, seg in enumerate(q["segmente"]):
+                cur.append(i)
+                if seg["k"] == "f" or i == len(q["segmente"]) - 1:
+                    bloecke.append(cur); cur = []
+            pcm, params, marks, t = b"", None, [None] * len(q["segmente"]), 0.0
+            for n, idx in enumerate(bloecke):
                 if n:
                     time.sleep(TAKT)
-                p, fr = frames(SA.to_wav(sprechen(seg.get("s") or seg["t"], key)))
+                texte = [q["segmente"][i].get("s") or q["segmente"][i]["t"] for i in idx]
+                p, fr = frames(SA.to_wav(sprechen(" ".join(texte), key)))
                 params = params or p
                 rate, width = params.framerate, params.sampwidth
                 dur = len(fr) / (rate * width * params.nchannels)
-                pause = float(seg.get("pause", 0)) + GAP
-                marks.append([round(t, 2), round(t + dur, 2)])
+                pause = float(q["segmente"][idx[-1]].get("pause", 0)) + GAP
+                total, c = sum(len(x) for x in texte) or 1, 0   # Zeit je Segment nach Zeichenzahl verteilen
+                for i, x in zip(idx, texte):
+                    marks[i] = [round(t + dur * c / total, 2), round(t + dur * (c + len(x)) / total, 2)]
+                    c += len(x)
                 pcm += fr + b"\x00" * (int(rate * pause) * width * params.nchannels)
                 t += dur + pause
             buf = io.BytesIO()

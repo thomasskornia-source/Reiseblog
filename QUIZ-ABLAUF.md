@@ -45,6 +45,9 @@ Die bisher benutzten Artikel stehen in `data/raetsel-verwendet.json` (nur Titel,
 `audio/raetsel-<id>.mp3` und `audio/raetsel-<id>.json` (Zeitmarken) erzeugt **automatisch** der Workflow `raetsel-audio.yml`
 (Skript `tools/raetsel-audio.py`, Gemini-Stimme, Denkpausen eingebaut), sobald `data/raetsel.json` auf `main` geändert wird.
 Fehlt die Datei, liest die Seite mit der Gerätestimme vor.
+Der kostenlose Gemini-Zugang erlaubt nur **10 Sprachanfragen pro Tag** (und 3 pro Minute). Das Skript braucht darum pro Rätsel nur 4 Anfragen
+(ein Block je Frage) und wartet zwischen den Anfragen. Ist das Tageslimit erreicht, holt ein täglicher Lauf des Workflows (00:20 und 06:20 UTC)
+die Datei nach. Die tägliche Song-Aufgabe braucht 1 Anfrage pro Tag.
 
 ## Aufräumen
 

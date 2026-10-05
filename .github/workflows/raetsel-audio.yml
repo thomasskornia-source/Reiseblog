@@ -6,6 +6,9 @@ on:
     paths:
       - 'data/raetsel.json'
       - 'tools/raetsel-audio.py'
+  schedule:
+    - cron: '20 0 * * *'   # nach dem Zurücksetzen des Tageslimits (Mitternacht UTC)
+    - cron: '20 6 * * *'
   workflow_dispatch:
 
 permissions:
