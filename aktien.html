@@ -13,7 +13,7 @@
   .stimm-link { display: flex; justify-content: center; align-items: center; gap: 7px; flex-wrap: wrap; text-align: center; font-size: 13.5px; color: var(--ink-soft); text-decoration: none; padding: 2px 0; margin-bottom: -4px; }
   .stimm-link::after { content: ''; width: 7px; height: 7px; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(-45deg); margin: 0 0 0 1px; }
   .stimm-link b { color: var(--ink); display: none; }
-  .stimm-link b.hoch { display: inline; color: #2f7d3a; } .stimm-link b.runter { display: inline; color: #c0392b; } .stimm-link b.seitwaerts { display: inline; color: #6b756f; }
+  .stimm-link b.hoch { display: inline; color: #2f7d3a; } .stimm-link b.runter { display: inline; color: #c0392b; } .stimm-link b.seitwaerts { display: inline; color: #b87f0c; }
   .ak { display: grid; gap: 14px; margin-top: 4px; }
   .hero { display: flex; justify-content: center; align-items: flex-start; gap: 12px; margin: 4px 0 2px; }
   .hero .p { text-align: center; width: 92px; }
@@ -885,7 +885,7 @@
 <script>
 fetch('data/koch.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
   var b = d.beitraege && d.beitraege[0], el = document.getElementById('stimm-pf');
-  if (b && el) { el.className = b.pfeil; el.textContent = { hoch: '▲ Gut', runter: '▼ Schlecht', seitwaerts: '▶ Gemischt' }[b.pfeil] || ''; }
+  if (b && el) { el.className = b.pfeil; el.textContent = { hoch: '▲ Gut', runter: '▼ Schlecht', seitwaerts: '▶\uFE0E Gemischt' }[b.pfeil] || ''; }
 }).catch(function () {});
 </script>
 </body>
