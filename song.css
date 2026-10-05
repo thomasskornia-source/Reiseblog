@@ -26,6 +26,13 @@
 .page-song .entry-body p:first-of-type::first-letter { font-family: inherit; font-size: inherit; float: none; line-height: inherit; padding: 0; margin: 0; color: inherit; }
 .page-song .song-wait { visibility: hidden; }
 
+/* Bayern-Rätsel */
+.page-song .raetsel-text { margin: 14px 0 10px; border: 1px solid rgba(46, 58, 50, .12); border-radius: 14px; padding: 4px 16px; background: var(--paper-warm); }
+.page-song .raetsel-text summary { cursor: pointer; padding: 10px 0; font-weight: 600; }
+.page-song .raetsel-text p { margin: 0 0 10px; }
+.page-song .raetsel-text p.frage { color: var(--rust); font-weight: 600; }
+.page-song .raetsel-quelle { font-size: 13px; color: var(--ink-soft); margin-top: 16px; }
+
 /* Feste Leiste unten: Vorlesen (gelber Play-Knopf) und Spotify */
 .page-song .wrap { padding-bottom: 120px; }
 .page-song .song-dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px calc(12px + env(safe-area-inset-bottom)); background: linear-gradient(105deg, #3A57C4 0%, #2A3F9E 45%, #1B2866 100%); box-shadow: 0 -8px 24px rgba(27, 40, 102, .28); }
@@ -44,3 +51,6 @@
 @media (min-width: 700px) {
   .page-song .song-dock { left: 50%; right: auto; width: min(620px, calc(100% - 40px)); transform: translateX(-50%); bottom: 16px; border-radius: 999px; padding: 10px 16px 10px 12px; }
 }
+
+.page-song .dock-spot.wiki { background: #fff; color: #262F63; padding: 0 20px; }
+.page-song .dock-spot.wiki:hover { background: #f1efe9; }

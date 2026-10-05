@@ -2,6 +2,7 @@
 (function () {
   var root = null, box = null, raf = 0, mode = '', audio = null, cb = null, startY = 0, endY = 0;
   var sp = { cum: [0], total: 1, i: 0, t0: 0, dur: 1 };
+  var tl = { cum: [0], marks: [] };
 
   function el(tag, cls, txt) { var e = document.createElement(tag); e.className = cls; if (txt) e.textContent = txt; return e; }
   function place(p) {
@@ -15,6 +16,15 @@
   }
   function progress() {
     if (mode === 'audio' && audio && audio.duration > 0) return audio.currentTime / audio.duration;
+    if (mode === 'timeline' && audio) {   // Zeitmarken je Abschnitt: Text läuft nur, während gesprochen wird, in Denkpausen steht er still
+      var t = audio.currentTime, n = tl.marks.length, tot = tl.cum[n] || 1;
+      for (var k = 0; k < n; k++) {
+        var m = tl.marks[k];
+        if (t < m[0]) return tl.cum[k] / tot;
+        if (t <= m[1]) return (tl.cum[k] + (tl.cum[k + 1] - tl.cum[k]) * ((t - m[0]) / Math.max(0.1, m[1] - m[0]))) / tot;
+      }
+      return 1;
+    }
     if (mode === 'speech') {
       var f = Math.min(1, (performance.now() - sp.t0) / 1000 / sp.dur), a = sp.cum[sp.i] || 0, b = sp.cum[sp.i + 1] || a;
       return (a + (b - a) * f) / sp.total;
@@ -55,6 +65,11 @@
       raf = requestAnimationFrame(tick);
     },
     followAudio: function (a) { audio = a; mode = 'audio'; },
+    /* parts: wie bei open(), marks: [[Start, Ende] in Sekunden je Teil] */
+    followTimeline: function (a, parts, marks) {
+      var c = 0; tl.cum = [0]; parts.forEach(function (p) { c += p.t.length; tl.cum.push(c); });
+      tl.marks = marks; audio = a; mode = 'timeline';
+    },
     /* Sätze, die nacheinander gesprochen werden; sentence(i) meldet den Beginn von Satz i */
     followSpeech: function (sentences) {
       var c = 0; sp.cum = [0]; sentences.forEach(function (s) { c += s.length; sp.cum.push(c); });
@@ -65,6 +80,10 @@
       sp.dur = Math.max(1.2, ((sp.cum[i + 1] || 0) - (sp.cum[i] || 0)) / 13);   // etwa 13 Zeichen pro Sekunde
     },
     close: close,
+    /* Rätsel: Überschrift, Geschichte (p), Fragen (h) und Antworten (p) in der Reihenfolge der Segmente */
+    quizParts: function (q) {
+      return q.segmente.map(function (g, i) { return { k: i === 0 ? 't' : g.k === 'f' ? 'f' : 'p', t: g.t }; });
+    },
     songParts: function (s) {
       var p = [{ k: 't', t: s.title }, { k: 'by', t: s.artist + ' · ' + s.year },
         { k: 'h', t: 'Woher kommt der Song?' }, { k: 'p', t: s.herkunft },

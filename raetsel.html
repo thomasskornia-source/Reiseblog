@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Bayern-Rätsel – Unterwegs und zuhause</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=12">
+<link rel="stylesheet" href="song.css?v=3">
+<link rel="stylesheet" href="lesebuehne.css?v=5">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+</head>
+<body class="page-song">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="quiz.html">← Zum Quiz</a>
+  </div>
+
+  <article id="song" class="song-wait">
+    <header class="entry-header">
+      <p class="date" id="s-kicker"></p>
+      <h1><span id="s-title"></span></h1>
+      <p class="song-by" id="s-by"></p>
+      <hr class="rule">
+    </header>
+
+    <p class="song-note" id="s-note" hidden></p>
+
+    <div class="entry-body song-body">
+      <p id="s-teaser"></p>
+      <h2>So geht es</h2>
+      <p>Du hörst eine kurze Geschichte aus Oberbayern. Zwischendurch kommt eine Frage, und du hast ein paar Sekunden zum Nachdenken. Danach folgt die Antwort. Du musst nichts eintippen.</p>
+      <details class="raetsel-text">
+        <summary>Zum Nachlesen (mit den Antworten)</summary>
+        <div id="s-text"></div>
+      </details>
+      <p class="raetsel-quelle" id="s-quelle"></p>
+    </div>
+
+    <h2 class="song-more">Frühere Rätsel</h2>
+    <ul class="song-list" id="s-list"></ul>
+  </article>
+
+  <div class="song-dock" id="song-dock">
+    <button type="button" class="dock-play" id="s-read" aria-pressed="false">
+      <span class="pc"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></span><span class="lbl">Rätsel anhören</span>
+    </button>
+    <a class="dock-spot wiki" id="s-wiki" href="#" target="_blank" rel="noopener"><span>Wikipedia</span></a>
+  </div>
+
+  <p id="s-error" class="song-note" hidden>Das Rätsel konnte gerade nicht geladen werden. Bitte später noch einmal versuchen.</p>
+
+  <footer class="site-footer">
+    <p>Jede Woche ein neues Bayern-Rätsel zum Hören.</p>
+  </footer>
+</div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var MONATE = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+  var synth = ('speechSynthesis' in window) ? window.speechSynthesis : null;
+  var reading = false, started = false, timer = null, keep = [], player = null, cur = null, marks = null, hasAudio = false;
+
+  function setBtn(on) { var b = $('s-read'); b.classList.toggle('spielt', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.querySelector('.lbl').textContent = on ? 'Stopp' : 'Rätsel anhören'; }
+  function note(msg) { var n = $('s-note'); n.textContent = msg; n.hidden = !msg; }
+  function stopAudio() { if (player) { player.pause(); player = null; } }
+  function stop() {
+    reading = false; clearTimeout(timer); stopAudio(); if (window.Lesebuehne) Lesebuehne.close();
+    if (synth && (synth.speaking || synth.pending)) synth.cancel();
+    setBtn(false);
+  }
+  function germanVoice() {
+    var vs = synth.getVoices() || [], i;
+    for (i = 0; i < vs.length; i++) if (/^de[-_]DE/i.test(vs[i].lang)) return vs[i];
+    for (i = 0; i < vs.length; i++) if (/^de/i.test(vs[i].lang)) return vs[i];
+    return null;
+  }
+
+  /* Mit Gerätestimme: Segment für Segment, nach Fragen die Denkpause */
+  function speakSeg(q, i) {
+    if (!reading) return;
+    if (i >= q.segmente.length) { stop(); return; }
+    var seg = q.segmente[i], parts = seg.t.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [seg.t], n = 0;
+    if (window.Lesebuehne) Lesebuehne.sentence(i);
+    function next() {
+      if (!reading) return;
+      if (n >= parts.length) { timer = setTimeout(function () { speakSeg(q, i + 1); }, ((seg.pause || 0) + 0.7) * 1000); return; }
+      var u = new SpeechSynthesisUtterance(parts[n++]);
+      keep.push(u); if (keep.length > 6) keep.shift();
+      u.lang = 'de-DE'; u.rate = 0.95; u.volume = 1;
+      var v = germanVoice(); if (v) u.voice = v;
+      u.onstart = function () { started = true; clearTimeout(timer); note(''); };
+      u.onend = next;
+      u.onerror = function (e) {
+        if (e && (e.error === 'canceled' || e.error === 'interrupted')) return;
+        stop(); note('Vorlesen hat nicht geklappt (' + ((e && e.error) || 'Fehler') + '). Bitte Lautstärke und Stummschalter prüfen.');
+      };
+      synth.speak(u);
+      if (synth.paused) synth.resume();
+    }
+    next();
+  }
+  function startSpeech(q) {
+    if (synth.speaking || synth.pending) synth.cancel();
+    if (window.Lesebuehne) Lesebuehne.followSpeech(q.segmente.map(function (g) { return g.t; }));
+    reading = true; started = false; note(''); setBtn(true);
+    speakSeg(q, 0);
+    timer = setTimeout(function () {
+      if (reading && !started) { stop(); note('Es kommt kein Ton. Bitte den Stummschalter am Gerät und die Lautstärke prüfen.'); }
+    }, 5000);
+  }
+
+  /* Mit der Gemini-Stimme: eine Audiodatei mit eingebauten Denkpausen */
+  function playFile(q, fallback) {
+    var a = new Audio('audio/raetsel-' + encodeURIComponent(q.id) + '.mp3');
+    player = a; a.preload = 'auto'; setBtn(true); reading = true;
+    if (window.Lesebuehne) Lesebuehne.followTimeline(a, Lesebuehne.quizParts(q), marks);
+    a.onended = function () { if (player === a) player = null; stop(); };
+    a.onerror = function () { player = null; reading = false; fallback(); };
+    var p = a.play();
+    if (p && p.catch) p.catch(function () { if (player === a) { player = null; reading = false; fallback(); } });
+  }
+  function startReading(q) {
+    if (window.Lesebuehne) Lesebuehne.open(Lesebuehne.quizParts(q), function () { stop(); });
+    var fb = function () { if (synth) startSpeech(q); else note('Vorlesen geht auf diesem Gerät leider nicht.'); };
+    if (hasAudio && window.Audio) playFile(q, fb); else fb();   // ohne Wartezeit, damit iPhones den Tipp noch als Nutzeraktion zählen
+  }
+
+  function show(list, q, isNew) {
+    var p = (q.date || '').split('-'), dt = p.length === 3 ? p[2].replace(/^0/, '') + '. ' + MONATE[+p[1] - 1] + ' ' + p[0] : '';
+    cur = q;
+    $('s-kicker').textContent = 'Bayern-Rätsel' + (isNew ? ' der Woche' : '') + (dt ? ' · ' + dt : '');
+    $('s-title').textContent = q.titel;
+    $('s-by').textContent = q.ort || '';
+    $('s-teaser').textContent = q.teaser || '';
+    var tx = $('s-text'); tx.innerHTML = '';
+    q.segmente.forEach(function (g, i) {
+      if (i === 0) return;
+      var e = document.createElement('p'); e.textContent = g.t; if (g.k === 'f') e.className = 'frage'; tx.appendChild(e);
+    });
+    var qu = q.quelle || {}, qe = $('s-quelle');
+    qe.innerHTML = 'Nach dem Wikipedia-Artikel <a target="_blank" rel="noopener"></a>, in eigenen Worten zusammengefasst (Lizenz CC BY-SA 4.0).';
+    qe.querySelector('a').textContent = (qu.titel || 'Wikipedia').replace(/^Wikipedia:\s*/, '');
+    qe.querySelector('a').href = qu.url || 'https://de.wikipedia.org';
+    $('s-wiki').href = qu.url || 'https://de.wikipedia.org';
+    document.title = q.titel + ' – Bayern-Rätsel – Unterwegs und zuhause';
+
+    hasAudio = false; marks = null;
+    if (window.fetch) fetch('audio/raetsel-' + encodeURIComponent(q.id) + '.json').then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) { if (j && j.marken && j.marken.length === q.segmente.length) { marks = j.marken; hasAudio = true; } }).catch(function () {});
+    var read = $('s-read');
+    if (!synth && !window.Audio) { read.hidden = true; note('Dein Gerät kann leider nicht vorlesen.'); }
+    else { read.onclick = function () { if (reading) stop(); else startReading(q); }; if (synth && synth.getVoices) synth.getVoices(); }
+
+    var ul = $('s-list'); ul.innerHTML = '';
+    list.forEach(function (x) {
+      var li = document.createElement('li'), a = document.createElement('a'), d = (x.date || '').split('-');
+      a.href = 'raetsel.html?id=' + encodeURIComponent(x.id);
+      a.innerHTML = '<b></b><span></span>';
+      a.firstChild.textContent = x.titel; a.lastChild.textContent = d.length === 3 ? d[2].replace(/^0/, '') + '. ' + MONATE[+d[1] - 1] + ' ' + d[0] : '';
+      if (x.id === q.id) a.setAttribute('aria-current', 'true');
+      li.appendChild(a); ul.appendChild(li);
+    });
+    $('song').classList.remove('song-wait');
+  }
+
+  fetch('data/raetsel.json').then(function (r) { return r.json(); }).then(function (list) {
+    list = list.filter(function (x) { return x && x.titel && x.segmente && x.segmente.length; }).sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+    if (!list.length) { $('s-error').hidden = false; return; }
+    var id = new URLSearchParams(location.search).get('id'), q = null, i;
+    for (i = 0; i < list.length; i++) if (list[i].id === id) q = list[i];
+    if (!q) q = list[0];
+    show(list, q, q.id === list[0].id);
+  }).catch(function () { $('s-error').hidden = false; });
+
+  window.addEventListener('pagehide', stop);
+  window.addEventListener('pageshow', function (e) { if (e.persisted) stop(); });
+})();
+</script>
+<script src="lesebuehne.js?v=4"></script>
+<script src="nav.js?v=11" defer></script>
+</body>
+</html>

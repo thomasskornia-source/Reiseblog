@@ -1,0 +1,67 @@
+[
+ {
+  "id": "soleleitung",
+  "date": "2026-10-05",
+  "titel": "Das Salz-Rohr",
+  "teaser": "Wie Salzwasser ohne Strom durch Oberbayern kam, und warum man die Leitung heute wandern kann.",
+  "ort": "Bad Reichenhall, Traunstein, Berchtesgaden",
+  "quelle": {
+   "titel": "Wikipedia: Soleleitung",
+   "url": "https://de.wikipedia.org/wiki/Soleleitung"
+  },
+  "segmente": [
+   {
+    "k": "t",
+    "t": "Das Bayern-Rätsel der Woche: Das Salz-Rohr. Die Soleleitung durch Oberbayern."
+   },
+   {
+    "k": "t",
+    "t": "Stell dir vor: Bei Bad Reichenhall sprudelt Salzwasser aus dem Berg, die Sole. Daraus kochen die Salzsieder Salz. Das Problem: Zum Kochen braucht man riesige Mengen Holz. Und um das Jahr 1600 war das Holz rund um Reichenhall knapp geworden."
+   },
+   {
+    "k": "f",
+    "t": "Erste Frage: Was glaubst du, was die Menschen damals getan haben? Das Holz zur Sole gebracht, oder die Sole zum Holz? Denk kurz nach.",
+    "pause": 8
+   },
+   {
+    "k": "a",
+    "t": "Die Antwort: Sie haben die Sole zum Holz geschickt. Von 1617 bis 1619 baute der Hofbaumeister Hanns Reiffenstuel, zusammen mit seinem Sohn Simon, eine Rohrleitung von Reichenhall nach Traunstein, wo es noch genug Wald gab. Später wurde die Leitung bis Rosenheim verlängert.",
+    "s": "Die Antwort: Sie haben die Sole zum Holz geschickt. Von sechzehnhundertsiebzehn bis sechzehnhundertneunzehn baute der Hofbaumeister Hanns Reiffenstuel, zusammen mit seinem Sohn Simon, eine Rohrleitung von Reichenhall nach Traunstein, wo es noch genug Wald gab. Später wurde die Leitung bis Rosenheim verlängert."
+   },
+   {
+    "k": "t",
+    "t": "Das Besondere: Es gab damals weder Strom noch Motoren. Und trotzdem musste das Salzwasser auf der Strecke immer wieder bergauf."
+   },
+   {
+    "k": "f",
+    "t": "Zweite Frage: Wie, glaubst du, hat man das geschafft? Du hast ein paar Sekunden.",
+    "pause": 8
+   },
+   {
+    "k": "a",
+    "t": "Die Antwort: mit Wasserkraft. In sieben Brunnhäusern entlang der Strecke trieben Wasserräder Kolbenpumpen an, und die drückten die Sole weiter bergauf."
+   },
+   {
+    "k": "t",
+    "t": "Knapp 200 Jahre später kam noch eine Leitung dazu. Berchtesgaden gehörte seit 1810 zu Bayern, und der Baumeister Georg Friedrich von Reichenbach legte 1816 und 1817 eine neue Strecke nach Reichenhall an, rund 29 Kilometer lang. Dabei musste die Sole an einer Stelle bei Ilsank einen steilen Berg hinauf.",
+    "s": "Knapp zweihundert Jahre später kam noch eine Leitung dazu. Berchtesgaden gehörte seit achtzehnhundertzehn zu Bayern, und der Baumeister Georg Friedrich von Reichenbach legte achtzehnhundertsechzehn und siebzehn eine neue Strecke nach Reichenhall an, rund neunundzwanzig Kilometer lang. Dabei musste die Sole an einer Stelle bei Ilsank einen steilen Berg hinauf."
+   },
+   {
+    "k": "f",
+    "t": "Dritte Frage: Wie viele Höhenmeter waren das an der steilsten Stelle? 50, 350 oder 1000? Schätze mal.",
+    "pause": 8,
+    "s": "Dritte Frage: Wie viele Höhenmeter waren das an der steilsten Stelle? Fünfzig, dreihundertfünfzig oder tausend? Schätze mal."
+   },
+   {
+    "k": "a",
+    "t": "Die Antwort: rund 356 Meter. Das schaffte man mit sogenannten Solehebemaschinen. Eine kleinere Stufe, die Pfisterleiten, hatte noch einmal 90 Höhenmeter.",
+    "s": "Die Antwort: rund dreihundertsechsundfünfzig Meter. Das schaffte man mit sogenannten Solehebemaschinen. Eine kleinere Stufe, die Pfisterleiten, hatte noch einmal neunzig Höhenmeter."
+   },
+   {
+    "k": "t",
+    "t": "Und heute? Die alte Strecke von Berchtesgaden nach Reichenhall ist seit 1961 stillgelegt. Dafür gibt es den Soleleitungsweg, einen beliebten Wanderweg mit einem begehbaren Tunnel, in dem man noch Originalrohre sehen kann. Die Leitung selbst gibt es aber noch: Eine neue, 18 Kilometer lange Leitung über Hallthurm bringt bis heute Sole nach Reichenhall. Das war das Bayern-Rätsel der Woche. Bis nächsten Montag!",
+    "s": "Und heute? Die alte Strecke von Berchtesgaden nach Reichenhall ist seit neunzehnhunderteinundsechzig stillgelegt. Dafür gibt es den Soleleitungsweg, einen beliebten Wanderweg mit einem begehbaren Tunnel, in dem man noch Originalrohre sehen kann. Die Leitung selbst gibt es aber noch: Eine neue, achtzehn Kilometer lange Leitung über Hallthurm bringt bis heute Sole nach Reichenhall. Das war das Bayern-Rätsel der Woche. Bis nächsten Montag!"
+   }
+  ]
+ }
+]

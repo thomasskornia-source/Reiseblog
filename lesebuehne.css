@@ -9,6 +9,7 @@
 .lb-by { font-size: clamp(24px, 5.6vw, 34px); font-style: italic; color: #F6C253; margin-bottom: 1.6em !important; }
 .lb-h { font: 600 clamp(16px, 3.6vw, 20px) 'Work Sans', system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #F6C253; margin-top: 1.8em !important; }
 .lb-p { font-size: clamp(36px, 9.2vw, 58px); line-height: 1.3; overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; font-weight: 400; text-shadow: 0 2px 18px rgba(0, 0, 0, .35); }
+.lb-f { font-size: clamp(36px, 9.2vw, 58px); line-height: 1.3; font-weight: 500; color: #F6C253; margin-top: 1.3em !important; overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
 .lb-x { all: unset; position: absolute; top: calc(14px + env(safe-area-inset-top)); right: 14px; z-index: 2; cursor: pointer; width: 46px; height: 46px; border-radius: 50%; background: rgba(255, 255, 255, .18); display: flex; align-items: center; justify-content: center; }
 .lb-x:hover { background: rgba(255, 255, 255, .3); }
 .lb-x:focus-visible { outline: 3px solid #F6C253; outline-offset: 2px; }
