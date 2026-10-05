@@ -211,3 +211,14 @@ body[data-welt] .back-ico { background: rgba(255, 255, 255, .22); color: inherit
 }
 /* PC: Platz genug, Schriftzug neben dem Logo wieder zeigen (am Handy und im Querformat bleibt er weg) */
 @media (min-width: 1200px) { .topbar .brand .bt { display: inline; } .topbar .topnav a { padding: 8px 16px; } }
+
+@media (min-width: 1200px) {
+  /* Übersichtslisten (Rezepte, Reisen): mehr Spalten */
+  body.pc.page-list .entry-list { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 22px; }
+  /* München-Übersicht: Kacheln in drei Spalten */
+  body.pc .bento.pcgrid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; margin-left: 0; margin-right: 0; }
+  body.pc .bento.pcgrid .tile { grid-column: span 2; }
+  body.pc .bento.pcgrid .tile.wide { grid-column: span 3; }
+  /* Karten (Immobiliensuche) höher */
+  body.pc #region-map { height: 62vh; min-height: 420px; }
+}
