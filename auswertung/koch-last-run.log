@@ -1,17 +1,14 @@
-Kanal gefunden: UCyCBf6asf89aQJaSXuAuTsg
-Feed: 15 Videos; 2026-10-02 Jobmarkt kippt! Fed-Hike im Oktober vom  | 2026-10-01 Micron liefert den KI-Hammer. Kursgewinn | 2026-09-30 Micron schlägt solide und hebt Aussichte | 2026-09-30 Große KI-Zukunft. Kleine Oberlandleitung | 2026-09-30 PCE-Inflation löst Rally aus. Micron mel | 2026-09-29 Teil 2 - Nach Stromausfall: Open AI beei
-Werte aus: 6K6GAqqqIk0  2026-10-05
-gemini-3.8-flash: Remote end closed connection without response
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-  Score 30 Pfeil hoch (147830 Tokens)
-Werte aus: i-B753QP6xY  2026-10-05
+Seed i-B753QP6xY Titel: HERZLICH WILLKOMMEN Datum: None
+Feed: 15 Videos
+   6K6GAqqqIk0 2026-10-02 Jobmarkt kippt! Fed-Hike im Oktober vom Tisch?
+   l17P53ro9vs 2026-10-01 Micron liefert den KI-Hammer. Kursgewinne entstehen aber woanders.
+   kiYBN--KxKM 2026-09-30 Micron schlägt solide und hebt Aussichten an. Aktie zieht nachbörslich
+   95XYHn8ACbc 2026-09-30 Große KI-Zukunft. Kleine Oberlandleitung. 😅
+   Wb1OPHhhlz0 2026-09-30 PCE-Inflation löst Rally aus. Micron meldet heute Abend.
+   U7K4eJilbPk 2026-09-29 Teil 2 - Nach Stromausfall: Open AI beeindruckt auf Entwickler-Tag. Me
+   6HNLFjCIVXM 2026-09-29 Open AI beeindruckt auf Entwickler-Tag. Meta-Aktie atmet auf.
+   EU1HuDg9C6Q 2026-09-29 OpenAI-Entwicklertag im Fokus. Oura verschiebt Börsengang.
+Werte aus: i-B753QP6xY HERZLICH WILLKOMMEN 2026-10-05
 gemini-3.8-flash: HTTP 503 {
   "error": {
     "code": 503,
@@ -20,11 +17,11 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
-gemini-3.8-flash: HTTP 500 {
+gemini-3.8-flash: HTTP 503 {
   "error": {
-    "code": 500,
-    "message": "Internal error encountered.",
-    "status": "INTERNAL"
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
   }
 }
 
@@ -52,9 +49,7 @@ gemini-flash-latest: HTTP 503 {
   }
 }
 
-  kein Börsenbeitrag, übersprungen
-Werte aus: l17P53ro9vs Micron liefert den KI-Hammer. Kursgewinne entstehen aber woanders. 2026-10-01
-gemini-3.8-flash: HTTP 503 {
+gemini-flash-latest: HTTP 503 {
   "error": {
     "code": 503,
     "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
@@ -62,12 +57,8 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
-gemini-3.8-flash: HTTP 503 {
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 503 {
   "error": {
     "code": 503,
     "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-  Score -15 Pfeil runter (151129 Tokens)
+    "s
