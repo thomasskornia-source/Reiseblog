@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <title>WCJ – Warren, Charlie und James</title>
 <link rel="stylesheet" href="styles.css?v=13">
-<link rel="stylesheet" href="site.css?v=14">
+<link rel="stylesheet" href="site.css?v=15">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -170,9 +170,52 @@
   .upd { font: inherit; font-size: 13.5px; background: none; border: 0; color: var(--rust); padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
   .empty { font-size: 15px; color: var(--ink-soft); text-align: center; margin: 12px 0; }
   .foot { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; text-align: center; margin: 22px 0 0; }
+
+  /* ---- PC: ganze Bildschirmbreite nutzen ---- */
+  @media (min-width: 1100px) {
+    .ak { gap: 18px; }
+    .hero { gap: 28px; } .hero .p { width: 120px; } .hero .p svg { width: 88px; height: 88px; }
+    .hero .p small { font-size: 12.5px; }
+    .wtabs button, .wtabs a { padding: 8px 16px; font-size: 14px; }
+    .stimm-link { font-size: 14.5px; }
+    /* S&P 500: Chart links, Marktbreite rechts */
+    .markt { max-width: none; }
+    .markt > summary { font-size: 15px; }
+    #markt-c { display: grid; grid-template-columns: minmax(0, 1040px) minmax(320px, 1fr); gap: 8px 48px; align-items: start; }
+    #markt-c .cap { grid-column: 1 / -1; font-size: 14px; }
+    #markt-c .chartbox { grid-column: 1; margin-top: 4px; }
+    #markt-c .mehr-b { grid-column: 2; margin-top: 4px; border-top: 0; }
+    #markt-c .mehr-b > summary { text-align: left; font-size: 15px; }
+    /* Top 10, Watchlist, Lynx: Karten in Spalten */
+    .top10 ol { grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); gap: 10px 14px; align-items: start; }
+    .top10 li.auf { grid-column: 1 / -1; }
+    .top10 .det { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px 28px; }
+    .top10 .det .chartbox, .top10 .det > :first-child { grid-column: auto; }
+    .t10-kopf, .wl-form { max-width: 720px; }
+    .top10 .hinweis { text-align: left; max-width: 900px; }
+    /* Prüfen: Suche schmal, Ergebnisse in Spalten, geöffnet über die ganze Breite */
+    #pnl-pruefen .ak { grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); align-items: start; gap: 14px 18px; }
+    #pnl-pruefen .ak > :not(.st) { grid-column: 1 / -1; }
+    #pnl-pruefen .ak > .ak-form { max-width: 760px; margin-inline: auto; width: 100%; }
+    #pnl-pruefen .st[open] { grid-column: 1 / -1; }
+    #pnl-pruefen .st[open] > .body { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; align-items: start; }
+    #pnl-pruefen .st[open] > .body > .sec { border-top: 0; margin-top: 0; padding-top: 12px; }
+    #pnl-pruefen .st[open] > .body > .sec:nth-child(n+4), #pnl-pruefen .st[open] > .body > :nth-child(n+4) { grid-column: 1 / -1; }
+    /* Megas: Chart links, Tabelle rechts */
+    .mg { max-width: none; margin: 0; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 0 40px; align-items: start; }
+    #mg-tabs, .mg > .leg { grid-column: 1 / -1; }
+    #mg-tabs { margin-left: auto; margin-right: auto; }
+    .mg > .box, .mg > .rng:not(#mg-tabs) { grid-column: 1; }
+    .mg > table { grid-column: 2; grid-row: 3 / span 2; align-self: start; margin-top: 0; }
+    .mg > .hinweis, .mg > p { grid-column: 1 / -1; }
+    .foot { max-width: 1100px; margin-left: auto; margin-right: auto; }
+  }
+  @media (min-width: 1700px) {
+    .top10 ol, #pnl-pruefen .ak { grid-template-columns: repeat(auto-fill, minmax(560px, 1fr)); }
+  }
 </style>
 </head>
-<body class="page-wide">
+<body class="page-wide pc">
 <nav class="topbar" id="topbar"><div class="topin">
     <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
     <div class="topnav">
@@ -561,7 +604,7 @@
     }
     if (ex) {
       var an2 = br && br.megacaps ? br.megacaps.filter(function (x) { return x.ueber8; }).length : null;
-      $('markt-c').innerHTML += '<details class="mehr-b"><summary>Marktbreite und Mag7' + (bv ? ' · ' + bv.ueber21 + ' % der Aktien über der 21er' : '') + (an2 != null ? ' · ' + an2 + ' von 7 Mag7 über der 8er' : '') + '</summary>' + ex + '</details>';
+      $('markt-c').innerHTML += '<details class="mehr-b"' + (window.matchMedia && matchMedia('(min-width:1100px)').matches ? ' open' : '') + '><summary>Marktbreite und Mag7' + (bv ? ' · ' + bv.ueber21 + ' % der Aktien über der 21er' : '') + (an2 != null ? ' · ' + an2 + ' von 7 Mag7 über der 8er' : '') + '</summary>' + ex + '</details>';
     }
     if (!m.serie) $('markt').removeAttribute('open');
     $('markt').hidden = false;

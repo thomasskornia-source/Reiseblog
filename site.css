@@ -202,3 +202,10 @@ body[data-welt] .back-ico { background: rgba(255, 255, 255, .22); color: inherit
 .sub-tabs a, body[data-welt] .entry-header .sub-tabs a { display: inline-block; padding: 8px 18px; border-radius: 99px; font-size: 15px; font-weight: 600; text-decoration: none; color: #fff; background: rgba(255, 255, 255, .2); border: 1.5px solid rgba(255, 255, 255, .55); transition: background .15s; }
 .sub-tabs a:hover { background: rgba(255, 255, 255, .32); }
 .sub-tabs a[aria-current="page"], body[data-welt] .entry-header .sub-tabs a[aria-current="page"] { background: #fff; color: #9c3a1c; border-color: #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, .18); }
+
+/* ---------- PC: große Bildschirme nutzen (Seiten mit body.pc) ---------- */
+@media (min-width: 1200px) {
+  body.pc .topin { max-width: min(1760px, 100%); padding-left: 48px; padding-right: 48px; }
+  body.pc .wrap { max-width: min(1760px, 100%); padding-left: 48px; padding-right: 48px; }
+  body.pc .entry-header { max-width: none; }
+}

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <title>Vergnügen – Unterwegs und zuhause</title>
 <link rel="stylesheet" href="styles.css?v=13">
-<link rel="stylesheet" href="site.css?v=14">
+<link rel="stylesheet" href="site.css?v=15">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
@@ -23,6 +23,7 @@
   .vg-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 14px 0 8px; }
   @media (min-width: 700px) { .vg-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; } }
   @media (min-width: 1060px) { .vg-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 1500px) { .vg-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
   .vg-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; box-shadow: 0 10px 26px rgba(46,58,50,.10); min-width: 0; }
   .vg-top { height: 80px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: flex-end; background: linear-gradient(135deg, var(--c1), var(--c2)); }
   .vg-ic { font-size: 40px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,.22)); }
@@ -62,7 +63,7 @@
   .vg-reset { all: unset; cursor: pointer; font-size: 13px; color: var(--ink-soft); text-decoration: underline; }
 </style>
 </head>
-<body class="page-list">
+<body class="page-list pc">
 <nav class="topbar" id="topbar"><div class="topin">
     <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
     <div class="topnav">

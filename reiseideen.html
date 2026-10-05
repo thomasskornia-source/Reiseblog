@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <title>Reiseideen – Unterwegs und zuhause</title>
 <link rel="stylesheet" href="styles.css?v=13">
-<link rel="stylesheet" href="site.css?v=14">
+<link rel="stylesheet" href="site.css?v=15">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,6 +15,7 @@
   .ideen { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 24px 0 8px; }
   @media (min-width: 700px) { .ideen { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; } }
   @media (min-width: 1060px) { .ideen { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 1500px) { .ideen { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
   .idee-link { display: flex; flex-direction: column; flex: 1; text-decoration: none; color: inherit; min-width: 0; }
   .idee-rate { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 18px 16px; border-top: 1px solid #efe8da; font-size: 13px; color: var(--ink-soft); }
   .st { display: inline-flex; gap: 2px; }
@@ -48,7 +49,7 @@
   .ideen-leer { color: var(--ink-soft); }
 </style>
 </head>
-<body class="page-list page-reisen">
+<body class="page-list page-reisen pc">
 <nav class="topbar" id="topbar"><div class="topin">
     <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
     <div class="topnav">
