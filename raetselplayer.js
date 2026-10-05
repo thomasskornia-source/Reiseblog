@@ -1,4 +1,4 @@
-/* Bayern-Rätsel vorlesen: Gemini-Stimme mit Denkpausen (Audiodatei + Zeitmarken), sonst Stimme des Geräts.
+/* Bayern-Rätsel vorlesen: Gemini-Stimme wie beim Song, mit Denkpausen (Audiodatei + Zeitmarken); ohne Audiodatei gibt es einen Hinweis statt der Gerätestimme.
    Gemeinsam für quiz.html (gelber Knopf auf der Kachel) und raetsel.html. Braucht lesebuehne.js. */
 (function () {
   var synth = ('speechSynthesis' in window) ? window.speechSynthesis : null;
@@ -61,13 +61,16 @@
   }
   function start() {
     if (!q) return;
+    if (!hasAudio || !window.Audio) {   // keine Gerätestimme: die Sprecherstimme (wie beim Song) kommt aus der Audiodatei
+      onNote('Die Sprecherstimme wird noch erzeugt und ist spätestens morgen früh da. Bis dahin gern unten nachlesen.');
+      return;
+    }
     if (window.Lesebuehne) Lesebuehne.open(Lesebuehne.quizParts(q), function () { stop(); });
-    var fb = function () { if (synth) startSpeech(); else onNote('Vorlesen geht auf diesem Gerät leider nicht.'); };
-    if (hasAudio && window.Audio) playFile(fb); else fb();   // ohne Wartezeit, damit iPhones den Tipp noch als Nutzeraktion zählen
+    playFile(function () { stop(); onNote('Das Anhören hat nicht geklappt. Bitte Lautstärke und Stummschalter prüfen.'); });
   }
 
   window.RaetselPlayer = {
-    canRead: function () { return !!(synth || window.Audio); },
+    canRead: function () { return !!window.Audio; },
     load: function (quiz) {
       q = quiz; hasAudio = false; marks = null;
       if (window.fetch) fetch('audio/raetsel-' + encodeURIComponent(q.id) + '.json').then(function (r) { return r.ok ? r.json() : null; })
