@@ -1,0 +1,40 @@
+name: Börsenstimmung (Markus Koch)
+
+on:
+  schedule:
+    - cron: '20 15 * * *'
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+    inputs:
+      seed:
+        description: 'Video-Links oder IDs (optional, durch Leerzeichen getrennt)'
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: koch
+
+jobs:
+  koch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Neue Beiträge auswerten (Gemini)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SEED_VIDEOS: ${{ inputs.seed }}
+        run: |
+          set -o pipefail
+          python3 tools/koch-sammeln.py 2>&1 | tee auswertung/koch-last-run.log
+      - name: Daten ablegen
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data auswertung
+          if git diff --cached --quiet; then echo "Keine Änderungen"; exit 0; fi
+          git commit -m "Börsenstimmung: neue Auswertung"
+          git pull --rebase origin main
+          git push origin HEAD:main
