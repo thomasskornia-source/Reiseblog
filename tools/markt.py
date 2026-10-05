@@ -15,6 +15,11 @@ def main():
     except Exception as e:
         print('FEHLER: S&P 500 nicht abrufbar (%s)' % e); sys.exit(1)
     a.update({'name': 'S&P 500', 'quelle': 'Yahoo Finance (Tageskurse)'})
+    try:   # Uhrzeit (deutsche Zeit) des letzten Kurses, damit man Tagesstand und Schlusskurs unterscheiden kann
+        import datetime, zoneinfo
+        a['zeit'] = datetime.datetime.fromtimestamp(meta['regularMarketTime'], zoneinfo.ZoneInfo('Europe/Berlin')).strftime('%H:%M')
+    except Exception:
+        pass
     pfad = os.path.join(os.path.dirname(__file__), '..', 'data', 'markt.json')
     with open(pfad, 'w', encoding='utf-8') as f:
         f.write(trend.kompakt(json.dumps(a, ensure_ascii=False, indent=2)) + '\n')

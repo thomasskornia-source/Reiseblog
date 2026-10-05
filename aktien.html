@@ -543,7 +543,7 @@
   Promise.all([holeJson('data/markt.json'), holeJson('data/breite.json')]).then(function (r) {
     var m = r[0], br = r[1];
     if (!m || !m.ampel) return;
-    $('markt-s').innerHTML = 'Markt · S&amp;P 500 ' + dot(acls(m.ampel)) + '<b>' + esc(m.ampel) + '</b> <span>' + esc(m.lage) + ' (Stand ' + esc(String(m.stand).slice(0, 5)) + ')</span>';
+    $('markt-s').innerHTML = 'Markt · S&amp;P 500 ' + dot(acls(m.ampel)) + '<b>' + esc(m.ampel) + '</b> <span>' + esc(m.lage) + ' (Stand ' + esc(String(m.stand).slice(0, 5)) + (m.zeit ? ', ' + esc(m.zeit) + ' Uhr' : '') + ')</span>';
     $('markt-c').innerHTML = '<p class="cap">S&amp;P 500 Index' + (m.kurs != null ? ' · Schlusskurs <b>' + zahl(m.kurs, 0) + '</b>' : '') + '</p>' + chart(m.serie, m);
     (function () { var bx = $('markt-c').querySelector('[data-cid]'); if (bx && m.serie && m.serie.c.length > 63) { var cid = bx.getAttribute('data-cid'); setzen(cid, m.serie.c.length - 63, 63); } })();
     var ex = '';

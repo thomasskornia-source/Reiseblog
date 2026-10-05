@@ -2,10 +2,13 @@ name: Börsenstimmung (Markus Koch)
 
 on:
   schedule:
-    - cron: '45 14 * * *'
-    - cron: '30 16 * * *'
-    - cron: '30 21 * * *'
-    - cron: '0 23 * * *'
+    # Deutsche Zeit: 15:30 und 21:45, dazu 01:00 als Nachholversuch. GitHub plant nur in UTC: Sommer- und Winterzeit-Variante,
+    # die jeweils falsche überspringt der Job „zeit“.
+    - cron: '30 13 * * *'   # Sommer 15:30
+    - cron: '45 19 * * *'   # Sommer 21:45
+    - cron: '30 14 * * *'   # Winter 15:30
+    - cron: '45 20 * * *'   # Winter 21:45
+    - cron: '0 23 * * *'    # Nachholversuch (Sommer 01:00, Winter 00:00)
   workflow_dispatch:
     inputs:
       seed:
@@ -22,7 +25,27 @@ concurrency:
   group: koch
 
 jobs:
+  zeit:
+    runs-on: ubuntu-latest
+    outputs:
+      los: ${{ steps.g.outputs.los }}
+    steps:
+      - id: g
+        env:
+          PLAN: ${{ github.event.schedule }}
+          SOMMER: '30 13 * * *|45 19 * * *'
+          WINTER: '30 14 * * *|45 20 * * *'
+        run: |
+          los=ja
+          if [ -n "$PLAN" ]; then
+            if [ "$(TZ=Europe/Berlin date +%z)" = "+0200" ]; then falsch="$WINTER"; else falsch="$SOMMER"; fi
+            case "|$falsch|" in *"|$PLAN|"*) los=nein;; esac
+          fi
+          echo "Plan: ${PLAN:-von Hand}, Berlin: $(TZ=Europe/Berlin date +%H:%M), los: $los"
+          echo "los=$los" >> "$GITHUB_OUTPUT"
   koch:
+    needs: zeit
+    if: needs.zeit.outputs.los == 'ja'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

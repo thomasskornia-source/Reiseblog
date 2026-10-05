@@ -10,6 +10,7 @@ Es geht um die Marktlage, nicht um Einzelaktien. Es wird kein Transkript gespeic
 Quiz: `quiz.html` (Übersicht), `muenchen-quiz.html`, `raetsel.html` (Bayern-Rätsel der Woche zum Anhören, Daten `data/raetsel.json`, Ablauf `QUIZ-ABLAUF.md`,
 Audio per `raetsel-audio.yml`). Wöchentlich neu per geplanter Aufgabe, es bleiben 4 Rätsel.
 Reiseideen: `reiseideen.html` liest `data/reiseideen.json` (je Link ein Eintrag: titel, ort, art, dauer, preis, kurz, highlights, leistungen, anbieter, url, stand, farben, emoji). Neue Links dort anhängen, Angaben nur von der Anbieterseite, Bilder nicht kopieren. Verlinkt von `reisen.html`. Sterne (1–5) nur lokal im Browser (localStorage), Sortierung nach eigener Bewertung; kein gemeinsames Backend (Thomas, 05.10.2026).
+Zeiten (Thomas, 05.10.2026, deutsche Zeit): S&P 500 `markt.yml` Mo–Fr 15:45, 19:00, 21:45 (Tagesstand) und 00:15 (Schluss); Koch `koch.yml` 15:30 und 21:45, dazu 01:00 Nachholversuch. GitHub plant nur in UTC, darum je Zeit eine Sommer- und Winterzeit-Cron, den Job `zeit` überspringt die falsche.
 Aufräumen (Thomas, 05.10.2026): Tagesdaten sollen nicht anwachsen. `tools/aufraeumen.py` (läuft in `koch.yml`) löscht Song-Sprachdateien nach 14 Tagen,
 `koch-sammeln.py` behält Auswertungen 90 Tage. Neue Tagesdaten bekommen von Anfang an so eine Frist.
 

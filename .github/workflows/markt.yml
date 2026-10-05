@@ -2,7 +2,16 @@ name: Marktstimmung S&P 500
 
 on:
   schedule:
-    - cron: '15 22 * * 1-5'   # nach US-Börsenschluss (Sommer 20:00, Winter 21:00 UTC)
+    # Deutsche Zeit: 15:45, 19:00, 21:45 (Stand während des US-Handels) und 00:15 (Schlusskurs nach Börsenschluss).
+    # GitHub plant nur in UTC: je Uhrzeit eine Sommer- und eine Winterzeit-Variante, die jeweils falsche überspringt der Job „zeit“.
+    - cron: '45 13 * * 1-5'   # Sommer 15:45
+    - cron: '0 17 * * 1-5'    # Sommer 19:00
+    - cron: '45 19 * * 1-5'   # Sommer 21:45
+    - cron: '15 22 * * 1-5'   # Sommer 00:15 (Schluss)
+    - cron: '45 14 * * 1-5'   # Winter 15:45
+    - cron: '0 18 * * 1-5'    # Winter 19:00
+    - cron: '45 20 * * 1-5'   # Winter 21:45
+    - cron: '15 23 * * 1-5'   # Winter 00:15 (Schluss)
   workflow_dispatch:
 
 permissions:
@@ -13,7 +22,27 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  zeit:
+    runs-on: ubuntu-latest
+    outputs:
+      los: ${{ steps.g.outputs.los }}
+    steps:
+      - id: g
+        env:
+          PLAN: ${{ github.event.schedule }}
+          SOMMER: '45 13 * * 1-5|0 17 * * 1-5|45 19 * * 1-5|15 22 * * 1-5'
+          WINTER: '45 14 * * 1-5|0 18 * * 1-5|45 20 * * 1-5|15 23 * * 1-5'
+        run: |
+          los=ja
+          if [ -n "$PLAN" ]; then
+            if [ "$(TZ=Europe/Berlin date +%z)" = "+0200" ]; then falsch="$WINTER"; else falsch="$SOMMER"; fi
+            case "|$falsch|" in *"|$PLAN|"*) los=nein;; esac
+          fi
+          echo "Plan: ${PLAN:-von Hand}, Berlin: $(TZ=Europe/Berlin date +%H:%M), los: $los"
+          echo "los=$los" >> "$GITHUB_OUTPUT"
   markt:
+    needs: zeit
+    if: needs.zeit.outputs.los == 'ja'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
