@@ -205,6 +205,32 @@ Text und Charts liegen nicht im Repo. Alles sind Selbstaussagen, nicht geprüft.
   werden“; RSI haben wir schon. (c) Ton: nüchtern, regelbasiert, „Technik vor Geschichte“. (d) Nicht übernehmen: Staats-Put-Prognosen,
   Hebel, Optionsstrategien und Community-Werbung.
 
+## Artikel „Trendbruch im April 2024“ (Substack, April 2024; vom Autor als öffentlich markiert)
+Quelle: Beitrag auf https://www.jamesbulltard.com, von Thomas am 05.10.2026 als Screenshots geschickt. Nur sinngemäß in eigenen Worten; Text und
+Charts liegen nicht im Repo. Selbstaussagen, nicht geprüft.
+- **Kernsatz: Das „Warum“ ist egal, wichtig ist, dass der Trend gebrochen ist.** Ob Kriegsangst, Zinsen oder eine andere Geschichte: Anleger
+  starren auf die Erklärung, statt zu merken, dass sich etwas geändert hat, und sich darauf einzustellen.
+- **Jede Korrektur beginnt mit einem Trendbruch.** Er zeigt dazu Wochencharts des breiten Index bei früheren Rücksetzern (2018, Corona 2020, 2022,
+  Spätsommer 2023): jedes Mal riss zuerst die Aufwärtstrendlinie, die der Kurs lange gehalten hatte, dann folgten Wochen der Schwäche. Danach lag der
+  Index nach ein bis zwei Jahren immer deutlich höher, aber wer „den Rücksetzer kauft“, soll wissen, dass die Schwäche meist noch anhält.
+- **Warnsignale in der Reihenfolge, wie sie im Beispiel auftraten:** (1) Kurs verliert die 21-Tage-Linie mit einer großen bärischen Kerze; (2) kurze
+  Erholung, die Schwäche bleibt; (3) die 8er kreuzt unter die 21er (8/21-Kreuzung); (4) Wochen-MACD dreht kurz vor dem ersten negativen Wert seit
+  Monaten ab; (5) Wochenschlusskurs unter der Trendlinie. Halten tut dagegen oft die 50er (Test unterhalb, Abprall).
+- **Breite:** Der gleichgewichtete Index (RSP) sah viel schlechter aus als der marktgewichtete (SPY), weil wenige Megacaps den Index tragen; die
+  Schwäche sitze „unter der Oberfläche“ und die Marktbreite verenge sich. (Bestätigt unsere Marktbreite und die Megacap-Zählung.)
+- **Er rät kein Panikverhalten:** Hebel abbauen, kurzfristige Calls schließen, höchstens Calls auf Werte schreiben, die man abgeben würde. Wer Cash
+  will, wird nicht getadelt. Ein falscher Bruch ist möglich: holt der Kurs die Linie zurück, ist wieder alles in Ordnung. Im Aufwärtstrend sei
+  „Pressen“ erlaubt, nach dem Bruch „Realität akzeptieren und das Buch anpassen“.
+- **Regel wieder genannt:** Über der 21er ist es in Ordnung, investiert zu bleiben, darunter ist Vorsicht angebracht. Zahlen von Konzernen gelten in der
+  Berichtssaison als nächster Auslöser; er nennt die Kalenderwoche ohne große Zahlen als Chance für Schwäche.
+- **Nicht übernommen:** seine Rendite („166 % in sieben Monaten“) samt Kontoauszug-Grafik, Hebel- und Optionsempfehlungen, politische Aussagen
+  (Wahl, Präsident), Zins- und Kriegsprognosen, die Aussage „Märkte sind zum Steigen gebaut / 200 Jahre nur aufwärts“ als Zusicherung und das
+  Schönreden großer Werte („unaufhaltsam“).
+- **Was daraus für unseren James folgt:** (a) Der Satz „nicht nach dem Warum fragen, nach der Technik“ passt zu den Warnhinweisen. (b) Die Abfolge
+  21er verloren → 8 kreuzt unter 21 → Wochen-MACD kippt ist bei uns schon einzeln da (`ma21`, `kreuz_kurz`, `woche`); James darf sie als **Kette** nennen,
+  wenn mehrere zutreffen („zweites Warnzeichen“). (c) Er sagt auch, dass ein Bruch wieder zurückgeholt werden kann; bei „Down“ also nicht endgültig
+  urteilen, sondern „bis der Kurs wieder drüber steht“. (d) Eine Trendlinie als Linie im Chart haben wir nicht; nur als mögliche spätere Ergänzung.
+
 ## Grenzen
 - Die öffentlichen Seiten nennen die gleitenden Durchschnitte als Auslöser (ausdrücklich nur den 21er-EMA), aber nicht
   vollständig, welche genau er nutzt. Die Linien 8, 21, 50, 200 und die Zonen stammen von Thomas.
