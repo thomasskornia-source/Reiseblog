@@ -1,0 +1,250 @@
+{
+ "stand": "2026-10-02",
+ "schwellen": {
+  "bestaetigt": 3,
+  "beobachtet": 2
+ },
+ "kategorien": [
+  {
+   "kategorie": "Anleihen & Renditen",
+   "status": "beobachtet",
+   "tage_anzahl": 2,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-02",
+   "name": "US-Staatsanleiherenditen",
+   "namen": [
+    "US-Staatsanleiherenditen"
+   ],
+   "rolle": "Sinkende Renditen entlasten die Aktienmärkte und verringern den Refinanzierungsdruck.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Hohe Renditen setzen die breite Aktienbewertung und insbesondere Finanzwerte kontinuierlich unter Druck."
+    },
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Sinkende Renditen entlasten die Aktienmärkte und verringern den Refinanzierungsdruck."
+    }
+   }
+  },
+  {
+   "kategorie": "Inflation",
+   "status": "beobachtet",
+   "tage_anzahl": 2,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-02",
+   "name": "Inflationsdynamik",
+   "namen": [
+    "Inflationsdynamik",
+    "Bevorstehende Inflationsdaten (CPI)"
+   ],
+   "rolle": "Anhaltende Preissorgen könnten die Erholung am Anleihe- und Aktienmarkt dämpfen.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Hartnäckige Teuerungsraten dämpfen Hoffnungen auf rasche Zinssenkungen der Notenbanken."
+    },
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Bevorstehende Inflationsdaten (CPI)"
+     ],
+     "rolle": "Anhaltende Preissorgen könnten die Erholung am Anleihe- und Aktienmarkt dämpfen."
+    }
+   }
+  },
+  {
+   "kategorie": "Marktbreite & Sektoren",
+   "status": "beobachtet",
+   "tage_anzahl": 2,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-02",
+   "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+   "namen": [
+    "Marktbreite (S&P 500 vs. Equal Weight)",
+    "Marktbreite"
+   ],
+   "rolle": "Ohne KI-Aktien zeigt der breite Markt deutliche Schwächezeichen.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die Rally steht auf wackeligen Beinen, da nur eine Handvoll Tech-Giganten die Indizes nach oben zieht."
+    },
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Marktbreite"
+     ],
+     "rolle": "Ohne KI-Aktien zeigt der breite Markt deutliche Schwächezeichen."
+    }
+   }
+  },
+  {
+   "kategorie": "Öl & Rohstoffe",
+   "status": "beobachtet",
+   "tage_anzahl": 2,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-02",
+   "name": "Öl- und Dieselpreise",
+   "namen": [
+    "Öl- und Dieselpreise",
+    "Ölpreise"
+   ],
+   "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
+    },
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Ölpreise"
+     ],
+     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
+    }
+   }
+  },
+  {
+   "kategorie": "Arbeitsmarkt",
+   "status": "neu",
+   "tage_anzahl": 1,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-02",
+   "name": "US-Arbeitsmarktdaten",
+   "namen": [
+    "US-Arbeitsmarktdaten"
+   ],
+   "rolle": "Ein abkühlender Arbeitsmarkt nimmt den Zinsdruck von der Fed und wird von den Aktienmärkten positiv aufgenommen.",
+   "tage": {
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "US-Arbeitsmarktdaten"
+     ],
+     "rolle": "Ein abkühlender Arbeitsmarkt nimmt den Zinsdruck von der Fed und wird von den Aktienmärkten positiv aufgenommen."
+    }
+   }
+  },
+  {
+   "kategorie": "Geopolitik",
+   "status": "neu",
+   "tage_anzahl": 1,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-02",
+   "name": "Nahost & Ukraine-Krieg",
+   "namen": [
+    "Nahost & Ukraine-Krieg"
+   ],
+   "rolle": "Geopolitische Unsicherheiten bleiben ein ständiger Belastungsfaktor für das Marktumfeld.",
+   "tage": {
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Unsicherheiten bleiben ein ständiger Belastungsfaktor für das Marktumfeld."
+    }
+   }
+  },
+  {
+   "kategorie": "Konjunktur",
+   "status": "neu",
+   "tage_anzahl": 1,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-01",
+   "name": "Industrie- und Exportdaten (Asien & USA)",
+   "namen": [
+    "Industrie- und Exportdaten (Asien & USA)"
+   ],
+   "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch.",
+   "tage": {
+    "2026-10-01": {
+     "p": 0,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
+    }
+   }
+  },
+  {
+   "kategorie": "Saisonalität & Chart",
+   "status": "neu",
+   "tage_anzahl": 1,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-02",
+   "name": "Q4-Saisonalität & Positionierung",
+   "namen": [
+    "Q4-Saisonalität & Positionierung"
+   ],
+   "rolle": "Historisch bietet das vierte Quartal nach bereinigten CTA-Positionen Rückenwind für Aktien.",
+   "tage": {
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Historisch bietet das vierte Quartal nach bereinigten CTA-Positionen Rückenwind für Aktien."
+    }
+   }
+  },
+  {
+   "kategorie": "Stimmung & Volatilität",
+   "status": "neu",
+   "tage_anzahl": 1,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-01",
+   "name": "Marktpositionierung und Hebel",
+   "namen": [
+    "Marktpositionierung und Hebel"
+   ],
+   "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal.",
+   "tage": {
+    "2026-10-01": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal."
+    }
+   }
+  },
+  {
+   "kategorie": "Zinsen & Notenbank",
+   "status": "neu",
+   "tage_anzahl": 1,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-02",
+   "name": "Fed-Zinserwartungen",
+   "namen": [
+    "Fed-Zinserwartungen"
+   ],
+   "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger.",
+   "tage": {
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
+    }
+   }
+  }
+ ]
+}

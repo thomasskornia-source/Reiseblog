@@ -122,6 +122,30 @@
     return '<div class="matrix-w"><table class="mx"><thead><tr>' + kopf + '</tr></thead><tbody>' + zeilen + '</tbody></table></div>';
   }
 
+  function zusatz() {
+    var ST = { bestaetigt: ['bestätigt', '#2a8f6a'], beobachtet: ['beobachtet', '#d99a1e'], neu: ['neu', '#8a9490'] };
+    fetch('data/koch-indikatoren.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (k) {
+      var l = k.kategorien || []; if (!l.length) return;
+      var n = l.filter(function (x) { return x.status === 'bestaetigt'; }).length;
+      var t = '<h2>Seine festen Indikatoren</h2><p class="sub" style="margin-top:0">Je öfter er einen Indikator an verschiedenen Tagen nutzt, desto sicherer gehört er zu seiner Sicht: ab ' + k.schwellen.bestaetigt + ' Tagen <b>bestätigt</b>, ab ' + k.schwellen.beobachtet + ' <b>beobachtet</b>. Bisher bestätigt: ' + n + ' von ' + l.length + '.</p><ul class="ind">';
+      l.forEach(function (x) {
+        var s2 = ST[x.status] || ST.neu, tg = Object.keys(x.tage || {}).sort().slice(-8);
+        var pts = tg.map(function (d) { var p = x.tage[d].p; return '<span class="z ' + (p > 0 ? 'hoch' : p < 0 ? 'runter' : 'seitwaerts') + '" title="' + esc(kurz(d)) + '" style="width:16px;height:16px;border-radius:4px;margin-right:3px"></span>'; }).join('');
+        t += '<li><span class="ch" style="background:' + s2[1] + ';font-size:11px;font-weight:600">' + x.tage_anzahl + '×</span><span><b>' + esc(x.kategorie) + '</b><span class="kat">' + s2[0] + ' · zuletzt ' + esc(kurz(x.zuletzt)) + '</span></span><span class="lage">' + esc(x.name) + '</span><span class="rolle">' + pts + '</span></li>';
+      });
+      document.getElementById('kat').innerHTML = t + '</ul>';
+    }).catch(function () {});
+    fetch('data/koch-feedback.json?v=' + Date.now()).then(function (r) { return r.ok ? r.json() : null; }).then(function (f) {
+      if (!f || !f.indikatoren) return;
+      var M = { ja: ['selbst abrufbar', '#2a8f6a'], teilweise: ['teilweise', '#d99a1e'], nein: ['nicht frei', '#c0392b'] };
+      var t = '<h2>Selbst abrufen statt zuhören</h2><p class="sub" style="margin-top:0">' + esc(f.zusammenfassung || '') + ' <span style="white-space:nowrap">(Stand ' + esc(f.stand || '') + ')</span></p><ul class="ind">';
+      f.indikatoren.forEach(function (x) {
+        var m = M[x.machbar] || M.nein;
+        t += '<li><span class="ch" style="background:' + m[1] + ';font-size:11px"></span><span><b>' + esc(x.name) + '</b><span class="kat">' + m[0] + '</span></span><span class="lage">' + (x.url ? '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.quelle || 'Quelle') + '</a>' : esc(x.quelle || '')) + '</span><span class="rolle">' + esc(x.hinweis || '') + '</span></li>';
+      });
+      document.getElementById('fb').innerHTML = t + '</ul>';
+    }).catch(function () {});
+  }
   fetch('data/koch.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
     var bs = d.beitraege || [], el = document.getElementById('inhalt');
     if (!bs.length) { el.innerHTML = '<p class="leer">Noch keine Auswertung vorhanden.</p>'; return; }
@@ -144,8 +168,10 @@
     }).join('') + '</div><div id="tag">' + tag(0) + '</div>';
     h += '<h2>Stimmungsbarometer</h2><div class="karte">' + verlauf(bs) + '</div>';
     h += '<h2>Indikatoren im Verlauf</h2><div class="karte">' + matrix(bs, d.kategorien || []) + '</div>';
+    h += '<div id="kat"></div><div id="fb"></div>';
     h += '<p class="hinweis">Pfeil ▲ heißt: stützt die Börse, ▼ belastet sie, <i class="rt" style="color:#d99a1e"></i> neutral oder unklar, jeweils aus Kochs Sicht. Das Barometer ist meine Einschätzung seiner Stimmung aus den YouTube-Beiträgen, kein Transkript und keine Anlageberatung. Die Auswertung macht eine KI und kann sich irren. Stand: ' + esc((d.stand || '').replace('T', ' ').replace('Z', ' UTC')) + '.</p>';
     el.innerHTML = h;
+    zusatz();
     document.getElementById('tabs').addEventListener('click', function (e) {
       var bt = e.target.closest('button'); if (!bt) return;
       Array.prototype.forEach.call(this.children, function (c) { c.setAttribute('aria-pressed', c === bt ? 'true' : 'false'); });

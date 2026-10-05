@@ -81,8 +81,21 @@ def feed(kanal):
     return out
 
 
+def bekannte():
+    """Bisher gesammelte Indikatoren (data/koch-indikatoren.json), damit die KI gleiche Dinge gleich benennt und Wiederholungen erkennt."""
+    try:
+        k = json.load(open(os.path.join(os.path.dirname(DB), "koch-indikatoren.json"), encoding="utf-8"))["kategorien"]
+    except Exception:  # noqa: BLE001
+        return ""
+    z = ["Bisher von Markus Koch genutzte Indikatoren (Kategorie: Name, an wie vielen Tagen). Verwende für dieselbe Sache möglichst genau",
+         "diesen Namen, damit Wiederholungen erkennbar sind. Neue, hier noch nicht genannte Indikatoren nimmst du ausdrücklich zusätzlich auf:"]
+    for x in k[:30]:
+        z.append("- %s: %s (%d Tag%s)" % (x["kategorie"], x["name"], x["tage_anzahl"], "" if x["tage_anzahl"] == 1 else "e"))
+    return "\n".join(z)
+
+
 def gemini(vid):
-    body = {"contents": [{"parts": [{"file_data": {"file_uri": f"https://www.youtube.com/watch?v={vid}"}}, {"text": PROMPT}]}],
+    body = {"contents": [{"parts": [{"file_data": {"file_uri": f"https://www.youtube.com/watch?v={vid}"}}, {"text": PROMPT}] + ([{"text": bekannte()}] if bekannte() else [])}],
             "generationConfig": {"responseMimeType": "application/json", "temperature": 0.2}}
     errors = []
     for m in MODELS:

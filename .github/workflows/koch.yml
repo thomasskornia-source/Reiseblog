@@ -57,6 +57,8 @@ jobs:
         run: |
           set -o pipefail
           python3 tools/koch-sammeln.py 2>&1 | tee auswertung/koch-last-run.log
+      - name: Indikator-Katalog aktualisieren
+        run: python3 tools/koch-katalog.py
       - name: Tagesdaten aufräumen
         run: python3 tools/aufraeumen.py
       - name: Daten ablegen
