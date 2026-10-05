@@ -221,4 +221,11 @@ body[data-welt] .back-ico { background: rgba(255, 255, 255, .22); color: inherit
   body.pc .bento.pcgrid .tile.wide { grid-column: span 3; }
   /* Karten (Immobiliensuche) höher */
   body.pc #region-map { height: 62vh; min-height: 420px; }
+  body.pc .bento.pcgrid { grid-auto-flow: dense; }
+  body.pc.home .bento.pcgrid { margin-top: 24px; }
+  body.pc .sr #liste { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; }
+  body.pc .sr .kopf { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  body.pc .sr .kopf > * { margin: 0; }
+  body.pc .sr #liste .legende { grid-column: 1 / -1; }
+  body.pc.page-info article .hotel-group, body.pc.page-info article .tip-box, body.pc.page-info article .safety-box, body.pc.page-info article .note-box, body.pc.page-info article table { break-inside: avoid; }
 }
