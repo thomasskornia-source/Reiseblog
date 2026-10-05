@@ -56,7 +56,7 @@
     var root = document.querySelector('.lb'); if (!root) return;
     var c = root.querySelector('.lb-credit');
     if (!c) { c = document.createElement('div'); c.className = 'lb-credit'; root.appendChild(c); }
-    c.textContent = 'Musikausschnitt: Apple Music · ' + t;
+    c.textContent = 'Musikausschnitt: Apple Music';
   }
   function credit() {}
   function finish() {
@@ -71,7 +71,7 @@
   function begin(vol) {
     if (!m || started) return; started = true; m.muted = false; setVol(0);
     var p = m.play();
-    if (p && p.catch) p.catch(function (e) { setSt('Start abgelehnt'); if (cb) finish(); else cleanup(); });
+    if (p && p.catch) p.catch(function (e) { st = 'Start abgelehnt'; var r = document.querySelector('.lb-credit'); if (r && r.parentNode) r.parentNode.removeChild(r); if (cb) finish(); else cleanup(); });
     rampTo(0, vol, 2000); setSt(canVol ? 'läuft leise' : 'läuft');
   }
 
@@ -81,10 +81,9 @@
     /* im Tipp des Nutzers aufrufen, damit iPhones das spätere Starten erlauben */
     arm: function () {
       cleanup(); finished = false; cb = null;
-      setTimeout(function () { setSt(st); }, 400);
       if (!url) return;
       build(corsOk);
-      m.onerror = function () { if (corsOk) { corsOk = false; cleanup(); build(false); setSt('Ladefehler, neuer Versuch'); } else { setSt('Ladefehler'); cleanup(); } };
+      m.onerror = function () { if (corsOk) { corsOk = false; cleanup(); build(false); st = 'Ladefehler, neuer Versuch'; } else { st = 'Ladefehler'; cleanup(); } };
       m.muted = true; var p = m.play();
       if (p && p.then) p.then(function () { if (m && !started) { m.pause(); m.currentTime = 0; } }).catch(function () {});
     },
