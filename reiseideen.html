@@ -22,9 +22,6 @@
   .st button.an { color: #F2B63D; }
   .st button:focus-visible { outline: 2px solid var(--ink); border-radius: 4px; }
   .rate-sum { font-weight: 600; color: var(--ink); }
-  .rate-who { display: flex; gap: 6px; }
-  .rate-who button { all: unset; cursor: pointer; font-size: 12.5px; font-weight: 600; padding: 3px 11px; border-radius: 99px; background: #f1ece2; }
-  .rate-who button.an { background: var(--ink); color: #fff; }
   .rate-note { font-size: 12px; color: var(--ink-soft); margin: 6px 0 0; }
   .idee { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; text-decoration: none; color: var(--ink); box-shadow: 0 10px 26px rgba(46,58,50,.10); transition: transform .18s, box-shadow .18s; min-width: 0; }
   .idee:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(46,58,50,.16); }
@@ -79,10 +76,7 @@
     <p>Gesammelte Anregungen von Anbietern, zum Stöbern und Vergleichen. Ein Tipp öffnet die Seite des Anbieters.</p>
   </div>
 
-  <div id="rate-bar" hidden>
-    <div class="idee-rate" style="padding:0;border:0"><span>Ich bin:</span><span class="rate-who" id="wer"></span></div>
-    <p class="rate-note">Mit den Sternen bewerten, die Liste sortiert sich nach Beliebtheit. Wer du bist, einmal antippen. <span id="rate-hint"></span></p>
-  </div>
+  <p class="rate-note" id="rate-bar" hidden>Mit den Sternen bewerten, die Liste sortiert sich nach deiner Bewertung. Die Sterne bleiben nur auf diesem Gerät gespeichert.</p>
   <div class="ideen" id="ideen"></div>
   <p class="ideen-leer" id="leer" hidden>Noch keine Reiseideen gesammelt.</p>
 
@@ -90,27 +84,22 @@
 </div>
 <script>
 (function () {
-  var box = document.getElementById('ideen'), NAMEN = ['Thomas', 'Andrea'];
-  var liste = [], stimmen = {}, url = '', wer = '';
+  var box = document.getElementById('ideen');
+  var liste = [], stimmen = {};
   function sg(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function ss(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
   function datum(s) { var p = (s || '').split('-'); return p.length === 3 ? p[2].replace(/^0/, '') + '.' + p[1].replace(/^0/, '') + '.' + p[0] : ''; }
-  function schnitt(id) { var v = stimmen[id] || {}, k = Object.keys(v).filter(function (n) { return v[n] > 0; }); if (!k.length) return null; return { avg: k.reduce(function (s, n) { return s + v[n]; }, 0) / k.length, n: k.length }; }
+  function stern(id) { return stimmen[id] || 0; }
   function sortiert() {
-    return liste.map(function (x, i) { return { x: x, i: i, s: schnitt(x.id) }; }).sort(function (a, b) {
-      if (!a.s !== !b.s) return a.s ? -1 : 1;
-      if (a.s && (b.s.avg !== a.s.avg)) return b.s.avg - a.s.avg;
-      if (a.s && b.s.n !== a.s.n) return b.s.n - a.s.n;
-      return b.i - a.i;   // neueste zuerst
+    return liste.map(function (x, i) { return { x: x, i: i }; }).sort(function (a, b) {
+      return (stern(b.x.id) - stern(a.x.id)) || (b.i - a.i);   // beste zuerst, sonst neueste zuerst
     }).map(function (o) { return o.x; });
   }
   function bewerten(id, n) {
-    if (!wer) return;
-    var v = stimmen[id] = stimmen[id] || {}; if (v[wer] === n) n = 0;
-    if (n) v[wer] = n; else delete v[wer];
-    if (url) fetch(url + '?id=' + encodeURIComponent(id) + '&name=' + encodeURIComponent(wer) + '&sterne=' + n).then(function (r) { return r.json(); }).then(function (d) { stimmen = d; zeichnen(); }).catch(function () {});
-    else ss('ri-stimmen', JSON.stringify(stimmen));
+    if (stern(id) === n) n = 0;
+    if (n) stimmen[id] = n; else delete stimmen[id];
+    ss('ri-stimmen', JSON.stringify(stimmen));
     zeichnen();
   }
   function karte(x, rang) {
@@ -137,36 +126,27 @@
     b.appendChild(el('span', 'idee-go', 'Beim Anbieter ansehen →'));
     b.appendChild(el('span', 'idee-src', (x.anbieter || '') + (x.stand ? ' · Stand ' + datum(x.stand) : '')));
     a.appendChild(top); a.appendChild(b); c.appendChild(a);
-    var r = el('div', 'idee-rate'), st = el('span', 'st'), mine = (stimmen[x.id] || {})[wer] || 0, s = schnitt(x.id);
+    var r = el('div', 'idee-rate'), st = el('span', 'st'), mine = stern(x.id);
     st.setAttribute('role', 'group'); st.setAttribute('aria-label', 'Sterne vergeben');
     for (var i = 1; i <= 5; i++) (function (n) {
       var bt = el('button', n <= mine ? 'an' : '', '★'); bt.type = 'button'; bt.setAttribute('aria-label', n + ' Sterne');
       bt.onclick = function () { bewerten(x.id, n); }; st.appendChild(bt);
     })(i);
     r.appendChild(st);
-    r.appendChild(el('span', 'rate-sum', s ? s.avg.toFixed(1).replace('.', ',') + ' von 5 (' + s.n + (s.n === 1 ? ' Stimme)' : ' Stimmen)') : 'Noch keine Stimme'));
+    r.appendChild(el('span', 'rate-sum', mine ? mine + ' von 5' : 'Noch nicht bewertet'));
     c.appendChild(r);
     return c;
   }
   function zeichnen() {
     box.innerHTML = '';
-    var wh = document.getElementById('wer'); wh.innerHTML = '';
-    NAMEN.forEach(function (n) { var bt = el('button', n === wer ? 'an' : '', n); bt.type = 'button'; bt.onclick = function () { wer = n; ss('ri-wer', n); zeichnen(); }; wh.appendChild(bt); });
-    sortiert().forEach(function (x, i) { box.appendChild(karte(x, schnitt(x.id) ? i + 1 : 0)); });
+    sortiert().forEach(function (x, i) { box.appendChild(karte(x, stern(x.id) ? i + 1 : 0)); });
   }
-  Promise.all([
-    fetch('data/reiseideen.json').then(function (r) { return r.json(); }),
-    fetch('data/reiseideen-config.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; })
-  ]).then(function (res) {
-    liste = (res[0] || []).filter(function (x) { return x && x.id && x.titel && /^https?:\/\//.test(x.url || ''); });
-    url = (res[1] && res[1].url) || '';
+  fetch('data/reiseideen.json').then(function (r) { return r.json(); }).then(function (l) {
+    liste = (l || []).filter(function (x) { return x && x.id && x.titel && /^https?:\/\//.test(x.url || ''); });
     if (!liste.length) { document.getElementById('leer').hidden = false; return; }
-    wer = sg('ri-wer') || '';
-    if (wer && NAMEN.indexOf(wer) < 0) wer = '';
+    try { stimmen = JSON.parse(sg('ri-stimmen') || '{}') || {}; } catch (e) { stimmen = {}; }
     document.getElementById('rate-bar').hidden = false;
-    if (!url) { try { stimmen = JSON.parse(sg('ri-stimmen') || '{}'); } catch (e) { stimmen = {}; } document.getElementById('rate-hint').textContent = 'Noch nicht verbunden: Die Sterne gelten vorerst nur auf diesem Gerät.'; }
     zeichnen();
-    if (url) fetch(url).then(function (r) { return r.json(); }).then(function (d) { stimmen = d || {}; zeichnen(); }).catch(function () { document.getElementById('rate-hint').textContent = 'Die gemeinsamen Stimmen sind gerade nicht erreichbar.'; });
   }).catch(function () { document.getElementById('leer').hidden = false; });
 })();
 </script>
