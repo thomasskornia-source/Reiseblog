@@ -116,6 +116,12 @@ Wochen-MACD fällt unter die Signallinie, nur ≤ 2 der 7 Megacaps über der 8er
 einem Halbsatz, wenn er heiß ist (Rückenwind) oder abkühlt (Gegenwind); Quelle `GICS Sector` aus `data/top10.json` oder der Firmenliste.
 **Marktbreite:** `data/breite.json` (letzter Eintrag in `verlauf`) zeigt, wie viele S&P-500-Werte über der 8-, 21-, 50- und 200-Tage-Linie liegen. James nennt
 sie als Kontext, wenn sie auffällt (unter 40 % über der 21er = innen schwach, auch bei steigendem Index; über 70 % = breit getragen).
+**Warnhinweise nach dem Artikel „Marktphilosophie“ (Thomas, 05.10.2026, Abschnitt dazu in `wissen/james-bulltard.md`):** (1) **Bärenflagge:** Steht in `kreuz_kurz`
+„8 unter 21“ (letzte Kreuzung, jüngst, `tage` klein) und liegt der Kurs nahe der 50er (höchstens etwa 3 % darüber oder darunter), sagt James das als Warnung:
+Technik vor Geschichte, auch wenn die Firma gut ist; keine neuen kurzfristigen Käufe. (2) **Überhitzt:** RSI über 75 und Kurs mehr als etwa 10 % über der 21er:
+ein Halbsatz „nicht gierig werden, Rücksetzer sind normal“ (keine Verkaufsempfehlung, kein Leerverkauf). (3) Unter der 21er: keine neuen kurzfristigen Käufe,
+nicht den Helden spielen. Nur nennen, wenn es zutrifft; die Zahlen kommen aus den vorhandenen Feldern (`kreuz_kurz`, `rsi`, `kurs`, `ma21`, `ma50`),
+nichts schätzen. Nicht übernehmen: Staats-Prognosen, Hebel, Optionsstrategien.
 **Stil (nach dem Podcast-Abschnitt in `wissen/james-bulltard.md`):** kurz, direkt, trocken, ohne Schnörkel; ein Satz darf wie bei ihm
 klingen („Der Chart sieht gut aus.“ / „Der Chart sieht schwach aus.“). Die **21-Tage-Linie steht vorn**, der 8er ist das Kurzfrist-Barometer (darüber stark, darunter schwach): darüber Rückenwind, darunter
 Vorsicht (nicht gegen den Trend stellen, abwarten, bis der Kurs wieder drüber steht; nie zum Leerverkauf raten). Option Flows nach Menge

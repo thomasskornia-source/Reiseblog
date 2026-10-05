@@ -200,9 +200,8 @@ Text und Charts liegen nicht im Repo. Alles sind Selbstaussagen, nicht geprüft.
 8. **Hebel nur langsam und mit Absicherung testen;** Fehler gehören zum Lernen.
 9. **Panik vor dem Crash ist unnötig:** große Einbrüche begannen laut ihm immer mit einem sichtbaren Bruch des langfristigen Trends.
 10. **Community nutzen:** mehr Augen auf einem Trade sind besser. *Werbung, nicht übernommen.*
-- **Was daraus für unseren James folgt (Vorschlag, noch nicht umgesetzt):** (a) Die Regel „21er verloren: keine neuen kurzfristigen Käufe“ und
-  „8 kreuzt unter 21, Kurs klebt am 50er: Bärenflagge“ als Warnhinweis in den Trend-Text aufnehmen (dafür wäre ein Kreuzungs-Merker 8/21 in
-  `tools/trend.py` nötig). (b) Überhitzung: RSI weit über dem Normalbereich zusammen mit großem Abstand zum 21er als Hinweis „nicht gierig
+- **Was daraus für unseren James folgt (von Thomas am 05.10.2026 bestätigt, Regeln stehen in `AKTIEN-ABLAUF.md`):** (a) Die Regel „21er verloren: keine neuen kurzfristigen Käufe“ und
+  „8 kreuzt unter 21, Kurs klebt am 50er: Bärenflagge“ als Warnhinweis in den Trend-Text aufnehmen (Merker `kreuz_kurz` gibt es schon in `tools/trend.py`). (b) Überhitzung: RSI weit über dem Normalbereich zusammen mit großem Abstand zum 21er als Hinweis „nicht gierig
   werden“; RSI haben wir schon. (c) Ton: nüchtern, regelbasiert, „Technik vor Geschichte“. (d) Nicht übernehmen: Staats-Put-Prognosen,
   Hebel, Optionsstrategien und Community-Werbung.
 
