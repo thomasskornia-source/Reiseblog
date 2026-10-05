@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=12">
 <link rel="stylesheet" href="home.css?v=16">
-<link rel="stylesheet" href="lesebuehne.css?v=3">
+<link rel="stylesheet" href="lesebuehne.css?v=4">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -307,9 +307,10 @@
   renderRezeptDesTages();
 
   // Vorlesen direkt auf der Startseite
-  var songPick = null, songAudio = false, songPlayer = null, songSpeaking = false;
+  var songPick = null, songAudio = false, songPlayer = null, songSpeaking = false, prepId = '';
+  var SM = { prepare: function (s) { if (window.Songmusik) Songmusik.prepare(s); }, arm: function () { if (window.Songmusik) Songmusik.arm(); }, tick: function (r) { if (window.Songmusik) Songmusik.tick(r); }, voiceEnded: function (d) { if (window.Songmusik) Songmusik.voiceEnded(d); else d(); }, stop: function () { if (window.Songmusik) Songmusik.stop(); } };
   function songStop() {
-    songSpeaking = false; if (window.Lesebuehne) Lesebuehne.close();
+    songSpeaking = false; SM.stop(); if (window.Lesebuehne) Lesebuehne.close();
     if (songPlayer) { songPlayer.pause(); songPlayer = null; }
     if ('speechSynthesis' in window) speechSynthesis.cancel();
     var pb = $('sdt-play'); if (pb) { pb.classList.remove('spielt'); pb.setAttribute('aria-label', 'Song-Geschichte vorlesen'); }
@@ -322,8 +323,9 @@
     if (window.Lesebuehne) Lesebuehne.followSpeech(parts.slice());
     (function next() {
       if (!songSpeaking) return;
-      if (!parts.length) { songStop(); return; }
+      if (!parts.length) { SM.voiceEnded(songStop); return; }
       var idx = n - parts.length;
+      SM.tick(parts.join('').length / 13);
       if (window.Lesebuehne) Lesebuehne.sentence(idx);
       var u = new SpeechSynthesisUtterance(parts.shift()); keep.push(u); u.lang = 'de-DE'; u.rate = 0.95;
       u.onend = next; u.onerror = function (e) { if (!e || (e.error !== 'canceled' && e.error !== 'interrupted')) songStop(); };
@@ -334,12 +336,14 @@
     var t = ev.target.closest && ev.target.closest('#sdt-play'); if (!t || !songPick) return;
     ev.preventDefault();
     if (songPlayer || songSpeaking) { songStop(); return; }
+    SM.arm();
     if (window.Lesebuehne) Lesebuehne.open(Lesebuehne.songParts(songPick), songStop);
     t.classList.add('spielt'); t.setAttribute('aria-label', 'Vorlesen stoppen');
     if (songAudio && window.Audio) {
       var a = new Audio('audio/' + encodeURIComponent(songPick.id) + '.mp3'); songPlayer = a;
       if (window.Lesebuehne) Lesebuehne.followAudio(a);
-      a.onended = songStop;
+      a.ontimeupdate = function () { if (a.duration) SM.tick(a.duration - a.currentTime); };
+      a.onended = function () { SM.voiceEnded(songStop); };
       a.onerror = function () { songPlayer = null; songSpeech(songPick); };
       var p = a.play(); if (p && p.catch) p.catch(function () { if (songPlayer === a) { songPlayer = null; songSpeech(songPick); } });
     } else songSpeech(songPick);
@@ -358,6 +362,7 @@
       $('sdt-by').textContent = pick.artist;
       $('sdt-link').href = 'song.html?id=' + encodeURIComponent(pick.id);
       songPick = pick; songAudio = false;
+      if (prepId !== pick.id) { prepId = pick.id; SM.prepare(pick); }
       fetch('audio/' + encodeURIComponent(pick.id) + '.mp3', { method: 'HEAD' }).then(function (r) { songAudio = r.ok; }).catch(function () {});
       box.classList.add('on');
     }).catch(function () {});
@@ -397,7 +402,8 @@
   }
 })();
 </script>
-<script src="lesebuehne.js?v=2"></script>
+<script src="songmusik.js?v=1"></script>
+<script src="lesebuehne.js?v=3"></script>
 <script src="nav.js?v=11" defer></script>
 </body>
 </html>

@@ -13,3 +13,4 @@
 .lb-x:hover { background: rgba(255, 255, 255, .3); }
 .lb-x:focus-visible { outline: 3px solid #F6C253; outline-offset: 2px; }
 .lb-x svg { width: 20px; height: 20px; stroke: #fff; stroke-width: 2.4; stroke-linecap: round; fill: none; }
+.lb-credit { position: absolute; left: 0; right: 0; bottom: calc(14px + env(safe-area-inset-bottom)); text-align: center; font: 500 13px 'Work Sans', system-ui, sans-serif; letter-spacing: .06em; color: rgba(255, 255, 255, .7); pointer-events: none; }

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=12">
 <link rel="stylesheet" href="song.css?v=2">
-<link rel="stylesheet" href="lesebuehne.css?v=3">
+<link rel="stylesheet" href="lesebuehne.css?v=4">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -76,6 +76,7 @@
   var MONATE = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
   var synth = ('speechSynthesis' in window) ? window.speechSynthesis : null;
   var reading = false, queue = [], total = 0;
+  var SM = { prepare: function (s) { if (window.Songmusik) Songmusik.prepare(s); }, arm: function () { if (window.Songmusik) Songmusik.arm(); }, tick: function (r) { if (window.Songmusik) Songmusik.tick(r); }, voiceEnded: function (d) { if (window.Songmusik) Songmusik.voiceEnded(d); else d(); }, stop: function () { if (window.Songmusik) Songmusik.stop(); } };
 
   function spotifyUrl(s) { return s.spotify ? 'https://open.spotify.com/track/' + encodeURIComponent(s.spotify) : 'https://open.spotify.com/search/' + encodeURIComponent(s.title + ' ' + s.artist); }
 
@@ -83,7 +84,7 @@
   function setBtn(on) { var b = $('s-read'); b.classList.toggle('spielt', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.querySelector('.lbl').textContent = on ? 'Stopp' : 'Vorlesen'; }
   function note(msg) { var n = $('s-note'); n.textContent = msg; n.hidden = !msg; }
   function stop(silent) {
-    reading = false; queue = []; clearTimeout(timer); stopAudio(); if (window.Lesebuehne) Lesebuehne.close();
+    reading = false; queue = []; clearTimeout(timer); SM.stop(); stopAudio(); if (window.Lesebuehne) Lesebuehne.close();
     if (synth && (synth.speaking || synth.pending)) synth.cancel();
     setBtn(false);
   }
@@ -95,8 +96,9 @@
   }
   function speakNext() {
     if (!reading) return;
-    if (!queue.length) { stop(); return; }
+    if (!queue.length) { SM.voiceEnded(function () { stop(); }); return; }
     var idx = total - queue.length;
+    SM.tick(queue.reduce(function (n, q) { return n + q.length; }, 0) / 13);   // Restzeit der Stimme, etwa 13 Zeichen pro Sekunde
     var u = new SpeechSynthesisUtterance(queue.shift());
     if (window.Lesebuehne) Lesebuehne.sentence(idx);
     keep.push(u); if (keep.length > 6) keep.shift();   // Safari/Chrome werfen sonst Utterances vorzeitig weg
@@ -118,12 +120,14 @@
     player = a; a.preload = 'auto';
     setBtn(true); reading = true;
     if (window.Lesebuehne) Lesebuehne.followAudio(a);
-    a.onended = function () { stop(); };
+    a.ontimeupdate = function () { if (a.duration) SM.tick(a.duration - a.currentTime); };
+    a.onended = function () { if (player === a) player = null; SM.voiceEnded(function () { stop(); }); };
     a.onerror = function () { player = null; reading = false; fallback(); };
     var p = a.play();
     if (p && p.catch) p.catch(function () { if (player === a) { player = null; reading = false; fallback(); } });
   }
   function startReading(s) {
+    SM.arm();
     if (window.Lesebuehne) Lesebuehne.open(Lesebuehne.songParts(s), function () { stop(); });
     var fb = function () { if (synth) startSpeech(s); else note('Vorlesen geht auf diesem Gerät leider nicht.'); };
     if (hasAudio && window.Audio) playFile(s, fb); else fb();   // Entscheidung ohne Wartezeit, damit iPhones den Tipp noch als Nutzeraktion zählen
@@ -152,7 +156,7 @@
     $('s-spotify').href = spotifyUrl(s);
     document.title = s.title + ' – ' + s.artist + ' – Unterwegs und zuhause';
 
-    hasAudio = false;
+    hasAudio = false; SM.prepare(s);
     if (window.fetch) fetch('audio/' + encodeURIComponent(s.id) + '.mp3', { method: 'HEAD' }).then(function (r) { hasAudio = r.ok; }).catch(function () {});
     var read = $('s-read');
     if (!synth && !window.Audio) { read.hidden = true; note('Dein Gerät kann leider nicht vorlesen.'); }
@@ -187,7 +191,8 @@
   window.addEventListener('pageshow', function (e) { if (e.persisted) stop(); });
 })();
 </script>
-<script src="lesebuehne.js?v=2"></script>
+<script src="songmusik.js?v=1"></script>
+<script src="lesebuehne.js?v=3"></script>
 <script src="nav.js?v=11" defer></script>
 </body>
 </html>
