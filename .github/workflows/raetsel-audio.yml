@@ -21,7 +21,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: ffmpeg installieren
         run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
-      - name: Audiodateien erzeugen (Gemini-Sprachausgabe)
+      - name: edge-tts installieren
+        run: pip install --quiet edge-tts
+      - name: Audiodateien erzeugen (Gemini, ersatzweise Seraphina)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
