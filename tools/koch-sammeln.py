@@ -126,6 +126,23 @@ def aufbereiten(d, v, modell, tokens):
             "zitate": [str(z)[:140] for z in (d.get("zitate") or [])[:2]], "sicherheit": d.get("sicherheit"), "modell": modell, "tokens": tokens}
 
 
+def speichern(db):
+    db["beitraege"].sort(key=lambda b: (b["datum"], b.get("zeit") or "", b["id"]), reverse=True)
+    db["quelle"] = "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung."
+    db["kategorien"] = KATEGORIEN
+    try:
+        alt = json.load(open(DB, encoding="utf-8"))
+        if {k: v for k, v in alt.items() if k != "stand"} == {k: v for k, v in db.items() if k != "stand"}:
+            return  # nichts geändert, keine neue Datei
+    except Exception:  # noqa: BLE001
+        pass
+    db["stand"] = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
+    db["quelle"] = "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung."
+    db["kategorien"] = KATEGORIEN
+    json.dump(db, open(DB, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+
+
 def main():
     if not KEY:
         sys.exit("GEMINI_API_KEY fehlt")
@@ -173,7 +190,7 @@ def main():
     else:
         print("Kanal unbekannt (SEED_VIDEOS mit einem Video des Kanals angeben)")
     if not todo:
-        print("Nichts Neues."); return
+        print("Nichts Neues."); speichern(db); return
 
     for v, _ in todo:
         print("Werte aus:", v["id"], v.get("titel"), v["datum"], art_von(v))
@@ -187,11 +204,6 @@ def main():
         db["beitraege"] = [b for b in db["beitraege"] if b["id"] != v["id"]]
         db["beitraege"].append(aufbereiten(d, v, m, tok))
         print(f"  Score {db['beitraege'][-1]['score']} Pfeil {db['beitraege'][-1]['pfeil']} ({tok} Tokens)")
-    db["beitraege"].sort(key=lambda b: (b["datum"], b.get("zeit") or "", b["id"]), reverse=True)
-    db["stand"] = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
-    db["quelle"] = "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung."
-    db["kategorien"] = KATEGORIEN
-    json.dump(db, open(DB, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-
+    speichern(db)
 
 main()
