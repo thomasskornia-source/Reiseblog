@@ -1,0 +1,34 @@
+name: Vergnügen – Tipps sammeln
+
+on:
+  schedule:
+    - cron: '30 4 * * *'   # täglich früh (05:30 bzw. 06:30 deutsche Zeit)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vergnuegen
+
+jobs:
+  sammeln:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tipps aus den Quellen holen (Gemini)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          set -o pipefail
+          python3 tools/vergnuegen-sammeln.py 2>&1 | tee data/vergnuegen-log.txt
+      - name: Daten ablegen
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then echo "Keine Änderungen"; exit 0; fi
+          git commit -m "Vergnügen: Tipps aktualisiert"
+          git pull --rebase origin main
+          git push origin HEAD:main

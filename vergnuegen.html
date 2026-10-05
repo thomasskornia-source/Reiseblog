@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Vergnügen – Unterwegs und zuhause</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=14">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+<style>
+  .vg-int { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 6px; }
+  .vg-int button { all: unset; cursor: pointer; box-sizing: border-box; padding: 8px 15px; border-radius: 99px; font-size: 14.5px; font-weight: 600; background: #fff; color: var(--ink); border: 1.5px solid #d9d2c2; white-space: nowrap; }
+  .vg-int button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .vg-int button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .vg-hint { font-size: 13px; color: var(--ink-soft); margin: 4px 0 0; }
+  #vg-map { height: 320px; border-radius: 22px; margin: 18px 0 8px; box-shadow: 0 10px 26px rgba(46,58,50,.10); z-index: 0; }
+  .vg-h { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin: 28px 0 0; }
+  .vg-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 14px 0 8px; }
+  @media (min-width: 700px) { .vg-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; } }
+  @media (min-width: 1060px) { .vg-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .vg-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; box-shadow: 0 10px 26px rgba(46,58,50,.10); min-width: 0; }
+  .vg-top { height: 80px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: flex-end; background: linear-gradient(135deg, var(--c1), var(--c2)); }
+  .vg-ic { font-size: 40px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,.22)); }
+  .vg-when { font-size: 12.5px; font-weight: 600; color: #fff; background: rgba(0,0,0,.22); padding: 4px 11px; border-radius: 99px; }
+  .vg-body { padding: 14px 18px 8px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
+  .vg-body h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; line-height: 1.25; margin: 0; overflow-wrap: anywhere; }
+  .vg-ort { margin: 0; font-size: 13.5px; font-weight: 500; color: var(--c1); }
+  .vg-body p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
+  .vg-facts { display: flex; flex-wrap: wrap; gap: 6px; }
+  .vg-facts span { font-size: 12.5px; font-weight: 600; background: #f1ece2; border-radius: 99px; padding: 3px 10px; }
+  .vg-src { font-size: 12px; color: var(--ink-soft); opacity: .85; }
+  .vg-src a { color: inherit; }
+  .vg-act { display: flex; gap: 8px; padding: 10px 18px 16px; }
+  .vg-act button { all: unset; cursor: pointer; flex: 1; text-align: center; padding: 9px 8px; border-radius: 12px; font-size: 14px; font-weight: 600; border: 1.5px solid #d9d2c2; }
+  .vg-act .ja { background: #2a8f6a; color: #fff; border-color: #2a8f6a; }
+  .vg-act .nein { color: #c0392b; border-color: #e3b5ae; }
+  .vg-act button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .vg-ok { font-size: 13px; font-weight: 600; color: #2a8f6a; padding: 0 18px 14px; }
+  .vg-leer { color: var(--ink-soft); margin: 18px 0; }
+  .vg-q { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .vg-q li { display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 16px; padding: 12px 16px; box-shadow: 0 4px 14px rgba(46,58,50,.08); }
+  .vg-q li.weg { opacity: .5; }
+  .vg-q .qi { flex: 1; min-width: 0; }
+  .vg-q .qi a { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+  .vg-q .qi small { display: block; color: var(--ink-soft); font-size: 12.5px; margin-top: 2px; }
+  .vg-q button { all: unset; cursor: pointer; padding: 7px 14px; border-radius: 99px; font-size: 13.5px; font-weight: 600; border: 1.5px solid #d9d2c2; white-space: nowrap; }
+  .vg-q button.an { background: #2a8f6a; color: #fff; border-color: #2a8f6a; }
+  .vg-q button.aus { background: #c0392b; color: #fff; border-color: #c0392b; }
+  .vg-copy { all: unset; cursor: pointer; margin-top: 16px; display: inline-block; padding: 10px 20px; border-radius: 99px; background: var(--ink); color: #fff; font-weight: 600; font-size: 14.5px; }
+  .vg-reset { all: unset; cursor: pointer; font-size: 13px; color: var(--ink-soft); text-decoration: underline; }
+</style>
+</head>
+<body class="page-list">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="quiz.html">München</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+
+  <header class="entry-header">
+    <h1>Vergnügen</h1>
+    <nav class="sub-tabs" id="tabs" aria-label="Rubriken"></nav>
+    <hr class="rule">
+  </header>
+
+  <div id="ansicht">
+    <div class="vg-int" id="int" role="group" aria-label="Meine Interessen"></div>
+    <p class="vg-hint" id="int-hint"></p>
+    <div id="vg-map" hidden></div>
+    <h2 class="vg-h" id="h-neu" hidden>Neu zum Prüfen</h2>
+    <div class="vg-grid" id="neu"></div>
+    <h2 class="vg-h" id="h-ja" hidden>Bestätigt</h2>
+    <div class="vg-grid" id="ja"></div>
+    <p class="vg-leer" id="leer" hidden></p>
+    <p class="vg-hint" id="nein-box" hidden><button type="button" class="vg-reset" id="nein-reset"></button></p>
+  </div>
+
+  <div id="quellen" hidden>
+    <div class="entry-body"><p>Diese Seiten schlage ich als Quellen vor. Mit <b>Behalten</b> oder <b>Entfernen</b> entscheidest du. Die Auswahl bleibt auf diesem Gerät, über den Knopf unten kannst du sie mir schicken.</p></div>
+    <div id="q-liste"></div>
+    <button type="button" class="vg-copy" id="q-copy">Auswahl kopieren</button>
+    <p class="vg-hint" id="q-msg"></p>
+  </div>
+
+  <footer class="site-footer"><p>Die Tipps stammen aus den Quellen unter „Quellen“ und werden automatisch gesammelt, Angaben bitte beim Veranstalter prüfen. Bestätigen und Ablehnen bleibt nur auf diesem Gerät gespeichert.</p></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function () {
+  var RUBRIKEN = {
+    events: { name: 'Events', emoji: '🎟️', c: ['#B5502E', '#E8A25A'], int: ['Musik', 'Familie', 'Draußen', 'Kultur', 'Märkte', 'Kostenlos', 'Abends'] },
+    food: { name: 'Food', emoji: '🍽️', c: ['#8A3B2A', '#D98A5B'], int: ['Bayerisch', 'Italienisch', 'Asiatisch', 'Brunch', 'Biergarten', 'Vegetarisch', 'Café', 'Mit Hund'] },
+    unterwegs: { name: 'In München', emoji: '🚲', c: ['#2F7E86', '#8FC5B8'], int: ['Sehenswert', 'Viertel', 'Grün', 'Museen', 'Shopping', 'Mode', 'Mit Hund'] },
+    ausflug: { name: 'Ausflug', emoji: '⛰️', c: ['#4A6B2E', '#A9C46A'], int: ['Berge', 'See', 'Wandern', 'Bahn', 'Mit Hund', 'Pferde', 'Schlösser'] },
+    kino: { name: 'Kino / Stream', emoji: '🎬', c: ['#2E3A6B', '#7C8AD1'], int: ['Kino', 'Open Air', 'Komödie', 'Krimi', 'Doku', 'Mediathek', 'Stream'] }
+  };
+  var ORDER = ['events', 'food', 'unterwegs', 'ausflug', 'kino'];
+  var $ = function (id) { return document.getElementById(id); };
+  function sg(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function ss(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function js(k) { try { return JSON.parse(sg(k) || '{}') || {}; } catch (e) { return {}; } }
+  function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  function datum(s) { var m = /^(\d{4})-(\d\d)-(\d\d)$/.exec(s || ''); return m ? (+m[3]) + '.' + (+m[2]) + '.' : (s || ''); }
+  var r = new URLSearchParams(location.search).get('r');
+  if (r !== 'quellen' && !RUBRIKEN[r]) r = 'events';
+  var items = [], quellen = [], status = js('vg-status'), qstat = js('vg-quellen'), karte = null, ebene = null;
+
+  // Reiter
+  var tabs = $('tabs');
+  ORDER.concat(['quellen']).forEach(function (k) {
+    var a = el('a', '', k === 'quellen' ? 'Quellen' : RUBRIKEN[k].name); a.href = '?r=' + k;
+    if (k === r) a.setAttribute('aria-current', 'page'); tabs.appendChild(a);
+  });
+
+  // Interessen
+  var intKey = 'vg-int-' + r, mine = [];
+  try { mine = JSON.parse(sg(intKey) || '[]') || []; } catch (e) { mine = []; }
+  function interessen() {
+    var box = $('int'); box.innerHTML = '';
+    RUBRIKEN[r].int.forEach(function (t) {
+      var b = el('button', '', t); b.type = 'button'; b.setAttribute('aria-pressed', mine.indexOf(t) >= 0);
+      b.onclick = function () { var i = mine.indexOf(t); if (i >= 0) mine.splice(i, 1); else mine.push(t); ss(intKey, JSON.stringify(mine)); interessen(); zeichnen(); };
+      box.appendChild(b);
+    });
+    $('int-hint').textContent = mine.length ? 'Gezeigt werden Tipps zu deinen Interessen.' : 'Tippe an, was dich interessiert. Ohne Auswahl siehst du alles.';
+  }
+
+  function passt(x) { return !mine.length || (x.tags || []).some(function (t) { return mine.indexOf(t) >= 0; }); }
+  function heute() { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+
+  function karteEl(x, neu) {
+    var c = el('article', 'vg-card'), R = RUBRIKEN[x.rubrik] || RUBRIKEN[r];
+    c.style.setProperty('--c1', R.c[0]); c.style.setProperty('--c2', R.c[1]);
+    var top = el('div', 'vg-top'); top.appendChild(el('span', 'vg-ic', R.emoji));
+    var wann = x.datum ? datum(x.datum) + (x.datum_bis && x.datum_bis !== x.datum ? ' bis ' + datum(x.datum_bis) : '') + (x.zeit ? ', ' + x.zeit : '') : '';
+    if (wann) top.appendChild(el('span', 'vg-when', wann)); c.appendChild(top);
+    var b = el('div', 'vg-body'); b.appendChild(el('h3', '', x.titel));
+    if (x.ort) b.appendChild(el('p', 'vg-ort', x.ort + (x.adresse ? ' · ' + x.adresse : '')));
+    if (x.preis || x.dauer) { var f = el('div', 'vg-facts'); [x.preis, x.dauer].forEach(function (v) { if (v) f.appendChild(el('span', '', v)); }); b.appendChild(f); }
+    if (x.kurz) b.appendChild(el('p', '', x.kurz));
+    var s = el('span', 'vg-src'); s.appendChild(document.createTextNode('Quelle: '));
+    var a = el('a', '', x.quelle || 'Quelle'); a.href = x.url; a.target = '_blank'; a.rel = 'noopener'; s.appendChild(a);
+    if (x.stand) s.appendChild(document.createTextNode(' · Stand ' + datum(x.stand))); b.appendChild(s);
+    c.appendChild(b);
+    if (neu) {
+      var act = el('div', 'vg-act'), ja = el('button', 'ja', 'Gefällt mir'), nein = el('button', 'nein', 'Ablehnen');
+      ja.type = nein.type = 'button';
+      ja.onclick = function () { setze(x.id, 'ja'); }; nein.onclick = function () { setze(x.id, 'nein'); };
+      act.appendChild(ja); act.appendChild(nein); c.appendChild(act);
+    } else { var o = el('div', 'vg-ok', '✓ Bestätigt'), u = el('button', 'vg-reset', 'Zurücknehmen'); u.type = 'button'; u.onclick = function () { setze(x.id, null); }; o.appendChild(document.createTextNode(' · ')); o.appendChild(u); c.appendChild(o); }
+    return c;
+  }
+  function setze(id, v) { if (v) status[id] = v; else delete status[id]; ss('vg-status', JSON.stringify(status)); zeichnen(); }
+
+  function zeichnen() {
+    var h = heute();
+    var mein = items.filter(function (x) { return x.rubrik === r && (!x.datum_bis && !x.datum || (x.datum_bis || x.datum) >= h || !/^\d{4}-/.test(x.datum || '')); });
+    var sicht = mein.filter(passt);
+    var neu = sicht.filter(function (x) { return !status[x.id]; }), ja = sicht.filter(function (x) { return status[x.id] === 'ja'; });
+    var nein = mein.filter(function (x) { return status[x.id] === 'nein'; });
+    [['neu', neu, true], ['ja', ja, false]].forEach(function (g) {
+      var box = $(g[0]); box.innerHTML = ''; g[1].forEach(function (x) { box.appendChild(karteEl(x, g[2])); }); $('h-' + g[0]).hidden = !g[1].length;
+    });
+    var leer = $('leer');
+    leer.hidden = !!(neu.length || ja.length);
+    leer.textContent = mein.length ? 'Zu deinen Interessen gibt es gerade keinen Tipp. Nimm eine Kachel heraus, dann siehst du alles.' : 'Hier ist noch nichts gesammelt. Die Tipps kommen mit dem nächsten automatischen Abruf.';
+    var nb = $('nein-box'); nb.hidden = !nein.length;
+    $('nein-reset').textContent = nein.length + ' abgelehnt, wieder anzeigen';
+    $('nein-reset').onclick = function () { nein.forEach(function (x) { delete status[x.id]; }); ss('vg-status', JSON.stringify(status)); zeichnen(); };
+    zeigeKarte(sicht.filter(function (x) { return status[x.id] !== 'nein'; }));
+  }
+
+  function zeigeKarte(l) {
+    var mit = l.filter(function (x) { return typeof x.lat === 'number' && typeof x.lon === 'number'; });
+    var box = $('vg-map');
+    if (!window.L || !mit.length) { box.hidden = true; return; }
+    box.hidden = false;
+    if (!karte) { karte = L.map(box, { scrollWheelZoom: false }).setView([48.137, 11.575], 11); L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap' }).addTo(karte); ebene = L.layerGroup().addTo(karte); }
+    ebene.clearLayers();
+    var pts = mit.map(function (x) {
+      var m = L.marker([x.lat, x.lon]).addTo(ebene), p = document.createElement('div');
+      p.appendChild(el('b', '', x.titel)); if (x.ort) { p.appendChild(document.createElement('br')); p.appendChild(document.createTextNode(x.ort)); }
+      m.bindPopup(p); return [x.lat, x.lon];
+    });
+    karte.invalidateSize(); karte.fitBounds(pts, { padding: [30, 30], maxZoom: 14 });
+  }
+
+  // Quellen
+  function quellenListe() {
+    var box = $('q-liste'); box.innerHTML = '';
+    ORDER.forEach(function (k) {
+      var l = quellen.filter(function (q) { return q.rubrik === k; }); if (!l.length) return;
+      box.appendChild(el('h2', 'vg-h', RUBRIKEN[k].name));
+      var ul = el('ul', 'vg-q');
+      l.forEach(function (q) {
+        var li = el('li', qstat[q.id] === 'aus' ? 'weg' : ''), t = el('div', 'qi'), a = el('a', '', q.name);
+        a.href = q.url; a.target = '_blank'; a.rel = 'noopener'; t.appendChild(a); t.appendChild(el('small', '', q.info + (q.abruf ? '' : '')));
+        var ja = el('button', qstat[q.id] === 'an' ? 'an' : '', 'Behalten'), aus = el('button', qstat[q.id] === 'aus' ? 'aus' : '', 'Entfernen');
+        ja.type = aus.type = 'button';
+        ja.onclick = function () { qstat[q.id] = qstat[q.id] === 'an' ? '' : 'an'; speichereQ(); }; aus.onclick = function () { qstat[q.id] = qstat[q.id] === 'aus' ? '' : 'aus'; speichereQ(); };
+        li.appendChild(t); li.appendChild(ja); li.appendChild(aus); ul.appendChild(li);
+      });
+      box.appendChild(ul);
+    });
+  }
+  function speichereQ() { ss('vg-quellen', JSON.stringify(qstat)); quellenListe(); }
+  $('q-copy').onclick = function () {
+    var an = [], aus = [], offen = [];
+    quellen.forEach(function (q) { (qstat[q.id] === 'an' ? an : qstat[q.id] === 'aus' ? aus : offen).push(q.id); });
+    var t = 'Quellen Vergnügen. Behalten: ' + (an.join(', ') || '-') + '. Entfernen: ' + (aus.join(', ') || '-') + '. Noch offen: ' + (offen.join(', ') || '-') + '.';
+    var ok = function () { $('q-msg').textContent = 'Kopiert. Füge den Text in den Chat ein.'; };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(ok, function () { $('q-msg').textContent = t; }); else $('q-msg').textContent = t;
+  };
+
+  if (r === 'quellen') {
+    $('ansicht').hidden = true; $('quellen').hidden = false;
+    fetch('data/vergnuegen-quellen.json').then(function (x) { return x.json(); }).then(function (l) { quellen = l || []; quellenListe(); }).catch(function () {});
+  } else {
+    interessen();
+    fetch('data/vergnuegen.json').then(function (x) { return x.json(); }).then(function (l) {
+      items = (l || []).filter(function (x) { return x && x.id && x.titel && /^https?:\/\//.test(x.url || ''); }); zeichnen();
+    }).catch(function () { zeichnen(); });
+  }
+})();
+</script>
+<script src="nav.js?v=13" defer></script>
+</body>
+</html>

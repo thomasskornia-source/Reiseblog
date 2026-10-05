@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>Quiz – Unterwegs und zuhause</title>
+<title>München – Unterwegs und zuhause</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=14">
 <link rel="stylesheet" href="home.css?v=18">
@@ -15,6 +15,7 @@
 <meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
 <style>
   .qz { padding-bottom: 20px; }
+  .mh { font-family: 'Fraunces', serif; font-weight: 500; font-size: 26px; margin: 6px 0 14px; }
   .qz .bento { margin-top: 18px; margin-bottom: 36px; }
   .tile .play { all: unset; cursor: pointer; position: absolute; z-index: 2; right: 22px; bottom: 26px; width: 64px; height: 64px; border-radius: 50%; background: #F6C253; color: #262F63; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0, 0, 0, .35); }
   .tile .play:active { transform: scale(.94); }
@@ -38,14 +39,14 @@
       <a href="reisen.html">Reisen</a>
       <a href="rezepte.html">Rezepte</a>
       <a href="finanzplanung.html">Finanzplanung</a>
-      <a href="quiz.html">Quiz</a>
+      <a href="quiz.html">München</a>
       <a href="ernaehrung.html">Ernährung</a>
       <a href="notfallvorrat.html">Notfallvorrat</a>
     </div>
   </div></nav>
 <div class="wrap qz">
   <header class="entry-header">
-    <h1>Quiz</h1>
+    <h1>München</h1>
     <hr class="rule">
   </header>
 
@@ -62,6 +63,32 @@
     </div>
   </section>
   <p id="rk-note" class="sub" style="color:var(--ink-soft);font-size:14px" hidden></p>
+
+
+  <h2 class="mh">Vergnügen</h2>
+  <section class="bento">
+    <a class="tile" href="vergnuegen.html?r=events" style="background:linear-gradient(170deg,#B5502E,#7A2E14)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="330" cy="60" r="30" fill="#F6C253"/><path d="M250 190l30-60 30 60z" fill="#FBF3E4" opacity=".4"/></svg>
+      <div class="in"><div class="q">Was ist <i>los</i>?</div><span class="go">Events</span></div>
+    </a>
+    <a class="tile" href="vergnuegen.html?r=food" style="background:linear-gradient(170deg,#8A3B2A,#4F1E12)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="320" cy="116" r="70" fill="#FBF3E4" opacity=".4"/><circle cx="320" cy="116" r="42" fill="#FBF3E4" opacity=".7"/><circle cx="320" cy="116" r="14" fill="#F6C253"/></svg>
+      <div class="in"><div class="q">Worauf hast du <i>Appetit</i>?</div><span class="go">Foodvergnügen</span></div>
+    </a>
+    <a class="tile" href="vergnuegen.html?r=unterwegs" style="background:linear-gradient(170deg,#2F7E86,#17484E)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M0 200 Q100 150 200 190 T400 170V232H0z" fill="#FBF3E4" opacity=".3"/><circle cx="330" cy="60" r="24" fill="#F6C253"/></svg>
+      <div class="in"><div class="q">Unterwegs <i>in München</i></div><span class="go">Stadt entdecken</span></div>
+    </a>
+    <a class="tile" href="vergnuegen.html?r=ausflug" style="background:linear-gradient(170deg,#4A6B2E,#2A4016)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M180 232 L262 110 L330 232z" fill="#FBF3E4" opacity=".35"/><path d="M262 110 L276 132 L262 128 L248 132z" fill="#fff" opacity=".85"/></svg>
+      <div class="in"><div class="q">Raus <i>ins Grüne</i></div><span class="go">Ausflug</span></div>
+    </a>
+    <a class="tile" href="vergnuegen.html?r=kino" style="background:linear-gradient(170deg,#2E3A6B,#171E3D)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect x="250" y="70" width="110" height="80" rx="10" fill="#FBF3E4" opacity=".4"/><path d="M290 90l36 20-36 20z" fill="#F6C253"/></svg>
+      <div class="in"><div class="q">Was läuft <i>heute</i>?</div><span class="go">Kino und Stream</span></div>
+    </a>
+  </section>
+  <p class="sub" style="font-size:14px"><a href="vergnuegen.html?r=quellen">Quellen ansehen und auswählen</a></p>
 
   <footer class="site-footer"><p>Das Bayern-Rätsel kommt jede Woche neu.</p></footer>
 </div>
@@ -84,6 +111,6 @@
 </script>
 <script src="lesebuehne.js?v=4"></script>
 <script src="raetselplayer.js?v=2"></script>
-<script src="nav.js?v=12" defer></script>
+<script src="nav.js?v=13" defer></script>
 </body>
 </html>

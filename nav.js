@@ -2,7 +2,7 @@
   var bar = document.getElementById('topbar');
   if (!bar) return;
   var file = location.pathname.split('/').pop() || 'index.html';
-  var map = { 'reiseberater.html': 'reisen.html', 'reiseideen.html': 'reisen.html', 'muenchen-quiz.html': 'quiz.html', 'raetsel.html': 'quiz.html', 'wochenplaner.html': 'rezepte.html', 'sektoren.html': 'aktien.html', 'wcj-info.html': 'aktien.html', 'megas.html': 'aktien.html', 'cholesterin.html': 'ernaehrung.html', 'lebensmittel-basics.html': 'ernaehrung.html', 'podcast-richtig-essen.html': 'ernaehrung.html' };
+  var map = { 'reiseberater.html': 'reisen.html', 'reiseideen.html': 'reisen.html', 'muenchen-quiz.html': 'quiz.html', 'raetsel.html': 'quiz.html', 'vergnuegen.html': 'quiz.html', 'wochenplaner.html': 'rezepte.html', 'sektoren.html': 'aktien.html', 'wcj-info.html': 'aktien.html', 'megas.html': 'aktien.html', 'cholesterin.html': 'ernaehrung.html', 'lebensmittel-basics.html': 'ernaehrung.html', 'podcast-richtig-essen.html': 'ernaehrung.html' };
   if (/-reise\.html$/.test(file)) file = 'reisen.html';
   if (location.pathname.indexOf('/rezepte/') !== -1) file = 'rezepte.html';
   file = map[file] || file;
@@ -20,7 +20,7 @@
     if (location.pathname.indexOf('/rezepte/') === -1 && (f === 'rezepte.html' || f === 'wochenplaner.html')) w = 'rezept';
     else if (f === 'reisen.html' || f === 'reiseberater.html' || f === 'reiseideen.html' || /-reise\.html$/.test(f)) w = 'reise';
     else if (/^(finanzplanung|zinseszins|immobiliensuche|gedaechtnistest)\.html$/.test(f)) w = 'geld';
-    else if (f === 'muenchen-quiz.html') w = 'quiz';
+    else if (f === 'muenchen-quiz.html' || f === 'vergnuegen.html') w = 'quiz';
     else if (/^(ernaehrung|cholesterin|lebensmittel-basics|podcast-richtig-essen)\.html$/.test(f)) w = 'essen';
     else if (f === 'notfallvorrat.html') w = 'nacht';
     if (w && document.querySelector('.entry-header')) document.body.setAttribute('data-welt', w);

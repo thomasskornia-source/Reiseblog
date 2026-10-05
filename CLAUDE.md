@@ -15,6 +15,9 @@ Zeiten (Thomas, 05.10.2026, deutsche Zeit): S&P 500 `markt.yml` Mo–Fr 16:00 (K
 Aufräumen (Thomas, 05.10.2026): Tagesdaten sollen nicht anwachsen. `tools/aufraeumen.py` (läuft in `koch.yml`) löscht Song-Sprachdateien nach 14 Tagen,
 `koch-sammeln.py` behält Auswertungen 90 Tage. Neue Tagesdaten bekommen von Anfang an so eine Frist.
 
+München (Thomas, 05.10.2026): Rubrik „Quiz“ heißt jetzt „München“ (`quiz.html` bleibt als Datei): München-Quiz, Bayern-Rätsel und Vergnügen. `vergnuegen.html?r=events|food|unterwegs|ausflug|kino|quellen`:
+Interessen-Kacheln, Karte (Leaflet/OSM), Tipps zum Bestätigen/Ablehnen (nur lokal im Browser). Quellen in `data/vergnuegen-quellen.json` (status vorschlag|behalten|entfernt; Thomas bestätigt auf der Quellen-Seite und schickt die Auswahl, dann status hier nachziehen). `tools/vergnuegen-sammeln.py` über `vergnuegen.yml` (täglich früh, Gemini wertet Quellseiten aus, Geokodierung Nominatim) → `data/vergnuegen.json`. Keine Texte Dritter kopieren, nur Fakten und eigene Kurzfassung mit Quelle. Weitere Links von Thomas dort anhängen. Das München-Quiz bleibt ohne Vertonung, nur das Bayern-Rätsel wird gesprochen (Gemini, ersatzweise Seraphina).
+
 ## Arbeitsweise (Thomas, 02.10.2026)
 - Änderungen am Reiseblog nach eigener Prüfung **direkt zusammenführen** (Entwurf anlegen, prüfen, mit „squash“ auf `main`
   bringen) und kurz auf Deutsch berichten, was online ist. Thomas muss dafür nicht jedes Mal „zusammenführen“ sagen.
