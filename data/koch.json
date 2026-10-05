@@ -1,0 +1,149 @@
+{
+ "beitraege": [
+  {
+   "id": "6K6GAqqqIk0",
+   "titel": "",
+   "datum": "2026-10-05",
+   "score": 30,
+   "pfeil": "hoch",
+   "thema": "Ein schwächerer US-Arbeitsmarkt und sinkende Ölpreise dämpfen die Zinsängste und sorgen für eine vorbörsliche Erholung an der Wall Street, während Inflations- und geopolitische Risiken weiterhin mahnen.",
+   "gesamtstimmung": "Markus Koch blickt vorsichtig optimistisch auf die anstehende saisonal stärkere Phase im vierten Quartal, da die abkühlende Arbeitsmarktdynamik den Renditedruck mindert. Gleichzeitig warnt er vor verfrühter Euphorie, da hartnäckige Inflationstreiber und geopolitische Spannungen für anhaltende Volatilität sorgen.",
+   "begruendung": "Der schwächere Arbeitsmarktbericht und fallende Energiepreise verringern die Zinssorgen und stützen die Aktienkurse kurzfristig. Dennoch trüben verhaltene Einzelhandelsausblicke wie bei Nike sowie geopolitische Risiken das Gesamtbild.",
+   "indikatoren": [
+    {
+     "kategorie": "Arbeitsmarkt",
+     "name": "US-Arbeitsmarktbericht",
+     "lage": "Stellenaufbau verlangsamt sich, Vormonate nach unten revidiert",
+     "pfeil": "hoch",
+     "rolle": "Eine Abkühlung des Arbeitsmarktes nimmt Druck von der US-Notenbank bezüglich weiterer Zinsanhebungen."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Ölpreis",
+     "lage": "Fällt spürbar um rund 4 Prozent",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Rohstoffpreise entlasten die Anleihemärkte und dämpfen kurzfristig den Inflationsdruck."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Geben nach den jüngsten Hochs wieder nach",
+     "pfeil": "hoch",
+     "rolle": "Niedrigere Renditen stützen insbesondere die Bewertung zinssensitiver Technologiewerte."
+    },
+    {
+     "kategorie": "Inflation",
+     "name": "ISM Preis-Komponente",
+     "lage": "Deutlich heißer als erwartet ausgefallen",
+     "pfeil": "runter",
+     "rolle": "Starke Preisdynamik im verarbeitenden Gewerbe mahnt zur Vorsicht vor anhaltenden Inflationsrisiken."
+    },
+    {
+     "kategorie": "Einzelwerte",
+     "name": "Nike",
+     "lage": "Massiv enttäuschender Ausblick und deutliche Kurszielsenkungen",
+     "pfeil": "runter",
+     "rolle": "Die Schwäche des Konsumgüterriesen verdeutlicht anhaltenden Druck auf Margen und Konsumlaune."
+    },
+    {
+     "kategorie": "Einzelwerte",
+     "name": "Tesla",
+     "lage": "Lieferzahlen für Q3 schlagen die zuvor gesenkten Schätzungen",
+     "pfeil": "hoch",
+     "rolle": "Die übertroffenen Auslieferungserwartungen sorgen für vorbörsliche Kursgewinne und heben die Stimmung im Tech-Sektor."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Konflikte im Nahen Osten und Ukraine-Krieg",
+     "lage": "Militärische Spannungen und Drohgebärden nehmen zu",
+     "pfeil": "runter",
+     "rolle": "Geopolitische Unsicherheiten bleiben ein latentes Risiko für Lieferketten und globale Energiepreise."
+    }
+   ],
+   "zitate": [
+    "schlechter ist genau das, was die Wall Street sehen wollte",
+    "feiert mal den Arbeitsmarktbericht nicht zu sehr"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 147830
+  },
+  {
+   "id": "l17P53ro9vs",
+   "titel": "Micron liefert den KI-Hammer. Kursgewinne entstehen aber woanders.",
+   "datum": "2026-10-01",
+   "score": -15,
+   "pfeil": "runter",
+   "thema": "Markus Koch analysiert die Marktlage an der Wall Street mit Fokus auf die Dominanz der Tech-Schwergewichte, steigende Anleiherenditen und anhaltenden Inflationsdruck.",
+   "gesamtstimmung": "Die Marktstimmung bleibt trotz Kursgewinnen bei großen Tech-Werten angespannt und vorsichtig. Zunehmende Anleiherenditen, hohe Energiepreise und eine historisch schwache Marktbreite mahnen zur Zurückhaltung im Oktober.",
+   "begruendung": "Koch hebt hervor, dass die Kursgewinne fast ausschließlich von wenigen Mega-Cap-Aktien getragen werden, während die Mehrheit der S&P-500-Titel korrigiert. Zudem sorgen robuste Konjunkturdaten und steigende Energiepreise für anhaltende Zins- und Inflationssorgen.",
+   "indikatoren": [
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "steigend auf erhöhtem Niveau",
+     "pfeil": "runter",
+     "rolle": "Hohe Renditen setzen die Bewertungen an den Aktienmärkten und Finanzwerte massiv unter Druck."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "ziehen weiter an wegen Engpässen",
+     "pfeil": "runter",
+     "rolle": "Steigende Energiekosten fachen den Inflationsdruck erneut an und belasten Verbraucher sowie Unternehmen."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktbreite im S&P 500",
+     "lage": "extrem schwach, nur ca. 25 % der Aktien über 50-Tage-Linie",
+     "pfeil": "runter",
+     "rolle": "Die massive Divergenz zwischen dem kapitalgewichteten Index und dem Equal-Weight-Index birgt Korrekturrisiken."
+    },
+    {
+     "kategorie": "Einzelwerte",
+     "name": "Mega-Cap Tech (Microsoft, Nvidia, Apple, Meta, Amazon)",
+     "lage": "gefragt und durch positive Analystenkommentare gestützt",
+     "pfeil": "hoch",
+     "rolle": "Die großen Tech-Konzerne tragen fast die gesamte Performance des Gesamtmarktes."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Einkaufsmanagerindizes (PMI / ISM)",
+     "lage": "überwiegend robust und über den Erwartungen",
+     "pfeil": "seitwaerts",
+     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber gleichzeitig den Zinsdruck hoch."
+    }
+   ],
+   "zitate": [
+    "Der Aktienmarkt ist nicht die Wirtschaft.",
+    "Der Oktober könnte durchaus noch mehr Volatilität bringen."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 151129
+  }
+ ],
+ "gesehen": [
+  "6K6GAqqqIk0",
+  "i-B753QP6xY",
+  "l17P53ro9vs"
+ ],
+ "stand": "2026-10-05T07:47Z",
+ "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
+ "kategorien": [
+  "Arbeitsmarkt",
+  "Zinsen & Notenbank",
+  "Inflation",
+  "Öl & Rohstoffe",
+  "Anleihen & Renditen",
+  "Konjunktur",
+  "Unternehmenszahlen",
+  "Einzelwerte",
+  "Geopolitik",
+  "Politik & Zölle",
+  "Saisonalität & Chart",
+  "Stimmung & Volatilität",
+  "Dollar & Währungen",
+  "Sonstiges"
+ ]
+}
