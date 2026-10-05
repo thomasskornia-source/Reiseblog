@@ -197,3 +197,9 @@ h1.mit-zurueck { position: relative; padding-left: 52px; }
 body[data-welt] .back-ico { background: rgba(255, 255, 255, .22); color: inherit !important; }
 .h1-sep { color: var(--ink-soft); opacity: .55; font-weight: 400; }
 .h1-link { color: var(--rust); text-decoration: none; border: 0; }
+
+/* Reiter unter der Überschrift (Reisen: Vorschläge, Planung, Ideen) */
+.sub-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; }
+.sub-tabs a, body[data-welt] .entry-header .sub-tabs a { display: inline-block; padding: 8px 18px; border-radius: 99px; font-size: 15px; font-weight: 600; text-decoration: none; color: #fff; background: rgba(255, 255, 255, .2); border: 1.5px solid rgba(255, 255, 255, .55); transition: background .15s; }
+.sub-tabs a:hover { background: rgba(255, 255, 255, .32); }
+.sub-tabs a[aria-current="page"], body[data-welt] .entry-header .sub-tabs a[aria-current="page"] { background: #fff; color: #9c3a1c; border-color: #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, .18); }
