@@ -45,6 +45,9 @@
   .z.hoch { background: #2a8f6a; } .z.runter { background: #c0392b; } .z.seitwaerts { background: #8a9490; }
   .sm .hinweis { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 18px 2px 0; }
   .sm .leer { font-size: 15px; color: var(--ink-soft); }
+  .tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+  .tabs button { font: inherit; font-size: 13.5px; background: var(--paper); border: 1px solid rgba(46,58,50,.18); border-radius: 99px; padding: 6px 12px; color: var(--ink); cursor: pointer; white-space: nowrap; }
+  .tabs button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
   .zitat { font-size: 13.5px; color: var(--ink-soft); font-style: italic; margin: 8px 0 0; grid-column: 1 / -1; }
 </style>
 </head>
@@ -67,7 +70,7 @@
     <h1>Börsenstimmung</h1>
     <hr class="rule">
   </header>
-  <p class="sub">Wie sieht Markus Koch den Markt? Aus seinem täglichen Beitrag lese ich heraus, woran er die Stimmung festmacht, und gebe jedem Punkt einen Pfeil.</p>
+  <p class="sub">Wie sieht Markus Koch den Markt? Aus seinen beiden täglichen Beiträgen (Opening Bell und Closing Bell) lese ich heraus, woran er die Stimmung festmacht, und gebe jedem Punkt einen Pfeil.</p>
   <div id="inhalt"><p class="leer">Lädt …</p></div>
 </div>
 <script>
@@ -80,6 +83,7 @@
   function dat(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
   function lang(s) { var d = dat(s); return WT[d.getDay()] + ', ' + d.getDate() + '. ' + MON[d.getMonth()] + ' ' + d.getFullYear(); }
   function kurz(s) { var d = dat(s); return d.getDate() + '.' + (d.getMonth() + 1) + '.'; }
+  var ART = { opening: 'Opening Bell', closing: 'Closing Bell' }, ARTK = { opening: 'O', closing: 'C' };
   function farbe(sc) { return sc >= 15 ? '#2a8f6a' : sc <= -15 ? '#c0392b' : '#8a9490'; }
 
   function verlauf(bs) {
@@ -94,7 +98,7 @@
     if (n > 1) s += '<polyline fill="none" stroke="#8a9490" stroke-width="1.6" points="' + a.map(function (b, i) { return x(i) + ',' + y(b.score); }).join(' ') + '"/>';
     a.forEach(function (b, i) {
       s += '<circle cx="' + x(i) + '" cy="' + y(b.score) + '" r="5" fill="' + farbe(b.score) + '"/>';
-      if (n <= 8 || i % Math.ceil(n / 7) === 0 || i === n - 1) s += '<text x="' + x(i) + '" y="' + (H - 7) + '" font-size="10.5" text-anchor="middle" fill="#6b756f">' + kurz(b.datum) + '</text>';
+      if (n <= 8 || i % Math.ceil(n / 7) === 0 || i === n - 1) s += '<text x="' + x(i) + '" y="' + (H - 7) + '" font-size="10.5" text-anchor="middle" fill="#6b756f">' + kurz(b.datum) + (ARTK[b.art] ? ' ' + ARTK[b.art] : '') + '</text>';
     });
     return s + '</svg>';
   }
@@ -113,27 +117,39 @@
       });
       if (any) zeilen += '<tr><td>' + esc(k) + '</td>' + zellen + '</tr>';
     });
-    var kopf = '<th></th>' + a.map(function (b) { return '<th>' + kurz(b.datum) + '</th>'; }).join('');
+    var kopf = '<th></th>' + a.map(function (b) { return '<th>' + kurz(b.datum) + '<br>' + (ARTK[b.art] || '') + '</th>'; }).join('');
     return '<div class="matrix-w"><table class="mx"><thead><tr>' + kopf + '</tr></thead><tbody>' + zeilen + '</tbody></table></div>';
   }
 
   fetch('data/koch.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
     var bs = d.beitraege || [], el = document.getElementById('inhalt');
     if (!bs.length) { el.innerHTML = '<p class="leer">Noch keine Auswertung vorhanden.</p>'; return; }
-    var b = bs[0], h = '';
-    h += '<div class="karte heute"><div class="pf ' + b.pfeil + '" aria-hidden="true">' + PF[b.pfeil] + '</div><div>' +
-      '<div class="dat">' + esc(lang(b.datum)) + '</div><div class="st">' + NAME[b.pfeil] + '</div><div class="sc">Barometer ' + (b.score > 0 ? '+' : '') + b.score + ' von ±100</div></div>' +
-      '<p class="txt">' + esc(b.gesamtstimmung) + ' ' + esc(b.begruendung) + '</p>' +
-      '<div style="grid-column:1/-1"><div class="skala"><i style="left:' + ((b.score + 100) / 2) + '%"></i></div><div class="skala-l"><span>−100</span><span>0</span><span>+100</span></div></div></div>';
-    h += '<h2>Was ihm heute wichtig ist</h2><ul class="ind">' + (b.indikatoren || []).map(function (i) {
-      return '<li><span class="ch ' + i.pfeil + '" aria-hidden="true">' + PF[i.pfeil] + '</span><div><b>' + esc(i.name) + '<span class="kat">' + esc(i.kategorie) + '</span></b></div>' +
-        '<div class="lage">' + esc(i.lage) + '</div><div class="rolle">' + esc(i.rolle) + '</div></li>';
-    }).join('') + '</ul>';
-    if (b.zitate && b.zitate.length) h += '<p class="hinweis" style="margin-top:10px">' + b.zitate.map(function (z) { return '„' + esc(z) + '“'; }).join(' · ') + ' (Markus Koch)</p>';
+    var h = '', tage = bs.slice(0, 4);
+    function tag(i) {
+      var b = bs[i], t = '';
+      t += '<div class="karte heute"><div class="pf ' + b.pfeil + '" aria-hidden="true">' + PF[b.pfeil] + '</div><div>' +
+        '<div class="dat">' + esc(lang(b.datum)) + (ART[b.art] ? ' · ' + ART[b.art] : '') + '</div><div class="st">' + NAME[b.pfeil] + '</div><div class="sc">Barometer ' + (b.score > 0 ? '+' : '') + b.score + ' von ±100</div></div>' +
+        '<p class="txt">' + esc(b.gesamtstimmung) + ' ' + esc(b.begruendung) + '</p>' +
+        '<div style="grid-column:1/-1"><div class="skala"><i style="left:' + ((b.score + 100) / 2) + '%"></i></div><div class="skala-l"><span>−100</span><span>0</span><span>+100</span></div></div></div>';
+      t += '<h2>Was ihm wichtig ist</h2><ul class="ind">' + (b.indikatoren || []).map(function (i) {
+        return '<li><span class="ch ' + i.pfeil + '" aria-hidden="true">' + PF[i.pfeil] + '</span><div><b>' + esc(i.name) + '<span class="kat">' + esc(i.kategorie) + '</span></b></div>' +
+          '<div class="lage">' + esc(i.lage) + '</div><div class="rolle">' + esc(i.rolle) + '</div></li>';
+      }).join('') + '</ul>';
+      if (b.zitate && b.zitate.length) t += '<p class="hinweis" style="margin-top:10px">' + b.zitate.map(function (z) { return '„' + esc(z) + '“'; }).join(' · ') + ' (Markus Koch, „' + esc(b.titel || '') + '“)</p>';
+      return t;
+    }
+    h += '<div class="tabs" id="tabs" role="group" aria-label="Beitrag wählen">' + tage.map(function (b, i) {
+      return '<button type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + kurz(b.datum) + (ART[b.art] ? ' ' + ART[b.art] : '') + '</button>';
+    }).join('') + '</div><div id="tag">' + tag(0) + '</div>';
     h += '<h2>Stimmungsbarometer</h2><div class="karte">' + verlauf(bs) + '</div>';
     h += '<h2>Indikatoren im Verlauf</h2><div class="karte">' + matrix(bs, d.kategorien || []) + '</div>';
-    h += '<p class="hinweis">Pfeil ▲ heißt: stützt die Börse, ▼ belastet sie, ▶ neutral oder unklar, jeweils aus Kochs Sicht. Das Barometer ist meine Einschätzung seiner Stimmung aus dem Beitrag „' + esc(b.titel || '') + '“ (YouTube), kein Transkript und keine Anlageberatung. Die Auswertung macht eine KI und kann sich irren. Stand: ' + esc((d.stand || '').replace('T', ' ').replace('Z', ' UTC')) + '.</p>';
+    h += '<p class="hinweis">Pfeil ▲ heißt: stützt die Börse, ▼ belastet sie, ▶ neutral oder unklar, jeweils aus Kochs Sicht. Das Barometer ist meine Einschätzung seiner Stimmung aus den YouTube-Beiträgen, kein Transkript und keine Anlageberatung. Die Auswertung macht eine KI und kann sich irren. Stand: ' + esc((d.stand || '').replace('T', ' ').replace('Z', ' UTC')) + '.</p>';
     el.innerHTML = h;
+    document.getElementById('tabs').addEventListener('click', function (e) {
+      var bt = e.target.closest('button'); if (!bt) return;
+      Array.prototype.forEach.call(this.children, function (c) { c.setAttribute('aria-pressed', c === bt ? 'true' : 'false'); });
+      document.getElementById('tag').innerHTML = tag(+bt.dataset.i);
+    });
   }).catch(function () { document.getElementById('inhalt').innerHTML = '<p class="leer">Noch keine Auswertung vorhanden.</p>'; });
 })();
 </script>
