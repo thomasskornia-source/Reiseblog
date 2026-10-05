@@ -232,5 +232,6 @@ body[data-welt] .back-ico { background: rgba(255, 255, 255, .22); color: inherit
   body.pc.page-read article h2.subhead { break-after: avoid; }
   body.pc.page-read article > .entry-header, body.pc.page-read article > .entry-body, body.pc.page-read article > .controls { column-span: all; }
   body.pc.page-read article table { break-inside: avoid; }
+  body.pc.page-info article > section.sec { break-inside: avoid; margin-bottom: 8px; }
   body.pc.page-info article .hotel-group, body.pc.page-info article .tip-box, body.pc.page-info article .safety-box, body.pc.page-info article .note-box, body.pc.page-info article table { break-inside: avoid; }
 }

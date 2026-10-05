@@ -72,3 +72,16 @@
   }
   setTimeout(blink, 1200 + Math.random() * 800);
 })();
+
+/* PC-Ansicht Reise-Detailseiten: Abschnitte (Überschrift + Inhalt) zusammenhalten, damit sie nicht zwischen Spalten umbrechen */
+(function () {
+  var b = document.body;
+  if (!b || !b.classList.contains('pc') || !b.classList.contains('page-info')) return;
+  var art = document.querySelector('article');
+  if (!art || art.querySelector(':scope > section.sec')) return;
+  var kids = [].slice.call(art.children), sec = null;
+  kids.forEach(function (el) {
+    if (el.matches && el.matches('h2.subhead')) { sec = document.createElement('section'); sec.className = 'sec'; art.insertBefore(sec, el); }
+    if (sec && !el.matches('script,style')) sec.appendChild(el);
+  });
+})();
