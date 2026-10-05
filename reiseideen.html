@@ -31,6 +31,12 @@
   .idee-hl li::before { content: '· '; color: var(--c1); font-weight: 700; }
   .idee-go { margin-top: auto; padding-top: 8px; font-size: 14px; font-weight: 600; color: var(--c1); }
   .idee-src { font-size: 12px; color: var(--ink-soft); opacity: .8; }
+  .idee-bew { display: grid; gap: 6px; margin: 2px 0 0; }
+  .bw { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; line-height: 1.35; color: var(--ink-soft); }
+  .bw b { color: var(--ink); font-weight: 600; }
+  .bw .pf { flex: none; width: 22px; height: 22px; border-radius: 50%; color: #fff; font-size: 11px; line-height: 22px; text-align: center; margin-top: 0; }
+  .bw .pf.hoch { background: #2a8f6a; } .bw .pf.runter { background: #c0392b; } .bw .pf.neutral { background: #d99a1e; }
+  .rt { display: inline-block; width: .8em; height: .86em; background: currentColor; clip-path: polygon(14% 0, 100% 50%, 14% 100%); vertical-align: -.08em; }
   .ideen-leer { color: var(--ink-soft); }
 </style>
 </head>
@@ -65,7 +71,7 @@
   <div class="ideen" id="ideen"></div>
   <p class="ideen-leer" id="leer" hidden>Noch keine Reiseideen gesammelt.</p>
 
-  <footer class="site-footer"><p>Preise und Angaben laut Anbieterseite, bitte dort vor einer Buchung prüfen.</p></footer>
+  <footer class="site-footer"><p>Preise und Angaben laut Anbieterseite, bitte dort vor einer Buchung prüfen. Pfeil ▲ grün heißt günstig bzw. geringe Gefahr, ▼ rot teuer bzw. riskant, gelb mittel oder unklar. Die Bewertung ist meine Einschätzung aus den Angaben der Seite.</p></footer>
 </div>
 <script>
 (function () {
@@ -84,6 +90,17 @@
       if (x.dauer || x.preis) { var fa = el('div', 'idee-facts'); if (x.dauer) fa.appendChild(el('span', '', x.dauer)); if (x.preis) fa.appendChild(el('span', '', x.preis)); b.appendChild(fa); }
       if (x.kurz) b.appendChild(el('p', '', x.kurz));
       if (x.highlights && x.highlights.length) { var ul = el('ul', 'idee-hl'); x.highlights.forEach(function (h) { ul.appendChild(el('li', '', h)); }); b.appendChild(ul); }
+      if (x.bewertung) {
+        var bw = el('div', 'idee-bew');
+        [['kosten', 'Kosten'], ['risiko', 'Gefahren']].forEach(function (k) {
+          var v = x.bewertung[k[0]]; if (!v) return;
+          var row = el('div', 'bw'), pf = el('span', 'pf ' + v.pfeil);
+          if (v.pfeil === 'hoch') pf.textContent = '▲'; else if (v.pfeil === 'runter') pf.textContent = '▼'; else { var t = el('i', 'rt'); pf.appendChild(t); }
+          var tx = el('span'); tx.appendChild(el('b', '', k[1] + ': ')); tx.appendChild(document.createTextNode(v.text || ''));
+          row.appendChild(pf); row.appendChild(tx); bw.appendChild(row);
+        });
+        b.appendChild(bw);
+      }
       if (x.leistungen) b.appendChild(el('p', '', x.leistungen));
       b.appendChild(el('span', 'idee-go', 'Beim Anbieter ansehen →'));
       b.appendChild(el('span', 'idee-src', (x.anbieter || '') + (x.stand ? ' · Stand ' + datum(x.stand) : '')));

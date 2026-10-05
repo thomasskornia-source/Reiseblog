@@ -7,12 +7,65 @@
     "dauer": "7 Tage",
     "preis": "ab 979 € p. P.",
     "kurz": "Küstenwanderung von der Côte Vermeille bis nach Cadaqués, mit Gepäcktransport und Hotels.",
-    "highlights": ["Côte Vermeille", "Weinberge von Banyuls", "Kloster Sant Pere de Rodes", "Naturpark Cap de Creus", "Cadaqués"],
+    "highlights": [
+      "Côte Vermeille",
+      "Weinberge von Banyuls",
+      "Kloster Sant Pere de Rodes",
+      "Naturpark Cap de Creus",
+      "Cadaqués"
+    ],
     "leistungen": "6 Übernachtungen (3–4 Sterne), 6× Frühstück, Gepäcktransport, Reise-App mit Routen",
     "anbieter": "ASI Reisen",
     "url": "https://www.asi-reisen.de/r/2ESGRO001W",
     "stand": "2026-10-05",
-    "farben": ["#2F7E86", "#8FC5B8"],
-    "emoji": "🥾"
+    "farben": [
+      "#2F7E86",
+      "#8FC5B8"
+    ],
+    "emoji": "🥾",
+    "bewertung": {
+      "kosten": {
+        "pfeil": "neutral",
+        "text": "ca. 140 € pro Tag, mittleres Niveau"
+      },
+      "risiko": {
+        "pfeil": "hoch",
+        "text": "Küstenpfade und Dörfer, auf der Seite keine Warnung; bei Hitze und Wind aufpassen (eigene Einschätzung)"
+      }
+    }
+  },
+  {
+    "id": "via-transylvanica",
+    "titel": "Rumänien – Via Transylvanica",
+    "ort": "Siebenbürgen, von Sibiu bis Deutsch-Weißkirch",
+    "art": "Trekkingreise",
+    "dauer": "8 Tage",
+    "preis": "ab 895 € p. P.",
+    "kurz": "Individuelle Wanderung auf dem Sachsenweg, 12–16 km täglich (Level 2), Gepäcktransport inklusive.",
+    "highlights": [
+      "UNESCO-Kirchenburgen",
+      "Schäßburg",
+      "Hermannstadt",
+      "Dörfer der Siebenbürger Sachsen"
+    ],
+    "leistungen": "Hotels, Pensionen und restaurierte Bauernhäuser, 7× Frühstück, 4× Abendessen, Gepäcktransport, GPS-Daten. Anreise nach Sibiu nicht enthalten",
+    "anbieter": "ASI Reisen",
+    "url": "https://www.asi-reisen.de/r/2ROSBZ005T",
+    "stand": "2026-10-05",
+    "farben": [
+      "#6F7D2E",
+      "#B9C77A"
+    ],
+    "emoji": "🏰",
+    "bewertung": {
+      "kosten": {
+        "pfeil": "hoch",
+        "text": "ca. 112 € pro Tag, günstig; Anreise kommt dazu"
+      },
+      "risiko": {
+        "pfeil": "hoch",
+        "text": "Level 2, 220–340 Höhenmeter täglich; auf der Seite keine Warnung. In den Karpaten gibt es Braunbären, Hinweise dazu beachten (eigene Einschätzung)"
+      }
+    }
   }
 ]
