@@ -142,8 +142,7 @@ html:has(body.home) { overflow-x: hidden; }
   .song-bar { margin: 6px 0 0; padding-left: 130px; padding-right: 28px; border-radius: 26px 26px 0 0; }
 }
 
-.tv-bar { display: flex; align-items: center; gap: 16px; margin: 0 -18px; padding: 22px 20px 22px 24px; color: #fff; background: linear-gradient(105deg, #1F2A44 0%, #16203A 55%, #0F1830 100%); box-shadow: 0 12px 28px rgba(15, 24, 48, .3); }
-.song-bar.on + .tv-bar { margin-top: 0; }
+.tv-bar { display: flex; align-items: center; gap: 16px; margin: 0; padding: 22px 20px 22px 24px; color: #fff; background: linear-gradient(105deg, #1F2A44 0%, #16203A 55%, #0F1830 100%); }
 .tv-bar .tvi { flex: none; width: 54px; height: 54px; }
 .tv-bar .tv-txt { flex: 1; min-width: 0; }
 .tv-bar b { display: block; font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; line-height: 1.15; }
@@ -151,9 +150,6 @@ html:has(body.home) { overflow-x: hidden; }
 .tv-bar .tv-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .tv-bar .tv-links a { font: 600 12px 'Work Sans', sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #fff; text-decoration: none; padding: 7px 14px; border: 1.5px solid #F6C253; border-radius: 99px; transition: background .2s; }
 .tv-bar .tv-links a:hover { background: rgba(246, 194, 83, .25); }
-.bento { margin-top: 20px; }
 @media (min-width: 700px) {
-  .tv-bar { margin: 0; padding: 24px 28px; border-radius: 0 0 26px 26px; }
-  .song-bar:not(.on) + .tv-bar { border-radius: 26px; margin-top: 6px; }
-  .bento { margin-top: 24px; }
+  .tv-bar { grid-column: 1 / -1; padding: 24px 28px; border-radius: 22px; box-shadow: 0 10px 26px rgba(29, 43, 58, .16); }
 }
