@@ -11,7 +11,8 @@ Daten `data/welterbe.json`. Es bleiben die 12 neuesten (`tools/aufraeumen.py`).
 4. Auf Deutsch in **eigenen Worten**, locker, gut vorlesbar, 220–300 Wörter, drei bis vier Absätze (Ort/Eindruck, Geschichte, Besonderes,
    Welterbe seit wann und warum). Keine wörtlichen Übernahmen.
 5. Eintrag anhängen:
-   `{"id":"slug","date":"JJJJ-MM-TT","titel":"…","ort":"Ort, Region","land":"…","seit":1983,"kurz":"ein Satz","text":"Absatz\n\nAbsatz","sprech":"gesprochene Fassung","quelle":{"titel":"Wikipedia: …","url":"…"}}`
+   `{"id":"slug","date":"JJJJ-MM-TT","titel":"…","ort":"Ort, Region","land":"…","seit":1983,"kurz":"ein Satz","text":"Absatz\n\nAbsatz","sprech":"gesprochene Fassung","lat":47.68,"lon":10.9,"quelle":{"titel":"Wikipedia: …","url":"…"}}`
+   `lat`/`lon` = Standort in Dezimalgrad (aus Wikipedia/UNESCO-Koordinaten, 4 Nachkommastellen; bei mehreren Teilorten der Hauptort), die Seite zeigt damit eine Karte.
    `sprech` = Titel + Text mit **ausgeschriebenen Zahlen und Jahren** (z. B. „siebzehnhundertvierzig“), ohne Absatzmarken. Titelansage am Anfang.
    `id` nur Kleinbuchstaben, Ziffern, Bindestriche. JSON mit `python3 -m json.tool` prüfen.
    **Bild (optional, aber gewünscht):** ein Foto von Wikimedia Commons (Datei-Seite per WebSearch/WebFetch lesen). Nur Dateien mit freier Lizenz (CC BY, CC BY-SA, CC0, Public Domain, GFDL), Lizenz und Autor **von der Dateiseite übernehmen**, nichts raten; eingebunden wird nur per Link (nichts ins Repo kopieren):
