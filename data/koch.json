@@ -1,6 +1,62 @@
 {
  "beitraege": [
   {
+   "id": "Hk_FImctS2I",
+   "titel": "Rekorde - in einem schiefen Markt.",
+   "datum": "2026-10-06",
+   "zeit": "2026-10-06T20:43:49+00:00",
+   "art": "closing",
+   "score": 20,
+   "pfeil": "hoch",
+   "thema": "Markus Koch analysiert die von Tech-Investitionen gestützten US-Märkte vor dem Hintergrund hoher Anleiherenditen, nachlassender BIP-Schätzungen und einer schwachen Marktbreite.",
+   "gesamtstimmung": "Die großen Indizes verzeichnen Kursgewinne, doch das Marktbild bleibt nach Markus Kochs Einschätzung stark zerrissen. Während der massive Investitionsboom im KI- und Tech-Sektor den Gesamtmarkt trägt, leiden zinssensible Branchen spürbar unter den hohen Renditen.",
+   "begruendung": "Der Indexanstieg und die sinkende Wahrscheinlichkeit einer weiteren Fed-Zinserhöhung im Oktober stützen das Sentiment. Gleichzeitig mahnen die schwache Marktbreite, ein abkühlender GDPNow-Konjunkturindikator und anhaltend hohe Renditen zur Vorsicht.",
+   "indikatoren": [
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "verharren auf hohem Niveau knapp unter Tageshochs",
+     "pfeil": "runter",
+     "rolle": "Die hohen Renditen der 10-jährigen Staatsanleihen setzen insbesondere zinssensible Marktsegmente unter Druck."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Wahrscheinlichkeit für Zinsschritt im Oktober bricht auf 20 % ein",
+     "pfeil": "hoch",
+     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Atlanta-Fed GDPNow-Indikator",
+     "lage": "BIP-Wachstumsschätzungen für Q3 fallen deutlich zurück",
+     "pfeil": "runter",
+     "rolle": "Der Rückgang illustriert die abkühlende Wirtschaftsdynamik infolge des restriktiven Zinsniveaus."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "stark zerrissen, zinssensible Branchen fallen weit zurück",
+     "pfeil": "runter",
+     "rolle": "Die Rally stützt sich primär auf wenige Mega-Cap-Techwerte, während Banken, Versorger und Immobilien verlieren."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "nach morgendlichem Rücklauf leicht im Plus geschlossen",
+     "pfeil": "seitwaerts",
+     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
+    }
+   ],
+   "zitate": [
+    "das Bild insgesamt eben doch nach wie vor relativ schief bleibt",
+    "wird das Kapital trockengesaugt in nur einen Sektor"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 117841
+  },
+  {
    "id": "I2SFjebVeWw",
    "titel": "KI boomt weiter!  Endlich fallen auch Öl und Renditen.",
    "datum": "2026-10-06",
@@ -352,9 +408,10 @@
   "l17P53ro9vs",
   "5FxmULso9Ts",
   "VfqdXfUmR68",
-  "I2SFjebVeWw"
+  "I2SFjebVeWw",
+  "Hk_FImctS2I"
  ],
- "stand": "2026-10-06T19:04Z",
+ "stand": "2026-10-06T23:17Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
