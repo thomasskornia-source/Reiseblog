@@ -17,11 +17,7 @@
   "macd": 17.18,
   "macd_signal": 12.33,
   "macd_hist": 4.84,
-  "muster": {
-    "unterstuetzung": null,
-    "widerstand": null,
-    "boden": null
-  },
+  "muster": {"unterstuetzung": {"i1": 222, "p1": 7507.77, "i2": 238, "p2": 7507.77, "ende": 7507.77, "beruehrungen": 2, "status": "intakt", "waagerecht": true}, "widerstand": {"i1": 215, "p1": 7816.7, "i2": 215, "p2": 7816.7, "ende": 7816.7, "beruehrungen": 3, "status": "intakt", "waagerecht": true}, "boden": null},
   "kreuz": null,
   "kreuz_kurz": {
     "typ": "8 über 21",

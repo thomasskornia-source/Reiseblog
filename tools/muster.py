@@ -9,6 +9,8 @@ Die Regeln sind bewusst einfach und offen:
   Bodenbildung: Das Jahrestief liegt mindestens 15 Tage zurück, davor ein Rückgang von mindestens 15 %; danach ein zweites Tief
     (Doppelboden: höchstens 3 % über dem ersten, höheres Tief: bis 15 % darüber), dazwischen eine Erholung von mindestens 6 %
     (Nackenlinie). Status: in Bildung (Kurs über dem zweiten Tief), Ausbruch (Kurs über der Nackenlinie, höchstens 10 % darüber), sonst kein Muster.
+  Ohne solche Linie (Seitwärtsphase): waagerechte Marke durch das tiefste der letzten drei Tiefs bzw. höchste der letzten drei Hochs
+    (letzte 126 Tage), Feld „waagerecht“.
   Gebrochen heißt: der Schlusskurs liegt mehr als 1 % auf der falschen Seite der Linie.
 """
 K = 5
@@ -38,11 +40,24 @@ def _linie(pkte, steigend, abstand_min=10):
     a, b = pkte[-2], pkte[-1]
     return (a, b, 2) if ok(a, b) else None
 
+def _waagerecht(pkte, steigend, cl, n):
+    """Ersatz, wenn keine steigende/fallende Linie passt (Seitwärtsphase): waagerechte Marke durch das tiefste der letzten
+    drei Tiefs (Unterstützung) bzw. das höchste der letzten drei Hochs (Widerstand), nur aus den letzten 126 Tagen."""
+    pk = [p for p in pkte if p[0] >= n - 126][-3:]
+    if len(pk) < 2: return None
+    i0, niveau = min(pk, key=lambda p: p[1]) if steigend else max(pk, key=lambda p: p[1])
+    erste = min(p[0] for p in pk)
+    nb = sum(1 for p in pk if abs(p[1] / niveau - 1) <= 0.015)
+    falsch = (cl[-1] < niveau * 0.99) if steigend else (cl[-1] > niveau * 1.01)
+    return {'i1': erste, 'p1': round(niveau, 2), 'i2': i0, 'p2': round(niveau, 2), 'ende': round(niveau, 2), 'beruehrungen': nb,
+            'status': 'gebrochen' if falsch else 'intakt', 'waagerecht': True}
+
 def trendlinien(hi, lo, cl):
     n = len(cl); res = {}
     for name, w, art, steigend in (('unterstuetzung', lo, 'tief', True), ('widerstand', hi, 'hoch', False)):
-        l = _linie(wendepunkte(w, art), steigend)
-        if not l: res[name] = None; continue
+        pk = wendepunkte(w, art)
+        l = _linie(pk, steigend)
+        if not l: res[name] = _waagerecht(pk, steigend, cl, n); continue
         (i1, p1), (i2, p2), nb = l
         steigung = (p2 - p1) / (i2 - i1)
         ende = p1 + steigung * (n - 1 - i1)

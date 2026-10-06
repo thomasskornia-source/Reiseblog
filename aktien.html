@@ -338,6 +338,7 @@
     var a = ampelVon(j);
     return a ? { a: a, c: acls(a), text: j.lage || '' } : null;
   }
+  function muT(L, art) { var w = art === 'u'; return L.waagerecht ? (w ? 'Unterstützung' : 'Widerstand') + ' waagerecht bei ' + zahl(L.ende) + ' (' + L.beruehrungen + (L.beruehrungen === 1 ? ' Berührung' : ' Berührungen') + ', ' + esc(L.status) + ')' : null; }
   var LINIEN = [['m8', '#2f55c9', '8'], ['m21', '#19a2b3', '21'], ['m50', '#d99a1e', '50'], ['m200', '#3b3b3b', '200']];
   var CH = {}, CN = 0, GW = 360, GPL = 2, GPR = 36;
   function chartInner(V, id) {
@@ -397,8 +398,8 @@
     var mu = (j && j.muster) || {}, bo = mu.boden, un = mu.unterstuetzung, wi = mu.widerstand;
     var leg = LINIEN.map(function (L) { var w = j && j[L[0]] != null ? j[L[0]] : s[L[0]][n - 1]; return '<span><i style="background:' + L[1] + '"></i>' + L[2] + ' Tage <b>' + zahl(w) + '</b></span>'; }).join('');
     function lg(farbe, t) { return '<span><i style="background:none;border-top:2px dashed ' + farbe + ';height:0"></i>' + t + '</span>'; }
-    if (un) leg += lg('#2a8f4a', 'Unterstützung (' + un.beruehrungen + ' höhere Tiefs, ' + un.status + ')');
-    if (wi) leg += lg('#c0392b', 'Widerstand (' + wi.beruehrungen + ' tiefere Hochs, ' + wi.status + ')');
+    if (un) leg += lg('#2a8f4a', muT(un, 'u') || 'Unterstützung (' + un.beruehrungen + ' höhere Tiefs, ' + un.status + ')');
+    if (wi) leg += lg('#c0392b', muT(wi, 'w') || 'Widerstand (' + wi.beruehrungen + ' tiefere Hochs, ' + wi.status + ')');
     if (j && j.kreuz) leg += '<span style="color:' + (j.kreuz.richtung === 'hoch' ? '#2a8f4a' : '#c0392b') + '">' + (j.kreuz.richtung === 'hoch' ? '▲ ' : '▼ ') + esc(j.kreuz.typ) + ' vor ' + j.kreuz.tage + ' Handelstagen</span>';
     if (bo) leg += '<span><i style="background:none;border:2px solid #2a8f4a;border-radius:50%;width:8px;height:8px"></i>' + esc(bo.typ) + ', ' + esc(bo.status) + '</span>';
     var zoom = '<div class="zoom"><div class="rng" role="group" aria-label="Zeitraum"><button type="button" data-z="21" aria-pressed="false">1M</button><button type="button" data-z="63" aria-pressed="false">3M</button><button type="button" data-z="126" aria-pressed="false">6M</button><button type="button" data-z="ytd" aria-pressed="false">YTD</button><button type="button" data-z="0" aria-pressed="true">1J</button></div><em>Zwei Finger oder Strg + Mausrad, ziehen zum Verschieben</em></div>';
@@ -485,8 +486,8 @@
     if (j.kreuz) t += '<div><dt>' + esc(j.kreuz.typ) + '</dt><dd>vor ' + j.kreuz.tage + ' Handelstagen (50- gegen 200-Tage-Linie)</dd></div>';
     if (j.kreuz_kurz) t += '<div><dt>Kurzfristig</dt><dd>8-Tage-Linie ' + (j.kreuz_kurz.richtung === 'hoch' ? 'kreuzte vor ' + j.kreuz_kurz.tage + ' Tagen über' : 'kreuzte vor ' + j.kreuz_kurz.tage + ' Tagen unter') + ' die 21er</dd></div>';
     if (mu.boden) t += '<div><dt>Bodenbildung</dt><dd>' + esc(mu.boden.typ) + ' · ' + esc(mu.boden.status) + '</dd></div>';
-    if (mu.unterstuetzung) t += '<div><dt>Unterstützungslinie</dt><dd>' + mu.unterstuetzung.beruehrungen + ' höhere Tiefs · ' + esc(mu.unterstuetzung.status) + ' (heute bei ' + zahl(mu.unterstuetzung.ende) + ')</dd></div>';
-    if (mu.widerstand) t += '<div><dt>Widerstandslinie</dt><dd>' + mu.widerstand.beruehrungen + ' tiefere Hochs · ' + esc(mu.widerstand.status) + ' (heute bei ' + zahl(mu.widerstand.ende) + ')</dd></div>';
+    if (mu.unterstuetzung) t += '<div><dt>Unterstützungslinie</dt><dd>' + (muT(mu.unterstuetzung, 'u') || mu.unterstuetzung.beruehrungen + ' höhere Tiefs · ' + esc(mu.unterstuetzung.status) + ' (heute bei ' + zahl(mu.unterstuetzung.ende) + ')') + '</dd></div>';
+    if (mu.widerstand) t += '<div><dt>Widerstandslinie</dt><dd>' + (muT(mu.widerstand, 'w') || mu.widerstand.beruehrungen + ' tiefere Hochs · ' + esc(mu.widerstand.status) + ' (heute bei ' + zahl(mu.widerstand.ende) + ')') + '</dd></div>';
     return '<div class="sec who">' + FACE.j + '<h4>James</h4><dl class="rows">' + r + '</dl><p>' + esc(j.text) + (f.text ? ' <i>Option Flows: ' + esc(f.text) + '</i>' : '') + '</p>' +
       chart(j.serie, j) + (t ? '<details class="more tech"><summary>Zahlen und Technik</summary><dl class="rows">' + t + '</dl></details>' : '') + '</div>';
   }
@@ -662,8 +663,8 @@
     var zh = voll && voll.zahlen || x.zahlen;
     if (zh) pk.push('Zahlen zuletzt vor ' + zh.tage + ' Tagen eingereicht (' + esc(zh.form) + ')' + (zh.tage <= 60 ? ', der Markt hat sie noch frisch im Blick' : ''));
     var mu = (d && d.muster) || {};
-    if (mu.unterstuetzung) pk.push('Unterstützungslinie aus ' + mu.unterstuetzung.beruehrungen + ' höheren Tiefs (' + esc(mu.unterstuetzung.status) + ')');
-    if (mu.widerstand) pk.push('Widerstandslinie aus ' + mu.widerstand.beruehrungen + ' tieferen Hochs (' + esc(mu.widerstand.status) + ')');
+    if (mu.unterstuetzung) pk.push(muT(mu.unterstuetzung, 'u') || 'Unterstützungslinie aus ' + mu.unterstuetzung.beruehrungen + ' höheren Tiefs (' + esc(mu.unterstuetzung.status) + ')');
+    if (mu.widerstand) pk.push(muT(mu.widerstand, 'w') || 'Widerstandslinie aus ' + mu.widerstand.beruehrungen + ' tieferen Hochs (' + esc(mu.widerstand.status) + ')');
     if (mu.boden) pk.push(esc(mu.boden.typ) + ' (' + esc(mu.boden.status) + ')');
     h += '<ul class="pk">' + pk.map(function (q) { return '<li>' + q + '</li>'; }).join('') + '</ul>';
     if (d && d.score && d.score.kriterien) h += '<details class="more"><summary>Setup-Score · Regeln</summary><dl>' + d.score.kriterien.map(function (k) { return '<div><dt>' + esc(k.gruppe) + '</dt><dd>' + (k.ok ? '✓ ' : '– ') + esc(k.name) + '</dd></div>'; }).join('') + '</dl></details>';
