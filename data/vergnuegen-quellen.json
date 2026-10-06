@@ -223,7 +223,8 @@
     "url": "https://www.in-muenchen.de/kino/theater/lichtspielhaus.html",
     "info": "Wochenprogramm Lichtspielhaus FFB, Maisacher Str. 7 (Übersicht auf in-muenchen.de; offizielle Seite: neokinos.de/ffb)",
     "abruf": true,
-    "status": "behalten"
+    "status": "behalten",
+    "kinoseite": "https://neokinos.de/ffb"
   },
   {
     "id": "kino-astor-arri",
