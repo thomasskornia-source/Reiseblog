@@ -1,0 +1,38 @@
+name: Welterbe der Woche – Audio
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/welterbe.json'
+      - 'tools/welterbe-audio.py'
+  schedule:
+    - cron: '25 0 * * 3,4'   # Nachholversuch nach dem Zurücksetzen des Tageslimits (Mi/Do)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: ffmpeg installieren
+        run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Audiodatei erzeugen (Gemini-Sprachausgabe)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          set -o pipefail
+          python3 tools/welterbe-audio.py 2>&1 | tee audio/last-welterbe.log
+      - name: Audiodatei hochladen
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audio
+          if git diff --cached --quiet; then echo "Keine Änderungen"; exit 0; fi
+          git commit -m "Welterbe der Woche: Audio ergänzt"
+          git pull --rebase origin main
+          git push origin HEAD:main
