@@ -339,6 +339,48 @@
     return a ? { a: a, c: acls(a), text: j.lage || '' } : null;
   }
   function muT(L, art) { var w = art === 'u'; return L.waagerecht ? (w ? 'Unterstützung' : 'Widerstand') + ' waagerecht bei ' + zahl(L.ende) + ' (' + L.beruehrungen + (L.beruehrungen === 1 ? ' Berührung' : ' Berührungen') + ', ' + esc(L.status) + ')' : null; }
+  // Trendlinien je Ausschnitt: im Jahresbild die fertigen Linien aus den Daten, in kürzeren Ansichten (1M, 3M, 6M, YTD, Verschieben)
+  // aus den Wendepunkten genau dieses Ausschnitts neu gerechnet (kurzfristiger und langfristiger Trend), gleiche Regeln wie tools/muster.py
+  function pivJ(w, art, K, a, b) {
+    var out = [];
+    for (var i = a + K; i < b - K; i++) {
+      var v = w[i], ok = true;
+      for (var k = i - K; k <= i + K; k++) { if (art === 'tief' ? w[k] < v : w[k] > v) { ok = false; break; } }
+      if (ok) { if (out.length && i - out[out.length - 1][0] <= K) continue; out.push([i, v]); }
+    }
+    return out;
+  }
+  function linieJ(p, steigend, dmin, thr) {
+    if (p.length < 2) return null;
+    var vz = steigend ? 1 : -1;
+    function ok(x, y) { return (y[0] - x[0]) >= dmin && vz * (y[1] / x[1] - 1) >= thr; }
+    if (p.length >= 3) {
+      var x = p[p.length - 3], m = p[p.length - 2], y = p[p.length - 1];
+      if (ok(x, m) && ok(m, y) && ok(x, y)) {
+        var soll = x[1] + (y[1] - x[1]) * (m[0] - x[0]) / (y[0] - x[0]);
+        if (Math.abs(m[1] / soll - 1) <= 0.02) return [x, y, 3];
+      }
+    }
+    var x2 = p[p.length - 2], y2 = p[p.length - 1];
+    return ok(x2, y2) ? [x2, y2, 2] : null;
+  }
+  function musterJS(s, a, b) {
+    var len = b - a, K = len <= 25 ? 2 : len <= 70 ? 3 : len <= 140 ? 4 : 5, dmin = Math.max(3, Math.min(10, Math.round(len / 10))), thr = len >= 100 ? 0.01 : 0.005, res = {}, e = b - 1;
+    [['unterstuetzung', s.l, 'tief', true], ['widerstand', s.h, 'hoch', false]].forEach(function (d) {
+      var pk = pivJ(d[1], d[2], K, a, b), l = linieJ(pk, d[3], dmin, thr), stg = d[3], cl = s.c[e];
+      if (l) {
+        var sl = (l[1][1] - l[0][1]) / (l[1][0] - l[0][0]), end = l[0][1] + sl * (e - l[0][0]);
+        res[d[0]] = { i1: l[0][0], p1: l[0][1], i2: l[1][0], p2: l[1][1], ende: end, ie: e, beruehrungen: l[2], status: (stg ? cl < end * 0.99 : cl > end * 1.01) ? 'gebrochen' : 'intakt' };
+        return;
+      }
+      var p3 = pk.slice(-3); if (p3.length < 2) { res[d[0]] = null; return; }
+      var best = p3.reduce(function (q, r) { return (stg ? r[1] < q[1] : r[1] > q[1]) ? r : q; }), nb = p3.filter(function (r) { return Math.abs(r[1] / best[1] - 1) <= 0.015; }).length;
+      res[d[0]] = { i1: p3[0][0], p1: best[1], i2: best[0], p2: best[1], ende: best[1], ie: e, beruehrungen: nb, waagerecht: true, status: (stg ? cl < best[1] * 0.99 : cl > best[1] * 1.01) ? 'gebrochen' : 'intakt' };
+    });
+    res.boden = null;
+    return res;
+  }
+  function muView(V) { var n = V.s.c.length; return (V.a === 0 && V.b === n) ? ((V.j && V.j.muster) || {}) : musterJS(V.s, V.a, V.b); }
   var LINIEN = [['m8', '#2f55c9', '8'], ['m21', '#19a2b3', '21'], ['m50', '#d99a1e', '50'], ['m200', '#3b3b3b', '200']];
   var CH = {}, CN = 0, GW = 360, GPL = 2, GPR = 36;
   function chartInner(V, id) {
@@ -348,7 +390,8 @@
     for (i = a; i < b; i++) { lo = Math.min(lo, s.l[i], s.m8[i], s.m21[i], s.m50[i]); hi = Math.max(hi, s.h[i], s.m8[i], s.m21[i], s.m50[i]); vmax = Math.max(vmax, s.v[i]); }
     var l2 = Math.min.apply(null, s.m200.slice(a, b)), h2 = Math.max.apply(null, s.m200.slice(a, b)), sp = hi - lo;   // 200er nur mitskalieren, wenn sie nah genug liegt
     if (l2 >= lo - 0.25 * sp && h2 <= hi + 0.25 * sp) { lo = Math.min(lo, l2); hi = Math.max(hi, h2); }
-    var mu = (j && j.muster) || {}, bo = mu.boden, un = mu.unterstuetzung, wi = mu.widerstand;
+    var mu = muView(V), bo = mu.boden, un = mu.unterstuetzung, wi = mu.widerstand;
+    V.mu = mu;
     [un, wi].forEach(function (L) { if (L && L.i1 >= a) { lo = Math.min(lo, L.p1, L.ende); hi = Math.max(hi, L.p1, L.ende); } });
     if (bo && bo.i1 >= a) { lo = Math.min(lo, bo.p1); hi = Math.max(hi, bo.nacken); }
     var pad = (hi - lo) * 0.04; lo -= pad; hi += pad;
@@ -371,7 +414,7 @@
     });
     g += '</g>';
     function gerade(L, farbe) {
-      return '<line x1="' + X(L.i1).toFixed(1) + '" y1="' + Y(L.p1).toFixed(1) + '" x2="' + X(n - 1).toFixed(1) + '" y2="' + Y(L.ende).toFixed(1) + '" stroke="' + farbe + '" stroke-width="1.3" stroke-dasharray="5 3"' + (L.status === 'gebrochen' ? ' opacity=".55"' : '') + '/>';
+      return '<line x1="' + X(L.i1).toFixed(1) + '" y1="' + Y(L.p1).toFixed(1) + '" x2="' + X(L.ie != null ? L.ie : n - 1).toFixed(1) + '" y2="' + Y(L.ende).toFixed(1) + '" stroke="' + farbe + '" stroke-width="1.3" stroke-dasharray="5 3"' + (L.status === 'gebrochen' ? ' opacity=".55"' : '') + '/>';
     }
     var m = '';
     if (un) m += gerade(un, '#2a8f4a');
@@ -390,18 +433,22 @@
     [a, Math.round((a + b - 1) / 2), b - 1].forEach(function (k, q) { g += '<text x="' + X(k).toFixed(1) + '" y="' + (H - 2) + '" font-size="9" fill="#5A6A5E" text-anchor="' + (q === 0 ? 'start' : q === 2 ? 'end' : 'middle') + '">' + esc(s.d[k]) + '</text>'; });
     return g;
   }
+  function legM(mu) {
+    function lg(farbe, t) { return '<span><i style="background:none;border-top:2px dashed ' + farbe + ';height:0"></i>' + t + '</span>'; }
+    var un = mu.unterstuetzung, wi = mu.widerstand, bo = mu.boden, h = '';
+    if (un) h += lg('#2a8f4a', muT(un, 'u') || 'Unterstützung (' + un.beruehrungen + ' höhere Tiefs, ' + un.status + ')');
+    if (wi) h += lg('#c0392b', muT(wi, 'w') || 'Widerstand (' + wi.beruehrungen + ' tiefere Hochs, ' + wi.status + ')');
+    if (bo) h += '<span><i style="background:none;border:2px solid #2a8f4a;border-radius:50%;width:8px;height:8px"></i>' + esc(bo.typ) + ', ' + esc(bo.status) + '</span>';
+    return h;
+  }
   function chart(s, j, id) {
     if (!s || !s.c || s.c.length < 20) return '';
     id = id || 'c' + (++CN);
     var V = CH[id] = { s: s, j: j, a: 0, b: s.c.length }, n = s.c.length;
     var H = 6 + 130 + 6 + 30 + 14;
-    var mu = (j && j.muster) || {}, bo = mu.boden, un = mu.unterstuetzung, wi = mu.widerstand;
     var leg = LINIEN.map(function (L) { var w = j && j[L[0]] != null ? j[L[0]] : s[L[0]][n - 1]; return '<span><i style="background:' + L[1] + '"></i>' + L[2] + ' Tage <b>' + zahl(w) + '</b></span>'; }).join('');
-    function lg(farbe, t) { return '<span><i style="background:none;border-top:2px dashed ' + farbe + ';height:0"></i>' + t + '</span>'; }
-    if (un) leg += lg('#2a8f4a', muT(un, 'u') || 'Unterstützung (' + un.beruehrungen + ' höhere Tiefs, ' + un.status + ')');
-    if (wi) leg += lg('#c0392b', muT(wi, 'w') || 'Widerstand (' + wi.beruehrungen + ' tiefere Hochs, ' + wi.status + ')');
+    leg += '<span class="legm" style="display:contents">' + legM(V.mu || muView(V)) + '</span>';
     if (j && j.kreuz) leg += '<span style="color:' + (j.kreuz.richtung === 'hoch' ? '#2a8f4a' : '#c0392b') + '">' + (j.kreuz.richtung === 'hoch' ? '▲ ' : '▼ ') + esc(j.kreuz.typ) + ' vor ' + j.kreuz.tage + ' Handelstagen</span>';
-    if (bo) leg += '<span><i style="background:none;border:2px solid #2a8f4a;border-radius:50%;width:8px;height:8px"></i>' + esc(bo.typ) + ', ' + esc(bo.status) + '</span>';
     var zoom = '<div class="zoom"><div class="rng" role="group" aria-label="Zeitraum"><button type="button" data-z="21" aria-pressed="false">1M</button><button type="button" data-z="63" aria-pressed="false">3M</button><button type="button" data-z="126" aria-pressed="false">6M</button><button type="button" data-z="ytd" aria-pressed="false">YTD</button><button type="button" data-z="0" aria-pressed="true">1J</button></div><em>Zwei Finger oder Strg + Mausrad, ziehen zum Verschieben</em></div>';
     return '<div class="chartbox" data-cid="' + id + '"><svg viewBox="0 0 ' + GW + ' ' + H + '" role="img" aria-label="Kurschart mit gleitenden Durchschnitten und Volumen, zoombar">' + chartInner(V, id) + '</svg><div class="leg">' + leg + '</div>' + zoom + '</div>';
   }
@@ -413,6 +460,7 @@
   function redraw(id) {
     var box = document.querySelector('[data-cid="' + id + '"]'), V = CH[id]; if (!box || !V) return;
     box.querySelector('svg').innerHTML = chartInner(V, id);
+    var lm = box.querySelector('.legm'); if (lm) lm.innerHTML = legM(V.mu);
     var n = V.s.c.length, len = V.b - V.a;
     Array.prototype.forEach.call(box.querySelectorAll('[data-z]'), function (z) { z.setAttribute('aria-pressed', V.b === n && len === zeitLen(z, V) ? 'true' : 'false'); });
   }
