@@ -64,8 +64,12 @@
     .qsq .em { font-size: 38px; }
     .qsq b { font-size: 13px; }
     .qsq small { display: none; }
-    .qz .bento { margin: 0 -18px 14px; }
+    .qz .bento { margin: 0 -18px; }
     .qz .tile.rkfull { height: 190px; }
+    .wrap.qz { display: flex; flex-direction: column; min-height: calc(100vh - 54px); min-height: calc(100dvh - 54px); padding-bottom: 0; }
+    .qz .bento.qzfill { flex: 1; margin: 0 -18px; display: flex; flex-direction: column; }
+    .qz .qzfill .tile { flex: 1; height: auto; min-height: 170px; }
+    .qz .site-footer { display: none; }
   }
 </style>
 </head>
@@ -103,11 +107,18 @@
     <div class="tile wide rkfull" id="rk" style="background:linear-gradient(170deg,#2E6FA3,#1B3F66)">
       <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="330" cy="58" r="30" fill="#F6C253" opacity=".9"/><path d="M180 232 L262 110 L296 160 L326 122 L400 232z" fill="#FBF3E4" opacity=".35"/><path d="M262 110 L276 132 L262 128 L248 132z" fill="#fff" opacity=".85"/><path d="M0 214 Q50 196 100 214 T200 214 T300 214 T400 214V232H0z" fill="#16406B" opacity=".7"/></svg>
       <a class="cover" id="rk-link" href="raetsel.html" aria-label="Bayern-Rätsel öffnen"></a>
-      <div class="in"><span class="neu" id="rk-neu" hidden>Neu diese Woche</span><div class="q">Was weißt du über <i>Bayern</i>?</div><span class="go">Bayern-Rätsel · anhören</span><a class="go qz-quiz" href="muenchen-quiz.html">Quiz</a></div>
+      <div class="in"><span class="neu" id="rk-neu" hidden>Neu diese Woche</span><div class="q">Was weißt du über <i>Bayern</i>?</div><span class="go">Bayern-Rätsel · anhören</span></div>
       <button type="button" class="play" id="rk-play" aria-label="Bayern-Rätsel anhören" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></button>
     </div>
   </section>
   <p id="rk-note" class="sub" style="color:var(--ink-soft);font-size:14px" hidden></p>
+
+  <section class="bento pcgrid qzfill">
+    <a class="tile wide" href="muenchen-quiz.html" style="background:linear-gradient(170deg,#6F7D2E,#4A5620)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M310 40l9 20 22 3-16 15 4 22-19-11-19 11 4-22-16-15 22-3z" fill="#F6C253"/><circle cx="360" cy="150" r="16" fill="#E2683C"/><rect x="262" y="140" width="30" height="30" rx="6" fill="#FBF3E4" transform="rotate(16 277 155)"/></svg>
+      <div class="in"><div class="q">Wie gut kennst du <i>deine Stadt</i>?</div><span class="go">München-Quiz</span></div>
+    </a>
+  </section>
 
   <footer class="site-footer"><p>Das Bayern-Rätsel kommt jede Woche neu.</p></footer>
 </div>
