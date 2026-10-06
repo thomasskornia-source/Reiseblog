@@ -140,6 +140,8 @@
   .top10 .dsec h5 { margin: 0 0 4px; font-family: 'Fraunces', serif; font-weight: 500; font-size: 15px; }
   .top10 .dsec p { margin: 0 0 6px; font-size: 14px; }
   .top10 .klein { font-size: 12.5px; color: var(--ink-soft); }
+  .pf { display: inline-block; width: 1.3em; text-align: center; font-weight: 700; margin-right: 4px; }
+  .pf.up { color: #3f8a4a; } .pf.dn { color: #c0392b; } .pf.ne { color: #9a9486; }
   .top10 ul.pk { list-style: none; margin: 4px 0; padding: 0; display: grid; gap: 3px; font-size: 13.5px; color: var(--ink-soft); }
   .top10 ul.pk li { display: block; padding: 0; background: none; border: 0; cursor: default; }
   .top10 .more { margin-top: 6px; }
@@ -527,8 +529,8 @@
     if (j.pos_52w_pct != null) t += '<div><dt>52-Wochen-Spanne</dt><dd>' + (j.pos_52w_pct < 33 ? 'unteres' : j.pos_52w_pct < 67 ? 'mittleres' : 'oberes') + ' Drittel · ' + j.pos_52w_pct + ' %</dd></div>';
     var sc = j.score;
     if (sc) t += '<div><dt>Setup-Score</dt><dd>' + dot(sc.punkte >= 6 ? 'g' : sc.punkte >= 4 ? 'a' : 'r') + pz(sc.punkte) + '/' + sc.von + ' · ' + esc(sc.stufe) + '</dd></div>';
-    if (j.rsi != null) t += '<div><dt>RSI (14)</dt><dd>' + zahl(j.rsi, 0) + ' · ' + (j.rsi >= 70 ? 'überkauft' : j.rsi >= 50 ? 'über 50, positiv' : j.rsi > 30 ? 'unter 50, schwach' : 'überverkauft') + '</dd></div>';
-    if (j.macd != null) t += '<div><dt>MACD</dt><dd>' + (j.macd > j.macd_signal ? 'über' : 'unter') + ' der Signallinie · ' + (j.macd > 0 ? 'über' : 'unter') + ' Null</dd></div>';
+    if (j.rsi != null) t += '<div><dt>RSI (14)</dt><dd>' + pf(rsiR(j.rsi)) + zahl(j.rsi, 0) + ' · ' + (j.rsi >= 70 ? 'überkauft' : j.rsi >= 50 ? 'über 50, positiv' : j.rsi > 30 ? 'unter 50, schwach' : 'überverkauft') + '</dd></div>';
+    if (j.macd != null) t += '<div><dt>MACD</dt><dd>' + pf(j.macd > j.macd_signal ? 1 : -1) + (j.macd > j.macd_signal ? 'über' : 'unter') + ' der Signallinie · ' + (j.macd > 0 ? 'über' : 'unter') + ' Null</dd></div>';
     var mu = j.muster || {};
     if (j.woche) t += '<div><dt>Wochenchart</dt><dd>Kurs ' + (j.woche.ueber_ema8 ? 'über' : 'unter') + ' dem 8-Wochen-EMA · Wochen-MACD ' + (j.woche.macd_ueber_signal ? 'über' : 'unter') + ' der Signallinie seit ' + j.woche.macd_wochen + ' Wo.</dd></div>';
     if (j.kreuz) t += '<div><dt>' + esc(j.kreuz.typ) + '</dt><dd>vor ' + j.kreuz.tage + ' Handelstagen (50- gegen 200-Tage-Linie)</dd></div>';
@@ -692,6 +694,8 @@
     $('inp').value = tk; $('form').onsubmit({ preventDefault: function () {} });
     $('status').scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
+  function pf(r) { return '<b class="pf ' + (r > 0 ? 'up' : r < 0 ? 'dn' : 'ne') + '" aria-hidden="true">' + (r > 0 ? '▲' : r < 0 ? '▼' : '–') + '</b>'; }
+  function rsiR(v) { return v > 70 ? -1 : v < 30 ? 1 : 0; }
   function detail(x, voll) {
     var d = x.detail || (voll && voll.detail), h = '';
     var e = data.filter(function (z) { return sym(z).toUpperCase().replace('.', '-') === x.ticker.toUpperCase().replace('.', '-'); })[0];
@@ -699,8 +703,8 @@
     if (d && d.serie) h += chart(d.serie, d);
     var pk = ['Setup-Score ' + pz(x.punkte) + ' von ' + SK.t10];
     if (x.abstand_pct != null) pk.push((x.abstand_pct >= 0 ? 'Kurs ' + zahl(x.abstand_pct, 1) + ' % über' : 'Kurs ' + zahl(-x.abstand_pct, 1) + ' % unter') + ' der 200-Tage-Linie' + (d && d.ma200_steigt != null ? (d.ma200_steigt ? ', die Linie steigt' : ', die Linie fällt') : ''));
-    if (x.rsi != null) pk.push('RSI ' + zahl(x.rsi, 0) + (x.rsi > 70 ? ' (heiß gelaufen)' : x.rsi < 30 ? ' (überverkauft)' : ''));
-    if (d && d.macd != null) pk.push('MACD ' + (d.macd > d.macd_signal ? 'über' : 'unter') + ' der Signallinie');
+    if (x.rsi != null) pk.push(pf(rsiR(x.rsi)) + 'RSI ' + zahl(x.rsi, 0) + (x.rsi > 70 ? ' (heiß gelaufen, Rücksetzer möglich)' : x.rsi < 30 ? ' (überverkauft, Erholung möglich)' : ' (neutral)'));
+    if (d && d.macd != null) pk.push(pf(d.macd > d.macd_signal ? 1 : -1) + 'MACD ' + (d.macd > d.macd_signal ? 'über' : 'unter') + ' der Signallinie (Schwung ' + (d.macd > d.macd_signal ? 'nimmt zu' : 'lässt nach') + ')');
     if (x.pos_52w_pct != null) pk.push(x.pos_52w_pct + ' % der Spanne des Jahres (0 = Tief, 100 = Hoch)');
     if (d && d.woche) { var wk = d.woche; pk.push('Wochenchart: Kurs ' + (wk.ueber_ema8 ? 'über' : 'unter') + ' dem 8-Wochen-EMA (' + zahl(Math.abs(wk.abstand_pct), 1) + ' % ' + (wk.ueber_ema8 ? 'darüber' : 'darunter') + '), Wochen-MACD ' + (wk.macd_ueber_signal ? 'über' : 'unter') + ' der Signallinie seit ' + wk.macd_wochen + (wk.macd_wochen === 1 ? ' Woche' : ' Wochen') + (wk.macd_unter_null ? ', unter Null' : ', über Null')); }
     if (d && d.kreuz) pk.push(esc(d.kreuz.typ) + ' vor ' + d.kreuz.tage + ' Handelstagen (50- gegen 200-Tage-Linie)' + (d.kreuz.tage <= 30 ? ', frisch' : ''));
