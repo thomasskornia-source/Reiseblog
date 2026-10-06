@@ -499,5 +499,41 @@
     "info": "Neu bei den Streaming-Diensten (Hilfsquelle für die Auswahl)",
     "abruf": false,
     "status": "behalten"
+  },
+  {
+    "id": "stream-jw-ard",
+    "rubrik": "stream",
+    "name": "JustWatch: Neu in der ARD Mediathek",
+    "url": "https://www.justwatch.com/de/Anbieter/ard-mediathek/Neu",
+    "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "stream-fs-ard",
+    "rubrik": "stream",
+    "name": "fernsehserien.de: Neu in der ARD Mediathek",
+    "url": "https://www.fernsehserien.de/streaming/ard-mediathek/neu-in-der-ard-mediathek",
+    "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "stream-jw-arte",
+    "rubrik": "stream",
+    "name": "JustWatch: Neu bei ARTE",
+    "url": "https://www.justwatch.com/de/Anbieter/arte/Neu",
+    "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "stream-jw-netflix",
+    "rubrik": "stream",
+    "name": "JustWatch: Neu bei Netflix",
+    "url": "https://www.justwatch.com/de/Anbieter/netflix/Neu",
+    "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
+    "abruf": false,
+    "status": "behalten"
   }
 ]
