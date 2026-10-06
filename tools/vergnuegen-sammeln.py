@@ -50,7 +50,7 @@ def text_von(h):
 def prompt(q):
     return f"""Heute ist der {HEUTE.isoformat()}. Unten steht der Text einer Webseite ({q['name']}, Rubrik "{q['rubrik']}") für Münchner Freizeittipps.
 Entnimm bis zu {MAX_PRO_QUELLE} konkrete, besuchbare Tipps (Veranstaltung, Lokal, Ort, Ausflugsziel, Film/Kinotermin) in München oder im Umland.
-Bei Kino-Seiten eines einzelnen Kinos ist ort der Kinoname (z.B. "Kino Breitwand Gauting"), titel der Film, datum der nächste Vorstellungstag, zeit die erste Uhrzeit; höchstens 10 verschiedene Filme. Nur Fakten aus dem Text, nichts erfinden. Schreibe NICHT ab: "kurz" ist eine eigene Kurzfassung in höchstens 25 Wörtern.
+Bei Kino-Seiten eines einzelnen Kinos ist ort der Kinoname (z.B. "Kino Breitwand Gauting"), titel der Film, datum der nächste Vorstellungstag, zeit die erste Uhrzeit; höchstens 10 verschiedene Filme; nur Vorstellungen ab 19:30 Uhr (Abendvorstellungen), frühere ignorieren, zeit ist die erste Abendzeit. Nur Fakten aus dem Text, nichts erfinden. Schreibe NICHT ab: "kurz" ist eine eigene Kurzfassung in höchstens 25 Wörtern.
 Veranstaltungen, die vor heute zu Ende sind, lässt du weg. Antworte ausschließlich als JSON-Liste von Objekten mit den Feldern:
 titel (kurz), ort (Name des Orts/Lokals), adresse (Straße Nr, PLZ München, wenn genannt, sonst ""), datum (JJJJ-MM-TT oder ""), datum_bis (JJJJ-MM-TT oder ""),
 zeit ("19:30" oder ""), preis (z.B. "frei", "ab 12 €", sonst ""), dauer (sonst ""), kurz, tags (Liste, NUR aus: {", ".join(TAGS[q['rubrik']])}), thema (genau EINES aus: {", ".join(THEMEN[q['rubrik']])}).
