@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <title>Vergnügen – Unterwegs und zuhause</title>
 <link rel="stylesheet" href="styles.css?v=13">
-<link rel="stylesheet" href="site.css?v=26">
+<link rel="stylesheet" href="site.css?v=27">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
@@ -20,28 +20,36 @@
   .vg-hint { font-size: 13px; color: var(--ink-soft); margin: 4px 0 0; }
   #vg-map { height: 320px; border-radius: 22px; margin: 18px 0 8px; box-shadow: 0 10px 26px rgba(46,58,50,.10); z-index: 0; }
   .vg-h { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin: 28px 0 0; }
-  .vg-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 14px 0 8px; }
-  @media (min-width: 700px) { .vg-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; } }
-  @media (min-width: 1060px) { .vg-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  @media (min-width: 1500px) { .vg-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-  .vg-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; box-shadow: 0 10px 26px rgba(46,58,50,.10); min-width: 0; }
-  .vg-top { height: 80px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: flex-end; background: linear-gradient(135deg, var(--c1), var(--c2)); }
-  .vg-ic { font-size: 40px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,.22)); }
-  .vg-when { font-size: 12.5px; font-weight: 600; color: #fff; background: rgba(0,0,0,.22); padding: 4px 11px; border-radius: 99px; }
-  .vg-body { padding: 14px 18px 8px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
-  .vg-body h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; line-height: 1.25; margin: 0; overflow-wrap: anywhere; }
-  .vg-ort { margin: 0; font-size: 13.5px; font-weight: 500; color: var(--c1); }
-  .vg-body p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
+  /* Tipps: Themen mit schmalen, aufklappbaren Zeilen */
+  .vg-grp { margin: 22px 0 0; }
+  .vg-grp > h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0 0 8px; display: flex; align-items: baseline; gap: 8px; }
+  .vg-grp > h3 small { font-family: inherit; font-size: 12.5px; color: var(--ink-soft); font-weight: 600; }
+  .vg-list { background: #fff; border-radius: 16px; box-shadow: 0 4px 14px rgba(46,58,50,.08); overflow: hidden; }
+  .vg-row { border-top: 1px solid #efe8da; }
+  .vg-row:first-child { border-top: 0; }
+  .vg-row > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 70px minmax(0, 1fr) 16px; gap: 10px; align-items: center; padding: 10px 14px; min-height: 44px; }
+  .vg-row > summary::-webkit-details-marker { display: none; }
+  .vg-row .rw { font-size: 12.5px; font-weight: 600; color: var(--c1); line-height: 1.25; }
+  .vg-row .rt { font-size: 15px; font-weight: 600; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vg-row .rt small { font-weight: 500; color: var(--ink-soft); font-size: 13px; margin-left: 6px; }
+  .vg-row .rs { font-size: 12px; text-align: right; color: #2a8f6a; }
+  .vg-row .rs.neu { color: var(--c1); }
+  .vg-row[open] > summary .rt { white-space: normal; }
+  .vg-row .rd { padding: 2px 14px 14px 94px; display: flex; flex-direction: column; gap: 8px; }
+  .vg-row .rd p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
+  .vg-row .rd .vg-ort { margin: 0; }
   .vg-facts { display: flex; flex-wrap: wrap; gap: 6px; }
   .vg-facts span { font-size: 12.5px; font-weight: 600; background: #f1ece2; border-radius: 99px; padding: 3px 10px; }
   .vg-src { font-size: 12px; color: var(--ink-soft); opacity: .85; }
   .vg-src a { color: inherit; }
-  .vg-act { display: flex; gap: 8px; padding: 10px 18px 16px; }
-  .vg-act button { all: unset; cursor: pointer; flex: 1; text-align: center; padding: 9px 8px; border-radius: 12px; font-size: 14px; font-weight: 600; border: 1.5px solid #d9d2c2; }
+  .vg-ort { font-size: 13.5px; font-weight: 500; color: var(--c1); }
+  .vg-act { display: flex; gap: 8px; margin-top: 2px; }
+  .vg-act button { all: unset; cursor: pointer; text-align: center; padding: 8px 16px; border-radius: 12px; font-size: 14px; font-weight: 600; border: 1.5px solid #d9d2c2; }
   .vg-act .ja { background: #2a8f6a; color: #fff; border-color: #2a8f6a; }
   .vg-act .nein { color: #c0392b; border-color: #e3b5ae; }
-  .vg-act button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-  .vg-ok { font-size: 13px; font-weight: 600; color: #2a8f6a; padding: 0 18px 14px; }
+  .vg-act button:focus-visible, .vg-row > summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  @media (max-width: 520px) { .vg-row > summary { grid-template-columns: 56px minmax(0, 1fr) 14px; } .vg-row .rd { padding-left: 14px; } }
+  @media (min-width: 1100px) { .vg-wrap { columns: 2; column-gap: 28px; } .vg-grp { break-inside: avoid; } }
   .vg-leer { color: var(--ink-soft); margin: 18px 0; }
   .vg-q { margin: 8px 0 0; padding: 0; list-style: none; background: #fff; border-radius: 18px; box-shadow: 0 4px 14px rgba(46,58,50,.08); overflow: hidden; }
   .vg-q li { border-top: 1px solid #efe8da; }
@@ -88,10 +96,7 @@
     <div class="vg-int" id="int" role="group" aria-label="Meine Interessen"></div>
     <p class="vg-hint" id="int-hint"></p>
     <div id="vg-map" hidden></div>
-    <h2 class="vg-h" id="h-neu" hidden>Neu zum Prüfen</h2>
-    <div class="vg-grid" id="neu"></div>
-    <h2 class="vg-h" id="h-ja" hidden>Bestätigt</h2>
-    <div class="vg-grid" id="ja"></div>
+    <div class="vg-wrap" id="tipps"></div>
     <p class="vg-leer" id="leer" hidden></p>
     <p class="vg-hint" id="nein-box" hidden><button type="button" class="vg-reset" id="nein-reset"></button></p>
   </div>
@@ -114,6 +119,13 @@
     unterwegs: { name: 'In München', emoji: '🚲', c: ['#2F7E86', '#8FC5B8'], int: ['Sehenswert', 'Viertel', 'Grün', 'Museen', 'Shopping', 'Mode', 'Mit Hund'] },
     ausflug: { name: 'Ausflug', emoji: '⛰️', c: ['#4A6B2E', '#A9C46A'], int: ['Berge', 'See', 'Wandern', 'Bahn', 'Mit Hund', 'Pferde', 'Schlösser'] },
     kino: { name: 'Kino / Stream', emoji: '🎬', c: ['#2E3A6B', '#7C8AD1'], int: ['Kino', 'Open Air', 'Komödie', 'Krimi', 'Doku', 'Mediathek', 'Stream'] }
+  };
+  var THEMEN = {
+    events: ['Konzert & Musik', 'Kabarett & Theater', 'Ausstellung & Museum', 'Führung & Vortrag', 'Feste & Märkte', 'Familie & Kinder', 'Draußen & Sport', 'Sonstiges'],
+    food: ['Restaurant', 'Biergarten', 'Café & Brunch', 'Street Food & Märkte', 'Neueröffnung', 'Sonstiges'],
+    unterwegs: ['Sehenswürdigkeit', 'Viertel & Spaziergang', 'Park & Natur', 'Museum', 'Shopping & Mode', 'Sonstiges'],
+    ausflug: ['Berge & Wandern', 'Seen & Baden', 'Schlösser & Kultur', 'Mit Bahn & Bus', 'Pferde & Tiere', 'Sonstiges'],
+    kino: ['Kino', 'Open Air', 'Mediathek & Stream', 'Sonstiges']
   };
   var ORDER = ['events', 'food', 'unterwegs', 'ausflug', 'kino'];
   var $ = function (id) { return document.getElementById(id); };
@@ -149,27 +161,30 @@
   function passt(x) { return !mine.length || (x.tags || []).some(function (t) { return mine.indexOf(t) >= 0; }); }
   function heute() { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
 
-  function karteEl(x, neu) {
-    var c = el('article', 'vg-card'), R = RUBRIKEN[x.rubrik] || RUBRIKEN[r];
-    c.style.setProperty('--c1', R.c[0]); c.style.setProperty('--c2', R.c[1]);
-    var top = el('div', 'vg-top'); top.appendChild(el('span', 'vg-ic', R.emoji));
-    var wann = x.datum ? datum(x.datum) + (x.datum_bis && x.datum_bis !== x.datum ? ' bis ' + datum(x.datum_bis) : '') + (x.zeit ? ', ' + x.zeit : '') : '';
-    if (wann) top.appendChild(el('span', 'vg-when', wann)); c.appendChild(top);
-    var b = el('div', 'vg-body'); b.appendChild(el('h3', '', x.titel));
+  function zeile(x) {
+    var R = RUBRIKEN[x.rubrik] || RUBRIKEN[r], st = status[x.id];
+    var d = el('details', 'vg-row'); d.style.setProperty('--c1', R.c[0]);
+    var sm = el('summary');
+    var wann = x.datum ? datum(x.datum) + (x.datum_bis && x.datum_bis !== x.datum ? '–' + datum(x.datum_bis) : '') : '';
+    sm.appendChild(el('span', 'rw', wann || '·'));
+    var t = el('span', 'rt', x.titel); if (x.ort) t.appendChild(el('small', '', x.ort)); sm.appendChild(t);
+    sm.appendChild(el('span', 'rs' + (st ? '' : ' neu'), st ? '✓' : '●'));
+    d.appendChild(sm);
+    var b = el('div', 'rd');
+    var w2 = (wann ? wann + (x.zeit ? ', ' + x.zeit + ' Uhr' : '') : '');
+    if (w2) b.appendChild(el('p', 'vg-ort', w2));
     if (x.ort) b.appendChild(el('p', 'vg-ort', x.ort + (x.adresse ? ' · ' + x.adresse : '')));
     if (x.preis || x.dauer) { var f = el('div', 'vg-facts'); [x.preis, x.dauer].forEach(function (v) { if (v) f.appendChild(el('span', '', v)); }); b.appendChild(f); }
     if (x.kurz) b.appendChild(el('p', '', x.kurz));
-    var s = el('span', 'vg-src'); s.appendChild(document.createTextNode('Quelle: '));
-    var a = el('a', '', x.quelle || 'Quelle'); a.href = x.url; a.target = '_blank'; a.rel = 'noopener'; s.appendChild(a);
-    if (x.stand) s.appendChild(document.createTextNode(' · Stand ' + datum(x.stand))); b.appendChild(s);
-    c.appendChild(b);
-    if (neu) {
-      var act = el('div', 'vg-act'), ja = el('button', 'ja', 'Gefällt mir'), nein = el('button', 'nein', 'Ablehnen');
-      ja.type = nein.type = 'button';
-      ja.onclick = function () { setze(x.id, 'ja'); }; nein.onclick = function () { setze(x.id, 'nein'); };
-      act.appendChild(ja); act.appendChild(nein); c.appendChild(act);
-    } else { var o = el('div', 'vg-ok', '✓ Bestätigt'), u = el('button', 'vg-reset', 'Zurücknehmen'); u.type = 'button'; u.onclick = function () { setze(x.id, null); }; o.appendChild(document.createTextNode(' · ')); o.appendChild(u); c.appendChild(o); }
-    return c;
+    var sp = el('span', 'vg-src'); sp.appendChild(document.createTextNode('Quelle: '));
+    var a = el('a', '', x.quelle || 'Quelle'); a.href = x.url; a.target = '_blank'; a.rel = 'noopener'; sp.appendChild(a);
+    if (x.stand) sp.appendChild(document.createTextNode(' · Stand ' + datum(x.stand))); b.appendChild(sp);
+    var act = el('div', 'vg-act');
+    if (st !== 'ja') { var ja = el('button', 'ja', 'Gefällt mir'); ja.type = 'button'; ja.onclick = function () { setze(x.id, 'ja'); }; act.appendChild(ja); }
+    if (st !== 'nein') { var ne = el('button', 'nein', 'Ablehnen'); ne.type = 'button'; ne.onclick = function () { setze(x.id, 'nein'); }; act.appendChild(ne); }
+    if (st === 'ja') { var u = el('button', 'vg-reset', 'Zurücknehmen'); u.type = 'button'; u.onclick = function () { setze(x.id, null); }; act.appendChild(u); }
+    b.appendChild(act); d.appendChild(b);
+    return d;
   }
   function setze(id, v) { if (v) status[id] = v; else delete status[id]; ss('vg-status', JSON.stringify(status)); zeichnen(); }
 
@@ -179,11 +194,17 @@
     var sicht = mein.filter(passt);
     var neu = sicht.filter(function (x) { return !status[x.id]; }), ja = sicht.filter(function (x) { return status[x.id] === 'ja'; });
     var nein = mein.filter(function (x) { return status[x.id] === 'nein'; });
-    [['neu', neu, true], ['ja', ja, false]].forEach(function (g) {
-      var box = $(g[0]); box.innerHTML = ''; g[1].forEach(function (x) { box.appendChild(karteEl(x, g[2])); }); $('h-' + g[0]).hidden = !g[1].length;
+    var box = $('tipps'); box.innerHTML = '';
+    var sichtbar = sicht.filter(function (x) { return status[x.id] !== 'nein'; }), gr = {}, reihe = [];
+    sichtbar.forEach(function (x) { var k = x.thema || 'Sonstiges'; if (!gr[k]) { gr[k] = []; reihe.push(k); } gr[k].push(x); });
+    reihe.forEach(function (k) { gr[k].sort(function (a, b) { return (a.datum || '9999').localeCompare(b.datum || '9999'); }); });
+    var ord = (THEMEN[r] || []); reihe.sort(function (a, b) { var i = ord.indexOf(a), j = ord.indexOf(b); return (i < 0 ? 99 : i) - (j < 0 ? 99 : j); });
+    reihe.forEach(function (k) {
+      var g = el('section', 'vg-grp'), h = el('h3', '', k); h.appendChild(el('small', '', String(gr[k].length))); g.appendChild(h);
+      var l = el('div', 'vg-list'); gr[k].forEach(function (x) { l.appendChild(zeile(x)); }); g.appendChild(l); box.appendChild(g);
     });
     var leer = $('leer');
-    leer.hidden = !!(neu.length || ja.length);
+    leer.hidden = !!sichtbar.length;
     leer.textContent = mein.length ? 'Zu deinen Interessen gibt es gerade keinen Tipp. Nimm eine Kachel heraus, dann siehst du alles.' : 'Hier ist noch nichts gesammelt. Die Tipps kommen mit dem nächsten automatischen Abruf.';
     var nb = $('nein-box'); nb.hidden = !nein.length;
     $('nein-reset').textContent = nein.length + ' abgelehnt, wieder anzeigen';

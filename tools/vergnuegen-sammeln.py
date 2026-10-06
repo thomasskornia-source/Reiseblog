@@ -21,6 +21,13 @@ TAGS = {
     "ausflug": ["Berge", "See", "Wandern", "Bahn", "Mit Hund", "Pferde", "Schlösser"],
     "kino": ["Kino", "Open Air", "Komödie", "Krimi", "Doku", "Mediathek", "Stream"],
 }
+THEMEN = {
+    "events": ["Konzert & Musik", "Kabarett & Theater", "Ausstellung & Museum", "Führung & Vortrag", "Feste & Märkte", "Familie & Kinder", "Draußen & Sport", "Sonstiges"],
+    "food": ["Restaurant", "Biergarten", "Café & Brunch", "Street Food & Märkte", "Neueröffnung", "Sonstiges"],
+    "unterwegs": ["Sehenswürdigkeit", "Viertel & Spaziergang", "Park & Natur", "Museum", "Shopping & Mode", "Sonstiges"],
+    "ausflug": ["Berge & Wandern", "Seen & Baden", "Schlösser & Kultur", "Mit Bahn & Bus", "Pferde & Tiere", "Sonstiges"],
+    "kino": ["Kino", "Open Air", "Mediathek & Stream", "Sonstiges"],
+}
 HEUTE = dt.date.today()
 MAX_ZEICHEN, MAX_PRO_QUELLE, MAX_PRO_RUBRIK = 24000, 10, 80
 MAX_QUELLEN_PRO_LAUF, PAUSE = 8, 12   # schont das gemeinsame kostenlose Gemini-Kontingent (auch Börsenstimmung und Rätsel nutzen es)
@@ -46,7 +53,7 @@ Entnimm bis zu {MAX_PRO_QUELLE} konkrete, besuchbare Tipps (Veranstaltung, Lokal
 Nur Fakten aus dem Text, nichts erfinden. Schreibe NICHT ab: "kurz" ist eine eigene Kurzfassung in höchstens 25 Wörtern.
 Veranstaltungen, die vor heute zu Ende sind, lässt du weg. Antworte ausschließlich als JSON-Liste von Objekten mit den Feldern:
 titel (kurz), ort (Name des Orts/Lokals), adresse (Straße Nr, PLZ München, wenn genannt, sonst ""), datum (JJJJ-MM-TT oder ""), datum_bis (JJJJ-MM-TT oder ""),
-zeit ("19:30" oder ""), preis (z.B. "frei", "ab 12 €", sonst ""), dauer (sonst ""), kurz, tags (Liste, NUR aus: {", ".join(TAGS[q['rubrik']])}).
+zeit ("19:30" oder ""), preis (z.B. "frei", "ab 12 €", sonst ""), dauer (sonst ""), kurz, tags (Liste, NUR aus: {", ".join(TAGS[q['rubrik']])}), thema (genau EINES aus: {", ".join(THEMEN[q['rubrik']])}).
 Wenn die Seite keine passenden Tipps enthält, antworte mit [].
 
 TEXT:
@@ -159,6 +166,7 @@ def main():
             x.update({"rubrik": q["rubrik"], "titel": it["titel"].strip()[:120], "ort": (it.get("ort") or "")[:80], "adresse": (it.get("adresse") or "")[:100],
                       "datum": d1, "datum_bis": d2, "zeit": (it.get("zeit") or "")[:20], "preis": (it.get("preis") or "")[:30], "dauer": (it.get("dauer") or "")[:30],
                       "kurz": (it.get("kurz") or "")[:200], "tags": [t for t in (it.get("tags") or []) if t in TAGS[q["rubrik"]]],
+                      "thema": it.get("thema") if it.get("thema") in THEMEN[q["rubrik"]] else "Sonstiges",
                       "quelle": q["name"], "url": q["url"], "stand": HEUTE.isoformat()})
             if iid not in db:
                 neu += 1
