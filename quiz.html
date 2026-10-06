@@ -51,6 +51,21 @@
     .qgrid { gap: 0; }
   }
   @media (min-width: 900px) { body[data-welt="quiz"] .entry-header { background-size: auto 100%, cover; background-position: right 150px bottom, center; } .qz .tile.rkfull { height: 200px; } .qbtn { right: 44px; } }
+  /* Kacheln direkt unter der Menüleiste, Rätsel und Quiz in einem Feld darunter */
+  body[data-welt] .qz .entry-header { display: none; }
+  .qz .tile .in a.go { color: #fff; text-decoration: none; }
+  .qz .tile .play { top: 50%; bottom: auto; transform: translateY(-50%); }
+  .qz .tile .in .go + .go { margin-left: 8px; position: relative; z-index: 3; }
+  @media (max-width: 899px) {
+    body[class^="page-"] .wrap.qz { padding-top: 0; }
+    .qgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0 -18px; }
+    .qsq { aspect-ratio: 1; gap: 8px; }
+    .qsq .em { font-size: 38px; }
+    .qsq b { font-size: 13px; }
+    .qsq small { display: none; }
+    .qz .bento { margin: 0 -18px 14px; }
+    .qz .tile.rkfull { height: 190px; }
+  }
 </style>
 </head>
 <body class="page-wide pc">
@@ -69,19 +84,8 @@
 <div class="wrap qz">
   <header class="entry-header" style="position:relative">
     <h1>München</h1>
-    <a class="qbtn" href="muenchen-quiz.html">Quiz</a>
     <hr class="rule">
   </header>
-
-  <section class="bento pcgrid">
-    <div class="tile wide rkfull" id="rk" style="background:linear-gradient(170deg,#2E6FA3,#1B3F66)">
-      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="330" cy="58" r="30" fill="#F6C253" opacity=".9"/><path d="M180 232 L262 110 L296 160 L326 122 L400 232z" fill="#FBF3E4" opacity=".35"/><path d="M262 110 L276 132 L262 128 L248 132z" fill="#fff" opacity=".85"/><path d="M0 214 Q50 196 100 214 T200 214 T300 214 T400 214V232H0z" fill="#16406B" opacity=".7"/></svg>
-      <a class="cover" id="rk-link" href="raetsel.html" aria-label="Bayern-Rätsel öffnen"></a>
-      <div class="in"><span class="neu" id="rk-neu" hidden>Neu diese Woche</span><div class="q">Was weißt du über <i>Bayern</i>?</div><span class="go">Bayern-Rätsel · anhören</span></div>
-      <button type="button" class="play" id="rk-play" aria-label="Bayern-Rätsel anhören" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></button>
-    </div>
-  </section>
-  <p id="rk-note" class="sub" style="color:var(--ink-soft);font-size:14px" hidden></p>
 
   <section class="qgrid" aria-label="Vergnügen">
     <a class="qsq" href="vergnuegen.html?r=events" style="background:linear-gradient(170deg,#B5502E,#7A2E14)"><span class="em">🎟️</span><b>Events</b><small>Was ist los?</small></a>
@@ -93,6 +97,16 @@
     <a class="qsq" href="vergnuegen.html?r=stream" style="background:linear-gradient(170deg,#5B2E6B,#2A1236)"><span class="em">📺</span><b>Streaming</b><small>Film und Serie</small></a>
     <a class="qsq" href="vergnuegen.html?r=quellen" style="background:linear-gradient(170deg,#6F7D2E,#4A5620)"><span class="em">🔗</span><b>Quellen</b><small>Auswählen</small></a>
   </section>
+
+  <section class="bento pcgrid">
+    <div class="tile wide rkfull" id="rk" style="background:linear-gradient(170deg,#2E6FA3,#1B3F66)">
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="330" cy="58" r="30" fill="#F6C253" opacity=".9"/><path d="M180 232 L262 110 L296 160 L326 122 L400 232z" fill="#FBF3E4" opacity=".35"/><path d="M262 110 L276 132 L262 128 L248 132z" fill="#fff" opacity=".85"/><path d="M0 214 Q50 196 100 214 T200 214 T300 214 T400 214V232H0z" fill="#16406B" opacity=".7"/></svg>
+      <a class="cover" id="rk-link" href="raetsel.html" aria-label="Bayern-Rätsel öffnen"></a>
+      <div class="in"><span class="neu" id="rk-neu" hidden>Neu diese Woche</span><div class="q">Was weißt du über <i>Bayern</i>?</div><span class="go">Bayern-Rätsel · anhören</span><a class="go qz-quiz" href="muenchen-quiz.html">Quiz</a></div>
+      <button type="button" class="play" id="rk-play" aria-label="Bayern-Rätsel anhören" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></button>
+    </div>
+  </section>
+  <p id="rk-note" class="sub" style="color:var(--ink-soft);font-size:14px" hidden></p>
 
   <footer class="site-footer"><p>Das Bayern-Rätsel kommt jede Woche neu.</p></footer>
 </div>

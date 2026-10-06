@@ -44,3 +44,4 @@ Stream je Anbieter (Thomas, 06.10.2026): gewünscht 5 Filme + 5 Serien je Dienst
 
 Startseite „Was läuft heute Abend?“ (Thomas, 06.10.2026): dunkler Streifen `.tv-bar` direkt unter der Kachel „Was kochen wir…“ (im `.bento`, ohne Abstand) in `index.html`, Links `vergnuegen.html?r=tv` und `?r=stream` (Stil in `home.css`).
 Vergnügen-Kopf (Thomas, 06.10.2026): großer Rubrik-Kopf (`.vg-hero`) ausgeblendet, nur die 8 Quadrat-Kacheln, am Handy randlos über volle Breite (4 je Reihe), am PC 8 in einer Reihe.
+München-Seite (Thomas, 06.10.2026): Kopf „München“ entfernt, Kacheln direkt unter der Menüleiste (Handy 4 je Reihe randlos, wie `vergnuegen.html`), darunter ein blaues Feld mit Bayern-Rätsel und Quiz-Button (`.qz-quiz`). Auf `vergnuegen.html` am Handy kein Abstand über den Kacheln.
