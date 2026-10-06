@@ -214,7 +214,8 @@
     "info": "Programm des Kinos Breitwand, Bahnhofsplatz 2, Gauting (offizielle Seite)",
     "abruf": true,
     "status": "behalten",
-    "kinoseite": "https://breitwand.com/"
+    "kinoseite": "https://breitwand.com/",
+    "thema": "Kino Breitwand Gauting"
   },
   {
     "id": "kino-lichtspielhaus-ffb",
@@ -224,7 +225,8 @@
     "info": "Wochenprogramm Lichtspielhaus FFB, Maisacher Str. 7 (Übersicht auf in-muenchen.de; offizielle Seite: neokinos.de/ffb)",
     "abruf": true,
     "status": "behalten",
-    "kinoseite": "https://neokinos.de/ffb"
+    "kinoseite": "https://neokinos.de/ffb",
+    "thema": "Lichtspielhaus Fürstenfeldbruck"
   },
   {
     "id": "kino-astor-arri",
@@ -234,7 +236,8 @@
     "info": "Wochenprogramm Astor Film Lounge im ARRI, Türkenstr. 91, München (Übersicht auf in-muenchen.de; offizielle Seite: muenchen.premiumkino.de)",
     "abruf": true,
     "status": "behalten",
-    "kinoseite": "https://muenchen.premiumkino.de/"
+    "kinoseite": "https://muenchen.premiumkino.de/",
+    "thema": "Astor Film Lounge im ARRI"
   },
   {
     "id": "musik-zenith",
@@ -422,6 +425,78 @@
     "name": "NS-Dokumentationszentrum",
     "url": "https://www.nsdoku.de/",
     "info": "Lern- und Erinnerungsort – nur Link",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "stream-netflix",
+    "rubrik": "stream",
+    "name": "Netflix",
+    "url": "https://www.netflix.com/de/",
+    "info": "Streaming (Link; Auswahl kuratiert Claude)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "stream-prime",
+    "rubrik": "stream",
+    "name": "Amazon Prime Video",
+    "url": "https://www.primevideo.com/",
+    "info": "Streaming (Link; Auswahl kuratiert Claude)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "stream-apple",
+    "rubrik": "stream",
+    "name": "Apple TV",
+    "url": "https://tv.apple.com/de",
+    "info": "Streaming (Link; Auswahl kuratiert Claude)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "stream-ard",
+    "rubrik": "stream",
+    "name": "ARD Mediathek",
+    "url": "https://www.ardmediathek.de/",
+    "info": "Mediathek (Link; Auswahl kuratiert Claude)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "stream-zdf",
+    "rubrik": "stream",
+    "name": "ZDF Mediathek",
+    "url": "https://www.zdf.de/filme",
+    "info": "Mediathek (Link; Auswahl kuratiert Claude)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "stream-3sat",
+    "rubrik": "stream",
+    "name": "3sat Mediathek",
+    "url": "https://www.3sat.de/mediathek",
+    "info": "Mediathek (Link; Auswahl kuratiert Claude)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "stream-arte",
+    "rubrik": "stream",
+    "name": "ARTE Mediathek",
+    "url": "https://www.arte.tv/de/",
+    "info": "Mediathek (Link; Auswahl kuratiert Claude)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "stream-filmstarts",
+    "rubrik": "stream",
+    "name": "FILMSTARTS – Streaming",
+    "url": "https://www.filmstarts.de/streaming/",
+    "info": "Neu bei den Streaming-Diensten (Hilfsquelle für die Auswahl)",
     "abruf": false,
     "status": "behalten"
   }

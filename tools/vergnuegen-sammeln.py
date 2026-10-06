@@ -20,13 +20,15 @@ TAGS = {
     "unterwegs": ["Sehenswert", "Viertel", "Grün", "Museen", "Shopping", "Mode", "Mit Hund"],
     "ausflug": ["Berge", "See", "Wandern", "Bahn", "Mit Hund", "Pferde", "Schlösser"],
     "kino": ["Kino", "Open Air", "Komödie", "Krimi", "Doku", "Mediathek", "Stream"],
+    "stream": ["Film", "Serie", "Krimi", "Komödie", "Drama", "Thriller", "Doku", "Historie", "Sci-Fi", "Familie", "Fantasy", "Horror", "Action", "Abenteuer"],
 }
 THEMEN = {
     "events": ["Konzert & Musik", "Kabarett & Theater", "Ausstellung & Museum", "Führung & Vortrag", "Feste & Märkte", "Familie & Kinder", "Draußen & Sport", "Sonstiges"],
     "food": ["Restaurant", "Biergarten", "Café & Brunch", "Street Food & Märkte", "Neueröffnung", "Sonstiges"],
     "unterwegs": ["Sehenswürdigkeit", "Viertel & Spaziergang", "Park & Natur", "Museum", "Shopping & Mode", "Sonstiges"],
     "ausflug": ["Berge & Wandern", "Seen & Baden", "Schlösser & Kultur", "Mit Bahn & Bus", "Pferde & Tiere", "Sonstiges"],
-    "kino": ["Kino", "Open Air", "Mediathek & Stream", "Sonstiges"],
+    "kino": ["Kino Breitwand Gauting", "Lichtspielhaus Fürstenfeldbruck", "Astor Film Lounge im ARRI", "Sonstiges"],
+    "stream": ["Netflix", "Amazon Prime", "Apple TV", "ARD Mediathek", "ZDF Mediathek", "3sat Mediathek", "ARTE Mediathek", "Sonstiges"],
 }
 HEUTE = dt.date.today()
 MAX_ZEICHEN, MAX_PRO_QUELLE, MAX_PRO_RUBRIK = 24000, 10, 80
@@ -169,7 +171,7 @@ def main():
             x.update({"rubrik": q["rubrik"], "titel": it["titel"].strip()[:120], "ort": (it.get("ort") or "")[:80], "adresse": (it.get("adresse") or "")[:100],
                       "datum": d1, "datum_bis": d2, "zeit": (it.get("zeit") or "")[:20], "preis": (it.get("preis") or "")[:30], "dauer": (it.get("dauer") or "")[:30],
                       "kurz": (it.get("kurz") or "")[:200], "tags": [t for t in (it.get("tags") or []) if t in TAGS[q["rubrik"]]],
-                      "thema": it.get("thema") if it.get("thema") in THEMEN[q["rubrik"]] else "Sonstiges",
+                      "thema": q.get("thema") if q.get("thema") in THEMEN[q["rubrik"]] else (it.get("thema") if it.get("thema") in THEMEN[q["rubrik"]] else "Sonstiges"),
                       "quelle": q["name"], "url": q["url"], "stand": HEUTE.isoformat()})
             if q.get("kinoseite"):
                 x["kinoseite"] = q["kinoseite"]

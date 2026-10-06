@@ -100,6 +100,7 @@
   <div id="ansicht">
     <div class="vg-int" id="int" role="group" aria-label="Meine Interessen"></div>
     <p class="vg-hint" id="int-hint"></p>
+    <div id="profil" class="vg-hint" hidden></div>
     <div id="vg-map" hidden></div>
     <div class="vg-wrap" id="tipps"></div>
     <p class="vg-leer" id="leer" hidden></p>
@@ -123,16 +124,18 @@
     food: { name: 'Food', emoji: '🍽️', c: ['#8A3B2A', '#D98A5B'], int: ['Bayerisch', 'Italienisch', 'Asiatisch', 'Brunch', 'Biergarten', 'Vegetarisch', 'Café', 'Mit Hund'] },
     unterwegs: { name: 'In München', emoji: '🚲', c: ['#2F7E86', '#8FC5B8'], int: ['Sehenswert', 'Viertel', 'Grün', 'Museen', 'Shopping', 'Mode', 'Mit Hund'] },
     ausflug: { name: 'Ausflug', emoji: '⛰️', c: ['#4A6B2E', '#A9C46A'], int: ['Berge', 'See', 'Wandern', 'Bahn', 'Mit Hund', 'Pferde', 'Schlösser'] },
-    kino: { name: 'Kino / Stream', emoji: '🎬', c: ['#2E3A6B', '#7C8AD1'], int: ['Kino', 'Open Air', 'Komödie', 'Krimi', 'Doku', 'Mediathek', 'Stream'] }
+    kino: { name: 'Kino', emoji: '🎬', c: ['#2E3A6B', '#7C8AD1'], int: ['Kino', 'Open Air', 'Komödie', 'Krimi', 'Doku'] },
+    stream: { name: 'Stream & TV', emoji: '📺', c: ['#5B2E6B', '#C58AD1'], int: ['Film', 'Serie', 'Krimi', 'Komödie', 'Drama', 'Thriller', 'Doku', 'Historie', 'Sci-Fi', 'Familie', 'Fantasy', 'Horror', 'Action', 'Abenteuer'] }
   };
   var THEMEN = {
     events: ['Konzert & Musik', 'Kabarett & Theater', 'Ausstellung & Museum', 'Führung & Vortrag', 'Feste & Märkte', 'Familie & Kinder', 'Draußen & Sport', 'Sonstiges'],
     food: ['Restaurant', 'Biergarten', 'Café & Brunch', 'Street Food & Märkte', 'Neueröffnung', 'Sonstiges'],
     unterwegs: ['Sehenswürdigkeit', 'Viertel & Spaziergang', 'Park & Natur', 'Museum', 'Shopping & Mode', 'Sonstiges'],
     ausflug: ['Berge & Wandern', 'Seen & Baden', 'Schlösser & Kultur', 'Mit Bahn & Bus', 'Pferde & Tiere', 'Sonstiges'],
-    kino: ['Kino', 'Open Air', 'Mediathek & Stream', 'Sonstiges']
+    kino: ['Kino Breitwand Gauting', 'Lichtspielhaus Fürstenfeldbruck', 'Astor Film Lounge im ARRI', 'Sonstiges'],
+    stream: ['Netflix', 'Amazon Prime', 'Apple TV', 'ARD Mediathek', 'ZDF Mediathek', '3sat Mediathek', 'ARTE Mediathek', 'Sonstiges']
   };
-  var ORDER = ['events', 'food', 'unterwegs', 'ausflug', 'kino'];
+  var ORDER = ['events', 'food', 'unterwegs', 'ausflug', 'kino', 'stream'];
   var $ = function (id) { return document.getElementById(id); };
   function sg(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function ss(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
@@ -171,7 +174,8 @@
     var d = el('details', 'vg-row'); d.style.setProperty('--c1', R.c[0]);
     var sm = el('summary');
     var wann = x.datum ? datum(x.datum) + (x.datum_bis && x.datum_bis !== x.datum ? '–' + datum(x.datum_bis) : '') : '';
-    sm.appendChild(el('span', 'rw', wann || '·'));
+    var art = x.rubrik === 'stream' ? ((x.tags || []).indexOf('Serie') >= 0 ? 'Serie' : 'Film') : '';
+    sm.appendChild(el('span', 'rw', art || wann || '·'));
     var t = el('span', 'rt', x.titel); if (x.ort) t.appendChild(el('small', '', x.ort)); sm.appendChild(t);
     sm.appendChild(el('span', 'rs' + (st ? '' : ' neu'), st ? '✓' : '●'));
     d.appendChild(sm);
@@ -184,11 +188,11 @@
     var sp = el('span', 'vg-src'); sp.appendChild(document.createTextNode('Quelle: '));
     var a = el('a', '', x.quelle || 'Quelle'); a.href = x.url; a.target = '_blank'; a.rel = 'noopener'; sp.appendChild(a);
     if (x.stand) sp.appendChild(document.createTextNode(' · Stand ' + datum(x.stand))); b.appendChild(sp);
-    if (x.rubrik === 'kino') { var tp = el('p', 'vg-src'), tl = el('a', '', 'Trailer ansehen (YouTube)'); tl.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(x.titel + ' Trailer deutsch'); tl.target = '_blank'; tl.rel = 'noopener'; tp.appendChild(tl); b.appendChild(tp); }
+    if (x.rubrik === 'kino' || x.rubrik === 'stream') { var tp = el('p', 'vg-src'), tl = el('a', '', 'Trailer ansehen (YouTube)'); tl.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(x.titel + ' Trailer deutsch'); tl.target = '_blank'; tl.rel = 'noopener'; tp.appendChild(tl); b.appendChild(tp); }
     if (x.kinoseite) { var ks = el('p', 'vg-src'), kl = el('a', '', 'Zur Seite des Kinos (Programm)'); kl.href = x.kinoseite; kl.target = '_blank'; kl.rel = 'noopener'; ks.appendChild(kl); b.appendChild(ks); }
     var act = el('div', 'vg-act');
-    if (st !== 'ja') { var ja = el('button', 'ja', 'Gefällt mir'); ja.type = 'button'; ja.onclick = function () { setze(x.id, 'ja'); }; act.appendChild(ja); }
-    if (st !== 'nein') { var ne = el('button', 'nein', 'Ablehnen'); ne.type = 'button'; ne.onclick = function () { setze(x.id, 'nein'); }; act.appendChild(ne); }
+    if (st !== 'ja') { var ja = el('button', 'ja', x.rubrik === 'stream' ? '👍 Gefällt mir' : 'Gefällt mir'); ja.type = 'button'; ja.onclick = function () { setze(x.id, 'ja'); }; act.appendChild(ja); }
+    if (st !== 'nein') { var ne = el('button', 'nein', x.rubrik === 'stream' ? '👎 Nicht für mich' : 'Ablehnen'); ne.type = 'button'; ne.onclick = function () { setze(x.id, 'nein'); }; act.appendChild(ne); }
     if (st === 'ja') { var u = el('button', 'vg-reset', 'Zurücknehmen'); u.type = 'button'; u.onclick = function () { setze(x.id, null); }; act.appendChild(u); }
     b.appendChild(act); d.appendChild(b);
     return d;
@@ -210,6 +214,7 @@
       var g = el('section', 'vg-grp'), h = el('h3', '', k); h.appendChild(el('small', '', String(gr[k].length))); g.appendChild(h);
       var l = el('div', 'vg-list'); gr[k].forEach(function (x) { l.appendChild(zeile(x)); }); g.appendChild(l); box.appendChild(g);
     });
+    profilZeigen();
     var leer = $('leer');
     leer.hidden = !!sichtbar.length;
     leer.textContent = mein.length ? 'Zu deinen Interessen gibt es gerade keinen Tipp. Nimm eine Kachel heraus, dann siehst du alles.' : 'Hier ist noch nichts gesammelt. Die Tipps kommen mit dem nächsten automatischen Abruf.';
@@ -217,6 +222,26 @@
     $('nein-reset').textContent = nein.length + ' abgelehnt, wieder anzeigen';
     $('nein-reset').onclick = function () { nein.forEach(function (x) { delete status[x.id]; }); ss('vg-status', JSON.stringify(status)); zeichnen(); };
     zeigeKarte(sicht.filter(function (x) { return status[x.id] !== 'nein'; }));
+  }
+
+  // Profil aus Daumen hoch/runter (nur Stream & TV): zählt Art, Genre und Dienst
+  function profilZeigen() {
+    var box = $('profil'); if (r !== 'stream') { box.hidden = true; return; }
+    var alle = items.filter(function (x) { return x.rubrik === 'stream' && status[x.id]; }), up = {}, down = {};
+    alle.forEach(function (x) { var m = status[x.id] === 'ja' ? up : down; (x.tags || []).concat(x.thema ? [x.thema] : []).forEach(function (t) { m[t] = (m[t] || 0) + 1; }); });
+    function top(m) { return Object.keys(m).sort(function (a, b) { return m[b] - m[a]; }).slice(0, 5).map(function (k) { return k + ' (' + m[k] + ')'; }).join(', ') || '–'; }
+    box.hidden = false; box.innerHTML = '';
+    box.appendChild(el('b', '', 'Dein Profil: '));
+    box.appendChild(document.createTextNode(alle.length ? 'Gefällt: ' + top(up) + ' · Weniger: ' + top(down) + '. ' : 'Noch nichts bewertet. Daumen hoch oder runter in den Zeilen, daraus wird dein Profil. '));
+    if (alle.length) {
+      var b = el('button', 'vg-reset', 'Bewertungen kopieren'); b.type = 'button';
+      b.onclick = function () {
+        var t = 'Stream-Bewertungen. Gefällt: ' + (alle.filter(function (x) { return status[x.id] === 'ja'; }).map(function (x) { return x.titel; }).join('; ') || '-') + '. Nicht für mich: ' + (alle.filter(function (x) { return status[x.id] === 'nein'; }).map(function (x) { return x.titel; }).join('; ') || '-') + '.';
+        var ok = function () { b.textContent = 'Kopiert. Füge es in den Chat ein.'; };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(ok, function () { b.textContent = t; }); else b.textContent = t;
+      };
+      box.appendChild(b);
+    }
   }
 
   function zeigeKarte(l) {
