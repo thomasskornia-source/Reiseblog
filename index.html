@@ -7,7 +7,7 @@
 <title>Unterwegs und zuhause – Thomas und Andrea</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=29">
-<link rel="stylesheet" href="home.css?v=24">
+<link rel="stylesheet" href="home.css?v=26">
 <link rel="stylesheet" href="lesebuehne.css?v=5">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
@@ -450,9 +450,15 @@
       treffer = Filmfans.treffer(items, favs);
       box.innerHTML = '';
       function zeile(kick, titel, by, href, cls) {
-        var a = document.createElement('a'); a.className = 'fav-row ' + cls; a.href = href;
+        var row = document.createElement('div'); row.className = 'fav-row ' + cls;
+        var a = document.createElement('a'); a.className = 'fav-txt'; a.href = href;
         var k = document.createElement('small'); k.textContent = kick; var b = document.createElement('b'); b.textContent = titel; var y = document.createElement('span'); y.textContent = by;
-        a.appendChild(k); a.appendChild(b); a.appendChild(y); box.appendChild(a);
+        a.appendChild(k); a.appendChild(b); a.appendChild(y); row.appendChild(a);
+        var pv = document.createElement('a'); pv.className = 'fav-play'; pv.target = '_blank'; pv.rel = 'noopener';
+        pv.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(titel + ' Trailer deutsch');
+        pv.setAttribute('aria-label', 'Trailer zu ' + titel + ' ansehen'); pv.title = 'Trailer ansehen';
+        pv.innerHTML = '<svg viewBox="0 0 24 16" aria-hidden="true"><path d="M9 3.2l7 4.8-7 4.8z"/></svg>';
+        row.appendChild(pv); box.appendChild(row);
       }
       var seen = {};
       treffer.slice(0, 3).forEach(function (t) { var k = t.eintrag.id; if (seen[k]) return; seen[k] = 1; zeile('Dein Lieblingsfilm läuft', t.eintrag.titel, Filmfans.wo(t.eintrag), Filmfans.seite(t.eintrag), 'hit'); });
