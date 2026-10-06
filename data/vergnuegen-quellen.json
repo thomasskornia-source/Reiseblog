@@ -268,5 +268,158 @@
     "info": "Jazzkonzerte im Unterfahrt, Einsteinstr. 42, München (offizielle Seite)",
     "abruf": true,
     "status": "behalten"
+  },
+  {
+    "id": "buehne-staatsoper",
+    "rubrik": "events",
+    "name": "Bayerische Staatsoper (Spielplan)",
+    "url": "https://www.staatsoper.de/spielplan",
+    "info": "Oper und Ballett, Spielplan des Monats (offizielle Seite)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "buehne-residenztheater",
+    "rubrik": "events",
+    "name": "Residenztheater (Spielplan)",
+    "url": "https://www.residenztheater.de/spielplan",
+    "info": "Schauspiel am Max-Joseph-Platz (offizielle Seite)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "buehne-kammerspiele",
+    "rubrik": "events",
+    "name": "Münchner Kammerspiele",
+    "url": "https://www.muenchner-kammerspiele.de/",
+    "info": "Schauspiel, Spielplan auf der Startseite (offizielle Seite)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "buehne-volkstheater",
+    "rubrik": "events",
+    "name": "Münchner Volkstheater (Spielplan)",
+    "url": "https://www.muenchner-volkstheater.de/spielplan",
+    "info": "Schauspiel an der Brienner Straße (offizielle Seite)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "buehne-gaertnerplatz",
+    "rubrik": "events",
+    "name": "Staatstheater am Gärtnerplatz",
+    "url": "https://www.gaertnerplatztheater.de/de/spielplan",
+    "info": "Oper, Operette, Musical, Ballett – Seite war nicht abrufbar, nur Link",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "buehne-deutsches-theater",
+    "rubrik": "events",
+    "name": "Deutsches Theater München",
+    "url": "https://www.deutsches-theater.de/programm/",
+    "info": "Musical, Show, Kabarett – Programm lädt per Auswahl, nur Link",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "musik-philharmoniker",
+    "rubrik": "events",
+    "name": "Münchner Philharmoniker (Kalender)",
+    "url": "https://www.mphil.de/konzerte-tickets/kalender",
+    "info": "Konzerte der Münchner Philharmoniker, Isarphilharmonie – Seite nicht lesbar, nur Link",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "musik-brso",
+    "rubrik": "events",
+    "name": "Symphonieorchester des Bayerischen Rundfunks",
+    "url": "https://www.brso.de/konzerte-tickets/",
+    "info": "Konzerte BRSO, Herkulessaal, Isarphilharmonie – Kalender nicht lesbar, nur Link",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "museum-lenbachhaus",
+    "rubrik": "unterwegs",
+    "name": "Lenbachhaus",
+    "url": "https://www.lenbachhaus.de/programm",
+    "info": "Ausstellungen und Führungen, Blauer Reiter (offizielle Seite)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "museum-haus-der-kunst",
+    "rubrik": "unterwegs",
+    "name": "Haus der Kunst",
+    "url": "https://hausderkunst.de/programm",
+    "info": "Zeitgenössische Kunst, Ausstellungen (offizielle Seite)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "museum-brandhorst",
+    "rubrik": "unterwegs",
+    "name": "Museum Brandhorst",
+    "url": "https://www.museum-brandhorst.de/",
+    "info": "Moderne und zeitgenössische Kunst (offizielle Seite)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "museum-villa-stuck",
+    "rubrik": "unterwegs",
+    "name": "Museum Villa Stuck",
+    "url": "https://www.villastuck.de/",
+    "info": "Ausstellungen in der Künstlervilla (offizielle Seite)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "museum-fuenf-kontinente",
+    "rubrik": "unterwegs",
+    "name": "Museum Fünf Kontinente",
+    "url": "https://www.museum-fuenf-kontinente.de/",
+    "info": "Völkerkunde, Sonderausstellungen (offizielle Seite)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "museum-pinakotheken",
+    "rubrik": "unterwegs",
+    "name": "Pinakotheken (Alte, Neue, Moderne)",
+    "url": "https://www.pinakothek.de/de/ausstellungen",
+    "info": "Kunstareal, Ausstellungen – Seite zeigt keine Liste, nur Link",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "museum-deutsches-museum",
+    "rubrik": "unterwegs",
+    "name": "Deutsches Museum",
+    "url": "https://www.deutsches-museum.de/ausstellungen",
+    "info": "Technik und Naturwissenschaft – Seite nicht abrufbar, nur Link",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "museum-stadtmuseum",
+    "rubrik": "unterwegs",
+    "name": "Münchner Stadtmuseum",
+    "url": "https://www.muenchner-stadtmuseum.de/",
+    "info": "Stadtgeschichte, Filmmuseum – nur Link",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "museum-nsdoku",
+    "rubrik": "unterwegs",
+    "name": "NS-Dokumentationszentrum",
+    "url": "https://www.nsdoku.de/",
+    "info": "Lern- und Erinnerungsort – nur Link",
+    "abruf": false,
+    "status": "behalten"
   }
 ]
