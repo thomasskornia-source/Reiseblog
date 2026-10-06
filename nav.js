@@ -20,7 +20,7 @@
     if (location.pathname.indexOf('/rezepte/') === -1 && (f === 'rezepte.html' || f === 'wochenplaner.html')) w = 'rezept';
     else if (f === 'reisen.html' || f === 'reiseberater.html' || f === 'reiseideen.html' || /-reise\.html$/.test(f)) w = 'reise';
     else if (/^(finanzplanung|zinseszins|immobiliensuche|gedaechtnistest)\.html$/.test(f)) w = 'geld';
-    else if (f === 'muenchen-quiz.html' || f === 'vergnuegen.html') w = 'quiz';
+    else if (f === 'muenchen-quiz.html' || f === 'vergnuegen.html' || f === 'quiz.html') w = 'quiz';
     else if (/^(ernaehrung|cholesterin|lebensmittel-basics|podcast-richtig-essen)\.html$/.test(f)) w = 'essen';
     else if (f === 'notfallvorrat.html') w = 'nacht';
     if (w && document.querySelector('.entry-header')) document.body.setAttribute('data-welt', w);
