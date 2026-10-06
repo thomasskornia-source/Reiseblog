@@ -1,1 +1,7 @@
-{"stand":"2026-10-06","gefaellt":[],"nicht_fuer_mich":[],"hinweis":"Wird von Claude aus den von Thomas gesendeten Daumen-Bewertungen (Seite Stream & TV, Knopf Bewertungen kopieren) gepflegt."}
+{
+ "stand": "2026-10-06",
+ "gefaellt": [],
+ "nicht_fuer_mich": [],
+ "hinweis": "Wird von Claude aus den von Thomas gesendeten Daumen-Bewertungen (Seite Stream & TV, Knopf Bewertungen kopieren) und Lieblingsfilmen (Kino/TV/Stream-Seite, Knopf Lieblingsfilme kopieren) gepflegt. lieblingsfilme: Liste {titel, genres} mit Genres nur aus Krimi, Komödie, Drama, Thriller, Doku, Historie, Sci-Fi, Familie, Fantasy, Horror, Action, Abenteuer; die Startseite nutzt sie für den Filmtipp.",
+ "lieblingsfilme": []
+}

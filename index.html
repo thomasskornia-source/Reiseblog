@@ -7,7 +7,7 @@
 <title>Unterwegs und zuhause – Thomas und Andrea</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=29">
-<link rel="stylesheet" href="home.css?v=23">
+<link rel="stylesheet" href="home.css?v=24">
 <link rel="stylesheet" href="lesebuehne.css?v=5">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
@@ -72,6 +72,7 @@
   <button type="button" class="sb-note" id="wh-play" aria-label="Welterbe vorlesen"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></button>
 </div>
 
+  <div class="fav-bar" id="fav-bar"></div>
   <section class="bento pcgrid">
     <a class="tile wide rv slim" href="wochenplaner.html" style="--i:0;background:linear-gradient(170deg,#C8553D,#8F3D21)">
       <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="#FBF3E4" transform="translate(40 -14)"><rect x="230" y="40" width="26" height="26" rx="6" opacity=".35"/><rect x="262" y="40" width="26" height="26" rx="6" opacity=".35"/><rect x="294" y="40" width="26" height="26" rx="6" opacity=".35"/><rect x="326" y="40" width="26" height="26" rx="6" opacity=".6"/><rect x="230" y="72" width="26" height="26" rx="6" opacity=".35"/><rect x="262" y="72" width="26" height="26" rx="6" opacity=".6"/><rect x="294" y="72" width="26" height="26" rx="6" opacity=".35"/><rect x="326" y="72" width="26" height="26" rx="6" opacity=".35"/><rect x="230" y="104" width="26" height="26" rx="6" opacity=".6"/><rect x="262" y="104" width="26" height="26" rx="6" opacity=".35"/><rect x="294" y="104" width="26" height="26" rx="6" opacity=".6"/><rect x="326" y="104" width="26" height="26" rx="6" opacity=".35"/></g><circle cx="352" cy="170" r="26" fill="#F6C253" opacity=".85"/><path d="M341 170l8 8 15-17" fill="none" stroke="#8F3D21" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -433,8 +434,46 @@
     }).catch(function () {});
   }
   renderWelterbe();
+
+  // Lieblingsfilme: Treffer in Kino/TV/Stream und ein Filmtipp aus dem Profil (nur lokal im Browser + data/tv-profil.json)
+  function renderFilmfans() {
+    var box = $('fav-bar'); if (!box || !window.fetch || !window.Filmfans) return;
+    var favs = Filmfans.lesen(), st = {}; try { st = JSON.parse(localStorage.getItem('vg-status') || '{}') || {}; } catch (e) {}
+    Promise.all([fetch('data/vergnuegen.json').then(function (r) { return r.json(); }), fetch('data/tv-profil.json').then(function (r) { return r.json(); }).catch(function () { return {}; })]).then(function (res) {
+      var items = res[0] || [], prof = res[1] || {}, GEN = ['Krimi', 'Komödie', 'Drama', 'Thriller', 'Doku', 'Historie', 'Sci-Fi', 'Familie', 'Fantasy', 'Horror', 'Action', 'Abenteuer'];
+      var w = {}, add = function (tags, d) { (tags || []).forEach(function (t) { if (GEN.indexOf(t) !== -1) w[t] = (w[t] || 0) + d; }); };
+      var byId = {}; items.forEach(function (x) { byId[x.id] = x; });
+      Object.keys(st).forEach(function (id) { if (byId[id] && byId[id].rubrik === 'stream') add(byId[id].tags, st[id] === 'ja' ? 1 : st[id] === 'nein' ? -1 : 0); });
+      var treffer = Filmfans.treffer(items, favs);
+      treffer.forEach(function (t) { add(t.eintrag.tags, 2); });
+      (prof.lieblingsfilme || []).forEach(function (f) { favs.indexOf(f.titel) === -1 && add(f.genres, 2); if (f.titel && favs.indexOf(f.titel) === -1) favs.push(f.titel); });
+      treffer = Filmfans.treffer(items, favs);
+      box.innerHTML = '';
+      function zeile(kick, titel, by, href, cls) {
+        var a = document.createElement('a'); a.className = 'fav-row ' + cls; a.href = href;
+        var k = document.createElement('small'); k.textContent = kick; var b = document.createElement('b'); b.textContent = titel; var y = document.createElement('span'); y.textContent = by;
+        a.appendChild(k); a.appendChild(b); a.appendChild(y); box.appendChild(a);
+      }
+      var seen = {};
+      treffer.slice(0, 3).forEach(function (t) { var k = t.eintrag.id; if (seen[k]) return; seen[k] = 1; zeile('Dein Lieblingsfilm läuft', t.eintrag.titel, Filmfans.wo(t.eintrag), Filmfans.seite(t.eintrag), 'hit'); });
+      var tipp = null, best = 0, tag = Filmfans.heute();
+      items.forEach(function (x) {
+        if (['kino', 'tv', 'stream'].indexOf(x.rubrik) === -1 || !Filmfans.aktuell(x) || st[x.id] === 'nein') return;
+        var t0 = (x.tags || [])[0]; if (x.rubrik === 'tv' && ['Film', 'Doku', 'Serie'].indexOf(t0) === -1) return;
+        if (favs.some(function (f) { return Filmfans.passt(x.titel, f); })) return;
+        var sc = 0; (x.tags || []).forEach(function (t) { sc += w[t] || 0; });
+        if (sc <= 0) return;
+        var h = 0, str = x.id + tag; for (var i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) % 997;
+        sc += h / 1000;  // gleichstarke Tipps wechseln täglich
+        if (sc > best) { best = sc; tipp = x; }
+      });
+      if (tipp) zeile('Filmtipp für dich', tipp.titel, Filmfans.wo(tipp), Filmfans.seite(tipp), 'tip');
+      box.classList.toggle('on', !!box.firstChild);
+    }).catch(function () {});
+  }
+  renderFilmfans();
   // Safari stellt Seiten beim Zurücknavigieren oft aus dem bfcache wieder her
-  window.addEventListener('pageshow', function () { renderRezeptDesTages(); renderSongDesTages(); countdown(); zeigeHeute(); });
+  window.addEventListener('pageshow', function () { renderRezeptDesTages(); renderSongDesTages(); renderFilmfans(); countdown(); zeigeHeute(); });
 
   // Kopfleiste: Schatten beim Scrollen
   var bar = $('topbar');
@@ -469,6 +508,7 @@
 </script>
 <script src="songmusik.js?v=7"></script>
 <script src="lesebuehne.js?v=4"></script>
+<script src="filmfans.js?v=1"></script>
 <script src="nav.js?v=20" defer></script>
 </body>
 </html>

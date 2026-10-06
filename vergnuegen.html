@@ -97,6 +97,17 @@
   .vg-qh[aria-expanded="true"] .qx { transform: rotate(225deg); margin-bottom: -3px; }
   .vg-q[hidden] { display: none; }
   .vg-copy { all: unset; cursor: pointer; margin-top: 22px; display: inline-block; padding: 11px 22px; border-radius: 99px; background: var(--ink); color: #fff; font-weight: 600; font-size: 15px; }
+
+  .vg-fav { margin: 14px 0; padding: 14px 16px; border-radius: 16px; background: var(--paper-warm); }
+  .vg-fav > b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; display: block; margin-bottom: 8px; }
+  .vg-fav form { display: flex; gap: 8px; flex-wrap: nowrap; }
+  .vg-fav input { flex: 1; min-width: 0; font: inherit; font-size: 16px; padding: 10px 12px; border: 1px solid rgba(46, 58, 50, .25); border-radius: 10px; background: #fff; }
+  .vg-fav form button { flex: none; white-space: nowrap; font: inherit; font-size: 15px; padding: 10px 16px; border: 0; border-radius: 10px; background: var(--ink); color: var(--paper); cursor: pointer; }
+  .vg-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .vg-chips span { display: inline-flex; align-items: center; gap: 6px; padding: 5px 6px 5px 12px; border-radius: 99px; background: #fff; border: 1px solid rgba(46, 58, 50, .15); font-size: 14px; }
+  .vg-chips button { all: unset; cursor: pointer; width: 20px; height: 20px; line-height: 20px; text-align: center; border-radius: 50%; color: var(--ink-soft); }
+  .vg-hit { margin: 10px 0 0; font-size: 14px; color: var(--ink); }
+  .vg-hit a { color: inherit; }
   .vg-reset { all: unset; cursor: pointer; font-size: 13px; color: var(--ink-soft); text-decoration: underline; }
 </style>
 </head>
@@ -119,6 +130,14 @@
   <nav class="vg-sq" id="tabs" aria-label="Rubriken"></nav>
 
   <div id="ansicht">
+    <div id="fav" class="vg-fav" hidden>
+      <b>Meine Lieblingsfilme</b>
+      <form id="fav-form"><input id="fav-in" type="text" placeholder="Filmtitel eintippen" maxlength="80" autocomplete="off" aria-label="Lieblingsfilm"><button type="submit">Hinzufügen</button></form>
+      <div class="vg-chips" id="fav-chips"></div>
+      <p class="vg-hit" id="fav-hit" hidden></p>
+      <p class="vg-hint" id="fav-hint">Nur auf diesem Gerät gespeichert. Läuft einer davon im Kino, im TV oder im Stream, steht es auf der Startseite.</p>
+      <button type="button" class="vg-reset" id="fav-copy" hidden>Lieblingsfilme kopieren</button>
+    </div>
     <div id="profil" class="vg-hint" hidden></div>
     <div id="vg-map" hidden></div>
     <div class="vg-wrap" id="tipps"></div>
@@ -266,6 +285,7 @@
       var l = el('div', 'vg-list'); liste.forEach(function (x) { l.appendChild(zeile(x)); }); g.appendChild(l); box.appendChild(g);
     });
     profilZeigen();
+    favZeigen();
     var leer = $('leer');
     leer.hidden = !!sichtbar.length;
     leer.textContent = mein.length ? 'Zu deinen Interessen gibt es gerade keinen Tipp. Nimm eine Kachel heraus, dann siehst du alles.' : 'Hier ist noch nichts gesammelt. Die Tipps kommen mit dem nächsten automatischen Abruf.';
@@ -274,6 +294,39 @@
     $('nein-reset').onclick = function () { nein.forEach(function (x) { delete status[x.id]; }); ss('vg-status', JSON.stringify(status)); zeichnen(); };
     zeigeKarte(sicht.filter(function (x) { return status[x.id] !== 'nein'; }));
   }
+
+
+  // Lieblingsfilme (nur lokal) – Kino, TV, Stream
+  function favZeigen() {
+    var box = $('fav'); if (!window.Filmfans || ['kino', 'tv', 'stream'].indexOf(r) === -1) { if (box) box.hidden = true; return; }
+    box.hidden = false;
+    var favs = Filmfans.lesen(), ch = $('fav-chips'); ch.innerHTML = '';
+    favs.forEach(function (f, i) {
+      var sp = el('span', '', f), b = el('button', '', '×'); b.type = 'button'; b.setAttribute('aria-label', f + ' entfernen');
+      b.onclick = function () { var a = Filmfans.lesen(); a.splice(i, 1); Filmfans.schreiben(a); favZeigen(); };
+      sp.appendChild(b); ch.appendChild(sp);
+    });
+    var hit = $('fav-hit'), t = Filmfans.treffer(items, favs);
+    hit.hidden = !t.length; hit.innerHTML = '';
+    if (t.length) {
+      hit.appendChild(el('b', '', 'Läuft gerade: '));
+      t.forEach(function (x, k) { if (k) hit.appendChild(document.createTextNode(' · ')); hit.appendChild(document.createTextNode('„' + x.eintrag.titel + '“ (' + Filmfans.wo(x.eintrag) + ')')); });
+    }
+    var cp = $('fav-copy'); cp.hidden = !favs.length;
+    cp.onclick = function () {
+      var txt = 'Meine Lieblingsfilme: ' + favs.join('; ') + '.', ok = function () { cp.textContent = 'Kopiert. Füge es in den Chat ein.'; };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok, function () { cp.textContent = txt; }); else cp.textContent = txt;
+    };
+  }
+  (function () {
+    var f = $('fav-form'); if (!f) return;
+    f.addEventListener('submit', function (e) {
+      e.preventDefault(); var i = $('fav-in'), v = i.value.trim().replace(/\s+/g, ' ');
+      if (!v || !window.Filmfans) return;
+      var a = Filmfans.lesen(); if (!a.some(function (x) { return Filmfans.norm(x) === Filmfans.norm(v); })) { a.push(v); Filmfans.schreiben(a); }
+      i.value = ''; favZeigen();
+    });
+  })();
 
   // Profil aus Daumen hoch/runter (nur Stream & TV): zählt Art, Genre und Dienst
   function profilZeigen() {
@@ -354,6 +407,7 @@
   }
 })();
 </script>
+<script src="filmfans.js?v=1"></script>
 <script src="nav.js?v=20" defer></script>
 </body>
 </html>

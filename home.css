@@ -177,3 +177,13 @@ html:has(body.home) { overflow-x: hidden; }
 .wh-bar .sb-note.spielt .st { display: inline; }
 @media (min-width: 700px) { .wh-bar { margin: 0; padding-left: 28px; padding-right: 28px; } }
 .wh-bar .wh-thumb { flex: none; width: 58px; height: 58px; border-radius: 50%; object-fit: cover; border: 2px solid #F6C253; }
+
+.fav-bar { display: none; margin: 0 -18px; color: #fff; background: linear-gradient(105deg, #7A2E3A 0%, #5E2230 55%, #471824 100%); }
+.fav-bar.on { display: block; }
+.fav-bar .fav-row { display: flex; flex-direction: column; gap: 2px; padding: 16px 20px; color: inherit; text-decoration: none; line-height: 1.25; }
+.fav-bar .fav-row + .fav-row { border-top: 1px solid rgba(255, 255, 255, .18); }
+.fav-bar small { font: 600 11px 'Work Sans', sans-serif; letter-spacing: .1em; text-transform: uppercase; opacity: .85; }
+.fav-bar .hit small { color: #F6C253; opacity: 1; }
+.fav-bar b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fav-bar span { font-size: 14px; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (min-width: 700px) { .fav-bar { margin: 0; } .fav-bar .fav-row { padding: 16px 28px; } }
