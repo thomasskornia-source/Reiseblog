@@ -446,7 +446,7 @@
       Object.keys(st).forEach(function (id) { if (byId[id] && byId[id].rubrik === 'stream') add(byId[id].tags, st[id] === 'ja' ? 1 : st[id] === 'nein' ? -1 : 0); });
       var treffer = Filmfans.treffer(items, favs);
       treffer.forEach(function (t) { add(t.eintrag.tags, 2); });
-      (prof.lieblingsfilme || []).forEach(function (f) { add(f.genres, 2); [f.titel].concat(f.auch || []).forEach(function (t) { if (t && favs.indexOf(t) === -1) favs.push(t); }); });
+      var weg = Filmfans.aus(); (prof.lieblingsfilme || []).forEach(function (f) { if (weg.indexOf(f.titel) !== -1) return; add(f.genres, 2); [f.titel].concat(f.auch || []).forEach(function (t) { if (t && favs.indexOf(t) === -1) favs.push(t); }); });
       treffer = Filmfans.treffer(items, favs);
       box.innerHTML = '';
       function zeile(kick, titel, by, href, cls) {

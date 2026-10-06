@@ -2,7 +2,7 @@
  "stand": "2026-10-06",
  "gefaellt": [],
  "nicht_fuer_mich": [],
- "hinweis": "Wird von Claude aus den von Thomas gesendeten Daumen-Bewertungen (Seite Stream & TV, Knopf Bewertungen kopieren) und Lieblingsfilmen (Kino/TV/Stream-Seite, Knopf Lieblingsfilme kopieren) gepflegt. lieblingsfilme: Liste {titel, genres} mit Genres nur aus Krimi, Komödie, Drama, Thriller, Doku, Historie, Sci-Fi, Familie, Fantasy, Horror, Action, Abenteuer; die Startseite nutzt sie für den Filmtipp. Optional je Film: auch = weitere Titel/Schreibweisen, die als Treffer zählen.",
+ "hinweis": "Wird von Claude aus den von Thomas gesendeten Daumen-Bewertungen (Seite Stream & TV, Knopf Bewertungen kopieren) und Lieblingsfilmen (Kino/TV/Stream-Seite, Knopf Lieblingsfilme kopieren) gepflegt. lieblingsfilme: Liste {titel, genres} mit Genres nur aus Krimi, Komödie, Drama, Thriller, Doku, Historie, Sci-Fi, Familie, Fantasy, Horror, Action, Abenteuer; die Startseite nutzt sie für den Filmtipp. Optional je Film: auch = weitere Titel/Schreibweisen, die als Treffer zählen. Je Film: jahr, regie, kurz (eigene Worte), rt/metacritic (Stand 06.10.2026, aus Wikipedia), quelle.",
  "lieblingsfilme": [
   {
    "titel": "Sin City",
@@ -10,7 +10,13 @@
     "Krimi",
     "Thriller",
     "Action"
-   ]
+   ],
+   "jahr": 2005,
+   "regie": "Robert Rodriguez, Frank Miller",
+   "kurz": "Comic-Verfilmung in hartem Schwarz-Weiß mit einzelnen Farbtupfern: mehrere Noir-Geschichten aus der Verbrecherstadt Basin City, nach Frank Millers Comics.",
+   "rt": "76 % Rotten Tomatoes",
+   "metacritic": "74/100 Metacritic",
+   "quelle": "https://en.wikipedia.org/wiki/Sin_City_(film)"
   },
   {
    "titel": "Schindlers Liste",
@@ -21,7 +27,13 @@
    "auch": [
     "Schindler's Liste",
     "Schindler's List"
-   ]
+   ],
+   "jahr": 1993,
+   "regie": "Steven Spielberg",
+   "kurz": "Spielberg erzählt in Schwarz-Weiß von Oskar Schindler, der im Zweiten Weltkrieg mehr als tausend jüdische Zwangsarbeiter vor der Ermordung rettete. Oscar als bester Film.",
+   "rt": "98 % Rotten Tomatoes",
+   "metacritic": "95/100 Metacritic",
+   "quelle": "https://en.wikipedia.org/wiki/Schindler%27s_List"
   },
   {
    "titel": "Tarantino-Filme",
@@ -41,7 +53,10 @@
     "The Hateful Eight",
     "Death Proof",
     "Todesprinzessin"
-   ]
+   ],
+   "regie": "Quentin Tarantino",
+   "kurz": "Regisseur mit eigener Handschrift: lange Dialoge, überspitzte Gewalt, markante Musik. Zu seinen Filmen zählen Pulp Fiction (92 %), Reservoir Dogs (90 %), Jackie Brown (88 %), Kill Bill (85 %), Inglourious Basterds (89 %), Django Unchained (87 %), The Hateful Eight (74 %), Once Upon a Time in Hollywood (86 %) und Death Proof (67 %), jeweils Kritiker-Prozente auf Rotten Tomatoes.",
+   "quelle": "https://en.wikipedia.org/wiki/Quentin_Tarantino_filmography"
   },
   {
    "titel": "Jojo Rabbit",
@@ -49,14 +64,26 @@
     "Komödie",
     "Drama",
     "Historie"
-   ]
+   ],
+   "jahr": 2019,
+   "regie": "Taika Waititi",
+   "kurz": "Satire im Zweiten Weltkrieg: Ein zehnjähriger Junge mit Hitler als eingebildetem Freund entdeckt, dass seine Mutter ein jüdisches Mädchen versteckt.",
+   "rt": "80 % Rotten Tomatoes",
+   "metacritic": "58/100 Metacritic",
+   "quelle": "https://en.wikipedia.org/wiki/Jojo_Rabbit"
   },
   {
    "titel": "Smoke",
    "genres": [
     "Drama",
     "Komödie"
-   ]
+   ],
+   "jahr": 1995,
+   "regie": "Wayne Wang",
+   "kurz": "Leise Großstadtgeschichten rund um einen Tabakladen in Brooklyn, nach einem Drehbuch von Paul Auster.",
+   "rt": "89 % Rotten Tomatoes",
+   "metacritic": "70/100 Metacritic",
+   "quelle": "https://en.wikipedia.org/wiki/Smoke_(film)"
   },
   {
    "titel": "Einer flog über das Kuckucksnest",
@@ -66,7 +93,13 @@
    "auch": [
     "One Flew Over the Cuckoo's Nest",
     "Einer flog übers Kuckucksnest"
-   ]
+   ],
+   "jahr": 1975,
+   "regie": "Miloš Forman",
+   "kurz": "Ein Rebell lässt sich in eine Nervenheilanstalt einweisen und legt sich mit der strengen Oberschwester an. Gewann die fünf großen Oscars.",
+   "rt": "93 % Rotten Tomatoes",
+   "metacritic": "84/100 Metacritic",
+   "quelle": "https://en.wikipedia.org/wiki/One_Flew_Over_the_Cuckoo%27s_Nest_(film)"
   },
   {
    "titel": "The Full Monty",
@@ -76,7 +109,13 @@
    ],
    "auch": [
     "Ganz oder gar nicht"
-   ]
+   ],
+   "jahr": 1997,
+   "regie": "Peter Cattaneo",
+   "kurz": "Arbeitslose Stahlarbeiter aus Sheffield gründen aus Geldnot eine Stripgruppe. Komödie mit viel Herz.",
+   "rt": "96 % Rotten Tomatoes",
+   "metacritic": "75/100 Metacritic",
+   "quelle": "https://en.wikipedia.org/wiki/The_Full_Monty"
   },
   {
    "titel": "Das Leben ist schön",
@@ -88,7 +127,13 @@
    "auch": [
     "La vita è bella",
     "Life Is Beautiful"
-   ]
+   ],
+   "jahr": 1997,
+   "regie": "Roberto Benigni",
+   "kurz": "Ein jüdisch-italienischer Vater schützt seinen kleinen Sohn im Lager mit der Erfindung, alles sei ein großes Spiel.",
+   "rt": "81 % Rotten Tomatoes",
+   "metacritic": "58/100 Metacritic",
+   "quelle": "https://en.wikipedia.org/wiki/Life_Is_Beautiful"
   },
   {
    "titel": "Life of Pi",
@@ -99,14 +144,26 @@
    ],
    "auch": [
     "Schiffbruch mit Tiger"
-   ]
+   ],
+   "jahr": 2012,
+   "regie": "Ang Lee",
+   "kurz": "Ein Junge überlebt nach einem Schiffbruch Wochen im Rettungsboot, zusammen mit einem bengalischen Tiger. Nach dem Roman von Yann Martel.",
+   "rt": "86 % Rotten Tomatoes",
+   "metacritic": "79/100 Metacritic",
+   "quelle": "https://en.wikipedia.org/wiki/Life_of_Pi_(film)"
   },
   {
    "titel": "Full Metal Jacket",
    "genres": [
     "Drama",
     "Historie"
-   ]
+   ],
+   "jahr": 1987,
+   "regie": "Stanley Kubrick",
+   "kurz": "Zwei Teile: erst der gnadenlose Drill im Ausbildungslager der US-Marines, dann der Einsatz im Vietnamkrieg.",
+   "rt": "90 % Rotten Tomatoes",
+   "metacritic": "78/100 Metacritic",
+   "quelle": "https://en.wikipedia.org/wiki/Full_Metal_Jacket"
   },
   {
    "titel": "Uhrwerk Orange",
@@ -118,7 +175,13 @@
    "auch": [
     "A Clockwork Orange",
     "Clockwork Orange"
-   ]
+   ],
+   "jahr": 1971,
+   "regie": "Stanley Kubrick",
+   "kurz": "Dystopie nach Anthony Burgess: Ein gewalttätiger Jugendlicher wird per Therapie „umerzogen“. Stilprägend und bis heute umstritten.",
+   "rt": "86 % Rotten Tomatoes",
+   "metacritic": "77/100 Metacritic",
+   "quelle": "https://en.wikipedia.org/wiki/A_Clockwork_Orange_(film)"
   },
   {
    "titel": "Der Herr der Ringe",
@@ -133,7 +196,13 @@
     "Die Gefährten",
     "Die zwei Türme",
     "Die Rückkehr des Königs"
-   ]
+   ],
+   "jahr": 2001,
+   "regie": "Peter Jackson",
+   "kurz": "Verfilmung von Tolkiens Roman. Im ersten Teil, „Die Gefährten“, bricht Frodo mit einer kleinen Gemeinschaft auf, den Einen Ring zu vernichten.",
+   "rt": "91 % Rotten Tomatoes",
+   "metacritic": "92/100 Metacritic",
+   "quelle": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Fellowship_of_the_Ring"
   }
  ]
 }

@@ -23,5 +23,8 @@ window.Filmfans = (function () {
   }
   function wo(x) { var r = x.rubrik === 'kino' ? 'Kino' : x.rubrik === 'tv' ? 'TV' : 'Stream'; return r + (x.ort ? ' · ' + x.ort : '') + (x.rubrik !== 'stream' && x.datum ? ', ' + (x.datum === heute() ? 'heute' : x.datum) + (x.zeit ? ' ' + x.zeit : '') : ''); }
   function seite(x) { return 'vergnuegen.html?r=' + x.rubrik; }
-  return { lesen: lesen, schreiben: schreiben, norm: norm, treffer: treffer, wo: wo, seite: seite, heute: heute, aktuell: aktuell, passt: passt };
+  var AUS = 'lieblingsfilme-aus';
+  function aus() { try { var a = JSON.parse(localStorage.getItem(AUS) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } }
+  function ausSetzen(a) { try { localStorage.setItem(AUS, JSON.stringify(a)); } catch (e) {} }
+  return { aus: aus, ausSetzen: ausSetzen, lesen: lesen, schreiben: schreiben, norm: norm, treffer: treffer, wo: wo, seite: seite, heute: heute, aktuell: aktuell, passt: passt };
 })();

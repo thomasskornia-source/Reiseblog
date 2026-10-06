@@ -103,6 +103,20 @@
   .vg-fav form { display: flex; gap: 8px; flex-wrap: nowrap; }
   .vg-fav input { flex: 1; min-width: 0; font: inherit; font-size: 16px; padding: 10px 12px; border: 1px solid rgba(46, 58, 50, .25); border-radius: 10px; background: #fff; }
   .vg-fav form button { flex: none; white-space: nowrap; font: inherit; font-size: 15px; padding: 10px 16px; border: 0; border-radius: 10px; background: var(--ink); color: var(--paper); cursor: pointer; }
+  .vg-favs { list-style: none; margin: 10px 0 0; padding: 0; border-top: 1px solid rgba(46, 58, 50, .12); }
+  .vg-favs li { border-bottom: 1px solid rgba(46, 58, 50, .12); }
+  .vg-favs .fh { display: flex; align-items: center; gap: 8px; }
+  .vg-favs .ft { all: unset; flex: 1; min-width: 0; cursor: pointer; padding: 11px 2px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vg-favs .ft::after { content: ' ▾'; color: var(--ink-soft); font-size: 12px; }
+  .vg-favs li.offen .ft::after { content: ' ▴'; }
+  .vg-favs .fx { all: unset; cursor: pointer; flex: none; width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%; color: var(--ink-soft); font-size: 20px; }
+  .vg-favs .fx:hover { background: rgba(46, 58, 50, .1); }
+  .vg-favs .fd { padding: 0 2px 12px; font-size: 14px; line-height: 1.5; }
+  .vg-favs .fd p { margin: 0 0 6px; }
+  .vg-favs .fd .fm { color: var(--ink-soft); }
+  .vg-favs .fd .fb { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+  .vg-favs .fd .fb span { padding: 3px 10px; border-radius: 99px; background: #F6E3A8; font-size: 13px; }
+  .vg-favs .fd a { color: var(--rust); margin-right: 14px; }
   .vg-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
   .vg-chips span { display: inline-flex; align-items: center; gap: 6px; padding: 5px 6px 5px 12px; border-radius: 99px; background: #fff; border: 1px solid rgba(46, 58, 50, .15); font-size: 14px; }
   .vg-chips span.fest { padding: 5px 12px; background: #F6E3A8; border-color: transparent; }
@@ -131,20 +145,20 @@
   <nav class="vg-sq" id="tabs" aria-label="Rubriken"></nav>
 
   <div id="ansicht">
-    <div id="fav" class="vg-fav" hidden>
-      <b>Meine Lieblingsfilme</b>
-      <form id="fav-form"><input id="fav-in" type="text" placeholder="Filmtitel eintippen" maxlength="80" autocomplete="off" aria-label="Lieblingsfilm"><button type="submit">Hinzufügen</button></form>
-      <div class="vg-chips" id="fav-chips"></div>
-      <p class="vg-hit" id="fav-hit" hidden></p>
-      <p class="vg-hint" id="fav-hint">Gelb hinterlegt: von Claude für dich eingetragen. Selbst eingetippte (mit ×) bleiben nur auf diesem Gerät. Läuft einer davon im Kino, im TV oder im Stream, steht es auf der Startseite.</p>
-      <button type="button" class="vg-reset" id="fav-copy" hidden>Lieblingsfilme kopieren</button>
-    </div>
     <div id="profil" class="vg-hint" hidden></div>
     <div id="vg-map" hidden></div>
     <div class="vg-wrap" id="tipps"></div>
     <p class="vg-leer" id="leer" hidden></p>
     <p class="vg-hint" id="nein-box" hidden><button type="button" class="vg-reset" id="nein-reset"></button></p>
     <div class="vg-fl"><div class="vg-flh">Filter</div><div class="vg-int" id="int" role="group" aria-label="Meine Interessen"></div><p class="vg-hint" id="int-hint"></p></div>
+    <div id="fav" class="vg-fav" hidden>
+      <b>Meine Lieblingsfilme</b>
+      <form id="fav-form"><input id="fav-in" type="text" placeholder="Filmtitel eintippen" maxlength="80" autocomplete="off" aria-label="Lieblingsfilm"><button type="submit">Hinzufügen</button></form>
+      <p class="vg-hit" id="fav-hit" hidden></p>
+      <ul class="vg-favs" id="fav-chips"></ul>
+      <p class="vg-hint" id="fav-hint">Tippe auf einen Film für Beschreibung, Bewertung und Trailer. Mit × nimmst du ihn aus der Liste. Läuft einer davon im Kino, im TV oder im Stream, steht es auf der Startseite. Die Liste gilt nur auf diesem Gerät.</p>
+      <button type="button" class="vg-reset" id="fav-copy" hidden>Lieblingsfilme kopieren</button>
+    </div>
   </div>
 
   <div id="quellen" hidden>
@@ -303,23 +317,44 @@
   function favZeigen() {
     var box = $('fav'); if (!window.Filmfans || ['kino', 'tv', 'stream'].indexOf(r) === -1) { if (box) box.hidden = true; return; }
     box.hidden = false;
-    var favs = Filmfans.lesen(), ch = $('fav-chips'); ch.innerHTML = '';
-    favs.forEach(function (f, i) {
-      var sp = el('span', '', f), b = el('button', '', '×'); b.type = 'button'; b.setAttribute('aria-label', f + ' entfernen');
-      b.onclick = function () { var a = Filmfans.lesen(); a.splice(i, 1); Filmfans.schreiben(a); favZeigen(); };
-      sp.appendChild(b); ch.appendChild(sp);
-    });
-    (profFilme || []).forEach(function (f) { var sp = el('span', 'fest', f.titel); sp.title = 'Von Claude in dein Profil eingetragen'; ch.appendChild(sp); });
-    var pf = []; (profFilme || []).forEach(function (f) { [f.titel].concat(f.auch || []).forEach(function (x) { if (x) pf.push(x); }); });
-    var hit = $('fav-hit'), t = Filmfans.treffer(items, favs.concat(pf));
-    hit.hidden = !t.length; hit.innerHTML = '';
-    if (t.length) {
-      hit.appendChild(el('b', '', 'Läuft gerade: '));
-      t.forEach(function (x, k) { if (k) hit.appendChild(document.createTextNode(' · ')); hit.appendChild(document.createTextNode('„' + x.eintrag.titel + '“ (' + Filmfans.wo(x.eintrag) + ')')); });
+    var lokal = Filmfans.lesen(), weg = Filmfans.aus(), ul = $('fav-chips'), offen = {};
+    [].forEach.call(ul.querySelectorAll('li.offen'), function (li) { offen[li.getAttribute('data-t')] = 1; });
+    ul.innerHTML = '';
+    var prof = (profFilme || []).filter(function (f) { return weg.indexOf(f.titel) === -1; });
+    var liste = prof.map(function (f) { return { t: f.titel, f: f, lok: false }; }).concat(lokal.map(function (t) { return { t: t, f: null, lok: true }; }));
+    function zeile(x) {
+      var li = el('li', offen[x.t] ? 'offen' : ''); li.setAttribute('data-t', x.t);
+      var h = el('div', 'fh'), t = el('button', 'ft', x.t), rm = el('button', 'fx', '×'); t.type = 'button'; rm.type = 'button'; rm.setAttribute('aria-label', x.t + ' entfernen');
+      var d = el('div', 'fd'); d.hidden = !offen[x.t];
+      var f = x.f;
+      if (f) {
+        var m = [f.jahr, f.regie].filter(Boolean).join(' · '); if (m) d.appendChild(el('p', 'fm', m));
+        if (f.kurz) d.appendChild(el('p', '', f.kurz));
+        var bw = [f.rt, f.metacritic].filter(Boolean);
+        if (bw.length) { var fb = el('div', 'fb'); bw.forEach(function (z) { fb.appendChild(el('span', '', z)); }); d.appendChild(fb); if (f.quelle) { var q = el('p', 'fm', 'Kritiker-Werte, Stand 06.10.2026, nach '); var qa = el('a', '', 'Wikipedia'); qa.href = f.quelle; qa.target = '_blank'; qa.rel = 'noopener'; q.appendChild(qa); d.appendChild(q); } }
+      } else d.appendChild(el('p', 'fm', 'Noch keine Beschreibung. Schick mir die Liste (Knopf „Lieblingsfilme kopieren“), dann trage ich sie ein.'));
+      var lk = el('p', ''), a1 = el('a', '', '▶ Trailer ansehen'); a1.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(x.t + ' Trailer deutsch'); a1.target = '_blank'; a1.rel = 'noopener';
+      var a2 = el('a', '', 'Mehr dazu'); a2.href = 'https://de.wikipedia.org/w/index.php?search=' + encodeURIComponent(x.t); a2.target = '_blank'; a2.rel = 'noopener';
+      lk.appendChild(a1); lk.appendChild(a2); d.appendChild(lk);
+      t.onclick = function () { var o = li.classList.toggle('offen'); d.hidden = !o; };
+      rm.onclick = function () {
+        if (x.lok) { var a = Filmfans.lesen(); a.splice(a.indexOf(x.t), 1); Filmfans.schreiben(a); }
+        else { var w = Filmfans.aus(); w.push(x.t); Filmfans.ausSetzen(w); }
+        favZeigen();
+      };
+      h.appendChild(t); h.appendChild(rm); li.appendChild(h); li.appendChild(d); ul.appendChild(li);
     }
-    var cp = $('fav-copy'); cp.hidden = !favs.length;
+    liste.forEach(zeile);
+    var pf = []; prof.forEach(function (f) { [f.titel].concat(f.auch || []).forEach(function (x) { if (x) pf.push(x); }); });
+    var hit = $('fav-hit'), tr = Filmfans.treffer(items, lokal.concat(pf));
+    hit.hidden = !tr.length; hit.innerHTML = '';
+    if (tr.length) {
+      hit.appendChild(el('b', '', 'Läuft gerade: '));
+      tr.forEach(function (x, k) { if (k) hit.appendChild(document.createTextNode(' · ')); hit.appendChild(document.createTextNode('„' + x.eintrag.titel + '“ (' + Filmfans.wo(x.eintrag) + ')')); });
+    }
+    var cp = $('fav-copy'); cp.hidden = !lokal.length;
     cp.onclick = function () {
-      var txt = 'Meine Lieblingsfilme: ' + favs.join('; ') + '.', ok = function () { cp.textContent = 'Kopiert. Füge es in den Chat ein.'; };
+      var txt = 'Meine Lieblingsfilme (neu): ' + lokal.join('; ') + '.', ok = function () { cp.textContent = 'Kopiert. Füge es in den Chat ein.'; };
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok, function () { cp.textContent = txt; }); else cp.textContent = txt;
     };
   }
