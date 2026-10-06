@@ -1777,5 +1777,110 @@
   "url": "https://www.ardmediathek.de/",
   "stand": "2026-10-06",
   "thema": "ARD Mediathek"
+ },
+ {
+  "id": "tv-br-dahoam-is-dahoam-20261006",
+  "rubrik": "tv",
+  "titel": "Dahoam is Dahoam",
+  "ort": "BR",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Bayerische Vorabendserie. Programm kann sich ändern.",
+  "tags": [
+   "Serie",
+   "Drama"
+  ],
+  "quelle": "TV Movie",
+  "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
+  "stand": "2026-10-06",
+  "thema": "BR"
+ },
+ {
+  "id": "tv-das-erste-die-kanzlei-20261006",
+  "rubrik": "tv",
+  "titel": "Die Kanzlei",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Juristische Serie um eine Anwältin. Programm kann sich ändern.",
+  "tags": [
+   "Serie",
+   "Drama"
+  ],
+  "quelle": "TV Movie",
+  "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
+  "stand": "2026-10-06",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-zdf-terra-x-history-20261006",
+  "rubrik": "tv",
+  "titel": "Terra X History",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Geschichtsdoku im Primetime-Slot. Programm kann sich ändern.",
+  "tags": [
+   "Doku",
+   "Historie"
+  ],
+  "quelle": "TV Movie",
+  "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
+  "stand": "2026-10-06",
+  "thema": "ZDF"
+ },
+ {
+  "id": "tv-arte-usa-1960-1980-die-konservative-revolution-20261006",
+  "rubrik": "tv",
+  "titel": "USA 1960–1980: Die konservative Revolution",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Zweiteilige Doku-Reihe über den Aufstieg der amerikanischen Rechten. Programm kann sich ändern.",
+  "tags": [
+   "Doku",
+   "Historie"
+  ],
+  "quelle": "TV Movie",
+  "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
+  "stand": "2026-10-06",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-3sat-mordnacht-20261006",
+  "rubrik": "tv",
+  "titel": "Mordnacht",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kriminalfilm, danach das Kinomagazin kinokino. Programm kann sich ändern.",
+  "tags": [
+   "Film",
+   "Krimi"
+  ],
+  "quelle": "TV Movie",
+  "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
+  "stand": "2026-10-06",
+  "thema": "3sat"
  }
 ]

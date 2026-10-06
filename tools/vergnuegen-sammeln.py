@@ -21,6 +21,7 @@ TAGS = {
     "ausflug": ["Berge", "See", "Wandern", "Bahn", "Mit Hund", "Pferde", "Schlösser"],
     "kino": ["Kino", "Open Air", "Komödie", "Krimi", "Doku", "Mediathek", "Stream"],
     "stream": ["Film", "Serie", "Krimi", "Komödie", "Drama", "Thriller", "Doku", "Historie", "Sci-Fi", "Familie", "Fantasy", "Horror", "Action", "Abenteuer"],
+    "tv": ["Film", "Doku", "Serie", "Krimi", "Komödie", "Drama", "Thriller", "Historie", "Natur", "Reise", "Sonstiges"],
 }
 THEMEN = {
     "events": ["Konzert & Musik", "Kabarett & Theater", "Ausstellung & Museum", "Führung & Vortrag", "Feste & Märkte", "Familie & Kinder", "Draußen & Sport", "Sonstiges"],
@@ -29,6 +30,7 @@ THEMEN = {
     "ausflug": ["Berge & Wandern", "Seen & Baden", "Schlösser & Kultur", "Mit Bahn & Bus", "Pferde & Tiere", "Sonstiges"],
     "kino": ["Kino Breitwand Gauting", "Lichtspielhaus Fürstenfeldbruck", "Astor Film Lounge im ARRI", "Sonstiges"],
     "stream": ["Netflix", "Amazon Prime", "Apple TV", "ARD Mediathek", "ZDF Mediathek", "3sat Mediathek", "ARTE Mediathek", "Sonstiges"],
+    "tv": ["Das Erste", "ZDF", "BR", "WDR", "NDR", "ARTE", "3sat", "Sonstiges"],
 }
 HEUTE = dt.date.today()
 MAX_ZEICHEN, MAX_PRO_QUELLE, MAX_PRO_RUBRIK = 24000, 10, 80

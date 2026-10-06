@@ -125,7 +125,8 @@
     unterwegs: { name: 'In München', emoji: '🚲', c: ['#2F7E86', '#8FC5B8'], int: ['Sehenswert', 'Viertel', 'Grün', 'Museen', 'Shopping', 'Mode', 'Mit Hund'] },
     ausflug: { name: 'Ausflug', emoji: '⛰️', c: ['#4A6B2E', '#A9C46A'], int: ['Berge', 'See', 'Wandern', 'Bahn', 'Mit Hund', 'Pferde', 'Schlösser'] },
     kino: { name: 'Kino', emoji: '🎬', c: ['#2E3A6B', '#7C8AD1'], int: ['Kino', 'Open Air', 'Komödie', 'Krimi', 'Doku'] },
-    stream: { name: 'Stream & TV', emoji: '📺', c: ['#5B2E6B', '#C58AD1'], int: ['Film', 'Serie', 'Krimi', 'Komödie', 'Drama', 'Thriller', 'Doku', 'Historie', 'Sci-Fi', 'Familie', 'Fantasy', 'Horror', 'Action', 'Abenteuer'] }
+    tv: { name: 'TV heute', emoji: '📡', c: ['#7A3B2E', '#E0A27A'], int: ['Film', 'Doku', 'Serie', 'Krimi', 'Komödie', 'Drama', 'Thriller', 'Historie', 'Natur', 'Reise'] },
+    stream: { name: 'Streaming', emoji: '📺', c: ['#5B2E6B', '#C58AD1'], int: ['Film', 'Serie', 'Krimi', 'Komödie', 'Drama', 'Thriller', 'Doku', 'Historie', 'Sci-Fi', 'Familie', 'Fantasy', 'Horror', 'Action', 'Abenteuer'] }
   };
   var THEMEN = {
     events: ['Konzert & Musik', 'Kabarett & Theater', 'Ausstellung & Museum', 'Führung & Vortrag', 'Feste & Märkte', 'Familie & Kinder', 'Draußen & Sport', 'Sonstiges'],
@@ -133,9 +134,10 @@
     unterwegs: ['Sehenswürdigkeit', 'Viertel & Spaziergang', 'Park & Natur', 'Museum', 'Shopping & Mode', 'Sonstiges'],
     ausflug: ['Berge & Wandern', 'Seen & Baden', 'Schlösser & Kultur', 'Mit Bahn & Bus', 'Pferde & Tiere', 'Sonstiges'],
     kino: ['Kino Breitwand Gauting', 'Lichtspielhaus Fürstenfeldbruck', 'Astor Film Lounge im ARRI', 'Sonstiges'],
+    tv: ['Das Erste', 'ZDF', 'BR', 'WDR', 'NDR', 'ARTE', '3sat', 'Sonstiges'],
     stream: ['Netflix', 'Amazon Prime', 'Apple TV', 'ARD Mediathek', 'ZDF Mediathek', '3sat Mediathek', 'ARTE Mediathek', 'Sonstiges']
   };
-  var ORDER = ['events', 'food', 'unterwegs', 'ausflug', 'kino', 'stream'];
+  var ORDER = ['events', 'food', 'unterwegs', 'ausflug', 'kino', 'tv', 'stream'];
   var $ = function (id) { return document.getElementById(id); };
   function sg(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function ss(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
@@ -175,7 +177,7 @@
     var sm = el('summary');
     var wann = x.datum ? datum(x.datum) + (x.datum_bis && x.datum_bis !== x.datum ? '–' + datum(x.datum_bis) : '') : '';
     var art = x.rubrik === 'stream' ? ((x.tags || []).indexOf('Serie') >= 0 ? 'Serie' : 'Film') : '';
-    sm.appendChild(el('span', 'rw', art || wann || '·'));
+    sm.appendChild(el('span', 'rw', x.rubrik === 'tv' ? (x.zeit || '·') : (art || wann || '·')));
     var t = el('span', 'rt', x.titel); if (x.ort) t.appendChild(el('small', '', x.ort)); sm.appendChild(t);
     sm.appendChild(el('span', 'rs' + (st ? '' : ' neu'), st ? '✓' : '●'));
     d.appendChild(sm);
@@ -188,7 +190,7 @@
     var sp = el('span', 'vg-src'); sp.appendChild(document.createTextNode('Quelle: '));
     var a = el('a', '', x.quelle || 'Quelle'); a.href = x.url; a.target = '_blank'; a.rel = 'noopener'; sp.appendChild(a);
     if (x.stand) sp.appendChild(document.createTextNode(' · Stand ' + datum(x.stand))); b.appendChild(sp);
-    if (x.rubrik === 'kino' || x.rubrik === 'stream') { var tp = el('p', 'vg-src'), tl = el('a', '', 'Trailer ansehen (YouTube)'); tl.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(x.titel + ' Trailer deutsch'); tl.target = '_blank'; tl.rel = 'noopener'; tp.appendChild(tl); b.appendChild(tp); }
+    if (x.rubrik === 'kino' || x.rubrik === 'stream' || x.rubrik === 'tv') { var tp = el('p', 'vg-src'), tl = el('a', '', 'Trailer ansehen (YouTube)'); tl.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(x.titel + ' Trailer deutsch'); tl.target = '_blank'; tl.rel = 'noopener'; tp.appendChild(tl); b.appendChild(tp); }
     if (x.kinoseite) { var ks = el('p', 'vg-src'), kl = el('a', '', 'Zur Seite des Kinos (Programm)'); kl.href = x.kinoseite; kl.target = '_blank'; kl.rel = 'noopener'; ks.appendChild(kl); b.appendChild(ks); }
     var act = el('div', 'vg-act');
     if (st !== 'ja') { var ja = el('button', 'ja', x.rubrik === 'stream' ? '👍 Gefällt mir' : 'Gefällt mir'); ja.type = 'button'; ja.onclick = function () { setze(x.id, 'ja'); }; act.appendChild(ja); }

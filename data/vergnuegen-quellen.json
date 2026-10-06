@@ -535,5 +535,95 @@
     "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
     "abruf": false,
     "status": "behalten"
+  },
+  {
+    "id": "tv-tvmovie",
+    "rubrik": "tv",
+    "name": "TV Movie: Fernsehprogramm heute Abend",
+    "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
+    "info": "20:15-Programm von ARD, ZDF, ARTE, 3sat (lesbar); BR/WDR/NDR fehlen",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "tv-prisma-br",
+    "rubrik": "tv",
+    "name": "prisma: BR Programm",
+    "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/BR,570537",
+    "info": "Tagesprogramm BR nach Uhrzeit (lesbar)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "tv-prisma",
+    "rubrik": "tv",
+    "name": "prisma: TV-Programm",
+    "url": "https://www.prisma.de/tv-programm/",
+    "info": "Übersicht, lesbar, teils nur Auswahl",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "tv-ard",
+    "rubrik": "tv",
+    "name": "ARD Fernsehen",
+    "url": "https://www.ardmediathek.de/",
+    "info": "Sender-Startseite (Link)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "tv-zdf",
+    "rubrik": "tv",
+    "name": "ZDF Fernsehen",
+    "url": "https://www.zdf.de/",
+    "info": "Sender-Startseite (Link)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "tv-br",
+    "rubrik": "tv",
+    "name": "BR Fernsehen",
+    "url": "https://www.br.de/fernsehen/",
+    "info": "Sender-Startseite (Link)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "tv-wdr",
+    "rubrik": "tv",
+    "name": "WDR Fernsehen",
+    "url": "https://www1.wdr.de/fernsehen/",
+    "info": "Sender-Startseite (Link)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "tv-ndr",
+    "rubrik": "tv",
+    "name": "NDR Fernsehen",
+    "url": "https://www.ndr.de/fernsehen/",
+    "info": "Sender-Startseite (Link)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "tv-arte",
+    "rubrik": "tv",
+    "name": "ARTE Fernsehen",
+    "url": "https://www.arte.tv/de/",
+    "info": "Sender-Startseite (Link)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "tv-3sat",
+    "rubrik": "tv",
+    "name": "3sat Fernsehen",
+    "url": "https://www.3sat.de/",
+    "info": "Sender-Startseite (Link)",
+    "abruf": false,
+    "status": "behalten"
   }
 ]
