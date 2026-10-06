@@ -171,6 +171,8 @@ def main():
                       "kurz": (it.get("kurz") or "")[:200], "tags": [t for t in (it.get("tags") or []) if t in TAGS[q["rubrik"]]],
                       "thema": it.get("thema") if it.get("thema") in THEMEN[q["rubrik"]] else "Sonstiges",
                       "quelle": q["name"], "url": q["url"], "stand": HEUTE.isoformat()})
+            if q.get("kinoseite"):
+                x["kinoseite"] = q["kinoseite"]
             if iid not in db:
                 neu += 1
             db[iid] = x

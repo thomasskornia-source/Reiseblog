@@ -213,7 +213,8 @@
     "url": "https://breitwand.com/home/cm/home-start/home/index.html?day=0&ort=Gauting",
     "info": "Programm des Kinos Breitwand, Bahnhofsplatz 2, Gauting (offizielle Seite)",
     "abruf": true,
-    "status": "behalten"
+    "status": "behalten",
+    "kinoseite": "https://breitwand.com/"
   },
   {
     "id": "kino-lichtspielhaus-ffb",
@@ -231,7 +232,8 @@
     "url": "https://www.in-muenchen.de/kino/theater/astor-filmlounge-im-arri.html",
     "info": "Wochenprogramm Astor Film Lounge im ARRI, Türkenstr. 91, München (Übersicht auf in-muenchen.de; offizielle Seite: muenchen.premiumkino.de)",
     "abruf": true,
-    "status": "behalten"
+    "status": "behalten",
+    "kinoseite": "https://muenchen.premiumkino.de/"
   },
   {
     "id": "musik-zenith",

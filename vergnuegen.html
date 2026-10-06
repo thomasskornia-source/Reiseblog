@@ -184,6 +184,7 @@
     var sp = el('span', 'vg-src'); sp.appendChild(document.createTextNode('Quelle: '));
     var a = el('a', '', x.quelle || 'Quelle'); a.href = x.url; a.target = '_blank'; a.rel = 'noopener'; sp.appendChild(a);
     if (x.stand) sp.appendChild(document.createTextNode(' · Stand ' + datum(x.stand))); b.appendChild(sp);
+    if (x.kinoseite) { var ks = el('p', 'vg-src'), kl = el('a', '', 'Zur Seite des Kinos (Programm und Vorschau)'); kl.href = x.kinoseite; kl.target = '_blank'; kl.rel = 'noopener'; ks.appendChild(kl); b.appendChild(ks); }
     var act = el('div', 'vg-act');
     if (st !== 'ja') { var ja = el('button', 'ja', 'Gefällt mir'); ja.type = 'button'; ja.onclick = function () { setze(x.id, 'ja'); }; act.appendChild(ja); }
     if (st !== 'nein') { var ne = el('button', 'nein', 'Ablehnen'); ne.type = 'button'; ne.onclick = function () { setze(x.id, 'nein'); }; act.appendChild(ne); }
