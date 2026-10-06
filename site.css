@@ -250,7 +250,3 @@ body[data-welt] .back-ico { background: rgba(255, 255, 255, .22); color: inherit
 .tw1 { background: #F6E3A8; }
 .tw2 { background: #F3C089; }
 .tw3 { background: #E9A08C; }
-
-.topbar .topnav a.tvbtn { display: inline-flex; align-items: center; justify-content: center; padding: 6px 11px; margin: 0 2px; background: #1F2A44; color: #F6C253 !important; border-radius: 9px; }
-.topbar .topnav a.tvbtn:hover { background: #2B3A5E; }
-.topbar .topnav a.tvbtn svg { width: 24px; height: 16px; display: block; }

@@ -253,7 +253,7 @@ Bezug: SPY bricht an diesem Tag erstmals über die Marke 780 aus (S&P 500 entspr
 - **Neue Begriffe, die wir ggf. übernehmen können:** Trendklassen je Wert („Trending up“, „Transition“, „Choppy“) und die Stufenbezeichnung „Momentum building“ (haben wir als „Momentum im Aufbau“).
   Seine Stufenschwelle liegt bei etwa 58 % der Punkte (7 von 12), unsere bei 55 % (6 von 11), also nahezu gleich.
 - **Nicht übernommen:** Flow-Tabelle zu NVDA (Käufe/Verkäufe von Optionen mit Prämien) – das sind Daten aus seiner Datenbank, nicht unsere; Kursziele wie 800 als Prognose.
-- **Offene Vorschläge (nichts davon eingebaut):** (a) Relative Stärke stärker gewichten oder als zweite Pflichtregel prüfen; (b) „Schluss nahe Tageshoch“ als Zusatzzeile; (c) Trendklasse (Up / Übergang / Seitwärts) neben der Ampel.
+- **Offene Vorschläge (nichts davon eingebaut):** (a) Relative Stärke stärker gewichten – **umgesetzt 06.10.2026** als zweite Bedingung nur für „Stark“ (schwächer als der S&P 500 über 3 Monate → höchstens „Momentum im Aufbau“, 7,5 Punkte, `rs_gedeckelt` in `tools/trend.py`); (b) „Schluss nahe Tageshoch“ als Zusatzzeile; (c) Trendklasse (Up / Übergang / Seitwärts) neben der Ampel.
 
 ## Grenzen
 - Die öffentlichen Seiten nennen die gleitenden Durchschnitte als Auslöser (ausdrücklich nur den 21er-EMA), aber nicht

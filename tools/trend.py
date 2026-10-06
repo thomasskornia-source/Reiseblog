@@ -143,11 +143,15 @@ def score(zeilen, c, m8, m21, m50, m200, rsi, macd, signal, benchmark):
     roh = sum((0.5 if x[0] == 'Spannung' else 1) for x in k if x[2])
     pflicht = bool(k[1][2])
     punkte = roh if pflicht else min(roh, 5)
+    # Zweite Bedingung (Thomas, 06.10.2026, nach James-Recap): Schwächer als der S&P 500 über 3 Monate -> höchstens „Momentum im Aufbau“ (7,5 Punkte), nie „Stark“.
+    rs_schwach = rs is not None and rs <= 0
+    if rs_schwach: punkte = min(punkte, 7.5)
     stufe = 'Stark' if punkte >= 8 else 'Momentum im Aufbau' if punkte >= 6 else 'Beobachten' if punkte >= 4 else 'Schwach'
     punkte = int(punkte) if punkte == int(punkte) else punkte
     out = {'punkte': punkte, 'von': 11, 'stufe': stufe,
            'kriterien': [{'gruppe': a, 'name': b, 'ok': bool(ok), **({'wert': w} if w else {})} for a, b, ok, w in k]}
     if not pflicht: out['gedeckelt'] = True
+    if rs_schwach and roh > 7.5 and pflicht: out['rs_gedeckelt'] = True
     return out
 
 def kreuzung(schnell, langsam, start, namen):

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <title>WCJ – Warren, Charlie und James</title>
 <link rel="stylesheet" href="styles.css?v=13">
-<link rel="stylesheet" href="site.css?v=28">
+<link rel="stylesheet" href="site.css?v=29">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -549,7 +549,7 @@
     }).join('');
     var h = '';
     var sc = e.james && e.james.score;
-    if (sc) h += '<details class="more"><summary>Setup-Score ' + pz(sc.punkte) + '/' + sc.von + ' · Regeln</summary><dl>' + sc.kriterien.map(function (k) { return '<div><dt>' + esc(k.gruppe) + '</dt><dd>' + (k.ok ? '✓ ' : '– ') + esc(k.name) + (k.wert ? ' (' + esc(k.wert) + ')' : '') + '</dd></div>'; }).join('') + '</dl>' + (sc.gedeckelt ? '<p class="hinweis">Kurs nicht über der steigenden 200er-Linie: höchstens „Beobachten“ (Pflichtregel).</p>' : '') + '</details>';
+    if (sc) h += '<details class="more"><summary>Setup-Score ' + pz(sc.punkte) + '/' + sc.von + ' · Regeln</summary><dl>' + sc.kriterien.map(function (k) { return '<div><dt>' + esc(k.gruppe) + '</dt><dd>' + (k.ok ? '✓ ' : '– ') + esc(k.name) + (k.wert ? ' (' + esc(k.wert) + ')' : '') + '</dd></div>'; }).join('') + '</dl>' + (sc.gedeckelt ? '<p class="hinweis">Kurs nicht über der steigenden 200er-Linie: höchstens „Beobachten“ (Pflichtregel).</p>' : '') + (sc.rs_gedeckelt ? '<p class="hinweis">Schwächer als der S&amp;P 500 (3 Monate): höchstens „Momentum im Aufbau“, nicht „Stark“.</p>' : '') + '</details>';
     if (kz) h += '<details class="more"><summary>Kennzahlen</summary><dl>' + kz + '</dl></details>';
     if (bel) h += '<details class="more"><summary>Belege aus Briefen und Versammlungen (' + (e.belege || []).length + ')</summary>' + bel + '</details>';
     return h;
@@ -1010,7 +1010,7 @@
   refresh();
 })();
 </script>
-<script src="nav.js?v=18" defer></script>
+<script src="nav.js?v=19" defer></script>
 <script>
 fetch('data/koch.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
   var b = d.beitraege && d.beitraege[0], el = document.getElementById('stimm-pf');

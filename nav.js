@@ -6,18 +6,7 @@
   if (/-reise\.html$/.test(file)) file = 'reisen.html';
   if (location.pathname.indexOf('/rezepte/') !== -1) file = 'rezepte.html';
   file = map[file] || file;
-  // Fernseher-Taste hinter „München“: Was läuft heute Abend?
-  (function () {
-    var tn = bar.querySelector('.topnav'); if (!tn || tn.querySelector('.tvbtn')) return;
-    var all = tn.querySelectorAll('a'), mu = null;
-    for (var q = 0; q < all.length; q++) if (all[q].getAttribute('href') === 'quiz.html') { mu = all[q]; break; }
-    if (!mu) return;
-    var a = document.createElement('a'); a.className = 'tvbtn'; a.href = 'vergnuegen.html?r=tv';
-    a.setAttribute('aria-label', 'Was läuft heute Abend? TV-Programm'); a.title = 'Was läuft heute Abend?';
-    a.innerHTML = '<svg viewBox="0 0 24 16" aria-hidden="true"><rect x="1" y="1" width="22" height="14" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 4.8l5.2 3.2-5.2 3.2z" fill="currentColor"/></svg>';
-    mu.parentNode.insertBefore(a, mu.nextSibling);
-  })();
-  var links = bar.querySelectorAll('.topnav a:not(.tvbtn)');
+  var links = bar.querySelectorAll('.topnav a');
   for (var i = 0; i < links.length; i++) {
     if (links[i].getAttribute('href').split('/').pop() === file) {
       links[i].setAttribute('aria-current', 'page');
