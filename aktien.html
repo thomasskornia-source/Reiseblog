@@ -441,12 +441,12 @@
     if (bo) h += '<span><i style="background:none;border:2px solid #2a8f4a;border-radius:50%;width:8px;height:8px"></i>' + esc(bo.typ) + ', ' + esc(bo.status) + '</span>';
     return h;
   }
-  function chart(s, j, id) {
+  function chart(s, j, id, ohneWerte) {
     if (!s || !s.c || s.c.length < 20) return '';
     id = id || 'c' + (++CN);
     var V = CH[id] = { s: s, j: j, a: 0, b: s.c.length }, n = s.c.length;
     var H = 6 + 130 + 6 + 30 + 14;
-    var leg = LINIEN.map(function (L) { var w = j && j[L[0]] != null ? j[L[0]] : s[L[0]][n - 1]; return '<span><i style="background:' + L[1] + '"></i>' + L[2] + ' Tage <b>' + zahl(w) + '</b></span>'; }).join('');
+    var leg = LINIEN.map(function (L) { var w = j && j[L[0]] != null ? j[L[0]] : s[L[0]][n - 1]; return '<span><i style="background:' + L[1] + '"></i>' + L[2] + ' Tage' + (ohneWerte ? '' : ' <b>' + zahl(w) + '</b>') + '</span>'; }).join('');
     leg += '<span class="legm" style="display:contents">' + legM(V.mu || muView(V)) + '</span>';
     if (j && j.kreuz) leg += '<span style="color:' + (j.kreuz.richtung === 'hoch' ? '#2a8f4a' : '#c0392b') + '">' + (j.kreuz.richtung === 'hoch' ? '▲ ' : '▼ ') + esc(j.kreuz.typ) + ' vor ' + j.kreuz.tage + ' Handelstagen</span>';
     var zoom = '<div class="zoom"><div class="rng" role="group" aria-label="Zeitraum"><button type="button" data-z="21" aria-pressed="false">1M</button><button type="button" data-z="63" aria-pressed="false">3M</button><button type="button" data-z="126" aria-pressed="false">6M</button><button type="button" data-z="ytd" aria-pressed="false">YTD</button><button type="button" data-z="0" aria-pressed="true">1J</button></div><em>Zwei Finger oder Strg + Mausrad, ziehen zum Verschieben</em></div>';
@@ -645,7 +645,7 @@
     var m = r[0], br = r[1];
     if (!m || !m.ampel) return;
     $('markt-s').innerHTML = 'Markt · S&amp;P 500 ' + dot(acls(m.ampel)) + '<b>' + esc(m.ampel) + '</b> <span>' + esc(m.lage) + ' (Stand ' + esc(String(m.stand).slice(0, 5)) + (m.zeit ? ', ' + esc(m.zeit) + ' Uhr' : '') + ')</span>';
-    $('markt-c').innerHTML = '<p class="cap">S&amp;P 500 Index' + (m.kurs != null ? ' · Schlusskurs <b>' + zahl(m.kurs, 0) + '</b>' : '') + '</p>' + chart(m.serie, m);
+    $('markt-c').innerHTML = '<p class="cap">S&amp;P 500 Index' + (m.kurs != null ? ' · Schlusskurs <b>' + zahl(m.kurs, 0) + '</b>' : '') + '</p>' + chart(m.serie, m, null, true);
     (function () { var bx = $('markt-c').querySelector('[data-cid]'); if (bx && m.serie && m.serie.c.length > 63) { var cid = bx.getAttribute('data-cid'); setzen(cid, m.serie.c.length - 63, 63); } })();
     var ex = '';
     var bv = br && br.verlauf && br.verlauf.length ? br.verlauf[br.verlauf.length - 1] : null, bg = br && br.verlauf && br.verlauf.length > 1 ? br.verlauf[br.verlauf.length - 2] : null;
