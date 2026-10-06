@@ -153,3 +153,10 @@ html:has(body.home) { overflow-x: hidden; }
 @media (min-width: 700px) {
   .tv-bar { grid-column: 1 / -1; padding: 24px 28px; border-radius: 22px; box-shadow: 0 10px 26px rgba(29, 43, 58, .16); }
 }
+
+.tile.slim:first-child { height: 150px; }
+.tile.slim:first-child .q { font-size: 27px; }
+@media (min-width: 700px) {
+  .tile.slim, .tile.slim:first-child { height: 190px; }
+  .tile.slim:first-child .q { font-size: 36px; }
+}
