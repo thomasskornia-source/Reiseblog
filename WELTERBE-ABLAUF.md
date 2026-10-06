@@ -14,6 +14,9 @@ Daten `data/welterbe.json`. Es bleiben die 12 neuesten (`tools/aufraeumen.py`).
    `{"id":"slug","date":"JJJJ-MM-TT","titel":"…","ort":"Ort, Region","land":"…","seit":1983,"kurz":"ein Satz","text":"Absatz\n\nAbsatz","sprech":"gesprochene Fassung","quelle":{"titel":"Wikipedia: …","url":"…"}}`
    `sprech` = Titel + Text mit **ausgeschriebenen Zahlen und Jahren** (z. B. „siebzehnhundertvierzig“), ohne Absatzmarken. Titelansage am Anfang.
    `id` nur Kleinbuchstaben, Ziffern, Bindestriche. JSON mit `python3 -m json.tool` prüfen.
+   **Bild (optional, aber gewünscht):** ein Foto von Wikimedia Commons (Datei-Seite per WebSearch/WebFetch lesen). Nur Dateien mit freier Lizenz (CC BY, CC BY-SA, CC0, Public Domain, GFDL), Lizenz und Autor **von der Dateiseite übernehmen**, nichts raten; eingebunden wird nur per Link (nichts ins Repo kopieren):
+   `"bild":{"datei":"Dateiname.jpg","autor":"…","lizenz":"CC BY-SA 4.0","seite":"https://commons.wikimedia.org/wiki/File:Dateiname.jpg","alt":"Bildbeschreibung"}`
+   Kein sicheres freies Foto gefunden: Feld weglassen.
 6. `git pull --rebase origin main`, auf `main` pushen („Welterbe der Woche: <Titel>“, mit Co-Authored-By/Claude-Session-Zeilen).
    Die Sprachdatei erzeugt danach `welterbe-audio.yml` (Gemini, 1 Anfrage), ohne Datei liest die Seite mit der Gerätestimme.
 7. Kurz berichten: welches Welterbe, ein Satz dazu.

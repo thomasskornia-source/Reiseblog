@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=26">
 <link rel="stylesheet" href="song.css?v=2">
+<style>.wh-foto{margin:0 -18px 18px}.wh-foto img{display:block;width:100%;max-height:420px;object-fit:cover;background:#ddd}.wh-foto figcaption{font-size:12px;color:var(--ink-soft);padding:6px 18px 0}.wh-foto figcaption a{color:inherit}@media(min-width:700px){.wh-foto{margin:0 0 18px}.wh-foto img{border-radius:14px}.wh-foto figcaption{padding:6px 2px 0}}</style>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -39,6 +40,7 @@
       <p class="song-by" id="w-by"></p>
       <hr class="rule">
     </header>
+    <figure class="wh-foto" id="w-foto" hidden><img id="w-img" alt="" loading="lazy"><figcaption id="w-cap"></figcaption></figure>
     <div class="song-actions"><button type="button" class="song-btn" id="w-read">▶ Anhören</button></div>
     <div class="entry-body song-body" id="w-text"></div>
     <p class="song-note"><a id="w-src" href="#" target="_blank" rel="noopener"></a></p>
@@ -74,6 +76,12 @@
     $('w-title').textContent = e.titel; $('w-by').textContent = e.ort + ', ' + e.land + ' · Welterbe seit ' + e.seit;
     $('w-text').innerHTML = ''; e.text.split('\n\n').forEach(function (t) { var p = document.createElement('p'); p.textContent = t; $('w-text').appendChild(p); });
     var s = $('w-src'); s.href = e.quelle.url; s.textContent = 'Quelle: ' + e.quelle.titel;
+    var f = $('w-foto'), b = e.bild;
+    if (b && b.datei) {
+      var im = $('w-img'); im.onerror = function () { f.hidden = true; };
+      im.src = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(b.datei) + '?width=1000'; im.alt = b.alt || e.titel;
+      var c = $('w-cap'); c.textContent = 'Foto: ' + b.autor + ' · ' + b.lizenz + ' · '; var a = document.createElement('a'); a.href = b.seite; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Wikimedia Commons'; c.appendChild(a); f.hidden = false;
+    } else f.hidden = true;
     document.title = e.titel + ' – UNESCO-Welterbe';
     $('wh').classList.remove('song-wait');
   }

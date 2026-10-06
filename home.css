@@ -176,3 +176,4 @@ html:has(body.home) { overflow-x: hidden; }
 .wh-bar .sb-note.spielt .pl { display: none; }
 .wh-bar .sb-note.spielt .st { display: inline; }
 @media (min-width: 700px) { .wh-bar { margin: 0; padding-left: 28px; padding-right: 28px; } }
+.wh-bar .wh-thumb { flex: none; width: 58px; height: 58px; border-radius: 50%; object-fit: cover; border: 2px solid #F6C253; }

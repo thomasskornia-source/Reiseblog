@@ -7,7 +7,7 @@
 <title>Unterwegs und zuhause – Thomas und Andrea</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=26">
-<link rel="stylesheet" href="home.css?v=22">
+<link rel="stylesheet" href="home.css?v=23">
 <link rel="stylesheet" href="lesebuehne.css?v=5">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
@@ -430,6 +430,10 @@
       $('wh-title').textContent = e.titel; $('wh-by').textContent = e.ort + ' · seit ' + e.seit;
       $('wh-link').href = 'welterbe.html?id=' + encodeURIComponent(e.id);
       fetch('audio/welterbe-' + encodeURIComponent(e.id) + '.mp3', { method: 'HEAD' }).then(function (r) { whOk = r.ok; }).catch(function () {});
+      if (e.bild && e.bild.datei) {
+        var im = new Image(); im.onload = function () { var g = box.querySelector('.wh-globe'); if (g) { im.className = 'wh-thumb'; im.alt = ''; g.replaceWith(im); } };
+        im.src = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(e.bild.datei) + '?width=160';
+      }
       box.classList.add('on');
     }).catch(function () {});
   }
