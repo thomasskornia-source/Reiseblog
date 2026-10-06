@@ -99,7 +99,7 @@ def wochenchart(zeilen):
             'macd_ueber_signal': bool(ueber[-1]), 'macd_wochen': n, 'macd_unter_null': bool(neg[-1]), 'macd_null_wochen': m}
 
 def score(zeilen, c, m8, m21, m50, m200, rsi, macd, signal, benchmark):
-    """Eigener Setup-Score mit 12 offenen Regeln (angelehnt an Chart-Scanner, kein Nachbau eines fremden Scores)."""
+    """Eigener Setup-Score mit 12 offenen Regeln, gewichtet (angelehnt an Chart-Scanner, kein Nachbau eines fremden Scores)."""
     h = [z[2] for z in zeilen]; l = [z[3] for z in zeilen]; v = [z[5] for z in zeilen]; n = len(c)
     kurs = c[-1]
     tr = [max(h[i] - l[i], abs(h[i] - c[i - 1]), abs(l[i] - c[i - 1])) for i in range(1, n)]
@@ -137,10 +137,18 @@ def score(zeilen, c, m8, m21, m50, m200, rsi, macd, signal, benchmark):
         ('Spannung', 'Squeeze oder verengte Schwankung (ATR)', squeeze or atr_enge, None),
         ('Spannung', 'NR7 oder Umsatz trocknet aus (VDU)', nr7 or vdu, None),
     ]
-    punkte = sum(1 for x in k if x[2])
-    stufe = 'Stark' if punkte >= 9 else 'Momentum im Aufbau' if punkte >= 6 else 'Beobachten' if punkte >= 4 else 'Schwach'
-    return {'punkte': punkte, 'von': 12, 'stufe': stufe,
-            'kriterien': [{'gruppe': a, 'name': b, 'ok': bool(ok), **({'wert': w} if w else {})} for a, b, ok, w in k]}
+    # Gewichtung (Thomas, 06.10.2026): 10 Kernregeln zählen je 1 Punkt, die zwei Spannungs-Regeln nur je 0,5 (Bonus, sagen mehr über
+    # den Zeitpunkt als über die Qualität). Pflicht: Kurs über der steigenden 200er (Regel 2). Fehlt sie, ist die Stufe höchstens
+    # „Beobachten“ (Punkte höchstens 5). Höchstwert 11, Stufen: ab 8 Stark, ab 6 Momentum im Aufbau, ab 4 Beobachten.
+    roh = sum((0.5 if x[0] == 'Spannung' else 1) for x in k if x[2])
+    pflicht = bool(k[1][2])
+    punkte = roh if pflicht else min(roh, 5)
+    stufe = 'Stark' if punkte >= 8 else 'Momentum im Aufbau' if punkte >= 6 else 'Beobachten' if punkte >= 4 else 'Schwach'
+    punkte = int(punkte) if punkte == int(punkte) else punkte
+    out = {'punkte': punkte, 'von': 11, 'stufe': stufe,
+           'kriterien': [{'gruppe': a, 'name': b, 'ok': bool(ok), **({'wert': w} if w else {})} for a, b, ok, w in k]}
+    if not pflicht: out['gedeckelt'] = True
+    return out
 
 def kreuzung(schnell, langsam, start, namen):
     """Letzte Kreuzung zweier Linien: 'hoch' = die schnelle kreuzt von unten über die langsame (Golden Cross bei 50/200),

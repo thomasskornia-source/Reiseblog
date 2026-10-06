@@ -4,7 +4,7 @@
 James: Trend und Setup-Score aus tools/trend.py (Yahoo-Tageskurse).
 Warren: sieben einfache Qualitäts- und Preisregeln aus den Jahreszahlen der US-Börsenaufsicht SEC
         (XBRL-„Frames“: je Kennzahl ein Abruf für alle Firmen, rund 15 Abrufe insgesamt).
-Rang = je zur Hälfte Anteil erfüllter Warren-Regeln und James-Score (von 12); Aktien „unter der 200-Tage-Linie“ fallen heraus.
+Rang = je zur Hälfte Anteil erfüllter Warren-Regeln und James-Score (von 11); Aktien „unter der 200-Tage-Linie“ fallen heraus.
 
 Aufruf:  SEC_KONTAKT=<mailadresse> python3 tools/screener.py     schreibt data/top10.json und data/beobachtung.json (eigene Aktien, nur James' Ampel)
 Die SEC verlangt in der Kennung des Abrufs eine Kontaktadresse (Umgebungsvariable SEC_KONTAKT, in GitHub als Secret hinterlegt).
@@ -204,7 +204,7 @@ def universum(fl, js):
                       'd1': round((c[-1] / c[-2] - 1) * 100, 2), 'sp': sp})
     liste.sort(key=lambda x: x['t'])
     with open(os.path.join(ROOT, 'data', 'universum.json'), 'w', encoding='utf-8') as fh:
-        fh.write(json.dumps({'stand': heute, 'aktien': liste}, ensure_ascii=False, separators=(',', ':')).replace('},{', '},\n{') + '\n')
+        fh.write(json.dumps({'stand': heute, 'skala': 11, 'aktien': liste}, ensure_ascii=False, separators=(',', ':')).replace('},{', '},\n{') + '\n')
 
 def beobachten(bm):
     """Eigene Aktien aus data/aktien.json: James' Ampel täglich neu (ohne Texte, ohne Token) -> data/beobachtung.json."""
@@ -226,7 +226,7 @@ def beobachten(bm):
                       'rsi': j['rsi'], 'abstand_pct': j['abstand_pct'], 'pos_52w_pct': j['pos_52w_pct'],
                       'detail': {k: a[k] for k in DETAIL if k in a}, 'ampel_vorher': vorher, 'stand': heute})
     with open(pfad, 'w', encoding='utf-8') as fh:
-        fh.write(trend.kompakt(json.dumps({'stand': heute, 'aktien': liste}, ensure_ascii=False, indent=1)) + '\n')
+        fh.write(trend.kompakt(json.dumps({'stand': heute, 'skala': 11, 'aktien': liste}, ensure_ascii=False, indent=1)) + '\n')
 
 def main():
     fl = firmen()
@@ -246,7 +246,7 @@ def main():
         ok = sum(1 for _, v in w if v is True); n = sum(1 for _, v in w if v is not None)
         if z and n < 4: continue            # zu wenig Zahlen für ein Urteil
         wp = ok / n if n else 0
-        rang = (0.5 * wp + 0.5 * j['punkte'] / 12) if z else j['punkte'] / 12
+        rang = (0.5 * wp + 0.5 * j['punkte'] / 11) if z else j['punkte'] / 11
         alle.append({'ticker': f['t'], 'cik': f['cik'], 'name': f['name'], 'sektor': f['sektor'], **{k: v for k, v in j.items() if k != '_a'}, '_a': j['_a'], 'warren_ok': ok, 'warren_von': n,
                      'kgv': kgv, 'roe_pct': roe, 'marge_pct': marge,
                      'warren_gut': [t for t, v in w if v is True], 'warren_fehlt': [t for t, v in w if v is False], 'rang': round(rang, 3)})
@@ -274,7 +274,7 @@ def main():
         if len(liste) < 5: liste.append({k: a[k] for k in kurz})
     for t in top: t.pop('cik', None)
     heute = [t['ticker'] for t in top]
-    out = {'stand': datetime.date.today().strftime('%d.%m.%Y'), 'warren': bool(z), 'zahlenjahr': z['jahr'] if z else None,
+    out = {'skala': 11, 'stand': datetime.date.today().strftime('%d.%m.%Y'), 'warren': bool(z), 'zahlenjahr': z['jahr'] if z else None,
            'geprueft': len(alle), 'ohne_down': len(kandidaten), 'vorher': vorher, 'raus': [t for t in vorher if t not in heute],
            'top10': top, 'sektoren': dict(sorted(sektoren.items())),
            'sektor_reihenfolge': [{'sektor': x['sektor'], 'status': x['status'], 'score': x['score']} for x in (sek['sektoren'] if sek else [])]}

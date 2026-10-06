@@ -477,7 +477,7 @@
     }
     if (j.pos_52w_pct != null) t += '<div><dt>52-Wochen-Spanne</dt><dd>' + (j.pos_52w_pct < 33 ? 'unteres' : j.pos_52w_pct < 67 ? 'mittleres' : 'oberes') + ' Drittel · ' + j.pos_52w_pct + ' %</dd></div>';
     var sc = j.score;
-    if (sc) t += '<div><dt>Setup-Score</dt><dd>' + dot(sc.punkte >= 6 ? 'g' : sc.punkte >= 4 ? 'a' : 'r') + sc.punkte + '/' + sc.von + ' · ' + esc(sc.stufe) + '</dd></div>';
+    if (sc) t += '<div><dt>Setup-Score</dt><dd>' + dot(sc.punkte >= 6 ? 'g' : sc.punkte >= 4 ? 'a' : 'r') + pz(sc.punkte) + '/' + sc.von + ' · ' + esc(sc.stufe) + '</dd></div>';
     if (j.rsi != null) t += '<div><dt>RSI (14)</dt><dd>' + zahl(j.rsi, 0) + ' · ' + (j.rsi >= 70 ? 'überkauft' : j.rsi >= 50 ? 'über 50, positiv' : j.rsi > 30 ? 'unter 50, schwach' : 'überverkauft') + '</dd></div>';
     if (j.macd != null) t += '<div><dt>MACD</dt><dd>' + (j.macd > j.macd_signal ? 'über' : 'unter') + ' der Signallinie · ' + (j.macd > 0 ? 'über' : 'unter') + ' Null</dd></div>';
     var mu = j.muster || {};
@@ -498,7 +498,7 @@
     }).join('');
     var h = '';
     var sc = e.james && e.james.score;
-    if (sc) h += '<details class="more"><summary>Setup-Score ' + sc.punkte + '/' + sc.von + ' · Regeln</summary><dl>' + sc.kriterien.map(function (k) { return '<div><dt>' + esc(k.gruppe) + '</dt><dd>' + (k.ok ? '✓ ' : '– ') + esc(k.name) + (k.wert ? ' (' + esc(k.wert) + ')' : '') + '</dd></div>'; }).join('') + '</dl></details>';
+    if (sc) h += '<details class="more"><summary>Setup-Score ' + pz(sc.punkte) + '/' + sc.von + ' · Regeln</summary><dl>' + sc.kriterien.map(function (k) { return '<div><dt>' + esc(k.gruppe) + '</dt><dd>' + (k.ok ? '✓ ' : '– ') + esc(k.name) + (k.wert ? ' (' + esc(k.wert) + ')' : '') + '</dd></div>'; }).join('') + '</dl>' + (sc.gedeckelt ? '<p class="hinweis">Kurs nicht über der steigenden 200er-Linie: höchstens „Beobachten“ (Pflichtregel).</p>' : '') + '</details>';
     if (kz) h += '<details class="more"><summary>Kennzahlen</summary><dl>' + kz + '</dl></details>';
     if (bel) h += '<details class="more"><summary>Belege aus Briefen und Versammlungen (' + (e.belege || []).length + ')</summary>' + bel + '</details>';
     return h;
@@ -622,7 +622,7 @@
   function zeile(x, nr, neu, warren) {
     return '<li data-t="' + esc(x.ticker) + '"><span class="n">' + nr + '</span><span class="t"><b>' + esc(x.ticker) + '</b> ' + esc(x.name) + (neu ? '<span class="neu">neu</span>' : '') +
       '<small>' + dot(acls(x.ampel)) + ' ' + esc(x.lage) + (x.kgv ? ' · KGV ' + zahl(x.kgv, 1) : '') + '</small></span><span class="z">' +
-      (warren ? 'Warren ' + x.warren_ok + '/' + x.warren_von + '<br>' : '') + 'James ' + x.punkte + '/12</span></li>';
+      (warren ? 'Warren ' + x.warren_ok + '/' + x.warren_von + '<br>' : '') + 'James ' + pz(x.punkte) + '/' + SK.t10 + '</span></li>';
   }
   function zeigeKarte(tk) {
     tab('pruefen');
@@ -648,7 +648,7 @@
     var e = data.filter(function (z) { return sym(z).toUpperCase().replace('.', '-') === x.ticker.toUpperCase().replace('.', '-'); })[0];
     h += '<div class="dsec"><h5>James · Trend und Chart</h5><p>' + dot(acls(x.ampel)) + '<b>' + esc(x.ampel) + '</b> · ' + esc(x.lage) + '</p>';
     if (d && d.serie) h += chart(d.serie, d);
-    var pk = ['Setup-Score ' + x.punkte + ' von 12'];
+    var pk = ['Setup-Score ' + pz(x.punkte) + ' von ' + SK.t10];
     if (x.abstand_pct != null) pk.push((x.abstand_pct >= 0 ? 'Kurs ' + zahl(x.abstand_pct, 1) + ' % über' : 'Kurs ' + zahl(-x.abstand_pct, 1) + ' % unter') + ' der 200-Tage-Linie' + (d && d.ma200_steigt != null ? (d.ma200_steigt ? ', die Linie steigt' : ', die Linie fällt') : ''));
     if (x.rsi != null) pk.push('RSI ' + zahl(x.rsi, 0) + (x.rsi > 70 ? ' (heiß gelaufen)' : x.rsi < 30 ? ' (überverkauft)' : ''));
     if (d && d.macd != null) pk.push('MACD ' + (d.macd > d.macd_signal ? 'über' : 'unter') + ' der Signallinie');
@@ -683,6 +683,7 @@
     return h + '<button class="btn alt" type="button" data-wl="' + esc(x.ticker) + '">＋ Zur Watchlist</button></div>';
   }
   fetch('data/top10.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (t) {
+    SK.t10 = t.skala || 12;
     if (!t || !t.top10 || !t.top10.length) return;
     var liste = [];
     function zeigen(sek) {
@@ -717,6 +718,8 @@
   var WEG = 'aktien-weg', WATCH = 'aktien-watch', DEPOT = 'aktien-depot', PWEG = 'aktien-pweg';
   function lies(k) { try { return JSON.parse(localStorage.getItem(k) || '[]'); } catch (e) { return []; } }
   function schreib(k, a) { try { localStorage.setItem(k, JSON.stringify(a)); } catch (e) {} }
+  var SK = { t10: 12, beo: 12, uni: 12 };
+  function pz(v) { return String(v).replace('.', ','); }
   function normT(t) { return String(t || '').trim().toUpperCase().replace('.', '-'); }
   var beoB = null, uni = null, msg = {}; msg[WATCH] = ''; msg[DEPOT] = '';
   function sparkline(sp) {
@@ -756,7 +759,7 @@
     $('beo-c').innerHTML = '<h4 class="wl-h" style="margin-top:4px"><small>Aktien im Blick behalten, ohne sie prüfen zu lassen. Gilt nur auf diesem Gerät und kennt alle Aktien des S&amp;P 500.</small></h4>' + wl.html;
     var h2 = '<ol>' + eigene.map(function (x) {
       return '<li data-t="' + esc(x.ticker) + '"><span class="n">' + dot(acls(x.ampel)) + '</span><span class="t"><b>' + esc(x.ticker) + '</b> ' + esc(x.name) +
-        '<small>' + esc(x.lage) + (x.ampel_vorher && x.ampel_vorher !== x.ampel ? ' · vorher ' + esc(x.ampel_vorher) : '') + '</small></span><span class="z">James ' + x.punkte + '/12 <button type="button" class="xb" data-weg="' + esc(x.ticker) + '" aria-label="' + esc(x.ticker) + ' ausblenden" title="Ausblenden">×</button></span></li>';
+        '<small>' + esc(x.lage) + (x.ampel_vorher && x.ampel_vorher !== x.ampel ? ' · vorher ' + esc(x.ampel_vorher) : '') + '</small></span><span class="z">James ' + pz(x.punkte) + '/' + SK.beo + ' <button type="button" class="xb" data-weg="' + esc(x.ticker) + '" aria-label="' + esc(x.ticker) + ' ausblenden" title="Ausblenden">×</button></span></li>';
     }).join('') + '</ol>';
     if (!eigene.length) h2 = '<p class="hinweis">Keine Aktien in der Liste.</p>';
     if (ausg) h2 += '<p class="hinweis">' + ausg + ' ausgeblendet · <button type="button" class="lk" data-alle="1">alle zurückholen</button> (gilt nur auf diesem Gerät)</p>';
@@ -800,7 +803,7 @@
       el.innerHTML = detail(x, null); c.setAttribute('data-offen', li.getAttribute('data-t'));
     } else {
       var t = li.getAttribute('data-w'), y = uni && uni.aktien.filter(function (q) { return normT(q.t) === t; })[0];
-      el.innerHTML = y ? '<div class="dsec"><h5>' + esc(y.t) + ' · ' + esc(y.n) + '</h5><p>Kurs ' + zahl(y.k, 2) + ' USD · James ' + y.p + '/12 · ' + esc(y.l) + '</p>' + sparkline(y.sp) + '<p class="klein">Verlauf der letzten 40 Handelstage. Branche: ' + esc(SEKTOR[y.s] || y.s) + '.</p><button class="btn" type="button" data-pr="' + esc(y.t) + '">Warren und Charlie fragen</button></div>'
+      el.innerHTML = y ? '<div class="dsec"><h5>' + esc(y.t) + ' · ' + esc(y.n) + '</h5><p>Kurs ' + zahl(y.k, 2) + ' USD · James ' + pz(y.p) + '/' + SK.uni + ' · ' + esc(y.l) + '</p>' + sparkline(y.sp) + '<p class="klein">Verlauf der letzten 40 Handelstage. Branche: ' + esc(SEKTOR[y.s] || y.s) + '.</p><button class="btn" type="button" data-pr="' + esc(y.t) + '">Warren und Charlie fragen</button></div>'
         : '<div class="dsec"><p class="klein">Diese Aktie gehört nicht zum S&amp;P 500, deshalb gibt es keine Tageswerte. Ein Klick startet die Prüfung, das Ergebnis erscheint nach wenigen Minuten unter „Prüfen“.</p><button class="btn" type="button" data-pr="' + esc(t) + '">Warren und Charlie fragen</button></div>';
       c.setAttribute('data-offen', t);
     }
@@ -830,7 +833,7 @@
   Promise.all([
     fetch('data/beobachtung.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return null; }),
     fetch('data/universum.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return null; })
-  ]).then(function (r) { beoB = r[0]; uni = r[1]; renderBeo(); });
+  ]).then(function (r) { beoB = r[0]; uni = r[1]; SK.beo = (beoB && beoB.skala) || 12; SK.uni = (uni && uni.skala) || 12; renderBeo(); });
 (function () {
   var FARBEN = ['#2a6fdb', '#d9534f', '#2e9e6b', '#e0a12b', '#8a5cc7', '#0e9aa7', '#e07a2d', '#6b7a8f', '#c2457a', '#7b8c2a', '#444'];
   var BEREICHE = [['1M', '1 Monat', 21], ['3M', '3 Monate', 63], ['6M', '6 Monate', 126], ['YTD', 'seit Jahresbeginn', 0], ['1J', '1 Jahr', 252], ['2J', '2 Jahre', 0]];
