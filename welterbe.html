@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="site.css?v=29">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="song.css?v=2">
-<style>#w-kicker,.page-song .song-by{white-space:nowrap}#w-kicker{font-size:min(12px,3.1vw)}.wh-karte{height:280px;border-radius:14px;margin:6px 0 4px;z-index:0}.wh-karte[hidden]{display:none}.wh-foto{margin:0 -18px 18px}.wh-foto img{display:block;width:100%;max-height:420px;object-fit:cover;background:#ddd}.wh-foto figcaption{font-size:12px;color:var(--ink-soft);padding:6px 18px 0}.wh-foto figcaption a{color:inherit}@media(min-width:700px){.wh-foto{margin:0 0 18px}.wh-foto img{border-radius:14px}.wh-foto figcaption{padding:6px 2px 0}}</style>
+<style>.wh-img{position:relative}.wh-play{all:unset;cursor:pointer;flex:none;width:64px;height:64px;border-radius:50%;background:#F6C253;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.35)}.wh-play:active{transform:scale(.94)}.wh-play:focus-visible{outline:3px solid #fff;outline-offset:2px}.wh-play svg{width:32px;height:32px;fill:#262F63}.wh-play .st{display:none}.wh-play.spielt .pl{display:none}.wh-play.spielt .st{display:inline}.wh-img .wh-play{position:absolute;right:16px;bottom:16px}#w-act:has(.wh-play){margin:4px 0 14px}#w-kicker,.page-song .song-by{white-space:nowrap}#w-kicker{font-size:min(12px,3.1vw)}.wh-karte{height:280px;border-radius:14px;margin:6px 0 4px;z-index:0}.wh-karte[hidden]{display:none}.wh-foto{margin:0 -18px 18px}.wh-foto img{display:block;width:100%;max-height:420px;object-fit:cover;background:#ddd}.wh-foto figcaption{font-size:12px;color:var(--ink-soft);padding:6px 18px 0}.wh-foto figcaption a{color:inherit}@media(min-width:700px){.wh-foto{margin:0 0 18px}.wh-foto img{border-radius:14px}.wh-foto figcaption{padding:6px 2px 0}}</style>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -41,8 +41,8 @@
       <p class="song-by" id="w-by"></p>
       <hr class="rule">
     </header>
-    <figure class="wh-foto" id="w-foto" hidden><img id="w-img" alt="" loading="lazy"><figcaption id="w-cap"></figcaption></figure>
-    <div class="song-actions"><button type="button" class="song-btn" id="w-read">▶ Anhören</button></div>
+    <figure class="wh-foto" id="w-foto" hidden><div class="wh-img" id="w-imgbox"><img id="w-img" alt="" loading="lazy"></div><figcaption id="w-cap"></figcaption></figure>
+    <div class="song-actions" id="w-act"><button type="button" class="wh-play" id="w-read" aria-label="Anhören"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></button></div>
     <div class="entry-body song-body" id="w-text"></div>
     <div class="wh-karte" id="w-karte" hidden></div>
     <p class="song-note"><a id="w-src" href="#" target="_blank" rel="noopener"></a></p>
@@ -58,7 +58,7 @@
   var $ = function (id) { return document.getElementById(id); };
   var M = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
   var cur = null, au = null, sp = false, karte = null;
-  function stop() { sp = false; if (au) { au.pause(); au = null; } if ('speechSynthesis' in window) speechSynthesis.cancel(); $('w-read').textContent = '▶ Anhören'; }
+  function stop() { sp = false; if (au) { au.pause(); au = null; } if ('speechSynthesis' in window) speechSynthesis.cancel(); $('w-read').classList.remove('spielt'); $('w-read').setAttribute('aria-label', 'Anhören'); }
   function speech(e) {
     if (!('speechSynthesis' in window)) { stop(); return; }
     var p = (e.sprech || e.text).match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [e.text]; sp = true;
@@ -66,7 +66,7 @@
   }
   $('w-read').addEventListener('click', function () {
     if (au || sp) { stop(); return; }
-    $('w-read').textContent = '■ Stopp';
+    $('w-read').classList.add('spielt'); $('w-read').setAttribute('aria-label', 'Stopp');
     var a = new Audio('audio/welterbe-' + encodeURIComponent(cur.id) + '.mp3'); au = a;
     a.onended = stop; a.onerror = function () { au = null; speech(cur); };
     var r = a.play(); if (r && r.catch) r.catch(function () { if (au === a) { au = null; speech(cur); } });
@@ -81,10 +81,10 @@
     var s = $('w-src'); s.href = e.quelle.url; s.textContent = 'Quelle: ' + e.quelle.titel;
     var f = $('w-foto'), b = e.bild;
     if (b && b.datei) {
-      var im = $('w-img'); im.onerror = function () { f.hidden = true; };
+      var im = $('w-img'); im.onerror = function () { f.hidden = true; $('w-act').appendChild($('w-read')); };
       im.src = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(b.datei) + '?width=1000'; im.alt = b.alt || e.titel;
-      var c = $('w-cap'); c.textContent = 'Foto: ' + b.autor + ' · ' + b.lizenz + ' · '; var a = document.createElement('a'); a.href = b.seite; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Wikimedia Commons'; c.appendChild(a); f.hidden = false;
-    } else f.hidden = true;
+      var c = $('w-cap'); c.textContent = 'Foto: ' + b.autor + ' · ' + b.lizenz + ' · '; var a = document.createElement('a'); a.href = b.seite; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Wikimedia Commons'; c.appendChild(a); f.hidden = false; $('w-imgbox').appendChild($('w-read'));
+    } else { f.hidden = true; $('w-act').appendChild($('w-read')); }
     var kb = $('w-karte');
     if (window.L && typeof e.lat === 'number' && typeof e.lon === 'number') {
       kb.hidden = false;
