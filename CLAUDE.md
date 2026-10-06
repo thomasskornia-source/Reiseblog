@@ -30,4 +30,5 @@ PC-Ansicht (Thomas, 05.10.2026): Seiten mit `<body class="... pc">` nutzen bei �
   was Seiten oder Daten löscht.
 - Keine Inhalte aus Bezahlbeiträgen Dritter kopieren; Mitschriften und Texte Dritter nicht ins Repo legen, nur Fundstellen
   und kurze Zitate mit Quelle.
+Trendbruch-Meldung (Thomas, 06.10.2026): `tools/trend-warnung.py` in `markt.yml` legt bei steigender Warnstufe ein GitHub-Issue an (Push über GitHub-App), Zustand `data/warnstufe.json`.
 Kino/Musik/Bühnen/Museen (Thomas, 06.10.2026): Quellen in `data/vergnuegen-quellen.json` (Kinos Gauting/FFB/Astor-Arri, Musikclubs, Staatsoper, Residenz-, Kammerspiele, Volkstheater, Museen); `abruf:false` = nur Link, Seite nicht lesbar. Trendbruch-Warnbanner in `nav.js` liest `data/markt.json`.
