@@ -30,7 +30,7 @@ THEMEN = {
     "ausflug": ["Berge & Wandern", "Seen & Baden", "Schlösser & Kultur", "Mit Bahn & Bus", "Pferde & Tiere", "Sonstiges"],
     "kino": ["Kino Breitwand Gauting", "Lichtspielhaus Fürstenfeldbruck", "Astor Film Lounge im ARRI", "Sonstiges"],
     "stream": ["Netflix", "Amazon Prime", "Apple TV", "ARD Mediathek", "ZDF Mediathek", "3sat Mediathek", "ARTE Mediathek", "Sonstiges"],
-    "tv": ["Das Erste", "ZDF", "BR", "WDR", "NDR", "ARTE", "3sat", "Sonstiges"],
+    "tv": ["Das Erste", "ZDF", "BR", "WDR", "NDR", "hr", "SWR", "ARTE", "3sat", "Sonstiges"],
 }
 HEUTE = dt.date.today()
 MAX_ZEICHEN, MAX_PRO_QUELLE, MAX_PRO_RUBRIK = 24000, 10, 80

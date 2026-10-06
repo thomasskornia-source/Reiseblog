@@ -3081,5 +3081,67 @@
   "url": "https://www.3sat.de/mediathek",
   "stand": "2026-10-06",
   "thema": "3sat Mediathek"
+ },
+ {
+  "id": "tv-hr-tobis-staedtetrip-20261006",
+  "rubrik": "tv",
+  "titel": "Tobis Städtetrip: Frankfurt City",
+  "ort": "hr",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Reisereihe über Frankfurt. Programm kann sich ändern.",
+  "tags": [
+   "Doku",
+   "Reise"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/HR,633655",
+  "stand": "2026-10-06",
+  "thema": "hr"
+ },
+ {
+  "id": "tv-hr-auftrag-luxus-20261006",
+  "rubrik": "tv",
+  "titel": "Auftrag Luxus – Luxury Travel",
+  "ort": "hr",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "21:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Info-Sendung rund um Luxusreisen. Programm kann sich ändern.",
+  "tags": [
+   "Doku",
+   "Reise"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/HR,633655",
+  "stand": "2026-10-06",
+  "thema": "hr"
+ },
+ {
+  "id": "tv-hr-le-chaim-20261006",
+  "rubrik": "tv",
+  "titel": "Le Chaim! Auf das Leben unserer Eltern",
+  "ort": "hr",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "22:35",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentation, laut Programm Info. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/HR,633655",
+  "stand": "2026-10-06",
+  "thema": "hr"
  }
 ]
