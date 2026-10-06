@@ -1,8 +1,16 @@
 gemini-3.8-flash: HTTP 503
+gemini-3.8-flash: HTTP 503
+gemini-3.8-flash: HTTP 503
+gemini-flash-latest: HTTP 503
+gemini-flash-latest: HTTP 503
 gemini-flash-latest: HTTP 503
 FEHLER muenchen-de-wochenende gemini-flash-latest: HTTP 503
 gemini-3.8-flash: HTTP 503
-gemini-flash-latest: HTTP 429
-FEHLER muenchen-travel-kalender gemini-flash-latest: HTTP 429
+gemini-3.8-flash: HTTP 503
+gemini-3.8-flash: HTTP 503
+gemini-flash-latest: HTTP 503
+gemini-flash-latest: HTTP 503
+gemini-flash-latest: HTTP 503
+FEHLER muenchen-travel-kalender gemini-flash-latest: HTTP 503
 Zwei Mal in Folge Tempolimit, Abbruch bis zum nächsten Lauf
-Fertig: 0 Quellen ok, 2 Fehler, 0 neue Tipps, 15 gesamt
+Fertig: 0 Quellen ok, 2 Fehler, 0 neue Tipps, 153 gesamt
