@@ -232,5 +232,41 @@
     "info": "Wochenprogramm Astor Film Lounge im ARRI, Türkenstr. 91, München (Übersicht auf in-muenchen.de; offizielle Seite: muenchen.premiumkino.de)",
     "abruf": true,
     "status": "behalten"
+  },
+  {
+    "id": "musik-zenith",
+    "rubrik": "events",
+    "name": "Zenith, Kulturhalle (Konzerte)",
+    "url": "https://www.in-muenchen.de/locations/zenith.html",
+    "info": "Konzerte im Zenith, Lilienthalallee 29, München (Übersicht auf in-muenchen.de)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "musik-backstage",
+    "rubrik": "events",
+    "name": "Backstage München (Konzerte)",
+    "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+    "info": "Konzerte im Backstage, Reitknechtstr. 6, München (Stadtportal muenchen.de)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "musik-alte-utting",
+    "rubrik": "events",
+    "name": "Alte Utting (Musik und Kultur)",
+    "url": "https://www.in-muenchen.de/locations/alte-utting.html",
+    "info": "Veranstaltungen auf dem Schiff Alte Utting, Kaflerstr. 20, München (Übersicht auf in-muenchen.de)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "musik-unterfahrt",
+    "rubrik": "events",
+    "name": "Jazzclub Unterfahrt",
+    "url": "https://www.unterfahrt.de/",
+    "info": "Jazzkonzerte im Unterfahrt, Einsteinstr. 42, München (offizielle Seite)",
+    "abruf": true,
+    "status": "behalten"
   }
 ]
