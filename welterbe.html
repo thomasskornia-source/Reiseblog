@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="site.css?v=26">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="song.css?v=2">
-<style>.wh-karte{height:280px;border-radius:14px;margin:6px 0 4px;z-index:0}.wh-karte[hidden]{display:none}.wh-foto{margin:0 -18px 18px}.wh-foto img{display:block;width:100%;max-height:420px;object-fit:cover;background:#ddd}.wh-foto figcaption{font-size:12px;color:var(--ink-soft);padding:6px 18px 0}.wh-foto figcaption a{color:inherit}@media(min-width:700px){.wh-foto{margin:0 0 18px}.wh-foto img{border-radius:14px}.wh-foto figcaption{padding:6px 2px 0}}</style>
+<style>#w-kicker,.page-song .song-by{white-space:nowrap}#w-kicker{font-size:min(12px,3.1vw)}.wh-karte{height:280px;border-radius:14px;margin:6px 0 4px;z-index:0}.wh-karte[hidden]{display:none}.wh-foto{margin:0 -18px 18px}.wh-foto img{display:block;width:100%;max-height:420px;object-fit:cover;background:#ddd}.wh-foto figcaption{font-size:12px;color:var(--ink-soft);padding:6px 18px 0}.wh-foto figcaption a{color:inherit}@media(min-width:700px){.wh-foto{margin:0 0 18px}.wh-foto img{border-radius:14px}.wh-foto figcaption{padding:6px 2px 0}}</style>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -72,11 +72,11 @@
     var r = a.play(); if (r && r.catch) r.catch(function () { if (au === a) { au = null; speech(cur); } });
   });
   window.addEventListener('pagehide', stop);
-  function datum(d) { var x = d.split('-'); return parseInt(x[2], 10) + '. ' + M[parseInt(x[1], 10) - 1] + ' ' + x[0]; }
+  function datum(d) { var x = d.split('-'); return parseInt(x[2], 10) + '.' + parseInt(x[1], 10) + '.' + x[0]; }
   function show(e) {
     stop(); cur = e;
-    $('w-kicker').textContent = 'UNESCO-Welterbe der Woche · ' + datum(e.date);
-    $('w-title').textContent = e.titel; $('w-by').textContent = e.ort + ', ' + e.land + ' · Welterbe seit ' + e.seit;
+    $('w-kicker').textContent = 'Welterbe der Woche · ' + datum(e.date);
+    $('w-title').textContent = e.titel; $('w-by').textContent = e.ort + ' · seit ' + e.seit;
     $('w-text').innerHTML = ''; e.text.split('\n\n').forEach(function (t) { var p = document.createElement('p'); p.textContent = t; $('w-text').appendChild(p); });
     var s = $('w-src'); s.href = e.quelle.url; s.textContent = 'Quelle: ' + e.quelle.titel;
     var f = $('w-foto'), b = e.bild;
