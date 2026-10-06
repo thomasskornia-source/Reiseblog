@@ -7,7 +7,7 @@
 <title>Unterwegs und zuhause – Thomas und Andrea</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=26">
-<link rel="stylesheet" href="home.css?v=21">
+<link rel="stylesheet" href="home.css?v=22">
 <link rel="stylesheet" href="lesebuehne.css?v=5">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
@@ -64,6 +64,12 @@
     <span class="sb-txt"><b id="sdt-title"></b><span id="sdt-by"></span></span>
   </a>
   <button type="button" class="sb-note" id="sdt-play" aria-label="Song-Geschichte vorlesen"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></button>
+</div>
+
+  <div class="wh-bar" id="wh-bar">
+  <svg class="wh-globe" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="#F6C253" stroke-width="2.4"/><ellipse cx="24" cy="24" rx="8.5" ry="20" fill="none" stroke="#F6C253" stroke-width="1.8"/><path d="M4.5 18h39M4.5 30h39" stroke="#F6C253" stroke-width="1.8"/></svg>
+  <a class="sb-link" id="wh-link" href="welterbe.html" aria-label="Welterbe der Woche öffnen"><small>UNESCO-Welterbe der Woche</small><b id="wh-title"></b><span id="wh-by"></span></a>
+  <button type="button" class="sb-note" id="wh-play" aria-label="Welterbe vorlesen"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></button>
 </div>
 
   <section class="bento pcgrid">
@@ -389,6 +395,45 @@
     }).catch(function () {});
   }
   renderSongDesTages();
+
+  // UNESCO-Welterbe der Woche
+  var whPick = null, whAudio = null, whOk = false, whSpeak = false;
+  function whStop() {
+    whSpeak = false; if (whAudio) { whAudio.pause(); whAudio = null; }
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    var b = $('wh-play'); if (b) { b.classList.remove('spielt'); b.setAttribute('aria-label', 'Welterbe vorlesen'); }
+  }
+  function whSpeech(e) {
+    if (!('speechSynthesis' in window)) return;
+    var parts = (e.sprech || e.text).match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [e.text]; whSpeak = true;
+    (function next() { if (!whSpeak) return; if (!parts.length) { whStop(); return; }
+      var u = new SpeechSynthesisUtterance(parts.shift()); u.lang = 'de-DE'; u.rate = 0.95; u.onend = next; u.onerror = function (er) { if (!er || (er.error !== 'canceled' && er.error !== 'interrupted')) whStop(); }; speechSynthesis.speak(u); })();
+  }
+  document.addEventListener('click', function (ev) {
+    var t = ev.target.closest && ev.target.closest('#wh-play'); if (!t || !whPick) return;
+    ev.preventDefault();
+    if (whAudio || whSpeak) { whStop(); return; }
+    t.classList.add('spielt'); t.setAttribute('aria-label', 'Vorlesen stoppen');
+    if (whOk && window.Audio) {
+      var a = new Audio('audio/welterbe-' + encodeURIComponent(whPick.id) + '.mp3'); whAudio = a;
+      a.onended = whStop; a.onerror = function () { whAudio = null; whSpeech(whPick); };
+      var p = a.play(); if (p && p.catch) p.catch(function () { if (whAudio === a) { whAudio = null; whSpeech(whPick); } });
+    } else whSpeech(whPick);
+  });
+  window.addEventListener('pagehide', whStop);
+  function renderWelterbe() {
+    var box = $('wh-bar'); if (!box || !window.fetch) return;
+    fetch('data/welterbe.json').then(function (r) { return r.json(); }).then(function (l) {
+      l = l.filter(function (x) { return x && x.titel; }).sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+      if (!l.length) return;
+      var e = l[0]; whPick = e; whOk = false;
+      $('wh-title').textContent = e.titel; $('wh-by').textContent = e.ort + ' · seit ' + e.seit;
+      $('wh-link').href = 'welterbe.html?id=' + encodeURIComponent(e.id);
+      fetch('audio/welterbe-' + encodeURIComponent(e.id) + '.mp3', { method: 'HEAD' }).then(function (r) { whOk = r.ok; }).catch(function () {});
+      box.classList.add('on');
+    }).catch(function () {});
+  }
+  renderWelterbe();
   // Safari stellt Seiten beim Zurücknavigieren oft aus dem bfcache wieder her
   window.addEventListener('pageshow', function () { renderRezeptDesTages(); renderSongDesTages(); countdown(); zeigeHeute(); });
 

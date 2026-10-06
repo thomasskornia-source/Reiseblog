@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>UNESCO-Welterbe der Woche – Unterwegs und zuhause</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=26">
+<link rel="stylesheet" href="song.css?v=2">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+</head>
+<body class="page-song">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="quiz.html">München</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="index.html">← Zur Startseite</a>
+  </div>
+
+  <article id="wh" class="song-wait">
+    <header class="entry-header">
+      <p class="date" id="w-kicker"></p>
+      <h1><span id="w-title"></span></h1>
+      <p class="song-by" id="w-by"></p>
+      <hr class="rule">
+    </header>
+    <div class="song-actions"><button type="button" class="song-btn" id="w-read">▶ Anhören</button></div>
+    <div class="entry-body song-body" id="w-text"></div>
+    <p class="song-note"><a id="w-src" href="#" target="_blank" rel="noopener"></a></p>
+    <h2 class="song-more">Die letzten Wochen</h2>
+    <ul class="song-list" id="w-list"></ul>
+  </article>
+  <p id="w-error" class="song-note" hidden>Das Welterbe konnte gerade nicht geladen werden.</p>
+  <footer class="site-footer"><p>Jede Woche ein neues UNESCO-Welterbe zum Anhören.</p></footer>
+</div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var M = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+  var cur = null, au = null, sp = false;
+  function stop() { sp = false; if (au) { au.pause(); au = null; } if ('speechSynthesis' in window) speechSynthesis.cancel(); $('w-read').textContent = '▶ Anhören'; }
+  function speech(e) {
+    if (!('speechSynthesis' in window)) { stop(); return; }
+    var p = (e.sprech || e.text).match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [e.text]; sp = true;
+    (function n() { if (!sp) return; if (!p.length) { stop(); return; } var u = new SpeechSynthesisUtterance(p.shift()); u.lang = 'de-DE'; u.rate = .95; u.onend = n; u.onerror = function (er) { if (!er || (er.error !== 'canceled' && er.error !== 'interrupted')) stop(); }; speechSynthesis.speak(u); })();
+  }
+  $('w-read').addEventListener('click', function () {
+    if (au || sp) { stop(); return; }
+    $('w-read').textContent = '■ Stopp';
+    var a = new Audio('audio/welterbe-' + encodeURIComponent(cur.id) + '.mp3'); au = a;
+    a.onended = stop; a.onerror = function () { au = null; speech(cur); };
+    var r = a.play(); if (r && r.catch) r.catch(function () { if (au === a) { au = null; speech(cur); } });
+  });
+  window.addEventListener('pagehide', stop);
+  function datum(d) { var x = d.split('-'); return parseInt(x[2], 10) + '. ' + M[parseInt(x[1], 10) - 1] + ' ' + x[0]; }
+  function show(e) {
+    stop(); cur = e;
+    $('w-kicker').textContent = 'UNESCO-Welterbe der Woche · ' + datum(e.date);
+    $('w-title').textContent = e.titel; $('w-by').textContent = e.ort + ', ' + e.land + ' · Welterbe seit ' + e.seit;
+    $('w-text').innerHTML = ''; e.text.split('\n\n').forEach(function (t) { var p = document.createElement('p'); p.textContent = t; $('w-text').appendChild(p); });
+    var s = $('w-src'); s.href = e.quelle.url; s.textContent = 'Quelle: ' + e.quelle.titel;
+    document.title = e.titel + ' – UNESCO-Welterbe';
+    $('wh').classList.remove('song-wait');
+  }
+  fetch('data/welterbe.json').then(function (r) { return r.json(); }).then(function (l) {
+    l = l.filter(function (x) { return x && x.titel; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    var id = new URLSearchParams(location.search).get('id');
+    var e = l.filter(function (x) { return x.id === id; })[0] || l[0];
+    if (!e) throw 0;
+    show(e);
+    $('w-list').innerHTML = '';
+    l.forEach(function (x) { var li = document.createElement('li'), a = document.createElement('a'), b = document.createElement('b'), sp2 = document.createElement('span');
+      a.href = 'welterbe.html?id=' + encodeURIComponent(x.id); b.textContent = x.titel; sp2.textContent = x.ort + ' · ' + datum(x.date); a.appendChild(b); a.appendChild(sp2); li.appendChild(a); $('w-list').appendChild(li); });
+  }).catch(function () { $('w-error').hidden = false; });
+})();
+</script>
+</body>
+</html>

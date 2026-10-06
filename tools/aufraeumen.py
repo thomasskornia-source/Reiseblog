@@ -23,9 +23,20 @@ def main():
         if len(rl) > len(rest):
             json.dump(rest, open(rp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
             print("Rätsel entfernt:", [x["id"] for x in rl[RAETSEL_BEHALTEN:]])
+    welterbe_behalten = set()
+    wp = os.path.join(ROOT, "data", "welterbe.json")
+    if os.path.exists(wp):
+        wl = sorted(json.load(open(wp, encoding="utf-8")), key=lambda x: x.get("date", ""), reverse=True)
+        if len(wl) > 12:
+            json.dump(wl[:12], open(wp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        welterbe_behalten = {x["id"] for x in wl[:12]}
     for f in sorted(os.listdir(adir)):
         if f.startswith("raetsel-") and f.endswith((".mp3", ".json")):
             if f[len("raetsel-"):].rsplit(".", 1)[0] not in behalten:
+                os.remove(os.path.join(adir, f)); print("gelöscht:", f)
+            continue
+        if f.startswith("welterbe-") and f.endswith(".mp3"):  # Welterbe: die 12 neuesten Einträge behalten
+            if f[len("welterbe-"):-4] not in welterbe_behalten:
                 os.remove(os.path.join(adir, f)); print("gelöscht:", f)
             continue
         if not f.endswith(".mp3"):
