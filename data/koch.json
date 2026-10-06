@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "I2SFjebVeWw",
+   "titel": "KI boomt weiter!  Endlich fallen auch Öl und Renditen.",
+   "datum": "2026-10-06",
+   "zeit": "2026-10-06T13:44:24+00:00",
+   "art": "opening",
+   "score": 45,
+   "pfeil": "hoch",
+   "thema": "Nachgebende Renditen und sinkende Ölpreise stützen zusammen mit dem anhaltenden KI-Boom und positiver Saisonalität die Aktienmärkte.",
+   "gesamtstimmung": "Die Marktstimmung profitiert von einer Entspannung bei den Ölpreisen und Anleiherenditen sowie dem ungebrochenen Momentum im Technologiesektor. Historische saisonale Muster nach dem September-Tief sprechen zudem für eine Fortsetzung der Aufwärtsbewegung.",
+   "begruendung": "Rückläufige Staatsanleiherenditen und fallende Energiepreise mindern den Zinsdruck auf die breiteren Marktsektoren. Gleichzeitig treibt das robuste Gewinnwachstum im KI- und Techbereich die US-Leitindizes weiter an.",
+   "indikatoren": [
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "rückläufig, Brent unter 100 USD und WTI bei 87 USD",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Energiepreise dämpfen den Inflationsdruck und entlasten Wirtschaft sowie Verbraucher."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "im 10-jährigen Bereich leicht rückläufig",
+     "pfeil": "hoch",
+     "rolle": "Ein Nachlassen des Renditedrucks begünstigt Aktienbewertungen und stützt zinssensible Sektoren."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Zinspause für Oktober erwartet, nächste Anhebung frühestens Dezember",
+     "pfeil": "hoch",
+     "rolle": "Geringe Wahrscheinlichkeit kurzfristiger Zinsschritte nimmt unmittelbare Unsicherheit aus dem Markt."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "saisonaler Tiefpunkt Ende September überwunden, Q4-Rally typisch für Zwischenwah",
+     "pfeil": "hoch",
+     "rolle": "Historische Muster in Midterm-Jahren signalisieren ein statistisch starkes Schlussquartal."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Top 10 Techwerte tragen zwei Drittel des S&P-500-Gewinnwachstums",
+     "pfeil": "hoch",
+     "rolle": "Hohe Ertragszuwächse im Technologiesektor rechtfertigen die Kursgewinne der Schwergewichte."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "zinssensible Sektoren stark überverkauft, KI dominiert Indexperformance",
+     "pfeil": "seitwaerts",
+     "rolle": "Zeigt, dass die Marktstärke stark von wenigen KI-Titeln getragen wird, während andere Sektoren Erholungspotenzial bieten."
+    }
+   ],
+   "zitate": [
+    "heute spielt zur Abwechslung mal alles mit",
+    "wird der Gesamtmarkt getragen durch die KI-Story"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 133417
+  },
+  {
    "id": "5FxmULso9Ts",
    "titel": "Nasdaq knackt Rekord. Mega-Tech trägt Rally.",
    "datum": "2026-10-05",
@@ -62,6 +125,83 @@
    "sicherheit": "hoch",
    "modell": "gemini-3.8-flash",
    "tokens": 129658
+  },
+  {
+   "id": "VfqdXfUmR68",
+   "titel": "54% der Aktien im Bärenmarkt. Kommt jetzt die große Rotation?",
+   "datum": "2026-10-05",
+   "zeit": "2026-10-05T13:41:49+00:00",
+   "art": "opening",
+   "score": 30,
+   "pfeil": "hoch",
+   "thema": "Markus Koch erörtert die Chancen für eine Markterholung gestützt auf sinkende Zinserwartungen, anziehende Gewinnschätzungen und attraktive Bewertungen bei Nebenwerten.",
+   "gesamtstimmung": "Koch sieht trotz kurzfristiger Unsicherheit vor Konjunkturdaten und geopolitischen Risiken gute Chancen auf eine Stabilisierung und Gegenbewegung am US-Aktienmarkt. Vor allem die gesunkenen Bewertungen vieler Einzeltitel, steigende Gewinnerwartungen und eine Beruhigung bei den Renditen sprechen für Rückenwind.",
+   "begruendung": "Er stützt sich auf Analysen von Morgan Stanley und Citadel, wonach über die Hälfte der Aktien bereits stark korrigiert hat und das Bewertungsniveau Raum für Kursgewinne bietet. Zudem nehmen die Erwartungen an weitere Zinserhöhungen im Herbst deutlich ab, was den Markt entlastet.",
+   "indikatoren": [
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Wahrscheinlichkeit für Zinserhöhung im Oktober/November sinkt auf 21 %",
+     "pfeil": "hoch",
+     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "bereits eine Stabilisierung der Renditen würde für eine Aktienrallye ausreichen",
+     "pfeil": "hoch",
+     "rolle": "Die Beruhigung der Renditedynamik ist der wichtigste Katalysator für eine Erholung."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "steigen vor Beginn der Berichtssaison unüblich an",
+     "pfeil": "hoch",
+     "rolle": "Robuste und anziehende Ertragsprognosen stützen das fundamentale Bild der Unternehmen."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "54 % der Russell-3000-Aktien im Bärenmarkt, Equal-Weight-KGV bei 16",
+     "pfeil": "hoch",
+     "rolle": "Viele abgestrafte Sektoren bieten nach der starken Bereinigung attraktive Einstiegschancen."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "saisonal beginnt historisch eine stärkere Börsenphase",
+     "pfeil": "hoch",
+     "rolle": "Das vierte Quartal bietet historisch betrachtet Rückenwind für Aktien."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Industrie- und Exportdaten (Asien & USA)",
+     "lage": "Warten auf ISM-Dienstleistungsindex und Preiskomponenten",
+     "pfeil": "seitwaerts",
+     "rolle": "Die anstehenden Daten entscheiden kurzfristig über die Richtung des Handelstages."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Ölpreise leicht schwächer, hohe Dieselpreise belasten Frachtbranche",
+     "pfeil": "seitwaerts",
+     "rolle": "Zusätzliche Exporte aus Nahost und strategische Reserven dämpfen den Preisauftrieb bei Rohöl."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Angriffe auf Energieinfrastruktur halten an",
+     "pfeil": "runter",
+     "rolle": "Geopolitische Spannungen bleiben ein latenter Unsicherheitsfaktor für Rohstoffe und Märkte."
+    }
+   ],
+   "zitate": [
+    "eine Beruhigung bei den Renditen der Staatsanleihen schon ausreichen würde",
+    "Einstiegsniveaus sind attraktiver geworden"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 142131
   },
   {
    "id": "6K6GAqqqIk0",
@@ -210,9 +350,11 @@
   "l17P53ro9vs",
   "6K6GAqqqIk0",
   "l17P53ro9vs",
-  "5FxmULso9Ts"
+  "5FxmULso9Ts",
+  "VfqdXfUmR68",
+  "I2SFjebVeWw"
  ],
- "stand": "2026-10-06T01:12Z",
+ "stand": "2026-10-06T19:04Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",

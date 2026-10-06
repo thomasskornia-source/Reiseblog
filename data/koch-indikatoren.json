@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-05",
+ "stand": "2026-10-06",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -8,14 +8,14 @@
   {
    "kategorie": "Anleihen & Renditen",
    "status": "bestaetigt",
-   "tage_anzahl": 3,
+   "tage_anzahl": 4,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-05",
+   "zuletzt": "2026-10-06",
    "name": "US-Staatsanleiherenditen",
    "namen": [
     "US-Staatsanleiherenditen"
    ],
-   "rolle": "Hohe Renditen belasten zinssensible Branchen und deckeln das Aufwärtspotenzial am breiten Markt.",
+   "rolle": "Ein Nachlassen des Renditedrucks begünstigt Aktienbewertungen und stützt zinssensible Sektoren.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -32,26 +32,33 @@
      "rolle": "Sinkende Renditen entlasten die Aktienmärkte und verringern den Refinanzierungsdruck."
     },
     "2026-10-05": {
-     "p": -1,
+     "p": 0,
      "namen": [
       "US-Staatsanleiherenditen"
      ],
      "rolle": "Hohe Renditen belasten zinssensible Branchen und deckeln das Aufwärtspotenzial am breiten Markt."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Ein Nachlassen des Renditedrucks begünstigt Aktienbewertungen und stützt zinssensible Sektoren."
     }
    }
   },
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 3,
+   "tage_anzahl": 4,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-05",
+   "zuletzt": "2026-10-06",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
     "Marktbreite"
    ],
-   "rolle": "Die massive Divergenz zwischen dem Gesamtmarkt und den führenden Tech-Titeln mahnt ihn zur Vorsicht.",
+   "rolle": "Zeigt, dass die Marktstärke stark von wenigen KI-Titeln getragen wird, während andere Sektoren Erholungspotenzial bieten.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -68,26 +75,33 @@
      "rolle": "Ohne KI-Aktien zeigt der breite Markt deutliche Schwächezeichen."
     },
     "2026-10-05": {
-     "p": -1,
+     "p": 0,
      "namen": [
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
      "rolle": "Die massive Divergenz zwischen dem Gesamtmarkt und den führenden Tech-Titeln mahnt ihn zur Vorsicht."
+    },
+    "2026-10-06": {
+     "p": 0,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Zeigt, dass die Marktstärke stark von wenigen KI-Titeln getragen wird, während andere Sektoren Erholungspotenzial bieten."
     }
    }
   },
   {
    "kategorie": "Öl & Rohstoffe",
    "status": "bestaetigt",
-   "tage_anzahl": 3,
+   "tage_anzahl": 4,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-05",
+   "zuletzt": "2026-10-06",
    "name": "Öl- und Dieselpreise",
    "namen": [
     "Öl- und Dieselpreise",
     "Ölpreise"
    ],
-   "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind.",
+   "rolle": "Sinkende Energiepreise dämpfen den Inflationsdruck und entlasten Wirtschaft sowie Verbraucher.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -109,6 +123,139 @@
       "Öl- und Dieselpreise"
      ],
      "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Sinkende Energiepreise dämpfen den Inflationsdruck und entlasten Wirtschaft sowie Verbraucher."
+    }
+   }
+  },
+  {
+   "kategorie": "Saisonalität & Chart",
+   "status": "bestaetigt",
+   "tage_anzahl": 3,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-06",
+   "name": "Q4-Saisonalität & Positionierung",
+   "namen": [
+    "Q4-Saisonalität & Positionierung"
+   ],
+   "rolle": "Historische Muster in Midterm-Jahren signalisieren ein statistisch starkes Schlussquartal.",
+   "tage": {
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Historisch bietet das vierte Quartal nach bereinigten CTA-Positionen Rückenwind für Aktien."
+    },
+    "2026-10-05": {
+     "p": 2,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Er sieht in der historischen Q4-Saisonalität ein starkes Argument für eine anstehende Erholungsphase am Aktienmarkt."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Historische Muster in Midterm-Jahren signalisieren ein statistisch starkes Schlussquartal."
+    }
+   }
+  },
+  {
+   "kategorie": "Zinsen & Notenbank",
+   "status": "bestaetigt",
+   "tage_anzahl": 3,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-06",
+   "name": "Fed-Zinserwartungen",
+   "namen": [
+    "Fed-Zinserwartungen"
+   ],
+   "rolle": "Geringe Wahrscheinlichkeit kurzfristiger Zinsschritte nimmt unmittelbare Unsicherheit aus dem Markt.",
+   "tage": {
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Geringe Wahrscheinlichkeit kurzfristiger Zinsschritte nimmt unmittelbare Unsicherheit aus dem Markt."
+    }
+   }
+  },
+  {
+   "kategorie": "Geopolitik",
+   "status": "beobachtet",
+   "tage_anzahl": 2,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-05",
+   "name": "Nahost & Ukraine-Krieg",
+   "namen": [
+    "Nahost & Ukraine-Krieg"
+   ],
+   "rolle": "Geopolitische Spannungen bleiben ein latenter Unsicherheitsfaktor für Rohstoffe und Märkte.",
+   "tage": {
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Unsicherheiten bleiben ein ständiger Belastungsfaktor für das Marktumfeld."
+    },
+    "2026-10-05": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Spannungen bleiben ein latenter Unsicherheitsfaktor für Rohstoffe und Märkte."
+    }
+   }
+  },
+  {
+   "kategorie": "Gewinnsaison",
+   "status": "beobachtet",
+   "tage_anzahl": 2,
+   "erstmals": "2026-10-05",
+   "zuletzt": "2026-10-06",
+   "name": "Q3-Gewinnschätzungen",
+   "namen": [
+    "Q3-Gewinnschätzungen"
+   ],
+   "rolle": "Hohe Ertragszuwächse im Technologiesektor rechtfertigen die Kursgewinne der Schwergewichte.",
+   "tage": {
+    "2026-10-05": {
+     "p": 2,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die bevorstehende Berichtssaison stützt die Kurse, da vor allem Tech-Werte kräftiges Ertragswachstum liefern dürften."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Hohe Ertragszuwächse im Technologiesektor rechtfertigen die Kursgewinne der Schwergewichte."
     }
    }
   },
@@ -142,30 +289,30 @@
    }
   },
   {
-   "kategorie": "Saisonalität & Chart",
+   "kategorie": "Konjunktur",
    "status": "beobachtet",
    "tage_anzahl": 2,
-   "erstmals": "2026-10-02",
+   "erstmals": "2026-10-01",
    "zuletzt": "2026-10-05",
-   "name": "Q4-Saisonalität & Positionierung",
+   "name": "Industrie- und Exportdaten (Asien & USA)",
    "namen": [
-    "Q4-Saisonalität & Positionierung"
+    "Industrie- und Exportdaten (Asien & USA)"
    ],
-   "rolle": "Er sieht in der historischen Q4-Saisonalität ein starkes Argument für eine anstehende Erholungsphase am Aktienmarkt.",
+   "rolle": "Die anstehenden Daten entscheiden kurzfristig über die Richtung des Handelstages.",
    "tage": {
-    "2026-10-02": {
-     "p": 1,
+    "2026-10-01": {
+     "p": 0,
      "namen": [
-      "Q4-Saisonalität & Positionierung"
+      "Industrie- und Exportdaten (Asien & USA)"
      ],
-     "rolle": "Historisch bietet das vierte Quartal nach bereinigten CTA-Positionen Rückenwind für Aktien."
+     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
     },
     "2026-10-05": {
-     "p": 1,
+     "p": 0,
      "namen": [
-      "Q4-Saisonalität & Positionierung"
+      "Industrie- und Exportdaten (Asien & USA)"
      ],
-     "rolle": "Er sieht in der historischen Q4-Saisonalität ein starkes Argument für eine anstehende Erholungsphase am Aktienmarkt."
+     "rolle": "Die anstehenden Daten entscheiden kurzfristig über die Richtung des Handelstages."
     }
    }
   },
@@ -216,90 +363,6 @@
       "US-Arbeitsmarktdaten"
      ],
      "rolle": "Ein abkühlender Arbeitsmarkt nimmt den Zinsdruck von der Fed und wird von den Aktienmärkten positiv aufgenommen."
-    }
-   }
-  },
-  {
-   "kategorie": "Geopolitik",
-   "status": "neu",
-   "tage_anzahl": 1,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-02",
-   "name": "Nahost & Ukraine-Krieg",
-   "namen": [
-    "Nahost & Ukraine-Krieg"
-   ],
-   "rolle": "Geopolitische Unsicherheiten bleiben ein ständiger Belastungsfaktor für das Marktumfeld.",
-   "tage": {
-    "2026-10-02": {
-     "p": -1,
-     "namen": [
-      "Nahost & Ukraine-Krieg"
-     ],
-     "rolle": "Geopolitische Unsicherheiten bleiben ein ständiger Belastungsfaktor für das Marktumfeld."
-    }
-   }
-  },
-  {
-   "kategorie": "Gewinnsaison",
-   "status": "neu",
-   "tage_anzahl": 1,
-   "erstmals": "2026-10-05",
-   "zuletzt": "2026-10-05",
-   "name": "Q3-Gewinnschätzungen",
-   "namen": [
-    "Q3-Gewinnschätzungen"
-   ],
-   "rolle": "Die bevorstehende Berichtssaison stützt die Kurse, da vor allem Tech-Werte kräftiges Ertragswachstum liefern dürften.",
-   "tage": {
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Q3-Gewinnschätzungen"
-     ],
-     "rolle": "Die bevorstehende Berichtssaison stützt die Kurse, da vor allem Tech-Werte kräftiges Ertragswachstum liefern dürften."
-    }
-   }
-  },
-  {
-   "kategorie": "Konjunktur",
-   "status": "neu",
-   "tage_anzahl": 1,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-01",
-   "name": "Industrie- und Exportdaten (Asien & USA)",
-   "namen": [
-    "Industrie- und Exportdaten (Asien & USA)"
-   ],
-   "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch.",
-   "tage": {
-    "2026-10-01": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
-    }
-   }
-  },
-  {
-   "kategorie": "Zinsen & Notenbank",
-   "status": "neu",
-   "tage_anzahl": 1,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-02",
-   "name": "Fed-Zinserwartungen",
-   "namen": [
-    "Fed-Zinserwartungen"
-   ],
-   "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger.",
-   "tage": {
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
     }
    }
   }
