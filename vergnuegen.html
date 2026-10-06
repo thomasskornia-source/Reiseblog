@@ -247,7 +247,7 @@
     reihe.forEach(function (k) {
       var g = el('section', 'vg-grp'), h = el('h3', '', k), liste = gr[k];
       if (r === 'stream') {   // Film / Serie je Dienst als zarte Umschalter rechts neben dem Namen
-        var nF = liste.filter(function (x) { return artVon(x) === 'Film'; }).length, nS = liste.length - nF, ar = artF[k] || '', bx = el('span', 'vg-art');
+        var nF = liste.filter(function (x) { return artVon(x) === 'Film'; }).length, nS = liste.length - nF, ar = artF[k] === undefined ? (nF ? 'Film' : '') : artF[k], bx = el('span', 'vg-art');
         [['Film', nF], ['Serie', nS]].forEach(function (p) {
           var bt = el('button', ar === p[0] ? 'on' : '', p[0] + ' ' + p[1]); bt.type = 'button'; bt.setAttribute('aria-pressed', ar === p[0] ? 'true' : 'false');
           bt.onclick = function () { artF[k] = ar === p[0] ? '' : p[0]; zeichnen(); }; bx.appendChild(bt);
