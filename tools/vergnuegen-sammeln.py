@@ -30,7 +30,7 @@ THEMEN = {
 }
 HEUTE = dt.date.today()
 MAX_ZEICHEN, MAX_PRO_QUELLE, MAX_PRO_RUBRIK = 24000, 10, 80
-MAX_QUELLEN_PRO_LAUF, PAUSE = 8, 12   # schont das gemeinsame kostenlose Gemini-Kontingent (auch Börsenstimmung und Rätsel nutzen es)
+MAX_QUELLEN_PRO_LAUF, PAUSE = 5, 15   # schont das gemeinsame kostenlose Gemini-Kontingent (auch Börsenstimmung und Rätsel nutzen es)
 
 
 def get(url):
@@ -64,7 +64,7 @@ def gemini(p):
     body = {"contents": [{"parts": [{"text": p}]}], "generationConfig": {"responseMimeType": "application/json", "temperature": 0.2}}
     fehler = ""
     for m in MODELS:
-        for versuch in range(1):
+        for versuch in range(3):
             req = urllib.request.Request(f"{BASE}/models/{m}:generateContent", data=json.dumps(body).encode(), method="POST",
                                          headers={"x-goog-api-key": KEY, "Content-Type": "application/json"})
             try:
@@ -74,6 +74,9 @@ def gemini(p):
             except urllib.error.HTTPError as e:
                 fehler = f"{m}: HTTP {e.code}"
                 print(fehler, flush=True)
+                if e.code in (500, 502, 503, 504) and versuch < 2:
+                    time.sleep(45 * (versuch + 1))   # Google überlastet: später nochmal, gleiches Modell
+                    continue
                 break
             except Exception as e:  # noqa: BLE001
                 fehler = f"{m}: {e}"; print(fehler, flush=True); break
