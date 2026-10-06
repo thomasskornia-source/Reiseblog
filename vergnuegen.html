@@ -66,7 +66,12 @@
   .vg-q input:checked + .sw { background: #2a8f6a; }
   .vg-q input:checked + .sw::after { transform: translateX(18px); }
   .vg-q input:focus-visible + .sw { outline: 2px solid var(--ink); outline-offset: 2px; }
-  .vg-qh { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin: 26px 0 0; }
+  .vg-qh { display: flex; align-items: center; gap: 10px; width: 100%; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin: 18px 0 0; padding: 12px 4px; background: none; border: 0; border-bottom: 1px solid #e4dccb; cursor: pointer; text-align: left; }
+  .vg-qh .qt { flex: 1; }
+  .vg-qh .qc { font-size: 12px; font-weight: 500; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+  .vg-qh .qx { width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .15s; margin: 0 4px 3px; }
+  .vg-qh[aria-expanded="true"] .qx { transform: rotate(225deg); margin-bottom: -3px; }
+  .vg-q[hidden] { display: none; }
   .vg-copy { all: unset; cursor: pointer; margin-top: 22px; display: inline-block; padding: 11px 22px; border-radius: 99px; background: var(--ink); color: #fff; font-weight: 600; font-size: 15px; }
   .vg-reset { all: unset; cursor: pointer; font-size: 13px; color: var(--ink-soft); text-decoration: underline; }
 </style>
@@ -232,12 +237,17 @@
     var box = $('q-liste'); box.innerHTML = '';
     ORDER.forEach(function (k) {
       var l = quellen.filter(function (q) { return q.rubrik === k; }); if (!l.length) return;
-      box.appendChild(el('h2', 'vg-qh', RUBRIKEN[k].name));
-      var ul = el('ul', 'vg-q');
+      var hd = el('button', 'vg-qh'), ul = el('ul', 'vg-q'), cnt = el('span', 'qc');
+      hd.type = 'button'; hd.setAttribute('aria-expanded', 'false');
+      hd.appendChild(el('span', 'qt', RUBRIKEN[k].name)); hd.appendChild(cnt); hd.appendChild(el('span', 'qx'));
+      function zaehl() { var n = l.filter(function (q) { return qstat[q.id] !== 'aus'; }).length; cnt.textContent = n + ' von ' + l.length + ' an'; }
+      zaehl(); ul.hidden = true;
+      hd.onclick = function () { ul.hidden = !ul.hidden; hd.setAttribute('aria-expanded', ul.hidden ? 'false' : 'true'); };
+      box.appendChild(hd);
       l.forEach(function (q) {
         var li = el('li', qstat[q.id] === 'aus' ? 'weg' : ''), lb = el('label'), t = el('span', 'qi');
         var cb = el('input'); cb.type = 'checkbox'; cb.checked = qstat[q.id] !== 'aus'; cb.setAttribute('aria-label', q.name);
-        cb.onchange = function () { if (cb.checked) delete qstat[q.id]; else qstat[q.id] = 'aus'; ss('vg-quellen', JSON.stringify(qstat)); li.className = cb.checked ? '' : 'weg'; };
+        cb.onchange = function () { if (cb.checked) delete qstat[q.id]; else qstat[q.id] = 'aus'; ss('vg-quellen', JSON.stringify(qstat)); li.className = cb.checked ? '' : 'weg'; zaehl(); };
         t.appendChild(el('span', 'qn', q.name));
         var d = el('span', 'qd'), a = el('a', '', q.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, ''));
         a.href = q.url; a.target = '_blank'; a.rel = 'noopener'; a.onclick = function (e) { e.stopPropagation(); };
