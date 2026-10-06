@@ -37,6 +37,9 @@
   /* Tipps: Themen mit schmalen, aufklappbaren Zeilen */
   .vg-grp { margin: 22px 0 0; }
   .vg-grp > h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0 0 8px; display: flex; align-items: baseline; gap: 8px; }
+  .vg-art { margin-left: auto; display: inline-flex; gap: 6px; }
+  .vg-art button { font: 600 12px 'Work Sans', sans-serif; padding: 4px 11px; border-radius: 99px; border: 1px solid rgba(91,46,107,.25); background: rgba(91,46,107,.08); color: #5B2E6B; cursor: pointer; white-space: nowrap; }
+  .vg-art button.on { background: rgba(91,46,107,.24); border-color: rgba(91,46,107,.55); }
   .vg-grp > h3 small { font-family: inherit; font-size: 12.5px; color: var(--ink-soft); font-weight: 600; }
   .vg-list { background: #fff; border-radius: 16px; box-shadow: 0 4px 14px rgba(46,58,50,.08); overflow: hidden; }
   .vg-row { border-top: 1px solid #efe8da; }
@@ -228,6 +231,8 @@
   }
   function setze(id, v) { if (v) status[id] = v; else delete status[id]; ss('vg-status', JSON.stringify(status)); zeichnen(); }
 
+  var artF = {};
+  function artVon(x) { return (x.tags || []).indexOf('Serie') >= 0 ? 'Serie' : 'Film'; }
   function zeichnen() {
     var h = heute();
     var mein = items.filter(function (x) { return x.rubrik === r && (!x.datum_bis && !x.datum || (x.datum_bis || x.datum) >= h || !/^\d{4}-/.test(x.datum || '')); });
@@ -240,8 +245,18 @@
     reihe.forEach(function (k) { gr[k].sort(function (a, b) { return (a.datum || '9999').localeCompare(b.datum || '9999'); }); });
     var ord = (THEMEN[r] || []); reihe.sort(function (a, b) { var i = ord.indexOf(a), j = ord.indexOf(b); return (i < 0 ? 99 : i) - (j < 0 ? 99 : j); });
     reihe.forEach(function (k) {
-      var g = el('section', 'vg-grp'), h = el('h3', '', k); h.appendChild(el('small', '', String(gr[k].length))); g.appendChild(h);
-      var l = el('div', 'vg-list'); gr[k].forEach(function (x) { l.appendChild(zeile(x)); }); g.appendChild(l); box.appendChild(g);
+      var g = el('section', 'vg-grp'), h = el('h3', '', k), liste = gr[k];
+      if (r === 'stream') {   // Film / Serie je Dienst als zarte Umschalter rechts neben dem Namen
+        var nF = liste.filter(function (x) { return artVon(x) === 'Film'; }).length, nS = liste.length - nF, ar = artF[k] || '', bx = el('span', 'vg-art');
+        [['Film', nF], ['Serie', nS]].forEach(function (p) {
+          var bt = el('button', ar === p[0] ? 'on' : '', p[0] + ' ' + p[1]); bt.type = 'button'; bt.setAttribute('aria-pressed', ar === p[0] ? 'true' : 'false');
+          bt.onclick = function () { artF[k] = ar === p[0] ? '' : p[0]; zeichnen(); }; bx.appendChild(bt);
+        });
+        h.appendChild(bx);
+        if (ar) liste = liste.filter(function (x) { return artVon(x) === ar; });
+      }
+      h.insertBefore(el('small', '', String(liste.length)), h.querySelector('.vg-art')); g.appendChild(h);
+      var l = el('div', 'vg-list'); liste.forEach(function (x) { l.appendChild(zeile(x)); }); g.appendChild(l); box.appendChild(g);
     });
     profilZeigen();
     var leer = $('leer');
