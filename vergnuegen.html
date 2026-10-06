@@ -296,7 +296,9 @@
   }
 
 
-  // Lieblingsfilme (nur lokal) – Kino, TV, Stream
+  // Lieblingsfilme (nur lokal) – Kino, TV, Stream; dazu die gesendeten aus data/tv-profil.json
+  var profFilme = [];
+  fetch('data/tv-profil.json').then(function (x) { return x.json(); }).then(function (j) { profFilme = j.lieblingsfilme || []; favZeigen(); }).catch(function () {});
   function favZeigen() {
     var box = $('fav'); if (!window.Filmfans || ['kino', 'tv', 'stream'].indexOf(r) === -1) { if (box) box.hidden = true; return; }
     box.hidden = false;
@@ -306,7 +308,8 @@
       b.onclick = function () { var a = Filmfans.lesen(); a.splice(i, 1); Filmfans.schreiben(a); favZeigen(); };
       sp.appendChild(b); ch.appendChild(sp);
     });
-    var hit = $('fav-hit'), t = Filmfans.treffer(items, favs);
+    var pf = []; (profFilme || []).forEach(function (f) { [f.titel].concat(f.auch || []).forEach(function (x) { if (x) pf.push(x); }); });
+    var hit = $('fav-hit'), t = Filmfans.treffer(items, favs.concat(pf));
     hit.hidden = !t.length; hit.innerHTML = '';
     if (t.length) {
       hit.appendChild(el('b', '', 'Läuft gerade: '));

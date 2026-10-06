@@ -2,6 +2,138 @@
  "stand": "2026-10-06",
  "gefaellt": [],
  "nicht_fuer_mich": [],
- "hinweis": "Wird von Claude aus den von Thomas gesendeten Daumen-Bewertungen (Seite Stream & TV, Knopf Bewertungen kopieren) und Lieblingsfilmen (Kino/TV/Stream-Seite, Knopf Lieblingsfilme kopieren) gepflegt. lieblingsfilme: Liste {titel, genres} mit Genres nur aus Krimi, Komödie, Drama, Thriller, Doku, Historie, Sci-Fi, Familie, Fantasy, Horror, Action, Abenteuer; die Startseite nutzt sie für den Filmtipp.",
- "lieblingsfilme": []
+ "hinweis": "Wird von Claude aus den von Thomas gesendeten Daumen-Bewertungen (Seite Stream & TV, Knopf Bewertungen kopieren) und Lieblingsfilmen (Kino/TV/Stream-Seite, Knopf Lieblingsfilme kopieren) gepflegt. lieblingsfilme: Liste {titel, genres} mit Genres nur aus Krimi, Komödie, Drama, Thriller, Doku, Historie, Sci-Fi, Familie, Fantasy, Horror, Action, Abenteuer; die Startseite nutzt sie für den Filmtipp. Optional je Film: auch = weitere Titel/Schreibweisen, die als Treffer zählen.",
+ "lieblingsfilme": [
+  {
+   "titel": "Sin City",
+   "genres": [
+    "Krimi",
+    "Thriller",
+    "Action"
+   ]
+  },
+  {
+   "titel": "Schindlers Liste",
+   "genres": [
+    "Drama",
+    "Historie"
+   ],
+   "auch": [
+    "Schindler's Liste",
+    "Schindler's List"
+   ]
+  },
+  {
+   "titel": "Tarantino-Filme",
+   "genres": [
+    "Krimi",
+    "Thriller",
+    "Action"
+   ],
+   "auch": [
+    "Pulp Fiction",
+    "Kill Bill",
+    "Reservoir Dogs",
+    "Django Unchained",
+    "Inglourious Basterds",
+    "Once Upon a Time in Hollywood",
+    "Jackie Brown",
+    "The Hateful Eight",
+    "Death Proof",
+    "Todesprinzessin"
+   ]
+  },
+  {
+   "titel": "Jojo Rabbit",
+   "genres": [
+    "Komödie",
+    "Drama",
+    "Historie"
+   ]
+  },
+  {
+   "titel": "Smoke",
+   "genres": [
+    "Drama",
+    "Komödie"
+   ]
+  },
+  {
+   "titel": "Einer flog über das Kuckucksnest",
+   "genres": [
+    "Drama"
+   ],
+   "auch": [
+    "One Flew Over the Cuckoo's Nest",
+    "Einer flog übers Kuckucksnest"
+   ]
+  },
+  {
+   "titel": "The Full Monty",
+   "genres": [
+    "Komödie",
+    "Drama"
+   ],
+   "auch": [
+    "Ganz oder gar nicht"
+   ]
+  },
+  {
+   "titel": "Das Leben ist schön",
+   "genres": [
+    "Komödie",
+    "Drama",
+    "Historie"
+   ],
+   "auch": [
+    "La vita è bella",
+    "Life Is Beautiful"
+   ]
+  },
+  {
+   "titel": "Life of Pi",
+   "genres": [
+    "Abenteuer",
+    "Drama",
+    "Fantasy"
+   ],
+   "auch": [
+    "Schiffbruch mit Tiger"
+   ]
+  },
+  {
+   "titel": "Full Metal Jacket",
+   "genres": [
+    "Drama",
+    "Historie"
+   ]
+  },
+  {
+   "titel": "Uhrwerk Orange",
+   "genres": [
+    "Sci-Fi",
+    "Krimi",
+    "Drama"
+   ],
+   "auch": [
+    "A Clockwork Orange",
+    "Clockwork Orange"
+   ]
+  },
+  {
+   "titel": "Der Herr der Ringe",
+   "genres": [
+    "Fantasy",
+    "Abenteuer",
+    "Action"
+   ],
+   "auch": [
+    "Herr der Ringe",
+    "The Lord of the Rings",
+    "Die Gefährten",
+    "Die zwei Türme",
+    "Die Rückkehr des Königs"
+   ]
+  }
+ ]
 }
