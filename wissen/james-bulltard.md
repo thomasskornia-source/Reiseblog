@@ -231,6 +231,30 @@ Charts liegen nicht im Repo. Selbstaussagen, nicht geprüft.
   wenn mehrere zutreffen („zweites Warnzeichen“). (c) Er sagt auch, dass ein Bruch wieder zurückgeholt werden kann; bei „Down“ also nicht endgültig
   urteilen, sondern „bis der Kurs wieder drüber steht“. (d) Eine Trendlinie als Linie im Chart haben wir nicht; nur als mögliche spätere Ergänzung.
 
+## Recap vom 06.10.2026 (Screenshots von Thomas; Tagesbeitrag, nur sinngemäß – kein Wortlaut, keine Charts, keine Tickerlisten im Repo)
+Bezug: SPY bricht an diesem Tag erstmals über die Marke 780 aus (S&P 500 entspricht etwa dem Zehnfachen, also 7800).
+- **Seine Aussage zur Marktlage:** Monatelang enge Flagge; der 100-Tage-Schnitt wurde nie unterschritten (ein Test), nur drei Schlusskurse unter dem
+  50er. „Charts lügen nicht“; je verlorenem Durchschnitt entscheidet man selbst, wie viel man reduziert. Nächster Treiber: Berichtssaison, mögliches
+  Ziel 800. NVDA als größter Index-Wert war der Auslöser der letzten Tage. Vorsicht: Der Tag war noch nicht beendet; wichtig seien Tages- und Freitagsschluss.
+- **Prüfung gegen unsere Daten (`data/markt.json`, Stand 06.10., 21:16):** (1) Neues Hoch: ja, S&P 7.827,78, 52-Wochen-Position 100 %. (2) Ausbruch aus der Spanne:
+  ja, die waagerechte Widerstandsmarke 7.816,70 ist überschritten; die 60-Tage-Spanne war nur etwa 7 % breit (7.314–7.817). (3) „Nur drei Schlusskurse unter dem 50er“:
+  stimmt für den September (10., 15., 16.09.); im Juli waren es noch mehr, die Aussage gilt also für die Flaggenphase. (4) „100er nie unterschritten, ein Test“: stimmt;
+  der Tagestiefstand am 16.09. (7.507,8) lag knapp unter dem 100er (7.511,3), der Schlusskurs darüber. Der letzte Schluss unter dem 100er war am 08.04.2026.
+  (5) RSI und MACD auf seinem Chart (RSI um 60, MACD dreht nach oben) passen zu unseren Werten (RSI 62,9; MACD 26,1 über Signallinie 15,1).
+  (6) Abweichung/Zusatz von uns: Der **Wochen-MACD liegt noch unter seiner Signallinie**, die 8 steht seit 11 Tagen über der 21. Der Ausbruch ist also stark, aber im Wochenbild noch nicht bestätigt.
+- **Sein Scanner (große Werte, Punktestand x/12, Stufen „Momentum building“ ab 7, „Watch“ bei 6):** Bausteine: Trendfächer der Durchschnitte (MA FAN), Schluss nahe Tageshoch,
+  Nähe zum 52-Wochen-Hoch, höhere Hochs/Tiefs, Wochen-EMA, OBV, Auf-/Ab-Umsatz, Squeeze, ATR-Verengung, NR7, Umsatz-Dry-Up, dazu „Spring“ und „VOL“ (Umsatzschub) sowie Zusatzzeilen
+  (Top-RS-Stern, Kurs über 200er-EMA, besser/schlechter als SPY, relatives Volumen, ATR in %). Das deckt sich weitgehend mit unseren 12 Regeln (unsere Trend-/Stärke-/Volumen-/Spannungsregeln
+  sind dort wiederzuerkennen); **RSI und MACD gehören bei ihm nicht zum Punktestand**, bei uns schon. Zusätzlich kennt er „Schluss nahe Tageshoch“, „Spring“ (Fehlausbruch nach unten mit Erholung)
+  und „VOL“; die haben wir nicht.
+- **Vergleich der Rangfolge (14 seiner 16 gezeigten Werte stehen in unserem S&P-Universum; unser Stand 05.10. noch nach der alten, ungewichteten Zählung, Neuberechnung folgt beim nächsten `top10.yml`-Lauf):**
+  Seine Werte mit 8/12 liegen bei uns bei 8–11 Punkten, die mit 6/12 bei 4–9. Die Richtung stimmt meist (PG ist bei uns „Down“ und bei ihm „Choppy/Watch“), aber nicht überall (ABBV: bei ihm 6, bei uns 9).
+  **Auffällig:** alle drei seiner 6/12-Werte sind zugleich „SPY underperform“. Relative Stärke scheint bei ihm schwerer zu wiegen als bei uns (dort ein Punkt von elf). Das ist eine Beobachtung an 16 Werten, kein Beleg.
+- **Neue Begriffe, die wir ggf. übernehmen können:** Trendklassen je Wert („Trending up“, „Transition“, „Choppy“) und die Stufenbezeichnung „Momentum building“ (haben wir als „Momentum im Aufbau“).
+  Seine Stufenschwelle liegt bei etwa 58 % der Punkte (7 von 12), unsere bei 55 % (6 von 11), also nahezu gleich.
+- **Nicht übernommen:** Flow-Tabelle zu NVDA (Käufe/Verkäufe von Optionen mit Prämien) – das sind Daten aus seiner Datenbank, nicht unsere; Kursziele wie 800 als Prognose.
+- **Offene Vorschläge (nichts davon eingebaut):** (a) Relative Stärke stärker gewichten oder als zweite Pflichtregel prüfen; (b) „Schluss nahe Tageshoch“ als Zusatzzeile; (c) Trendklasse (Up / Übergang / Seitwärts) neben der Ampel.
+
 ## Grenzen
 - Die öffentlichen Seiten nennen die gleitenden Durchschnitte als Auslöser (ausdrücklich nur den 21er-EMA), aber nicht
   vollständig, welche genau er nutzt. Die Linien 8, 21, 50, 200 und die Zonen stammen von Thomas.
