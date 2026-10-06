@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "5FxmULso9Ts",
+   "titel": "Nasdaq knackt Rekord. Mega-Tech trägt Rally.",
+   "datum": "2026-10-05",
+   "zeit": "2026-10-05T20:36:00+00:00",
+   "art": "closing",
+   "score": 15,
+   "pfeil": "hoch",
+   "thema": "Markus Koch analysiert den jüngsten Marktreturnaround, die extrem dünne Marktbreite und das Erholungspotenzial überverkaufter zinssensitiver Sektoren.",
+   "gesamtstimmung": "Die Marktstimmung ist verhalten optimistisch für eine Gegenbewegung, wird aber durch hohe Anleiherenditen und hohe Volatilität am Anleihemarkt spürbar gedämpft. Zwar stützen saisonale Faktoren und sinkende Ölpreise, doch die Rally bleibt vorerst extrem schmal auf wenige Tech-Schwergewichte konzentriert.",
+   "begruendung": "Der Markt zeigt dank positiver Saisonalität und robuster Tech-Gewinnerwartungen Stabilisierungstendenzen, weshalb der Score leicht im positiven Bereich liegt. Gleichzeitig verhindern die anhaltend hohen Renditen der US-Staatsanleihen und die extrem schlechte Marktbreite eine breitere Entwarnung.",
+   "indikatoren": [
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "Saisonaler Boden Ende September typisch vor Aufwärtsbewegung im vierten Quartal",
+     "pfeil": "hoch",
+     "rolle": "Er sieht in der historischen Q4-Saisonalität ein starkes Argument für eine anstehende Erholungsphase am Aktienmarkt."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Extrem schwach, Rally wird fast ausschließlich von wenigen Mega-Cap-Tech-Aktien ",
+     "pfeil": "runter",
+     "rolle": "Die massive Divergenz zwischen dem Gesamtmarkt und den führenden Tech-Titeln mahnt ihn zur Vorsicht."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Verharren auf hohem Niveau nahe den Wochenhochs",
+     "pfeil": "runter",
+     "rolle": "Hohe Renditen belasten zinssensible Branchen und deckeln das Aufwärtspotenzial am breiten Markt."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Rückgang um über 2 Prozent auf unter 89 Dollar je Barrel",
+     "pfeil": "hoch",
+     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Gewinnerwartungen für das dritte Quartal ungewöhnlicherweise vorab gestiegen",
+     "pfeil": "hoch",
+     "rolle": "Die bevorstehende Berichtssaison stützt die Kurse, da vor allem Tech-Werte kräftiges Ertragswachstum liefern dürften."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Anleihevolatilität (MOVE-Index)",
+     "lage": "Spürbar gestiegen, über 6,5 Prozent Plus im Tagesverlauf",
+     "pfeil": "runter",
+     "rolle": "Eine hohe Schwankungsbreite am Rentenmarkt signalisiert anhaltende Nervosität und muss sich für eine tragfähige Rally erst beruhigen."
+    }
+   ],
+   "zitate": [
+    "Sehr schöner Turnaround heute im Tagesverlauf.",
+    "Dass die Rally immer noch ziemlich dünn aufgestellt ist."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 129658
+  },
+  {
    "id": "6K6GAqqqIk0",
    "titel": "Jobmarkt kippt! Fed-Hike im Oktober vom Tisch?",
    "datum": "2026-10-02",
@@ -146,9 +209,10 @@
   "i-B753QP6xY",
   "l17P53ro9vs",
   "6K6GAqqqIk0",
-  "l17P53ro9vs"
+  "l17P53ro9vs",
+  "5FxmULso9Ts"
  ],
- "stand": "2026-10-05T08:00Z",
+ "stand": "2026-10-06T01:12Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",

@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-02",
+ "stand": "2026-10-05",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -7,15 +7,15 @@
  "kategorien": [
   {
    "kategorie": "Anleihen & Renditen",
-   "status": "beobachtet",
-   "tage_anzahl": 2,
+   "status": "bestaetigt",
+   "tage_anzahl": 3,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-02",
+   "zuletzt": "2026-10-05",
    "name": "US-Staatsanleiherenditen",
    "namen": [
     "US-Staatsanleiherenditen"
    ],
-   "rolle": "Sinkende Renditen entlasten die Aktienmärkte und verringern den Refinanzierungsdruck.",
+   "rolle": "Hohe Renditen belasten zinssensible Branchen und deckeln das Aufwärtspotenzial am breiten Markt.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -30,6 +30,85 @@
       "US-Staatsanleiherenditen"
      ],
      "rolle": "Sinkende Renditen entlasten die Aktienmärkte und verringern den Refinanzierungsdruck."
+    },
+    "2026-10-05": {
+     "p": -1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Hohe Renditen belasten zinssensible Branchen und deckeln das Aufwärtspotenzial am breiten Markt."
+    }
+   }
+  },
+  {
+   "kategorie": "Marktbreite & Sektoren",
+   "status": "bestaetigt",
+   "tage_anzahl": 3,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-05",
+   "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+   "namen": [
+    "Marktbreite (S&P 500 vs. Equal Weight)",
+    "Marktbreite"
+   ],
+   "rolle": "Die massive Divergenz zwischen dem Gesamtmarkt und den führenden Tech-Titeln mahnt ihn zur Vorsicht.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die Rally steht auf wackeligen Beinen, da nur eine Handvoll Tech-Giganten die Indizes nach oben zieht."
+    },
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Marktbreite"
+     ],
+     "rolle": "Ohne KI-Aktien zeigt der breite Markt deutliche Schwächezeichen."
+    },
+    "2026-10-05": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die massive Divergenz zwischen dem Gesamtmarkt und den führenden Tech-Titeln mahnt ihn zur Vorsicht."
+    }
+   }
+  },
+  {
+   "kategorie": "Öl & Rohstoffe",
+   "status": "bestaetigt",
+   "tage_anzahl": 3,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-05",
+   "name": "Öl- und Dieselpreise",
+   "namen": [
+    "Öl- und Dieselpreise",
+    "Ölpreise"
+   ],
+   "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
+    },
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Ölpreise"
+     ],
+     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
     }
    }
   },
@@ -63,60 +142,59 @@
    }
   },
   {
-   "kategorie": "Marktbreite & Sektoren",
+   "kategorie": "Saisonalität & Chart",
    "status": "beobachtet",
    "tage_anzahl": 2,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-02",
-   "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-05",
+   "name": "Q4-Saisonalität & Positionierung",
    "namen": [
-    "Marktbreite (S&P 500 vs. Equal Weight)",
-    "Marktbreite"
+    "Q4-Saisonalität & Positionierung"
    ],
-   "rolle": "Ohne KI-Aktien zeigt der breite Markt deutliche Schwächezeichen.",
+   "rolle": "Er sieht in der historischen Q4-Saisonalität ein starkes Argument für eine anstehende Erholungsphase am Aktienmarkt.",
    "tage": {
-    "2026-10-01": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die Rally steht auf wackeligen Beinen, da nur eine Handvoll Tech-Giganten die Indizes nach oben zieht."
-    },
     "2026-10-02": {
-     "p": -1,
+     "p": 1,
      "namen": [
-      "Marktbreite"
+      "Q4-Saisonalität & Positionierung"
      ],
-     "rolle": "Ohne KI-Aktien zeigt der breite Markt deutliche Schwächezeichen."
+     "rolle": "Historisch bietet das vierte Quartal nach bereinigten CTA-Positionen Rückenwind für Aktien."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Er sieht in der historischen Q4-Saisonalität ein starkes Argument für eine anstehende Erholungsphase am Aktienmarkt."
     }
    }
   },
   {
-   "kategorie": "Öl & Rohstoffe",
+   "kategorie": "Stimmung & Volatilität",
    "status": "beobachtet",
    "tage_anzahl": 2,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-02",
-   "name": "Öl- und Dieselpreise",
+   "zuletzt": "2026-10-05",
+   "name": "Marktpositionierung und Hebel",
    "namen": [
-    "Öl- und Dieselpreise",
-    "Ölpreise"
+    "Marktpositionierung und Hebel",
+    "Anleihevolatilität (MOVE-Index)"
    ],
-   "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten.",
+   "rolle": "Eine hohe Schwankungsbreite am Rentenmarkt signalisiert anhaltende Nervosität und muss sich für eine tragfähige Rally erst beruhigen.",
    "tage": {
     "2026-10-01": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
-    },
-    "2026-10-02": {
      "p": 1,
      "namen": [
-      "Ölpreise"
+      "Marktpositionierung und Hebel"
      ],
-     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
+     "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal."
+    },
+    "2026-10-05": {
+     "p": -1,
+     "namen": [
+      "Anleihevolatilität (MOVE-Index)"
+     ],
+     "rolle": "Eine hohe Schwankungsbreite am Rentenmarkt signalisiert anhaltende Nervosität und muss sich für eine tragfähige Rally erst beruhigen."
     }
    }
   },
@@ -163,6 +241,27 @@
    }
   },
   {
+   "kategorie": "Gewinnsaison",
+   "status": "neu",
+   "tage_anzahl": 1,
+   "erstmals": "2026-10-05",
+   "zuletzt": "2026-10-05",
+   "name": "Q3-Gewinnschätzungen",
+   "namen": [
+    "Q3-Gewinnschätzungen"
+   ],
+   "rolle": "Die bevorstehende Berichtssaison stützt die Kurse, da vor allem Tech-Werte kräftiges Ertragswachstum liefern dürften.",
+   "tage": {
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die bevorstehende Berichtssaison stützt die Kurse, da vor allem Tech-Werte kräftiges Ertragswachstum liefern dürften."
+    }
+   }
+  },
+  {
    "kategorie": "Konjunktur",
    "status": "neu",
    "tage_anzahl": 1,
@@ -180,48 +279,6 @@
       "Industrie- und Exportdaten (Asien & USA)"
      ],
      "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
-    }
-   }
-  },
-  {
-   "kategorie": "Saisonalität & Chart",
-   "status": "neu",
-   "tage_anzahl": 1,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-02",
-   "name": "Q4-Saisonalität & Positionierung",
-   "namen": [
-    "Q4-Saisonalität & Positionierung"
-   ],
-   "rolle": "Historisch bietet das vierte Quartal nach bereinigten CTA-Positionen Rückenwind für Aktien.",
-   "tage": {
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Q4-Saisonalität & Positionierung"
-     ],
-     "rolle": "Historisch bietet das vierte Quartal nach bereinigten CTA-Positionen Rückenwind für Aktien."
-    }
-   }
-  },
-  {
-   "kategorie": "Stimmung & Volatilität",
-   "status": "neu",
-   "tage_anzahl": 1,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-01",
-   "name": "Marktpositionierung und Hebel",
-   "namen": [
-    "Marktpositionierung und Hebel"
-   ],
-   "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal.",
-   "tage": {
-    "2026-10-01": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal."
     }
    }
   },
