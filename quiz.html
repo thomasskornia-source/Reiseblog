@@ -55,7 +55,7 @@
   body[data-welt] .qz .entry-header { display: none; }
   .qz .tile .in { z-index: 2; pointer-events: none; }
   .qz .tile .in a.go { pointer-events: auto; position: relative; color: #fff; text-decoration: none; }
-  .qz .tile .play { top: 50%; bottom: auto; transform: translateY(-50%); }
+  .qz .tile .play { top: 18px; right: 28px; bottom: auto; transform: none; width: 68px; height: 68px; }
   .qz .tile .in .go + .go { margin-left: 8px; position: relative; z-index: 3; }
   @media (max-width: 899px) {
     body[class^="page-"] .wrap.qz { padding-top: 0; }
@@ -105,7 +105,7 @@
 
   <section class="bento pcgrid">
     <div class="tile wide rkfull" id="rk" style="background:linear-gradient(170deg,#2E6FA3,#1B3F66)">
-      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="330" cy="58" r="30" fill="#F6C253" opacity=".9"/><path d="M180 232 L262 110 L296 160 L326 122 L400 232z" fill="#FBF3E4" opacity=".35"/><path d="M262 110 L276 132 L262 128 L248 132z" fill="#fff" opacity=".85"/><path d="M0 214 Q50 196 100 214 T200 214 T300 214 T400 214V232H0z" fill="#16406B" opacity=".7"/></svg>
+      <svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M180 232 L262 110 L296 160 L326 122 L400 232z" fill="#FBF3E4" opacity=".35"/><path d="M262 110 L276 132 L262 128 L248 132z" fill="#fff" opacity=".85"/><path d="M0 214 Q50 196 100 214 T200 214 T300 214 T400 214V232H0z" fill="#16406B" opacity=".7"/></svg>
       <a class="cover" id="rk-link" href="raetsel.html" aria-label="Bayern-Rätsel öffnen"></a>
       <div class="in"><span class="neu" id="rk-neu" hidden>Neu diese Woche</span><div class="q">Was weißt du über <i>Bayern</i>?</div><span class="go">Bayern-Rätsel · anhören</span></div>
       <button type="button" class="play" id="rk-play" aria-label="Bayern-Rätsel anhören" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></button>
