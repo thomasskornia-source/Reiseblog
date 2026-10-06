@@ -725,7 +725,12 @@
     return '<svg viewBox="0 0 ' + w + ' ' + h + '" width="100%" height="' + h + '" role="img" aria-label="Kursverlauf der letzten 40 Handelstage"><polyline points="' + pts + '" fill="none" stroke="#B5502E" stroke-width="2" stroke-linejoin="round"/></svg>';
   }
   function listeBlock(key, pre, leer) {
-    var tl = lies(key).map(normT), u = {};
+    var tl = [], u = {};
+    lies(key).map(aufTicker).forEach(function (t) { if (tl.indexOf(t) < 0) tl.push(t); });
+    if (key === DEPOT && beoB && beoB.aktien) { // schon oben in der Lynx-Liste: nicht doppelt unten
+      var oben = beoB.aktien.map(function (x) { return normT(x.ticker); }), wg = lies(WEG).map(normT);
+      tl = tl.filter(function (t) { return oben.indexOf(t) < 0 || wg.indexOf(t) >= 0; });
+    }
     if (uni && uni.aktien) uni.aktien.forEach(function (x) { u[normT(x.t)] = x; });
     var h = '<ol id="' + pre + '-l">' + tl.map(function (t) {
       var x = u[t], del = '<button type="button" class="xb" data-wdel="' + esc(t) + '" data-liste="' + key + '" aria-label="' + esc(t) + ' entfernen" title="Entfernen">×</button>';
@@ -738,6 +743,8 @@
     return { html: h, n: tl.length };
   }
   function renderBeo() {
+    var dpl = lies(DEPOT).map(aufTicker), weg0 = lies(WEG).map(normT);
+    if (weg0.some(function (t) { return dpl.indexOf(t) >= 0; })) schreib(WEG, weg0.filter(function (t) { return dpl.indexOf(t) < 0; })); // im Depot eingetragen = nicht ausgeblendet
     var weg = lies(WEG).map(normT);
     var eigene = beoB && beoB.aktien ? beoB.aktien.filter(function (x) { return weg.indexOf(normT(x.ticker)) < 0; }) : [];
     var ausg = beoB && beoB.aktien ? beoB.aktien.length - eigene.length : 0;
@@ -762,9 +769,23 @@
     });
     $('beo').hidden = false; $('lynx').hidden = false;
   }
+  // Eingabe darf auch der Firmenname sein (z. B. Amazon -> AMZN): erst Ticker, dann Name (genau, dann Anfang)
+  function aufTicker(raw) {
+    var t = normT(raw); if (!t || !uni || !uni.aktien) return t;
+    if (uni.aktien.some(function (x) { return normT(x.t) === t; })) return t;
+    var q = String(raw || '').trim().toLowerCase(), tr = null;
+    uni.aktien.forEach(function (x) { if (!tr && String(x.n).toLowerCase() === q) tr = x.t; });
+    if (!tr) uni.aktien.forEach(function (x) { if (!tr && q.length >= 3 && String(x.n).toLowerCase().indexOf(q) === 0) tr = x.t; });
+    return tr ? normT(tr) : t;
+  }
   function addTicker(raw, key) {
-    var t = normT(raw); if (!t) return;
-    var w = lies(key).map(normT);
+    var t = aufTicker(raw); if (!t) return;
+    if (key === DEPOT) {
+      var weg = lies(WEG).map(normT);
+      if (weg.indexOf(t) >= 0) { schreib(WEG, weg.filter(function (x) { return x !== t; })); msg[key] = t + ' war ausgeblendet und steht jetzt wieder oben in der Lynx-Liste.'; return; }
+      if (beoB && beoB.aktien && beoB.aktien.some(function (x) { return normT(x.ticker) === t; })) { msg[key] = t + ' steht schon oben in der Lynx-Liste.'; return; }
+    }
+    var w = lies(key).map(aufTicker);
     if (w.indexOf(t) >= 0) { msg[key] = t + ' steht schon in der Liste.'; return; }
     w.push(t); schreib(key, w);
     var ok = uni && uni.aktien && uni.aktien.some(function (x) { return normT(x.t) === t; });
