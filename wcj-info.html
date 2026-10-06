@@ -29,6 +29,10 @@
   .info svg { width: 100%; max-width: 560px; height: auto; display: block; margin: 8px auto; }
   .info .warn { font-size: 14px; color: var(--ink-soft); border-left: 3px solid var(--rust); padding-left: 12px; margin: 14px 0; }
   .info nav.inhalt { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; margin: 14px 0 0; }
+  .info table.score12 ol { margin: 0; padding-left: 24px; }
+  .info table.score12 li { margin: 0 0 6px; padding-left: 2px; }
+  .info table.score12 li:last-child { margin-bottom: 0; }
+  .info table.score12 td:first-child { white-space: nowrap; vertical-align: top; }
 </style>
 </head>
 <body>
@@ -115,13 +119,13 @@
   </ul>
   <h3>Der Setup-Score (0 bis 12)</h3>
   <p>Zwölf Ja-Nein-Regeln, jede erfüllte gibt einen Punkt. Ab 9 gilt „Stark“, ab 6 „Momentum im Aufbau“, ab 4 „Beobachten“, darunter „Schwach“.</p>
-  <table>
+  <table class="score12">
     <tr><th>Gruppe</th><th>Regel</th></tr>
-    <tr><td>Trend</td><td>Kurs über 8, 21 und 50, geordnet · über der 200er, und sie steigt · über dem 10-Wochen-EMA · höhere Hochs und höhere Tiefs</td></tr>
-    <tr><td>Stärke</td><td>höchstens 5 % unter dem 52-Wochen-Hoch · besser als der S&amp;P 500 (3 Monate)</td></tr>
-    <tr><td>Momentum</td><td>RSI zwischen 50 und 75 · MACD über der Signallinie</td></tr>
-    <tr><td>Volumen</td><td>mehr Umsatz an Auf- als an Abtagen (50 Tage) · On-Balance-Volume steigt</td></tr>
-    <tr><td>Spannung</td><td>Squeeze oder verengte Schwankung · NR7 (engster Tag der letzten sieben) oder austrocknender Umsatz</td></tr>
+    <tr><td>Trend</td><td><ol start="1"><li>Kurs über 8, 21 und 50, geordnet</li><li>über der 200er, und sie steigt</li><li>über dem 10-Wochen-EMA</li><li>höhere Hochs und höhere Tiefs</li></ol></td></tr>
+    <tr><td>Stärke</td><td><ol start="5"><li>höchstens 5 % unter dem 52-Wochen-Hoch</li><li>besser als der S&amp;P 500 (3 Monate)</li></ol></td></tr>
+    <tr><td>Momentum</td><td><ol start="7"><li>RSI zwischen 50 und 75</li><li>MACD über der Signallinie</li></ol></td></tr>
+    <tr><td>Volumen</td><td><ol start="9"><li>mehr Umsatz an Auf- als an Abtagen (50 Tage)</li><li>On-Balance-Volume steigt</li></ol></td></tr>
+    <tr><td>Spannung</td><td><ol start="11"><li>Squeeze oder verengte Schwankung</li><li>NR7 (engster Tag der letzten sieben) oder austrocknender Umsatz</li></ol></td></tr>
   </table>
   <p class="warn">Der Score ist eine eigene Rechnung, angelehnt an Chart-Scanner, kein Nachbau eines fremden Scores und kein Prognosewerkzeug.</p>
   <h3>Option Flows</h3>
