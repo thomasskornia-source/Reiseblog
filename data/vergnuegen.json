@@ -1556,111 +1556,6 @@
   "thema": "Kabarett & Theater"
  },
  {
-  "id": "tv-br-dahoam-is-dahoam-20261006",
-  "rubrik": "tv",
-  "titel": "Dahoam is Dahoam",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-10-06",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Bayerische Vorabendserie. Programm kann sich ändern.",
-  "tags": [
-   "Serie",
-   "Drama"
-  ],
-  "quelle": "TV Movie",
-  "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
-  "stand": "2026-10-06",
-  "thema": "BR"
- },
- {
-  "id": "tv-das-erste-die-kanzlei-20261006",
-  "rubrik": "tv",
-  "titel": "Die Kanzlei",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-06",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Juristische Serie um eine Anwältin. Programm kann sich ändern.",
-  "tags": [
-   "Serie",
-   "Drama"
-  ],
-  "quelle": "TV Movie",
-  "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
-  "stand": "2026-10-06",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-zdf-terra-x-history-20261006",
-  "rubrik": "tv",
-  "titel": "Terra X History",
-  "ort": "ZDF",
-  "adresse": "",
-  "datum": "2026-10-06",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Geschichtsdoku im Primetime-Slot. Programm kann sich ändern.",
-  "tags": [
-   "Doku",
-   "Historie"
-  ],
-  "quelle": "TV Movie",
-  "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
-  "stand": "2026-10-06",
-  "thema": "ZDF"
- },
- {
-  "id": "tv-arte-usa-1960-1980-die-konservative-revolution-20261006",
-  "rubrik": "tv",
-  "titel": "USA 1960–1980: Die konservative Revolution",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-06",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Zweiteilige Doku-Reihe über den Aufstieg der amerikanischen Rechten. Programm kann sich ändern.",
-  "tags": [
-   "Doku",
-   "Historie"
-  ],
-  "quelle": "TV Movie",
-  "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
-  "stand": "2026-10-06",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-3sat-mordnacht-20261006",
-  "rubrik": "tv",
-  "titel": "Mordnacht",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-10-06",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kriminalfilm, danach das Kinomagazin kinokino. Programm kann sich ändern.",
-  "tags": [
-   "Film",
-   "Krimi"
-  ],
-  "quelle": "TV Movie",
-  "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
-  "stand": "2026-10-06",
-  "thema": "3sat"
- },
- {
   "id": "stream-netflix-twisters",
   "rubrik": "stream",
   "titel": "Twisters",
@@ -3083,7 +2978,323 @@
   "thema": "3sat Mediathek"
  },
  {
-  "id": "tv-hr-tobis-staedtetrip-20261006",
+  "id": "tv-das-erste-wissen-vor-acht-natur-20261006",
+  "rubrik": "tv",
+  "titel": "Wissen vor acht – Natur",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "19:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kurzes Wissensformat über ein Naturthema. Programm kann sich ändern.",
+  "tags": [
+   "Magazin",
+   "Natur"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/ARD,29",
+  "stand": "2026-10-06",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-das-erste-die-kanzlei-20261006",
+  "rubrik": "tv",
+  "titel": "Die Kanzlei",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Juristische Serie um eine Anwältin. Programm kann sich ändern.",
+  "tags": [
+   "Serie",
+   "Drama"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/ARD,29",
+  "stand": "2026-10-06",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-das-erste-in-aller-freundschaft-20261006",
+  "rubrik": "tv",
+  "titel": "In aller Freundschaft",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "21:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Arztserie aus einem Klinikalltag. Programm kann sich ändern.",
+  "tags": [
+   "Serie",
+   "Drama"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/ARD,29",
+  "stand": "2026-10-06",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-das-erste-report-muenchen-20261006",
+  "rubrik": "tv",
+  "titel": "Report München",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Politisches Magazin des BR. Programm kann sich ändern.",
+  "tags": [
+   "Magazin",
+   "Info"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/ARD,29",
+  "stand": "2026-10-06",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-zdf-ozeane-eine-menschheitsgeschichte-20261006",
+  "rubrik": "tv",
+  "titel": "Ozeane – Eine Menschheitsgeschichte",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokureihe über das Verhältnis der Menschen zu den Ozeanen. Programm kann sich ändern.",
+  "tags": [
+   "Doku",
+   "Historie"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/ZDF,2008",
+  "stand": "2026-10-06",
+  "thema": "ZDF"
+ },
+ {
+  "id": "tv-zdf-rosamunde-pilcher-vier-luftballons-und-e-20261006",
+  "rubrik": "tv",
+  "titel": "Rosamunde Pilcher: Vier Luftballons und ein Todesfall",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Fernsehfilm der Pilcher-Reihe mit Liebe und Kriminalfall. Programm kann sich ändern.",
+  "tags": [
+   "Film",
+   "Drama"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/ZDF,2008",
+  "stand": "2026-10-06",
+  "thema": "ZDF"
+ },
+ {
+  "id": "tv-br-dahoam-is-dahoam-20261006",
+  "rubrik": "tv",
+  "titel": "Dahoam is Dahoam",
+  "ort": "BR",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Bayerische Vorabendserie. Programm kann sich ändern.",
+  "tags": [
+   "Serie",
+   "Drama"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/BR,570537",
+  "stand": "2026-10-06",
+  "thema": "BR"
+ },
+ {
+  "id": "tv-br-in-hoechster-not-bergretter-im-einsatz-20261006",
+  "rubrik": "tv",
+  "titel": "In höchster Not – Bergretter im Einsatz",
+  "ort": "BR",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Doku über Einsätze der Bergrettung. Programm kann sich ändern.",
+  "tags": [
+   "Doku",
+   "Natur"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/BR,570537",
+  "stand": "2026-10-06",
+  "thema": "BR"
+ },
+ {
+  "id": "tv-br-lust-aufs-land-bayerische-hofgeschichten-20261006",
+  "rubrik": "tv",
+  "titel": "Lust aufs Land – Bayerische Hofgeschichten",
+  "ort": "BR",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "21:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Reihe über das Leben auf bayerischen Höfen. Programm kann sich ändern.",
+  "tags": [
+   "Doku",
+   "Natur",
+   "Reise"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/BR,570537",
+  "stand": "2026-10-06",
+  "thema": "BR"
+ },
+ {
+  "id": "tv-wdr-lokalzeit-20261006",
+  "rubrik": "tv",
+  "titel": "Lokalzeit",
+  "ort": "WDR",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Regionalmagazin für Nordrhein-Westfalen. Programm kann sich ändern.",
+  "tags": [
+   "Magazin",
+   "Info"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/?page=2",
+  "stand": "2026-10-06",
+  "thema": "WDR"
+ },
+ {
+  "id": "tv-wdr-tatort-20261006",
+  "rubrik": "tv",
+  "titel": "Tatort",
+  "ort": "WDR",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Krimireihe, Titel der Folge bitte im Programm prüfen. Programm kann sich ändern.",
+  "tags": [
+   "Serie",
+   "Krimi"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/?page=2",
+  "stand": "2026-10-06",
+  "thema": "WDR"
+ },
+ {
+  "id": "tv-ndr-laendermagazine-20261006",
+  "rubrik": "tv",
+  "titel": "Ländermagazine",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Regionalmagazine des NDR. Programm kann sich ändern.",
+  "tags": [
+   "Magazin",
+   "Info"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/NDR,664723",
+  "stand": "2026-10-06",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-ndr-visite-20261006",
+  "rubrik": "tv",
+  "titel": "Visite",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Gesundheitsmagazin mit Vera Cordes. Programm kann sich ändern.",
+  "tags": [
+   "Magazin",
+   "Info"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/NDR,664723",
+  "stand": "2026-10-06",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-ndr-panorama-3-20261006",
+  "rubrik": "tv",
+  "titel": "Panorama 3",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "21:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Politisches Magazin. Programm kann sich ändern.",
+  "tags": [
+   "Magazin",
+   "Info"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/NDR,664723",
+  "stand": "2026-10-06",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-hr-hessenschau-20261006",
+  "rubrik": "tv",
+  "titel": "hessenschau",
+  "ort": "hr",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Regionalmagazin für Hessen. Programm kann sich ändern.",
+  "tags": [
+   "Magazin",
+   "Info"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/HR,633655",
+  "stand": "2026-10-06",
+  "thema": "hr"
+ },
+ {
+  "id": "tv-hr-tobis-staedtetrip-frankfurt-city-20261006",
   "rubrik": "tv",
   "titel": "Tobis Städtetrip: Frankfurt City",
   "ort": "hr",
@@ -3104,7 +3315,7 @@
   "thema": "hr"
  },
  {
-  "id": "tv-hr-auftrag-luxus-20261006",
+  "id": "tv-hr-auftrag-luxus-luxury-travel-20261006",
   "rubrik": "tv",
   "titel": "Auftrag Luxus – Luxury Travel",
   "ort": "hr",
@@ -3125,23 +3336,108 @@
   "thema": "hr"
  },
  {
-  "id": "tv-hr-le-chaim-20261006",
+  "id": "tv-arte-mit-offenen-karten-im-fokus-20261006",
   "rubrik": "tv",
-  "titel": "Le Chaim! Auf das Leben unserer Eltern",
-  "ort": "hr",
+  "titel": "Mit offenen Karten – Im Fokus",
+  "ort": "ARTE",
   "adresse": "",
   "datum": "2026-10-06",
   "datum_bis": "",
-  "zeit": "22:35",
+  "zeit": "19:35",
   "preis": "",
   "dauer": "",
-  "kurz": "Dokumentation, laut Programm Info. Programm kann sich ändern.",
+  "kurz": "Kurzes geopolitisches Magazin. Programm kann sich ändern.",
   "tags": [
-   "Doku"
+   "Magazin",
+   "Info"
   ],
   "quelle": "prisma.de",
-  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/HR,633655",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/arte,13735",
   "stand": "2026-10-06",
-  "thema": "hr"
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-arte-eltern-gegen-social-media-20261006",
+  "rubrik": "tv",
+  "titel": "Eltern gegen Social Media",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "19:40",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Doku über Eltern und soziale Netzwerke. Programm kann sich ändern.",
+  "tags": [
+   "Doku",
+   "Info"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/arte,13735",
+  "stand": "2026-10-06",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-arte-usa-1960-1980-die-konservative-revolutio-20261006",
+  "rubrik": "tv",
+  "titel": "USA 1960–1980: Die konservative Revolution",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Doku-Reihe über den Aufstieg der amerikanischen Rechten, weitere Teile 21:05 und 21:35. Programm kann sich ändern.",
+  "tags": [
+   "Doku",
+   "Historie"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/arte,13735",
+  "stand": "2026-10-06",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-3sat-mordnacht-20261006",
+  "rubrik": "tv",
+  "titel": "Mordnacht",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Fernsehfilm, danach das Kinomagazin kinokino. Programm kann sich ändern.",
+  "tags": [
+   "Film",
+   "Krimi"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/3sat,13737",
+  "stand": "2026-10-06",
+  "thema": "3sat"
+ },
+ {
+  "id": "tv-3sat-kinokino-20261006",
+  "rubrik": "tv",
+  "titel": "kinokino",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-10-06",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kinomagazin mit Filmtipps. Programm kann sich ändern.",
+  "tags": [
+   "Magazin",
+   "Info"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/3sat,13737",
+  "stand": "2026-10-06",
+  "thema": "3sat"
  }
 ]
