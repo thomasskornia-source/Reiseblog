@@ -53,7 +53,8 @@
   @media (min-width: 900px) { body[data-welt="quiz"] .entry-header { background-size: auto 100%, cover; background-position: right 150px bottom, center; } .qz .tile.rkfull { height: 200px; } .qbtn { right: 44px; } }
   /* Kacheln direkt unter der Menüleiste, Rätsel und Quiz in einem Feld darunter */
   body[data-welt] .qz .entry-header { display: none; }
-  .qz .tile .in a.go { color: #fff; text-decoration: none; }
+  .qz .tile .in { z-index: 2; pointer-events: none; }
+  .qz .tile .in a.go { pointer-events: auto; position: relative; color: #fff; text-decoration: none; }
   .qz .tile .play { top: 50%; bottom: auto; transform: translateY(-50%); }
   .qz .tile .in .go + .go { margin-left: 8px; position: relative; z-index: 3; }
   @media (max-width: 899px) {
