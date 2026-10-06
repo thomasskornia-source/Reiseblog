@@ -13,10 +13,24 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
 <style>
-  .vg-int { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 6px; }
-  .vg-int button { all: unset; cursor: pointer; box-sizing: border-box; padding: 8px 15px; border-radius: 99px; font-size: 14.5px; font-weight: 600; background: #fff; color: var(--ink); border: 1.5px solid #d9d2c2; white-space: nowrap; }
+  .vg-int { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 4px; }
+  .vg-int button { all: unset; cursor: pointer; box-sizing: border-box; padding: 4px 10px; border-radius: 99px; font-size: 12.5px; font-weight: 600; background: #fff; color: var(--ink); border: 1.5px solid #d9d2c2; white-space: nowrap; }
   .vg-int button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
   .vg-int button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .vg-hero { position: relative; overflow: hidden; border-radius: 24px; color: #fff; min-height: 190px; margin: 14px 0 0; display: flex; align-items: flex-end; box-shadow: 0 10px 26px rgba(46,58,50,.18); }
+  .vg-hero svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .vg-hero .in { position: relative; z-index: 1; padding: 22px 24px 24px; }
+  .vg-hero .q { font-family: 'Fraunces', serif; font-weight: 500; font-size: 30px; line-height: 1.12; max-width: 14em; }
+  .vg-hero .q i { font-style: italic; }
+  .vg-hero .go { display: inline-block; margin-top: 12px; font: 600 12px 'Work Sans', sans-serif; letter-spacing: .1em; text-transform: uppercase; border: 1.5px solid rgba(255,255,255,.85); border-radius: 99px; padding: 6px 14px; }
+  .vg-sq { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+  .vg-sq a { position: relative; width: 66px; height: 66px; border-radius: 15px; color: #fff; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 10px; font-weight: 600; line-height: 1.1; text-align: center; padding: 0 2px; box-sizing: border-box; box-shadow: 0 3px 8px rgba(0,0,0,.14); opacity: .8; }
+  .vg-sq a span { color: #fff; }
+  .vg-sq a .em { font-size: 21px; line-height: 1; }
+  .vg-sq a[aria-current="page"] { opacity: 1; outline: 3px solid var(--ink); outline-offset: 2px; }
+  .vg-fl { margin-top: 34px; padding-top: 14px; border-top: 1px solid #e4dccb; }
+  .vg-flh { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+  @media (max-width: 520px) { .vg-hero { min-height: 170px; border-radius: 20px; } .vg-hero .q { font-size: 26px; } .vg-sq a { width: calc((100% - 40px) / 5); height: 62px; } }
   .vg-hint { font-size: 13px; color: var(--ink-soft); margin: 4px 0 0; }
   #vg-map { height: 320px; border-radius: 22px; margin: 18px 0 8px; box-shadow: 0 10px 26px rgba(46,58,50,.10); z-index: 0; }
   .vg-h { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; margin: 28px 0 0; }
@@ -91,20 +105,16 @@
   </div></nav>
 <div class="wrap">
 
-  <header class="entry-header">
-    <h1>Vergnügen</h1>
-    <nav class="sub-tabs" id="tabs" aria-label="Rubriken"></nav>
-    <hr class="rule">
-  </header>
+  <header class="vg-hero" id="hero"></header>
+  <nav class="vg-sq" id="tabs" aria-label="Rubriken"></nav>
 
   <div id="ansicht">
-    <div class="vg-int" id="int" role="group" aria-label="Meine Interessen"></div>
-    <p class="vg-hint" id="int-hint"></p>
     <div id="profil" class="vg-hint" hidden></div>
     <div id="vg-map" hidden></div>
     <div class="vg-wrap" id="tipps"></div>
     <p class="vg-leer" id="leer" hidden></p>
     <p class="vg-hint" id="nein-box" hidden><button type="button" class="vg-reset" id="nein-reset"></button></p>
+    <div class="vg-fl"><div class="vg-flh">Filter</div><div class="vg-int" id="int" role="group" aria-label="Meine Interessen"></div><p class="vg-hint" id="int-hint"></p></div>
   </div>
 
   <div id="quellen" hidden>
@@ -137,6 +147,16 @@
     tv: ['Das Erste', 'ZDF', 'BR', 'WDR', 'NDR', 'ARTE', '3sat', 'Sonstiges'],
     stream: ['Netflix', 'Amazon Prime', 'Apple TV', 'ARD Mediathek', 'ZDF Mediathek', '3sat Mediathek', 'ARTE Mediathek', 'Sonstiges']
   };
+  var HERO = {
+    events: ['#B5502E', '#7A2E14', 'Was ist <i>los</i> in München?', 'Events', '<circle cx="330" cy="60" r="30" fill="#F6C253"/><path d="M250 190l30-60 30 60z" fill="#FBF3E4" opacity=".4"/>'],
+    food: ['#8A3B2A', '#4F1E12', 'Worauf hast du <i>Appetit</i>?', 'Foodvergnügen', '<circle cx="320" cy="116" r="70" fill="#FBF3E4" opacity=".4"/><circle cx="320" cy="116" r="42" fill="#FBF3E4" opacity=".7"/><circle cx="320" cy="116" r="14" fill="#F6C253"/>'],
+    unterwegs: ['#2F7E86', '#17484E', 'Unterwegs <i>in München</i>', 'Stadt entdecken', '<path d="M0 200 Q100 150 200 190 T400 170V232H0z" fill="#FBF3E4" opacity=".3"/><circle cx="330" cy="60" r="24" fill="#F6C253"/>'],
+    ausflug: ['#4A6B2E', '#2A4016', 'Raus <i>ins Grüne</i>', 'Ausflug', '<path d="M180 232 L262 110 L330 232z" fill="#FBF3E4" opacity=".35"/><path d="M262 110 L276 132 L262 128 L248 132z" fill="#fff" opacity=".85"/>'],
+    kino: ['#2E3A6B', '#171E3D', 'Was läuft <i>heute Abend</i>?', 'Kino', '<rect x="250" y="70" width="110" height="80" rx="10" fill="#FBF3E4" opacity=".4"/><path d="M290 90l36 20-36 20z" fill="#F6C253"/>'],
+    tv: ['#7A3B2E', '#3F1A12', 'Was kommt <i>im Fernsehen</i>?', 'TV heute', '<rect x="240" y="60" width="124" height="86" rx="12" fill="#FBF3E4" opacity=".4"/><rect x="252" y="72" width="100" height="62" rx="6" fill="#F6C253" opacity=".85"/><path d="M280 160h44" stroke="#FBF3E4" stroke-width="6" stroke-linecap="round" opacity=".6"/>'],
+    stream: ['#5B2E6B', '#2A1236', 'Was schauen wir <i>als Nächstes</i>?', 'Streaming', '<circle cx="320" cy="108" r="58" fill="#FBF3E4" opacity=".35"/><path d="M304 80l46 28-46 28z" fill="#F6C253"/>'],
+    quellen: ['#6F7D2E', '#4A5620', 'Woher die <i>Tipps</i> kommen', 'Quellen', '<circle cx="330" cy="60" r="28" fill="#F6C253"/><path d="M240 200l40-70 40 70z" fill="#FBF3E4" opacity=".35"/>']
+  };
   var ORDER = ['events', 'food', 'unterwegs', 'ausflug', 'kino', 'tv', 'stream'];
   var $ = function (id) { return document.getElementById(id); };
   function sg(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -148,10 +168,17 @@
   if (r !== 'quellen' && !RUBRIKEN[r]) r = 'events';
   var items = [], quellen = [], status = js('vg-status'), qstat = js('vg-quellen'), karte = null, ebene = null;
 
-  // Reiter
+  // Kopf der Rubrik (wie die Kacheln unter München) und kleine Quadrate zum Wechseln
+  (function () {
+    var H = HERO[r], h = $('hero');
+    h.style.background = 'linear-gradient(170deg,' + H[0] + ',' + H[1] + ')';
+    h.innerHTML = '<svg viewBox="0 0 390 232" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' + H[4] + '</svg><div class="in"><h1 class="q">' + H[2] + '</h1><span class="go">' + H[3] + '</span></div>';
+    document.title = H[3] + ' – Vergnügen – Unterwegs und zuhause';
+  })();
   var tabs = $('tabs');
   ORDER.concat(['quellen']).forEach(function (k) {
-    var a = el('a', '', k === 'quellen' ? 'Quellen' : RUBRIKEN[k].name); a.href = '?r=' + k;
+    var H = HERO[k], a = el('a'); a.href = '?r=' + k; a.style.background = 'linear-gradient(170deg,' + H[0] + ',' + H[1] + ')';
+    a.appendChild(el('span', 'em', k === 'quellen' ? '🔗' : RUBRIKEN[k].emoji)); a.appendChild(el('span', '', k === 'quellen' ? 'Quellen' : RUBRIKEN[k].name));
     if (k === r) a.setAttribute('aria-current', 'page'); tabs.appendChild(a);
   });
 
