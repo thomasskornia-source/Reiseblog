@@ -37,6 +37,12 @@
     .page-list .entry-list .entry-preview:hover { transform: none; box-shadow: none; }
   }
   @media (min-width: 900px) { .qbtn { right: 44px; } }
+  /* Filter ohne Rahmen: Ampeln als reine Punkte, Blitz nur als Symbol; aktiv = voll und größer */
+  .page-list .filter-bar { margin-top: 18px; gap: 6px; align-items: center; }
+  .page-list .filter-bar button.ampel-btn, .page-list .filter-bar button.blitz-btn { background: none; border: 0; box-shadow: none; padding: 0; width: 44px; height: 44px; justify-content: center; opacity: .6; transition: opacity .15s, transform .15s; }
+  .page-list .filter-bar button.blitz-btn { font-size: 26px; line-height: 1; }
+  .page-list .filter-bar button.ampel-btn.active, .page-list .filter-bar button.blitz-btn.active { background: none; border: 0; box-shadow: none; opacity: 1; transform: scale(1.2); color: inherit; }
+  .page-list .filter-bar button.ampel-btn.active i { box-shadow: none; transform: none; }
 </style>
 </head>
 <body class="page-list pc">
@@ -62,15 +68,11 @@
       <hr class="rule">
     </header>
 
-    <div class="entry-body">
-      <p>Rezepte zum Cholesterinsenken. Mit Daumen hoch oder runter sagst du, was schmeckt.</p>
-    </div>
-
     <div class="filter-bar">
       <button class="ampel-btn gruen" data-filter="gruen" onclick="toggleAmpel('gruen', this)" aria-label="Lecker"><i></i></button>
       <button class="ampel-btn gelb" data-filter="gelb" onclick="toggleAmpel('gelb', this)" aria-label="Geht so"><i></i></button>
       <button class="ampel-btn rot" data-filter="rot" onclick="toggleAmpel('rot', this)" aria-label="Nicht so"><i></i></button>
-      <button class="blitz-btn" data-filter="blitz" onclick="toggleBlitz(this)" aria-label="Blitzgerichte, maximal 30 Minuten">⚡ Blitz <small>max. 30 Min</small></button>
+      <button class="blitz-btn" data-filter="blitz" onclick="toggleBlitz(this)" aria-label="Blitzgerichte, maximal 30 Minuten">⚡</button>
     </div>
     <input type="search" class="search-field" id="rezept-suche" placeholder="Rezept suchen ..." oninput="applyFilters()">
   </article>
