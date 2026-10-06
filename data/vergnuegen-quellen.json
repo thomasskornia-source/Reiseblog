@@ -1,209 +1,236 @@
 [
- {
-  "id": "muenchen-de-wochenende",
-  "rubrik": "events",
-  "name": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "info": "Offizielles Stadtportal, Tipps für das kommende Wochenende",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "muenchen-travel-kalender",
-  "rubrik": "events",
-  "name": "muenchen.travel – Veranstaltungskalender",
-  "url": "https://www.muenchen.travel/rubriken/planen/veranstaltungskalender",
-  "info": "Tourismusamt, Highlights je Monat",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "eintrittfrei",
-  "rubrik": "events",
-  "name": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "info": "Kostenlose Veranstaltungen",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "geheimtipp-events",
-  "rubrik": "events",
-  "name": "Geheimtipp München – Was geht am Wochenende",
-  "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
-  "info": "Wochenend-Tipps und Event-Geheimtipps",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "mitvergnuegen-wochenende",
-  "rubrik": "events",
-  "name": "Mit Vergnügen – Wochenend-Tipps",
-  "url": "https://muenchen.mitvergnuegen.com/",
-  "info": "Persönliche Wochenend-Listen, Ideengeber für diese Rubrik",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "mucbook-neu",
-  "rubrik": "food",
-  "name": "MUCBOOK – Neueröffnungen",
-  "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
-  "info": "Neue Restaurants und Cafés",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "insiderei",
-  "rubrik": "food",
-  "name": "Insiderei – neue Lokale",
-  "url": "https://insiderei.com/listen/neue-lokale-muenchen",
-  "info": "Kuratierte Foodie-Listen",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "mrmuenchen-neu",
-  "rubrik": "food",
-  "name": "Mr. München – Neueröffnungen",
-  "url": "https://www.mrmuenchen.com/toplisten/essen-trinken/neueroeffnungen-in-muenchen",
-  "info": "Toplisten Essen und Trinken",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "geheimtipp-food",
-  "rubrik": "food",
-  "name": "Geheimtipp München – Essen und Trinken",
-  "url": "https://geheimtippmuenchen.de/kategorie/essen-und-trinken/",
-  "info": "Newcomer und Geheimtipps",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "opentable",
-  "rubrik": "food",
-  "name": "OpenTable-Blog – neue Restaurants",
-  "url": "https://www.opentable.de/blog/besten-neuen-restaurants-muenchen/",
-  "info": "Neue Restaurants des Jahres",
-  "abruf": true,
-  "status": "entfernt"
- },
- {
-  "id": "mrmuenchen-aktivitaeten",
-  "rubrik": "unterwegs",
-  "name": "Mr. München – Top-Aktivitäten",
-  "url": "https://www.mrmuenchen.com/toplisten/kultur-freizeit-toplisten/top-aktivitaeten-in-muenchen",
-  "info": "Aktivitäten und Kultur in der Stadt",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "muenchen-travel",
-  "rubrik": "unterwegs",
-  "name": "muenchen.travel",
-  "url": "https://www.muenchen.travel/",
-  "info": "Sehenswertes, Viertel, Kultur",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "geheimtipp",
-  "rubrik": "unterwegs",
-  "name": "Geheimtipp München",
-  "url": "https://geheimtippmuenchen.de/",
-  "info": "Versteckte Orte in der Stadt",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "travel-berge-seen",
-  "rubrik": "ausflug",
-  "name": "muenchen.travel – Berge und Seen",
-  "url": "https://www.muenchen.travel/rubriken/entdecken/berge-seen",
-  "info": "Ausflüge in die Berge und an die Seen",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "travel-bus-bahn",
-  "rubrik": "ausflug",
-  "name": "muenchen.travel – Ausflüge mit Bus und Bahn",
-  "url": "https://www.muenchen.travel/artikel/berge-seen/ausfluege-bus-bahn",
-  "info": "Ohne Auto ins Umland",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "mrmuenchen-ausfluege",
-  "rubrik": "ausflug",
-  "name": "Mr. München – Ausflugsziele",
-  "url": "https://www.mrmuenchen.com/toplisten/kultur-freizeit-toplisten/top-ausflugsziele-von-muenchen",
-  "info": "Top 15 rund um München",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "phototravellers",
-  "rubrik": "ausflug",
-  "name": "Phototravellers – 33 Ausflüge",
-  "url": "https://phototravellers.de/muenchen-ausfluege/",
-  "info": "Ausflugsliste vom Chiemsee zur Zugspitze",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "kino-de",
-  "rubrik": "kino",
-  "name": "kino.de – München",
-  "url": "https://www.kino.de/kinoprogramm/stadt/muenchen/",
-  "info": "Kinoprogramm der Stadt",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "artechock",
-  "rubrik": "kino",
-  "name": "artechock – Wochenprogramm",
-  "url": "https://www.artechock.de/film/muenchen/index.htm",
-  "info": "Wochenprogramm der Münchner Kinos",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "filmfest",
-  "rubrik": "kino",
-  "name": "Filmfest München",
-  "url": "https://www.filmfest-muenchen.de/de/programm/filme/",
-  "info": "Festival und Sommerkino",
-  "abruf": true,
-  "status": "behalten"
- },
- {
-  "id": "ard-mediathek",
-  "rubrik": "kino",
-  "name": "ARD Mediathek",
-  "url": "https://www.ardmediathek.de/",
-  "info": "Öffentlich-rechtlich streamen (nur Link, kein Abruf)",
-  "abruf": false,
-  "status": "behalten"
- },
- {
-  "id": "zdf-mediathek",
-  "rubrik": "kino",
-  "name": "ZDF Mediathek",
-  "url": "https://www.zdf.de/",
-  "info": "Öffentlich-rechtlich streamen (nur Link, kein Abruf)",
-  "abruf": false,
-  "status": "behalten"
- },
- {
-  "id": "justwatch",
-  "rubrik": "kino",
-  "name": "JustWatch",
-  "url": "https://www.justwatch.com/de",
-  "info": "Wo läuft welcher Film im Stream (nur Link, kein Abruf)",
-  "abruf": false,
-  "status": "behalten"
- }
+  {
+    "id": "muenchen-de-wochenende",
+    "rubrik": "events",
+    "name": "muenchen.de – Wochenende",
+    "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+    "info": "Offizielles Stadtportal, Tipps für das kommende Wochenende",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "muenchen-travel-kalender",
+    "rubrik": "events",
+    "name": "muenchen.travel – Veranstaltungskalender",
+    "url": "https://www.muenchen.travel/rubriken/planen/veranstaltungskalender",
+    "info": "Tourismusamt, Highlights je Monat",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "eintrittfrei",
+    "rubrik": "events",
+    "name": "Eintritt frei München",
+    "url": "https://www.eintrittfrei-muenchen.de/",
+    "info": "Kostenlose Veranstaltungen",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "geheimtipp-events",
+    "rubrik": "events",
+    "name": "Geheimtipp München – Was geht am Wochenende",
+    "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
+    "info": "Wochenend-Tipps und Event-Geheimtipps",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "mitvergnuegen-wochenende",
+    "rubrik": "events",
+    "name": "Mit Vergnügen – Wochenend-Tipps",
+    "url": "https://muenchen.mitvergnuegen.com/",
+    "info": "Persönliche Wochenend-Listen, Ideengeber für diese Rubrik",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "mucbook-neu",
+    "rubrik": "food",
+    "name": "MUCBOOK – Neueröffnungen",
+    "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
+    "info": "Neue Restaurants und Cafés",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "insiderei",
+    "rubrik": "food",
+    "name": "Insiderei – neue Lokale",
+    "url": "https://insiderei.com/listen/neue-lokale-muenchen",
+    "info": "Kuratierte Foodie-Listen",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "mrmuenchen-neu",
+    "rubrik": "food",
+    "name": "Mr. München – Neueröffnungen",
+    "url": "https://www.mrmuenchen.com/toplisten/essen-trinken/neueroeffnungen-in-muenchen",
+    "info": "Toplisten Essen und Trinken",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "geheimtipp-food",
+    "rubrik": "food",
+    "name": "Geheimtipp München – Essen und Trinken",
+    "url": "https://geheimtippmuenchen.de/kategorie/essen-und-trinken/",
+    "info": "Newcomer und Geheimtipps",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "opentable",
+    "rubrik": "food",
+    "name": "OpenTable-Blog – neue Restaurants",
+    "url": "https://www.opentable.de/blog/besten-neuen-restaurants-muenchen/",
+    "info": "Neue Restaurants des Jahres",
+    "abruf": true,
+    "status": "entfernt"
+  },
+  {
+    "id": "mrmuenchen-aktivitaeten",
+    "rubrik": "unterwegs",
+    "name": "Mr. München – Top-Aktivitäten",
+    "url": "https://www.mrmuenchen.com/toplisten/kultur-freizeit-toplisten/top-aktivitaeten-in-muenchen",
+    "info": "Aktivitäten und Kultur in der Stadt",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "muenchen-travel",
+    "rubrik": "unterwegs",
+    "name": "muenchen.travel",
+    "url": "https://www.muenchen.travel/",
+    "info": "Sehenswertes, Viertel, Kultur",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "geheimtipp",
+    "rubrik": "unterwegs",
+    "name": "Geheimtipp München",
+    "url": "https://geheimtippmuenchen.de/",
+    "info": "Versteckte Orte in der Stadt",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "travel-berge-seen",
+    "rubrik": "ausflug",
+    "name": "muenchen.travel – Berge und Seen",
+    "url": "https://www.muenchen.travel/rubriken/entdecken/berge-seen",
+    "info": "Ausflüge in die Berge und an die Seen",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "travel-bus-bahn",
+    "rubrik": "ausflug",
+    "name": "muenchen.travel – Ausflüge mit Bus und Bahn",
+    "url": "https://www.muenchen.travel/artikel/berge-seen/ausfluege-bus-bahn",
+    "info": "Ohne Auto ins Umland",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "mrmuenchen-ausfluege",
+    "rubrik": "ausflug",
+    "name": "Mr. München – Ausflugsziele",
+    "url": "https://www.mrmuenchen.com/toplisten/kultur-freizeit-toplisten/top-ausflugsziele-von-muenchen",
+    "info": "Top 15 rund um München",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "phototravellers",
+    "rubrik": "ausflug",
+    "name": "Phototravellers – 33 Ausflüge",
+    "url": "https://phototravellers.de/muenchen-ausfluege/",
+    "info": "Ausflugsliste vom Chiemsee zur Zugspitze",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "kino-de",
+    "rubrik": "kino",
+    "name": "kino.de – München",
+    "url": "https://www.kino.de/kinoprogramm/stadt/muenchen/",
+    "info": "Kinoprogramm der Stadt",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "artechock",
+    "rubrik": "kino",
+    "name": "artechock – Wochenprogramm",
+    "url": "https://www.artechock.de/film/muenchen/index.htm",
+    "info": "Wochenprogramm der Münchner Kinos",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "filmfest",
+    "rubrik": "kino",
+    "name": "Filmfest München",
+    "url": "https://www.filmfest-muenchen.de/de/programm/filme/",
+    "info": "Festival und Sommerkino",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "ard-mediathek",
+    "rubrik": "kino",
+    "name": "ARD Mediathek",
+    "url": "https://www.ardmediathek.de/",
+    "info": "Öffentlich-rechtlich streamen (nur Link, kein Abruf)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "zdf-mediathek",
+    "rubrik": "kino",
+    "name": "ZDF Mediathek",
+    "url": "https://www.zdf.de/",
+    "info": "Öffentlich-rechtlich streamen (nur Link, kein Abruf)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "justwatch",
+    "rubrik": "kino",
+    "name": "JustWatch",
+    "url": "https://www.justwatch.com/de",
+    "info": "Wo läuft welcher Film im Stream (nur Link, kein Abruf)",
+    "abruf": false,
+    "status": "behalten"
+  },
+  {
+    "id": "kino-breitwand-gauting",
+    "rubrik": "kino",
+    "name": "Kino Breitwand Gauting",
+    "url": "https://breitwand.com/home/cm/home-start/home/index.html?day=0&ort=Gauting",
+    "info": "Programm des Kinos Breitwand, Bahnhofsplatz 2, Gauting (offizielle Seite)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "kino-lichtspielhaus-ffb",
+    "rubrik": "kino",
+    "name": "Lichtspielhaus Fürstenfeldbruck",
+    "url": "https://www.in-muenchen.de/kino/theater/lichtspielhaus.html",
+    "info": "Wochenprogramm Lichtspielhaus FFB, Maisacher Str. 7 (Übersicht auf in-muenchen.de; offizielle Seite: neokinos.de/ffb)",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "kino-astor-arri",
+    "rubrik": "kino",
+    "name": "Astor Film Lounge im ARRI",
+    "url": "https://www.in-muenchen.de/kino/theater/astor-filmlounge-im-arri.html",
+    "info": "Wochenprogramm Astor Film Lounge im ARRI, Türkenstr. 91, München (Übersicht auf in-muenchen.de; offizielle Seite: muenchen.premiumkino.de)",
+    "abruf": true,
+    "status": "behalten"
+  }
 ]
