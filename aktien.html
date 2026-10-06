@@ -448,10 +448,10 @@
     id = id || 'c' + (++CN);
     var V = CH[id] = { s: s, j: j, a: 0, b: s.c.length }, n = s.c.length;
     var H = 6 + 130 + 6 + 30 + 14;
-    var leg = LINIEN.map(function (L) { var w = j && j[L[0]] != null ? j[L[0]] : s[L[0]][n - 1]; return '<span><i style="background:' + L[1] + '"></i>' + L[2] + ' Tage' + (ohneWerte ? '' : ' <b>' + zahl(w) + '</b>') + '</span>'; }).join('');
+    var leg = LINIEN.map(function (L) { var w = j && j[L[0]] != null ? j[L[0]] : s[L[0]][n - 1]; return '<span><i style="background:' + L[1] + '"></i>' + L[2] + ' Tage' + '' + '</span>'; }).join('');
     leg += '<span class="legm" style="display:contents">' + legM(V.mu || muView(V)) + '</span>';
     if (j && j.kreuz) leg += '<span style="color:' + (j.kreuz.richtung === 'hoch' ? '#2a8f4a' : '#c0392b') + '">' + (j.kreuz.richtung === 'hoch' ? '▲ ' : '▼ ') + esc(j.kreuz.typ) + ' vor ' + j.kreuz.tage + ' Handelstagen</span>';
-    var zoom = '<div class="zoom"><div class="rng" role="group" aria-label="Zeitraum"><button type="button" data-z="21" aria-pressed="false">1M</button><button type="button" data-z="63" aria-pressed="false">3M</button><button type="button" data-z="126" aria-pressed="false">6M</button><button type="button" data-z="ytd" aria-pressed="false">YTD</button><button type="button" data-z="0" aria-pressed="true">1J</button></div><em>Zwei Finger oder Strg + Mausrad, ziehen zum Verschieben</em></div>';
+    var zoom = '<div class="zoom"><div class="rng" role="group" aria-label="Zeitraum"><button type="button" data-z="21" aria-pressed="false">1M</button><button type="button" data-z="63" aria-pressed="false">3M</button><button type="button" data-z="126" aria-pressed="false">6M</button><button type="button" data-z="ytd" aria-pressed="false">YTD</button><button type="button" data-z="0" aria-pressed="true">1J</button></div></div>';
     return '<div class="chartbox" data-cid="' + id + '"><svg viewBox="0 0 ' + GW + ' ' + H + '" role="img" aria-label="Kurschart mit gleitenden Durchschnitten und Volumen, zoombar">' + chartInner(V, id) + '</svg><div class="leg">' + leg + '</div>' + zoom + '</div>';
   }
   function zeitLen(z, V) {   // Länge des Ausschnitts je Knopf; YTD = seit dem letzten Schlusskurs des Vorjahres
