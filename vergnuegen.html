@@ -105,6 +105,7 @@
   .vg-fav form button { flex: none; white-space: nowrap; font: inherit; font-size: 15px; padding: 10px 16px; border: 0; border-radius: 10px; background: var(--ink); color: var(--paper); cursor: pointer; }
   .vg-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
   .vg-chips span { display: inline-flex; align-items: center; gap: 6px; padding: 5px 6px 5px 12px; border-radius: 99px; background: #fff; border: 1px solid rgba(46, 58, 50, .15); font-size: 14px; }
+  .vg-chips span.fest { padding: 5px 12px; background: #F6E3A8; border-color: transparent; }
   .vg-chips button { all: unset; cursor: pointer; width: 20px; height: 20px; line-height: 20px; text-align: center; border-radius: 50%; color: var(--ink-soft); }
   .vg-hit { margin: 10px 0 0; font-size: 14px; color: var(--ink); }
   .vg-hit a { color: inherit; }
@@ -135,7 +136,7 @@
       <form id="fav-form"><input id="fav-in" type="text" placeholder="Filmtitel eintippen" maxlength="80" autocomplete="off" aria-label="Lieblingsfilm"><button type="submit">Hinzufügen</button></form>
       <div class="vg-chips" id="fav-chips"></div>
       <p class="vg-hit" id="fav-hit" hidden></p>
-      <p class="vg-hint" id="fav-hint">Nur auf diesem Gerät gespeichert. Läuft einer davon im Kino, im TV oder im Stream, steht es auf der Startseite.</p>
+      <p class="vg-hint" id="fav-hint">Gelb hinterlegt: von Claude für dich eingetragen. Selbst eingetippte (mit ×) bleiben nur auf diesem Gerät. Läuft einer davon im Kino, im TV oder im Stream, steht es auf der Startseite.</p>
       <button type="button" class="vg-reset" id="fav-copy" hidden>Lieblingsfilme kopieren</button>
     </div>
     <div id="profil" class="vg-hint" hidden></div>
@@ -308,6 +309,7 @@
       b.onclick = function () { var a = Filmfans.lesen(); a.splice(i, 1); Filmfans.schreiben(a); favZeigen(); };
       sp.appendChild(b); ch.appendChild(sp);
     });
+    (profFilme || []).forEach(function (f) { var sp = el('span', 'fest', f.titel); sp.title = 'Von Claude in dein Profil eingetragen'; ch.appendChild(sp); });
     var pf = []; (profFilme || []).forEach(function (f) { [f.titel].concat(f.auch || []).forEach(function (x) { if (x) pf.push(x); }); });
     var hit = $('fav-hit'), t = Filmfans.treffer(items, favs.concat(pf));
     hit.hidden = !t.length; hit.innerHTML = '';
