@@ -297,7 +297,7 @@
   function zeigeKarte(l) {
     var mit = l.filter(function (x) { return typeof x.lat === 'number' && typeof x.lon === 'number'; });
     var box = $('vg-map');
-    if (!window.L || !mit.length) { box.hidden = true; return; }
+    if (r === 'kino' || !window.L || !mit.length) { box.hidden = true; return; }
     box.hidden = false;
     if (!karte) { karte = L.map(box, { scrollWheelZoom: false }).setView([48.137, 11.575], 11); L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap' }).addTo(karte); ebene = L.layerGroup().addTo(karte); }
     ebene.clearLayers();
