@@ -38,6 +38,19 @@
   .tile .neu { display: inline-block; font: 600 11px 'Work Sans', sans-serif; letter-spacing: .1em; text-transform: uppercase; background: #F6C253; color: #3a2a05; padding: 3px 10px; border-radius: 99px; margin-bottom: 10px; }
   .tile .in .q { padding-right: 76px; }
   @media (min-width: 760px) { .tile .play { right: 30px; } }
+  /* Kopf: typisches München (Frauenkirche mit Alpen), Quiz mittig auf Höhe der Überschrift */
+  body[data-welt="quiz"] .entry-header { background-image: url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20390%20232%22%20preserveAspectRatio=%22xMidYMax%20slice%22%3E%3Cpath%20d=%22M0%20232V150L40%20118L74%20146L118%2096L170%20150L205%20120L250%20160L300%20112L350%20150L390%20128V232z%22%20fill=%22%23FBF3E4%22%20opacity=%22.14%22/%3E%3Cg%20fill=%22%232C3410%22%20opacity=%22.62%22%3E%3Cpath%20d=%22M150%20232V176H176V160H196V232z%22/%3E%3Crect%20x=%22186%22%20y=%22150%22%20width=%2284%22%20height=%2290%22/%3E%3Cpath%20d=%22M186%20150L228%20128L270%20150z%22/%3E%3Crect%20x=%22193%22%20y=%22100%22%20width=%2222%22%20height=%22140%22/%3E%3Cpath%20d=%22M191%20100%20Q185%2082%20204%2064%20Q223%2082%20217%20100z%22/%3E%3Crect%20x=%22203%22%20y=%2252%22%20width=%222%22%20height=%2214%22/%3E%3Ccircle%20cx=%22204%22%20cy=%2250%22%20r=%222.5%22/%3E%3Crect%20x=%22241%22%20y=%22100%22%20width=%2222%22%20height=%22140%22/%3E%3Cpath%20d=%22M239%20100%20Q233%2082%20252%2064%20Q271%2082%20265%20100z%22/%3E%3Crect%20x=%22251%22%20y=%2252%22%20width=%222%22%20height=%2214%22/%3E%3Ccircle%20cx=%22252%22%20cy=%2250%22%20r=%222.5%22/%3E%3Crect%20x=%22280%22%20y=%22170%22%20width=%2230%22%20height=%2270%22/%3E%3Cpath%20d=%22M280%20170L295%20156L310%20170z%22/%3E%3Crect%20x=%22112%22%20y=%22190%22%20width=%2240%22%20height=%2250%22/%3E%3Crect%20x=%22316%22%20y=%22186%22%20width=%2234%22%20height=%2254%22/%3E%3Crect%20x=%22350%22%20y=%22176%22%20width=%2240%22%20height=%2264%22/%3E%3Crect%20x=%2260%22%20y=%22196%22%20width=%2252%22%20height=%2244%22/%3E%3Crect%20x=%220%22%20y=%22184%22%20width=%2260%22%20height=%2256%22/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(170deg,#6F7D2E,#4A5620); background-position: center bottom, center; }
+  .qbtn { top: 50% !important; transform: translateY(-50%); }
+  @media (max-width: 899px) {
+    body[data-welt] .qz .entry-header { margin-bottom: 0; }
+    .qz .bento { margin: 0 -18px; }
+    .qz .tile.rkfull { height: 168px; }
+    .qz .tile.rkfull .q { font-size: 27px; }
+    .qz .tile.rkfull .go { margin-top: 10px; }
+    .qz .tile .neu { margin-bottom: 6px; }
+    .qgrid { gap: 0; }
+  }
+  @media (min-width: 900px) { body[data-welt="quiz"] .entry-header { background-size: auto 100%, cover; background-position: right 150px bottom, center; } .qz .tile.rkfull { height: 200px; } .qbtn { right: 44px; } }
 </style>
 </head>
 <body class="page-wide pc">
