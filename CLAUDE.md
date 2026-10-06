@@ -43,3 +43,4 @@ Trendlinien je Ansicht (Thomas, 06.10.2026): im Jahresbild (1J) die fertigen Lin
 Stream je Anbieter (Thomas, 06.10.2026): gewünscht 5 Filme + 5 Serien je Dienst (Netflix, Prime, Apple TV, ARD, ZDF, 3sat, ARTE). Stand 06.10.: erste Charge aus JustWatch-„Neu“-Listen/Suchtreffern (Quelle je Tipp, `datum_bis` = Mediathek-Frist); Apple TV nur 2 Filme (JustWatch-Treffer waren Leih-/Kaufangebote, weggelassen), 3sat nur 2 Serien belegt. Film/Serie-Umschalter je Anbieter in `vergnuegen.html` (`artF`, Art = Tag „Serie“, sonst Film).
 
 Startseite „Was läuft heute Abend?“ (Thomas, 06.10.2026): dunkler Streifen `.tv-bar` direkt unter der Kachel „Was kochen wir…“ (im `.bento`, ohne Abstand) in `index.html`, Links `vergnuegen.html?r=tv` und `?r=stream` (Stil in `home.css`).
+Vergnügen-Kopf (Thomas, 06.10.2026): großer Rubrik-Kopf (`.vg-hero`) ausgeblendet, nur die 8 Quadrat-Kacheln, am Handy randlos über volle Breite (4 je Reihe), am PC 8 in einer Reihe.
