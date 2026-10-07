@@ -1,0 +1,17 @@
+{
+  "sp500": {
+    "titel": "Der Reiter S&P 500",
+    "tab": "sp",
+    "schritte": [
+      { "sel": "#wtabs button[data-tab=\"sp\"]", "titel": "Der erste Reiter", "text": "Das ist der Reiter „S&P 500“. Er ist beim Öffnen der Seite schon aktiv. Er zeigt den Gesamtmarkt, nicht eine einzelne Aktie." },
+      { "sel": "#markt-s", "titel": "Die Kopfzeile", "text": "Die Ampel zeigt die Lage des Marktes, dahinter steht ein kurzer Satz und der Stand der Daten. Ein Tipp auf die Kopfzeile klappt den ganzen Bereich zu oder wieder auf." },
+      { "sel": "#markt-c .chartbox svg", "titel": "Die Kerzen", "text": "Jede Kerze ist ein Handelstag. Grün heißt: Der Tag ging höher aus. Rot heißt: tiefer. Der dünne Strich zeigt Höchst- und Tiefstkurs des Tages." },
+      { "sel": "#markt-c .chartbox .leg", "titel": "Die Linien", "text": "Die farbigen Linien sind gleitende Durchschnitte: 8, 21, 50 und 200 Tage. Darunter stehen die Trendlinien, grün als Unterstützung, rot als Widerstand." },
+      { "sel": "#markt-c .zoom button[data-z=\"63\"]", "titel": "Zeitraum wählen", "text": "Tippe jetzt auf „3M“. Dann zeigt der Chart nur die letzten drei Monate.", "aktion": "klick" },
+      { "sel": "#markt-c .zoom button[data-z=\"0\"]", "titel": "Zurück zum Jahr", "text": "Mit „1J“ siehst du wieder das ganze Jahr. Tippe darauf. Mit 1M, 6M und YTD (seit Jahresbeginn) geht es genauso.", "aktion": "klick" },
+      { "sel": "#markt-c .chartbox svg", "titel": "Zoomen und verschieben", "text": "Probiere es jetzt aus: Spreize zwei Finger auseinander, um hineinzuzoomen, und ziehe mit einem Finger, um zu verschieben. Ein Doppeltipp springt zurück. Am Computer: Strg und Mausrad, Ziehen, Doppelklick." },
+      { "sel": "#markt-c details.mehr-b > summary", "titel": "Marktbreite", "text": "Tippe auf diese Zeile. Sie klappt die Marktbreite und den Mag7-Check auf.", "aktion": "klick" },
+      { "sel": "#markt-c details.mehr-b .breite", "titel": "Wie breit trägt der Markt?", "text": "Hier steht, wie viele der rund 500 Aktien über ihren Linien liegen. Steigt der Index, aber nur wenige Werte liegen über der 21er, tragen wenige große Aktien den Markt. Darunter der Mag7-Check: Wie stark sind die sieben größten Werte?" }
+    ]
+  }
+}

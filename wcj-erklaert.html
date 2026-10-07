@@ -21,6 +21,7 @@
 .we-t{min-width:0}.we-t b{display:block;font-size:16px;line-height:1.25}.we-t span{display:block;font-size:13px;color:var(--ink-soft);margin-top:2px}
 .we-k details{margin-top:8px}.we-k summary{cursor:pointer;font-size:13.5px;color:var(--ink-soft)}
 .we-k details p{font-size:15px;line-height:1.55;margin:8px 0 0}
+.we-tour{display:inline-block;margin-top:8px;font-size:14px;font-weight:600;color:#262F63;background:#F6C253;border-radius:999px;padding:6px 14px;text-decoration:none}
 .we-bald{opacity:.65}
 .we-bald .we-r{gap:0}
 </style>
@@ -100,6 +101,7 @@
       b.addEventListener('click', function () { if (idx === i && (au || sp)) stop(); else { reihe = false; spiel(i); } });
       var t = document.createElement('div'); t.className = 'we-t'; var tb = document.createElement('b'); tb.textContent = k.nr + '. ' + k.titel; var ts = document.createElement('span'); ts.textContent = k.kurz + ' · ' + min(k);
       t.appendChild(tb); t.appendChild(ts); r.appendChild(b); r.appendChild(t); li.appendChild(r);
+      if (k.tour) { var at = document.createElement('a'); at.className = 'we-tour'; at.href = 'aktien.html?tour=' + encodeURIComponent(k.tour); at.textContent = '👆 Auf der Seite zeigen'; li.appendChild(at); }
       var d = document.createElement('details'), s = document.createElement('summary'); s.textContent = 'Text lesen'; d.appendChild(s);
       k.text.split('\n\n').forEach(function (x) { var p = document.createElement('p'); p.textContent = x; d.appendChild(p); });
       li.appendChild(d); l.appendChild(li);
