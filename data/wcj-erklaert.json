@@ -1,0 +1,65 @@
+[
+ {
+  "id": "ueberblick",
+  "teil": 1,
+  "nr": 1,
+  "titel": "Worum es auf WCJ geht",
+  "kurz": "Was die Seite tut und wie sie aufgebaut ist",
+  "text": "Die WCJ-Seite prüft Aktien und zeigt, wie es dem US-Aktienmarkt gerade geht. Oben sitzen drei Figuren: Warren, Charlie und James. Es sind KI-Figuren, keine echten Personen. Warren schaut auf Qualität und Preis eines Unternehmens, Charlie fragt, was schiefgehen kann, und James beurteilt Kurs und Trend.\n\nUnter den drei Figuren steht ein Link zur Börsenstimmung. Darunter findest du sechs Reiter: S&P 500, Top 10, Watchlist, Lynx, Prüfen und Megas. Du tippst einen Reiter an, und darunter erscheint der passende Bereich. Ganz unten steht der Link „Wie funktioniert das?“. Dort sind alle Regeln und Quellen ausführlich beschrieben.\n\nWichtig: Alles auf der Seite ist eine Vorauswahl nach festen Regeln und keine Anlageberatung. Kurse können verzögert oder unvollständig sein.",
+  "sprech": "Die WCJ-Seite prüft Aktien und zeigt, wie es dem US-Aktienmarkt gerade geht. Oben sitzen drei Figuren: Warren, Charlie und James. Es sind KI-Figuren, keine echten Personen. Warren schaut auf Qualität und Preis eines Unternehmens, Charlie fragt, was schiefgehen kann, und James beurteilt Kurs und Trend.\n\nUnter den drei Figuren steht ein Link zur Börsenstimmung. Darunter findest du sechs Reiter: S-und-P fünfhundert, Top Ten, Watchlist, Lynx, Prüfen und Megas. Du tippst einen Reiter an, und darunter erscheint der passende Bereich. Ganz unten steht der Link „Wie funktioniert das?“. Dort sind alle Regeln und Quellen ausführlich beschrieben.\n\nWichtig: Alles auf der Seite ist eine Vorauswahl nach festen Regeln und keine Anlageberatung. Kurse können verzögert oder unvollständig sein."
+ },
+ {
+  "id": "sp500",
+  "teil": 1,
+  "nr": 2,
+  "titel": "Der Reiter S&P 500",
+  "kurz": "Ampel, Chart, Zeitraum und Marktbreite",
+  "text": "Der erste Reiter zeigt den Gesamtmarkt, den S&P 500. In der Kopfzeile steht eine Ampel mit einem kurzen Satz zur Lage und dem Stand der Daten. Tippst du die Kopfzeile an, klappt der Bereich auf oder zu.\n\nDarin siehst du den Chart. Jede Kerze ist ein Handelstag: grün heißt, der Tag ging höher aus, rot heißt tiefer. Die farbigen Linien sind gleitende Durchschnitte, dazu kommen Trendlinien und die Analyse unter dem Chart. Mit den Knöpfen 1M, 3M, 6M, YTD und 1J wählst du den Zeitraum. YTD heißt: seit Jahresbeginn. Am Handy zoomst du mit zwei Fingern, verschiebst mit dem Finger und springst mit einem Doppeltipp zurück. Am Computer geht das mit Strg und Mausrad, mit Ziehen und mit Doppelklick.\n\nUnter dem Chart steht die Marktbreite. Sie zeigt, wie viele der rund fünfhundert Aktien über ihren Durchschnittslinien liegen. So erkennst du, ob wenige große Werte den Index tragen oder der ganze Markt mitzieht.",
+  "sprech": "Der erste Reiter zeigt den Gesamtmarkt, den S-und-P fünfhundert. In der Kopfzeile steht eine Ampel mit einem kurzen Satz zur Lage und dem Stand der Daten. Tippst du die Kopfzeile an, klappt der Bereich auf oder zu.\n\nDarin siehst du den Chart. Jede Kerze ist ein Handelstag: grün heißt, der Tag ging höher aus, rot heißt tiefer. Die farbigen Linien sind gleitende Durchschnitte, dazu kommen Trendlinien und die Analyse unter dem Chart. Mit den Knöpfen ein Monat, drei Monate, sechs Monate, seit Jahresbeginn und ein Jahr wählst du den Zeitraum. Am Handy zoomst du mit zwei Fingern, verschiebst mit dem Finger und springst mit einem Doppeltipp zurück. Am Computer geht das mit Strg und Mausrad, mit Ziehen und mit Doppelklick.\n\nUnter dem Chart steht die Marktbreite. Sie zeigt, wie viele der rund fünfhundert Aktien über ihren Durchschnittslinien liegen. So erkennst du, ob wenige große Werte den Index tragen oder der ganze Markt mitzieht."
+ },
+ {
+  "id": "top10",
+  "teil": 1,
+  "nr": 3,
+  "titel": "Der Reiter Top 10",
+  "kurz": "Die zehn aussichtsreichsten Werte des Tages",
+  "text": "Im Reiter Top 10 steht eine Auswahl aus allen rund fünfhundert Werten des S&P 500. Jeden Börsentag nach Handelsschluss rechnet ein Programm ohne KI nach. Werte unter ihrer 200-Tage-Linie fallen heraus. Der Rang entsteht je zur Hälfte aus Warrens Regeln und aus Jamess Setup-Score.\n\nOben links wählst du in einer Auswahlliste eine Branche. Sie sind nach Beliebtheit sortiert. Dann siehst du die besten Werte dieser Branche. Tippst du eine Zeile an, klappen Trend, Chart und die Regeln auf. Die Meinung von Warren und Charlie mit Text gibt es nach einem weiteren Tipp auf „Warren und Charlie fragen“. Manchmal steht sie schon da, weil die wöchentliche Auswahl sie bereits geschrieben hat.\n\nDie Top 10 sind eine Vorauswahl nach festen Regeln. Sie sind keine Empfehlung.",
+  "sprech": "Im Reiter Top Ten steht eine Auswahl aus allen rund fünfhundert Werten des S-und-P fünfhundert. Jeden Börsentag nach Handelsschluss rechnet ein Programm ohne KI nach. Werte unter ihrer zweihundert-Tage-Linie fallen heraus. Der Rang entsteht je zur Hälfte aus Warrens Regeln und aus Jamess Setup-Score.\n\nOben links wählst du in einer Auswahlliste eine Branche. Sie sind nach Beliebtheit sortiert. Dann siehst du die besten Werte dieser Branche. Tippst du eine Zeile an, klappen Trend, Chart und die Regeln auf. Die Meinung von Warren und Charlie mit Text gibt es nach einem weiteren Tipp auf „Warren und Charlie fragen“. Manchmal steht sie schon da, weil die wöchentliche Auswahl sie bereits geschrieben hat.\n\nDie Top Ten sind eine Vorauswahl nach festen Regeln. Sie sind keine Empfehlung."
+ },
+ {
+  "id": "watchlist",
+  "teil": 1,
+  "nr": 4,
+  "titel": "Watchlist und Lynx-Depot",
+  "kurz": "Eigene Aktien beobachten, nur auf deinem Gerät",
+  "text": "Watchlist und Lynx sind deine eigenen Listen. Beide werden nur auf deinem Gerät gespeichert, niemand sonst sieht sie.\n\nIn der Watchlist trägst du einen Ticker ein, also das Kürzel einer Aktie, und tippst auf das Plus. Dann steht der Wert mit Tageszahlen in der Liste. Mit dem Kreuz blendest du einen Titel wieder aus. Bei jeder Aktie in den Top 10 gibt es außerdem einen Knopf „Zur Watchlist“.\n\nDer Reiter Lynx ist für dein Depot. Dort stehen deine Aktien. Tippst du eine Zeile an, klappen Trend, Chart und die Meinung von Warren und Charlie auf. Täglich neu berechnet werden nur Kurs und Trend. In das Eingabefeld darfst du auch einen Firmennamen schreiben, zum Beispiel Amazon, die Seite findet das Kürzel selbst. In der Kopfzeile steht, wie viele Werte ihre Ampel gewechselt haben.",
+  "sprech": "Watchlist und Lynx sind deine eigenen Listen. Beide werden nur auf deinem Gerät gespeichert, niemand sonst sieht sie.\n\nIn der Watchlist trägst du einen Ticker ein, also das Kürzel einer Aktie, und tippst auf das Plus. Dann steht der Wert mit Tageszahlen in der Liste. Mit dem Kreuz blendest du einen Titel wieder aus. Bei jeder Aktie in den Top Ten gibt es außerdem einen Knopf „Zur Watchlist“.\n\nDer Reiter Lynx ist für dein Depot. Dort stehen deine Aktien. Tippst du eine Zeile an, klappen Trend, Chart und die Meinung von Warren und Charlie auf. Täglich neu berechnet werden nur Kurs und Trend. In das Eingabefeld darfst du auch einen Firmennamen schreiben, zum Beispiel Amazon, die Seite findet das Kürzel selbst. In der Kopfzeile steht, wie viele Werte ihre Ampel gewechselt haben."
+ },
+ {
+  "id": "pruefen",
+  "teil": 1,
+  "nr": 5,
+  "titel": "Der Reiter Prüfen",
+  "kurz": "Eine beliebige Aktie von den drei Figuren bewerten lassen",
+  "text": "Im Reiter Prüfen kannst du jede Aktie bewerten lassen, auch eine, die nicht im S&P 500 steht. Du tippst den Namen oder das Kürzel ein, zum Beispiel Apple, KO oder Siemens, und tippst auf „Prüfen“.\n\nDein Wunsch landet in einer Warteliste. Ein Programm in der Cloud holt die Zahlen, liest nach, was Warren und Charlie in ihren Texten sagen würden, und schreibt drei kurze Meinungen: Warren zu Qualität und Preis, Charlie zu dem, was schiefgehen kann, James zu Kurs und Trend. Das dauert einige Minuten. Dann erscheint der Eintrag in der Liste darunter.\n\nPro Aktie gibt es immer genau einen Eintrag. Prüfst du sie später noch einmal, ersetzt der neue Eintrag den alten.",
+  "sprech": "Im Reiter Prüfen kannst du jede Aktie bewerten lassen, auch eine, die nicht im S-und-P fünfhundert steht. Du tippst den Namen oder das Kürzel ein, zum Beispiel Apple, K-O oder Siemens, und tippst auf „Prüfen“.\n\nDein Wunsch landet in einer Warteliste. Ein Programm in der Cloud holt die Zahlen, liest nach, was Warren und Charlie in ihren Texten sagen würden, und schreibt drei kurze Meinungen: Warren zu Qualität und Preis, Charlie zu dem, was schiefgehen kann, James zu Kurs und Trend. Das dauert einige Minuten. Dann erscheint der Eintrag in der Liste darunter.\n\nPro Aktie gibt es immer genau einen Eintrag. Prüfst du sie später noch einmal, ersetzt der neue Eintrag den alten."
+ },
+ {
+  "id": "megas",
+  "teil": 1,
+  "nr": 6,
+  "titel": "Der Reiter Megas",
+  "kurz": "Die Billionen-Konzerne im Vergleich",
+  "text": "Der Reiter Megas zeigt alle Unternehmen mit mehr als einer Billion Dollar Börsenwert. Oben schaltest du zwischen drei Darstellungen um: Unternehmenswert, Performance in Prozent und KGV. Der Unternehmenswert ist Kurs mal Aktienzahl. Das KGV ist der Kurs geteilt durch den Gewinn der letzten vier Quartale.\n\nUnter dem Chart wählst du den Zeitraum, standardmäßig seit Jahresbeginn. Tippst du oder fährst du mit dem Finger über den Chart, siehst du die Werte eines einzelnen Tages. Darunter steht eine Tabelle mit allen Konzernen. So erkennst du schnell, wer im Jahresverlauf vorne liegt und wer im Verhältnis zum Gewinn teuer ist.",
+  "sprech": "Der Reiter Megas zeigt alle Unternehmen mit mehr als einer Billion Dollar Börsenwert. Oben schaltest du zwischen drei Darstellungen um: Unternehmenswert, Performance in Prozent und K-G-V. Der Unternehmenswert ist Kurs mal Aktienzahl. Das K-G-V ist der Kurs geteilt durch den Gewinn der letzten vier Quartale.\n\nUnter dem Chart wählst du den Zeitraum, standardmäßig seit Jahresbeginn. Tippst du oder fährst du mit dem Finger über den Chart, siehst du die Werte eines einzelnen Tages. Darunter steht eine Tabelle mit allen Konzernen. So erkennst du schnell, wer im Jahresverlauf vorne liegt und wer im Verhältnis zum Gewinn teuer ist."
+ },
+ {
+  "id": "figuren",
+  "teil": 1,
+  "nr": 7,
+  "titel": "Die drei Figuren",
+  "kurz": "Warren, Charlie und James kurz erklärt",
+  "text": "Warren, Charlie und James sind drei KI-Figuren mit drei Blickwinkeln auf dieselbe Aktie. Sie sind keine echten Personen, ihre Texte sind keine Zitate, und die echten Vorbilder haben die Aktien nicht bewertet.\n\nWarren folgt den bekannten Grundsätzen von Warren Buffett: ein verständliches Geschäft, wenig Schulden, hohe Rendite und ein fairer Preis. Charlie denkt wie Charlie Munger umgekehrt und sucht, was schiefgehen kann. James orientiert sich an der öffentlich beschriebenen Methode von James Bulltard: erst Option Flows, dann der Chart, zuletzt die Zahlen.\n\nMehr dazu, auch zu den Quellen, steht auf der Seite „Wie funktioniert das?“. Im zweiten Teil dieser Erklärung gehe ich auf die Indikatoren und die Linien genauer ein.",
+  "sprech": "Warren, Charlie und James sind drei KI-Figuren mit drei Blickwinkeln auf dieselbe Aktie. Sie sind keine echten Personen, ihre Texte sind keine Zitate, und die echten Vorbilder haben die Aktien nicht bewertet.\n\nWarren folgt den bekannten Grundsätzen von Warren Buffett: ein verständliches Geschäft, wenig Schulden, hohe Rendite und ein fairer Preis. Charlie denkt wie Charlie Munger umgekehrt und sucht, was schiefgehen kann. James orientiert sich an der öffentlich beschriebenen Methode von James Bulltard: erst Option Flows, dann der Chart, zuletzt die Zahlen.\n\nMehr dazu, auch zu den Quellen, steht auf der Seite „Wie funktioniert das?“. Im zweiten Teil dieser Erklärung gehe ich auf die Indikatoren und die Linien genauer ein."
+ }
+]

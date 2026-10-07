@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>WCJ erklärt – Unterwegs und zuhause</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=29">
+<link rel="stylesheet" href="song.css?v=2">
+<style>
+.we-intro{font-size:16px;line-height:1.55;margin:4px 0 14px}
+.we-all{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:10px;background:#F6C253;color:#262F63;font-weight:600;font-size:15px;padding:10px 18px;border-radius:999px;box-shadow:0 3px 10px rgba(0,0,0,.18)}
+.we-all:focus-visible,.we-btn:focus-visible{outline:3px solid #262F63;outline-offset:2px}
+.we-teil{font-family:'Fraunces',serif;font-weight:500;font-size:22px;margin:26px 0 8px}
+.we-l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.we-k{background:var(--paper);border:1px solid rgba(46,58,50,.12);border-radius:14px;padding:12px 14px}
+.we-k.spielt{border-color:#F6C253;box-shadow:0 0 0 2px #F6C253 inset}
+.we-r{display:flex;align-items:center;gap:14px}
+.we-btn{all:unset;cursor:pointer;flex:none;width:48px;height:48px;border-radius:50%;background:#F6C253;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+.we-btn svg{width:24px;height:24px;fill:#262F63}.we-btn .st{display:none}.spielt .we-btn .pl{display:none}.spielt .we-btn .st{display:block}
+.we-t{min-width:0}.we-t b{display:block;font-size:16px;line-height:1.25}.we-t span{display:block;font-size:13px;color:var(--ink-soft);margin-top:2px}
+.we-k details{margin-top:8px}.we-k summary{cursor:pointer;font-size:13.5px;color:var(--ink-soft)}
+.we-k details p{font-size:15px;line-height:1.55;margin:8px 0 0}
+.we-bald{opacity:.65}
+.we-bald .we-r{gap:0}
+</style>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+</head>
+<body class="page-song">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="quiz.html">München</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+  <div class="entry-topbar"><a class="back-link" href="aktien.html">← Zurück zu WCJ</a></div>
+  <article>
+    <header class="entry-header">
+      <p class="date">WCJ erklärt · zum Anhören</p>
+      <h1>So funktioniert WCJ</h1>
+      <hr class="rule">
+    </header>
+    <p class="we-intro">Erst die Bedienung, in sieben kurzen Kapiteln. Tippe auf den gelben Knopf, um ein Kapitel anzuhören, oder auf „Alle nacheinander“. Wer lieber liest, klappt den Text auf. Die Details zu Indikatoren, Linien und Score folgen im zweiten Teil.</p>
+    <button type="button" class="we-all" id="we-all"><span id="we-all-t">▶ Alle nacheinander</span></button>
+    <h2 class="we-teil">Teil 1: Die Bedienung</h2>
+    <ul class="we-l" id="we-l1"></ul>
+    <h2 class="we-teil">Teil 2: Die Details</h2>
+    <ul class="we-l" id="we-l2"><li class="we-k we-bald"><div class="we-r"><div class="we-t"><b>Folgt bald</b><span>Die drei Typen, die Indikatoren, die Durchschnittslinien bei den Einzelwerten, der Setup-Score und mehr</span></div></div></li></ul>
+    <p class="song-note"><a href="wcj-info.html">Alles zum Nachlesen: Wie funktioniert das?</a></p>
+  </article>
+  <p id="we-error" class="song-note" hidden>Die Erklärung konnte gerade nicht geladen werden.</p>
+  <footer class="site-footer"><p>Keine Anlageberatung. Die Texte sind eigene Erklärungen, gesprochen von einer KI-Stimme.</p></footer>
+</div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var K = [], idx = -1, au = null, sp = false, reihe = false;
+  var PL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg>';
+  function marke() {
+    var els = document.querySelectorAll('.we-k[data-i]');
+    for (var i = 0; i < els.length; i++) {
+      var an = (i === idx) && (au || sp);
+      els[i].classList.toggle('spielt', !!an);
+      els[i].querySelector('.we-btn').setAttribute('aria-label', (an ? 'Stopp: ' : 'Anhören: ') + K[i].titel);
+    }
+    $('we-all-t').textContent = reihe ? '■ Stopp' : '▶ Alle nacheinander';
+  }
+  function stop() { sp = false; reihe = false; idx = -1; if (au) { au.onended = au.onerror = null; au.pause(); au = null; } if ('speechSynthesis' in window) speechSynthesis.cancel(); marke(); }
+  function weiter() { var n = idx + 1; au = null; sp = false; if (reihe && n < K.length) spiel(n); else stop(); }
+  function speech(k) {
+    if (!('speechSynthesis' in window)) { stop(); return; }
+    var p = (k.sprech || k.text).match(/[^.!?:]+[.!?:]+|[^.!?:]+$/g) || [k.text]; sp = true; marke();
+    (function n() { if (!sp) return; if (!p.length) { weiter(); return; } var u = new SpeechSynthesisUtterance(p.shift().trim()); u.lang = 'de-DE'; u.rate = .95; u.onend = n; u.onerror = function (er) { if (!er || (er.error !== 'canceled' && er.error !== 'interrupted')) stop(); }; speechSynthesis.speak(u); })();
+  }
+  function spiel(i) {
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    if (au) { au.onended = au.onerror = null; au.pause(); au = null; } sp = false;
+    idx = i; var k = K[i];
+    var a = new Audio('audio/wcj-' + encodeURIComponent(k.id) + '.mp3'); au = a; marke();
+    a.onended = weiter; a.onerror = function () { if (au === a) { au = null; speech(k); } };
+    var r = a.play(); if (r && r.catch) r.catch(function () { if (au === a) { au = null; speech(k); } });
+  }
+  function min(k) { var m = Math.max(1, Math.round((k.sprech || k.text).split(/\s+/).length / 140)); return 'ca. ' + m + ' Min.'; }
+  function bau(l) {
+    K.forEach(function (k, i) {
+      var li = document.createElement('li'); li.className = 'we-k'; li.setAttribute('data-i', i);
+      var r = document.createElement('div'); r.className = 'we-r';
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'we-btn'; b.innerHTML = PL; b.setAttribute('aria-label', 'Anhören: ' + k.titel);
+      b.addEventListener('click', function () { if (idx === i && (au || sp)) stop(); else { reihe = false; spiel(i); } });
+      var t = document.createElement('div'); t.className = 'we-t'; var tb = document.createElement('b'); tb.textContent = k.nr + '. ' + k.titel; var ts = document.createElement('span'); ts.textContent = k.kurz + ' · ' + min(k);
+      t.appendChild(tb); t.appendChild(ts); r.appendChild(b); r.appendChild(t); li.appendChild(r);
+      var d = document.createElement('details'), s = document.createElement('summary'); s.textContent = 'Text lesen'; d.appendChild(s);
+      k.text.split('\n\n').forEach(function (x) { var p = document.createElement('p'); p.textContent = x; d.appendChild(p); });
+      li.appendChild(d); l.appendChild(li);
+    });
+  }
+  $('we-all').addEventListener('click', function () { if (reihe || au || sp) { stop(); return; } reihe = true; spiel(0); });
+  window.addEventListener('pagehide', stop);
+  fetch('data/wcj-erklaert.json').then(function (r) { return r.json(); }).then(function (l) {
+    K = l.filter(function (x) { return x && x.titel && x.teil === 1; }).sort(function (a, b) { return a.nr - b.nr; });
+    if (!K.length) throw 0; bau($('we-l1'));
+  }).catch(function () { $('we-error').hidden = false; });
+})();
+</script>
+<script src="nav.js?v=20" defer></script>
+</body>
+</html>
