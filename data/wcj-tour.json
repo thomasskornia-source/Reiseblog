@@ -1,17 +1,314 @@
 {
-  "sp500": {
-    "titel": "Der Reiter S&P 500",
+ "sp500": {
+  "titel": "Der Reiter S&P 500",
+  "tab": "sp",
+  "schritte": [
+   {
+    "sel": "#wtabs button[data-tab=\"sp\"]",
+    "titel": "Der erste Reiter",
+    "text": "Das ist der Reiter „S&P 500“. Er ist beim Öffnen der Seite schon aktiv. Er zeigt den Gesamtmarkt, nicht eine einzelne Aktie.",
     "tab": "sp",
-    "schritte": [
-      { "sel": "#wtabs button[data-tab=\"sp\"]", "titel": "Der erste Reiter", "text": "Das ist der Reiter „S&P 500“. Er ist beim Öffnen der Seite schon aktiv. Er zeigt den Gesamtmarkt, nicht eine einzelne Aktie." },
-      { "sel": "#markt-s", "titel": "Die Kopfzeile", "text": "Die Ampel zeigt die Lage des Marktes, dahinter steht ein kurzer Satz und der Stand der Daten. Ein Tipp auf die Kopfzeile klappt den ganzen Bereich zu oder wieder auf." },
-      { "sel": "#markt-c .chartbox svg", "titel": "Die Kerzen", "text": "Jede Kerze ist ein Handelstag. Grün heißt: Der Tag ging höher aus. Rot heißt: tiefer. Der dünne Strich zeigt Höchst- und Tiefstkurs des Tages." },
-      { "sel": "#markt-c .chartbox .leg", "titel": "Die Linien", "text": "Die farbigen Linien sind gleitende Durchschnitte: 8, 21, 50 und 200 Tage. Darunter stehen die Trendlinien, grün als Unterstützung, rot als Widerstand." },
-      { "sel": "#markt-c .zoom button[data-z=\"63\"]", "titel": "Zeitraum wählen", "text": "Tippe jetzt auf „3M“. Dann zeigt der Chart nur die letzten drei Monate.", "aktion": "klick" },
-      { "sel": "#markt-c .zoom button[data-z=\"0\"]", "titel": "Zurück zum Jahr", "text": "Mit „1J“ siehst du wieder das ganze Jahr. Tippe darauf. Mit 1M, 6M und YTD (seit Jahresbeginn) geht es genauso.", "aktion": "klick" },
-      { "sel": "#markt-c .chartbox svg", "titel": "Zoomen und verschieben", "text": "Probiere es jetzt aus: Spreize zwei Finger auseinander, um hineinzuzoomen, und ziehe mit einem Finger, um zu verschieben. Ein Doppeltipp springt zurück. Am Computer: Strg und Mausrad, Ziehen, Doppelklick." },
-      { "sel": "#markt-c details.mehr-b > summary", "titel": "Marktbreite", "text": "Tippe auf diese Zeile. Sie klappt die Marktbreite und den Mag7-Check auf.", "aktion": "klick" },
-      { "sel": "#markt-c details.mehr-b .breite", "titel": "Wie breit trägt der Markt?", "text": "Hier steht, wie viele der rund 500 Aktien über ihren Linien liegen. Steigt der Index, aber nur wenige Werte liegen über der 21er, tragen wenige große Aktien den Markt. Darunter der Mag7-Check: Wie stark sind die sieben größten Werte?" }
-    ]
-  }
+    "sprech": "Das ist der Reiter „S-und-P fünfhundert“. Er ist beim Öffnen der Seite schon aktiv. Er zeigt den Gesamtmarkt, nicht eine einzelne Aktie."
+   },
+   {
+    "sel": "#markt-s",
+    "titel": "Die Kopfzeile",
+    "text": "Die Ampel zeigt die Lage des Marktes, dahinter steht ein kurzer Satz und der Stand der Daten. Ein Tipp auf die Kopfzeile klappt den ganzen Bereich zu oder wieder auf.",
+    "tab": "sp"
+   },
+   {
+    "sel": "#markt-c .chartbox svg",
+    "titel": "Die Kerzen",
+    "text": "Jede Kerze ist ein Handelstag. Grün heißt: Der Tag ging höher aus. Rot heißt: tiefer. Der dünne Strich zeigt Höchst- und Tiefstkurs des Tages.",
+    "tab": "sp"
+   },
+   {
+    "sel": "#markt-c .chartbox .leg",
+    "titel": "Die Linien",
+    "text": "Die farbigen Linien sind gleitende Durchschnitte: 8, 21, 50 und 200 Tage. Darunter stehen die Trendlinien, grün als Unterstützung, rot als Widerstand.",
+    "tab": "sp",
+    "sprech": "Die farbigen Linien sind gleitende Durchschnitte: acht, einundzwanzig, fünfzig und zweihundert Tage. Darunter stehen die Trendlinien, grün als Unterstützung, rot als Widerstand."
+   },
+   {
+    "sel": "#markt-c .zoom button[data-z=\"63\"]",
+    "titel": "Zeitraum wählen",
+    "text": "Tippe jetzt auf „3M“. Dann zeigt der Chart nur die letzten drei Monate.",
+    "aktion": "klick",
+    "tab": "sp",
+    "sprech": "Tippe jetzt auf „drei Monate“. Dann zeigt der Chart nur die letzten drei Monate."
+   },
+   {
+    "sel": "#markt-c .zoom button[data-z=\"0\"]",
+    "titel": "Zurück zum Jahr",
+    "text": "Mit „1J“ siehst du wieder das ganze Jahr. Tippe darauf. Mit 1M, 6M und YTD (seit Jahresbeginn) geht es genauso.",
+    "aktion": "klick",
+    "tab": "sp",
+    "sprech": "Mit „ein Jahr“ siehst du wieder das ganze Jahr. Tippe darauf. Mit ein Monat, sechs Monate und seit Jahresbeginn (seit Jahresbeginn) geht es genauso."
+   },
+   {
+    "sel": "#markt-c .chartbox svg",
+    "titel": "Zoomen und verschieben",
+    "text": "Probiere es jetzt aus: Spreize zwei Finger auseinander, um hineinzuzoomen, und ziehe mit einem Finger, um zu verschieben. Ein Doppeltipp springt zurück. Am Computer: Strg und Mausrad, Ziehen, Doppelklick.",
+    "tab": "sp",
+    "sprech": "Probiere es jetzt aus: Spreize zwei Finger auseinander, um hineinzuzoomen, und ziehe mit einem Finger, um zu verschieben. Ein Doppeltipp springt zurück. Am Computer: Steuerung und Mausrad, Ziehen, Doppelklick."
+   },
+   {
+    "sel": "#markt-c details.mehr-b > summary",
+    "titel": "Marktbreite",
+    "text": "Tippe auf diese Zeile. Sie klappt die Marktbreite und den Mag7-Check auf.",
+    "aktion": "klick",
+    "tab": "sp",
+    "sprech": "Tippe auf diese Zeile. Sie klappt die Marktbreite und den Mag Seven-Check auf."
+   },
+   {
+    "sel": "#markt-c details.mehr-b .breite",
+    "titel": "Wie breit trägt der Markt?",
+    "text": "Hier steht, wie viele der rund 500 Aktien über ihren Linien liegen. Steigt der Index, aber nur wenige Werte liegen über der 21er, tragen wenige große Aktien den Markt. Darunter der Mag7-Check: Wie stark sind die sieben größten Werte?",
+    "tab": "sp",
+    "sprech": "Hier steht, wie viele der rund 500 Aktien über ihren Linien liegen. Steigt der Index, aber nur wenige Werte liegen über der 21er, tragen wenige große Aktien den Markt. Darunter der Mag Seven-Check: Wie stark sind die sieben größten Werte?"
+   }
+  ]
+ },
+ "ueberblick": {
+  "titel": "Worum es auf WCJ geht",
+  "tab": "sp",
+  "schritte": [
+   {
+    "sel": ".ak .hero",
+    "titel": "Die drei Figuren",
+    "text": "Oben stehen Warren, Charlie und James. Sie sind KI-Figuren mit drei Blickwinkeln auf dieselbe Aktie. Warren schaut auf Qualität und Preis, Charlie auf das, was schiefgehen kann, James auf Kurs und Trend."
+   },
+   {
+    "sel": ".stimm-link",
+    "titel": "Börsenstimmung",
+    "text": "Dieser Link führt zur Börsenstimmung. Dort steht, wie die Marktlage in den Videos von Markus Koch eingeschätzt wird. Es geht um den Gesamtmarkt, nicht um einzelne Aktien."
+   },
+   {
+    "sel": "#wtabs",
+    "titel": "Die sechs Reiter",
+    "text": "S&P 500 zeigt den Gesamtmarkt, Top 10 die besten Werte, Watchlist und Lynx deine eigenen Listen, Prüfen bewertet eine beliebige Aktie, und Megas vergleicht die Billionen-Konzerne.",
+    "sprech": "S-und-P fünfhundert zeigt den Gesamtmarkt, Top Ten die besten Werte, Watchlist und Lynx deine eigenen Listen, Prüfen bewertet eine beliebige Aktie, und Megas vergleicht die Billionen-Konzerne."
+   },
+   {
+    "sel": "p.foot",
+    "titel": "Kein Rat",
+    "text": "Alles hier ist eine Vorauswahl nach festen Regeln und keine Anlageberatung. Kurse können verzögert oder unvollständig sein."
+   },
+   {
+    "sel": ".foot a[href=\"wcj-info.html\"]",
+    "titel": "Alles zum Nachlesen",
+    "text": "Mit „Wie funktioniert das?“ kommst du zu allen Regeln und Quellen, ausführlich beschrieben."
+   }
+  ]
+ },
+ "top10": {
+  "titel": "Der Reiter Top 10",
+  "tab": "top10",
+  "schritte": [
+   {
+    "sel": "#top10-s",
+    "titel": "Die Kopfzeile",
+    "text": "Hier steht „Top 10 im S&P 500“ mit dem Stand der Daten. Die Auswahl wird jeden Börsentag nach Handelsschluss ohne KI neu berechnet.",
+    "sprech": "Hier steht „Top Ten im S-und-P fünfhundert“ mit dem Stand der Daten. Die Auswahl wird jeden Börsentag nach Handelsschluss ohne KI neu berechnet."
+   },
+   {
+    "sel": "#top10-f",
+    "titel": "Branche wählen",
+    "text": "Wähle jetzt eine Branche aus der Liste. Sie sind nach Beliebtheit sortiert, die gefragteste steht oben.",
+    "aktion": "aendern"
+   },
+   {
+    "sel": "#top10-l li:first-child .z",
+    "titel": "Die Punkte",
+    "text": "Rechts stehen zwei Zahlen. Warren zählt, wie viele seiner sieben Regeln der Wert erfüllt. James vergibt bis zu elf Punkte für Trend, Stärke, Schwung und Umsatz."
+   },
+   {
+    "sel": "#top10-l li:first-child",
+    "titel": "Zeile öffnen",
+    "text": "Tippe auf die erste Zeile. Sie klappt auf und zeigt Chart, Trend und Regeln.",
+    "aktion": "klick"
+   },
+   {
+    "sel": "#top10-l li:first-child .det .dsec:first-child",
+    "titel": "James: Trend und Chart",
+    "text": "Hier siehst du den Chart mit denselben Zeitraum-Knöpfen wie beim Gesamtmarkt. Darunter stehen die Prüfpunkte, zum Beispiel RSI, MACD und die Lage zu den Linien.",
+    "sprech": "Hier siehst du den Chart mit denselben Zeitraum-Knöpfen wie beim Gesamtmarkt. Darunter stehen die Prüfpunkte, zum Beispiel R-S-I, M-A-C-D und die Lage zu den Linien."
+   },
+   {
+    "sel": "#top10-l li:first-child .det details.more",
+    "titel": "Setup-Score und Regeln",
+    "text": "Mit diesem Tipp klappen alle zwölf Regeln von James auf. Du siehst, welche der Wert erfüllt und welche nicht."
+   },
+   {
+    "sel": "#top10-l li:first-child .det .dsec:nth-child(2)",
+    "titel": "Warren: Qualität und Preis",
+    "text": "Das sind Warrens sieben Regeln aus den Jahreszahlen. Ein Haken heißt erfüllt. Die Meinung von Warren und Charlie mit Text gibt es nach einem weiteren Tipp auf „Warren und Charlie fragen“."
+   },
+   {
+    "sel": "a.t10-rot",
+    "titel": "Sektor-Rotation",
+    "text": "Dieser Link führt zur Sektor-Rotation. Dort siehst du, welche Branchen gerade gefragt sind und wohin das Geld wandert."
+   }
+  ]
+ },
+ "watchlist": {
+  "titel": "Watchlist und Lynx-Depot",
+  "tab": "watch",
+  "schritte": [
+   {
+    "sel": "#beo-s",
+    "titel": "Die Watchlist",
+    "text": "Die Watchlist ist deine eigene Beobachtungsliste. Sie wird nur auf deinem Gerät gespeichert, niemand sonst sieht sie.",
+    "tab": "watch"
+   },
+   {
+    "sel": "#wl-form",
+    "titel": "Aktie hinzufügen",
+    "text": "Hier tippst du das Kürzel einer Aktie ein, zum Beispiel KO oder MSFT, und tippst auf das Plus. Der Wert steht dann mit Tageszahlen in der Liste. Mit dem Kreuz blendest du ihn wieder aus. Bei jeder Aktie in den Top 10 gibt es außerdem den Knopf „Zur Watchlist“.",
+    "tab": "watch",
+    "sprech": "Hier tippst du das Kürzel einer Aktie ein, zum Beispiel K-O oder M-S-F-T, und tippst auf das Plus. Der Wert steht dann mit Tageszahlen in der Liste. Mit dem Kreuz blendest du ihn wieder aus. Bei jeder Aktie in den Top Ten gibt es außerdem den Knopf „Zur Watchlist“."
+   },
+   {
+    "sel": "#wtabs button[data-tab=\"lynx\"]",
+    "titel": "Zu Lynx wechseln",
+    "text": "Tippe jetzt auf „Lynx“. Das ist die Liste für dein Depot.",
+    "aktion": "klick",
+    "tab": "watch"
+   },
+   {
+    "sel": "#lynx-s",
+    "titel": "Die Kopfzeile",
+    "text": "Hier steht der Stand und, wenn es welche gab, wie viele Werte ihre Ampel gewechselt haben.",
+    "tab": "lynx"
+   },
+   {
+    "sel": "#lynx-c ol:first-of-type li:first-child",
+    "titel": "Eine Depot-Zeile",
+    "text": "Links zeigt der Punkt die Ampel, daneben stehen Kürzel und Lage zu den Linien, rechts die Punkte von James. Tippst du die Zeile an, klappen Trend, Chart und die Meinung von Warren und Charlie auf.",
+    "tab": "lynx"
+   },
+   {
+    "sel": "#lynx-c ol:first-of-type li:first-child .xb",
+    "titel": "Ausblenden",
+    "text": "Mit dem Kreuz blendest du einen Wert aus, ohne ihn zu löschen. Das gilt nur auf deinem Gerät.",
+    "tab": "lynx"
+   },
+   {
+    "sel": "#ly-form",
+    "titel": "Weitere Werte eintragen",
+    "text": "Hier trägst du weitere Aktien aus deinem Depot ein. Du darfst auch einen Firmennamen schreiben, zum Beispiel Amazon. Die Seite findet das Kürzel selbst.",
+    "tab": "lynx"
+   }
+  ]
+ },
+ "pruefen": {
+  "titel": "Der Reiter Prüfen",
+  "tab": "pruefen",
+  "schritte": [
+   {
+    "sel": "#form",
+    "titel": "Aktie eingeben",
+    "text": "Hier tippst du den Namen oder das Kürzel einer Aktie ein, zum Beispiel Apple, KO oder Siemens, und tippst auf „Prüfen“. Es geht auch mit Aktien, die nicht im S&P 500 stehen. Nach einigen Minuten erscheint der Eintrag in der Liste darunter.",
+    "sprech": "Hier tippst du den Namen oder das Kürzel einer Aktie ein, zum Beispiel Apple, K-O oder Siemens, und tippst auf „Prüfen“. Es geht auch mit Aktien, die nicht im S-und-P fünfhundert stehen. Nach einigen Minuten erscheint der Eintrag in der Liste darunter."
+   },
+   {
+    "sel": "#list details.st:first-child summary",
+    "titel": "Einen Eintrag öffnen",
+    "text": "Tippe auf den obersten Eintrag. Er klappt auf und zeigt die drei Meinungen im Detail.",
+    "aktion": "klick"
+   },
+   {
+    "sel": "#list details.st:first-child summary .vs",
+    "titel": "Die vier Urteile",
+    "text": "Schon in der Kopfzeile stehen vier Urteile: Warren zu Qualität und Preis, Charlie zu den Risiken, James zum Trend und die Option Flows. Die Farben zeigen grün, gelb oder rot."
+   },
+   {
+    "sel": "#list details.st:first-child .body .who:nth-child(1)",
+    "titel": "Warren",
+    "text": "Warren bewertet Qualität und Preis: verständliches Geschäft, wenig Schulden, hohe Rendite und ein fairer Preis."
+   },
+   {
+    "sel": "#list details.st:first-child .body .who:nth-child(2)",
+    "titel": "Charlie",
+    "text": "Charlie fragt, was schiefgehen kann. Er denkt umgekehrt und sucht die Risiken."
+   },
+   {
+    "sel": "#list details.st:first-child .body .who:nth-child(3)",
+    "titel": "James",
+    "text": "James schaut auf Kurs und Trend, mit Chart, Linien und Kennzahlen."
+   }
+  ]
+ },
+ "megas": {
+  "titel": "Der Reiter Megas",
+  "tab": "megas",
+  "schritte": [
+   {
+    "sel": "#mg-tabs button[data-m=\"perf\"]",
+    "titel": "Performance",
+    "text": "Tippe auf „Performance %“. Dann zeigt der Chart, wie viel Prozent jeder Konzern seit Jahresbeginn zugelegt oder verloren hat.",
+    "aktion": "klick"
+   },
+   {
+    "sel": "#mg-tabs button[data-m=\"kgv\"]",
+    "titel": "KGV",
+    "text": "Jetzt „KGV“. Das ist der Kurs geteilt durch den Gewinn der letzten vier Quartale. Je höher, desto teurer ist die Aktie im Verhältnis zum Gewinn.",
+    "aktion": "klick",
+    "sprech": "Jetzt K-G-V. Das ist der Kurs geteilt durch den Gewinn der letzten vier Quartale. Je höher, desto teurer ist die Aktie im Verhältnis zum Gewinn."
+   },
+   {
+    "sel": "#mg-tabs button[data-m=\"wert\"]",
+    "titel": "Unternehmenswert",
+    "text": "Und zurück zu „Unternehmenswert“. Das ist Kurs mal Aktienzahl, also der Börsenwert in Billionen Dollar.",
+    "aktion": "klick"
+   },
+   {
+    "sel": "#mg-leg",
+    "titel": "Die Legende",
+    "text": "Jedes Kürzel steht für einen Konzern. Tippst du eines an, blendest du ihn aus, ein weiterer Tipp holt ihn zurück."
+   },
+   {
+    "sel": "#mg-bereich",
+    "titel": "Zeitraum",
+    "text": "Hier wählst du den Zeitraum, von einem Monat bis zu zwei Jahren. Standard ist seit Jahresbeginn."
+   },
+   {
+    "sel": "#mg-ch",
+    "titel": "Der Chart",
+    "text": "Tippe oder fahre mit dem Finger über den Chart. Darüber stehen dann die Werte eines einzelnen Tages."
+   },
+   {
+    "sel": "#mg-tab",
+    "titel": "Die Tabelle",
+    "text": "Hier stehen alle Konzerne mit Börsenwert, Entwicklung seit Jahresbeginn und KGV. So siehst du auf einen Blick, wer vorne liegt und wer im Verhältnis zum Gewinn teuer ist.",
+    "sprech": "Hier stehen alle Konzerne mit Börsenwert, Entwicklung seit Jahresbeginn und K-G-V. So siehst du auf einen Blick, wer vorne liegt und wer im Verhältnis zum Gewinn teuer ist."
+   }
+  ]
+ },
+ "figuren": {
+  "titel": "Die drei Figuren",
+  "tab": "sp",
+  "schritte": [
+   {
+    "sel": ".ak .hero .p:nth-child(1)",
+    "titel": "Warren",
+    "text": "Warren folgt den bekannten Grundsätzen von Warren Buffett: ein verständliches Geschäft, wenig Schulden, hohe Rendite und ein fairer Preis."
+   },
+   {
+    "sel": ".ak .hero .p:nth-child(2)",
+    "titel": "Charlie",
+    "text": "Charlie denkt wie Charlie Munger umgekehrt und fragt, was schiefgehen kann. Er prüft Anreize und typische Denkfehler."
+   },
+   {
+    "sel": ".ak .hero .p:nth-child(3)",
+    "titel": "James",
+    "text": "James orientiert sich an der öffentlich beschriebenen Methode von James Bulltard: erst Option Flows, dann der Chart, zuletzt die Zahlen."
+   },
+   {
+    "sel": ".foot a[href=\"wcj-info.html\"]",
+    "titel": "Mehr dazu",
+    "text": "Alle drei sind KI-Figuren und keine echten Personen. Ihre Texte sind keine Zitate. Die Quellen stehen auf der Seite „Wie funktioniert das?“."
+   }
+  ]
+ }
 }
