@@ -57,6 +57,48 @@
    "tokens": 117841
   },
   {
+   "id": "OFHkUYRHiMU",
+   "titel": "Der Index steigt. Dein Depot nicht. 📊",
+   "datum": "2026-10-06",
+   "zeit": "2026-10-06T17:07:29+00:00",
+   "art": "closing",
+   "score": -25,
+   "pfeil": "runter",
+   "thema": "Die Diskrepanz zwischen positiven Indexständen und einer schwachen Marktbreite, durch die viele Einzeltitel Verluste verzeichnen.",
+   "gesamtstimmung": "Die Marktverfassung wird als trügerisch eingeschätzt, da die scheinbare Stärke der Indizes die Schwäche der breiten Masse an Einzeltiteln verschleiert.",
+   "begruendung": "Markus Koch warnt davor, sich von positiven Indexständen blenden zu lassen, da viele Einzeltitel deutlich korrigiert haben. Die schlechte Marktbreite belastet die realen Anlegerdepots trotz scheinbar fester Märkte.",
+   "indikatoren": [
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "viele Einzelaktien stark unter Druck trotz steigender Indizes",
+     "pfeil": "runter",
+     "rolle": "Erklärt, warum viele Anleger trotz positiver Indizes Verluste im Depot erleiden."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "September-Indexentwicklung",
+     "lage": "Indizes notieren im Plus",
+     "pfeil": "seitwaerts",
+     "rolle": "Dient als oberflächlicher Benchmark, der über die Schwäche vieler Einzelwerte hinwegtäuscht."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Anlegerstimmung & Depotrealität",
+     "lage": "Verunsicherung durch Diskrepanz zwischen Index und eigenem Depot",
+     "pfeil": "runter",
+     "rolle": "Beschreibt die Frustration der Anleger, die an der Indexrallye nicht in der Breite teilhaben."
+    }
+   ],
+   "zitate": [
+    "Plus beim Index, Minus im Depot",
+    "sehr viele Aktien ziemlich stark unter die Räder geraten sind"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 3642
+  },
+  {
    "id": "I2SFjebVeWw",
    "titel": "KI boomt weiter!  Endlich fallen auch Öl und Renditen.",
    "datum": "2026-10-06",
@@ -409,9 +451,10 @@
   "5FxmULso9Ts",
   "VfqdXfUmR68",
   "I2SFjebVeWw",
-  "Hk_FImctS2I"
+  "Hk_FImctS2I",
+  "OFHkUYRHiMU"
  ],
- "stand": "2026-10-06T23:17Z",
+ "stand": "2026-10-07T19:34Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
