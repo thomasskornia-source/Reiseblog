@@ -1556,6 +1556,27 @@
   "kinoseite": "https://breitwand.com/"
  },
  {
+  "id": "stream-netflix-crazy-rich-incredibly-broke",
+  "rubrik": "stream",
+  "titel": "Crazy Rich, Incredibly Broke",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Komödie, im Netflix-Oktoberüberblick gelistet.",
+  "tags": [
+   "Film",
+   "Komödie"
+  ],
+  "quelle": "mobiflip.de",
+  "url": "https://www.netflix.com/",
+  "stand": "2026-10-07",
+  "thema": "Netflix"
+ },
+ {
   "id": "stream-ard-mediathek-der-voraussichtlich-letzte-streich-der-olsenbande",
   "rubrik": "stream",
   "titel": "Der (voraussichtlich) letzte Streich der Olsenbande",
@@ -1598,49 +1619,6 @@
   "url": "https://www.ardmediathek.de/",
   "stand": "2026-10-07",
   "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-ard-mediathek-schlepper-der-usedom-krimi",
-  "rubrik": "stream",
-  "titel": "Schlepper – Der Usedom-Krimi",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Fernsehkrimi von der Insel Usedom. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Krimi",
-   "Thriller"
-  ],
-  "quelle": "justwatch.com",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-07",
-  "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-netflix-crazy-rich-incredibly-broke",
-  "rubrik": "stream",
-  "titel": "Crazy Rich, Incredibly Broke",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Komödie, im Netflix-Oktoberüberblick gelistet.",
-  "tags": [
-   "Film",
-   "Komödie"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.netflix.com/",
-  "stand": "2026-10-07",
-  "thema": "Netflix"
  },
  {
   "id": "stream-netflix-doing-life",
@@ -1686,30 +1664,9 @@
   "thema": "Netflix"
  },
  {
-  "id": "stream-apple-tv-small-prophets",
+  "id": "stream-zdf-mediathek-mystic-das-geheimnis-von-kauri-point",
   "rubrik": "stream",
-  "titel": "Small Prophets",
-  "ort": "Apple TV",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Britische Comedy von Mackenzie Crook, startet am 7. Oktober bei Apple TV.",
-  "tags": [
-   "Serie",
-   "Komödie"
-  ],
-  "quelle": "apfelpatient.de",
-  "url": "https://tv.apple.com/",
-  "stand": "2026-10-07",
-  "thema": "Apple TV"
- },
- {
-  "id": "stream-zdf-mediathek-soko-stuttgart",
-  "rubrik": "stream",
-  "titel": "SOKO Stuttgart",
+  "titel": "Mystic – Das Geheimnis von Kauri Point",
   "ort": "ZDF Mediathek",
   "adresse": "",
   "datum": "",
@@ -1717,10 +1674,11 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Krimiserie, Staffel 14 mit neuer Folge in der Mediathek. Verfügbarkeit bitte prüfen.",
+  "kurz": "Familienserie voller Geheimnisse, Staffel 2 mit neuen Folgen. Verfügbarkeit bitte prüfen.",
   "tags": [
    "Serie",
-   "Krimi"
+   "Familie",
+   "Abenteuer"
   ],
   "quelle": "news.de",
   "url": "https://www.zdf.de/",
@@ -1750,9 +1708,9 @@
   "thema": "ZDF Mediathek"
  },
  {
-  "id": "stream-zdf-mediathek-mystic-das-geheimnis-von-kauri-point",
+  "id": "stream-zdf-mediathek-soko-stuttgart",
   "rubrik": "stream",
-  "titel": "Mystic – Das Geheimnis von Kauri Point",
+  "titel": "SOKO Stuttgart",
   "ort": "ZDF Mediathek",
   "adresse": "",
   "datum": "",
@@ -1760,15 +1718,57 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Familienserie voller Geheimnisse, Staffel 2 mit neuen Folgen. Verfügbarkeit bitte prüfen.",
+  "kurz": "Krimiserie, Staffel 14 mit neuer Folge in der Mediathek. Verfügbarkeit bitte prüfen.",
   "tags": [
    "Serie",
-   "Familie",
-   "Abenteuer"
+   "Krimi"
   ],
   "quelle": "news.de",
   "url": "https://www.zdf.de/",
   "stand": "2026-10-07",
   "thema": "ZDF Mediathek"
+ },
+ {
+  "id": "stream-ard-mediathek-schlepper-der-usedom-krimi",
+  "rubrik": "stream",
+  "titel": "Schlepper – Der Usedom-Krimi",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Fernsehkrimi von der Insel Usedom. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Krimi",
+   "Thriller"
+  ],
+  "quelle": "justwatch.com",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-10-07",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-apple-tv-small-prophets",
+  "rubrik": "stream",
+  "titel": "Small Prophets",
+  "ort": "Apple TV",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Britische Comedy von Mackenzie Crook, startet am 7. Oktober bei Apple TV.",
+  "tags": [
+   "Serie",
+   "Komödie"
+  ],
+  "quelle": "apfelpatient.de",
+  "url": "https://tv.apple.com/",
+  "stand": "2026-10-07",
+  "thema": "Apple TV"
  }
 ]
