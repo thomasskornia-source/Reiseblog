@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-06",
+ "stand": "2026-10-07",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -8,14 +8,14 @@
   {
    "kategorie": "Anleihen & Renditen",
    "status": "bestaetigt",
-   "tage_anzahl": 4,
+   "tage_anzahl": 5,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-06",
+   "zuletzt": "2026-10-07",
    "name": "US-Staatsanleiherenditen",
    "namen": [
     "US-Staatsanleiherenditen"
    ],
-   "rolle": "Die hohen Renditen der 10-jährigen Staatsanleihen setzen insbesondere zinssensible Marktsegmente unter Druck.",
+   "rolle": "Die Renditeentwicklung gilt als zentraler Bremsklotz, dessen Entspannung zwingend für eine breite Erholung nötig ist.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -44,21 +44,29 @@
       "US-Staatsanleiherenditen"
      ],
      "rolle": "Die hohen Renditen der 10-jährigen Staatsanleihen setzen insbesondere zinssensible Marktsegmente unter Druck."
+    },
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Die Renditeentwicklung gilt als zentraler Bremsklotz, dessen Entspannung zwingend für eine breite Erholung nötig ist."
     }
    }
   },
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 4,
+   "tage_anzahl": 5,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-06",
+   "zuletzt": "2026-10-07",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
-    "Marktbreite"
+    "Marktbreite",
+    "Tech-Sektor & KI"
    ],
-   "rolle": "Die Rally stützt sich primär auf wenige Mega-Cap-Techwerte, während Banken, Versorger und Immobilien verlieren.",
+   "rolle": "Die extreme Konzentration auf wenige Technologietitel macht den Gesamtmarkt anfällig für Korrekturen.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -87,21 +95,29 @@
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
      "rolle": "Die Rally stützt sich primär auf wenige Mega-Cap-Techwerte, während Banken, Versorger und Immobilien verlieren."
+    },
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)",
+      "Tech-Sektor & KI"
+     ],
+     "rolle": "Die extreme Konzentration auf wenige Technologietitel macht den Gesamtmarkt anfällig für Korrekturen."
     }
    }
   },
   {
    "kategorie": "Öl & Rohstoffe",
    "status": "bestaetigt",
-   "tage_anzahl": 4,
+   "tage_anzahl": 5,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-06",
+   "zuletzt": "2026-10-07",
    "name": "Öl- und Dieselpreise",
    "namen": [
     "Öl- und Dieselpreise",
     "Ölpreise"
    ],
-   "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent.",
+   "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -130,21 +146,29 @@
       "Öl- und Dieselpreise"
      ],
      "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
+    },
+    "2026-10-07": {
+     "p": 2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
     }
    }
   },
   {
    "kategorie": "Konjunktur",
    "status": "bestaetigt",
-   "tage_anzahl": 3,
+   "tage_anzahl": 4,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-06",
+   "zuletzt": "2026-10-07",
    "name": "Industrie- und Exportdaten (Asien & USA)",
    "namen": [
     "Industrie- und Exportdaten (Asien & USA)",
-    "Atlanta-Fed GDPNow-Indikator"
+    "Atlanta-Fed GDPNow-Indikator",
+    "Atlanta-Fed-GDPNow-Schätzung"
    ],
-   "rolle": "Der Rückgang illustriert die abkühlende Wirtschaftsdynamik infolge des restriktiven Zinsniveaus.",
+   "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal.",
    "tage": {
     "2026-10-01": {
      "p": 0,
@@ -166,21 +190,28 @@
       "Atlanta-Fed GDPNow-Indikator"
      ],
      "rolle": "Der Rückgang illustriert die abkühlende Wirtschaftsdynamik infolge des restriktiven Zinsniveaus."
+    },
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "Atlanta-Fed-GDPNow-Schätzung"
+     ],
+     "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal."
     }
    }
   },
   {
    "kategorie": "Saisonalität & Chart",
    "status": "bestaetigt",
-   "tage_anzahl": 3,
+   "tage_anzahl": 4,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-06",
+   "zuletzt": "2026-10-07",
    "name": "Q4-Saisonalität & Positionierung",
    "namen": [
     "Q4-Saisonalität & Positionierung",
     "September-Indexentwicklung"
    ],
-   "rolle": "Dient als oberflächlicher Benchmark, der über die Schwäche vieler Einzelwerte hinwegtäuscht.",
+   "rolle": "Historische Muster deuten kurzfristig auf Rückschlagpotenzial von 3 bis 10 Prozent hin.",
    "tage": {
     "2026-10-02": {
      "p": 1,
@@ -203,6 +234,90 @@
       "September-Indexentwicklung"
      ],
      "rolle": "Dient als oberflächlicher Benchmark, der über die Schwäche vieler Einzelwerte hinwegtäuscht."
+    },
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Historische Muster deuten kurzfristig auf Rückschlagpotenzial von 3 bis 10 Prozent hin."
+    }
+   }
+  },
+  {
+   "kategorie": "Zinsen & Notenbank",
+   "status": "bestaetigt",
+   "tage_anzahl": 4,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-07",
+   "name": "Fed-Zinserwartungen",
+   "namen": [
+    "Fed-Zinserwartungen"
+   ],
+   "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren.",
+   "tage": {
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
+    },
+    "2026-10-06": {
+     "p": 2,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
+    },
+    "2026-10-07": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren."
+    }
+   }
+  },
+  {
+   "kategorie": "Gewinnsaison",
+   "status": "bestaetigt",
+   "tage_anzahl": 3,
+   "erstmals": "2026-10-05",
+   "zuletzt": "2026-10-07",
+   "name": "Q3-Gewinnschätzungen",
+   "namen": [
+    "Q3-Gewinnschätzungen"
+   ],
+   "rolle": "Starke Unternehmensergebnisse ab nächster Woche könnten den Bullen wieder Rückenwind verleihen.",
+   "tage": {
+    "2026-10-05": {
+     "p": 2,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die bevorstehende Berichtssaison stützt die Kurse, da vor allem Tech-Werte kräftiges Ertragswachstum liefern dürften."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Hohe Ertragszuwächse im Technologiesektor rechtfertigen die Kursgewinne der Schwergewichte."
+    },
+    "2026-10-07": {
+     "p": 2,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Starke Unternehmensergebnisse ab nächster Woche könnten den Bullen wieder Rückenwind verleihen."
     }
    }
   },
@@ -244,41 +359,6 @@
    }
   },
   {
-   "kategorie": "Zinsen & Notenbank",
-   "status": "bestaetigt",
-   "tage_anzahl": 3,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-06",
-   "name": "Fed-Zinserwartungen",
-   "namen": [
-    "Fed-Zinserwartungen"
-   ],
-   "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt.",
-   "tage": {
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
-    },
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
-    },
-    "2026-10-06": {
-     "p": 2,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
-    }
-   }
-  },
-  {
    "kategorie": "Geopolitik",
    "status": "beobachtet",
    "tage_anzahl": 2,
@@ -303,34 +383,6 @@
       "Nahost & Ukraine-Krieg"
      ],
      "rolle": "Geopolitische Spannungen bleiben ein latenter Unsicherheitsfaktor für Rohstoffe und Märkte."
-    }
-   }
-  },
-  {
-   "kategorie": "Gewinnsaison",
-   "status": "beobachtet",
-   "tage_anzahl": 2,
-   "erstmals": "2026-10-05",
-   "zuletzt": "2026-10-06",
-   "name": "Q3-Gewinnschätzungen",
-   "namen": [
-    "Q3-Gewinnschätzungen"
-   ],
-   "rolle": "Hohe Ertragszuwächse im Technologiesektor rechtfertigen die Kursgewinne der Schwergewichte.",
-   "tage": {
-    "2026-10-05": {
-     "p": 2,
-     "namen": [
-      "Q3-Gewinnschätzungen"
-     ],
-     "rolle": "Die bevorstehende Berichtssaison stützt die Kurse, da vor allem Tech-Werte kräftiges Ertragswachstum liefern dürften."
-    },
-    "2026-10-06": {
-     "p": 1,
-     "namen": [
-      "Q3-Gewinnschätzungen"
-     ],
-     "rolle": "Hohe Ertragszuwächse im Technologiesektor rechtfertigen die Kursgewinne der Schwergewichte."
     }
    }
   },
@@ -381,6 +433,27 @@
       "US-Arbeitsmarktdaten"
      ],
      "rolle": "Ein abkühlender Arbeitsmarkt nimmt den Zinsdruck von der Fed und wird von den Aktienmärkten positiv aufgenommen."
+    }
+   }
+  },
+  {
+   "kategorie": "Politik & Zölle",
+   "status": "neu",
+   "tage_anzahl": 1,
+   "erstmals": "2026-10-07",
+   "zuletzt": "2026-10-07",
+   "name": "US-Zollpolitik & Schuldenpläne",
+   "namen": [
+    "US-Zollpolitik & Schuldenpläne"
+   ],
+   "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein.",
+   "tage": {
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein."
     }
    }
   }

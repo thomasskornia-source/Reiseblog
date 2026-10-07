@@ -1,6 +1,167 @@
 {
  "beitraege": [
   {
+   "id": "9RAR_wp0anA",
+   "titel": "Licht am Ende des Tunnels: Zug oder Lichtblick?",
+   "datum": "2026-10-07",
+   "zeit": "2026-10-07T20:06:42+00:00",
+   "art": "closing",
+   "score": -5,
+   "pfeil": "seitwaerts",
+   "thema": "Die Wall Street zeigt sich stark zerrissen zwischen schwacher Marktbreite und robusten Tech-Wachstumstreibern, während sich Ölpreise und Renditen am Nachmittag beruhigen.",
+   "gesamtstimmung": "Markus Koch beschreibt ein extrem gespaltenes Marktumfeld mit Nervosität, mangelnder Marktbreite und technischen Warnsignalen. Gleichzeitig sieht er in der Entspannung bei Öl und Anleiherenditen sowie der anstehenden Berichtssaison deutliche Chancen für ein Comeback zurückgebliebener Sektoren.",
+   "begruendung": "Belastend wirken die schwache Marktbreite, viele überverkaufte Einzeltitel und charttechnische Risiken nach mehreren Aufwärts-Gaps. Dagegen sprechen die erfolgreiche Anleiheauktion, nachgebende Ölpreise und ungebrochen optimistische Gewinnschätzungen für eine Stabilisierung.",
+   "indikatoren": [
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Spitze bei über 5,35 % erreicht, danach Beruhigung durch solide 10-Jahres-Auktio",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Renditeentwicklung gilt als zentraler Bremsklotz, dessen Entspannung zwingend für eine breite Erholung nötig ist."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Geben anfängliche Gewinne ab und drehen leicht ins Minus",
+     "pfeil": "hoch",
+     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Nur 3 von 11 Sektoren im Plus; 43,6 % der Aktien technisch überverkauft",
+     "pfeil": "runter",
+     "rolle": "Die extreme Konzentration auf wenige Technologietitel macht den Gesamtmarkt anfällig für Korrekturen."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "In den letzten zwei Monaten gestiegen, erwarten 27 % Gewinnwachstum",
+     "pfeil": "hoch",
+     "rolle": "Starke Unternehmensergebnisse ab nächster Woche könnten den Bullen wieder Rückenwind verleihen."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "BTIG warnt nach sechs Aufwärts-Gaps und folgendem Gap-Down vor Korrekturen",
+     "pfeil": "runter",
+     "rolle": "Historische Muster deuten kurzfristig auf Rückschlagpotenzial von 3 bis 10 Prozent hin."
+    }
+   ],
+   "zitate": [
+    "Sehr hin und her gerissen",
+    "Buy the dip"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 110165
+  },
+  {
+   "id": "JTMY0EjFtNE",
+   "titel": "Der S&P 500 hat 500 Werte. Aber 10 entscheiden alles. 📈",
+   "datum": "2026-10-07",
+   "zeit": "2026-10-07T16:53:39+00:00",
+   "art": "opening",
+   "score": 20,
+   "pfeil": "hoch",
+   "thema": "Markus Koch erklärt, warum die Führung des S&P 500 durch die zehn größten Tech-Konzerne angesichts deren dominanten Gewinnwachstums fundamental gerechtfertigt ist.",
+   "gesamtstimmung": "Die Konzentration der Marktgewinne auf wenige Tech-Giganten wird als fundamental begründet eingestuft, da diese den Großteil des Ertragswachstums generieren. Damit stützen die Schwergewichte den breiten Markt vor der anstehenden Berichtssaison auf solide Weise.",
+   "begruendung": "Koch interpretiert die schmale Marktbreite nicht als akutes Schwächesignal, sondern verweist auf die hohe Ertragskraft der Top-10-Unternehmen. Da deren Wachstum den Gesamtmarkt trägt, blickt er pragmatisch und leicht konstruktiv auf die anlaufende Berichtssaison.",
+   "indikatoren": [
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "zwei Drittel des Wachstums aus Top-10-Aktien",
+     "pfeil": "hoch",
+     "rolle": "Das überproportionale Gewinnwachstum der Schwergewichte liefert das fundamentale Fundament für die Indexentwicklung."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "starke Konzentration auf zehn Werte",
+     "pfeil": "seitwaerts",
+     "rolle": "Die enge Marktspitze ist laut Koch nicht ungewöhnlich, da sie die tatsächliche Ertragsverteilung widerspiegelt."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Tech-Sektor & KI",
+     "lage": "treiben Ertragswachstum und stützen Gesamtmarkt",
+     "pfeil": "hoch",
+     "rolle": "Große Technologie- und KI-Werte fungieren als die zentralen Zugpferde für den gesamten Leitindex."
+    }
+   ],
+   "zitate": [
+    "zwei Drittel des Ertragswachstums des gesamten S&P 500",
+    "dass die Tech-Werte letztendlich gesehen den Gesamtmarkt tragen"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 5216
+  },
+  {
+   "id": "7Kbn4CNBSXY",
+   "titel": "KI-Boom außer Kontrolle? 40 Milliarden für Nvidia-Chips!",
+   "datum": "2026-10-07",
+   "zeit": "2026-10-07T13:59:22+00:00",
+   "art": "opening",
+   "score": -40,
+   "pfeil": "runter",
+   "thema": "Markus Koch thematisiert die zunehmende Belastung der Aktienmärkte durch steigende Anleiherenditen, eine extrem ungleiche Marktbreite und abkühlende Konjunkturdaten trotz stabiler Ölpreise.",
+   "gesamtstimmung": "Die Stimmung wird als trügerisch und fragil eingeschätzt, da neue Rekordhochs bei Tech-Schwergewichten über eine ausgeprägte Schwäche der breiten Masse hinwegtäuschen. Unter der Oberfläche leiden zinssensitive Branchen massiv unter steigenden Renditen und der anhaltenden Zinsunsicherheit.",
+   "begruendung": "Koch betont das fundamentale Ungleichgewicht zwischen boomender KI-Infrastruktur und einem Bärenmarkt in über der Hälfte der Einzeltitel. Zudem sorgen wieder anziehende Renditen bei Staatsanleihen und ein nachgebender Atlanta-Fed-Wachstumsindikator für Gegenwind.",
+   "indikatoren": [
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "steigen weltweit wieder an",
+     "pfeil": "runter",
+     "rolle": "Höhere Renditen erhöhen den Schuldendruck auf Unternehmen und belasten zinssensitive Aktien massiv."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "extrem gespalten, über 50 % der Aktien im Bärenmarkt",
+     "pfeil": "runter",
+     "rolle": "Der Markt wirkt laut Koch gefährlich schief, weil nur wenige KI- und Energietitel die Leitindizes stützen."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Atlanta-Fed-GDPNow-Schätzung",
+     "lage": "kühlt von 5 % auf ca. 3,7 % ab",
+     "pfeil": "runter",
+     "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "stabil, Exporte nahe Vorkriegsniveau",
+     "pfeil": "hoch",
+     "rolle": "Ein entspannter Rohölmarkt dämpft zumindest von der Energiefront kurzfristige Inflationsängste."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zollpolitik & Schuldenpläne",
+     "lage": "inflationstreibend und schuldenintensiv",
+     "pfeil": "runter",
+     "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Zinserhöhungswahrscheinlichkeit sinkt, Zinsdilemma bleibt",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren."
+    }
+   ],
+   "zitate": [
+    "aber Boy, ist dieser Markt schief",
+    "dieser Markt ist schief, und das macht ihn zum einen gefährlich"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 160859
+  },
+  {
    "id": "Hk_FImctS2I",
    "titel": "Rekorde - in einem schiefen Markt.",
    "datum": "2026-10-06",
@@ -452,9 +613,12 @@
   "VfqdXfUmR68",
   "I2SFjebVeWw",
   "Hk_FImctS2I",
-  "OFHkUYRHiMU"
+  "OFHkUYRHiMU",
+  "9RAR_wp0anA",
+  "JTMY0EjFtNE",
+  "7Kbn4CNBSXY"
  ],
- "stand": "2026-10-07T19:34Z",
+ "stand": "2026-10-07T23:50Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
