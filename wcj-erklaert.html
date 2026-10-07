@@ -22,6 +22,7 @@
 .we-k details{margin-top:8px}.we-k summary{cursor:pointer;font-size:13.5px;color:var(--ink-soft)}
 .we-k details p{font-size:15px;line-height:1.55;margin:8px 0 0}
 .we-tour{display:inline-block;margin-top:8px;font-size:14px;font-weight:600;color:#262F63;background:#F6C253;border-radius:999px;padding:6px 14px;text-decoration:none}
+.we-msg{margin:12px 0 0;padding:10px 14px;border-radius:12px;background:#fff1d6;border:1px solid #F6C253;font-size:14.5px;line-height:1.45}
 .we-bald{opacity:.65}
 .we-bald .we-r{gap:0}
 </style>
@@ -54,6 +55,7 @@
     </header>
     <p class="we-intro">Erst die Bedienung, in sieben kurzen Kapiteln. Tippe auf den gelben Knopf, um ein Kapitel anzuhören, oder auf „Alle nacheinander“. Wer lieber liest, klappt den Text auf. Die Details zu Indikatoren, Linien und Score folgen im zweiten Teil.</p>
     <button type="button" class="we-all" id="we-all"><span id="we-all-t">▶ Alle nacheinander</span></button>
+    <p class="we-msg" id="we-msg" role="status" hidden></p>
     <h2 class="we-teil">Teil 1: Die Bedienung</h2>
     <ul class="we-l" id="we-l1"></ul>
     <h2 class="we-teil">Teil 2: Die Details</h2>
@@ -66,31 +68,53 @@
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var K = [], idx = -1, au = null, sp = false, reihe = false;
+  var K = [], idx = -1, sp = false, reihe = false, hat = {}, player = null;
   var PL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg>';
+  function msg(t) { var m = $('we-msg'); m.textContent = t || ''; m.hidden = !t; }
+  function laeuft() { return sp || (player && !player.paused && !player.ended); }
   function marke() {
     var els = document.querySelectorAll('.we-k[data-i]');
     for (var i = 0; i < els.length; i++) {
-      var an = (i === idx) && (au || sp);
+      var an = (i === idx) && laeuft();
       els[i].classList.toggle('spielt', !!an);
       els[i].querySelector('.we-btn').setAttribute('aria-label', (an ? 'Stopp: ' : 'Anhören: ') + K[i].titel);
     }
     $('we-all-t').textContent = reihe ? '■ Stopp' : '▶ Alle nacheinander';
   }
-  function stop() { sp = false; reihe = false; idx = -1; if (au) { au.onended = au.onerror = null; au.pause(); au = null; } if ('speechSynthesis' in window) speechSynthesis.cancel(); marke(); }
-  function weiter() { var n = idx + 1; au = null; sp = false; if (reihe && n < K.length) spiel(n); else stop(); }
+  function stop() {
+    sp = false; reihe = false; idx = -1;
+    if (player) { player.onended = player.onerror = null; try { player.pause(); } catch (e) {} }
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    marke();
+  }
+  function weiter() { var n = idx + 1; sp = false; if (reihe && n < K.length) spiel(n); else stop(); }
   function speech(k) {
-    if (!('speechSynthesis' in window)) { stop(); return; }
-    var p = (k.sprech || k.text).match(/[^.!?:]+[.!?:]+|[^.!?:]+$/g) || [k.text]; sp = true; marke();
-    (function n() { if (!sp) return; if (!p.length) { weiter(); return; } var u = new SpeechSynthesisUtterance(p.shift().trim()); u.lang = 'de-DE'; u.rate = .95; u.onend = n; u.onerror = function (er) { if (!er || (er.error !== 'canceled' && er.error !== 'interrupted')) stop(); }; speechSynthesis.speak(u); })();
+    if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') { stop(); msg('Dieses Gerät kann nicht vorlesen. Du kannst den Text unter dem Kapitel lesen.'); return; }
+    var p = (k.sprech || k.text).replace(/\n+/g, ' ').match(/[^.!?:]+[.!?:]+|[^.!?:]+$/g) || [k.text]; sp = true; marke();
+    var gestartet = false;
+    (function n() {
+      if (!sp) return;
+      if (!p.length) { weiter(); return; }
+      var u = new SpeechSynthesisUtterance(p.shift().trim()); u.lang = 'de-DE'; u.rate = .95;
+      u.onstart = function () { gestartet = true; };
+      u.onend = n;
+      u.onerror = function (er) { if (er && (er.error === 'canceled' || er.error === 'interrupted')) return; stop(); msg('Die Stimme deines Geräts hat nicht gestartet. Tippe noch einmal auf den gelben Knopf oder lies den Text.'); };
+      speechSynthesis.speak(u);
+    })();
+    setTimeout(function () { if (sp && !gestartet && !speechSynthesis.speaking) { stop(); msg('Die Stimme deines Geräts hat nicht gestartet. Prüfe, ob das iPhone nicht auf lautlos steht, und tippe noch einmal.'); } }, 2500);
   }
   function spiel(i) {
+    msg('');
     if ('speechSynthesis' in window) speechSynthesis.cancel();
-    if (au) { au.onended = au.onerror = null; au.pause(); au = null; } sp = false;
-    idx = i; var k = K[i];
-    var a = new Audio('audio/wcj-' + encodeURIComponent(k.id) + '.mp3'); au = a; marke();
-    a.onended = weiter; a.onerror = function () { if (au === a) { au = null; speech(k); } };
-    var r = a.play(); if (r && r.catch) r.catch(function () { if (au === a) { au = null; speech(k); } });
+    sp = false; idx = i; var k = K[i];
+    if (hat[k.id]) {
+      if (!player) player = new Audio();
+      player.onended = weiter;
+      player.onerror = function () { hat[k.id] = false; speech(k); };
+      player.src = 'audio/wcj-' + encodeURIComponent(k.id) + '.mp3';
+      var r = player.play(); marke();
+      if (r && r.catch) r.catch(function () { msg('Der Ton hat nicht gestartet. Tippe noch einmal auf den gelben Knopf.'); stop(); });
+    } else speech(k);   // direkt beim Tippen, sonst erlaubt iOS keine Sprachausgabe
   }
   function min(k) { var m = Math.max(1, Math.round((k.sprech || k.text).split(/\s+/).length / 140)); return 'ca. ' + m + ' Min.'; }
   function bau(l) {
@@ -98,7 +122,7 @@
       var li = document.createElement('li'); li.className = 'we-k'; li.setAttribute('data-i', i);
       var r = document.createElement('div'); r.className = 'we-r';
       var b = document.createElement('button'); b.type = 'button'; b.className = 'we-btn'; b.innerHTML = PL; b.setAttribute('aria-label', 'Anhören: ' + k.titel);
-      b.addEventListener('click', function () { if (idx === i && (au || sp)) stop(); else { reihe = false; spiel(i); } });
+      b.addEventListener('click', function () { if (idx === i && laeuft()) stop(); else { reihe = false; spiel(i); } });
       var t = document.createElement('div'); t.className = 'we-t'; var tb = document.createElement('b'); tb.textContent = k.nr + '. ' + k.titel; var ts = document.createElement('span'); ts.textContent = k.kurz + ' · ' + min(k);
       t.appendChild(tb); t.appendChild(ts); r.appendChild(b); r.appendChild(t); li.appendChild(r);
       if (k.tour) { var at = document.createElement('a'); at.className = 'we-tour'; at.href = 'aktien.html?tour=' + encodeURIComponent(k.tour); at.textContent = '👆 Auf der Seite zeigen'; li.appendChild(at); }
@@ -107,11 +131,12 @@
       li.appendChild(d); l.appendChild(li);
     });
   }
-  $('we-all').addEventListener('click', function () { if (reihe || au || sp) { stop(); return; } reihe = true; spiel(0); });
+  $('we-all').addEventListener('click', function () { if (reihe || laeuft()) { stop(); return; } reihe = true; spiel(0); });
   window.addEventListener('pagehide', stop);
   fetch('data/wcj-erklaert.json').then(function (r) { return r.json(); }).then(function (l) {
     K = l.filter(function (x) { return x && x.titel && x.teil === 1; }).sort(function (a, b) { return a.nr - b.nr; });
     if (!K.length) throw 0; bau($('we-l1'));
+    K.forEach(function (k) { fetch('audio/wcj-' + encodeURIComponent(k.id) + '.mp3', { method: 'HEAD' }).then(function (r) { hat[k.id] = r.ok; }).catch(function () {}); });
   }).catch(function () { $('we-error').hidden = false; });
 })();
 </script>
