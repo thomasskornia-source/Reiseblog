@@ -57,6 +57,7 @@ def text_von(h):
 def prompt(q):
     return f"""Heute ist der {HEUTE.isoformat()}. Unten steht der Text einer Webseite ({q['name']}, Rubrik "{q['rubrik']}") für Münchner Freizeittipps.
 Bei der Rubrik "food" gilt: nur Lokale in München und im Westen Münchens (z.B. Pasing, Laim, Gauting, Starnberg, Fürstenfeldbruck, Germering, Dachau-Süd); Lokale anderswo weglassen.
+Thomas interessiert sich für vegetarische und vegane Küche: bei "food" nimm bevorzugt vegetarische/vegane Lokale und Lokale mit guter vegetarischer Auswahl und setze dann das Tag "Vegetarisch" (bei reinen Fleisch-Lokalen nicht).
 Entnimm bis zu {MAX_PRO_QUELLE} konkrete, besuchbare Tipps (Veranstaltung, Lokal, Ort, Ausflugsziel, Film/Kinotermin) in München oder im Umland.
 Bei Kino-Seiten eines einzelnen Kinos ist ort der Kinoname (z.B. "Kino Breitwand Gauting"), titel der Film, datum der nächste Vorstellungstag, zeit die erste Uhrzeit; höchstens 10 verschiedene Filme; nur Vorstellungen ab 19:30 Uhr (Abendvorstellungen), frühere ignorieren, zeit ist die erste Abendzeit. Nur Fakten aus dem Text, nichts erfinden. Schreibe NICHT ab: "kurz" ist eine eigene Kurzfassung in höchstens 25 Wörtern.
 Veranstaltungen, die vor heute zu Ende sind, lässt du weg. Antworte ausschließlich als JSON-Liste von Objekten mit den Feldern:

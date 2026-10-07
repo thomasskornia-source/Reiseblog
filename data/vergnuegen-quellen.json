@@ -661,5 +661,32 @@
     "info": "Nur zum Nachlesen, nicht automatisch lesbar",
     "abruf": false,
     "status": "behalten"
+  },
+  {
+    "id": "in-muenchen-gastro",
+    "rubrik": "food",
+    "name": "in-muenchen.de – Gastro",
+    "url": "https://www.in-muenchen.de/gastro,bars",
+    "info": "Neue Lokale und Gastro-News",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "cremeguides-essen",
+    "rubrik": "food",
+    "name": "Creme Guides – Essen München",
+    "url": "https://cremeguides.com/muenchen/essen",
+    "info": "Kuratierte Lokale, auch vegetarisch",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "happycow-muenchen",
+    "rubrik": "food",
+    "name": "HappyCow – Veggie-Restaurants München",
+    "url": "https://www.happycow.net/europe/germany/bavaria/munich/",
+    "info": "Vegetarische und vegane Lokale",
+    "abruf": true,
+    "status": "behalten"
   }
 ]
