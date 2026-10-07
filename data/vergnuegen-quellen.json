@@ -625,5 +625,41 @@
     "info": "Sender-Startseite (Link)",
     "abruf": false,
     "status": "behalten"
+  },
+  {
+    "id": "sz-sattgluecklich",
+    "rubrik": "food",
+    "name": "Süddeutsche Zeitung – Satt & Glücklich (Gastro-Portal)",
+    "url": "https://www.sattgluecklich.de/",
+    "info": "Gastro-Tipps der SZ für München",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "falstaff-muenchen",
+    "rubrik": "food",
+    "name": "Falstaff – Restaurantguide München",
+    "url": "https://www.falstaff.com/en/listings/the-best-of-falstaff-restaurant-inn-guide-germany-2026-in-munich",
+    "info": "Bewertete Restaurants in München",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "mitvergnuegen-food",
+    "rubrik": "food",
+    "name": "Mit Vergnügen – Essen und Trinken",
+    "url": "https://muenchen.mitvergnuegen.com/",
+    "info": "Lokale und Neueröffnungen",
+    "abruf": true,
+    "status": "behalten"
+  },
+  {
+    "id": "faz-muenchen-food",
+    "rubrik": "food",
+    "name": "FAZ – Essen und Trinken (nur Link, Bezahlschranke)",
+    "url": "https://www.faz.net/aktuell/stil/essen-trinken/",
+    "info": "Nur zum Nachlesen, nicht automatisch lesbar",
+    "abruf": false,
+    "status": "behalten"
   }
 ]

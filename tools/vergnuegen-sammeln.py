@@ -33,8 +33,11 @@ THEMEN = {
     "tv": ["Das Erste", "ZDF", "BR", "WDR", "NDR", "hr", "SWR", "ARTE", "3sat", "Sonstiges"],
 }
 HEUTE = dt.date.today()
+# Wie oft eine Quelle neu gelesen wird (Tage): Events täglich, alles andere (Food, München, Ausflüge, Kino) einmal die Woche (Thomas, 07.10.2026)
+INTERVALL = {"events": 1}
+STANDARD_INTERVALL = 7
 MAX_ZEICHEN, MAX_PRO_QUELLE, MAX_PRO_RUBRIK = 24000, 10, 80
-MAX_QUELLEN_PRO_LAUF, PAUSE = 5, 15   # schont das gemeinsame kostenlose Gemini-Kontingent (auch Börsenstimmung und Rätsel nutzen es)
+MAX_QUELLEN_PRO_LAUF, PAUSE = 8, 15   # schont das gemeinsame kostenlose Gemini-Kontingent (auch Börsenstimmung und Rätsel nutzen es)
 
 
 def get(url):
@@ -53,6 +56,7 @@ def text_von(h):
 
 def prompt(q):
     return f"""Heute ist der {HEUTE.isoformat()}. Unten steht der Text einer Webseite ({q['name']}, Rubrik "{q['rubrik']}") für Münchner Freizeittipps.
+Bei der Rubrik "food" gilt: nur Lokale in München und im Westen Münchens (z.B. Pasing, Laim, Gauting, Starnberg, Fürstenfeldbruck, Germering, Dachau-Süd); Lokale anderswo weglassen.
 Entnimm bis zu {MAX_PRO_QUELLE} konkrete, besuchbare Tipps (Veranstaltung, Lokal, Ort, Ausflugsziel, Film/Kinotermin) in München oder im Umland.
 Bei Kino-Seiten eines einzelnen Kinos ist ort der Kinoname (z.B. "Kino Breitwand Gauting"), titel der Film, datum der nächste Vorstellungstag, zeit die erste Uhrzeit; höchstens 10 verschiedene Filme; nur Vorstellungen ab 19:30 Uhr (Abendvorstellungen), frühere ignorieren, zeit ist die erste Abendzeit. Nur Fakten aus dem Text, nichts erfinden. Schreibe NICHT ab: "kurz" ist eine eigene Kurzfassung in höchstens 25 Wörtern.
 Veranstaltungen, die vor heute zu Ende sind, lässt du weg. Antworte ausschließlich als JSON-Liste von Objekten mit den Feldern:
@@ -140,7 +144,11 @@ def main():
     except Exception:  # noqa: BLE001
         lauf = {}
     quellen = [q for q in quellen if q.get("status") != "entfernt" and q.get("abruf", True)]
-    quellen.sort(key=lambda q: lauf.get(q["id"], ""))   # am längsten nicht abgerufene zuerst
+    def faellig(q):
+        letzt = lauf.get(q["id"], "")
+        return not letzt or (HEUTE - dt.date.fromisoformat(letzt)).days >= INTERVALL.get(q["rubrik"], STANDARD_INTERVALL)
+    quellen = [q for q in quellen if faellig(q)]
+    quellen.sort(key=lambda q: (q["rubrik"] != "events", lauf.get(q["id"], "")))   # Events zuerst, dann am längsten nicht abgerufene
     hintereinander = 0
     for q in quellen[:MAX_QUELLEN_PRO_LAUF]:
         if ok or fehler:
