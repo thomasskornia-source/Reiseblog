@@ -1,9 +1,10 @@
-ok muenchen-de-wochenende 10 Tipps
-gemini-3.8-flash: HTTP 429
-gemini-flash-latest: HTTP 429
-FEHLER muenchen-travel-kalender gemini-flash-latest: HTTP 429
+ok muenchen-travel-kalender 0 Tipps
+gemini-3.8-flash: HTTP 503
 gemini-3.8-flash: HTTP 429
 gemini-flash-latest: HTTP 429
 FEHLER eintrittfrei gemini-flash-latest: HTTP 429
+gemini-3.8-flash: HTTP 429
+gemini-flash-latest: HTTP 429
+FEHLER geheimtipp-events gemini-flash-latest: HTTP 429
 Zwei Mal in Folge Tempolimit, Abbruch bis zum nächsten Lauf
-Fertig: 1 Quellen ok, 2 Fehler, 10 neue Tipps, 95 gesamt
+Fertig: 1 Quellen ok, 2 Fehler, 0 neue Tipps, 95 gesamt
