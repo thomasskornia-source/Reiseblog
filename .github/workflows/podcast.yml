@@ -56,6 +56,15 @@ jobs:
         run: |
           set -o pipefail
           python3 tools/podcast-bauen.py 2>&1 | tee auswertung/podcast-last-run.log
+      - name: Fehlerlog ablegen (nur bei Fehlern, enthält keine Folgentexte)
+        if: failure()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f auswertung/podcast-last-run.log
+          git commit -m "Podcast: Fehlerlog" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
       - name: MP3 als Release ablegen (nicht im Repo-Verlauf)
         if: ${{ inputs.trocken != 'ja' }}
         env:
