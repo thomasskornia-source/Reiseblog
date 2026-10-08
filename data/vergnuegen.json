@@ -1,28 +1,5 @@
 [
  {
-  "id": "events-alea",
-  "rubrik": "events",
-  "titel": "Alea-Quartett: Komponistinnen und Komponisten in Bayern",
-  "ort": "Rubinstein-Saal",
-  "adresse": "Landsberger Straße 336",
-  "datum": "2026-10-05",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Streichquartett mit Werken bayerischer Komponisten.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Kostenlos",
-   "Abends"
-  ],
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-05",
-  "thema": "Konzert & Musik"
- },
- {
   "id": "abend-backstage-bullet-tarja-2026-10-06",
   "rubrik": "events",
   "titel": "Bullet / Tarja",
@@ -368,6 +345,30 @@
   "thema": "Führung & Vortrag"
  },
  {
+  "id": "events-b7b7003c31",
+  "lat": 48.1369,
+  "lon": 11.56204,
+  "rubrik": "events",
+  "titel": "Disney Der Glöckner von Notre Dame",
+  "ort": "Deutsches Theater",
+  "adresse": "",
+  "datum": "2026-10-08",
+  "datum_bis": "2026-11-08",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "2,5 Std.",
+  "kurz": "Das Musical über Quasimodo und Esmeralda gastiert mit bekannter Musik im Deutschen Theater.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-08"
+ },
+ {
   "id": "abend-unterfahrt-fernanda-von-sachsen-2026-10-08",
   "rubrik": "events",
   "titel": "Fernanda von Sachsen",
@@ -414,6 +415,29 @@
   "lat": 48.1374,
   "lon": 11.5755,
   "thema": "Feste & Märkte"
+ },
+ {
+  "id": "events-c73438d746",
+  "lat": 48.16028,
+  "lon": 11.50384,
+  "rubrik": "events",
+  "titel": "Jetzt geht’s rund – Kreisläufe statt Abfälle",
+  "ort": "Museum Mensch und Natur",
+  "adresse": "",
+  "datum": "2026-10-08",
+  "datum_bis": "2027-01-10",
+  "zeit": "09:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Die Ausstellung widmet sich geschlossenen Stoffkreisläufen, Müllvermeidung und nachhaltigen Konzepten.",
+  "tags": [
+   "Familie",
+   "Kultur"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-08"
  },
  {
   "id": "events-mittagskonzert",
@@ -526,6 +550,29 @@
   "thema": "Kabarett & Theater"
  },
  {
+  "id": "events-7ffeb9b2d6",
+  "lat": 48.15104,
+  "lon": 11.46128,
+  "rubrik": "events",
+  "titel": "Der gute Mensch von Sezuan",
+  "ort": "Pasinger Fabrik",
+  "adresse": "",
+  "datum": "2026-10-09",
+  "datum_bis": "2026-10-10",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "1,5 Std.",
+  "kurz": "Die Freie Bühne München bringt das bekannte Drama von Bertolt Brecht auf die Bühne.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-08"
+ },
+ {
   "id": "abend-volkstheater-die-geierwally-2026-10-09",
   "rubrik": "events",
   "titel": "Die Geierwally",
@@ -549,6 +596,29 @@
   "thema": "Kabarett & Theater"
  },
  {
+  "id": "events-288656dea1",
+  "lat": 48.12366,
+  "lon": 11.5559,
+  "rubrik": "events",
+  "titel": "Die Geierwally",
+  "ort": "Münchner Volkstheater",
+  "adresse": "",
+  "datum": "2026-10-09",
+  "datum_bis": "2026-11-15",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "2 Std.",
+  "kurz": "Inszenierung des bekannten Theaterstoffes um die rebellische Walburga Stromminger im Volkstheater.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-08"
+ },
+ {
   "id": "abend-nationaltheater-die-kameliendame-neumeier-2026-10-09",
   "rubrik": "events",
   "titel": "Die Kameliendame (Neumeier)",
@@ -570,6 +640,31 @@
   "url": "https://www.staatsoper.de/spielplan",
   "stand": "2026-10-06",
   "thema": "Konzert & Musik"
+ },
+ {
+  "id": "events-1f5e7f41ab",
+  "lat": 48.13289,
+  "lon": 11.58949,
+  "rubrik": "events",
+  "titel": "Digitalanalog Festival",
+  "ort": "Muffatwerk",
+  "adresse": "",
+  "datum": "2026-10-09",
+  "datum_bis": "2026-10-10",
+  "zeit": "20:30",
+  "preis": "frei",
+  "dauer": "4,5 Std.",
+  "kurz": "Kostenloses Musik- und Medienfestival im Muffatwerk mit Live-Bands und Visuals verschiedener Künstler.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Kostenlos",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-08"
  },
  {
   "id": "abend-unterfahrt-garland-keezer-2026-10-09",
@@ -643,6 +738,53 @@
   "thema": "Konzert & Musik"
  },
  {
+  "id": "events-0ab0ba279a",
+  "lat": 48.19469,
+  "lon": 11.60785,
+  "rubrik": "events",
+  "titel": "Giant Rooks",
+  "ort": "Zenith",
+  "adresse": "",
+  "datum": "2026-10-09",
+  "datum_bis": "2026-10-09",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "3 Std.",
+  "kurz": "Die deutsche Indie-Pop-Band spielt ein Live-Konzert in der Münchner Konzerthalle Zenith.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-08"
+ },
+ {
+  "id": "events-157a909418",
+  "lat": 48.11144,
+  "lon": 11.55369,
+  "rubrik": "events",
+  "titel": "Herbert Pixner Projekt",
+  "ort": "Isarphilharmonie",
+  "adresse": "",
+  "datum": "2026-10-09",
+  "datum_bis": "2026-10-09",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Crossover-Klänge zwischen traditioneller Volksmusik, Jazz und Rock live in der Isarphilharmonie.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-08"
+ },
+ {
   "id": "events-homo-mobilis",
   "rubrik": "events",
   "titel": "Homo Mobilis. Fotografien von Martin Roemers",
@@ -708,6 +850,52 @@
   "lat": 48.1397,
   "lon": 11.5878,
   "thema": "Ausstellung & Museum"
+ },
+ {
+  "id": "events-05ae553992",
+  "lat": 48.11801,
+  "lon": 11.53908,
+  "rubrik": "events",
+  "titel": "Kunst in Sendling",
+  "ort": "Sendling",
+  "adresse": "",
+  "datum": "2026-10-09",
+  "datum_bis": "2026-10-11",
+  "zeit": "18:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Zahlreiche Künstlerinnen und Künstler öffnen am Wochenende ihre Ateliers für Besucher.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-08"
+ },
+ {
+  "id": "events-5e9bbc6ced",
+  "lat": 48.14614,
+  "lon": 11.55945,
+  "rubrik": "events",
+  "titel": "Pettersson und Findus feiern Geburtstag",
+  "ort": "Münchner Theater für Kinder",
+  "adresse": "",
+  "datum": "2026-10-09",
+  "datum_bis": "2026-10-18",
+  "zeit": "15:00",
+  "preis": "",
+  "dauer": "2 Std.",
+  "kurz": "Ein unterhaltsames Theaterstück für die ganze Familie über Pettersson und seinen Kater Findus.",
+  "tags": [
+   "Familie",
+   "Kultur"
+  ],
+  "thema": "Familie & Kinder",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-08"
  },
  {
   "id": "events-steina",
@@ -839,6 +1027,29 @@
   "url": "https://www.residenztheater.de/spielplan",
   "stand": "2026-10-06",
   "thema": "Kabarett & Theater"
+ },
+ {
+  "id": "events-e8928be338",
+  "lat": 48.11144,
+  "lon": 11.55369,
+  "rubrik": "events",
+  "titel": "Pink Martini",
+  "ort": "Isarphilharmonie",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "2026-10-11",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Das US-amerikanische Ensemble gastiert mit seiner Mischung aus Pop, Jazz und klassischer Musik.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-08"
  },
  {
   "id": "abend-unterfahrt-renaud-garcia-fons-2026-10-10",
@@ -1556,47 +1767,26 @@
   "kinoseite": "https://breitwand.com/"
  },
  {
-  "id": "stream-ard-mediathek-juliet-naked",
+  "id": "stream-netflix-below",
   "rubrik": "stream",
-  "titel": "Juliet, Naked",
-  "ort": "ARD Mediathek",
+  "titel": "Below",
+  "ort": "Netflix",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Musikalische Tragikomödie (2018): Eine Frau schreibt über einen verschollenen Rockstar und bekommt plötzlich Post von ihm. Verfügbarkeit bitte prüfen.",
+  "kurz": "Thriller-Serie: Ein Fischer stellt sich einem geheimnisvollen Meereswesen, das eine Küstenstadt bedroht. Start 8. Oktober.",
   "tags": [
-   "Film",
-   "Komödie",
-   "Drama"
+   "Serie",
+   "Thriller",
+   "Horror"
   ],
-  "quelle": "news.de",
-  "url": "https://www.ardmediathek.de/",
+  "quelle": "mobiflip.de",
+  "url": "https://www.netflix.com/de/",
   "stand": "2026-10-08",
-  "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-ard-mediathek-meine-mutter-raubt-die-braut",
-  "rubrik": "stream",
-  "titel": "Meine Mutter raubt die Braut",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Komödie (2022): Eifel-Wirtin Toni wünscht sich ein Kind und sucht dafür einen Vater, aber keinen Partner. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Komödie"
-  ],
-  "quelle": "news.de",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-08",
-  "thema": "ARD Mediathek"
+  "thema": "Netflix"
  },
  {
   "id": "stream-zdf-mediathek-der-raeuber-hotzenplotz",
@@ -1622,46 +1812,26 @@
   "thema": "ZDF Mediathek"
  },
  {
-  "id": "stream-netflix-mniej-obcy",
+  "id": "stream-ard-mediathek-hubert-ohne-staller",
   "rubrik": "stream",
-  "titel": "Mniej obcy",
-  "ort": "Netflix",
+  "titel": "Hubert ohne Staller",
+  "ort": "ARD Mediathek",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Biopic über den Lady-Pank-Frontmann Jan Borysewicz, seit 7. Oktober bei Netflix, inklusive familiärer Schicksalsschläge.",
+  "kurz": "Bayerische Krimikomödie aus Wolfratshausen mit unkonventionellen Ermittlungen, Staffel 10 mit neuer Folge. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Film",
-   "Drama"
+   "Serie",
+   "Krimi",
+   "Komödie"
   ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.netflix.com/de/",
+  "quelle": "news.de",
+  "url": "https://www.ardmediathek.de/",
   "stand": "2026-10-08",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-amazon-prime-the-social-network",
-  "rubrik": "stream",
-  "titel": "The Social Network",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Drama über die Gründung von Facebook und den Streit unter den Gründern, laut Überblick ab 8. Oktober bei Prime Video.",
-  "tags": [
-   "Film",
-   "Drama"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-08",
-  "thema": "Amazon Prime"
+  "thema": "ARD Mediathek"
  },
  {
   "id": "stream-netflix-im-kreis-der-korruption",
@@ -1686,53 +1856,9 @@
   "thema": "Netflix"
  },
  {
-  "id": "stream-netflix-below",
+  "id": "stream-ard-mediathek-juliet-naked",
   "rubrik": "stream",
-  "titel": "Below",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Thriller-Serie: Ein Fischer stellt sich einem geheimnisvollen Meereswesen, das eine Küstenstadt bedroht. Start 8. Oktober.",
-  "tags": [
-   "Serie",
-   "Thriller",
-   "Horror"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-08",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-amazon-prime-the-rookie",
-  "rubrik": "stream",
-  "titel": "The Rookie",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Polizeiserie: Staffel 1 bis 7 seit 1. Oktober bei Prime Video, ein Spätberufener startet als Streifenpolizist.",
-  "tags": [
-   "Serie",
-   "Krimi",
-   "Action"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-08",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-ard-mediathek-hubert-ohne-staller",
-  "rubrik": "stream",
-  "titel": "Hubert ohne Staller",
+  "titel": "Juliet, Naked",
   "ort": "ARD Mediathek",
   "adresse": "",
   "datum": "",
@@ -1740,11 +1866,11 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Bayerische Krimikomödie aus Wolfratshausen mit unkonventionellen Ermittlungen, Staffel 10 mit neuer Folge. Verfügbarkeit bitte prüfen.",
+  "kurz": "Musikalische Tragikomödie (2018): Eine Frau schreibt über einen verschollenen Rockstar und bekommt plötzlich Post von ihm. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Serie",
-   "Krimi",
-   "Komödie"
+   "Film",
+   "Komödie",
+   "Drama"
   ],
   "quelle": "news.de",
   "url": "https://www.ardmediathek.de/",
@@ -1774,109 +1900,89 @@
   "thema": "ZDF Mediathek"
  },
  {
-  "id": "tv-das-erste-wissen-vor-acht-mensch-20261008-1945",
-  "rubrik": "tv",
-  "titel": "Wissen vor acht – Mensch",
-  "ort": "Das Erste",
+  "id": "stream-ard-mediathek-meine-mutter-raubt-die-braut",
+  "rubrik": "stream",
+  "titel": "Meine Mutter raubt die Braut",
+  "ort": "ARD Mediathek",
   "adresse": "",
-  "datum": "2026-10-08",
+  "datum": "",
   "datum_bis": "",
-  "zeit": "19:45",
+  "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Kurzmagazin mit Wissensthema vor der Tagesschau. Programm kann sich ändern.",
-  "tags": [
-   "Magazin",
-   "Info"
-  ],
-  "quelle": "prisma.de",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-08",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-das-erste-wirtschaft-vor-acht-20261008-1955",
-  "rubrik": "tv",
-  "titel": "Wirtschaft vor acht",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "19:55",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kurzmagazin zu Wirtschaftsthemen vor der Tagesschau. Programm kann sich ändern.",
-  "tags": [
-   "Magazin",
-   "Info"
-  ],
-  "quelle": "prisma.de",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-08",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-das-erste-tiroler-blut-der-erste-schuss-20261008-2015",
-  "rubrik": "tv",
-  "titel": "Tiroler Blut: Der erste Schuss",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Fernseh-Kriminalfilm aus der Tiroler Reihe, als TV-Tipp markiert. Programm kann sich ändern.",
+  "kurz": "Komödie (2022): Eifel-Wirtin Toni wünscht sich ein Kind und sucht dafür einen Vater, aber keinen Partner. Verfügbarkeit bitte prüfen.",
   "tags": [
    "Film",
-   "Krimi"
+   "Komödie"
   ],
-  "quelle": "tvmovie.de",
+  "quelle": "news.de",
   "url": "https://www.ardmediathek.de/",
   "stand": "2026-10-08",
-  "thema": "Das Erste"
+  "thema": "ARD Mediathek"
  },
  {
-  "id": "tv-das-erste-panorama-20261008-2145",
-  "rubrik": "tv",
-  "titel": "Panorama",
-  "ort": "Das Erste",
+  "id": "stream-netflix-mniej-obcy",
+  "rubrik": "stream",
+  "titel": "Mniej obcy",
+  "ort": "Netflix",
   "adresse": "",
-  "datum": "2026-10-08",
+  "datum": "",
   "datum_bis": "",
-  "zeit": "21:45",
+  "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Politmagazin mit Reportagen und Hintergründen. Programm kann sich ändern.",
+  "kurz": "Biopic über den Lady-Pank-Frontmann Jan Borysewicz, seit 7. Oktober bei Netflix, inklusive familiärer Schicksalsschläge.",
   "tags": [
-   "Magazin",
-   "Info"
-  ],
-  "quelle": "tvmovie.de",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-08",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-zdf-die-bergretter-20261008-2015",
-  "rubrik": "tv",
-  "titel": "Die Bergretter",
-  "ort": "ZDF",
-  "adresse": "",
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Abenteuerserie um die Bergretter in den Alpen. Programm kann sich ändern.",
-  "tags": [
-   "Serie",
+   "Film",
    "Drama"
   ],
-  "quelle": "tvmovie.de",
-  "url": "https://www.zdf.de/",
+  "quelle": "mobiflip.de",
+  "url": "https://www.netflix.com/de/",
   "stand": "2026-10-08",
-  "thema": "ZDF"
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-amazon-prime-the-rookie",
+  "rubrik": "stream",
+  "titel": "The Rookie",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Polizeiserie: Staffel 1 bis 7 seit 1. Oktober bei Prime Video, ein Spätberufener startet als Streifenpolizist.",
+  "tags": [
+   "Serie",
+   "Krimi",
+   "Action"
+  ],
+  "quelle": "mobiflip.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-08",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-amazon-prime-the-social-network",
+  "rubrik": "stream",
+  "titel": "The Social Network",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Drama über die Gründung von Facebook und den Streit unter den Gründern, laut Überblick ab 8. Oktober bei Prime Video.",
+  "tags": [
+   "Film",
+   "Drama"
+  ],
+  "quelle": "mobiflip.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-08",
+  "thema": "Amazon Prime"
  },
  {
   "id": "tv-arte-babylon-prag-20261008-2015",
@@ -1923,6 +2029,27 @@
   "thema": "ARTE"
  },
  {
+  "id": "tv-zdf-die-bergretter-20261008-2015",
+  "rubrik": "tv",
+  "titel": "Die Bergretter",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-08",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Abenteuerserie um die Bergretter in den Alpen. Programm kann sich ändern.",
+  "tags": [
+   "Serie",
+   "Drama"
+  ],
+  "quelle": "tvmovie.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-08",
+  "thema": "ZDF"
+ },
+ {
   "id": "tv-3sat-nano-doku-20261008-2015",
   "rubrik": "tv",
   "titel": "NANO Doku",
@@ -1963,5 +2090,89 @@
   "url": "https://www.3sat.de/",
   "stand": "2026-10-08",
   "thema": "3sat"
+ },
+ {
+  "id": "tv-das-erste-panorama-20261008-2145",
+  "rubrik": "tv",
+  "titel": "Panorama",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-08",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Politmagazin mit Reportagen und Hintergründen. Programm kann sich ändern.",
+  "tags": [
+   "Magazin",
+   "Info"
+  ],
+  "quelle": "tvmovie.de",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-10-08",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-das-erste-tiroler-blut-der-erste-schuss-20261008-2015",
+  "rubrik": "tv",
+  "titel": "Tiroler Blut: Der erste Schuss",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-08",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Fernseh-Kriminalfilm aus der Tiroler Reihe, als TV-Tipp markiert. Programm kann sich ändern.",
+  "tags": [
+   "Film",
+   "Krimi"
+  ],
+  "quelle": "tvmovie.de",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-10-08",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-das-erste-wirtschaft-vor-acht-20261008-1955",
+  "rubrik": "tv",
+  "titel": "Wirtschaft vor acht",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-08",
+  "datum_bis": "",
+  "zeit": "19:55",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kurzmagazin zu Wirtschaftsthemen vor der Tagesschau. Programm kann sich ändern.",
+  "tags": [
+   "Magazin",
+   "Info"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-10-08",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-das-erste-wissen-vor-acht-mensch-20261008-1945",
+  "rubrik": "tv",
+  "titel": "Wissen vor acht – Mensch",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-08",
+  "datum_bis": "",
+  "zeit": "19:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kurzmagazin mit Wissensthema vor der Tagesschau. Programm kann sich ändern.",
+  "tags": [
+   "Magazin",
+   "Info"
+  ],
+  "quelle": "prisma.de",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-10-08",
+  "thema": "Das Erste"
  }
 ]
