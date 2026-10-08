@@ -688,5 +688,14 @@
     "info": "Vegetarische und vegane Lokale",
     "abruf": true,
     "status": "behalten"
+  },
+  {
+    "id": "tv-tvmovie-programm",
+    "rubrik": "tv",
+    "name": "TV Movie: Programm nach Sendern",
+    "url": "https://www.tvmovie.de/tv/programm",
+    "info": "Tagesprogramm ARD, ZDF, ARTE, 3sat (lesbar); BR/WDR/NDR/hr/SWR fehlen",
+    "abruf": false,
+    "status": "behalten"
   }
 ]
