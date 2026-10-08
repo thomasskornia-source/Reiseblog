@@ -1,0 +1,81 @@
+name: Persönlicher Podcast (täglich)
+
+on:
+  schedule:
+    # Ziel: Folge fertig gegen 06:00 deutsche Zeit. Start 05:15 (der Lauf dauert einige Minuten, GitHub startet manchmal verspätet).
+    # GitHub plant nur in UTC: Sommer- und Winterzeit-Variante, die jeweils falsche überspringt der Job „zeit“.
+    - cron: '15 3 * * *'   # Sommer 05:15
+    - cron: '15 4 * * *'   # Winter 05:15
+  workflow_dispatch:
+    inputs:
+      trocken:
+        description: '"ja" = nur den Sprechtext erzeugen (kein Audio, kein Feed), Text erscheint im Log'
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: podcast
+  cancel-in-progress: false
+
+jobs:
+  zeit:
+    runs-on: ubuntu-latest
+    outputs:
+      los: ${{ steps.g.outputs.los }}
+    steps:
+      - id: g
+        env:
+          PLAN: ${{ github.event.schedule }}
+          SOMMER: '15 3 * * *'
+          WINTER: '15 4 * * *'
+        run: |
+          los=ja
+          if [ -n "$PLAN" ]; then
+            if [ "$(TZ=Europe/Berlin date +%z)" = "+0200" ]; then falsch="$WINTER"; else falsch="$SOMMER"; fi
+            [ "$PLAN" = "$falsch" ] && los=nein
+          fi
+          echo "Plan: ${PLAN:-von Hand}, Berlin: $(TZ=Europe/Berlin date +%H:%M), los: $los"
+          echo "los=$los" >> "$GITHUB_OUTPUT"
+  podcast:
+    needs: zeit
+    if: needs.zeit.outputs.los == 'ja'
+    runs-on: ubuntu-latest
+    env:
+      PODCAST_TOKEN: ${{ vars.PODCAST_TOKEN || 'd0087594ce6fbc5d' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: ffmpeg installieren
+        run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Folge erzeugen (Gemini)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PODCAST_TICKER: ${{ secrets.PODCAST_TICKER }}
+          TROCKENLAUF: ${{ inputs.trocken == 'ja' && '1' || '' }}
+        run: |
+          set -o pipefail
+          python3 tools/podcast-bauen.py 2>&1 | tee auswertung/podcast-last-run.log
+      - name: MP3 als Release ablegen (nicht im Repo-Verlauf)
+        if: ${{ inputs.trocken != 'ja' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -f podcast/neu/tag.json ] || { echo "Keine neue Folge"; exit 1; }
+          TAG=$(python3 -c "import json;print(json.load(open('podcast/neu/tag.json'))['tag'])")
+          DATEI=$(python3 -c "import json;print(json.load(open('podcast/neu/tag.json'))['datei'])")
+          gh release delete "$TAG" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "$TAG" "podcast/neu/$DATEI" --title "Morgenpodcast ${DATEI%.mp3}" --notes "Persönlicher Podcast" --latest=false
+          for alt in $(python3 -c "import json;print(' '.join(json.load(open('podcast/neu/tag.json'))['alt']))"); do
+            gh release delete "$alt" --yes --cleanup-tag 2>/dev/null || true
+          done
+      - name: Feed und Verlauf ablegen
+        if: ${{ inputs.trocken != 'ja' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/podcast-kanaele.json data/podcast-gesehen.json "podcast/$PODCAST_TOKEN"
+          if git diff --cached --quiet; then echo "Keine Änderungen"; exit 0; fi
+          git commit -m "Podcast: neue Folge im Feed"
+          git pull --rebase origin main
+          git push origin HEAD:main
