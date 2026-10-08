@@ -34,7 +34,8 @@ VOICE = os.environ.get("GEMINI_TTS_VOICE", "Kore")
 BERLIN = zoneinfo.ZoneInfo("Europe/Berlin")
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
       "Accept-Language": "de-DE,de;q=0.9", "Cookie": "CONSENT=YES+1; SOCS=CAI"}
-MAX_VIDEOS, MAX_ALTER_H, BEHALTEN_TAGE = 6, 36, 14
+MAX_VIDEOS, MAX_ALTER_H, BEHALTEN_TAGE = 4, 36, 14
+QUOTA = {"voll": False}  # wird gesetzt, sobald Gemini mit 429 (Kontingent erschöpft) antwortet
 ORT = ("Eichenau", 48.17, 11.32)
 TAGE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
 MONATE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
@@ -114,13 +115,15 @@ def neue_videos(kan, gesehen):
 
 
 # ---------------------------------------------------------------- Gemini
-def gemini(parts, json_antwort=False, temperatur=0.4, timeout=900):
+def gemini(parts, json_antwort=False, temperatur=0.4, timeout=900, video=False, versuche=2):
     body = {"contents": [{"parts": parts}], "generationConfig": {"temperature": temperatur}}
+    if video:
+        body["generationConfig"]["mediaResolution"] = "MEDIA_RESOLUTION_LOW"  # deutlich weniger Token je Video
     if json_antwort:
         body["generationConfig"]["responseMimeType"] = "application/json"
     fehler = []
     for m in MODELS:
-        for versuch in range(2):
+        for versuch in range(versuche):
             req = urllib.request.Request("%s/models/%s:generateContent" % (BASE, m), data=json.dumps(body).encode(), method="POST",
                                          headers={"x-goog-api-key": KEY, "Content-Type": "application/json"})
             try:
@@ -133,11 +136,12 @@ def gemini(parts, json_antwort=False, temperatur=0.4, timeout=900):
             except urllib.error.HTTPError as e:
                 msg = "%s: HTTP %s %s" % (m, e.code, e.read().decode(errors="replace")[:200])
                 fehler.append(msg); log(msg)
-                if e.code in (429, 500, 503) and versuch == 0:
-                    time.sleep(20); continue
+                if e.code in (429, 500, 503) and versuch < versuche - 1:
+                    time.sleep(65 if e.code == 429 else 20); continue
                 break
             except Exception as e:  # noqa: BLE001
                 fehler.append("%s: %s" % (m, e)); log(fehler[-1]); break
+    QUOTA["voll"] = bool(fehler) and all("HTTP 429" in f for f in fehler[-len(MODELS):])
     raise RuntimeError(fehler[-1] if fehler else "keine Antwort")
 
 
@@ -151,7 +155,7 @@ und gib kein Transkript wieder; alles in eigenen Worten, Deutsch. Antworte aussc
 
 
 def video_auswerten(v):
-    return gemini([{"file_data": {"file_uri": "https://www.youtube.com/watch?v=%s" % v["id"]}}, {"text": VIDEO_PROMPT}], json_antwort=True, temperatur=0.2)
+    return gemini([{"file_data": {"file_uri": "https://www.youtube.com/watch?v=%s" % v["id"]}}, {"text": VIDEO_PROMPT}], json_antwort=True, temperatur=0.2, video=True, versuche=1)
 
 
 # ---------------------------------------------------------------- Märkte, Aktien, Wetter
@@ -241,7 +245,7 @@ DATEN (JSON):
 
 
 def sprechtext(daten):
-    txt = gemini([{"text": SKRIPT_PROMPT % json.dumps(daten, ensure_ascii=False, indent=1)}], temperatur=0.7)
+    txt = gemini([{"text": SKRIPT_PROMPT % json.dumps(daten, ensure_ascii=False, indent=1)}], temperatur=0.7, versuche=4)
     txt = re.sub(r"[*_#]{1,3}(?!ABSCHNITT)", "", txt.replace("###ABSCHNITT###", "§§")).replace("§§", "\n\n")
     return re.sub(r"\n{3,}", "\n\n", txt).strip()
 
@@ -368,6 +372,8 @@ def main():
 
     videos = []
     for v in neue_videos(kanaele(), gesehen):
+        if QUOTA["voll"]:
+            log("Gemini-Kontingent erschöpft: restliche Videos werden übersprungen (morgen erneut, falls noch jünger als 36 h)"); break
         log("Video:", v["kanal"], "|", v["titel"][:70])
         try:
             a = video_auswerten(v)
