@@ -1,10 +1,20 @@
-ok muenchen-travel-kalender 0 Tipps
+ok eintrittfrei 6 Tipps
 gemini-3.8-flash: HTTP 503
+gemini-3.8-flash: HTTP 503
+gemini-3.8-flash: HTTP 503
+ok geheimtipp-events 10 Tipps
+ok mitvergnuegen-wochenende 0 Tipps
+gemini-3.8-flash: HTTP 503
+gemini-3.8-flash: HTTP 503
+gemini-3.8-flash: HTTP 503
+ok musik-zenith 10 Tipps
+gemini-3.8-flash: HTTP 429
+gemini-flash-latest: HTTP 503
+gemini-flash-latest: HTTP 503
+gemini-flash-latest: HTTP 429
+FEHLER musik-backstage gemini-flash-latest: HTTP 429
 gemini-3.8-flash: HTTP 429
 gemini-flash-latest: HTTP 429
-FEHLER eintrittfrei gemini-flash-latest: HTTP 429
-gemini-3.8-flash: HTTP 429
-gemini-flash-latest: HTTP 429
-FEHLER geheimtipp-events gemini-flash-latest: HTTP 429
+FEHLER musik-alte-utting gemini-flash-latest: HTTP 429
 Zwei Mal in Folge Tempolimit, Abbruch bis zum nächsten Lauf
-Fertig: 1 Quellen ok, 2 Fehler, 0 neue Tipps, 95 gesamt
+Fertig: 4 Quellen ok, 2 Fehler, 25 neue Tipps, 102 gesamt
