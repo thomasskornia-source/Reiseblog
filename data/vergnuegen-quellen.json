@@ -1,701 +1,728 @@
 [
-  {
-    "id": "muenchen-de-wochenende",
-    "rubrik": "events",
-    "name": "muenchen.de – Wochenende",
-    "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-    "info": "Offizielles Stadtportal, Tipps für das kommende Wochenende",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "muenchen-travel-kalender",
-    "rubrik": "events",
-    "name": "muenchen.travel – Veranstaltungskalender",
-    "url": "https://www.muenchen.travel/rubriken/planen/veranstaltungskalender",
-    "info": "Tourismusamt, Highlights je Monat",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "eintrittfrei",
-    "rubrik": "events",
-    "name": "Eintritt frei München",
-    "url": "https://www.eintrittfrei-muenchen.de/",
-    "info": "Kostenlose Veranstaltungen",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "geheimtipp-events",
-    "rubrik": "events",
-    "name": "Geheimtipp München – Was geht am Wochenende",
-    "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
-    "info": "Wochenend-Tipps und Event-Geheimtipps",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "mitvergnuegen-wochenende",
-    "rubrik": "events",
-    "name": "Mit Vergnügen – Wochenend-Tipps",
-    "url": "https://muenchen.mitvergnuegen.com/",
-    "info": "Persönliche Wochenend-Listen, Ideengeber für diese Rubrik",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "mucbook-neu",
-    "rubrik": "food",
-    "name": "MUCBOOK – Neueröffnungen",
-    "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
-    "info": "Neue Restaurants und Cafés",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "insiderei",
-    "rubrik": "food",
-    "name": "Insiderei – neue Lokale",
-    "url": "https://insiderei.com/listen/neue-lokale-muenchen",
-    "info": "Kuratierte Foodie-Listen",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "mrmuenchen-neu",
-    "rubrik": "food",
-    "name": "Mr. München – Neueröffnungen",
-    "url": "https://www.mrmuenchen.com/toplisten/essen-trinken/neueroeffnungen-in-muenchen",
-    "info": "Toplisten Essen und Trinken",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "geheimtipp-food",
-    "rubrik": "food",
-    "name": "Geheimtipp München – Essen und Trinken",
-    "url": "https://geheimtippmuenchen.de/kategorie/essen-und-trinken/",
-    "info": "Newcomer und Geheimtipps",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "opentable",
-    "rubrik": "food",
-    "name": "OpenTable-Blog – neue Restaurants",
-    "url": "https://www.opentable.de/blog/besten-neuen-restaurants-muenchen/",
-    "info": "Neue Restaurants des Jahres",
-    "abruf": true,
-    "status": "entfernt"
-  },
-  {
-    "id": "mrmuenchen-aktivitaeten",
-    "rubrik": "unterwegs",
-    "name": "Mr. München – Top-Aktivitäten",
-    "url": "https://www.mrmuenchen.com/toplisten/kultur-freizeit-toplisten/top-aktivitaeten-in-muenchen",
-    "info": "Aktivitäten und Kultur in der Stadt",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "muenchen-travel",
-    "rubrik": "unterwegs",
-    "name": "muenchen.travel",
-    "url": "https://www.muenchen.travel/",
-    "info": "Sehenswertes, Viertel, Kultur",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "geheimtipp",
-    "rubrik": "unterwegs",
-    "name": "Geheimtipp München",
-    "url": "https://geheimtippmuenchen.de/",
-    "info": "Versteckte Orte in der Stadt",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "travel-berge-seen",
-    "rubrik": "ausflug",
-    "name": "muenchen.travel – Berge und Seen",
-    "url": "https://www.muenchen.travel/rubriken/entdecken/berge-seen",
-    "info": "Ausflüge in die Berge und an die Seen",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "travel-bus-bahn",
-    "rubrik": "ausflug",
-    "name": "muenchen.travel – Ausflüge mit Bus und Bahn",
-    "url": "https://www.muenchen.travel/artikel/berge-seen/ausfluege-bus-bahn",
-    "info": "Ohne Auto ins Umland",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "mrmuenchen-ausfluege",
-    "rubrik": "ausflug",
-    "name": "Mr. München – Ausflugsziele",
-    "url": "https://www.mrmuenchen.com/toplisten/kultur-freizeit-toplisten/top-ausflugsziele-von-muenchen",
-    "info": "Top 15 rund um München",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "phototravellers",
-    "rubrik": "ausflug",
-    "name": "Phototravellers – 33 Ausflüge",
-    "url": "https://phototravellers.de/muenchen-ausfluege/",
-    "info": "Ausflugsliste vom Chiemsee zur Zugspitze",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "kino-de",
-    "rubrik": "kino",
-    "name": "kino.de – München",
-    "url": "https://www.kino.de/kinoprogramm/stadt/muenchen/",
-    "info": "Kinoprogramm der Stadt",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "artechock",
-    "rubrik": "kino",
-    "name": "artechock – Wochenprogramm",
-    "url": "https://www.artechock.de/film/muenchen/index.htm",
-    "info": "Wochenprogramm der Münchner Kinos",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "filmfest",
-    "rubrik": "kino",
-    "name": "Filmfest München",
-    "url": "https://www.filmfest-muenchen.de/de/programm/filme/",
-    "info": "Festival und Sommerkino",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "ard-mediathek",
-    "rubrik": "kino",
-    "name": "ARD Mediathek",
-    "url": "https://www.ardmediathek.de/",
-    "info": "Öffentlich-rechtlich streamen (nur Link, kein Abruf)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "zdf-mediathek",
-    "rubrik": "kino",
-    "name": "ZDF Mediathek",
-    "url": "https://www.zdf.de/",
-    "info": "Öffentlich-rechtlich streamen (nur Link, kein Abruf)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "justwatch",
-    "rubrik": "kino",
-    "name": "JustWatch",
-    "url": "https://www.justwatch.com/de",
-    "info": "Wo läuft welcher Film im Stream (nur Link, kein Abruf)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "kino-breitwand-gauting",
-    "rubrik": "kino",
-    "name": "Kino Breitwand Gauting",
-    "url": "https://breitwand.com/home/cm/home-start/home/index.html?day=0&ort=Gauting",
-    "info": "Programm des Kinos Breitwand, Bahnhofsplatz 2, Gauting (offizielle Seite)",
-    "abruf": true,
-    "status": "behalten",
-    "kinoseite": "https://breitwand.com/",
-    "thema": "Kino Breitwand Gauting"
-  },
-  {
-    "id": "kino-lichtspielhaus-ffb",
-    "rubrik": "kino",
-    "name": "Lichtspielhaus Fürstenfeldbruck",
-    "url": "https://www.in-muenchen.de/kino/theater/lichtspielhaus.html",
-    "info": "Wochenprogramm Lichtspielhaus FFB, Maisacher Str. 7 (Übersicht auf in-muenchen.de; offizielle Seite: neokinos.de/ffb)",
-    "abruf": true,
-    "status": "behalten",
-    "kinoseite": "https://neokinos.de/ffb",
-    "thema": "Lichtspielhaus Fürstenfeldbruck"
-  },
-  {
-    "id": "kino-astor-arri",
-    "rubrik": "kino",
-    "name": "Astor Film Lounge im ARRI",
-    "url": "https://www.in-muenchen.de/kino/theater/astor-filmlounge-im-arri.html",
-    "info": "Wochenprogramm Astor Film Lounge im ARRI, Türkenstr. 91, München (Übersicht auf in-muenchen.de; offizielle Seite: muenchen.premiumkino.de)",
-    "abruf": true,
-    "status": "behalten",
-    "kinoseite": "https://muenchen.premiumkino.de/",
-    "thema": "Astor Film Lounge im ARRI"
-  },
-  {
-    "id": "musik-zenith",
-    "rubrik": "events",
-    "name": "Zenith, Kulturhalle (Konzerte)",
-    "url": "https://www.in-muenchen.de/locations/zenith.html",
-    "info": "Konzerte im Zenith, Lilienthalallee 29, München (Übersicht auf in-muenchen.de)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "musik-backstage",
-    "rubrik": "events",
-    "name": "Backstage München (Konzerte)",
-    "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-    "info": "Konzerte im Backstage, Reitknechtstr. 6, München (Stadtportal muenchen.de)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "musik-alte-utting",
-    "rubrik": "events",
-    "name": "Alte Utting (Musik und Kultur)",
-    "url": "https://www.in-muenchen.de/locations/alte-utting.html",
-    "info": "Veranstaltungen auf dem Schiff Alte Utting, Kaflerstr. 20, München (Übersicht auf in-muenchen.de)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "musik-unterfahrt",
-    "rubrik": "events",
-    "name": "Jazzclub Unterfahrt",
-    "url": "https://www.unterfahrt.de/",
-    "info": "Jazzkonzerte im Unterfahrt, Einsteinstr. 42, München (offizielle Seite)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "buehne-staatsoper",
-    "rubrik": "events",
-    "name": "Bayerische Staatsoper (Spielplan)",
-    "url": "https://www.staatsoper.de/spielplan",
-    "info": "Oper und Ballett, Spielplan des Monats (offizielle Seite)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "buehne-residenztheater",
-    "rubrik": "events",
-    "name": "Residenztheater (Spielplan)",
-    "url": "https://www.residenztheater.de/spielplan",
-    "info": "Schauspiel am Max-Joseph-Platz (offizielle Seite)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "buehne-kammerspiele",
-    "rubrik": "events",
-    "name": "Münchner Kammerspiele",
-    "url": "https://www.muenchner-kammerspiele.de/",
-    "info": "Schauspiel, Spielplan auf der Startseite (offizielle Seite)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "buehne-volkstheater",
-    "rubrik": "events",
-    "name": "Münchner Volkstheater (Spielplan)",
-    "url": "https://www.muenchner-volkstheater.de/spielplan",
-    "info": "Schauspiel an der Brienner Straße (offizielle Seite)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "buehne-gaertnerplatz",
-    "rubrik": "events",
-    "name": "Staatstheater am Gärtnerplatz",
-    "url": "https://www.gaertnerplatztheater.de/de/spielplan",
-    "info": "Oper, Operette, Musical, Ballett – Seite war nicht abrufbar, nur Link",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "buehne-deutsches-theater",
-    "rubrik": "events",
-    "name": "Deutsches Theater München",
-    "url": "https://www.deutsches-theater.de/programm/",
-    "info": "Musical, Show, Kabarett – Programm lädt per Auswahl, nur Link",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "musik-philharmoniker",
-    "rubrik": "events",
-    "name": "Münchner Philharmoniker (Kalender)",
-    "url": "https://www.mphil.de/konzerte-tickets/kalender",
-    "info": "Konzerte der Münchner Philharmoniker, Isarphilharmonie – Seite nicht lesbar, nur Link",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "musik-brso",
-    "rubrik": "events",
-    "name": "Symphonieorchester des Bayerischen Rundfunks",
-    "url": "https://www.brso.de/konzerte-tickets/",
-    "info": "Konzerte BRSO, Herkulessaal, Isarphilharmonie – Kalender nicht lesbar, nur Link",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "museum-lenbachhaus",
-    "rubrik": "unterwegs",
-    "name": "Lenbachhaus",
-    "url": "https://www.lenbachhaus.de/programm",
-    "info": "Ausstellungen und Führungen, Blauer Reiter (offizielle Seite)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "museum-haus-der-kunst",
-    "rubrik": "unterwegs",
-    "name": "Haus der Kunst",
-    "url": "https://hausderkunst.de/programm",
-    "info": "Zeitgenössische Kunst, Ausstellungen (offizielle Seite)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "museum-brandhorst",
-    "rubrik": "unterwegs",
-    "name": "Museum Brandhorst",
-    "url": "https://www.museum-brandhorst.de/",
-    "info": "Moderne und zeitgenössische Kunst (offizielle Seite)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "museum-villa-stuck",
-    "rubrik": "unterwegs",
-    "name": "Museum Villa Stuck",
-    "url": "https://www.villastuck.de/",
-    "info": "Ausstellungen in der Künstlervilla (offizielle Seite)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "museum-fuenf-kontinente",
-    "rubrik": "unterwegs",
-    "name": "Museum Fünf Kontinente",
-    "url": "https://www.museum-fuenf-kontinente.de/",
-    "info": "Völkerkunde, Sonderausstellungen (offizielle Seite)",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "museum-pinakotheken",
-    "rubrik": "unterwegs",
-    "name": "Pinakotheken (Alte, Neue, Moderne)",
-    "url": "https://www.pinakothek.de/de/ausstellungen",
-    "info": "Kunstareal, Ausstellungen – Seite zeigt keine Liste, nur Link",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "museum-deutsches-museum",
-    "rubrik": "unterwegs",
-    "name": "Deutsches Museum",
-    "url": "https://www.deutsches-museum.de/ausstellungen",
-    "info": "Technik und Naturwissenschaft – Seite nicht abrufbar, nur Link",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "museum-stadtmuseum",
-    "rubrik": "unterwegs",
-    "name": "Münchner Stadtmuseum",
-    "url": "https://www.muenchner-stadtmuseum.de/",
-    "info": "Stadtgeschichte, Filmmuseum – nur Link",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "museum-nsdoku",
-    "rubrik": "unterwegs",
-    "name": "NS-Dokumentationszentrum",
-    "url": "https://www.nsdoku.de/",
-    "info": "Lern- und Erinnerungsort – nur Link",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "stream-netflix",
-    "rubrik": "stream",
-    "name": "Netflix",
-    "url": "https://www.netflix.com/de/",
-    "info": "Streaming (Link; Auswahl kuratiert Claude)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "stream-prime",
-    "rubrik": "stream",
-    "name": "Amazon Prime Video",
-    "url": "https://www.primevideo.com/",
-    "info": "Streaming (Link; Auswahl kuratiert Claude)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "stream-apple",
-    "rubrik": "stream",
-    "name": "Apple TV",
-    "url": "https://tv.apple.com/de",
-    "info": "Streaming (Link; Auswahl kuratiert Claude)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "stream-ard",
-    "rubrik": "stream",
-    "name": "ARD Mediathek",
-    "url": "https://www.ardmediathek.de/",
-    "info": "Mediathek (Link; Auswahl kuratiert Claude)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "stream-zdf",
-    "rubrik": "stream",
-    "name": "ZDF Mediathek",
-    "url": "https://www.zdf.de/filme",
-    "info": "Mediathek (Link; Auswahl kuratiert Claude)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "stream-3sat",
-    "rubrik": "stream",
-    "name": "3sat Mediathek",
-    "url": "https://www.3sat.de/mediathek",
-    "info": "Mediathek (Link; Auswahl kuratiert Claude)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "stream-arte",
-    "rubrik": "stream",
-    "name": "ARTE Mediathek",
-    "url": "https://www.arte.tv/de/",
-    "info": "Mediathek (Link; Auswahl kuratiert Claude)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "stream-filmstarts",
-    "rubrik": "stream",
-    "name": "FILMSTARTS – Streaming",
-    "url": "https://www.filmstarts.de/streaming/",
-    "info": "Neu bei den Streaming-Diensten (Hilfsquelle für die Auswahl)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "stream-jw-ard",
-    "rubrik": "stream",
-    "name": "JustWatch: Neu in der ARD Mediathek",
-    "url": "https://www.justwatch.com/de/Anbieter/ard-mediathek/Neu",
-    "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "stream-fs-ard",
-    "rubrik": "stream",
-    "name": "fernsehserien.de: Neu in der ARD Mediathek",
-    "url": "https://www.fernsehserien.de/streaming/ard-mediathek/neu-in-der-ard-mediathek",
-    "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "stream-jw-arte",
-    "rubrik": "stream",
-    "name": "JustWatch: Neu bei ARTE",
-    "url": "https://www.justwatch.com/de/Anbieter/arte/Neu",
-    "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "stream-jw-netflix",
-    "rubrik": "stream",
-    "name": "JustWatch: Neu bei Netflix",
-    "url": "https://www.justwatch.com/de/Anbieter/netflix/Neu",
-    "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "tv-tvmovie",
-    "rubrik": "tv",
-    "name": "TV Movie: Fernsehprogramm heute Abend",
-    "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
-    "info": "20:15-Programm von ARD, ZDF, ARTE, 3sat (lesbar); BR/WDR/NDR fehlen",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "tv-prisma-br",
-    "rubrik": "tv",
-    "name": "prisma: BR Programm",
-    "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/BR,570537",
-    "info": "Tagesprogramm BR nach Uhrzeit (lesbar)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "tv-prisma",
-    "rubrik": "tv",
-    "name": "prisma: TV-Programm",
-    "url": "https://www.prisma.de/tv-programm/",
-    "info": "Übersicht, lesbar, teils nur Auswahl",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "tv-ard",
-    "rubrik": "tv",
-    "name": "ARD Fernsehen",
-    "url": "https://www.ardmediathek.de/",
-    "info": "Sender-Startseite (Link)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "tv-zdf",
-    "rubrik": "tv",
-    "name": "ZDF Fernsehen",
-    "url": "https://www.zdf.de/",
-    "info": "Sender-Startseite (Link)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "tv-br",
-    "rubrik": "tv",
-    "name": "BR Fernsehen",
-    "url": "https://www.br.de/fernsehen/",
-    "info": "Sender-Startseite (Link)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "tv-wdr",
-    "rubrik": "tv",
-    "name": "WDR Fernsehen",
-    "url": "https://www1.wdr.de/fernsehen/",
-    "info": "Sender-Startseite (Link)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "tv-ndr",
-    "rubrik": "tv",
-    "name": "NDR Fernsehen",
-    "url": "https://www.ndr.de/fernsehen/",
-    "info": "Sender-Startseite (Link)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "tv-arte",
-    "rubrik": "tv",
-    "name": "ARTE Fernsehen",
-    "url": "https://www.arte.tv/de/",
-    "info": "Sender-Startseite (Link)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "tv-3sat",
-    "rubrik": "tv",
-    "name": "3sat Fernsehen",
-    "url": "https://www.3sat.de/",
-    "info": "Sender-Startseite (Link)",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "sz-sattgluecklich",
-    "rubrik": "food",
-    "name": "Süddeutsche Zeitung – Satt & Glücklich (Gastro-Portal)",
-    "url": "https://www.sattgluecklich.de/",
-    "info": "Gastro-Tipps der SZ für München",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "falstaff-muenchen",
-    "rubrik": "food",
-    "name": "Falstaff – Restaurantguide München",
-    "url": "https://www.falstaff.com/en/listings/the-best-of-falstaff-restaurant-inn-guide-germany-2026-in-munich",
-    "info": "Bewertete Restaurants in München",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "mitvergnuegen-food",
-    "rubrik": "food",
-    "name": "Mit Vergnügen – Essen und Trinken",
-    "url": "https://muenchen.mitvergnuegen.com/",
-    "info": "Lokale und Neueröffnungen",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "faz-muenchen-food",
-    "rubrik": "food",
-    "name": "FAZ – Essen und Trinken (nur Link, Bezahlschranke)",
-    "url": "https://www.faz.net/aktuell/stil/essen-trinken/",
-    "info": "Nur zum Nachlesen, nicht automatisch lesbar",
-    "abruf": false,
-    "status": "behalten"
-  },
-  {
-    "id": "in-muenchen-gastro",
-    "rubrik": "food",
-    "name": "in-muenchen.de – Gastro",
-    "url": "https://www.in-muenchen.de/gastro,bars",
-    "info": "Neue Lokale und Gastro-News",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "cremeguides-essen",
-    "rubrik": "food",
-    "name": "Creme Guides – Essen München",
-    "url": "https://cremeguides.com/muenchen/essen",
-    "info": "Kuratierte Lokale, auch vegetarisch",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "happycow-muenchen",
-    "rubrik": "food",
-    "name": "HappyCow – Veggie-Restaurants München",
-    "url": "https://www.happycow.net/europe/germany/bavaria/munich/",
-    "info": "Vegetarische und vegane Lokale",
-    "abruf": true,
-    "status": "behalten"
-  },
-  {
-    "id": "tv-tvmovie-programm",
-    "rubrik": "tv",
-    "name": "TV Movie: Programm nach Sendern",
-    "url": "https://www.tvmovie.de/tv/programm",
-    "info": "Tagesprogramm ARD, ZDF, ARTE, 3sat (lesbar); BR/WDR/NDR/hr/SWR fehlen",
-    "abruf": false,
-    "status": "behalten"
-  }
+ {
+  "id": "muenchen-de-wochenende",
+  "rubrik": "events",
+  "name": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "info": "Offizielles Stadtportal, Tipps für das kommende Wochenende",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "muenchen-travel-kalender",
+  "rubrik": "events",
+  "name": "muenchen.travel – Veranstaltungskalender",
+  "url": "https://www.muenchen.travel/rubriken/planen/veranstaltungskalender",
+  "info": "Tourismusamt, Highlights je Monat",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "eintrittfrei",
+  "rubrik": "events",
+  "name": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "info": "Kostenlose Veranstaltungen",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "geheimtipp-events",
+  "rubrik": "events",
+  "name": "Geheimtipp München – Was geht am Wochenende",
+  "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
+  "info": "Wochenend-Tipps und Event-Geheimtipps",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "mitvergnuegen-wochenende",
+  "rubrik": "events",
+  "name": "Mit Vergnügen – Wochenend-Tipps",
+  "url": "https://muenchen.mitvergnuegen.com/",
+  "info": "Persönliche Wochenend-Listen, Ideengeber für diese Rubrik",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "mucbook-neu",
+  "rubrik": "food",
+  "name": "MUCBOOK – Neueröffnungen",
+  "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
+  "info": "Neue Restaurants und Cafés",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "insiderei",
+  "rubrik": "food",
+  "name": "Insiderei – neue Lokale",
+  "url": "https://insiderei.com/listen/neue-lokale-muenchen",
+  "info": "Kuratierte Foodie-Listen",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "mrmuenchen-neu",
+  "rubrik": "food",
+  "name": "Mr. München – Neueröffnungen",
+  "url": "https://www.mrmuenchen.com/toplisten/essen-trinken/neueroeffnungen-in-muenchen",
+  "info": "Toplisten Essen und Trinken",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "geheimtipp-food",
+  "rubrik": "food",
+  "name": "Geheimtipp München – Essen und Trinken",
+  "url": "https://geheimtippmuenchen.de/kategorie/essen-und-trinken/",
+  "info": "Newcomer und Geheimtipps",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "opentable",
+  "rubrik": "food",
+  "name": "OpenTable-Blog – neue Restaurants",
+  "url": "https://www.opentable.de/blog/besten-neuen-restaurants-muenchen/",
+  "info": "Neue Restaurants des Jahres",
+  "abruf": true,
+  "status": "entfernt"
+ },
+ {
+  "id": "mrmuenchen-aktivitaeten",
+  "rubrik": "unterwegs",
+  "name": "Mr. München – Top-Aktivitäten",
+  "url": "https://www.mrmuenchen.com/toplisten/kultur-freizeit-toplisten/top-aktivitaeten-in-muenchen",
+  "info": "Aktivitäten und Kultur in der Stadt",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "muenchen-travel",
+  "rubrik": "unterwegs",
+  "name": "muenchen.travel",
+  "url": "https://www.muenchen.travel/",
+  "info": "Sehenswertes, Viertel, Kultur",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "geheimtipp",
+  "rubrik": "unterwegs",
+  "name": "Geheimtipp München",
+  "url": "https://geheimtippmuenchen.de/",
+  "info": "Versteckte Orte in der Stadt",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "travel-berge-seen",
+  "rubrik": "ausflug",
+  "name": "muenchen.travel – Berge und Seen",
+  "url": "https://www.muenchen.travel/rubriken/entdecken/berge-seen",
+  "info": "Ausflüge in die Berge und an die Seen",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "travel-bus-bahn",
+  "rubrik": "ausflug",
+  "name": "muenchen.travel – Ausflüge mit Bus und Bahn",
+  "url": "https://www.muenchen.travel/artikel/berge-seen/ausfluege-bus-bahn",
+  "info": "Ohne Auto ins Umland",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "mrmuenchen-ausfluege",
+  "rubrik": "ausflug",
+  "name": "Mr. München – Ausflugsziele",
+  "url": "https://www.mrmuenchen.com/toplisten/kultur-freizeit-toplisten/top-ausflugsziele-von-muenchen",
+  "info": "Top 15 rund um München",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "phototravellers",
+  "rubrik": "ausflug",
+  "name": "Phototravellers – 33 Ausflüge",
+  "url": "https://phototravellers.de/muenchen-ausfluege/",
+  "info": "Ausflugsliste vom Chiemsee zur Zugspitze",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "kino-de",
+  "rubrik": "kino",
+  "name": "kino.de – München",
+  "url": "https://www.kino.de/kinoprogramm/stadt/muenchen/",
+  "info": "Kinoprogramm der Stadt",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "artechock",
+  "rubrik": "kino",
+  "name": "artechock – Wochenprogramm",
+  "url": "https://www.artechock.de/film/muenchen/index.htm",
+  "info": "Wochenprogramm der Münchner Kinos",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "filmfest",
+  "rubrik": "kino",
+  "name": "Filmfest München",
+  "url": "https://www.filmfest-muenchen.de/de/programm/filme/",
+  "info": "Festival und Sommerkino",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "ard-mediathek",
+  "rubrik": "kino",
+  "name": "ARD Mediathek",
+  "url": "https://www.ardmediathek.de/",
+  "info": "Öffentlich-rechtlich streamen (nur Link, kein Abruf)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "zdf-mediathek",
+  "rubrik": "kino",
+  "name": "ZDF Mediathek",
+  "url": "https://www.zdf.de/",
+  "info": "Öffentlich-rechtlich streamen (nur Link, kein Abruf)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "justwatch",
+  "rubrik": "kino",
+  "name": "JustWatch",
+  "url": "https://www.justwatch.com/de",
+  "info": "Wo läuft welcher Film im Stream (nur Link, kein Abruf)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "kino-breitwand-gauting",
+  "rubrik": "kino",
+  "name": "Kino Breitwand Gauting",
+  "url": "https://breitwand.com/home/cm/home-start/home/index.html?day=0&ort=Gauting",
+  "info": "Programm des Kinos Breitwand, Bahnhofsplatz 2, Gauting (offizielle Seite)",
+  "abruf": true,
+  "status": "behalten",
+  "kinoseite": "https://breitwand.com/",
+  "thema": "Kino Breitwand Gauting"
+ },
+ {
+  "id": "kino-lichtspielhaus-ffb",
+  "rubrik": "kino",
+  "name": "Lichtspielhaus Fürstenfeldbruck",
+  "url": "https://www.in-muenchen.de/kino/theater/lichtspielhaus.html",
+  "info": "Wochenprogramm Lichtspielhaus FFB, Maisacher Str. 7 (Übersicht auf in-muenchen.de; offizielle Seite: neokinos.de/ffb)",
+  "abruf": true,
+  "status": "behalten",
+  "kinoseite": "https://neokinos.de/ffb",
+  "thema": "Lichtspielhaus Fürstenfeldbruck"
+ },
+ {
+  "id": "kino-astor-arri",
+  "rubrik": "kino",
+  "name": "Astor Film Lounge im ARRI",
+  "url": "https://www.in-muenchen.de/kino/theater/astor-filmlounge-im-arri.html",
+  "info": "Wochenprogramm Astor Film Lounge im ARRI, Türkenstr. 91, München (Übersicht auf in-muenchen.de; offizielle Seite: muenchen.premiumkino.de)",
+  "abruf": true,
+  "status": "behalten",
+  "kinoseite": "https://muenchen.premiumkino.de/",
+  "thema": "Astor Film Lounge im ARRI"
+ },
+ {
+  "id": "musik-zenith",
+  "rubrik": "events",
+  "name": "Zenith, Kulturhalle (Konzerte)",
+  "url": "https://www.in-muenchen.de/locations/zenith.html",
+  "info": "Konzerte im Zenith, Lilienthalallee 29, München (Übersicht auf in-muenchen.de)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "musik-backstage",
+  "rubrik": "events",
+  "name": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "info": "Konzerte im Backstage, Reitknechtstr. 6, München (Stadtportal muenchen.de)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "musik-alte-utting",
+  "rubrik": "events",
+  "name": "Alte Utting (Musik und Kultur)",
+  "url": "https://www.in-muenchen.de/locations/alte-utting.html",
+  "info": "Veranstaltungen auf dem Schiff Alte Utting, Kaflerstr. 20, München (Übersicht auf in-muenchen.de)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "musik-unterfahrt",
+  "rubrik": "events",
+  "name": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "info": "Jazzkonzerte im Unterfahrt, Einsteinstr. 42, München (offizielle Seite)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "buehne-staatsoper",
+  "rubrik": "events",
+  "name": "Bayerische Staatsoper (Spielplan)",
+  "url": "https://www.staatsoper.de/spielplan",
+  "info": "Oper und Ballett, Spielplan des Monats (offizielle Seite)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "buehne-residenztheater",
+  "rubrik": "events",
+  "name": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "info": "Schauspiel am Max-Joseph-Platz (offizielle Seite)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "buehne-kammerspiele",
+  "rubrik": "events",
+  "name": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "info": "Schauspiel, Spielplan auf der Startseite (offizielle Seite)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "buehne-volkstheater",
+  "rubrik": "events",
+  "name": "Münchner Volkstheater (Spielplan)",
+  "url": "https://www.muenchner-volkstheater.de/spielplan",
+  "info": "Schauspiel an der Brienner Straße (offizielle Seite)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "buehne-gaertnerplatz",
+  "rubrik": "events",
+  "name": "Staatstheater am Gärtnerplatz",
+  "url": "https://www.gaertnerplatztheater.de/de/spielplan",
+  "info": "Oper, Operette, Musical, Ballett – Seite war nicht abrufbar, nur Link",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "buehne-deutsches-theater",
+  "rubrik": "events",
+  "name": "Deutsches Theater München",
+  "url": "https://www.deutsches-theater.de/programm/",
+  "info": "Musical, Show, Kabarett – Programm lädt per Auswahl, nur Link",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "musik-philharmoniker",
+  "rubrik": "events",
+  "name": "Münchner Philharmoniker (Kalender)",
+  "url": "https://www.mphil.de/konzerte-tickets/kalender",
+  "info": "Konzerte der Münchner Philharmoniker, Isarphilharmonie – Seite nicht lesbar, nur Link",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "musik-brso",
+  "rubrik": "events",
+  "name": "Symphonieorchester des Bayerischen Rundfunks",
+  "url": "https://www.brso.de/konzerte-tickets/",
+  "info": "Konzerte BRSO, Herkulessaal, Isarphilharmonie – Kalender nicht lesbar, nur Link",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "museum-lenbachhaus",
+  "rubrik": "unterwegs",
+  "name": "Lenbachhaus",
+  "url": "https://www.lenbachhaus.de/programm",
+  "info": "Ausstellungen und Führungen, Blauer Reiter (offizielle Seite)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "museum-haus-der-kunst",
+  "rubrik": "unterwegs",
+  "name": "Haus der Kunst",
+  "url": "https://hausderkunst.de/programm",
+  "info": "Zeitgenössische Kunst, Ausstellungen (offizielle Seite)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "museum-brandhorst",
+  "rubrik": "unterwegs",
+  "name": "Museum Brandhorst",
+  "url": "https://www.museum-brandhorst.de/",
+  "info": "Moderne und zeitgenössische Kunst (offizielle Seite)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "museum-villa-stuck",
+  "rubrik": "unterwegs",
+  "name": "Museum Villa Stuck",
+  "url": "https://www.villastuck.de/",
+  "info": "Ausstellungen in der Künstlervilla (offizielle Seite)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "museum-fuenf-kontinente",
+  "rubrik": "unterwegs",
+  "name": "Museum Fünf Kontinente",
+  "url": "https://www.museum-fuenf-kontinente.de/",
+  "info": "Völkerkunde, Sonderausstellungen (offizielle Seite)",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "museum-pinakotheken",
+  "rubrik": "unterwegs",
+  "name": "Pinakotheken (Alte, Neue, Moderne)",
+  "url": "https://www.pinakothek.de/de/ausstellungen",
+  "info": "Kunstareal, Ausstellungen – Seite zeigt keine Liste, nur Link",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "museum-deutsches-museum",
+  "rubrik": "unterwegs",
+  "name": "Deutsches Museum",
+  "url": "https://www.deutsches-museum.de/ausstellungen",
+  "info": "Technik und Naturwissenschaft – Seite nicht abrufbar, nur Link",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "museum-stadtmuseum",
+  "rubrik": "unterwegs",
+  "name": "Münchner Stadtmuseum",
+  "url": "https://www.muenchner-stadtmuseum.de/",
+  "info": "Stadtgeschichte, Filmmuseum – nur Link",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "museum-nsdoku",
+  "rubrik": "unterwegs",
+  "name": "NS-Dokumentationszentrum",
+  "url": "https://www.nsdoku.de/",
+  "info": "Lern- und Erinnerungsort – nur Link",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-netflix",
+  "rubrik": "stream",
+  "name": "Netflix",
+  "url": "https://www.netflix.com/de/",
+  "info": "Streaming (Link; Auswahl kuratiert Claude)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-prime",
+  "rubrik": "stream",
+  "name": "Amazon Prime Video",
+  "url": "https://www.primevideo.com/",
+  "info": "Streaming (Link; Auswahl kuratiert Claude)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-apple",
+  "rubrik": "stream",
+  "name": "Apple TV",
+  "url": "https://tv.apple.com/de",
+  "info": "Streaming (Link; Auswahl kuratiert Claude)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-ard",
+  "rubrik": "stream",
+  "name": "ARD Mediathek",
+  "url": "https://www.ardmediathek.de/",
+  "info": "Mediathek (Link; Auswahl kuratiert Claude)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-zdf",
+  "rubrik": "stream",
+  "name": "ZDF Mediathek",
+  "url": "https://www.zdf.de/filme",
+  "info": "Mediathek (Link; Auswahl kuratiert Claude)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-3sat",
+  "rubrik": "stream",
+  "name": "3sat Mediathek",
+  "url": "https://www.3sat.de/mediathek",
+  "info": "Mediathek (Link; Auswahl kuratiert Claude)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-arte",
+  "rubrik": "stream",
+  "name": "ARTE Mediathek",
+  "url": "https://www.arte.tv/de/",
+  "info": "Mediathek (Link; Auswahl kuratiert Claude)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-filmstarts",
+  "rubrik": "stream",
+  "name": "FILMSTARTS – Streaming",
+  "url": "https://www.filmstarts.de/streaming/",
+  "info": "Neu bei den Streaming-Diensten (Hilfsquelle für die Auswahl)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-jw-ard",
+  "rubrik": "stream",
+  "name": "JustWatch: Neu in der ARD Mediathek",
+  "url": "https://www.justwatch.com/de/Anbieter/ard-mediathek/Neu",
+  "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-fs-ard",
+  "rubrik": "stream",
+  "name": "fernsehserien.de: Neu in der ARD Mediathek",
+  "url": "https://www.fernsehserien.de/streaming/ard-mediathek/neu-in-der-ard-mediathek",
+  "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-jw-arte",
+  "rubrik": "stream",
+  "name": "JustWatch: Neu bei ARTE",
+  "url": "https://www.justwatch.com/de/Anbieter/arte/Neu",
+  "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-jw-netflix",
+  "rubrik": "stream",
+  "name": "JustWatch: Neu bei Netflix",
+  "url": "https://www.justwatch.com/de/Anbieter/netflix/Neu",
+  "info": "Täglich aktuell, lesbar (Quelle für Claudes Auswahl)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-tvmovie",
+  "rubrik": "tv",
+  "name": "TV Movie: Fernsehprogramm heute Abend",
+  "url": "https://www.tvmovie.de/tv/fernsehprogramm-heute-abend",
+  "info": "20:15-Programm von ARD, ZDF, ARTE, 3sat (lesbar); BR/WDR/NDR fehlen",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-prisma-br",
+  "rubrik": "tv",
+  "name": "prisma: BR Programm",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/BR,570537",
+  "info": "Tagesprogramm BR nach Uhrzeit (lesbar)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-prisma",
+  "rubrik": "tv",
+  "name": "prisma: TV-Programm",
+  "url": "https://www.prisma.de/tv-programm/",
+  "info": "Übersicht, lesbar, teils nur Auswahl",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-ard",
+  "rubrik": "tv",
+  "name": "ARD Fernsehen",
+  "url": "https://www.ardmediathek.de/",
+  "info": "Sender-Startseite (Link)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-zdf",
+  "rubrik": "tv",
+  "name": "ZDF Fernsehen",
+  "url": "https://www.zdf.de/",
+  "info": "Sender-Startseite (Link)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-br",
+  "rubrik": "tv",
+  "name": "BR Fernsehen",
+  "url": "https://www.br.de/fernsehen/",
+  "info": "Sender-Startseite (Link)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-wdr",
+  "rubrik": "tv",
+  "name": "WDR Fernsehen",
+  "url": "https://www1.wdr.de/fernsehen/",
+  "info": "Sender-Startseite (Link)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-ndr",
+  "rubrik": "tv",
+  "name": "NDR Fernsehen",
+  "url": "https://www.ndr.de/fernsehen/",
+  "info": "Sender-Startseite (Link)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-arte",
+  "rubrik": "tv",
+  "name": "ARTE Fernsehen",
+  "url": "https://www.arte.tv/de/",
+  "info": "Sender-Startseite (Link)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-3sat",
+  "rubrik": "tv",
+  "name": "3sat Fernsehen",
+  "url": "https://www.3sat.de/",
+  "info": "Sender-Startseite (Link)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "sz-sattgluecklich",
+  "rubrik": "food",
+  "name": "Süddeutsche Zeitung – Satt & Glücklich (Gastro-Portal)",
+  "url": "https://www.sattgluecklich.de/",
+  "info": "Gastro-Tipps der SZ für München",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "falstaff-muenchen",
+  "rubrik": "food",
+  "name": "Falstaff – Restaurantguide München",
+  "url": "https://www.falstaff.com/en/listings/the-best-of-falstaff-restaurant-inn-guide-germany-2026-in-munich",
+  "info": "Bewertete Restaurants in München",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "mitvergnuegen-food",
+  "rubrik": "food",
+  "name": "Mit Vergnügen – Essen und Trinken",
+  "url": "https://muenchen.mitvergnuegen.com/",
+  "info": "Lokale und Neueröffnungen",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "faz-muenchen-food",
+  "rubrik": "food",
+  "name": "FAZ – Essen und Trinken (nur Link, Bezahlschranke)",
+  "url": "https://www.faz.net/aktuell/stil/essen-trinken/",
+  "info": "Nur zum Nachlesen, nicht automatisch lesbar",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "in-muenchen-gastro",
+  "rubrik": "food",
+  "name": "in-muenchen.de – Gastro",
+  "url": "https://www.in-muenchen.de/gastro,bars",
+  "info": "Neue Lokale und Gastro-News",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "cremeguides-essen",
+  "rubrik": "food",
+  "name": "Creme Guides – Essen München",
+  "url": "https://cremeguides.com/muenchen/essen",
+  "info": "Kuratierte Lokale, auch vegetarisch",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "happycow-muenchen",
+  "rubrik": "food",
+  "name": "HappyCow – Veggie-Restaurants München",
+  "url": "https://www.happycow.net/europe/germany/bavaria/munich/",
+  "info": "Vegetarische und vegane Lokale",
+  "abruf": true,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-tvmovie-programm",
+  "rubrik": "tv",
+  "name": "TV Movie: Programm nach Sendern",
+  "url": "https://www.tvmovie.de/tv/programm",
+  "info": "Tagesprogramm ARD, ZDF, ARTE, 3sat (lesbar); BR/WDR/NDR/hr/SWR fehlen",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-prisma-arte",
+  "rubrik": "tv",
+  "name": "prisma.de ARTE",
+  "url": "https://www.prisma.de/tv-programm/programm-nach-sendern/arte,13735",
+  "info": "20:15-Programm von ARD, ZDF, ARTE, 3sat (lesbar); BR/WDR/NDR fehlen",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-mobiflip-netflix",
+  "rubrik": "stream",
+  "name": "mobiflip.de Netflix Oktober 2026",
+  "url": "https://www.mobiflip.de/?p=490963",
+  "info": "20:15-Programm von ARD, ZDF, ARTE, 3sat (lesbar); BR/WDR/NDR fehlen",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-mobiflip-prime",
+  "rubrik": "stream",
+  "name": "mobiflip.de Prime Oktober 2026",
+  "url": "https://www.mobiflip.de/?p=491304",
+  "info": "20:15-Programm von ARD, ZDF, ARTE, 3sat (lesbar); BR/WDR/NDR fehlen",
+  "abruf": false,
+  "status": "behalten"
+ }
 ]
