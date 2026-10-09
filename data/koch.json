@@ -1,6 +1,83 @@
 {
  "beitraege": [
   {
+   "id": "OGzNe28uAqQ",
+   "titel": "KI-Comeback. Drosselt Apple die iPhone 18 Produktion?",
+   "datum": "2026-10-09",
+   "zeit": "2026-10-09T13:45:54+00:00",
+   "art": "opening",
+   "score": 20,
+   "pfeil": "hoch",
+   "thema": "Markus Koch erörtert die Erholung am US-Aktienmarkt nach Korrekturen bei Tech-Werten, sinkende Anleiherenditen sowie Ausblicke auf anstehende Inflationsdaten und Quartalsberichte.",
+   "gesamtstimmung": "Die Stimmung ist verhalten optimistisch, gestützt von einer Beruhigung am Anleihemarkt und nachlassender Volatilität. Vor den wichtigen Inflationsdaten der kommenden Woche und dem Start der Banken-Berichtssaison überwiegt jedoch eine abwartende Haltung.",
+   "begruendung": "Niedrigere Anleiherenditen und eine erfolgreiche Nachfrage bei Staatsanleihe-Auktionen eröffnen Chancen für eine Erholung der breiteren Marktindizes. Auf der anderen Seite bleiben das massive US-Haushaltsdefizit, geopolitische Risiken im Nahen Osten und erwartete heiße Inflationsdaten Belastungsfaktoren.",
+   "indikatoren": [
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Renditen geben von den Höchstständen nach, Auktionen mit gesunder Nachfrage",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Renditen nehmen den Druck von den Aktienmärkten und begünstigen eine breitere Markterholung."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "MOVE-Index",
+     "lage": "Volatilität an den Anleihemärkten hat nachgelassen",
+     "pfeil": "hoch",
+     "rolle": "Eine abnehmende Anleihe-Volatilität erhöht die Stabilität an den Finanzmärkten insgesamt."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Chancen auf ein Comeback der Marktbreite durch Sektorrotation steigen",
+     "pfeil": "hoch",
+     "rolle": "Eine Verbesserung der Marktbreite jenseits von Big Tech ist essenziell für einen tragfähigen Bullenmarkt."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Ölpreise leicht im Minus",
+     "pfeil": "hoch",
+     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
+    },
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "Anstehende Verbraucher- und Erzeugerpreise dürften heiß ausfallen",
+     "pfeil": "runter",
+     "rolle": "Hartnäckige Inflationsdaten könnten die Notenbank zu längeren Zinserhöhungsphasen zwingen."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Startschuss der Berichtssaison mit US-Großbanken in der kommenden Woche",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Bankenergebnisse zeigen den Zustand der Konjunktur und die Bonität der Verbraucher auf."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zollpolitik & Schuldenpläne",
+     "lage": "US-Haushaltsdefizit klettert auf zwei Billionen Dollar",
+     "pfeil": "runter",
+     "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Spannungen um Huthi-Rebellen am Roten Meer und Irans Uran-Anreicherung",
+     "pfeil": "runter",
+     "rolle": "Geopolitische Konflikte halten das Risiko von Ölpreisspitzen und Lieferkettenstörungen hoch."
+    }
+   ],
+   "zitate": [
+    "Stunde der Wahrheit",
+    "Chance letztendlich eines Comebacks der Marktbreite"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 117302
+  },
+  {
    "id": "7Vh2ukJyHMk",
    "titel": "Bounce bei Non-Tech. Meldung um Open AI trifft KI-Werte.",
    "datum": "2026-10-08",
@@ -62,6 +139,48 @@
    "sicherheit": "hoch",
    "modell": "gemini-flash-latest",
    "tokens": 180140
+  },
+  {
+   "id": "JloRSV2iBwI",
+   "titel": "700 Milliarden letztes Jahr. Eine Billion dieses Jahr. 📊",
+   "datum": "2026-10-08",
+   "zeit": "2026-10-08T17:36:32+00:00",
+   "art": "closing",
+   "score": -20,
+   "pfeil": "runter",
+   "thema": "Die rasant steigenden CapEx-Investitionen im Tech-Sektor und deren Sogwirkung auf das verfügbare Kapital.",
+   "gesamtstimmung": "Markus Koch blickt mit Erstaunen, aber auch wachsender Skepsis auf die gigantischen Investitionssummen im Technologiesektor. Er warnt davor, dass die extreme Konzentration das Kapital für andere Markt- und Wirtschaftsbereiche austrocknen könnte.",
+   "begruendung": "Zwar unterstreichen die Investitionszahlen den anhaltenden Boom in der Technologiebranche, doch die Verengung des Marktes birgt Klumpenrisiken. Die Sorge vor einer einseitigen Kapitalallokation dominiert seinen Ausblick.",
+   "indikatoren": [
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Sektorale Kapitalallokation & CapEx-Konzentration",
+     "lage": "Tech-Sektor saugt Liquidität und Investitionskapital auf",
+     "pfeil": "runter",
+     "rolle": "Eine zu starke Konzentration auf ein Segment gefährdet die Stabilität des Gesamtmarktes."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Konjunktur & Kapitalverfügbarkeit",
+     "lage": "Gefahr der Austrocknung breiter Wirtschaftsbereiche",
+     "pfeil": "runter",
+     "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "steigt von 700 Mrd. auf über 1 Billion Dollar",
+     "pfeil": "hoch",
+     "rolle": "Die massiven Unternehmensausgaben treiben das Wachstum der führenden Tech-Konzerne an."
+    }
+   ],
+   "zitate": [
+    "Wie ein Sog.",
+    "Das Kapital wird trockengesaugt in nur einen Sektor."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 5717
   },
   {
    "id": "Nf6Q8OlW8M4",
@@ -737,9 +856,11 @@
   "JTMY0EjFtNE",
   "7Kbn4CNBSXY",
   "Nf6Q8OlW8M4",
-  "7Vh2ukJyHMk"
+  "7Vh2ukJyHMk",
+  "JloRSV2iBwI",
+  "OGzNe28uAqQ"
  ],
- "stand": "2026-10-09T02:54Z",
+ "stand": "2026-10-09T18:56Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",

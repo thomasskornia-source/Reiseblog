@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-08",
+ "stand": "2026-10-09",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -8,14 +8,14 @@
   {
    "kategorie": "Anleihen & Renditen",
    "status": "bestaetigt",
-   "tage_anzahl": 6,
+   "tage_anzahl": 7,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-08",
+   "zuletzt": "2026-10-09",
    "name": "US-Staatsanleiherenditen",
    "namen": [
     "US-Staatsanleiherenditen"
    ],
-   "rolle": "Sinkende Renditen nehmen Druck von den Aktienbewertungen und beruhigen die Zinsangst der Anleger.",
+   "rolle": "Sinkende Renditen nehmen den Druck von den Aktienmärkten und begünstigen eine breitere Markterholung.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -58,22 +58,30 @@
       "US-Staatsanleiherenditen"
      ],
      "rolle": "Sinkende Renditen nehmen Druck von den Aktienbewertungen und beruhigen die Zinsangst der Anleger."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Sinkende Renditen nehmen den Druck von den Aktienmärkten und begünstigen eine breitere Markterholung."
     }
    }
   },
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 6,
+   "tage_anzahl": 7,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-08",
+   "zuletzt": "2026-10-09",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
     "Marktbreite",
-    "Tech-Sektor & KI"
+    "Tech-Sektor & KI",
+    "Sektorale Kapitalallokation & CapEx-Konzentration"
    ],
-   "rolle": "Die Umschichtung in Substanz- und Finanzwerte zeigt, dass Liquidität im Markt bleibt und sich nur verteilt.",
+   "rolle": "Eine Verbesserung der Marktbreite jenseits von Big Tech ist essenziell für einen tragfähigen Bullenmarkt.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -112,26 +120,34 @@
      "rolle": "Die extreme Konzentration auf wenige Technologietitel macht den Gesamtmarkt anfällig für Korrekturen."
     },
     "2026-10-08": {
-     "p": 0,
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)",
+      "Sektorale Kapitalallokation & CapEx-Konzentration"
+     ],
+     "rolle": "Die Umschichtung in Substanz- und Finanzwerte zeigt, dass Liquidität im Markt bleibt und sich nur verteilt."
+    },
+    "2026-10-09": {
+     "p": 1,
      "namen": [
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
-     "rolle": "Die Umschichtung in Substanz- und Finanzwerte zeigt, dass Liquidität im Markt bleibt und sich nur verteilt."
+     "rolle": "Eine Verbesserung der Marktbreite jenseits von Big Tech ist essenziell für einen tragfähigen Bullenmarkt."
     }
    }
   },
   {
    "kategorie": "Öl & Rohstoffe",
    "status": "bestaetigt",
-   "tage_anzahl": 6,
+   "tage_anzahl": 7,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-08",
+   "zuletzt": "2026-10-09",
    "name": "Öl- und Dieselpreise",
    "namen": [
     "Öl- und Dieselpreise",
     "Ölpreise"
    ],
-   "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten.",
+   "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -174,6 +190,13 @@
       "Öl- und Dieselpreise"
      ],
      "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
     }
    }
   },
@@ -187,9 +210,10 @@
    "namen": [
     "Industrie- und Exportdaten (Asien & USA)",
     "Atlanta-Fed GDPNow-Indikator",
-    "Atlanta-Fed-GDPNow-Schätzung"
+    "Atlanta-Fed-GDPNow-Schätzung",
+    "Konjunktur & Kapitalverfügbarkeit"
    ],
-   "rolle": "Die hohen Investitionen im Tech-Sektor stützen die Ertragsperspektiven und widerlegen die These einer abrupten Abkühlung.",
+   "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung.",
    "tage": {
     "2026-10-01": {
      "p": 0,
@@ -220,11 +244,12 @@
      "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal."
     },
     "2026-10-08": {
-     "p": 1,
+     "p": 0,
      "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
+      "Industrie- und Exportdaten (Asien & USA)",
+      "Konjunktur & Kapitalverfügbarkeit"
      ],
-     "rolle": "Die hohen Investitionen im Tech-Sektor stützen die Ertragsperspektiven und widerlegen die These einer abrupten Abkühlung."
+     "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung."
     }
    }
   },
@@ -282,16 +307,17 @@
   {
    "kategorie": "Stimmung & Volatilität",
    "status": "bestaetigt",
-   "tage_anzahl": 4,
+   "tage_anzahl": 5,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-08",
+   "zuletzt": "2026-10-09",
    "name": "Marktpositionierung und Hebel",
    "namen": [
     "Marktpositionierung und Hebel",
     "Anleihevolatilität (MOVE-Index)",
-    "Anlegerstimmung & Depotrealität"
+    "Anlegerstimmung & Depotrealität",
+    "MOVE-Index"
    ],
-   "rolle": "Eine nachlassende Schwankungsbreite am Rentenmarkt ist für ihn die Grundvoraussetzung für stabilere Aktienmärkte.",
+   "rolle": "Eine abnehmende Anleihe-Volatilität erhöht die Stabilität an den Finanzmärkten insgesamt.",
    "tage": {
     "2026-10-01": {
      "p": 1,
@@ -320,6 +346,97 @@
       "Marktpositionierung und Hebel"
      ],
      "rolle": "Eine nachlassende Schwankungsbreite am Rentenmarkt ist für ihn die Grundvoraussetzung für stabilere Aktienmärkte."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "MOVE-Index"
+     ],
+     "rolle": "Eine abnehmende Anleihe-Volatilität erhöht die Stabilität an den Finanzmärkten insgesamt."
+    }
+   }
+  },
+  {
+   "kategorie": "Geopolitik",
+   "status": "bestaetigt",
+   "tage_anzahl": 4,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-09",
+   "name": "Nahost & Ukraine-Krieg",
+   "namen": [
+    "Nahost & Ukraine-Krieg"
+   ],
+   "rolle": "Geopolitische Konflikte halten das Risiko von Ölpreisspitzen und Lieferkettenstörungen hoch.",
+   "tage": {
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Unsicherheiten bleiben ein ständiger Belastungsfaktor für das Marktumfeld."
+    },
+    "2026-10-05": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Spannungen bleiben ein latenter Unsicherheitsfaktor für Rohstoffe und Märkte."
+    },
+    "2026-10-08": {
+     "p": -2,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Spannungen sorgen für Nervosität und unberechenbare Preissprünge beim Rohöl."
+    },
+    "2026-10-09": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Konflikte halten das Risiko von Ölpreisspitzen und Lieferkettenstörungen hoch."
+    }
+   }
+  },
+  {
+   "kategorie": "Gewinnsaison",
+   "status": "bestaetigt",
+   "tage_anzahl": 4,
+   "erstmals": "2026-10-05",
+   "zuletzt": "2026-10-09",
+   "name": "Q3-Gewinnschätzungen",
+   "namen": [
+    "Q3-Gewinnschätzungen"
+   ],
+   "rolle": "Die Bankenergebnisse zeigen den Zustand der Konjunktur und die Bonität der Verbraucher auf.",
+   "tage": {
+    "2026-10-05": {
+     "p": 2,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die bevorstehende Berichtssaison stützt die Kurse, da vor allem Tech-Werte kräftiges Ertragswachstum liefern dürften."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Hohe Ertragszuwächse im Technologiesektor rechtfertigen die Kursgewinne der Schwergewichte."
+    },
+    "2026-10-07": {
+     "p": 2,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Starke Unternehmensergebnisse ab nächster Woche könnten den Bullen wieder Rückenwind verleihen."
+    },
+    "2026-10-09": {
+     "p": 0,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die Bankenergebnisse zeigen den Zustand der Konjunktur und die Bonität der Verbraucher auf."
     }
    }
   },
@@ -366,87 +483,17 @@
    }
   },
   {
-   "kategorie": "Geopolitik",
-   "status": "bestaetigt",
-   "tage_anzahl": 3,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-08",
-   "name": "Nahost & Ukraine-Krieg",
-   "namen": [
-    "Nahost & Ukraine-Krieg"
-   ],
-   "rolle": "Geopolitische Spannungen sorgen für Nervosität und unberechenbare Preissprünge beim Rohöl.",
-   "tage": {
-    "2026-10-02": {
-     "p": -1,
-     "namen": [
-      "Nahost & Ukraine-Krieg"
-     ],
-     "rolle": "Geopolitische Unsicherheiten bleiben ein ständiger Belastungsfaktor für das Marktumfeld."
-    },
-    "2026-10-05": {
-     "p": -1,
-     "namen": [
-      "Nahost & Ukraine-Krieg"
-     ],
-     "rolle": "Geopolitische Spannungen bleiben ein latenter Unsicherheitsfaktor für Rohstoffe und Märkte."
-    },
-    "2026-10-08": {
-     "p": -2,
-     "namen": [
-      "Nahost & Ukraine-Krieg"
-     ],
-     "rolle": "Geopolitische Spannungen sorgen für Nervosität und unberechenbare Preissprünge beim Rohöl."
-    }
-   }
-  },
-  {
-   "kategorie": "Gewinnsaison",
-   "status": "bestaetigt",
-   "tage_anzahl": 3,
-   "erstmals": "2026-10-05",
-   "zuletzt": "2026-10-07",
-   "name": "Q3-Gewinnschätzungen",
-   "namen": [
-    "Q3-Gewinnschätzungen"
-   ],
-   "rolle": "Starke Unternehmensergebnisse ab nächster Woche könnten den Bullen wieder Rückenwind verleihen.",
-   "tage": {
-    "2026-10-05": {
-     "p": 2,
-     "namen": [
-      "Q3-Gewinnschätzungen"
-     ],
-     "rolle": "Die bevorstehende Berichtssaison stützt die Kurse, da vor allem Tech-Werte kräftiges Ertragswachstum liefern dürften."
-    },
-    "2026-10-06": {
-     "p": 1,
-     "namen": [
-      "Q3-Gewinnschätzungen"
-     ],
-     "rolle": "Hohe Ertragszuwächse im Technologiesektor rechtfertigen die Kursgewinne der Schwergewichte."
-    },
-    "2026-10-07": {
-     "p": 2,
-     "namen": [
-      "Q3-Gewinnschätzungen"
-     ],
-     "rolle": "Starke Unternehmensergebnisse ab nächster Woche könnten den Bullen wieder Rückenwind verleihen."
-    }
-   }
-  },
-  {
    "kategorie": "Inflation",
-   "status": "beobachtet",
-   "tage_anzahl": 2,
+   "status": "bestaetigt",
+   "tage_anzahl": 3,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-02",
+   "zuletzt": "2026-10-09",
    "name": "Inflationsdynamik",
    "namen": [
     "Inflationsdynamik",
     "Bevorstehende Inflationsdaten (CPI)"
    ],
-   "rolle": "Anhaltende Preissorgen könnten die Erholung am Anleihe- und Aktienmarkt dämpfen.",
+   "rolle": "Hartnäckige Inflationsdaten könnten die Notenbank zu längeren Zinserhöhungsphasen zwingen.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -461,6 +508,41 @@
       "Bevorstehende Inflationsdaten (CPI)"
      ],
      "rolle": "Anhaltende Preissorgen könnten die Erholung am Anleihe- und Aktienmarkt dämpfen."
+    },
+    "2026-10-09": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Hartnäckige Inflationsdaten könnten die Notenbank zu längeren Zinserhöhungsphasen zwingen."
+    }
+   }
+  },
+  {
+   "kategorie": "Politik & Zölle",
+   "status": "beobachtet",
+   "tage_anzahl": 2,
+   "erstmals": "2026-10-07",
+   "zuletzt": "2026-10-09",
+   "name": "US-Zollpolitik & Schuldenpläne",
+   "namen": [
+    "US-Zollpolitik & Schuldenpläne"
+   ],
+   "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt.",
+   "tage": {
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein."
+    },
+    "2026-10-09": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt."
     }
    }
   },
@@ -486,23 +568,23 @@
    }
   },
   {
-   "kategorie": "Politik & Zölle",
+   "kategorie": "Sonstiges",
    "status": "neu",
    "tage_anzahl": 1,
-   "erstmals": "2026-10-07",
-   "zuletzt": "2026-10-07",
-   "name": "US-Zollpolitik & Schuldenpläne",
+   "erstmals": "2026-10-08",
+   "zuletzt": "2026-10-08",
+   "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
-    "US-Zollpolitik & Schuldenpläne"
+    "Tech-Investitionszyklus (CapEx)"
    ],
-   "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein.",
+   "rolle": "Die massiven Unternehmensausgaben treiben das Wachstum der führenden Tech-Konzerne an.",
    "tage": {
-    "2026-10-07": {
-     "p": -1,
+    "2026-10-08": {
+     "p": 1,
      "namen": [
-      "US-Zollpolitik & Schuldenpläne"
+      "Tech-Investitionszyklus (CapEx)"
      ],
-     "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein."
+     "rolle": "Die massiven Unternehmensausgaben treiben das Wachstum der führenden Tech-Konzerne an."
     }
    }
   }

@@ -1,4 +1,5 @@
 Feed: 15 Videos
+   OGzNe28uAqQ 2026-10-09 KI-Comeback. Drosselt Apple die iPhone 18 Produktion?
    7Vh2ukJyHMk 2026-10-08 Bounce bei Non-Tech. Meldung um Open AI trifft KI-Werte.
    JloRSV2iBwI 2026-10-08 700 Milliarden letztes Jahr. Eine Billion dieses Jahr. 📊
    Nf6Q8OlW8M4 2026-10-08 Trump droht Iran. Öl und Renditen ziehen an, mit Tech unter Druck.
@@ -6,41 +7,6 @@ Feed: 15 Videos
    JTMY0EjFtNE 2026-10-07 Der S&P 500 hat 500 Werte. Aber 10 entscheiden alles. 📈
    7Kbn4CNBSXY 2026-10-07 KI-Boom außer Kontrolle? 40 Milliarden für Nvidia-Chips!
    Hk_FImctS2I 2026-10-06 Rekorde - in einem schiefen Markt.
-   OFHkUYRHiMU 2026-10-06 Der Index steigt. Dein Depot nicht. 📊
-Werte aus: 7Vh2ukJyHMk Bounce bei Non-Tech. Meldung um Open AI trifft KI-Werte. 2026-10-08 closing
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-  Score 20 Pfeil hoch (180140 Tokens)
 Werte aus: JloRSV2iBwI 700 Milliarden letztes Jahr. Eine Billion dieses Jahr. 📊 2026-10-08 closing
 gemini-3.8-flash: HTTP 503 {
   "error": {
@@ -50,10 +16,14 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
-gemini-3.8-flash: HTTP 429 {
+gemini-3.8-flash: HTTP 503 {
   "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
 gemini-3.7-flash: HTTP 503 {
   "error": {
     "code": 503,
@@ -62,19 +32,6 @@ gemini-3.7-flash: HTTP 503 {
   }
 }
 
-gemini-3.7-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
-gemini-flash-latest: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
-gemini-flash-latest: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
-  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
+  Score -20 Pfeil runter (5717 Tokens)
+Werte aus: OGzNe28uAqQ KI-Comeback. Drosselt Apple die iPhone 18 Produktion? 2026-10-09 opening
+  Score 20 Pfeil hoch (117302 Tokens)
