@@ -1847,6 +1847,7 @@ function compute(P) {
     var o = {}; ['abf', 'exitY', 'exitM', 'z1y', 'z1p', 'z2y', 'z2p', 'z3y', 'z3p'].forEach(function (k) { var v = parseFloat(String(w[k]).replace(',', '.')); o[k] = isFinite(v) && v >= 0 && v < 1e8 ? v : 0; });
     return o;
   }
+  function isAbf(o) { return !!o && typeof o === 'object' && (o.app === 'abfindung' || (o.werte && typeof o.werte === 'object' && 'abf' in o.werte)); }
   function abfApply(o) {
     ABF = abfClean(o.werte || {});
     if (!(ABF.abf > 0)) { ABF = null; throw new Error('abf'); }
@@ -1910,8 +1911,8 @@ function compute(P) {
     Promise.all(fl.map(function (f) { return new Promise(function (ok) { var r = new FileReader(); r.onload = function () { try { ok(JSON.parse(String(r.result))); } catch (e) { ok(null); } }; r.onerror = function () { ok(null); }; r.readAsText(f); }); })).then(function (all) {
       var msg = [], bad = 0;
       all.filter(function (o) { return o && o.app === 'finanzplanung'; }).forEach(function (o) { try { applyState(o); msg.push('Planer-Stand'); } catch (e) { bad++; } });
-      all.filter(function (o) { return o && o.app === 'abfindung'; }).forEach(function (o) { try { abfApply(o); msg.push('Abfindung'); } catch (e) { bad++; } });
-      if (!all.some(function (o) { return o && (o.app === 'finanzplanung' || o.app === 'abfindung'); })) bad = 1;
+      all.filter(isAbf).forEach(function (o) { try { abfApply(o); msg.push('Abfindung'); } catch (e) { bad++; } });
+      if (!all.some(function (o) { return o && (o.app === 'finanzplanung' || isAbf(o)); })) bad = 1;
       svMsg(msg.length ? msg.join(' und ') + ' aus Datei geladen.' + (bad ? ' Eine Datei war ungültig.' : '') : 'Diese Datei ist kein gültiger Planer-Stand.'); inp.value = '';
     });
   });
