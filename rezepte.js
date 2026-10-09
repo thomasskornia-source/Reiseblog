@@ -16,6 +16,7 @@
     'mandel-biskuit-boden': ['🥧', '#F3DDB0', '#D9A86A'],
     'falafel-smash-burger-karotten-zaziki': ['🍔', '#F2B86B', '#C9702E'],
     'kaiserschmarrn-mit-apfelmus': ['🥞', '#F8CE86', '#E0883F', 'kaiserschmarrn-mit-apfelmus-1.jpg'],
+    'melanzana-alla-cioccolata': ['🍫', '#8A5A3C', '#3E2418', 'melanzana-alla-cioccolata-1.jpg'],
     'kichererbsen-gruenkohl-pfanne-feta': ['🥬', '#B6D48A', '#5F9A57'],
     'makrele-weisse-bohnen-rucola-salat': ['🐟', '#8FC1D4', '#3E7F9A'],
     'tempeh-erdnuss-pfanne-brokkoli': ['🥜', '#E5B77A', '#B5762F'],
