@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "7Vh2ukJyHMk",
+   "titel": "Bounce bei Non-Tech. Meldung um Open AI trifft KI-Werte.",
+   "datum": "2026-10-08",
+   "zeit": "2026-10-08T20:56:54+00:00",
+   "art": "closing",
+   "score": 20,
+   "pfeil": "hoch",
+   "thema": "Markus Koch analysiert die Sektorrotation raus aus KI-Titeln in zurückgebliebene Branchen sowie die Stabilisierung am US-Anleihemarkt trotz geopolitischer Unruhe und schwankender Ölpreise.",
+   "gesamtstimmung": "Die Marktstimmung ist konstruktiv, da eine gesunde Sektorrotation und erste Entspannungssignale bei den Anleiherenditen den Gesamtmarkt stützen. Die Panik um angebliche Wachstumsschwächen bei OpenAI hält Koch für übertrieben und sieht die Korrekturen bei Tech als Jammern auf hohem Niveau.",
+   "begruendung": "Koch wertet die Beruhigung an den Rentenmärkten und die nachlassende Anleihevolatilität als wichtiges Fundament für Aktien. Zudem sind weite Teile des Marktes überverkauft, was zusammen mit der typischen Q4-Saisonalität Potenzial für eine Gegenbewegung bietet.",
+   "indikatoren": [
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "stabilisieren sich nach erfolgreichen Auktionen bei 5,23 %",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Renditen nehmen Druck von den Aktienbewertungen und beruhigen die Zinsangst der Anleger."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "MOVE-Index fällt und signalisiert sinkende Anleihevolatilität",
+     "pfeil": "hoch",
+     "rolle": "Eine nachlassende Schwankungsbreite am Rentenmarkt ist für ihn die Grundvoraussetzung für stabilere Aktienmärkte."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "starke Rotation aus KI-Werten in zurückgebliebene Sektoren",
+     "pfeil": "hoch",
+     "rolle": "Die Umschichtung in Substanz- und Finanzwerte zeigt, dass Liquidität im Markt bleibt und sich nur verteilt."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "deutlich im Plus, WTI steigt um über 3 Prozent",
+     "pfeil": "runter",
+     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "über 40 % der S&P-Aktien überverkauft vor saisonal starkem Jahresendspurt",
+     "pfeil": "hoch",
+     "rolle": "Die Kombination aus bereinigter Markttechnik und historisch bullischem Schlussquartal begünstigt eine Erholung."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Iran-Konflikt treibt Ölpreis, von Trump-Rhetorik kurzfristig gedämpft",
+     "pfeil": "runter",
+     "rolle": "Geopolitische Spannungen sorgen für Nervosität und unberechenbare Preissprünge beim Rohöl."
+    }
+   ],
+   "zitate": [
+    "Das ist schon Jammern auf einem sehr hohen Niveau.",
+    "Wir sehen erste Zeichen einer Stabilisierung bei Staatsanleihen."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-flash-latest",
+   "tokens": 180140
+  },
+  {
    "id": "Nf6Q8OlW8M4",
    "titel": "Trump droht Iran. Öl und Renditen ziehen an, mit Tech unter Druck.",
    "datum": "2026-10-08",
@@ -673,9 +736,10 @@
   "9RAR_wp0anA",
   "JTMY0EjFtNE",
   "7Kbn4CNBSXY",
-  "Nf6Q8OlW8M4"
+  "Nf6Q8OlW8M4",
+  "7Vh2ukJyHMk"
  ],
- "stand": "2026-10-09T00:02Z",
+ "stand": "2026-10-09T02:54Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
