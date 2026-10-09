@@ -1,6 +1,62 @@
 {
  "beitraege": [
   {
+   "id": "Nf6Q8OlW8M4",
+   "titel": "Trump droht Iran. Öl und Renditen ziehen an, mit Tech unter Druck.",
+   "datum": "2026-10-08",
+   "zeit": "2026-10-08T14:56:16+00:00",
+   "art": "opening",
+   "score": -10,
+   "pfeil": "seitwaerts",
+   "thema": "Der US-Aktienmarkt startet unter Druck durch steigende Ölpreise, feste Renditen und die fragile Marktbreite, während Anleiheauktionen und Chip-Nachfrage stützen.",
+   "gesamtstimmung": "Markus Koch blickt vorsichtig bis leicht verhalten auf die Wall Street, da der Markt extrem kopflastig von Tech getragen wird und geopolitische Spannungen belasten. Gleichzeitig sieht er die Eröffnungsreaktion als etwas überzogen an, weil sich Anleihemärkte und Rohstoffpreise robuster zeigen als befürchtet.",
+   "begruendung": "Belastend wirken die schwache Marktbreite, der anhaltende Druck auf zyklische Sektoren und die Schlagzeilen rund um den Nahen Osten. Ausgleichend wirken die solide Nachfrage bei den jüngsten Anleiheauktionen sowie die ungebrochene Dynamik im globalen Halbleiter- und KI-Sektor.",
+   "indikatoren": [
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Ausgesprochen schlecht, Großteil der Sektoren seit August im Minus",
+     "pfeil": "runter",
+     "rolle": "Er betont die Zerrissenheit des Marktes, bei dem fast nur Tech- und Energiewerte die neuen Hochs stützen."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "WTI rund 4 % im Plus, aber Dynamik seit September eher gebremst",
+     "pfeil": "runter",
+     "rolle": "Steigende Ölpreise befeuern Inflationssorgen, wenngleich er den Anstieg im Kontext der Schlagzeilen als vergleichsweise moderat einordnet."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Renditen steigen leicht, 10-jährige scheitern jedoch wiederholt an der 5,35%-Mar",
+     "pfeil": "seitwaerts",
+     "rolle": "Er achtet auf Signale einer Stabilisierung am Rentenmarkt nach soliden Auktionen bei zehn- und dreißigjährigen Papieren."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Drohende Eskalation und Spekulationen über militärische Schritte gegen den Iran",
+     "pfeil": "runter",
+     "rolle": "Die geopolitischen Risiken schüren Unsicherheit vor den US-Wahlen, auch wenn Bodentruppen unwahrscheinlich bleiben."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Industrie- und Exportdaten (Asien & USA)",
+     "lage": "Globale Halbleiterumsätze und KI-Investitionen laufen auf Rekordniveau",
+     "pfeil": "hoch",
+     "rolle": "Die hohen Investitionen im Tech-Sektor stützen die Ertragsperspektiven und widerlegen die These einer abrupten Abkühlung."
+    }
+   ],
+   "zitate": [
+    "Die Marktbreite ist ausgesprochen schlecht.",
+    "wirkt die Reaktion der Wall Street zum Opening erstmal ein bisschen überzogen"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 135517
+  },
+  {
    "id": "9RAR_wp0anA",
    "titel": "Licht am Ende des Tunnels: Zug oder Lichtblick?",
    "datum": "2026-10-07",
@@ -616,9 +672,10 @@
   "OFHkUYRHiMU",
   "9RAR_wp0anA",
   "JTMY0EjFtNE",
-  "7Kbn4CNBSXY"
+  "7Kbn4CNBSXY",
+  "Nf6Q8OlW8M4"
  ],
- "stand": "2026-10-07T23:50Z",
+ "stand": "2026-10-09T00:02Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",

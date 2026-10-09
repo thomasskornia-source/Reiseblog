@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-07",
+ "stand": "2026-10-08",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -8,14 +8,14 @@
   {
    "kategorie": "Anleihen & Renditen",
    "status": "bestaetigt",
-   "tage_anzahl": 5,
+   "tage_anzahl": 6,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-07",
+   "zuletzt": "2026-10-08",
    "name": "US-Staatsanleiherenditen",
    "namen": [
     "US-Staatsanleiherenditen"
    ],
-   "rolle": "Die Renditeentwicklung gilt als zentraler Bremsklotz, dessen Entspannung zwingend für eine breite Erholung nötig ist.",
+   "rolle": "Er achtet auf Signale einer Stabilisierung am Rentenmarkt nach soliden Auktionen bei zehn- und dreißigjährigen Papieren.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -51,22 +51,29 @@
       "US-Staatsanleiherenditen"
      ],
      "rolle": "Die Renditeentwicklung gilt als zentraler Bremsklotz, dessen Entspannung zwingend für eine breite Erholung nötig ist."
+    },
+    "2026-10-08": {
+     "p": 0,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Er achtet auf Signale einer Stabilisierung am Rentenmarkt nach soliden Auktionen bei zehn- und dreißigjährigen Papieren."
     }
    }
   },
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 5,
+   "tage_anzahl": 6,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-07",
+   "zuletzt": "2026-10-08",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
     "Marktbreite",
     "Tech-Sektor & KI"
    ],
-   "rolle": "Die extreme Konzentration auf wenige Technologietitel macht den Gesamtmarkt anfällig für Korrekturen.",
+   "rolle": "Er betont die Zerrissenheit des Marktes, bei dem fast nur Tech- und Energiewerte die neuen Hochs stützen.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -103,21 +110,28 @@
       "Tech-Sektor & KI"
      ],
      "rolle": "Die extreme Konzentration auf wenige Technologietitel macht den Gesamtmarkt anfällig für Korrekturen."
+    },
+    "2026-10-08": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Er betont die Zerrissenheit des Marktes, bei dem fast nur Tech- und Energiewerte die neuen Hochs stützen."
     }
    }
   },
   {
    "kategorie": "Öl & Rohstoffe",
    "status": "bestaetigt",
-   "tage_anzahl": 5,
+   "tage_anzahl": 6,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-07",
+   "zuletzt": "2026-10-08",
    "name": "Öl- und Dieselpreise",
    "namen": [
     "Öl- und Dieselpreise",
     "Ölpreise"
    ],
-   "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten.",
+   "rolle": "Steigende Ölpreise befeuern Inflationssorgen, wenngleich er den Anstieg im Kontext der Schlagzeilen als vergleichsweise moderat einordnet.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -153,22 +167,29 @@
       "Öl- und Dieselpreise"
      ],
      "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
+    },
+    "2026-10-08": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Steigende Ölpreise befeuern Inflationssorgen, wenngleich er den Anstieg im Kontext der Schlagzeilen als vergleichsweise moderat einordnet."
     }
    }
   },
   {
    "kategorie": "Konjunktur",
    "status": "bestaetigt",
-   "tage_anzahl": 4,
+   "tage_anzahl": 5,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-07",
+   "zuletzt": "2026-10-08",
    "name": "Industrie- und Exportdaten (Asien & USA)",
    "namen": [
     "Industrie- und Exportdaten (Asien & USA)",
     "Atlanta-Fed GDPNow-Indikator",
     "Atlanta-Fed-GDPNow-Schätzung"
    ],
-   "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal.",
+   "rolle": "Die hohen Investitionen im Tech-Sektor stützen die Ertragsperspektiven und widerlegen die These einer abrupten Abkühlung.",
    "tage": {
     "2026-10-01": {
      "p": 0,
@@ -197,6 +218,13 @@
       "Atlanta-Fed-GDPNow-Schätzung"
      ],
      "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal."
+    },
+    "2026-10-08": {
+     "p": 1,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Die hohen Investitionen im Tech-Sektor stützen die Ertragsperspektiven und widerlegen die These einer abrupten Abkühlung."
     }
    }
   },
@@ -287,6 +315,41 @@
    }
   },
   {
+   "kategorie": "Geopolitik",
+   "status": "bestaetigt",
+   "tage_anzahl": 3,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-08",
+   "name": "Nahost & Ukraine-Krieg",
+   "namen": [
+    "Nahost & Ukraine-Krieg"
+   ],
+   "rolle": "Die geopolitischen Risiken schüren Unsicherheit vor den US-Wahlen, auch wenn Bodentruppen unwahrscheinlich bleiben.",
+   "tage": {
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Unsicherheiten bleiben ein ständiger Belastungsfaktor für das Marktumfeld."
+    },
+    "2026-10-05": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Spannungen bleiben ein latenter Unsicherheitsfaktor für Rohstoffe und Märkte."
+    },
+    "2026-10-08": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Die geopolitischen Risiken schüren Unsicherheit vor den US-Wahlen, auch wenn Bodentruppen unwahrscheinlich bleiben."
+    }
+   }
+  },
+  {
    "kategorie": "Gewinnsaison",
    "status": "bestaetigt",
    "tage_anzahl": 3,
@@ -355,34 +418,6 @@
       "Anlegerstimmung & Depotrealität"
      ],
      "rolle": "Beschreibt die Frustration der Anleger, die an der Indexrallye nicht in der Breite teilhaben."
-    }
-   }
-  },
-  {
-   "kategorie": "Geopolitik",
-   "status": "beobachtet",
-   "tage_anzahl": 2,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-05",
-   "name": "Nahost & Ukraine-Krieg",
-   "namen": [
-    "Nahost & Ukraine-Krieg"
-   ],
-   "rolle": "Geopolitische Spannungen bleiben ein latenter Unsicherheitsfaktor für Rohstoffe und Märkte.",
-   "tage": {
-    "2026-10-02": {
-     "p": -1,
-     "namen": [
-      "Nahost & Ukraine-Krieg"
-     ],
-     "rolle": "Geopolitische Unsicherheiten bleiben ein ständiger Belastungsfaktor für das Marktumfeld."
-    },
-    "2026-10-05": {
-     "p": -1,
-     "namen": [
-      "Nahost & Ukraine-Krieg"
-     ],
-     "rolle": "Geopolitische Spannungen bleiben ein latenter Unsicherheitsfaktor für Rohstoffe und Märkte."
     }
    }
   },
