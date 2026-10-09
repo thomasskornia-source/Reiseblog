@@ -1955,6 +1955,9 @@ function compute(P) {
         '<div class="st-rows"><div class="st-row"><span>Vermögen bei Rente</span><b>' + eur(ret.net) + '</b></div><div class="st-row"><span>Netto heute pro Monat</span><b>' + eur(L.netMonth) + '</b></div></div>' +
         '<p>' + (P.status === 'verheiratet' ? 'Als Ehepaar profitiert ihr vom Splittingtarif und zwei Freibeträgen. ' : '') + 'Zwei Einkommen und zwei Renten geben Sicherheit, falls einer mal ausfällt.</p>' });
     }
+    if (R.stop) c.push({ t: 't-blue', h: '<div class="st-eye">Szenario: Job beenden</div><h2>Ab dem Ausstieg ohne Gehalt</h2><div class="st-big">' + cnt(R.stop.wReal, 'eur') + '</div><div class="st-sub">pro Monat aus dem Vermögen, bis zur Rente (heutige Kaufkraft)</div>' +
+      '<div class="st-rows"><div class="st-row"><span>Letzter Arbeitstag mit</span><b>' + ageText(R.stop.quitAge) + '</b></div><div class="st-row"><span>Jahre bis zur Rente</span><b>' + num(R.stop.years, 1) + '</b></div><div class="st-row"><span>Gesetzliche Rente brutto</span><b>' + eur(R.pg.v) + '</b></div></div>' +
+      '<p>' + (R.stop.depAge ? 'Das Vermögen reicht nur bis ' + ageText(R.stop.depAge) + '.' : 'Das Vermögen reicht bis zur Rente.') + ' Alle folgenden Karten rechnen mit diesem Szenario.</p>' });
     // 3 Renteneintritt
     var gain = Math.max(0, ret.net - ret.paid), wPaid = ret.net > 0 ? Math.min(100, ret.paid / ret.net * 100) : 0;
     c.push({ t: 't-rust', h: '<div class="st-eye">Mit ' + ageText(R.retAge) + ' in Rente, ca. ' + R.retYear + '</div><h2>So viel steht dann bereit</h2><div class="st-big">' + cnt(ret.net, 'eur') + '</div>' +
