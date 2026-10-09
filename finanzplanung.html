@@ -828,7 +828,7 @@ function simulate(c) {
   };
   rec(0);
   for (let i = 0; i < N; i++) {
-    if (c.inj && i === c.inj.at && c.inj.v > 0) { S += c.inj.v; paid += c.inj.v; }
+    if (c.inj && i === c.inj.at && c.inj.v > 0) { const v = c.inj.v; S += v * a.S; E += v * a.E; Ec += v * a.E; A += v * a.A; Ac += v * a.A; paid += v; }
     if (c.wd && i >= c.wd.from && i < c.wd.to) {
       // Lebenshaltung nach dem Ausstieg aus dem Vermögen: brutto so viel entnehmen, dass nach Steuern auf die Gewinne der Betrag bleibt
       const w = c.wd.w * Math.pow(1 + c.wd.infl, i / 12), G = S + E + A;
@@ -1435,6 +1435,7 @@ function compute(P) {
     });
     var marks = [{ x: R.retAge, label: 'Rente ' + ageText(R.retAge), row: 0 }, { x: R.wunsch, label: 'Wunsch ' + R.wunsch, row: 0 }];
     if (Math.abs(R.retAge - R.wunsch) < 4) { marks[1].row = 1; if (R.wunsch < R.retAge) { marks[0].row = 1; marks[1].row = 0; } }
+    if (R.stop) { var qa = R.stop.quitAge, near = Math.abs(qa - R.retAge) < 4 || Math.abs(qa - R.wunsch) < 4; marks.push({ x: qa, label: 'Ausstieg ' + ageText(qa), row: near ? 1 : 0 }); if (near && marks[0].row === 1) marks[2].row = 0; }
     var o1 = baseOpts(t);
     o1.scales.x = { type: 'linear', min: R.age0, max: xMax, grid: { display: false }, border: { color: t.line }, ticks: { color: t.muted, stepSize: xMax - R.age0 > 30 ? 5 : 2, callback: function (v) { return Number.isInteger(v) ? v : ''; } }, title: { display: true, text: 'Alter', color: t.muted } };
     o1.plugins.markers = { items: marks, color: t.muted, text: t.ink2, font: t.font, cross: t.muted };
