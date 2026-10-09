@@ -32,7 +32,10 @@
 .switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .stopbody { display: flex; flex-direction: column; gap: 14px; }
 .stopbody[hidden] { display: none; }
-.stopin { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: end; }
+.stopin { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+.stopin input { height: 44px; text-align: left; }
+input[type=date] { -webkit-appearance: none; appearance: none; display: block; line-height: 1.2; }
+input[type=date]::-webkit-date-and-time-value { text-align: left; margin: 0; }
 .stopin .f > span, .con .nw { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
 .stopout { display: flex; flex-direction: column; gap: 10px; }
 .stopout p { font-size: 14.5px; line-height: 1.55; }
@@ -409,9 +412,10 @@ body.fp-body { padding-bottom: 0; }
     <div class="stopbody" id="stopBody" hidden>
       <div class="stopin">
         <label class="f" for="stopDate"><span>Letzter Arbeitstag</span><input id="stopDate" type="date"></label>
+        <label class="f" for="stopAbf"><span>Abfindung (netto)</span><input id="stopAbf" type="number" inputmode="decimal" min="0" step="1000" placeholder="€"></label>
         <label class="f" for="stopLeben"><span>Ausgaben pro Monat</span><input id="stopLeben" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
       </div>
-      <p class="small">Ohne Datum gilt: ab sofort. Ausgaben leer lassen = deine Ausgaben im Ruhestand, sonst Netto minus Sparrate.</p>
+      <p class="small">Ohne Datum gilt: ab sofort. Die Abfindung kommt am letzten Arbeitstag zum Vermögen dazu (Nettowert, z. B. von der Abfindungsseite). Ausgaben leer lassen = deine Ausgaben im Ruhestand, sonst Netto minus Sparrate.</p>
       <details class="more"><summary>Weitere Annahmen</summary>
         <div class="stopin" style="margin-top:12px">
           <label class="f" for="stopExtra"><span>Weitere Einnahmen</span><input id="stopExtra" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
@@ -804,6 +808,7 @@ function simulate(c) {
   };
   rec(0);
   for (let i = 0; i < N; i++) {
+    if (c.inj && i === c.inj.at && c.inj.v > 0) { S += c.inj.v; paid += c.inj.v; }
     if (c.wd && i >= c.wd.from && i < c.wd.to) {
       // Lebenshaltung nach dem Ausstieg aus dem Vermögen: brutto so viel entnehmen, dass nach Steuern auf die Gewinne der Betrag bleibt
       const w = c.wd.w * Math.pow(1 + c.wd.infl, i / 12), G = S + E + A;
@@ -872,7 +877,7 @@ function compute(P) {
     const kv = stop.kv >= 0 ? stop.kv : kvAuto;
     const wReal = Math.max(0, living + kv - extra);
     wdSpec = { from: Math.round((quitAge - age0) * 12), to: Math.round((retAge - age0) * 12), w: wReal, infl: P.infl };
-    stopInfo = { quitAge, inYears: quitAge - age0, years: retAge - quitAge, living, extra, extraAuto, kv, kvAuto, wReal, cap: 0, capLow: 0, capWork: 0, rent: 0, rentLow: 0, rentWork: 0, depAge: null, capQuit: 0, capRet: 0 };
+    stopInfo = { quitAge, inYears: quitAge - age0, years: retAge - quitAge, living, extra, extraAuto, kv, kvAuto, wReal, abf: P.stop.abf || 0, cap: 0, capLow: 0, capWork: 0, rent: 0, rentLow: 0, rentWork: 0, depAge: null, capQuit: 0, capRet: 0 };
   }
   const wunsch = Math.max(P.wunsch, age0 + 1);
   const endAge = Math.max(wunsch, retAge, age0 + 1);
@@ -884,13 +889,13 @@ function compute(P) {
   const aS = Math.max(0, 1 - P.aE - P.aA);
   const mix = { S: aS, E: P.aE, A: P.aA };
   const rates = { S: P.rS, E: P.rE, A: P.rA };
-  const base = { age0, months, W0: P.W0, monthly: P.sparrate, dyn: P.dyn, saveMonths, alloc: mix, rates, t, fb, wd: wdSpec };
+  const base = { age0, months, W0: P.W0, monthly: P.sparrate, dyn: P.dyn, saveMonths, alloc: mix, rates, t, fb, wd: wdSpec, inj: stop && stop.abf > 0 ? { at: Math.round((quitAge - age0) * 12), v: stop.abf } : null };
   const run = o => simulate(Object.assign({}, base, o));
   const sim = run({});
   const infl = f => Math.pow(1 + P.infl, f);
   const retYear = P.rentenbeginn > 0 ? P.rentenbeginn : Math.floor(P.by + retAge);
   const at = { today: sim.at(age0), ret: sim.at(retAge), wunsch: sim.at(wunsch) };
-  if (stopInfo) { stopInfo.depAge = sim.dep !== null ? age0 + (sim.dep + 1) / 12 : null; stopInfo.capQuit = sim.at(quitAge).net; stopInfo.capRet = at.ret.net; }
+  if (stopInfo) { stopInfo.depAge = sim.dep !== null ? age0 + (sim.dep + 1) / 12 : null; stopInfo.capQuit = sim.at(quitAge).net + stopInfo.abf; stopInfo.capRet = at.ret.net; }
   const ni = netIncome(P);
   const netYear = P.netto != null ? P.netto * 12 : ni.net;
   const netMonth = netYear / 12;
@@ -1052,7 +1057,7 @@ function compute(P) {
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var DEF = { stopOn: '0', stopDate: '', stopLeben: '', stopExtra: '', stopKv: '', stopZins: '2', stopRente: '', vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: '', kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: '', kfMietG: '', kfRend: '' };
+  var DEF = { stopOn: '0', stopDate: '', stopLeben: '', stopExtra: '', stopKv: '', stopZins: '2', stopAbf: '', stopRente: '', vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: '', kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: '', kfMietG: '', kfRend: '' };
 
   var AUS = [
     ['aWohnen', 'Wohnen', 'Miete bzw. Wohnkosten, Nebenkosten, Energie', 1100],
@@ -1128,7 +1133,7 @@ function compute(P) {
     P.retOverride = 0;
     var sd = $('stopDate').value, sy = 0, blank = function (id, hi) { return String($(id).value).trim() === '' ? -1 : rd(id, 0, 0, hi); };
     if (/^\d{4}-\d{2}-\d{2}$/.test(sd)) sy = Math.max(0, (Date.parse(sd + 'T12:00:00') - Date.now()) / (365.25 * 864e5));
-    P.stop = { on: $('stopOn').value === '1', inYears: sy, living: rd('stopLeben', 0, 0, 1e5), extra: blank('stopExtra', 1e5), kv: blank('stopKv', 1e4), zins: rd('stopZins', 2, -2, 8) / 100, renteBisher: rd('stopRente', 0, 0, 20000) };
+    P.stop = { on: $('stopOn').value === '1', inYears: sy, living: rd('stopLeben', 0, 0, 1e5), extra: blank('stopExtra', 1e5), kv: blank('stopKv', 1e4), abf: rd('stopAbf', 0, 0, 5e6), zins: rd('stopZins', 2, -2, 8) / 100, renteBisher: rd('stopRente', 0, 0, 20000) };
     var kb = function (id, d, lo, hi) { return String($(id).value).trim() === '' ? d : rd(id, d, lo, hi) / 100; };
     P.kauf.wert = kb('kfWert', Math.max(P.infl, 0.035), -5, 10); P.kauf.mietg = kb('kfMietG', P.infl, -2, 10);
     P.kauf.rend = kb('kfRend', P.rE * (1 - kapStRate(P.kirche) * (1 - K.TEILFREI)), -2, 15);
@@ -1276,7 +1281,7 @@ function compute(P) {
     var cls = S.depAge ? 'crit' : (R.quota >= 0.8 ? 'good' : (R.quota >= 0.6 ? 'warn' : 'crit'));
     var vt = S.depAge ? '✕ Das Vermögen ist mit ' + ageJ(S.depAge) + ' aufgebraucht, bis zur Rente fehlt Geld' : (R.quota >= 0.8 ? '✓ Im Ruhestand bleiben ' + pct(R.quota) + ' vom heutigen Netto' : (R.quota >= 0.6 ? '! Im Ruhestand bleiben nur ' + pct(R.quota) + ' vom heutigen Netto' : '✕ Im Ruhestand bleiben nur ' + pct(R.quota) + ' vom heutigen Netto'));
     var h = '<span class="verdict ' + cls + '">' + vt + '</span>';
-    h += '<p>Du hörst <b>' + when + '</b> mit ' + ageJ(S.quitAge) + ' auf. Bis zum Renteneintritt mit ' + ageJ(R.retAge) + ' sind das <b>' + yTxt + '</b> ohne Gehalt. In dieser Zeit lebst du vom Vermögen: Ausgaben ' + eur(S.living) + ' plus Kranken- und Pflegeversicherung ' + eur(S.kv) + (S.extra > 0 ? ' minus Einnahmen ' + eur(S.extra) : '') + ' sind <b>' + eur(S.wReal) + ' pro Monat</b> (heutige Kaufkraft). Das Vermögen geht dabei von ' + eur(S.capQuit / dflQ) + ' auf ' + eur(S.capRet / dfl) + ' zurück (heutige Kaufkraft), und die Sparrate von ' + eur(P.sparrate) + ' entfällt.</p>';
+    h += '<p>Du hörst <b>' + when + '</b> mit ' + ageJ(S.quitAge) + ' auf. Bis zum Renteneintritt mit ' + ageJ(R.retAge) + ' sind das <b>' + yTxt + '</b> ohne Gehalt. In dieser Zeit lebst du vom Vermögen: Ausgaben ' + eur(S.living) + ' plus Kranken- und Pflegeversicherung ' + eur(S.kv) + (S.extra > 0 ? ' minus Einnahmen ' + eur(S.extra) : '') + ' sind <b>' + eur(S.wReal) + ' pro Monat</b> (heutige Kaufkraft). Das Vermögen geht dabei von ' + eur(S.capQuit / dflQ) + ' auf ' + eur(S.capRet / dfl) + ' zurück (heutige Kaufkraft), und die Sparrate von ' + eur(P.sparrate) + ' entfällt.' + (S.abf > 0 ? ' Darin enthalten ist deine Abfindung von ' + eur(S.abf) + ' netto.' : '') + '</p>';
     h += tb;
     var gB = B.pg.v, gA = R.pg.v;
     h += '<p>Gesetzliche Rente: Ohne weitere Beiträge sinkt die Regelaltersrente brutto von ' + eur(gB) + ' auf <b>' + eur(gA) + ' pro Monat</b>' + (R.pg.src === 'bisher' ? ' (deine bisher erreichte Rente laut Renteninformation).' : (R.pg.src === 'info' ? ' (gekürzt um die fehlenden Beitragsjahre).' : ' (gerechnet nur mit den Beitragsjahren bis zum Ausstieg).')) + '</p>';
@@ -1285,7 +1290,7 @@ function compute(P) {
     } else if (P.contracts.some(function (c) { return c.type === 'bav' || c.type === 'bkap'; })) {
       h += '<p class="small">Bei deinen Betriebsverträgen fehlen „Guthaben heute“ und „Garantie zum Ablauf“. Trage sie unter „Versicherungen und Vorsorgeverträge“ ein, dann rechnet das Szenario mit echten Werten statt anteilig nach Berufsjahren.</p>';
     }
-    h += '<p class="small">Grobe Rechnung. Nicht enthalten: Abfindung, Arbeitslosengeld, Sperrzeit und Steuern auf diese Zahlungen. Kranken- und Pflegeversicherung ist als Mindestbeitrag geschätzt, Kapitalerträge und Betriebsrenten können ihn erhöhen; ist dein Ehepartner gesetzlich versichert, kann eine Familienversicherung greifen. Wer vor der Regelaltersgrenze in Rente will, braucht die Wartezeit (35 bzw. 45 Beitragsjahre), Zeiten ohne Beitrag zählen meist nicht. Dein Partner bzw. deine Partnerin arbeitet in der Rechnung weiter.</p>';
+    h += '<p class="small">Grobe Rechnung. Nicht enthalten: Arbeitslosengeld, Sperrzeit und Steuern auf diese Zahlungen. Kranken- und Pflegeversicherung ist als Mindestbeitrag geschätzt, Kapitalerträge und Betriebsrenten können ihn erhöhen; ist dein Ehepartner gesetzlich versichert, kann eine Familienversicherung greifen. Wer vor der Regelaltersgrenze in Rente will, braucht die Wartezeit (35 bzw. 45 Beitragsjahre), Zeiten ohne Beitrag zählen meist nicht. Dein Partner bzw. deine Partnerin arbeitet in der Rechnung weiter.</p>';
     out.innerHTML = h;
   }
   function exitRender(R, P, netMonth, ausTot0, two) {
