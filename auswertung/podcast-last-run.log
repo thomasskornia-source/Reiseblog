@@ -4,6 +4,7 @@ Kanal theprofgpod -> UCp4CBeq4nzeg9smAvdjPrig
 Kanal lynxbrokergermany -> UCpVi-t7Mf9ObllQEA2Kradw
 Kanal creativeplanning -> UCRoWRnXa4ZM85Fw9EN7xICA
 Kanal jamesbulltard -> UCRdVq4StMUVOOJNkbqvDY9g
+Video: Creative Planning | How to Manage a Concentrated Stock Position | Signal or Noise Ep 79 | 
 Video: The Prof G Pod – Scott Galloway | SpaceX Raised $111B — It Already Needs More
 gemini-3.8-flash: HTTP 503 {
   "error": {
@@ -13,10 +14,46 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
-gemini-3.8-flash: HTTP 429 {
+gemini-3.8-flash: HTTP 503 {
   "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
 gemini-3.7-flash: HTTP 503 {
   "error": {
     "code": 503,
@@ -33,10 +70,14 @@ gemini-3.7-flash: HTTP 503 {
   }
 }
 
-gemini-flash-latest: HTTP 429 {
+gemini-3.7-flash: HTTP 503 {
   "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
 gemini-flash-latest: HTTP 503 {
   "error": {
     "code": 503,
@@ -45,41 +86,7 @@ gemini-flash-latest: HTTP 503 {
   }
 }
 
-  nicht ausgewertet, wird morgen noch einmal versucht: gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually tem
-Video: The Prof G Pod – Scott Galloway | Why The S&P Just Hit A Record High — Despite Soaring Yields
-gemini-3.8-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-gemini-3.8-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-gemini-3.7-flash: Remote end closed connection without response
-gemini-flash-latest: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-gemini-flash-latest: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-  nicht ausgewertet, wird morgen noch einmal versucht: gemini-flash-latest: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For m
-gemini-3.8-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-gemini-3.8-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-gemini-3.7-flash: HTTP 503 {
+gemini-flash-latest: HTTP 503 {
   "error": {
     "code": 503,
     "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
@@ -87,7 +94,7 @@ gemini-3.7-flash: HTTP 503 {
   }
 }
 
-gemini-3.7-flash: HTTP 503 {
+gemini-flash-latest: HTTP 503 {
   "error": {
     "code": 503,
     "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
@@ -95,26 +102,30 @@ gemini-3.7-flash: HTTP 503 {
   }
 }
 
-gemini-flash-latest: HTTP 429 {
+gemini-flash-latest: HTTP 503 {
   "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
-gemini-flash-latest: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
 Traceback (most recent call last):
-  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 415, in <module>
+  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 421, in <module>
     main()
-  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 388, in main
+  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 394, in main
     text = sprechtext(daten)
            ^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 244, in sprechtext
-    txt = gemini([{"text": SKRIPT_PROMPT % json.dumps(daten, ensure_ascii=False, indent=1)}], temperatur=0.7)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 141, in gemini
+  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 248, in sprechtext
+    txt = gemini([{"text": SKRIPT_PROMPT % json.dumps(daten, ensure_ascii=False, indent=1)}], temperatur=0.7, versuche=4)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 145, in gemini
     raise RuntimeError(fehler[-1] if fehler else "keine Antwort")
-RuntimeError: gemini-flash-latest: HTTP 429 {
+RuntimeError: gemini-flash-latest: HTTP 503 {
   "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
