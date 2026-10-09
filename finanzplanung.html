@@ -383,7 +383,7 @@ body.fp-body { padding-bottom: 0; }
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
         </button>
       </div>
-      <input type="file" id="svFile" accept="application/json,.json" hidden>
+      <input type="file" id="svFile" accept="application/json,.json" multiple hidden>
       <span class="toast" id="svMsg" role="status" aria-live="polite"></span>
       <hr class="rule">
     </header>
@@ -712,6 +712,26 @@ function netIncome(P) {
   const kist = tax * kistRate(P.kirche);
   return { net: sumB - sumSv - tax - kist, sv: sumSv, tax, kist };
 }
+function abfindungNetto(P, A) {
+  // A: Werte aus der Abfindung.json (abf brutto, exitY/exitM, z1y/z1p … Auszahlungsjahre mit Prozent). Grobe Rechnung: Fünftelregelung gegen normale Besteuerung, Günstigerprüfung, ohne Soli.
+  const res = { net: 0, tax: 0, brutto: 0 };
+  if (!A || !(A.abf > 0)) return res;
+  const split = P.status === 'verheiratet', ki = kistRate(P.kirche), exitY = +A.exitY || 0, exitM = Math.min(12, Math.max(0, +A.exitM || 12));
+  const parts = [[A.z1y, A.z1p], [A.z2y, A.z2p], [A.z3y, A.z3p]].map(x => [+x[0], +x[1]]).filter(x => x[0] > 0 && x[1] > 0);
+  const sumP = parts.reduce((a, x) => a + x[1], 0) || 1;
+  if (!parts.length) parts.push([exitY || YEAR, 100]);
+  const zOf = (p, f) => { const b = Math.max(0, p.b) * f, sv = b > 0 ? svOf(b, p.beruf, P.kinder) : 0; return b > 0 ? Math.max(0, b - sv - 1230 * f) : 0; };
+  const partnerZ = P.partner ? zOf({ b: P.partner.brutto, beruf: P.partner.beruf }, 1) : 0;
+  parts.forEach(([y, pr]) => {
+    const pay = A.abf * pr / sumP;
+    const f = y < exitY ? 1 : (y === exitY ? exitM / 12 : 0);
+    const base = Math.max(0, zOf({ b: P.brutto, beruf: P.beruf }, f) + partnerZ - (split ? 72 : 36));
+    const normal = est(base + pay, split) - est(base, split), fifth = 5 * (est(base + pay / 5, split) - est(base, split));
+    const tax = Math.min(normal, fifth) * (1 + ki);
+    res.tax += tax; res.net += pay - tax; res.brutto += pay;
+  });
+  return res;
+}
 function pensionGross(P, retAge, workEnd, bisher) {
   // workEnd: Alter, bis zu dem noch Beiträge fließen (leer = bis zur Rente); bisher: bisher erreichte Rente laut Renteninformation
   const end = workEnd == null ? retAge : Math.min(retAge, Math.max(0, workEnd)), cut = end < retAge - 1e-9;
@@ -865,7 +885,7 @@ function compute(P) {
   const stopQ = P.stop && P.stop.on ? Math.min(retAge, age0 + Math.max(0, +P.stop.inYears || 0)) : null;
   const stop = stopQ !== null && stopQ < retAge - 1e-9 ? P.stop : null;
   const quitAge = stop ? stopQ : null;
-  let stopInfo = null, wdSpec = null;
+  let stopInfo = null, wdSpec = null, abfN = 0, abfRes = null;
   if (stop) {
     const netM0 = P.netto != null ? P.netto : netIncome(P).net / 12;
     const ausTot = (P.aus || []).reduce((a, b) => a + b, 0);
@@ -876,8 +896,10 @@ function compute(P) {
     const kvAuto = P.beruf === 'beamte' ? 0 : K.MINBASIS_KV * (0.146 + 0.029 + pvFull);
     const kv = stop.kv >= 0 ? stop.kv : kvAuto;
     const wReal = Math.max(0, living + kv - extra);
+    abfRes = stop.abf > 0 ? { net: stop.abf, tax: 0, brutto: stop.abf, manuell: true } : Object.assign(abfindungNetto(P, stop.abfJ), { manuell: false });
+    abfN = abfRes.net;
     wdSpec = { from: Math.round((quitAge - age0) * 12), to: Math.round((retAge - age0) * 12), w: wReal, infl: P.infl };
-    stopInfo = { quitAge, inYears: quitAge - age0, years: retAge - quitAge, living, extra, extraAuto, kv, kvAuto, wReal, abf: P.stop.abf || 0, cap: 0, capLow: 0, capWork: 0, rent: 0, rentLow: 0, rentWork: 0, depAge: null, capQuit: 0, capRet: 0 };
+    stopInfo = { quitAge, inYears: quitAge - age0, years: retAge - quitAge, living, extra, extraAuto, kv, kvAuto, wReal, abf: abfN, abfInfo: abfRes, cap: 0, capLow: 0, capWork: 0, rent: 0, rentLow: 0, rentWork: 0, depAge: null, capQuit: 0, capRet: 0 };
   }
   const wunsch = Math.max(P.wunsch, age0 + 1);
   const endAge = Math.max(wunsch, retAge, age0 + 1);
@@ -889,7 +911,7 @@ function compute(P) {
   const aS = Math.max(0, 1 - P.aE - P.aA);
   const mix = { S: aS, E: P.aE, A: P.aA };
   const rates = { S: P.rS, E: P.rE, A: P.rA };
-  const base = { age0, months, W0: P.W0, monthly: P.sparrate, dyn: P.dyn, saveMonths, alloc: mix, rates, t, fb, wd: wdSpec, inj: stop && stop.abf > 0 ? { at: Math.round((quitAge - age0) * 12), v: stop.abf } : null };
+  const base = { age0, months, W0: P.W0, monthly: P.sparrate, dyn: P.dyn, saveMonths, alloc: mix, rates, t, fb, wd: wdSpec, inj: stop && abfN > 0 ? { at: Math.round((quitAge - age0) * 12), v: abfN } : null };
   const run = o => simulate(Object.assign({}, base, o));
   const sim = run({});
   const infl = f => Math.pow(1 + P.infl, f);
@@ -1133,7 +1155,7 @@ function compute(P) {
     P.retOverride = 0;
     var sd = $('stopDate').value, sy = 0, blank = function (id, hi) { return String($(id).value).trim() === '' ? -1 : rd(id, 0, 0, hi); };
     if (/^\d{4}-\d{2}-\d{2}$/.test(sd)) sy = Math.max(0, (Date.parse(sd + 'T12:00:00') - Date.now()) / (365.25 * 864e5));
-    P.stop = { on: $('stopOn').value === '1', inYears: sy, living: rd('stopLeben', 0, 0, 1e5), extra: blank('stopExtra', 1e5), kv: blank('stopKv', 1e4), abf: rd('stopAbf', 0, 0, 5e6), zins: rd('stopZins', 2, -2, 8) / 100, renteBisher: rd('stopRente', 0, 0, 20000) };
+    P.stop = { on: $('stopOn').value === '1', inYears: sy, living: rd('stopLeben', 0, 0, 1e5), extra: blank('stopExtra', 1e5), kv: blank('stopKv', 1e4), abf: rd('stopAbf', 0, 0, 5e6), abfJ: ABF, zins: rd('stopZins', 2, -2, 8) / 100, renteBisher: rd('stopRente', 0, 0, 20000) };
     var kb = function (id, d, lo, hi) { return String($(id).value).trim() === '' ? d : rd(id, d, lo, hi) / 100; };
     P.kauf.wert = kb('kfWert', Math.max(P.infl, 0.035), -5, 10); P.kauf.mietg = kb('kfMietG', P.infl, -2, 10);
     P.kauf.rend = kb('kfRend', P.rE * (1 - kapStRate(P.kirche) * (1 - K.TEILFREI)), -2, 15);
@@ -1252,6 +1274,7 @@ function compute(P) {
     for (var i = 0; i < 40; i++) { var mid = (lo + hi) / 2; if (ok(mid)) lo = mid; else hi = mid; }
     return lo;
   }
+  var ABF = null;
   var DEUTSCH_MON = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
   function stopRender(R, P) {
     var on = $('stopOn').value === '1', out = $('stopOut');
@@ -1261,7 +1284,7 @@ function compute(P) {
     var S = R.stop;
     if (!S) { out.innerHTML = '<p>Das gewählte Datum liegt am oder nach dem Renteneintritt mit ' + ageJ(R.retAge) + '. Dann ändert sich nichts.</p>'; return; }
     var B = compute(Object.assign({}, P, { stop: null })), dfl = R.infl(R.retAge - R.age0), dflQ = R.infl(S.quitAge - R.age0);
-    $('stopLeben').placeholder = eur(S.living); $('stopExtra').placeholder = S.extraAuto ? eur(S.extra) + ' (Partner)' : '0 €'; $('stopKv').placeholder = '≈ ' + eur(S.kvAuto);
+    $('stopLeben').placeholder = eur(S.living); $('stopExtra').placeholder = S.extraAuto ? eur(S.extra) + ' (Partner)' : '0 €'; $('stopKv').placeholder = '≈ ' + eur(S.kvAuto); $('stopAbf').placeholder = ABF && S.abfInfo && !S.abfInfo.manuell ? eur(S.abf) + ' (Datei)' : '€';
     var sd = $('stopDate').value, when = 'ab sofort';
     if (/^\d{4}-\d{2}-\d{2}$/.test(sd)) { var dd = new Date(sd + 'T12:00:00'); when = 'ab dem ' + dd.getDate() + '. ' + DEUTSCH_MON[dd.getMonth()] + ' ' + dd.getFullYear(); }
     var yrs = S.years, yTxt = num(yrs, 1) + ' Jahre';
@@ -1281,7 +1304,7 @@ function compute(P) {
     var cls = S.depAge ? 'crit' : (R.quota >= 0.8 ? 'good' : (R.quota >= 0.6 ? 'warn' : 'crit'));
     var vt = S.depAge ? '✕ Das Vermögen ist mit ' + ageJ(S.depAge) + ' aufgebraucht, bis zur Rente fehlt Geld' : (R.quota >= 0.8 ? '✓ Im Ruhestand bleiben ' + pct(R.quota) + ' vom heutigen Netto' : (R.quota >= 0.6 ? '! Im Ruhestand bleiben nur ' + pct(R.quota) + ' vom heutigen Netto' : '✕ Im Ruhestand bleiben nur ' + pct(R.quota) + ' vom heutigen Netto'));
     var h = '<span class="verdict ' + cls + '">' + vt + '</span>';
-    h += '<p>Du hörst <b>' + when + '</b> mit ' + ageJ(S.quitAge) + ' auf. Bis zum Renteneintritt mit ' + ageJ(R.retAge) + ' sind das <b>' + yTxt + '</b> ohne Gehalt. In dieser Zeit lebst du vom Vermögen: Ausgaben ' + eur(S.living) + ' plus Kranken- und Pflegeversicherung ' + eur(S.kv) + (S.extra > 0 ? ' minus Einnahmen ' + eur(S.extra) : '') + ' sind <b>' + eur(S.wReal) + ' pro Monat</b> (heutige Kaufkraft). Das Vermögen geht dabei von ' + eur(S.capQuit / dflQ) + ' auf ' + eur(S.capRet / dfl) + ' zurück (heutige Kaufkraft), und die Sparrate von ' + eur(P.sparrate) + ' entfällt.' + (S.abf > 0 ? ' Darin enthalten ist deine Abfindung von ' + eur(S.abf) + ' netto.' : '') + '</p>';
+    h += '<p>Du hörst <b>' + when + '</b> mit ' + ageJ(S.quitAge) + ' auf. Bis zum Renteneintritt mit ' + ageJ(R.retAge) + ' sind das <b>' + yTxt + '</b> ohne Gehalt. In dieser Zeit lebst du vom Vermögen: Ausgaben ' + eur(S.living) + ' plus Kranken- und Pflegeversicherung ' + eur(S.kv) + (S.extra > 0 ? ' minus Einnahmen ' + eur(S.extra) : '') + ' sind <b>' + eur(S.wReal) + ' pro Monat</b> (heutige Kaufkraft). Das Vermögen geht dabei von ' + eur(S.capQuit / dflQ) + ' auf ' + eur(S.capRet / dfl) + ' zurück (heutige Kaufkraft), und die Sparrate von ' + eur(P.sparrate) + ' entfällt.' + (S.abf > 0 ? ' Darin enthalten ist deine Abfindung von ' + eur(S.abf) + ' netto' + (S.abfInfo && !S.abfInfo.manuell ? ' (brutto ' + eur(S.abfInfo.brutto) + ', geschätzte Steuer ' + eur(S.abfInfo.tax) + ' mit Fünftelregelung)' : '') + '.' : '') + '</p>';
     h += tb;
     var gB = B.pg.v, gA = R.pg.v;
     h += '<p>Gesetzliche Rente: Ohne weitere Beiträge sinkt die Regelaltersrente brutto von ' + eur(gB) + ' auf <b>' + eur(gA) + ' pro Monat</b>' + (R.pg.src === 'bisher' ? ' (deine bisher erreichte Rente laut Renteninformation).' : (R.pg.src === 'info' ? ' (gekürzt um die fehlenden Beitragsjahre).' : ' (gerechnet nur mit den Beitragsjahren bis zum Ausstieg).')) + '</p>';
@@ -1820,9 +1843,23 @@ function compute(P) {
   /* ---------- Speichern und Laden ---------- */
   var svT;
   function svMsg(m) { var e = $('svMsg'); e.textContent = m; clearTimeout(svT); svT = setTimeout(function () { e.textContent = ''; }, 5000); }
+  function abfClean(w) {
+    var o = {}; ['abf', 'exitY', 'exitM', 'z1y', 'z1p', 'z2y', 'z2p', 'z3y', 'z3p'].forEach(function (k) { var v = parseFloat(String(w[k]).replace(',', '.')); o[k] = isFinite(v) && v >= 0 && v < 1e8 ? v : 0; });
+    return o;
+  }
+  function abfApply(o) {
+    ABF = abfClean(o.werte || {});
+    if (!(ABF.abf > 0)) { ABF = null; throw new Error('abf'); }
+    $('stopOn').value = '1';
+    if (ABF.exitY > 2000 && ABF.exitM >= 1 && !/^\d{4}-\d{2}-\d{2}$/.test($('stopDate').value)) {
+      var d = new Date(Date.UTC(ABF.exitY, ABF.exitM, 0)); $('stopDate').value = d.toISOString().slice(0, 10);
+    }
+    $('stopAbf').value = '';
+    userTouched = true; $('demo').hidden = true; render();
+  }
   function collect() {
     var f = {}; Object.keys(DEF).forEach(function (k) { f[k] = $(k).value; }); f.netto = $('netto').value;
-    return { app: 'finanzplanung', v: 2, saved: new Date().toISOString(), nettoAuto: nettoAuto, mode: mode, fields: f, contracts: CON.map(conClean) };
+    return { app: 'finanzplanung', v: 2, saved: new Date().toISOString(), nettoAuto: nettoAuto, mode: mode, fields: f, contracts: CON.map(conClean), abfindung: ABF };
   }
   function applyState(o) {
     if (!o || o.app !== 'finanzplanung' || typeof o.fields !== 'object' || !o.fields) throw new Error('format');
@@ -1832,6 +1869,7 @@ function compute(P) {
     nettoAuto = o.nettoAuto !== false;
     if (!nettoAuto && o.fields.netto != null) $('netto').value = String(o.fields.netto).slice(0, 20);
     mode = o.mode === 'real' ? 'real' : 'nom';
+    ABF = o.abfindung && typeof o.abfindung === 'object' ? abfClean(o.abfindung) : null;
     CON = Array.isArray(o.contracts) ? o.contracts.slice(0, 12).map(conClean) : [];
     CON.forEach(function (c) { ['beitrag', 'leistung', 'paid', 'jahr', 'heute', 'garant'].forEach(function (k) { if (!c[k]) c[k] = ''; }); });
     if (oldB > 0) { CON.push({ type: o.fields.bRenteTyp === 'basis' ? 'basis' : 'bav', name: 'Betriebsrente', insured: $('vorname').value.trim(), nr: '', tarif: '', beitrag: '', leistung: oldB, paid: '', zusatz: 'ab2005', form: 'raten', n: 20, jahr: '' }); setTimeout(function () { svMsg('Die frühere Angabe zur Betriebsrente (' + eur(oldB) + ' pro Monat) steht jetzt bei den Verträgen. Lösche sie dort, falls sie nicht stimmt.'); }, 0); }
@@ -1867,11 +1905,15 @@ function compute(P) {
   });
   $('svLoad').addEventListener('click', function () { $('svFile').click(); });
   $('svFile').addEventListener('change', function () {
-    var f = this.files && this.files[0]; if (!f) return;
-    if (f.size > 200000) { svMsg('Die Datei ist zu groß für einen Planer-Stand.'); this.value = ''; return; }
-    var rd2 = new FileReader(), inp = this;
-    rd2.onload = function () { try { applyState(JSON.parse(String(rd2.result))); svMsg('Stand aus Datei geladen.'); } catch (e) { svMsg('Diese Datei ist kein gültiger Planer-Stand.'); } inp.value = ''; };
-    rd2.readAsText(f);
+    var fl = Array.prototype.slice.call(this.files || [], 0, 4), inp = this; if (!fl.length) return;
+    if (fl.some(function (f) { return f.size > 200000; })) { svMsg('Eine Datei ist zu groß für einen Planer-Stand.'); this.value = ''; return; }
+    Promise.all(fl.map(function (f) { return new Promise(function (ok) { var r = new FileReader(); r.onload = function () { try { ok(JSON.parse(String(r.result))); } catch (e) { ok(null); } }; r.onerror = function () { ok(null); }; r.readAsText(f); }); })).then(function (all) {
+      var msg = [], bad = 0;
+      all.filter(function (o) { return o && o.app === 'finanzplanung'; }).forEach(function (o) { try { applyState(o); msg.push('Planer-Stand'); } catch (e) { bad++; } });
+      all.filter(function (o) { return o && o.app === 'abfindung'; }).forEach(function (o) { try { abfApply(o); msg.push('Abfindung'); } catch (e) { bad++; } });
+      if (!all.some(function (o) { return o && (o.app === 'finanzplanung' || o.app === 'abfindung'); })) bad = 1;
+      svMsg(msg.length ? msg.join(' und ') + ' aus Datei geladen.' + (bad ? ' Eine Datei war ungültig.' : '') : 'Diese Datei ist kein gültiger Planer-Stand.'); inp.value = '';
+    });
   });
 
 
