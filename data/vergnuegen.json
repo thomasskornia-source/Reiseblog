@@ -1,121 +1,5 @@
 [
  {
-  "id": "abend-backstage-backstage-comedy-night-2026-10-07",
-  "rubrik": "events",
-  "titel": "Backstage Comedy Night",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstraße 6",
-  "lat": 48.1456,
-  "lon": 11.5301,
-  "datum": "2026-10-07",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Comedy.",
-  "tags": [
-   "Comedy",
-   "Abends"
-  ],
-  "quelle": "muenchen.de",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-06",
-  "thema": "Kabarett & Theater"
- },
- {
-  "id": "abend-residenztheater-die-nacht-von-sevilla-2026-10-07",
-  "rubrik": "events",
-  "titel": "Die Nacht von Sevilla",
-  "ort": "Residenztheater",
-  "adresse": "Max-Joseph-Platz 1",
-  "lat": 48.1392,
-  "lon": 11.5789,
-  "datum": "2026-10-07",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Schauspiel.",
-  "tags": [
-   "Theater",
-   "Abends"
-  ],
-  "quelle": "Residenztheater",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-06",
-  "thema": "Kabarett & Theater"
- },
- {
-  "id": "abend-volkstheater-echtzeitalter-2026-10-07",
-  "rubrik": "events",
-  "titel": "Echtzeitalter",
-  "ort": "Volkstheater",
-  "adresse": "Brienner Straße 50",
-  "lat": 48.1472,
-  "lon": 11.5531,
-  "datum": "2026-10-07",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Bühne 1.",
-  "tags": [
-   "Theater",
-   "Abends"
-  ],
-  "quelle": "Münchner Volkstheater",
-  "url": "https://www.muenchner-volkstheater.de/spielplan",
-  "stand": "2026-10-06",
-  "thema": "Kabarett & Theater"
- },
- {
-  "id": "abend-nationaltheater-semele-haendel-2026-10-07",
-  "rubrik": "events",
-  "titel": "Semele (Händel)",
-  "ort": "Nationaltheater",
-  "adresse": "Max-Joseph-Platz 2",
-  "lat": 48.1394,
-  "lon": 11.579,
-  "datum": "2026-10-07",
-  "datum_bis": "",
-  "zeit": "18:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Oper.",
-  "tags": [
-   "Oper",
-   "Abends"
-  ],
-  "quelle": "Bayerische Staatsoper",
-  "url": "https://www.staatsoper.de/spielplan",
-  "stand": "2026-10-06",
-  "thema": "Konzert & Musik"
- },
- {
-  "id": "abend-unterfahrt-tom-ollendorff-trio-2026-10-07",
-  "rubrik": "events",
-  "titel": "Tom Ollendorff Trio",
-  "ort": "Unterfahrt",
-  "adresse": "Einsteinstraße 42",
-  "lat": 48.1325,
-  "lon": 11.5997,
-  "datum": "2026-10-07",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Jazz.",
-  "tags": [
-   "Musik",
-   "Jazz",
-   "Abends"
-  ],
-  "quelle": "Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-06",
-  "thema": "Konzert & Musik"
- },
- {
   "id": "abend-backstage-bluthund-2026-10-08",
   "rubrik": "events",
   "titel": "Bluthund",
@@ -915,6 +799,30 @@
   "stand": "2026-10-09"
  },
  {
+  "id": "events-fed3e5838b",
+  "lat": 48.13845,
+  "lon": 11.58272,
+  "rubrik": "events",
+  "titel": "Au au au Hi hi hi - A Temporary Monument",
+  "ort": "Münchner Kammerspiele (Habibi Kiosk)",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Publikationsrelease und szenische Lesung rund um das Kunstprojekt im Habibi Kiosk bei freiem Eintritt.",
+  "tags": [
+   "Kultur",
+   "Kostenlos",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-10-10"
+ },
+ {
   "id": "events-betontod",
   "rubrik": "events",
   "titel": "Betontod",
@@ -957,6 +865,53 @@
   "stand": "2026-10-09"
  },
  {
+  "id": "events-119aaf5eb1",
+  "lat": 48.14236,
+  "lon": 11.57053,
+  "rubrik": "events",
+  "titel": "Comedy Kills",
+  "ort": "Discobox",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "2026-11-28",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "2 Std.",
+  "kurz": "Reguläres Open Mic für Stand-Up-Comedy mit Nachwuchstalenten und Profis in der Discobox.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-552a5eda8b",
+  "lat": 48.12366,
+  "lon": 11.5559,
+  "rubrik": "events",
+  "titel": "David Mayonga aka Roger Rekless",
+  "ort": "Münchner Volkstheater",
+  "adresse": "Tumblingerstraße 29, 80337 München",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Musikalische Lesung von David Mayonga zu seinem Buch 'Wo kommst du wirklich her?' auf Bühne 2.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Münchner Volkstheater (Spielplan)",
+  "url": "https://www.muenchner-volkstheater.de/spielplan",
+  "stand": "2026-10-10"
+ },
+ {
   "id": "abend-volkstheater-der-aufhaltsame-aufstieg-des-arturo-ui-2026-10-10",
   "rubrik": "events",
   "titel": "Der aufhaltsame Aufstieg des Arturo Ui",
@@ -978,6 +933,54 @@
   "url": "https://www.muenchner-volkstheater.de/spielplan",
   "stand": "2026-10-06",
   "thema": "Kabarett & Theater"
+ },
+ {
+  "id": "events-220b7c1dba",
+  "lat": 48.12366,
+  "lon": 11.5559,
+  "rubrik": "events",
+  "titel": "Der aufhaltsame Aufstieg des Arturo Ui",
+  "ort": "Münchner Volkstheater",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "2026-11-08",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "2 Std.",
+  "kurz": "Inszenierung von Bertolt Brechts Parabel über Machtstrukturen und Korruption am Volkstheater.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-03cc4b3869",
+  "lat": 48.13289,
+  "lon": 11.58949,
+  "rubrik": "events",
+  "titel": "Digitalanalog Festival",
+  "ort": "Muffatwerk",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "2026-10-10",
+  "zeit": "20:30",
+  "preis": "frei",
+  "dauer": "7,5 Std.",
+  "kurz": "Kostenloses Musik- und Visualfestival mit Live-Bands und VJ-Shows in der Muffathalle.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Kostenlos",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-10"
  },
  {
   "id": "events-871cbfa460",
@@ -1004,6 +1007,95 @@
   "stand": "2026-10-09"
  },
  {
+  "id": "events-db7a8f8ea4",
+  "lat": 48.24531,
+  "lon": 11.55586,
+  "rubrik": "events",
+  "titel": "Inside the Suit – Der Mensch im Raumanzug",
+  "ort": "Deutsches Museum - Flugwerft Schleißheim",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "2026-11-30",
+  "zeit": "09:00",
+  "preis": "",
+  "dauer": "8 Std.",
+  "kurz": "Sonderausstellung zur Geschichte und Funktionsweise von Raumanzügen in der Flugwerft Schleißheim.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-ed09603366",
+  "lat": 48.13752,
+  "lon": 11.58578,
+  "rubrik": "events",
+  "titel": "Krishna. Religion, Kunst und Popkultur",
+  "ort": "Museum Fünf Kontinente",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "2026-11-08",
+  "zeit": "09:30",
+  "preis": "",
+  "dauer": "8 Std.",
+  "kurz": "Kulturhistorische Ausstellung über die hinduistische Gottheit Krishna zwischen Glauben und populärer Kunst.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-7617ba4917",
+  "lat": 48.11801,
+  "lon": 11.53908,
+  "rubrik": "events",
+  "titel": "Kunst in Sendling",
+  "ort": "Sendling",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "2026-10-11",
+  "zeit": "14:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Tage der offenen Ateliers und Kunstbegegnungen im Münchner Stadtteil Sendling.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-33c3870e43",
+  "lat": 48.14011,
+  "lon": 11.57943,
+  "rubrik": "events",
+  "titel": "König Lear",
+  "ort": "Residenztheater",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "29 bis 74 €",
+  "dauer": "3 Std. 10 Min.",
+  "kurz": "Manfred Zapatka verkörpert in William Shakespeares monumentaler Tragödie die Charakterstudie des unberechenbaren, alternden Herrschers.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-10"
+ },
+ {
   "id": "abend-residenztheater-koenig-lear-premiere-2026-10-10",
   "rubrik": "events",
   "titel": "König Lear (Premiere)",
@@ -1027,6 +1119,29 @@
   "thema": "Kabarett & Theater"
  },
  {
+  "id": "events-725248aba6",
+  "lat": 48.14614,
+  "lon": 11.55945,
+  "rubrik": "events",
+  "titel": "Oh, wie schön ist Panama",
+  "ort": "Münchner Theater für Kinder",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "2027-01-24",
+  "zeit": "10:00",
+  "preis": "",
+  "dauer": "2 Std.",
+  "kurz": "Theateraufführung nach der beliebten Kindergeschichte von Janosch im Theater für Kinder.",
+  "tags": [
+   "Familie",
+   "Kultur"
+  ],
+  "thema": "Familie & Kinder",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-10"
+ },
+ {
   "id": "events-e8928be338",
   "lat": 48.11144,
   "lon": 11.55369,
@@ -1048,6 +1163,29 @@
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-08"
+ },
+ {
+  "id": "events-40a6b276f8",
+  "lat": 48.14007,
+  "lon": 11.58154,
+  "rubrik": "events",
+  "titel": "Reigen. Variationen",
+  "ort": "Marstall",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "33 €",
+  "dauer": "1 Std. 30 Min.",
+  "kurz": "Anja Hilling versetzt Arthur Schnitzlers Klassiker für vierundzwanzig Stunden und zehn intime Begegnungen in den Englischen Garten.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-10"
  },
  {
   "id": "abend-unterfahrt-renaud-garcia-fons-2026-10-10",
@@ -1074,6 +1212,52 @@
   "thema": "Konzert & Musik"
  },
  {
+  "id": "events-823b677685",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Renaud Garcia-Fons",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Der Bassist Renaud Garcia-Fons präsentiert sein facettenreiches Mittelmeer-Programm mit arabischen Skalen und mehrsprachigen Gesängen.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-2d56d34adc",
+  "lat": 48.14413,
+  "lon": 11.59137,
+  "rubrik": "events",
+  "titel": "STONEHENGE. Uralte Geheimnisse, neue Entdeckungen",
+  "ort": "Archäologische Staatssammlung",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "2027-08-29",
+  "zeit": "10:00",
+  "preis": "",
+  "dauer": "7 Std.",
+  "kurz": "Ausstellung über neue Funde und historische Rätsel des weltbekannten Monuments Stonehenge.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-10"
+ },
+ {
   "id": "abend-kammerspiele-schauspielhaus-wokey-wokey-2026-10-10",
   "rubrik": "events",
   "titel": "Wokey Wokey",
@@ -1095,6 +1279,73 @@
   "url": "https://www.muenchner-kammerspiele.de/",
   "stand": "2026-10-06",
   "thema": "Kabarett & Theater"
+ },
+ {
+  "id": "events-0304d06606",
+  "lat": 48.13819,
+  "lon": 11.5824,
+  "rubrik": "events",
+  "titel": "Wokey Wokey",
+  "ort": "Münchner Kammerspiele (Schauspielhaus)",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "90 Min.",
+  "kurz": "Satirische Inszenierung von Nora Abdel-Maksoud über die Verfilmung eines Weltbestsellers und gesellschaftliche Debatten.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-0a30a073d7",
+  "rubrik": "events",
+  "titel": "Der Untertan",
+  "ort": "Cuvilliéstheater",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "21 bis 64 €",
+  "dauer": "2 Std.",
+  "kurz": "Heinrich Manns scharfzüngige Satire über das Wilhelminische Kaiserreich und den autoritätsgläubigen Opportunisten Diederich Heßling.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-d0241b67e6",
+  "lat": 48.13819,
+  "lon": 11.5824,
+  "rubrik": "events",
+  "titel": "Fünf bis sechs Semmeln und eine kalte Wurst",
+  "ort": "Münchner Kammerspiele (Schauspielhaus)",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "18:00",
+  "preis": "",
+  "dauer": "80 Min.",
+  "kurz": "Ein Theaterabend über das Überleben, Wirtstöchter und Mütter nach Texten von Lena Christ und Annette Paulmann.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-10-10"
  },
  {
   "id": "abend-zenith-gims-2026-10-11",
@@ -1119,6 +1370,99 @@
   "url": "https://www.in-muenchen.de/locations/zenith.html",
   "stand": "2026-10-06",
   "thema": "Konzert & Musik"
+ },
+ {
+  "id": "events-4245de3dd8",
+  "lat": 48.16184,
+  "lon": 11.5897,
+  "rubrik": "events",
+  "titel": "Ingo Appelt",
+  "ort": "Lustspielhaus",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "2026-10-11",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "3,5 Std.",
+  "kurz": "Live-Auftritt des bekannten Kabarettisten und Comedians auf der Bühne des Lustspielhauses.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-8b25537a31",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Jam Session",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Saxofonist Maxim Frischmann leitet die Session, die modernen Jazz mit zeitgenössischen Beats und elektronischen Klängen verbindet.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-4599323b29",
+  "lat": 48.11998,
+  "lon": 11.55626,
+  "rubrik": "events",
+  "titel": "Märchen in der Jurte",
+  "ort": "Alte Utting",
+  "adresse": "Lagerhausstraße 15, 81371 München",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "15:00",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Claudia Schleich erzählt in der gemütlichen Jurte am knisternden Feuer fantasievolle Märchen für Kinder ab vier Jahren.",
+  "tags": [
+   "Familie",
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Familie & Kinder",
+  "quelle": "Alte Utting (Musik und Kultur)",
+  "url": "https://www.in-muenchen.de/locations/alte-utting.html",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-d40013a4f1",
+  "lat": 48.16912,
+  "lon": 11.54616,
+  "rubrik": "events",
+  "titel": "München Marathon",
+  "ort": "Olympiapark in München",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "2026-10-11",
+  "zeit": "09:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Traditionelles Laufwochenende in München mit Marathonstart und Zielbereich im Olympiapark.",
+  "tags": [
+   "Draußen"
+  ],
+  "thema": "Draußen & Sport",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-10"
  },
  {
   "id": "abend-nationaltheater-ariadne-auf-naxos-strauss-2026-10-12",
@@ -1168,6 +1512,76 @@
   "thema": "Konzert & Musik"
  },
  {
+  "id": "events-25623d41da",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Munich Uptown Jazz Orchestra",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-12",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Das Ensemble unter Franz Weyerer interpretiert klassischen Big-Band-Sound im Stil von Duke Ellington mit hochkarätigen Solisten der Münchner Szene.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-766c36dde3",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "Northcote",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-12",
+  "datum_bis": "2026-10-12",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "3 Std. 45 Min.",
+  "kurz": "Northcote tritt live im Münchner Kulturzentrum Backstage auf.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-b8accb6902",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "Raised Fist + Drover",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-12",
+  "datum_bis": "2026-10-12",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "2 Std. 30 Min.",
+  "kurz": "Konzertabend mit Raised Fist und Drover im Backstage München.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-10"
+ },
+ {
   "id": "abend-marstall-alice-hasters-anti-opfer-2026-10-13",
   "rubrik": "events",
   "titel": "Alice Hasters: Anti Opfer",
@@ -1189,6 +1603,29 @@
   "url": "https://www.residenztheater.de/spielplan",
   "stand": "2026-10-06",
   "thema": "Kabarett & Theater"
+ },
+ {
+  "id": "events-df178184e5",
+  "lat": 48.14007,
+  "lon": 11.58154,
+  "rubrik": "events",
+  "titel": "Alice Hasters: Anti Opfer",
+  "ort": "Marstall",
+  "adresse": "",
+  "datum": "2026-10-13",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "20 €",
+  "dauer": "",
+  "kurz": "Die Autorin stellt ihr Buch vor und analysiert in Lesung und Gespräch die gesellschaftliche Verachtung von Verletzlichkeit.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-10"
  },
  {
   "id": "abend-unterfahrt-chico-pinheiro-quartet-2026-10-13",
@@ -1213,6 +1650,54 @@
   "url": "https://www.unterfahrt.de/",
   "stand": "2026-10-06",
   "thema": "Konzert & Musik"
+ },
+ {
+  "id": "events-21196947e6",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Chico Pinheiro Quartet",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-13",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Der brasilianische Gitarrist Chico Pinheiro verbindet virtuosen Jazz mit traditionellen Rhythmen und klassischer Eleganz.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-16e258cd3a",
+  "lat": 48.14011,
+  "lon": 11.57943,
+  "rubrik": "events",
+  "titel": "Die Dreigroschenoper",
+  "ort": "Residenztheater",
+  "adresse": "",
+  "datum": "2026-10-13",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "29 bis 74 €",
+  "dauer": "3 Std. 20 Min.",
+  "kurz": "Bertolt Brechts und Kurt Weills meisterhaftes Musiktheater über Londons Unterwelt und die Verquickung von Verbrechen und Bürgertum.",
+  "tags": [
+   "Kultur",
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-10"
  },
  {
   "id": "abend-zenith-die-nervigen-2026-10-13",
@@ -1261,6 +1746,74 @@
   "stand": "2026-10-09"
  },
  {
+  "id": "events-293db1fc3e",
+  "lat": 48.13845,
+  "lon": 11.58272,
+  "rubrik": "events",
+  "titel": "Haltestelle: Ja aber",
+  "ort": "Münchner Kammerspiele (Habibi Kiosk)",
+  "adresse": "",
+  "datum": "2026-10-13",
+  "datum_bis": "",
+  "zeit": "19:00",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Choreografie zwischen Nähe und Missverständnissen mit Gebärdensprache von Lina Mattei und Mark Petersen.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-027a929ea7",
+  "lat": 48.12366,
+  "lon": 11.5559,
+  "rubrik": "events",
+  "titel": "I WANNA CONTACT THE LIVING",
+  "ort": "Münchner Volkstheater",
+  "adresse": "Tumblingerstraße 29, 80337 München",
+  "datum": "2026-10-13",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Uraufführung nach Oscar Wildes Gespenst von Canterville, inszeniert von Katharina Grosch.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Volkstheater (Spielplan)",
+  "url": "https://www.muenchner-volkstheater.de/spielplan",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-1cc5c13129",
+  "lat": 48.11998,
+  "lon": 11.55626,
+  "rubrik": "events",
+  "titel": "Krimi-Talk",
+  "ort": "Alte Utting",
+  "adresse": "Lagerhausstraße 15, 81371 München",
+  "datum": "2026-10-13",
+  "datum_bis": "",
+  "zeit": "19:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Drei Autorinnen diskutieren über ihre Kriminalromane und die Rolle von Frauen im Genre, ergänzt durch ausgewählte Lesungen.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Alte Utting (Musik und Kultur)",
+  "url": "https://www.in-muenchen.de/locations/alte-utting.html",
+  "stand": "2026-10-10"
+ },
+ {
   "id": "abend-alte-utting-krimi-talk-auf-der-alten-utting-2026-10-13",
   "rubrik": "events",
   "titel": "Krimi-Talk auf der Alten Utting",
@@ -1282,554 +1835,6 @@
   "url": "https://www.in-muenchen.de/locations/alte-utting.html",
   "stand": "2026-10-06",
   "thema": "Führung & Vortrag"
- },
- {
-  "id": "abend-zenith-behemoth-dimmu-borgir-2026-10-14",
-  "rubrik": "events",
-  "titel": "Behemoth & Dimmu Borgir",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29",
-  "lat": 48.1818,
-  "lon": 11.6125,
-  "datum": "2026-10-14",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Metal-Konzert.",
-  "tags": [
-   "Musik",
-   "Konzert",
-   "Abends"
-  ],
-  "quelle": "in-muenchen.de",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-06",
-  "thema": "Konzert & Musik"
- },
- {
-  "id": "events-5ba117e522",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Behemoth & Dimmu Borgir",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-10-14",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die beiden Extreme-Metal-Größen Behemoth und Dimmu Borgir stehen gemeinsam für einen energiegeladenen Konzertabend auf der Bühne.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-09"
- },
- {
-  "id": "abend-backstage-philip-sayce-2026-10-14",
-  "rubrik": "events",
-  "titel": "Philip Sayce",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstraße 6",
-  "lat": 48.1456,
-  "lon": 11.5301,
-  "datum": "2026-10-14",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Blues/Rock.",
-  "tags": [
-   "Musik",
-   "Konzert",
-   "Abends"
-  ],
-  "quelle": "muenchen.de",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-06",
-  "thema": "Konzert & Musik"
- },
- {
-  "id": "events-f75860356d",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Bijelo Dugme",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-10-17",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Goran Bregovic und die Rock-Legenden feiern ihr 50-jähriges Bandjubiläum mit Klassikern und mitreißenden Gitarrenklängen.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-dfee2a136f",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Simple Plan",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-10-23",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Simple Plan gastieren auf ihrer Europatournee gemeinsam mit Neck Deep und Charlotte Sands in Freimann.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-98728df2e9",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Marteria",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-10-24",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Der Rapper Marteria bringt seine große Tour zum Album 'Zum Glück in die Zukunft III' nach München.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-63bbe0e079",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Dardan",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-10-28",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dardan präsentiert auf seiner Tournee eine dynamische Fusion aus Trap, Hip-Hop und modernen R'n'B-Klängen.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-9e5a8f7201",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Mehnersmoos",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-10-30",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Das Frankfurter Rap-Duo Mehnersmoos macht im Rahmen seiner Live-Tour Station in der Münchner Konzerthalle.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-89223e35d3",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Blue",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-11-03",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die britische Boygroup Blue zelebriert ihr 25-jähriges Bestehen mit neuem Songmaterial und ihren größten Hits.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-2d171d716a",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Enter Shikari",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-11-04",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Enter Shikari vereinen Post-Hardcore, Elektronik und Punk zu einer energiegeladenen, politisch aufgeladenen Live-Performance.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-8f73f625a6",
-  "lat": 48.14195,
-  "lon": 11.51601,
-  "rubrik": "events",
-  "titel": "DJ Party: Swim Goodies",
-  "ort": "Lieberscholli",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "23:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Nächtliche Party mit DJ-Sets zum Feiern und Tanzen im Lieberscholli.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Geheimtipp München – Was geht am Wochenende",
-  "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-3f68ed9f0e",
-  "rubrik": "events",
-  "titel": "Digitalanalog 2026",
-  "ort": "Muffatawerk",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Festival für experimentelle Musik, analoge und digitale Klangkunst sowie Visuals im Muffatwerk.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Geheimtipp München – Was geht am Wochenende",
-  "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-5ce185a40d",
-  "rubrik": "events",
-  "titel": "Herbstfest im Café Gans",
-  "ort": "Café Gans im Wasser",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "13:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Gemütliches Herbstfest mit Speisen und Getränken am Wasser im Café Gans.",
-  "tags": [
-   "Draußen",
-   "Familie"
-  ],
-  "thema": "Feste & Märkte",
-  "quelle": "Geheimtipp München – Was geht am Wochenende",
-  "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-b884aab56e",
-  "lat": 48.11113,
-  "lon": 11.59608,
-  "rubrik": "events",
-  "titel": "Hofflohmärkte Untergiesing",
-  "ort": "Giesing",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "10:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Nachbarschaftlicher Flohmarkt in den Innenhöfen und Gärten von Untergiesing.",
-  "tags": [
-   "Draußen",
-   "Märkte"
-  ],
-  "thema": "Feste & Märkte",
-  "quelle": "Geheimtipp München – Was geht am Wochenende",
-  "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-5401bb4e6f",
-  "lat": 48.12474,
-  "lon": 11.55067,
-  "rubrik": "events",
-  "titel": "Just like Heaven Indie Party",
-  "ort": "Substanz",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "22:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Partyabend mit Indie-Sounds und Alternative-Hits im Club Substanz.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Geheimtipp München – Was geht am Wochenende",
-  "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-0f56739604",
-  "lat": 48.13315,
-  "lon": 11.5743,
-  "rubrik": "events",
-  "titel": "Kulturfestival: Minsk x Minga",
-  "ort": "Bellevue di Monaco",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "11:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Interkulturelles Festival mit abwechslungsreichen Programmpunkten im Bellevue di Monaco.",
-  "tags": [
-   "Kultur"
-  ],
-  "thema": "Sonstiges",
-  "quelle": "Geheimtipp München – Was geht am Wochenende",
-  "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-3af8934e8d",
-  "lat": 48.18037,
-  "lon": 11.48367,
-  "rubrik": "events",
-  "titel": "Menzinger Strassenweinfest",
-  "ort": "Menzinger Weinladen",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "12:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Geselliges Weinfest im Freien mit verschiedenen Tropfen direkt am Menzinger Weinladen.",
-  "tags": [
-   "Draußen",
-   "Abends"
-  ],
-  "thema": "Feste & Märkte",
-  "quelle": "Geheimtipp München – Was geht am Wochenende",
-  "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-984641c9a4",
-  "lat": 48.18087,
-  "lon": 11.51693,
-  "rubrik": "events",
-  "titel": "Mädelsflohmarkt",
-  "ort": "Pelkovenschlössl",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "12:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Secondhand-Markt für Kleidung, Schuhe und Accessoires im Pelkovenschlössl.",
-  "tags": [
-   "Märkte"
-  ],
-  "thema": "Feste & Märkte",
-  "quelle": "Geheimtipp München – Was geht am Wochenende",
-  "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-190348e573",
-  "rubrik": "events",
-  "titel": "Vernissage: Ebbe & Flut",
-  "ort": "zwsichen dings",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "18:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Eröffnung der Kunstausstellung Ebbe & Flut mit neuen Werken im Kunstraum.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Ausstellung & Museum",
-  "quelle": "Geheimtipp München – Was geht am Wochenende",
-  "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-79a97ca5c8",
-  "rubrik": "events",
-  "titel": "Wanderung zum Perlacher Mugl",
-  "ort": "U-Bahn-Station Mangfallplatz",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "10:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Gemeinsamer Wanderausflug durch den Forst hinauf zum Aussichtspunkt Perlacher Mugl.",
-  "tags": [
-   "Draußen"
-  ],
-  "thema": "Draußen & Sport",
-  "quelle": "Geheimtipp München – Was geht am Wochenende",
-  "url": "https://geheimtippmuenchen.de/event/was-geht-am-wochenende/",
-  "stand": "2026-10-09"
- },
- {
-  "id": "kino-kino-breitwand-gauting-bruno-der-junge-kreisky-2026-10-07",
-  "rubrik": "kino",
-  "titel": "Bruno. Der junge Kreisky",
-  "ort": "Kino Breitwand Gauting",
-  "adresse": "Gauting",
-  "lat": 48.068,
-  "lon": 11.377,
-  "datum": "2026-10-07",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Mittwoch 20:00.",
-  "tags": [
-   "Kino",
-   "Abends"
-  ],
-  "quelle": "Breitwand Gauting",
-  "url": "https://breitwand.com/home/cm/home-start/home/index.html?day=0&ort=Gauting",
-  "stand": "2026-10-06",
-  "thema": "Kino Breitwand Gauting",
-  "kinoseite": "https://breitwand.com/"
- },
- {
-  "id": "kino-lichtspielhaus-fuerstenfeldbruck-frau-winkler-verlaesst-das-haus-2026-",
-  "rubrik": "kino",
-  "titel": "Frau Winkler verlässt das Haus",
-  "ort": "Lichtspielhaus Fürstenfeldbruck",
-  "adresse": "Maisacher Straße 7, Fürstenfeldbruck",
-  "lat": 48.1783,
-  "lon": 11.2546,
-  "datum": "2026-10-07",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Auch Do 20:00, Sa 20:00, Mo 20:00.",
-  "tags": [
-   "Kino",
-   "Abends"
-  ],
-  "quelle": "in-muenchen.de",
-  "url": "https://www.in-muenchen.de/kino/theater/lichtspielhaus.html",
-  "stand": "2026-10-06",
-  "thema": "Lichtspielhaus Fürstenfeldbruck",
-  "kinoseite": "https://neokinos.de/ffb"
- },
- {
-  "id": "kino-lichtspielhaus-fuerstenfeldbruck-gentle-monster-2026-10-07",
-  "rubrik": "kino",
-  "titel": "Gentle Monster",
-  "ort": "Lichtspielhaus Fürstenfeldbruck",
-  "adresse": "Maisacher Straße 7, Fürstenfeldbruck",
-  "lat": 48.1783,
-  "lon": 11.2546,
-  "datum": "2026-10-07",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Auch So 20:15.",
-  "tags": [
-   "Kino",
-   "Abends"
-  ],
-  "quelle": "in-muenchen.de",
-  "url": "https://www.in-muenchen.de/kino/theater/lichtspielhaus.html",
-  "stand": "2026-10-06",
-  "thema": "Lichtspielhaus Fürstenfeldbruck",
-  "kinoseite": "https://neokinos.de/ffb"
- },
- {
-  "id": "kino-astor-film-lounge-im-arri-queen-budapest-2026-10-07",
-  "rubrik": "kino",
-  "titel": "Queen Budapest",
-  "ort": "Astor Film Lounge im ARRI",
-  "adresse": "Türkenstraße 91",
-  "lat": 48.1578,
-  "lon": 11.5617,
-  "datum": "2026-10-07",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Mittwoch als OmU.",
-  "tags": [
-   "Kino",
-   "Abends"
-  ],
-  "quelle": "in-muenchen.de",
-  "url": "https://www.in-muenchen.de/kino/theater/astor-filmlounge-im-arri.html",
-  "stand": "2026-10-06",
-  "thema": "Astor Film Lounge im ARRI",
-  "kinoseite": "https://muenchen.premiumkino.de/"
  },
  {
   "id": "kino-kino-breitwand-gauting-alte-liebe-2026-10-08",
@@ -1952,48 +1957,6 @@
   "kinoseite": "https://breitwand.com/"
  },
  {
-  "id": "stream-netflix-crazy-rich-incredibly-broke",
-  "rubrik": "stream",
-  "titel": "Crazy Rich, Incredibly Broke",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Komödie, seit 1. Oktober bei Netflix im Programm.",
-  "tags": [
-   "Film",
-   "Komödie"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-10",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-netflix-im-kreis-der-korruption",
-  "rubrik": "stream",
-  "titel": "Im Kreis der Korruption",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Thriller-Serie, seit 7. Oktober bei Netflix.",
-  "tags": [
-   "Serie",
-   "Thriller"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-10",
-  "thema": "Netflix"
- },
- {
   "id": "stream-netflix-below",
   "rubrik": "stream",
   "titel": "Below",
@@ -2015,47 +1978,25 @@
   "thema": "Netflix"
  },
  {
-  "id": "stream-amazon-prime-the-social-network",
+  "id": "stream-netflix-crazy-rich-incredibly-broke",
   "rubrik": "stream",
-  "titel": "The Social Network",
-  "ort": "Amazon Prime",
+  "titel": "Crazy Rich, Incredibly Broke",
+  "ort": "Netflix",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Drama über die Anfänge von Facebook, seit 8. Oktober bei Prime Video.",
+  "kurz": "Komödie, seit 1. Oktober bei Netflix im Programm.",
   "tags": [
    "Film",
-   "Drama"
+   "Komödie"
   ],
   "quelle": "mobiflip.de",
-  "url": "https://www.primevideo.com/",
+  "url": "https://www.netflix.com/de/",
   "stand": "2026-10-10",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-amazon-prime-the-rookie",
-  "rubrik": "stream",
-  "titel": "The Rookie",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Polizeiserie, Staffel 1 bis 7 seit 1. Oktober bei Prime Video.",
-  "tags": [
-   "Serie",
-   "Krimi",
-   "Drama"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-10",
-  "thema": "Amazon Prime"
+  "thema": "Netflix"
  },
  {
   "id": "stream-amazon-prime-from",
@@ -2080,25 +2021,47 @@
   "thema": "Amazon Prime"
  },
  {
-  "id": "stream-apple-tv-k2-katastrophe-im-eis",
+  "id": "stream-ard-mediathek-hubert-ohne-staller",
   "rubrik": "stream",
-  "titel": "K2: Katastrophe im Eis",
-  "ort": "Apple TV",
+  "titel": "Hubert ohne Staller",
+  "ort": "ARD Mediathek",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Dokumentarfilm, seit 2. Oktober bei Apple TV.",
+  "kurz": "Bayerische Provinzpolizei mit unorthodoxen Methoden, Staffel 10. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Film",
-   "Doku"
+   "Serie",
+   "Krimi",
+   "Komödie"
   ],
-  "quelle": "netzwelt.de",
-  "url": "https://tv.apple.com/de",
+  "quelle": "news.de",
+  "url": "https://www.ardmediathek.de/",
   "stand": "2026-10-10",
-  "thema": "Apple TV"
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-netflix-im-kreis-der-korruption",
+  "rubrik": "stream",
+  "titel": "Im Kreis der Korruption",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Thriller-Serie, seit 7. Oktober bei Netflix.",
+  "tags": [
+   "Serie",
+   "Thriller"
+  ],
+  "quelle": "mobiflip.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-10-10",
+  "thema": "Netflix"
  },
  {
   "id": "stream-ard-mediathek-juliet-naked",
@@ -2123,6 +2086,27 @@
   "thema": "ARD Mediathek"
  },
  {
+  "id": "stream-apple-tv-k2-katastrophe-im-eis",
+  "rubrik": "stream",
+  "titel": "K2: Katastrophe im Eis",
+  "ort": "Apple TV",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentarfilm, seit 2. Oktober bei Apple TV.",
+  "tags": [
+   "Film",
+   "Doku"
+  ],
+  "quelle": "netzwelt.de",
+  "url": "https://tv.apple.com/de",
+  "stand": "2026-10-10",
+  "thema": "Apple TV"
+ },
+ {
   "id": "stream-ard-mediathek-meine-mutter-raubt-die-braut",
   "rubrik": "stream",
   "titel": "Meine Mutter raubt die Braut",
@@ -2144,128 +2128,47 @@
   "thema": "ARD Mediathek"
  },
  {
-  "id": "stream-ard-mediathek-hubert-ohne-staller",
+  "id": "stream-amazon-prime-the-rookie",
   "rubrik": "stream",
-  "titel": "Hubert ohne Staller",
-  "ort": "ARD Mediathek",
+  "titel": "The Rookie",
+  "ort": "Amazon Prime",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Bayerische Provinzpolizei mit unorthodoxen Methoden, Staffel 10. Verfügbarkeit bitte prüfen.",
+  "kurz": "Polizeiserie, Staffel 1 bis 7 seit 1. Oktober bei Prime Video.",
   "tags": [
    "Serie",
    "Krimi",
-   "Komödie"
+   "Drama"
   ],
-  "quelle": "news.de",
-  "url": "https://www.ardmediathek.de/",
+  "quelle": "mobiflip.de",
+  "url": "https://www.primevideo.com/",
   "stand": "2026-10-10",
-  "thema": "ARD Mediathek"
+  "thema": "Amazon Prime"
  },
  {
-  "id": "tv-verstehen-sie-spass-das-erste-20261010-2015",
-  "rubrik": "tv",
-  "titel": "Verstehen Sie Spaß?",
-  "ort": "Das Erste",
+  "id": "stream-amazon-prime-the-social-network",
+  "rubrik": "stream",
+  "titel": "The Social Network",
+  "ort": "Amazon Prime",
   "adresse": "",
-  "datum": "2026-10-10",
+  "datum": "",
   "datum_bis": "",
-  "zeit": "20:15",
+  "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Live-Unterhaltung mit Clips und versteckter Kamera. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "tvmovie.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-10-10",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-frankfurt-mord-zdf-20261010-2015",
-  "rubrik": "tv",
-  "titel": "Frankfurt Mord – Ein neues Leben",
-  "ort": "ZDF",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Krimiserie um Ermittlungen in Frankfurt. Programm kann sich ändern.",
-  "tags": [
-   "Serie",
-   "Krimi"
-  ],
-  "quelle": "tvmovie.de",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-10-10",
-  "thema": "ZDF"
- },
- {
-  "id": "tv-ich-will-mein-glueck-zurueck-br-20261010-2015",
-  "rubrik": "tv",
-  "titel": "Ich will mein Glück zurück",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Spielfilm im BR Fernsehen. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "fernsehprogrammheuteabend.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-10-10",
-  "thema": "BR"
- },
- {
-  "id": "tv-hitgiganten-ndr-20261010-2015",
-  "rubrik": "tv",
-  "titel": "Hitgiganten – Die Stars hinter den Stars",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Musiksendung über die Stars hinter den Stars. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "fernsehprogrammheuteabend.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-10",
-  "thema": "NDR"
- },
- {
-  "id": "tv-nord-bei-nordwest-estonia-swr-20261010-2015",
-  "rubrik": "tv",
-  "titel": "Nord bei Nordwest: Estonia",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Film der Reihe Nord bei Nordwest. Programm kann sich ändern.",
+  "kurz": "Drama über die Anfänge von Facebook, seit 8. Oktober bei Prime Video.",
   "tags": [
    "Film",
-   "Krimi"
+   "Drama"
   ],
-  "quelle": "fernsehprogrammheuteabend.de",
-  "url": "https://www.swr.de/",
+  "quelle": "mobiflip.de",
+  "url": "https://www.primevideo.com/",
   "stand": "2026-10-10",
-  "thema": "SWR"
+  "thema": "Amazon Prime"
  },
  {
   "id": "tv-chauvet-hoehle-arte-20261010-2015",
@@ -2282,28 +2185,6 @@
   "tags": [
    "Doku",
    "Historie"
-  ],
-  "quelle": "tvmovie.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-10",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-sulawesi-arte-20261010-2145",
-  "rubrik": "tv",
-  "titel": "Sulawesi – Am Anfang war die Höhlenmalerei",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über Höhlenmalerei auf Sulawesi. Programm kann sich ändern.",
-  "tags": [
-   "Doku",
-   "Historie",
-   "Reise"
   ],
   "quelle": "tvmovie.de",
   "url": "https://www.arte.tv/de/",
@@ -2329,5 +2210,129 @@
   "url": "https://www.3sat.de/",
   "stand": "2026-10-10",
   "thema": "3sat"
+ },
+ {
+  "id": "tv-frankfurt-mord-zdf-20261010-2015",
+  "rubrik": "tv",
+  "titel": "Frankfurt Mord – Ein neues Leben",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Krimiserie um Ermittlungen in Frankfurt. Programm kann sich ändern.",
+  "tags": [
+   "Serie",
+   "Krimi"
+  ],
+  "quelle": "tvmovie.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-10",
+  "thema": "ZDF"
+ },
+ {
+  "id": "tv-hitgiganten-ndr-20261010-2015",
+  "rubrik": "tv",
+  "titel": "Hitgiganten – Die Stars hinter den Stars",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Musiksendung über die Stars hinter den Stars. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "fernsehprogrammheuteabend.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-10",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-ich-will-mein-glueck-zurueck-br-20261010-2015",
+  "rubrik": "tv",
+  "titel": "Ich will mein Glück zurück",
+  "ort": "BR",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Spielfilm im BR Fernsehen. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "fernsehprogrammheuteabend.de",
+  "url": "https://www.br.de/fernsehen/",
+  "stand": "2026-10-10",
+  "thema": "BR"
+ },
+ {
+  "id": "tv-nord-bei-nordwest-estonia-swr-20261010-2015",
+  "rubrik": "tv",
+  "titel": "Nord bei Nordwest: Estonia",
+  "ort": "SWR",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Film der Reihe Nord bei Nordwest. Programm kann sich ändern.",
+  "tags": [
+   "Film",
+   "Krimi"
+  ],
+  "quelle": "fernsehprogrammheuteabend.de",
+  "url": "https://www.swr.de/",
+  "stand": "2026-10-10",
+  "thema": "SWR"
+ },
+ {
+  "id": "tv-sulawesi-arte-20261010-2145",
+  "rubrik": "tv",
+  "titel": "Sulawesi – Am Anfang war die Höhlenmalerei",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentation über Höhlenmalerei auf Sulawesi. Programm kann sich ändern.",
+  "tags": [
+   "Doku",
+   "Historie",
+   "Reise"
+  ],
+  "quelle": "tvmovie.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-10",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-verstehen-sie-spass-das-erste-20261010-2015",
+  "rubrik": "tv",
+  "titel": "Verstehen Sie Spaß?",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Live-Unterhaltung mit Clips und versteckter Kamera. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "tvmovie.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-10",
+  "thema": "Das Erste"
  }
 ]

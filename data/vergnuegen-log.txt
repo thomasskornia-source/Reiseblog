@@ -1,9 +1,11 @@
 gemini-3.8-flash: HTTP 503
-gemini-3.8-flash: HTTP 429
-gemini-flash-latest: HTTP 429
-FEHLER musik-backstage gemini-flash-latest: HTTP 429
-gemini-3.8-flash: HTTP 429
-gemini-flash-latest: HTTP 429
-FEHLER musik-alte-utting gemini-flash-latest: HTTP 429
-Zwei Mal in Folge Tempolimit, Abbruch bis zum nächsten Lauf
-Fertig: 0 Quellen ok, 2 Fehler, 0 neue Tipps, 102 gesamt
+gemini-3.8-flash: HTTP 503
+ok musik-backstage 10 Tipps
+ok musik-alte-utting 5 Tipps
+ok musik-unterfahrt 10 Tipps
+FEHLER buehne-staatsoper HTTP Error 403: Forbidden
+ok buehne-residenztheater 10 Tipps
+ok buehne-kammerspiele 10 Tipps
+ok buehne-volkstheater 10 Tipps
+ok muenchen-de-wochenende 10 Tipps
+Fertig: 7 Quellen ok, 1 Fehler, 64 neue Tipps, 103 gesamt
