@@ -2,12 +2,13 @@
    Quelle: iTunes Search API (Apple), kostenlos und ohne Anmeldung. Wird im Browser abgefragt, der Player bleibt unsichtbar. */
 (function () {
   var PRE = 5, LOW = 0.16, HIGH = 0.9;
-  var url = null, corsOk = false, info = null;
+  var url = null, corsOk = false, info = null, cover = null;
   var level = 0, fadeT = 0, fadeBase = null, FADE = 3;
   var m = null, ctx = null, gain = null, canVol = false, started = false, finished = false, cb = null, ramp = 0, tmo = 0;
 
   function norm(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim(); }
 
+  function art(r) { var u = r && r.artworkUrl100; return u ? String(u).replace(/^http:/, 'https:').replace(/\/\d+x\d+[a-z]*\.(jpg|png)$/i, '/600x600bb.$1') : null; }
   function lookup(s) {
     return new Promise(function (res) {
       var name = '__sm' + Date.now(), sc = document.createElement('script'), done = false, t;
@@ -17,7 +18,7 @@
           var rs = (d && d.results) || [], t1 = norm(s.title), a1 = norm(s.artist).split(' ')[0];
           for (var i = 0; i < rs.length; i++) {
             var r = rs[i];
-            if (r.previewUrl && norm(r.trackName).indexOf(t1) === 0 && norm(r.artistName).indexOf(a1) >= 0) { url = String(r.previewUrl).replace(/^http:/, 'https:'); info = r; break; }
+            if (r.previewUrl && norm(r.trackName).indexOf(t1) === 0 && norm(r.artistName).indexOf(a1) >= 0) { if (!url) url = String(r.previewUrl).replace(/^http:/, 'https:'); if (!cover) cover = art(r); info = r; break; }
           }
         } catch (e) {}
         fin();
@@ -86,7 +87,7 @@
   }
 
   window.Songmusik = {
-    prepare: function (s) { url = null; info = null; corsOk = false; st = 'Suche läuft'; cleanup(); if (s.preview) { url = String(s.preview).replace(/^http:/, 'https:'); st = 'Adresse vorhanden'; return probeCors().then(function () { st = 'gefunden' + (corsOk ? ' (Regler ja)' : ' (einfach)'); }); } return lookup(s).then(function () { if (!url && st === 'Suche läuft') st = 'Song nicht gefunden'; }).then(probeCors).then(function () { if (url) st = 'gefunden' + (corsOk ? ' (Regler ja)' : ' (einfach)'); }); },
+    prepare: function (s) { url = null; info = null; cover = s.cover ? String(s.cover).replace(/^http:/, 'https:') : null; corsOk = false; st = 'Suche läuft'; cleanup(); if (s.preview) { url = String(s.preview).replace(/^http:/, 'https:'); st = 'Adresse vorhanden'; if (!cover) lookup(s); return probeCors().then(function () { st = 'gefunden' + (corsOk ? ' (Regler ja)' : ' (einfach)'); }); } return lookup(s).then(function () { if (!url && st === 'Suche läuft') st = 'Song nicht gefunden'; }).then(probeCors).then(function () { if (url) st = 'gefunden' + (corsOk ? ' (Regler ja)' : ' (einfach)'); }); },
     ready: function () { return !!url; },
     /* im Tipp des Nutzers aufrufen, damit iPhones das spätere Starten erlauben */
     arm: function () {
@@ -104,6 +105,7 @@
       if (!m) { done(); return; }
       cb = done; finished = false;
       m.onended = finish;
+      if (window.Lesebuehne && Lesebuehne.outro) Lesebuehne.outro(cover, (isFinite(m.duration) && m.duration > 1) ? Math.max(8, m.duration - m.currentTime) : 30);
       if (!started) begin(canVol ? HIGH : 1); else rampTo(LOW, HIGH, 1500);
       tmo = setTimeout(finish, 45000);
     },

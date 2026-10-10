@@ -1,13 +1,15 @@
 /* Lesebühne: zeigt den vorgelesenen Text groß und lässt ihn passend zur Stimme von unten nach oben laufen */
 (function () {
-  var root = null, box = null, raf = 0, mode = '', audio = null, cb = null, startY = 0, endY = 0;
+  var root = null, box = null, raf = 0, mode = '', audio = null, cb = null, startY = 0, endY = 0, curY = 0;
+  var out = { t0: 0, dur: 1, y0: 0, y1: 0 };
   var sp = { cum: [0], total: 1, i: 0, t0: 0, dur: 1 };
   var tl = { cum: [0], marks: [] };
 
   function el(tag, cls, txt) { var e = document.createElement(tag); e.className = cls; if (txt) e.textContent = txt; return e; }
+  function setY(y) { curY = y; box.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0)'; }
   function place(p) {
     p = Math.max(0, Math.min(1, p || 0));
-    box.style.transform = 'translate3d(0,' + (startY + (endY - startY) * p).toFixed(1) + 'px,0)';
+    setY(startY + (endY - startY) * p);
   }
   function layout() {
     if (!box) return;
@@ -34,6 +36,10 @@
   var last = 0;
   function tick() {
     if (!root) return;
+    if (mode === 'outro') {   // Musik läuft: Text wandert gleichmäßig weiter nach oben und verlässt am Ende des Ausschnitts das Bild
+      var f = Math.min(1, (performance.now() - out.t0) / out.dur);
+      setY(out.y0 + (out.y1 - out.y0) * f); raf = requestAnimationFrame(tick); return;
+    }
     var p = progress(); if (p < last && mode === 'speech') p = last; last = p;   // nie rückwärts laufen
     place(p); raf = requestAnimationFrame(tick);
   }
@@ -65,6 +71,17 @@
       raf = requestAnimationFrame(tick);
     },
     followAudio: function (a) { audio = a; mode = 'audio'; },
+    /* Stimme ist zu Ende, die Musik beginnt: Text läuft in sec Sekunden weiter aus dem Bild, das Albumcover (Adresse oder leer) wird eingeblendet */
+    outro: function (cover, sec) {
+      if (!root || !box || mode === 'outro') return;
+      out.t0 = performance.now(); out.dur = Math.max(4, sec || 30) * 1000; out.y0 = curY; out.y1 = -box.offsetHeight - 24; mode = 'outro'; audio = null;
+      if (cover && !root.querySelector('.lb-cover')) {
+        var im = new Image(), r = root; im.className = 'lb-cover'; im.alt = ''; im.decoding = 'async';
+        im.onload = function () { if (r.parentNode) requestAnimationFrame(function () { im.classList.add('on'); }); };
+        im.onerror = function () { if (im.parentNode) im.parentNode.removeChild(im); };
+        im.src = cover; root.appendChild(im);
+      }
+    },
     /* parts: wie bei open(), marks: [[Start, Ende] in Sekunden je Teil] */
     followTimeline: function (a, parts, marks) {
       var c = 0; tl.cum = [0]; parts.forEach(function (p) { c += p.t.length; tl.cum.push(c); });

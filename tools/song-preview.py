@@ -26,21 +26,26 @@ def find(song):
     t1, a1 = norm(song['title']), norm(song['artist']).split(' ')[0]
     for r in data.get('results', []):
         if r.get('previewUrl') and norm(r.get('trackName', '')).startswith(t1) and a1 in norm(r.get('artistName', '')):
-            return r['previewUrl'].replace('http://', 'https://')
-    return None
+            art = (r.get('artworkUrl100') or '').replace('http://', 'https://')
+            art = re.sub(r'/\d+x\d+[a-z]*\.(jpg|png)$', r'/600x600bb.\1', art)
+            return r['previewUrl'].replace('http://', 'https://'), art or None
+    return None, None
 
 def main():
     songs = json.load(open(PATH, encoding='utf-8'))
     changed = failed = 0
     for s in songs:
-        if s.get('preview') or s.get('previewGeprueft'):
+        if s.get('previewGeprueft') or (s.get('preview') and (s.get('cover') or s.get('coverGeprueft'))):
             continue
         try:
-            url = find(s)
+            url, cover = find(s)
         except Exception as e:
             print('FEHLER', s['id'], e); failed += 1; continue
         if url:
-            s['preview'] = url; print('ok', s['id'], url)
+            s['preview'] = s.get('preview') or url
+            if cover: s['cover'] = cover
+            else: s['coverGeprueft'] = True
+            print('ok', s['id'], url, cover)
         else:
             s['previewGeprueft'] = True; print('nichts gefunden', s['id'])
         changed += 1
