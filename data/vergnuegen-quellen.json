@@ -724,5 +724,41 @@
   "info": "20:15-Programm von ARD, ZDF, ARTE, 3sat (lesbar); BR/WDR/NDR fehlen",
   "abruf": false,
   "status": "behalten"
+ },
+ {
+  "id": "stream-news-ard",
+  "rubrik": "stream",
+  "name": "news.de: Neu in der ARD Mediathek",
+  "url": "https://www.news.de/film/858581860/ard-mediathek-neue-serien-ab-heute-neuheiten-im-oktober-2026/1/",
+  "info": "lesbar (10.10.2026)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-netzwelt-apple",
+  "rubrik": "stream",
+  "name": "netzwelt: Neu auf Apple TV",
+  "url": "https://www.netzwelt.de/serien/173068-apple-tv-plus-neuerscheinungen-serien-filme-2022-kosten-30032021.html",
+  "info": "lesbar (10.10.2026)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-tvmovie-samstag",
+  "rubrik": "tv",
+  "name": "TV Movie: Fernsehprogramm Samstag",
+  "url": "https://www.tvmovie.de/tv/fernsehprogramm-samstag",
+  "info": "lesbar (10.10.2026)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "tv-fphA",
+  "rubrik": "tv",
+  "name": "Fernsehprogramm heute Abend (Sender-Übersicht)",
+  "url": "https://www.fernsehprogrammheuteabend.de/samstag",
+  "info": "lesbar (10.10.2026)",
+  "abruf": false,
+  "status": "behalten"
  }
 ]
