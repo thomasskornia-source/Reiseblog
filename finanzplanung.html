@@ -93,6 +93,10 @@ input[type=range] { width: 100%; accent-color: var(--accent); margin: 2px 0; }
 .alloclegend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink2); font-variant-numeric: tabular-nums; }
 .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; }
 .linkbtn { font: inherit; font-size: 12px; background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; }
+details.sec { border: 1px solid var(--line); border-radius: 10px; padding: 0 14px; margin: 0 0 12px; min-width: 0; }
+details.sec > summary { cursor: pointer; padding: 13px 0; font-family: var(--f-display); font-weight: 600; font-size: 14px; }
+details.sec[open] > summary { padding-bottom: 8px; }
+details.sec > .secb { display: grid; gap: 12px; padding: 4px 0 14px; min-width: 0; }
 details.more { border-top: 1px solid var(--line); padding-top: 12px; }
 details.more > summary, details.tbl > summary { cursor: pointer; font-family: var(--f-display); font-weight: 600; font-size: 14px; }
 details.more[open] > summary { margin-bottom: 12px; }
@@ -435,7 +439,7 @@ body.fp-body { padding-bottom: 0; }
     <aside id="inputs" class="panel" aria-label="Deine Angaben">
       <header><h2>Deine Angaben</h2><p>Alle Werte bleiben auf deinem Gerät und werden nur zum Rechnen genutzt.</p></header>
 
-      <fieldset><legend>Berechnung und Haushalt</legend>
+      <details class="sec" open><summary>Berechnung und Haushalt</summary><div class="secb">
         <label class="f" for="calcMode"><span>Wofür rechnest du?</span>
           <select id="calcMode"><option value="einzel">Einzelberechnung, nur für mich</option><option value="paar">Gemeinsame Berechnung, als Paar</option></select></label>
         <label class="f" for="coupleType" id="coupleWrap" hidden><span>Ihr seid</span>
@@ -450,9 +454,9 @@ body.fp-body { padding-bottom: 0; }
         </div>
           <label class="f" for="netto"><span id="nettoLbl">Netto pro Monat</span><input id="netto" type="number" inputmode="decimal" min="0" step="50"></label>
         <div class="small" id="nettoNote"></div>
-      </fieldset>
+      </div></details>
 
-      <fieldset id="meSet"><legend id="meLeg">Du</legend>
+      <details class="sec" id="meSet" open><summary id="meLeg">Du</summary><div class="secb">
         <label class="f" for="vorname"><span>Vorname (optional)</span><input id="vorname" type="text" maxlength="40" autocomplete="given-name" placeholder="z. B. Anna"><small>Wird nur für die Anrede und die Beschriftung benutzt.</small></label>
         <div class="grid2">
           <label class="f" for="by"><span>Geburtsjahr</span><input id="by" type="number" inputmode="numeric" min="1940" max="2010" step="1"></label>
@@ -466,9 +470,9 @@ body.fp-body { padding-bottom: 0; }
         <label class="f" for="startAge"><span>Berufsstart (Alter)</span><input id="startAge" type="number" inputmode="numeric" min="14" max="45" step="1"></label>
         </div>
         <label class="f" for="renteInfo"><span>Rente laut Renteninformation (optional)</span><input id="renteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"><small>Trage die Bruttorente vor Abzügen ein. Sie ersetzt die Schätzung des Planers.</small></label>
-      </fieldset>
+      </div></details>
 
-      <fieldset id="partnerSet" hidden><legend id="parLeg">Partnerin oder Partner</legend>
+      <details class="sec" id="partnerSet" hidden open><summary id="parLeg">Partnerin oder Partner</summary><div class="secb">
         <p class="small">Lässt du Brutto leer, zählt die Person ohne eigenes Einkommen.</p>
         <label class="f" for="pvorname"><span>Vorname (optional)</span><input id="pvorname" type="text" maxlength="40" placeholder="z. B. Ben"></label>
         <div class="grid2">
@@ -482,9 +486,9 @@ body.fp-body { padding-bottom: 0; }
         </div>
         <label class="f" for="prenteInfo"><span>Rente laut Renteninformation (optional)</span><input id="prenteInfo" type="number" inputmode="decimal" min="0" step="50" placeholder="€ brutto pro Monat"></label>
         <div class="small" id="pretNote"></div>
-      </fieldset>
+      </div></details>
 
-      <fieldset><legend>Sparen und Anlegen</legend>
+      <details class="sec" open><summary>Sparen und Anlegen</summary><div class="secb">
         <div class="grid2">
           <label class="f" for="W0"><span>Vermögen heute</span><input id="W0" type="number" inputmode="decimal" min="0" step="1000"></label>
           <label class="f" for="sparrate"><span>Sparrate pro Monat</span><input id="sparrate" type="number" inputmode="decimal" min="0" step="50"></label>
@@ -506,23 +510,23 @@ body.fp-body { padding-bottom: 0; }
         <div class="small" id="hhNote" hidden>Bei gemeinsamer Berechnung gelten Netto, Vermögen und Sparrate für euren gemeinsamen Haushalt.</div>
         <label class="f" for="saveUntil"><span>Du sparst bis</span>
           <select id="saveUntil"><option value="rente">Renteneintritt</option><option value="wunsch">Wunschalter</option></select></label>
-      </fieldset>
+      </div></details>
 
-      <details class="more" id="ausDet"><summary>Ausgaben im Ruhestand</summary>
+      <details class="sec" id="ausDet"><summary>Ausgaben im Ruhestand</summary><div class="secb">
         <p class="small">Trage ein, was du im Ruhestand pro Monat ausgeben willst, in heutigen Preisen. Kranken- und Pflegeversicherung gehören nicht hinein, die sind schon von der Rente abgezogen.</p>
         <div class="grid2" id="ausGrid" style="margin-top:10px"></div>
         <div class="chips" style="margin-top:10px"><button type="button" class="chip" id="ausEx">Beispielwerte einsetzen</button><button type="button" class="chip" id="ausClr">Leeren</button></div>
         <div class="small" id="ausSum" style="margin-top:8px"></div>
-      </details>
+      </div></details>
 
-      <details class="more" id="conDet"><summary>Versicherungen und Vorsorgeverträge</summary>
+      <details class="sec" id="conDet"><summary>Versicherungen und Vorsorgeverträge</summary><div class="secb">
         <p class="small">Riester, Rürup, private Rentenversicherung, Lebensversicherung, Berufsunfähigkeit und mehr. Rentenbeträge trägst du in heutigen Preisen ein, Kapitalauszahlungen als Betrag bei Auszahlung.</p>
         <div style="display:grid;gap:10px;margin-top:10px" id="conList"></div>
         <div class="chips" style="margin-top:10px"><select id="conType" aria-label="Art des Vertrags" style="font:inherit;font-size:14px;border:1px solid var(--line);border-radius:7px;padding:6px 8px;background:var(--paper);color:var(--ink)"></select><button type="button" class="chip" id="conAdd">+ Vertrag hinzufügen</button></div>
         <div class="small" id="conSum" style="margin-top:8px"></div>
-      </details>
+      </div></details>
 
-      <details class="more"><summary>Annahmen anpassen</summary>
+      <details class="sec"><summary>Annahmen anpassen</summary><div class="secb">
         <div style="display:grid;gap:12px">
           <div class="grid2">
             <label class="f" for="rS"><span>Rendite Tagesgeld (%)</span><input id="rS" type="number" inputmode="decimal" step="0.5"></label>
@@ -534,7 +538,7 @@ body.fp-body { padding-bottom: 0; }
           </div>
           <p class="small">Renditen sind Annahmen vor Steuern und vor Inflation. Sie sind keine Prognose und nicht garantiert.</p>
         </div>
-      </details>
+      </div></details>
     </aside>
 
     <main class="stack" id="results">
@@ -1363,7 +1367,7 @@ function compute(P) {
     $('leadTxt').textContent = two ? 'Der Planer rechnet aus eurem Alter, eurer Lebenssituation, eurem Einkommen und eurer Sparweise hoch, wie viel Vermögen nach Steuern übrig bleibt, wenn ihr so weitermacht wie bisher.' : 'Der Planer rechnet aus deinem Alter, deiner Lebenssituation, deinem Einkommen und deiner Sparweise hoch, wie viel Vermögen nach Steuern übrig bleibt, wenn du so weitermachst wie bisher.';
     $('partnerSet').hidden = !P.partner; $('hhNote').hidden = !P.partner;
     $('nettoLbl').textContent = P.partner ? 'Haushalts-Netto pro Monat' : 'Netto pro Monat';
-    $('meLeg').textContent = nm || 'Du'; $('parLeg').textContent = pnm || 'Partnerin oder Partner';
+    $('meLeg').textContent = nm || (P.partner ? '1. Person' : 'Du'); $('parLeg').textContent = pnm || '2. Person';
     var adj = function (v, yrs) { return mode === 'real' ? v / Math.pow(1 + P.infl, yrs) : v; };
     var yTo = function (age) { return age - R.age0; };
     var ausTot0 = P.aus.reduce(function (x, y) { return x + y; }, 0);
