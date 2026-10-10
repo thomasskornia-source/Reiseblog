@@ -4,8 +4,8 @@ Kanal theprofgpod -> UCp4CBeq4nzeg9smAvdjPrig
 Kanal lynxbrokergermany -> UCpVi-t7Mf9ObllQEA2Kradw
 Kanal creativeplanning -> UCRoWRnXa4ZM85Fw9EN7xICA
 Kanal jamesbulltard -> UCRdVq4StMUVOOJNkbqvDY9g
-Video: Creative Planning | How to Manage a Concentrated Stock Position | Signal or Noise Ep 79 | 
-Video: The Prof G Pod – Scott Galloway | SpaceX Raised $111B — It Already Needs More
+Video: Creative Planning | The State of the Markets (October 2026) | Charlie Bilello | Creative P
+Video: The Prof G Pod – Scott Galloway | Cal Newport: The AI Industry Is Betting On The Wrong Kind Of AI
 gemini-3.8-flash: HTTP 503 {
   "error": {
     "code": 503,
@@ -14,118 +14,31 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
+gemini-3.7-flash: Remote end closed connection without response
+gemini-flash-latest: Remote end closed connection without response
+  nicht ausgewertet, wird morgen noch einmal versucht: gemini-flash-latest: Remote end closed connection without response
+Sprechtext: 1943 Wörter
+Sprachausgabe Block 1
+Sprachausgabe Block 2
+Sprachausgabe Block 3
+Sprachausgabe Block 4
+Sprachausgabe Block 5
+Sprachausgabe Block 6
+Sprachausgabe Block 7
+Sprachausgabe Block 8
+Sprachausgabe Block 9
+Sprachausgabe Block 10
+Sprachausgabe Block 11
+Sprachausgabe Block 12
 Traceback (most recent call last):
   File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 421, in <module>
     main()
-  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 394, in main
-    text = sprechtext(daten)
-           ^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 248, in sprechtext
-    txt = gemini([{"text": SKRIPT_PROMPT % json.dumps(daten, ensure_ascii=False, indent=1)}], temperatur=0.7, versuche=4)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 145, in gemini
-    raise RuntimeError(fehler[-1] if fehler else "keine Antwort")
-RuntimeError: gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
+  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 402, in main
+    dauer = audio_bauen(text, ziel)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 312, in audio_bauen
+    teile.append(zu_wav(tts(b)))
+                        ^^^^^^
+  File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 283, in tts
+    raise RuntimeError(letzt)
+RuntimeError: HTTP 429 {"error":{"message":"Rate limit exceeded for model gemini-3.8-flash-tts (limit: 10 requests per day on Free Tier). Please retry in 13h40m32s or upgrade your tier at https://ai.dev/rate-limit.","code":
