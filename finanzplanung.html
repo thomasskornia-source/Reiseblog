@@ -1323,6 +1323,12 @@ function compute(P) {
     }).join('') + '<tr><td>Vom heutigen Netto</td><td>' + pct(B.quota) + '</td><td>' + pct(R.quota) + '</td><td class="' + (R.quota < B.quota - 0.0005 ? 'neg' : 'pos') + '">' + (R.quota < B.quota ? '−' : '+') + num(Math.abs(R.quota - B.quota) * 100, 1) + ' Pkt.</td></tr></tbody></table></div><p class="small">Alle Beträge in heutiger Kaufkraft, Ruhestand-Zahlen pro Monat.</p>';
     var cls = S.depAge ? 'crit' : (R.quota >= 0.8 ? 'good' : (R.quota >= 0.6 ? 'warn' : 'crit'));
     var vt = S.depAge ? '✕ Das Vermögen ist mit ' + ageJ(S.depAge) + ' aufgebraucht, bis zur Rente fehlt Geld' : (R.quota >= 0.8 ? '✓ Im Ruhestand bleiben ' + pct(R.quota) + ' vom heutigen Netto' : (R.quota >= 0.6 ? '! Im Ruhestand bleiben nur ' + pct(R.quota) + ' vom heutigen Netto' : '✕ Im Ruhestand bleiben nur ' + pct(R.quota) + ' vom heutigen Netto'));
+    var ausT = (P.aus || []).reduce(function (x, y) { return x + y; }, 0);
+    if (!S.depAge && ausT > 0) {
+      var cov = R.total / ausT;
+      cls = cov >= 1.15 ? 'good' : (cov >= 1 ? 'warn' : 'crit');
+      vt = (cov >= 1 ? (cov >= 1.15 ? '✓ ' : '! ') : '✕ ') + 'Im Ruhestand decken die Einnahmen ' + pct(cov) + ' deiner Ausgaben von ' + eur(ausT) + ' (das sind ' + pct(R.quota) + ' vom heutigen Netto)';
+    }
     var h = '<span class="verdict ' + cls + '">' + vt + '</span>';
     h += '<p>Du hörst <b>' + when + '</b> mit ' + ageJ(S.quitAge) + ' auf. ' + (S.neu ? 'Bis zum neuen Job sind das <b>' + num(S.neu.gap, 1) + ' Jahre</b> ohne Gehalt.' : 'Bis zum Renteneintritt mit ' + ageJ(R.retAge) + ' sind das <b>' + yTxt + '</b> ohne Gehalt.') + ' In dieser Zeit lebst du vom Vermögen: Ausgaben ' + eur(S.living) + ' plus Kranken- und Pflegeversicherung ' + eur(S.kv) + (S.extra > 0 ? ' minus Einnahmen ' + eur(S.extra) : '') + ' sind <b>' + eur(S.wReal) + ' pro Monat</b> (heutige Kaufkraft). Das Vermögen geht dabei von ' + eur(S.capQuit / dflQ) + ' auf ' + eur(S.capRet / dfl) + ' zurück (heutige Kaufkraft), und die Sparrate von ' + eur(P.sparrate) + ' entfällt.' + (S.abf > 0 ? ' Darin enthalten ist deine Abfindung von ' + eur(S.abf) + ' netto' + (S.abfInfo && !S.abfInfo.manuell ? ' (brutto ' + eur(S.abfInfo.brutto) + ', geschätzte Steuer ' + eur(S.abfInfo.tax) + ' mit Fünftelregelung)' : '') + '.' : '') + '</p>';
     if (S.neu) {
