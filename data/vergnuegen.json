@@ -799,6 +799,29 @@
   "stand": "2026-10-09"
  },
  {
+  "id": "events-9d3b7073d3",
+  "lat": 48.13793,
+  "lon": 11.55293,
+  "rubrik": "events",
+  "titel": "25 Jahre EineWeltHaus",
+  "ort": "EineWeltHaus",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Das EineWeltHaus feiert sein 25-jähriges Jubiläum mit einem vielfältigen Programm aus Workshops, Vernissagen und weiteren Aktionen.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Feste & Märkte",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-10"
+ },
+ {
   "id": "events-fed3e5838b",
   "lat": 48.13845,
   "lon": 11.58272,
@@ -863,6 +886,29 @@
   "quelle": "Eintritt frei München",
   "url": "https://www.eintrittfrei-muenchen.de/",
   "stand": "2026-10-09"
+ },
+ {
+  "id": "events-8f0faaea09",
+  "lat": 48.15422,
+  "lon": 11.53152,
+  "rubrik": "events",
+  "titel": "Capsula Extrema – KulTüren 2026",
+  "ort": "Neuhausen",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Im Rahmen offener Ateliers zeigt die Performance eine kinetische Skulptur aus Kaffeekapseln im Zusammenspiel von Bildhauerei und Tanz.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-10"
  },
  {
   "id": "events-119aaf5eb1",
@@ -980,6 +1026,30 @@
   "thema": "Konzert & Musik",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-f804cf6f6d",
+  "lat": 48.13711,
+  "lon": 11.57538,
+  "rubrik": "events",
+  "titel": "Digitalanalog-Festival",
+  "ort": "München",
+  "adresse": "",
+  "datum": "2026-10-10",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Das traditionsreiche Münchner Festival verbindet aktuelle Popkultur mit analogen und digitalen Kunstformen bei freiem Eintritt.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
   "stand": "2026-10-10"
  },
  {
@@ -1325,6 +1395,29 @@
   "stand": "2026-10-10"
  },
  {
+  "id": "events-417e2d1e4b",
+  "lat": 48.13711,
+  "lon": 11.57538,
+  "rubrik": "events",
+  "titel": "Die weiße Krankheit",
+  "ort": "München",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Karel Čapeks Theaterstück thematisiert eine tödliche Pandemie und den moralischen Konflikt um ein neu entdecktes Heilmittel.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-10"
+ },
+ {
   "id": "events-d0241b67e6",
   "lat": 48.13819,
   "lon": 11.5824,
@@ -1462,6 +1555,54 @@
   "thema": "Draußen & Sport",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-596526e850",
+  "lat": 48.21825,
+  "lon": 11.60822,
+  "rubrik": "events",
+  "titel": "Nachbarschaftsfest NachbarHeide",
+  "ort": "Südliche Fröttmaninger Heide",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Gemeinsames Feiern an der Fröttmaninger Heide mit Aktionen wie Glücksrad, Heide-Challenges und kreativen Angeboten für alle Nachbarn.",
+  "tags": [
+   "Familie",
+   "Draußen",
+   "Kostenlos"
+  ],
+  "thema": "Feste & Märkte",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-10"
+ },
+ {
+  "id": "events-2981d98b5f",
+  "lat": 48.13711,
+  "lon": 11.57538,
+  "rubrik": "events",
+  "titel": "Orgelmatinée zu Paul Gerhardt",
+  "ort": "München",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "11:30",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Romantische Bearbeitungen von Chorälen des Dichters Paul Gerhardt stehen im Mittelpunkt dieser sonntäglichen Orgelmatinée.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
   "stand": "2026-10-10"
  },
  {
@@ -1698,143 +1839,6 @@
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
   "stand": "2026-10-10"
- },
- {
-  "id": "abend-zenith-die-nervigen-2026-10-13",
-  "rubrik": "events",
-  "titel": "Die Nervigen",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29",
-  "lat": 48.1818,
-  "lon": 11.6125,
-  "datum": "2026-10-13",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Show.",
-  "tags": [
-   "Show",
-   "Abends"
-  ],
-  "quelle": "in-muenchen.de",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-06",
-  "thema": "Konzert & Musik"
- },
- {
-  "id": "events-959a4f3913",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Die Nervigen",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-10-13",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Julia und Joey präsentieren ihre unterhaltsame Live-Bühnenshow mit persönlichen Geschichten und schrägen Themen.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-293db1fc3e",
-  "lat": 48.13845,
-  "lon": 11.58272,
-  "rubrik": "events",
-  "titel": "Haltestelle: Ja aber",
-  "ort": "Münchner Kammerspiele (Habibi Kiosk)",
-  "adresse": "",
-  "datum": "2026-10-13",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Choreografie zwischen Nähe und Missverständnissen mit Gebärdensprache von Lina Mattei und Mark Petersen.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-10"
- },
- {
-  "id": "events-027a929ea7",
-  "lat": 48.12366,
-  "lon": 11.5559,
-  "rubrik": "events",
-  "titel": "I WANNA CONTACT THE LIVING",
-  "ort": "Münchner Volkstheater",
-  "adresse": "Tumblingerstraße 29, 80337 München",
-  "datum": "2026-10-13",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Uraufführung nach Oscar Wildes Gespenst von Canterville, inszeniert von Katharina Grosch.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Volkstheater (Spielplan)",
-  "url": "https://www.muenchner-volkstheater.de/spielplan",
-  "stand": "2026-10-10"
- },
- {
-  "id": "events-1cc5c13129",
-  "lat": 48.11998,
-  "lon": 11.55626,
-  "rubrik": "events",
-  "titel": "Krimi-Talk",
-  "ort": "Alte Utting",
-  "adresse": "Lagerhausstraße 15, 81371 München",
-  "datum": "2026-10-13",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Drei Autorinnen diskutieren über ihre Kriminalromane und die Rolle von Frauen im Genre, ergänzt durch ausgewählte Lesungen.",
-  "tags": [
-   "Kultur"
-  ],
-  "thema": "Führung & Vortrag",
-  "quelle": "Alte Utting (Musik und Kultur)",
-  "url": "https://www.in-muenchen.de/locations/alte-utting.html",
-  "stand": "2026-10-10"
- },
- {
-  "id": "abend-alte-utting-krimi-talk-auf-der-alten-utting-2026-10-13",
-  "rubrik": "events",
-  "titel": "Krimi-Talk auf der Alten Utting",
-  "ort": "Alte Utting",
-  "adresse": "Kaflerstraße 20",
-  "lat": 48.1394,
-  "lon": 11.5324,
-  "datum": "2026-10-13",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Autorinnen diskutieren ihre Kriminalromane.",
-  "tags": [
-   "Lesung",
-   "Abends"
-  ],
-  "quelle": "in-muenchen.de",
-  "url": "https://www.in-muenchen.de/locations/alte-utting.html",
-  "stand": "2026-10-06",
-  "thema": "Führung & Vortrag"
  },
  {
   "id": "kino-kino-breitwand-gauting-alte-liebe-2026-10-08",
