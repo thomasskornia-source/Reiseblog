@@ -1,0 +1,86 @@
+{
+ "stand": "10.10.2026",
+ "zusammenfassung": "Woche 01.–09.10.2026, 14 Auswertungen von Markus Koch, 10 von 12 Kategorien bestätigt oder beobachtet (2 neu: Arbeitsmarkt, CapEx). Kurs-basierte Indikatoren (Renditen, Öl, Marktbreite, Saisonalität) lassen sich mit dem schon vorhandenen Yahoo-Abruf selbst holen; bei Stimmung, Notenbank, Inflation und Konjunktur blieb vieles ungeprüft, weil der Seitenabruf in dieser Woche nicht freigegeben war – das ist unten jeweils vermerkt. Politik/Geopolitik und Gewinnschätzungen bleiben Kochs Einschätzung.",
+ "indikatoren": [
+  {
+   "name": "US-Staatsanleiherenditen",
+   "kategorie": "Anleihen & Renditen",
+   "machbar": "ja",
+   "quelle": "Yahoo-Chartabruf (query1.finance.yahoo.com/v8/finance/chart), wird im Repo bereits in tools/trend.py genutzt (Ticker ^TNX für 10 Jahre)",
+   "url": "https://finance.yahoo.com/quote/%5ETNX",
+   "hinweis": "Täglich, ohne Schlüssel. Der Abrufweg läuft im Repo schon; der Ticker ^TNX wurde diese Woche nicht einzeln getestet. Alternative FRED (Serie DGS10) – Seite diese Woche nicht abrufbar, daher ungeprüft."
+  },
+  {
+   "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+   "kategorie": "Marktbreite & Sektoren",
+   "machbar": "ja",
+   "quelle": "Yahoo-Chartabruf (query1.finance.yahoo.com/v8/finance/chart), wird im Repo bereits in tools/trend.py genutzt: Verhältnis der ETFs RSP (Equal Weight) zu SPY",
+   "url": "https://finance.yahoo.com/quote/RSP",
+   "hinweis": "Das Verhältnis RSP/SPY ist selbst rechenbar, täglich, ohne Schlüssel. Kochs genaue Zahl kann leicht abweichen. Die Quotenseite von RSP wurde in der Suche gefunden, der Abruf selbst noch nicht getestet."
+  },
+  {
+   "name": "Öl- und Dieselpreise",
+   "kategorie": "Öl & Rohstoffe",
+   "machbar": "ja",
+   "quelle": "Yahoo-Chartabruf (query1.finance.yahoo.com/v8/finance/chart), wird im Repo bereits in tools/trend.py genutzt (Ticker CL=F für WTI-Öl)",
+   "url": "https://finance.yahoo.com/quote/CL=F",
+   "hinweis": "Rohölkurs täglich möglich. Dieselpreise (Endkunde) wären eine andere Quelle und wurden nicht geprüft. Ticker nicht einzeln getestet."
+  },
+  {
+   "name": "Industrie- und Exportdaten / Atlanta-Fed GDPNow",
+   "kategorie": "Konjunktur",
+   "machbar": "teilweise",
+   "quelle": "Atlanta Fed GDPNow (Veröffentlichung durch die Notenbank selbst)",
+   "url": "https://www.atlantafed.org/cqer/research/gdpnow",
+   "hinweis": "Die Quelle ist die Atlanta Fed selbst; ob es einen freien, maschinenlesbaren Download gibt, konnte diese Woche nicht geprüft werden (Seitenabruf blieb ohne Freigabe). Asiatische Exportdaten sind eher Einzelmeldungen und schwer automatisch zu holen."
+  },
+  {
+   "name": "Q4-Saisonalität & Positionierung",
+   "kategorie": "Saisonalität & Chart",
+   "machbar": "teilweise",
+   "quelle": "Yahoo-Chartabruf (query1.finance.yahoo.com/v8/finance/chart), wird im Repo bereits in tools/trend.py genutzt (^GSPC, lange Historie)",
+   "url": "https://finance.yahoo.com/quote/%5EGSPC",
+   "hinweis": "Die Saisonalität (Durchschnittsverlauf je Monat) lässt sich aus der Kurshistorie selbst rechnen. Die Positionierung dagegen nicht sicher frei verfügbar."
+  },
+  {
+   "name": "Marktpositionierung und Hebel / Anlegerstimmung / MOVE-Index",
+   "kategorie": "Stimmung & Volatilität",
+   "machbar": "teilweise",
+   "quelle": "AAII Sentiment Survey (wöchentlich); MOVE-Index von ICE",
+   "url": "https://aaii.com/sentimentsurvey",
+   "hinweis": "AAII veröffentlicht die Umfrage wöchentlich, ob der Datenabruf ohne Anmeldung möglich ist, blieb ungeprüft. Der MOVE-Index wird von ICE geführt (Datenkatalog bei developer.ice.com), freie, automatische Tagesdaten dazu wurden nicht belegt. Hebel/Positionierung: keine freie Quelle gefunden."
+  },
+  {
+   "name": "Nahost & Ukraine-Krieg",
+   "kategorie": "Geopolitik",
+   "machbar": "nein",
+   "quelle": "keine",
+   "url": "",
+   "hinweis": "Politische Lage und Einschätzung, nicht als Zahl abrufbar. Höchstens indirekt über Ölpreis und Rüstungs-/Energiewerte sichtbar."
+  },
+  {
+   "name": "Q3-Gewinnschätzungen",
+   "kategorie": "Gewinnsaison",
+   "machbar": "nein",
+   "quelle": "keine geprüft",
+   "url": "",
+   "hinweis": "Konsensschätzungen stammen von Datenanbietern und sind meist kostenpflichtig oder nur auf Webseiten sichtbar; keine freie, stabile Quelle belegt."
+  },
+  {
+   "name": "Fed-Zinserwartungen",
+   "kategorie": "Zinsen & Notenbank",
+   "machbar": "teilweise",
+   "quelle": "CME FedWatch",
+   "url": "https://www.cmegroup.com/market-data/market-data-api/fedwatch-api.html",
+   "hinweis": "CME bietet eine FedWatch-API an; ob und zu welchen Bedingungen sie kostenfrei ist, wurde nicht geprüft. Die Webseite des Tools ist für Menschen frei, aber nicht als stabile Schnittstelle belegt."
+  },
+  {
+   "name": "Inflationsdynamik / CPI",
+   "kategorie": "Inflation",
+   "machbar": "teilweise",
+   "quelle": "FRED (Serie CPIAUCSL) bzw. US-Arbeitsministerium BLS",
+   "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+   "hinweis": "Monatlich, offizielle Daten, vermutlich frei – diese Woche nicht abrufbar und daher ungeprüft. Der Erscheinungstermin (Kalender) ist ebenfalls offiziell."
+  }
+ ]
+}
