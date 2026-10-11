@@ -15,10 +15,13 @@ SENDER = ["Das Erste", "ZDF", "BR", "WDR", "NDR", "hr", "SWR", "ARTE", "3sat"]
 HOME = {"Das Erste": "https://www.daserste.de/", "ZDF": "https://www.zdf.de/", "BR": "https://www.br.de/fernsehen/", "WDR": "https://www1.wdr.de/fernsehen/",
         "NDR": "https://www.ndr.de/fernsehen/", "hr": "https://www.hr-fernsehen.de/", "SWR": "https://www.swrfernsehen.de/", "ARTE": "https://www.arte.tv/de/", "3sat": "https://www.3sat.de/"}
 QUELLEN = [("tvinfo.de", "https://www.tvinfo.de/tv-programm"), ("tv-programmheute.de", "https://www.tv-programmheute.de/"),
-           ("prisma.de", "https://www.prisma.de/tv-programm/programm-nach-sendern/ARD,29"), ("prisma.de", "https://www.prisma.de/tv-programm/programm-nach-sendern/ZDF,2008"),
-           ("prisma.de", "https://www.prisma.de/tv-programm/programm-nach-sendern/BR,570537"), ("prisma.de", "https://www.prisma.de/tv-programm/programm-nach-sendern/NDR,664723"),
-           ("prisma.de", "https://www.prisma.de/tv-programm/programm-nach-sendern/HR,633655"), ("prisma.de", "https://www.prisma.de/tv-programm/programm-nach-sendern/arte,13735"),
-           ("prisma.de", "https://www.prisma.de/tv-programm/programm-nach-sendern/3sat,13737"), ("prisma.de", "https://www.prisma.de/tv-programm/?page=2")]
+           # prisma.de sperrt die GitHub-Server (403) und wurde entfernt. Kandidaten für die Regionalsender, was nicht lesbar ist, steht im Log:
+           ("tvspielfilm.de", "https://www.tvspielfilm.de/tv-programm/sendungen/abends.html"), ("tvspielfilm.de", "https://www.tvspielfilm.de/tv-programm/sendungen/?time=prime&channel=BR"),
+           ("fernsehserien.de", "https://www.fernsehserien.de/tv-programm/br"), ("fernsehserien.de", "https://www.fernsehserien.de/tv-programm/ndr"),
+           ("fernsehserien.de", "https://www.fernsehserien.de/tv-programm/hr"), ("fernsehserien.de", "https://www.fernsehserien.de/tv-programm/wdr"), ("fernsehserien.de", "https://www.fernsehserien.de/tv-programm/swr"),
+           ("hoerzu.de", "https://www.hoerzu.de/tv-programm/jetzt/"), ("tv.de", "https://www.tv.de/programm/"),
+           ("programm.ard.de", "https://programm.ard.de/TV/Programm/Alle-Sender/"), ("br.de", "https://www.br.de/fernsehen/br-fernsehen/programm/index.html"),
+           ("ndr.de", "https://www.ndr.de/fernsehen/programm/index.html"), ("hr-fernsehen.de", "https://www.hr-fernsehen.de/programm/"), ("wdr.de", "https://www1.wdr.de/fernsehen/programm/index.html")]
 
 
 def get(url):
@@ -26,7 +29,7 @@ def get(url):
         return r.read().decode("utf-8", "replace")
 
 
-def text_von(h, n=9000):
+def text_von(h, n=7000):
     h = re.sub(r"(?is)<(script|style|noscript|svg|nav|footer|header)\b.*?</\1>", " ", h)
     h = re.sub(r"(?i)</(p|div|li|h\d|tr|br|section|article)>", "\n", h)
     t = html.unescape(re.sub(r"<[^>]+>", " ", h))
@@ -47,8 +50,8 @@ def gemini(p):
                 return json.loads(re.sub(r"^```(?:json)?|```$", "", t).strip())
             except urllib.error.HTTPError as e:
                 fehler = f"{m}: HTTP {e.code}"; print(fehler, flush=True)
-                if e.code in (500, 502, 503, 504) and versuch < 2:
-                    time.sleep(30 * (versuch + 1)); continue
+                if e.code in (429, 500, 502, 503, 504) and versuch < 2:
+                    time.sleep(60 * (versuch + 1)); continue
                 break
             except Exception as e:  # noqa: BLE001
                 fehler = f"{m}: {e}"; print(fehler, flush=True); break
@@ -61,7 +64,7 @@ def sammeln():
         try:
             t = text_von(get(url))
             if len(t) > 300:
-                print("Quelle ok", len(t), url, flush=True)
+                print("Quelle ok", len(t), "Zeichen", "mit 20:15" if "20:15" in t else "ohne 20:15", url, flush=True)
                 teile.append(f"### Quelle {name} ({url})\n{t}")
                 quellen[name] = url
         except Exception as e:  # noqa: BLE001
