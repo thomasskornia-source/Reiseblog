@@ -23,7 +23,9 @@ jobs:
       - name: TV-Programm holen
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python tools/tv-sammeln.py
+        run: |
+          set -o pipefail
+          python tools/tv-sammeln.py 2>&1 | tee data/tv-log.txt
       - name: Speichern
         run: |
           git config user.name "github-actions[bot]"

@@ -74,15 +74,18 @@ def main():
         print("GEMINI_API_KEY fehlt."); return 0
     text, quellen = sammeln()
     if not text:
-        print("Keine Quelle lesbar, alte Einträge bleiben."); return 1
+        print("Keine Quelle lesbar, alte Einträge bleiben."); return 0
     p = (f"Heute ist {HEUTE.isoformat()}. Aus den Programmseiten unten: gib das Abendprogramm von 19:30 bis 22:00 Uhr deutscher Zeit für diese Sender als JSON-Liste: "
          f"{', '.join(SENDER)}. Nur Sendungen von HEUTE. Alle Sendungen außer Nachrichten (Tagesschau, heute, Wetter, Regionalmagazine). Fehlt ein Sender in den Seiten, lass ihn weg, erfinde nichts. "
          "Jedes Objekt: titel (Sendungstitel, ggf. mit Folge), sender (genau einer der genannten), zeit (HH:MM), art (Film, Serie, Doku oder Show), "
          "kurz (EIGENE Kurzfassung in höchstens 150 Zeichen, nicht abgeschrieben; nur was die Seite sagt, sonst Genre und Dauer), quelle (Name der Seite, z. B. tvinfo.de). "
          "Höchstens 4 Sendungen je Sender. Antworte nur mit der JSON-Liste.\n\n" + text)
-    items = gemini(p)
+    try:
+        items = gemini(p)
+    except Exception as e:  # noqa: BLE001
+        print("Gemini-Fehler:", str(e)[:200]); return 0
     if not isinstance(items, list):
-        print("keine Liste"); return 1
+        print("keine Liste", str(items)[:200]); return 0
     neu = []
     for it in items:
         if not isinstance(it, dict) or it.get("sender") not in SENDER or not it.get("titel") or not re.fullmatch(r"\d\d:\d\d", it.get("zeit") or ""):
@@ -96,8 +99,8 @@ def main():
                     "tags": [art] if art else [], "quelle": it.get("quelle") if it.get("quelle") in quellen else "tvinfo.de", "url": HOME[s],
                     "stand": HEUTE.isoformat(), "thema": s})
     print(len(neu), "Sendungen für heute")
-    if len(neu) < 3:
-        print("Zu wenig, alte Einträge bleiben."); return 1
+    if len(neu) < 1:
+        print("Nichts erkannt, alte Einträge bleiben."); return 0
     db = json.load(open(D("vergnuegen.json"), encoding="utf-8"))
     gesehen = {x["thema"] for x in neu}
     print("Sender heute:", sorted(gesehen), "| fehlend:", sorted(set(SENDER) - gesehen))
