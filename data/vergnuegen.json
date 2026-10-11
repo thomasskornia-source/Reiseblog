@@ -1,96 +1,5 @@
 [
  {
-  "id": "abend-backstage-bluthund-2026-10-08",
-  "rubrik": "events",
-  "titel": "Bluthund",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstraße 6",
-  "lat": 48.1456,
-  "lon": 11.5301,
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Rock.",
-  "tags": [
-   "Musik",
-   "Konzert",
-   "Abends"
-  ],
-  "quelle": "muenchen.de",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-06",
-  "thema": "Konzert & Musik"
- },
- {
-  "id": "abend-kammerspiele-schauspielhaus-danton-2026-10-08",
-  "rubrik": "events",
-  "titel": "Danton",
-  "ort": "Kammerspiele Schauspielhaus",
-  "adresse": "Maximilianstraße 28",
-  "lat": 48.1344,
-  "lon": 11.5834,
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Schauspiel.",
-  "tags": [
-   "Theater",
-   "Abends"
-  ],
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-06",
-  "thema": "Kabarett & Theater"
- },
- {
-  "id": "events-data-in-a-box",
-  "rubrik": "events",
-  "titel": "Data in a box – Ausstellungsführung",
-  "ort": "PlanTreff",
-  "adresse": "Blumenstraße 31, 80331 München",
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "17:00",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Führung zu digitalen Neuerungen der Stadt München.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-05",
-  "thema": "Führung & Vortrag"
- },
- {
-  "id": "events-jaeger-eichhoernchen",
-  "rubrik": "events",
-  "titel": "Der Jäger und das Eichhörnchen (Vortrag)",
-  "ort": "Museum Fünf Kontinente",
-  "adresse": "Maximilianstraße 42",
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "18:00",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Vortrag zur Kunstgeschichte.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-05",
-  "lat": 48.1397,
-  "lon": 11.5878,
-  "thema": "Führung & Vortrag"
- },
- {
   "id": "events-b7b7003c31",
   "lat": 48.1369,
   "lon": 11.56204,
@@ -115,54 +24,6 @@
   "stand": "2026-10-08"
  },
  {
-  "id": "abend-unterfahrt-fernanda-von-sachsen-2026-10-08",
-  "rubrik": "events",
-  "titel": "Fernanda von Sachsen",
-  "ort": "Unterfahrt",
-  "adresse": "Einsteinstraße 42",
-  "lat": 48.1325,
-  "lon": 11.5997,
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Jazz-Gesang.",
-  "tags": [
-   "Musik",
-   "Jazz",
-   "Abends"
-  ],
-  "quelle": "Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-06",
-  "thema": "Konzert & Musik"
- },
- {
-  "id": "events-maedchentag",
-  "rubrik": "events",
-  "titel": "Internationaler Mädchen*tag am Marienplatz",
-  "ort": "Marienplatz",
-  "adresse": "",
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "15:00",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Mitmachaktionen mit Musik, Kunst und Tanz.",
-  "tags": [
-   "Draußen",
-   "Kostenlos",
-   "Familie"
-  ],
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-05",
-  "lat": 48.1374,
-  "lon": 11.5755,
-  "thema": "Feste & Märkte"
- },
- {
   "id": "events-c73438d746",
   "lat": 48.16028,
   "lon": 11.50384,
@@ -184,73 +45,6 @@
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-08"
- },
- {
-  "id": "events-mittagskonzert",
-  "rubrik": "events",
-  "titel": "Mittagspausenkonzert: Helmut Hoen, Solo Piano",
-  "ort": "Bürgerhaus Unterschleißheim",
-  "adresse": "Rathausplatz 1, Unterschleißheim",
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "12:30",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Jazzpiano in der Mittagspause.",
-  "tags": [
-   "Musik",
-   "Kostenlos"
-  ],
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-05",
-  "thema": "Konzert & Musik"
- },
- {
-  "id": "abend-kammerspiele-schauspielhaus-munich-science-slam-2026-10-08",
-  "rubrik": "events",
-  "titel": "Munich Science Slam",
-  "ort": "Kammerspiele Schauspielhaus",
-  "adresse": "Maximilianstraße 28",
-  "lat": 48.1344,
-  "lon": 11.5834,
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Wissenschaft als Wettstreit.",
-  "tags": [
-   "Theater",
-   "Abends"
-  ],
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-06",
-  "thema": "Kabarett & Theater"
- },
- {
-  "id": "abend-nationaltheater-of-one-blood-brett-dean-2026-10-08",
-  "rubrik": "events",
-  "titel": "Of One Blood (Brett Dean)",
-  "ort": "Nationaltheater",
-  "adresse": "Max-Joseph-Platz 2",
-  "lat": 48.1394,
-  "lon": 11.579,
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Oper.",
-  "tags": [
-   "Oper",
-   "Abends"
-  ],
-  "quelle": "Bayerische Staatsoper",
-  "url": "https://www.staatsoper.de/spielplan",
-  "stand": "2026-10-06",
-  "thema": "Konzert & Musik"
  },
  {
   "id": "events-checker-tobi",
@@ -1374,6 +1168,27 @@
   "stand": "2026-10-10"
  },
  {
+  "id": "events-6979fc5dd5",
+  "rubrik": "events",
+  "titel": "Capsula Extrema",
+  "ort": "Offene Ateliers Neuhausen",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Kinetische Performance aus gebrauchten Kaffeekapseln von Textilkünstler Robert Kis und Tänzerin Katrin Schafitel bei den Kultüren Neuhausen.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-11"
+ },
+ {
   "id": "events-0a30a073d7",
   "rubrik": "events",
   "titel": "Der Untertan",
@@ -1558,6 +1373,30 @@
   "stand": "2026-10-10"
  },
  {
+  "id": "events-724ecd049b",
+  "lat": 48.21825,
+  "lon": 11.60822,
+  "rubrik": "events",
+  "titel": "NachbarHeide Fest",
+  "ort": "Südliche Fröttmaninger Heide",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Nachbarschaftsfest zum zweijährigen Bestehen des Projekts mit Glücksrad, Heide-Challenges und kreativen Mitmachangeboten für Groß und Klein.",
+  "tags": [
+   "Familie",
+   "Draußen",
+   "Kostenlos"
+  ],
+  "thema": "Feste & Märkte",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-11"
+ },
+ {
   "id": "events-596526e850",
   "lat": 48.21825,
   "lon": 11.60822,
@@ -1629,6 +1468,28 @@
   "thema": "Konzert & Musik"
  },
  {
+  "id": "events-dcd9dd44f8",
+  "rubrik": "events",
+  "titel": "Henri Bonamy – Klavier",
+  "ort": "Musik-Forum München",
+  "adresse": "",
+  "datum": "2026-10-12",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Klavierabend mit Henri Bonamy, der Stücke von Abbé Vogler, Max Reger, Harald Genzmer, Bertold Hummel und Thomas Uhlmann spielt.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-11"
+ },
+ {
   "id": "abend-unterfahrt-munich-uptown-jazz-orchestra-2026-10-12",
   "rubrik": "events",
   "titel": "Munich Uptown Jazz Orchestra",
@@ -1689,7 +1550,7 @@
   "zeit": "20:00",
   "preis": "",
   "dauer": "3 Std. 45 Min.",
-  "kurz": "Northcote tritt live im Münchner Kulturzentrum Backstage auf.",
+  "kurz": "Northcote tritt live mit handgemachter Musik im Kulturzentrum Backstage auf.",
   "tags": [
    "Musik",
    "Abends"
@@ -1697,7 +1558,7 @@
   "thema": "Konzert & Musik",
   "quelle": "Backstage München (Konzerte)",
   "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-10"
+  "stand": "2026-10-11"
  },
  {
   "id": "events-b8accb6902",
@@ -1712,7 +1573,7 @@
   "zeit": "20:00",
   "preis": "",
   "dauer": "2 Std. 30 Min.",
-  "kurz": "Konzertabend mit Raised Fist und Drover im Backstage München.",
+  "kurz": "Energetisches Live-Konzert von Raised Fist gemeinsam mit der Band Drover.",
   "tags": [
    "Musik",
    "Abends"
@@ -1720,7 +1581,30 @@
   "thema": "Konzert & Musik",
   "quelle": "Backstage München (Konzerte)",
   "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-10"
+  "stand": "2026-10-11"
+ },
+ {
+  "id": "events-b8df144aa0",
+  "rubrik": "events",
+  "titel": "Treenighedskirkens Drengekor",
+  "ort": "Kirche St. Ludwig",
+  "adresse": "",
+  "datum": "2026-10-12",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Kostenloses Gastkonzert des renommierten dänischen Knabenchors mit Sopran- und Männerstimmen, zuvor Mitwirkung bei der Abendmesse um 19 Uhr.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Kostenlos",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-11"
  },
  {
   "id": "abend-marstall-alice-hasters-anti-opfer-2026-10-13",
@@ -1841,124 +1725,118 @@
   "stand": "2026-10-10"
  },
  {
-  "id": "kino-kino-breitwand-gauting-alte-liebe-2026-10-08",
-  "rubrik": "kino",
-  "titel": "Alte Liebe",
-  "ort": "Kino Breitwand Gauting",
-  "adresse": "Gauting",
-  "lat": 48.068,
-  "lon": 11.377,
-  "datum": "2026-10-08",
+  "id": "events-959a4f3913",
+  "lat": 48.19469,
+  "lon": 11.60785,
+  "rubrik": "events",
+  "titel": "Die Nervigen",
+  "ort": "Zenith",
+  "adresse": "Lilienthalallee 29, 80939 München",
+  "datum": "2026-10-13",
   "datum_bis": "",
-  "zeit": "19:30",
+  "zeit": "19:00",
   "preis": "",
   "dauer": "",
-  "kurz": "Auch Fr und Sa 19:30.",
+  "kurz": "Julia und Joey präsentieren ihre unterhaltsame Live-Bühnenshow voller persönlicher Geschichten, schräger Themen und jeder Menge Spaß.",
   "tags": [
-   "Kino",
+   "Kultur",
    "Abends"
   ],
-  "quelle": "Breitwand Gauting",
-  "url": "https://breitwand.com/home/cm/home-start/home/index.html?day=0&ort=Gauting",
-  "stand": "2026-10-06",
-  "thema": "Kino Breitwand Gauting",
-  "kinoseite": "https://breitwand.com/"
+  "thema": "Kabarett & Theater",
+  "quelle": "Zenith, Kulturhalle (Konzerte)",
+  "url": "https://www.in-muenchen.de/locations/zenith.html",
+  "stand": "2026-10-11"
  },
  {
-  "id": "kino-lichtspielhaus-fuerstenfeldbruck-alte-liebe-2026-10-08",
-  "rubrik": "kino",
-  "titel": "Alte Liebe",
-  "ort": "Lichtspielhaus Fürstenfeldbruck",
-  "adresse": "Maisacher Straße 7, Fürstenfeldbruck",
-  "lat": 48.1783,
-  "lon": 11.2546,
-  "datum": "2026-10-08",
+  "id": "events-69316e9f5c",
+  "rubrik": "events",
+  "titel": "Teesalon im Köşk",
+  "ort": "Köşk",
+  "adresse": "Zenettistraße",
+  "datum": "2026-10-13",
   "datum_bis": "",
-  "zeit": "20:15",
+  "zeit": "17:00",
+  "preis": "frei",
+  "dauer": "2 Stunden",
+  "kurz": "Offenes Kennenlernen und gemütlicher Austausch über Ideen und Wünsche im unkommerziellen Kunstraum im Schlachthofviertel.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Sonstiges",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-11"
+ },
+ {
+  "id": "events-5ba117e522",
+  "lat": 48.19469,
+  "lon": 11.60785,
+  "rubrik": "events",
+  "titel": "Behemoth & Dimmu Borgir",
+  "ort": "Zenith",
+  "adresse": "Lilienthalallee 29, 80939 München",
+  "datum": "2026-10-14",
+  "datum_bis": "",
+  "zeit": "19:00",
   "preis": "",
   "dauer": "",
-  "kurz": "Auch Fr, Sa, So, Mo 20:15.",
+  "kurz": "Die Extreme-Metal-Größen Behemoth und Dimmu Borgir stehen für einen kraftvollen gemeinsamen Auftritt auf der Freimanner Bühne.",
   "tags": [
-   "Kino",
+   "Musik",
+   "Kultur",
    "Abends"
   ],
-  "quelle": "in-muenchen.de",
-  "url": "https://www.in-muenchen.de/kino/theater/lichtspielhaus.html",
-  "stand": "2026-10-06",
-  "thema": "Lichtspielhaus Fürstenfeldbruck",
-  "kinoseite": "https://neokinos.de/ffb"
+  "thema": "Konzert & Musik",
+  "quelle": "Zenith, Kulturhalle (Konzerte)",
+  "url": "https://www.in-muenchen.de/locations/zenith.html",
+  "stand": "2026-10-11"
  },
  {
-  "id": "kino-astor-film-lounge-im-arri-corpus-delicti-2026-10-08",
-  "rubrik": "kino",
-  "titel": "Corpus Delicti",
-  "ort": "Astor Film Lounge im ARRI",
-  "adresse": "Türkenstraße 91",
-  "lat": 48.1578,
-  "lon": 11.5617,
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "20:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Auch Mo 20:00.",
-  "tags": [
-   "Kino",
-   "Abends"
-  ],
-  "quelle": "in-muenchen.de",
-  "url": "https://www.in-muenchen.de/kino/theater/astor-filmlounge-im-arri.html",
-  "stand": "2026-10-06",
-  "thema": "Astor Film Lounge im ARRI",
-  "kinoseite": "https://muenchen.premiumkino.de/"
- },
- {
-  "id": "kino-kino-breitwand-gauting-luegen-ueber-meine-mutter-2026-10-08",
-  "rubrik": "kino",
-  "titel": "Lügen über meine Mutter",
-  "ort": "Kino Breitwand Gauting",
-  "adresse": "Gauting",
-  "lat": 48.068,
-  "lon": 11.377,
-  "datum": "2026-10-08",
-  "datum_bis": "",
+  "id": "events-f5c255497f",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "Philip Sayce",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-14",
+  "datum_bis": "2026-10-14",
   "zeit": "20:00",
   "preis": "",
-  "dauer": "",
-  "kurz": "Auch Fr und Sa 20:00.",
+  "dauer": "3 Std.",
+  "kurz": "Gitarrenvirtuose Philip Sayce gastiert für einen Konzertabend im Backstage.",
   "tags": [
-   "Kino",
+   "Musik",
    "Abends"
   ],
-  "quelle": "Breitwand Gauting",
-  "url": "https://breitwand.com/home/cm/home-start/home/index.html?day=0&ort=Gauting",
-  "stand": "2026-10-06",
-  "thema": "Kino Breitwand Gauting",
-  "kinoseite": "https://breitwand.com/"
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-11"
  },
  {
-  "id": "kino-kino-breitwand-gauting-the-social-reckoning-2026-10-08",
-  "rubrik": "kino",
-  "titel": "The Social Reckoning",
-  "ort": "Kino Breitwand Gauting",
-  "adresse": "Gauting",
-  "lat": 48.068,
-  "lon": 11.377,
-  "datum": "2026-10-08",
-  "datum_bis": "",
-  "zeit": "20:30",
+  "id": "events-ea24f4194d",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "Monolord",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-15",
+  "datum_bis": "2026-10-15",
+  "zeit": "20:00",
   "preis": "",
-  "dauer": "",
-  "kurz": "Auch Fr und Sa 20:30.",
+  "dauer": "1 Std.",
+  "kurz": "Die schwedische Doom-Metal-Band Monolord spielt ein kraftvolles Set in München.",
   "tags": [
-   "Kino",
+   "Musik",
    "Abends"
   ],
-  "quelle": "Breitwand Gauting",
-  "url": "https://breitwand.com/home/cm/home-start/home/index.html?day=0&ort=Gauting",
-  "stand": "2026-10-06",
-  "thema": "Kino Breitwand Gauting",
-  "kinoseite": "https://breitwand.com/"
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-11"
  },
  {
   "id": "stream-netflix-animals",
@@ -2004,48 +1882,6 @@
   "thema": "Amazon Prime"
  },
  {
-  "id": "stream-amazon-prime-rocky-reihe",
-  "rubrik": "stream",
-  "titel": "Rocky (Filmreihe)",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Seit 1. Oktober bei Prime: die Rocky-Reihe um den Boxer aus Philadelphia.",
-  "tags": [
-   "Film",
-   "Drama"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-11",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-arte-mediathek-studio-54",
-  "rubrik": "stream",
-  "titel": "Studio 54",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "2026-10-14",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Drama von 1998: Aufstieg und Fall eines jungen Kellners im New Yorker Nachtclub der 1970er. Verfügbar bis 14.10.2026.",
-  "tags": [
-   "Film",
-   "Drama"
-  ],
-  "quelle": "hifi.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-11",
-  "thema": "ARTE Mediathek"
- },
- {
   "id": "stream-arte-mediathek-berlin-alexanderplatz",
   "rubrik": "stream",
   "titel": "Berlin Alexanderplatz",
@@ -2067,6 +1903,27 @@
   "thema": "ARTE Mediathek"
  },
  {
+  "id": "stream-ard-mediathek-die-tieraerzte-retter-mit-herz",
+  "rubrik": "stream",
+  "titel": "Die Tierärzte – Retter mit Herz",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Doku-Serie über Tierärzte im Einsatz, vier neue Folgen von etwa 44 Minuten. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Serie",
+   "Doku"
+  ],
+  "quelle": "news.de",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-10-11",
+  "thema": "ARD Mediathek"
+ },
+ {
   "id": "stream-netflix-east-of-eden",
   "rubrik": "stream",
   "titel": "East of Eden",
@@ -2081,6 +1938,28 @@
   "tags": [
    "Serie",
    "Drama"
+  ],
+  "quelle": "mobiflip.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-10-11",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-netflix-haunted-hotel",
+  "rubrik": "stream",
+  "titel": "Haunted Hotel: Staffel 2",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 9. Oktober: Eine Familie richtet sich in einem Spukhotel ein, während die übernatürlichen Probleme zunehmen.",
+  "tags": [
+   "Serie",
+   "Komödie",
+   "Fantasy"
   ],
   "quelle": "mobiflip.de",
   "url": "https://www.netflix.com/de/",
@@ -2132,46 +2011,45 @@
   "thema": "Netflix"
  },
  {
-  "id": "stream-netflix-haunted-hotel",
+  "id": "stream-amazon-prime-rocky-reihe",
   "rubrik": "stream",
-  "titel": "Haunted Hotel: Staffel 2",
-  "ort": "Netflix",
+  "titel": "Rocky (Filmreihe)",
+  "ort": "Amazon Prime",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Seit 9. Oktober: Eine Familie richtet sich in einem Spukhotel ein, während die übernatürlichen Probleme zunehmen.",
+  "kurz": "Seit 1. Oktober bei Prime: die Rocky-Reihe um den Boxer aus Philadelphia.",
   "tags": [
-   "Serie",
-   "Komödie",
-   "Fantasy"
+   "Film",
+   "Drama"
   ],
   "quelle": "mobiflip.de",
-  "url": "https://www.netflix.com/de/",
+  "url": "https://www.primevideo.com/",
   "stand": "2026-10-11",
-  "thema": "Netflix"
+  "thema": "Amazon Prime"
  },
  {
-  "id": "stream-ard-mediathek-die-tieraerzte-retter-mit-herz",
+  "id": "stream-arte-mediathek-studio-54",
   "rubrik": "stream",
-  "titel": "Die Tierärzte – Retter mit Herz",
-  "ort": "ARD Mediathek",
+  "titel": "Studio 54",
+  "ort": "ARTE Mediathek",
   "adresse": "",
   "datum": "",
-  "datum_bis": "",
+  "datum_bis": "2026-10-14",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Doku-Serie über Tierärzte im Einsatz, vier neue Folgen von etwa 44 Minuten. Verfügbarkeit bitte prüfen.",
+  "kurz": "Drama von 1998: Aufstieg und Fall eines jungen Kellners im New Yorker Nachtclub der 1970er. Verfügbar bis 14.10.2026.",
   "tags": [
-   "Serie",
-   "Doku"
+   "Film",
+   "Drama"
   ],
-  "quelle": "news.de",
-  "url": "https://www.ardmediathek.de/",
+  "quelle": "hifi.de",
+  "url": "https://www.arte.tv/de/",
   "stand": "2026-10-11",
-  "thema": "ARD Mediathek"
+  "thema": "ARTE Mediathek"
  }
 ]
