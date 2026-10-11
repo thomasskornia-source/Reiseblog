@@ -61,6 +61,7 @@ def sammeln():
         try:
             t = text_von(get(url))
             if len(t) > 300:
+                print("Quelle ok", len(t), url, flush=True)
                 teile.append(f"### Quelle {name} ({url})\n{t}")
                 quellen[name] = url
         except Exception as e:  # noqa: BLE001
@@ -98,7 +99,10 @@ def main():
     if len(neu) < 3:
         print("Zu wenig, alte Einträge bleiben."); return 1
     db = json.load(open(D("vergnuegen.json"), encoding="utf-8"))
-    db = [x for x in db if x.get("rubrik") != "tv"] + sorted(neu, key=lambda x: (x["thema"], x["zeit"]))
+    gesehen = {x["thema"] for x in neu}
+    print("Sender heute:", sorted(gesehen), "| fehlend:", sorted(set(SENDER) - gesehen))
+    # Sender ohne neue Treffer behalten ihre heutigen Einträge (aus früherem Lauf), alles Ältere fliegt raus
+    db = [x for x in db if x.get("rubrik") != "tv" or (x.get("datum") == HEUTE.isoformat() and x.get("thema") not in gesehen)] + sorted(neu, key=lambda x: (x["thema"], x["zeit"]))
     json.dump(db, open(D("vergnuegen.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return 0
 
