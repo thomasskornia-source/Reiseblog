@@ -1562,6 +1562,7 @@ function compute(P) {
     var pensionLabel = R.hasPartner ? 'Gesetzliche Renten zusammen (geschätzt)' : R.pg.src === 'info' ? 'Gesetzliche Rente laut deiner Renteninformation' : (R.pg.src === 'none' ? 'Keine gesetzliche Rente eingetragen' : (R.pg.src === 'beamte' ? 'Pension (geschätzt)' : 'Gesetzliche Rente (geschätzt)'));
     var gapText;
     if (R.total >= R.target) gapText = 'Du erreichst mit deinem Plan mehr als 80 % deines heutigen Nettos. Dieser Wert gilt unter Planern als gutes Ziel für den Ruhestand.';
+    else if (R.stop) gapText = 'Um 80 % deines heutigen Nettos zu erreichen, fehlen dir im Ruhestand etwa ' + eur(Math.max(0, R.target - R.total)) + ' pro Monat. Im Szenario „Aufhören“ sparst du ab dem Ausstieg nicht mehr. Die Lücke lässt sich deshalb nicht über die Sparrate schließen, sondern nur über ein höheres Vermögen, eine niedrigere Ausgabe oder weitere Einnahmen.';
     else if (!R.extraOk) gapText = 'Dein Netto ist mit den eingetragenen Annahmen nicht zu erreichen. Prüfe Renteninformation und Zeithorizont.';
     else if (R.retAge <= R.age0) gapText = 'Du bist im Rentenalter. Hier hilft nur noch eine Anpassung der Entnahme.';
     else gapText = 'Um 80 % deines heutigen Nettos zu erreichen, müsstest du etwa ' + eur(P.sparrate + R.extra) + ' pro Monat sparen, also ' + eur(R.extra) + ' mehr als heute.';
@@ -1765,7 +1766,7 @@ function compute(P) {
     if (R.total >= R.target) h.push(['Absicherung im Ruhestand', 'Mit deinem Plan kommst du auf ' + pct(R.quota) + ' deines heutigen Nettos (' + eur(R.total) + ' von ' + eur(netMonth) + ' pro Monat). Das liegt über dem Zielwert von 80 %. Prüfe trotzdem, ob die Annahmen zu Rendite und Inflation für dich realistisch sind, im Abschnitt zu den Renditeszenarien siehst du die Spanne.', 'good']);
     else {
       var gapTxt = 'Mit deinem Plan kommst du auf ' + pct(R.quota) + ' deines heutigen Nettos (' + eur(R.total) + ' von ' + eur(netMonth) + '). Zum Ziel von 80 % fehlen etwa ' + eur(R.target - R.total) + ' pro Monat.';
-      if (working && R.extraOk) gapTxt += ' Rechnerisch würde das ' + eur(R.extra) + ' mehr Sparrate pro Monat erfordern.';
+      if (working && R.extraOk && !R.stop) gapTxt += ' Rechnerisch würde das ' + eur(R.extra) + ' mehr Sparrate pro Monat erfordern.';
       if (working && R.retAge + 1 <= 70) {
         var R2 = compute(Object.assign({}, P, { retOverride: Math.min(70, R.retAge + 2) }));
         gapTxt += ' Zwei Jahre später in Rente (mit ' + ageText(R2.retAge) + ') brächte dich auf ' + pct(R2.quota) + ' des Nettos: Die Rente steigt um 0,5 % je Monat, du sparst länger und das Kapital muss weniger Jahre tragen.';
@@ -2171,7 +2172,7 @@ function compute(P) {
     var lever = '';
     if (verdict !== 'good') {
       var lv = [];
-      if (R.extraOk && R.extra > 0 && R.retAge > R.age0) lv.push(eur(R.extra) + ' mehr Sparrate pro Monat');
+      if (R.extraOk && !R.stop && R.extra > 0 && R.retAge > R.age0) lv.push(eur(R.extra) + ' mehr Sparrate pro Monat');
       if (R.retAge > R.age0 && R.retAge + 1 <= 70) { try { var R2 = compute(Object.assign({}, P, { retOverride: Math.min(70, R.retAge + 2) })); if (R2.quota > R.quota) lv.push('zwei Jahre später in Rente (' + pct(R2.quota) + ' statt ' + pct(R.quota) + ' vom Netto)'); } catch (e) {} }
       if (L.ausTot > 0 && need > 0) lv.push('etwas weniger Ausgaben im Ruhestand');
       lever = lv.length ? ' Hebel, die helfen: ' + lv.slice(0, 3).join(', ') + '.' : '';
