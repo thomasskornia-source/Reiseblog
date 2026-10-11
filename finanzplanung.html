@@ -180,7 +180,8 @@ th { font-weight: 600; color: var(--ink2); }
 [hidden] { display: none !important; }
 .toolgroup { position: absolute; top: 0; right: 0; display: flex; gap: 4px; }
 .toolbtn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; color: var(--ink-soft); background: none; border: 0; border-radius: 0; cursor: pointer; }
-.toolbtn svg { width: 18px; height: 18px; }
+.toolbtn svg { width: 22px; height: 22px; }
+@media (max-width: 700px) { .toolgroup { position: static; justify-content: flex-start; gap: 14px; margin: 6px 0 4px; } .toolbtn { width: 44px; height: 44px; margin-left: -8px; } .toolbtn + .toolbtn { margin-left: 0; } }
 .toolbtn:hover, .toolbtn:active { color: var(--ink); background: none; }
 .toolbtn:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
 .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 10; max-width: 90vw; text-align: center; font-size: 14px; color: var(--paper); background: var(--ink); border-radius: 20px; padding: 8px 16px; box-shadow: 0 2px 10px rgba(0,0,0,.2); }
@@ -189,6 +190,12 @@ th { font-weight: 600; color: var(--ink2); }
 .exportbtn { position: absolute; top: 0; right: 0; display: inline-flex; align-items: center; gap: 6px; font-family: 'Work Sans', sans-serif; font-size: 14px; color: var(--ink); background: var(--paper-warm); border: 1px solid var(--ink); border-radius: 22px; padding: 8px 14px; cursor: pointer; }
 .exportbtn:hover { background: var(--ink); color: var(--paper); }
 .exportbtn:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
+.infobox { background: var(--paper-warm, #F3EADB); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; line-height: 1.5; }
+.infobox[hidden] { display: none; }
+.infobox h2 { font-size: 16px; }
+.note-priv { font-size: 12.5px; line-height: 1.45; color: var(--ink2); border-left: 3px solid var(--accent); padding: 6px 0 6px 12px; }
+.note-priv b { color: var(--ink); }
+#printSheet { display: none; }
 .print-only, .printimg { display: none; }
 :root { --s4: #7A4E6D; }
 .hints li.good { border-left-color: var(--good); }
@@ -337,27 +344,34 @@ body.st-open { overflow: hidden; }
 .pr-grid div { display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--line); padding: 2px 0; }
 .pr-grid span { color: var(--ink2); }
 @media print {
-  @page { size: A4; margin: 12mm; }
-  html, body { background: #FAF3E8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .wrap, .fp-page { padding: 0 !important; max-width: none !important; }
-  .back-link, .toolgroup, .toast, .demo, #inputs, .bar, .toolbar .seg, details, .print-hide { display: none !important; }
-  .fp .layout { display: block !important; }
-  .fp .stack { gap: 12px; }
-  .fp .toolbar { justify-content: flex-start !important; }
-  .fp .toolbar > div { width: 100%; }
-  .fp .panel, .fp .mile { break-inside: avoid; page-break-inside: avoid; }
-  .fp .charts { height: 230px !important; }
-  .fp .charts canvas { display: none !important; }
-  .printimg { display: block !important; width: 100%; height: 230px; object-fit: contain; }
-  .print-only { display: block !important; }
-  .entry-header h1 { font-size: 28px; }
-  .fp .panel, .fp .mile { box-shadow: none; }
+  @page { size: A4; margin: 14mm 14mm 16mm; }
+  html, body { background: #fff !important; color: #000 !important; }
+  body > *:not(#printSheet) { display: none !important; }
+  #printSheet { display: block !important; font: 10pt/1.4 'Helvetica Neue', Arial, sans-serif; color: #111; }
+  #printSheet h1 { font-size: 17pt; margin: 0 0 2pt; letter-spacing: 0; }
+  #printSheet .ps-sub { color: #444; font-size: 9pt; margin-bottom: 8pt; }
+  #printSheet .ps-hint { border: 1pt solid #444; padding: 6pt 8pt; font-size: 9pt; margin: 0 0 10pt; }
+  #printSheet h2 { font-size: 11.5pt; margin: 12pt 0 4pt; padding-bottom: 2pt; border-bottom: 1.2pt solid #111; break-after: avoid; page-break-after: avoid; }
+  #printSheet h3 { font-size: 10pt; margin: 8pt 0 3pt; break-after: avoid; page-break-after: avoid; }
+  #printSheet table { width: 100%; border-collapse: collapse; margin: 0 0 4pt; }
+  #printSheet th, #printSheet td { text-align: left; vertical-align: top; padding: 2.5pt 6pt 2.5pt 0; border-bottom: .5pt solid #bbb; font-weight: 400; }
+  #printSheet th { width: 46%; color: #333; }
+  #printSheet table.grid th, #printSheet table.grid td { white-space: normal !important; overflow-wrap: anywhere; word-break: normal; min-width: 0 !important; max-width: none !important; } #printSheet table.grid { table-layout: fixed; width: 100% !important; max-width: 100%; } #printSheet table.cg th:nth-child(1), #printSheet table.cg td:nth-child(1) { width: 20%; } #printSheet table.cg th:nth-child(2), #printSheet table.cg td:nth-child(2) { width: 27%; } #printSheet table.cg th:nth-child(3), #printSheet table.cg td:nth-child(3) { width: 10%; } #printSheet table.cg th:nth-child(4), #printSheet table.cg td:nth-child(4) { width: 13%; } #printSheet table.cg th:nth-child(5), #printSheet table.cg td:nth-child(5) { width: 30%; } #printSheet table.op th:nth-child(1), #printSheet table.op td:nth-child(1) { width: 20%; } #printSheet table.op th:nth-child(2), #printSheet table.op td:nth-child(2) { width: 48%; } #printSheet table.op th:nth-child(3), #printSheet table.op td:nth-child(3) { width: 32%; } #printSheet table.cg td.r, #printSheet table.cg th.r { white-space: normal; } #printSheet table.grid th, #printSheet table.grid td { width: auto; overflow-wrap: anywhere; font-size: 9pt; }
+  #printSheet table.grid thead th { font-weight: 700; border-bottom: .8pt solid #111; color: #111; }
+  #printSheet td.r, #printSheet th.r { text-align: right; white-space: nowrap; }
+  #printSheet tr.sum td, #printSheet tr.sum th { font-weight: 700; border-top: .8pt solid #111; }
+  #printSheet section, #printSheet .keep { break-inside: avoid; page-break-inside: avoid; }
+  #printSheet ul { margin: 2pt 0 0 14pt; padding: 0; } #printSheet li { margin: 0 0 2pt; }
+  #printSheet .ps-foot { margin-top: 12pt; font-size: 8.5pt; color: #444; border-top: .5pt solid #888; padding-top: 4pt; }
+  #printSheet .verd { font-weight: 700; margin: 2pt 0 4pt; }
+  #printSheet .con { break-inside: avoid; page-break-inside: avoid; margin-bottom: 6pt; }
 }
 body.fp-body { padding-bottom: 0; }
 .bar { display: none !important; }
 </style>
 </head>
 <body class="pc">
+<div id="printSheet" aria-hidden="true"></div>
 <nav class="topbar" id="topbar"><div class="topin">
     <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
     <div class="topnav">
@@ -377,12 +391,14 @@ body.fp-body { padding-bottom: 0; }
     <header class="entry-header" style="position:relative">
       <h1>Finanzplanung</h1>
       <div class="toolgroup" role="group" aria-label="Werkzeuge">
+        <button type="button" class="toolbtn" id="infoBtn" aria-label="Info und Hinweise" aria-expanded="false" aria-controls="infoBox" title="Info"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="8" r=".7" fill="currentColor"/></svg></button>
         <button type="button" class="toolbtn" id="svLoad" aria-label="Gespeicherten Stand aus Datei laden" title="Laden">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19V6a2 2 0 0 1 2-2h4l2 2h7a2 2 0 0 1 2 2v2"/><path d="M3 19l3-9h16l-3 9z"/></svg>
         </button>
         <button type="button" class="toolbtn" id="svSave" aria-label="Eingaben als Datei speichern" title="Speichern">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3"/><path d="M7 21v-7h10v7"/></svg>
         </button>
+        <button type="button" class="toolbtn" id="printBtn" aria-label="Eingaben und Ergebnisse drucken" title="Drucken"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><path d="M7 18H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="7" y="14" width="10" height="7"/></svg></button>
         <button type="button" class="toolbtn" id="shareBtn" aria-label="Seite teilen" title="Teilen">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
         </button>
@@ -393,10 +409,16 @@ body.fp-body { padding-bottom: 0; }
     </header>
 
 <div class="fp">
+  <div class="infobox" id="infoBox" hidden>
+    <h2>Über diese Seite</h2>
+    <p>Der Finanzplaner rechnet aus deinen Angaben hoch, wie sich Vermögen, Rente und Ausgaben entwickeln, auch für das Szenario „Aufhören zu arbeiten“ mit Abfindung. Alles wird im Browser gerechnet, es werden keine Zahlen an einen Server geschickt. Mit „Speichern“ legst du deine Eingaben als Datei ab, mit „Drucken“ erzeugst du ein Blatt mit allen Eingaben und den wichtigsten Ergebnissen für ein Beratungsgespräch.</p>
+    <p><b>Wichtig:</b> Privates Projekt ohne Anspruch auf Vollständigkeit oder Richtigkeit. Die Berechnungen sind vereinfachte Schätzungen und keine Steuer-, Rechts- oder Anlageberatung. Sie dienen als Berechnungsgrundlage für ein Gespräch mit einer Steuerberaterin bzw. einem Steuerberater oder Finanzberater. Steuern, Sozialabgaben, Renten und Renditen sind vereinfacht und teils geschätzt (zum Beispiel Solidaritätszuschlag nur genähert, Kranken- und Pflegeversicherung als Mindestbeitrag, kein Arbeitslosengeld).</p>
+  </div>
   <div class="intro" style="display:flex;flex-direction:column;gap:8px">
     <h2 id="h1">Wo stehst du heute, bei Rente und im Wunschalter?</h2>
     <p class="lead" id="leadTxt">Der Planer rechnet aus deinem Alter, deiner Lebenssituation, deinem Einkommen und deiner Sparweise hoch, wie viel Vermögen nach Steuern übrig bleibt, wenn du so weitermachst wie bisher.</p>
   </div>
+  <div class="note-priv" role="note"><b>Hinweis:</b> Privates Projekt ohne Anspruch auf Vollständigkeit oder Richtigkeit. Die Berechnungen sind vereinfachte Schätzungen und keine Steuer-, Rechts- oder Anlageberatung. Sie dienen als Berechnungsgrundlage für ein Gespräch mit einer Steuerberaterin bzw. einem Steuerberater oder Finanzberater.</div>
   <div class="demo"><span><b>Neu für Einsteiger:</b> Die <a href="zinseszins.html" style="color:var(--rust)">kurze Version mit Szenarien und Zinseszins-Grafik</a> zeigt in zwei Minuten, warum früh sparen sich lohnt.</span></div>
   <div class="demo" id="demo"><span><b>Beispielwerte.</b> Trage unten deine eigenen Angaben ein. Alle Zahlen und Grafiken passen sich sofort an.</span></div>
 
@@ -681,6 +703,15 @@ function estGrund(x) {
   return Math.floor(0.45 * x - 19470.38);
 }
 function est(x, split) { return split ? 2 * estGrund(x / 2) : estGrund(x); }
+// Solidaritätszuschlag 2026: Freigrenze 20.350 € (Einzel) bzw. 40.700 € (gemeinsam), Milderungszone 11,9 %, höchstens 5,5 %.
+// Näherung: Kinderfreibetrag (9.756 € je Kind bei gemeinsamer Veranlagung) mindert die Bemessungsgrundlage.
+function soliOf(taxTotal, zve, split, kinder) {
+  if (!(taxTotal > 0)) return 0;
+  const kfb = split ? (kinder || 0) * 9756 : 0;
+  const red = kfb > 0 ? est(zve, split) - est(Math.max(0, zve - kfb), split) : 0;
+  const bm = Math.max(0, taxTotal - red), fg = split ? 40700 : 20350;
+  return bm <= fg ? 0 : Math.min(0.055 * bm, 0.119 * (bm - fg));
+}
 function kistRate(k) { return k === '9' ? 0.09 : (k === '8' ? 0.08 : 0); }
 function kapStRate(k) {
   const c = kistRate(k);
@@ -707,20 +738,21 @@ function netIncome(P) {
   const split = P.status === 'verheiratet', sep = P.status === 'paar';
   const ps = [{ b: P.brutto, beruf: P.beruf }];
   if (P.partner) ps.push({ b: P.partner.brutto, beruf: P.partner.beruf });
-  let sumB = 0, sumSv = 0, sumZ = 0, sepTax = 0;
+  let sumB = 0, sumSv = 0, sumZ = 0, sepTax = 0, sepSoli = 0;
   ps.forEach(p => {
     const b = Math.max(0, p.b), sv = b > 0 ? svOf(b, p.beruf, P.kinder) : 0;
     sumB += b; sumSv += sv; sumZ += b > 0 ? Math.max(0, b - sv - 1230) : 0;
-    if (sep) sepTax += est(Math.max(0, (b > 0 ? Math.max(0, b - sv - 1230) : 0) - 36), false);
+    if (sep) { const zz = Math.max(0, (b > 0 ? Math.max(0, b - sv - 1230) : 0) - 36), tt = est(zz, false); sepTax += tt; sepSoli += soliOf(tt, zz, false, 0); }
   });
   const zve = Math.max(0, sumZ - (split ? 72 : 36));
   const tax = sep ? sepTax : est(zve, split);
   const kist = tax * kistRate(P.kirche);
-  return { net: sumB - sumSv - tax - kist, sv: sumSv, tax, kist };
+  const soli = sep ? sepSoli : soliOf(tax, zve, split, P.kinder);
+  return { net: sumB - sumSv - tax - kist - soli, sv: sumSv, tax, kist, soli };
 }
 function abfindungNetto(P, A) {
-  // A: Werte aus der Abfindung.json (abf brutto, exitY/exitM, z1y/z1p … Auszahlungsjahre mit Prozent). Grobe Rechnung: Fünftelregelung gegen normale Besteuerung, Günstigerprüfung, ohne Soli.
-  const res = { net: 0, tax: 0, brutto: 0 };
+  // A: Werte aus der Abfindung.json (abf brutto, exitY/exitM, z1y/z1p … Auszahlungsjahre mit Prozent). Grobe Rechnung: Fünftelregelung gegen normale Besteuerung, Günstigerprüfung, mit Soli (genähert).
+  const res = { net: 0, tax: 0, brutto: 0, soli: 0, einbehalt: 0 };
   if (!A || !(A.abf > 0)) return res;
   const split = P.status === 'verheiratet', ki = kistRate(P.kirche), exitY = +A.exitY || 0, exitM = Math.min(12, Math.max(0, +A.exitM || 12));
   const parts = [[A.z1y, A.z1p], [A.z2y, A.z2p], [A.z3y, A.z3p]].map(x => [+x[0], +x[1]]).filter(x => x[0] > 0 && x[1] > 0);
@@ -733,8 +765,14 @@ function abfindungNetto(P, A) {
     const f = y < exitY ? 1 : (y === exitY ? exitM / 12 : 0);
     const base = Math.max(0, zOf({ b: P.brutto, beruf: P.beruf }, f) + partnerZ - (split ? 72 : 36));
     const normal = est(base + pay, split) - est(base, split), fifth = 5 * (est(base + pay / 5, split) - est(base, split));
-    const tax = Math.min(normal, fifth) * (1 + ki);
-    res.tax += tax; res.net += pay - tax; res.brutto += pay;
+    const eb = est(base, split), useFifth = fifth <= normal;
+    const sBase = soliOf(eb, base, split, P.kinder);
+    const soliN = soliOf(est(base + pay, split), base + pay, split, P.kinder) - sBase;
+    const soliF = soliOf(eb + fifth, base + pay / 5, split, P.kinder) - sBase;
+    const taxF = (useFifth ? fifth : normal) * (1 + ki) + Math.max(0, useFifth ? soliF : soliN);
+    const taxLSt = normal * (1 + ki) + Math.max(0, soliN);
+    const tax = taxF;
+    res.tax += tax; res.soli += Math.max(0, useFifth ? soliF : soliN); res.einbehalt += taxLSt; res.net += pay - tax; res.brutto += pay;
   });
   return res;
 }
@@ -785,7 +823,8 @@ function pensionCore(P, items, split) {
   });
   const tax = est(taxable, split);
   const kist = tax * kistRate(P.kirche);
-  return { gross: J / 12, net: (J - KV - tax - kist) / 12, deductions: (KV + tax + kist) / 12, share: shares[0], taxable };
+  const soli = soliOf(tax, taxable, split, 0);
+  return { gross: J / 12, net: (J - KV - tax - kist - soli) / 12, deductions: (KV + tax + kist + soli) / 12, share: shares[0], taxable };
 }
 function kaufModel(k) {
   const nkE = k.preis * k.nk, need = k.preis + nkE, loan = Math.max(0, need - k.ek);
@@ -1985,7 +2024,7 @@ function compute(P) {
     // Bis zur Rente in Zahlen
     var yL = Math.max(0, (R.stop ? R.stop.quitAge : R.retAge) - R.age0), ni = R.ni, gB = ni.net + ni.sv + ni.tax + ni.kist, cur = new Date();
     if (yL > 0.5 && gB > 0) {
-      var wd = yL * 219, hrs = wd * 8, tTax = (ni.tax + ni.kist) * yL, tSv = ni.sv * yL, tGross = gB * yL, tNet = ni.net * yL;
+      var wd = yL * 219, hrs = wd * 8, tTax = (ni.tax + ni.kist + (ni.soli || 0)) * yL, tSv = ni.sv * yL, tGross = gB * yL, tNet = ni.net * yL;
       var shTax = (ni.tax + ni.kist) / gB, shAll = (ni.tax + ni.kist + ni.sv) / gB;
       var dayOf = function (sh) { var d = new Date(2026, 0, 1 + Math.round(sh * 365)); return d.getDate() + '. ' + ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'][d.getMonth()]; };
       var hh = two ? ' (Haushalt)' : '';
@@ -2287,6 +2326,154 @@ function compute(P) {
   try { new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] }); } catch (e) {}
   render();
   window.addEventListener('load', render);
+  /* Info und Druckblatt */
+  $('infoBtn').addEventListener('click', function () {
+    var b = $('infoBox'), open = b.hidden; b.hidden = !open; $('infoBtn').setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) b.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+  var HINT_TXT = "Privates Projekt ohne Anspruch auf Vollständigkeit oder Richtigkeit. Die Berechnungen sind vereinfachte Schätzungen und keine Steuer-, Rechts- oder Anlageberatung. Sie dienen als Berechnungsgrundlage für ein Gespräch mit einer Steuerberaterin bzw. einem Steuerberater oder Finanzberater.";
+  function pv(id) { var e = $(id); return e ? String(e.value).trim() : ''; }
+  function pEur(id, suf) { var v = pv(id); if (v === '') return '–'; var x = parseFloat(v.replace(',', '.')); return isFinite(x) ? eur(x) + (suf || '') : esc(v); }
+  function pNum(id, suf) { var v = pv(id); if (v === '') return '–'; var x = parseFloat(v.replace(',', '.')); return isFinite(x) ? num(x, Number.isInteger(x) ? 0 : 1) + (suf || '') : esc(v); }
+  function pYear(id) { var v = pv(id); return v === '' ? '–' : esc(v); }
+  function pSel(id) { var e = $(id); return e && e.selectedIndex >= 0 ? esc(e.options[e.selectedIndex].text) : '–'; }
+  function pDate(id) { var v = pv(id); if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return '–'; var d = new Date(v + 'T12:00:00'); return d.getDate() + '. ' + DEUTSCH_MON[d.getMonth()] + ' ' + d.getFullYear(); }
+  function psRow(l, v) { return '<tr><th>' + l + '</th><td>' + v + '</td></tr>'; }
+  function psTab(rows) { return '<table>' + rows.join('') + '</table>'; }
+  function psSec(t, body) { return '<section><h2>' + t + '</h2>' + body + '</section>'; }
+  function buildPrint() {
+    var L = LAST, R = L && L.R, P = L && L.P, partner = !!(P && P.partner), nm1 = pv('vorname') || (partner ? '1. Person' : 'Person'), nm2 = pv('pvorname') || '2. Person';
+    var now = new Date(), stamp = now.getDate() + '. ' + DEUTSCH_MON[now.getMonth()] + ' ' + now.getFullYear() + ', ' + ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2) + ' Uhr';
+    var h = '<h1>Finanzplanung: Eingaben und Ergebnisse</h1><div class="ps-sub">Stand: ' + stamp + '. Berechnungsgrundlage für ein Beratungsgespräch.</div>';
+    h += '<div class="ps-hint"><b>Hinweis:</b> ' + HINT_TXT + '</div>';
+    // 1 Haushalt
+    var calc = pv('calcMode') === 'paar';
+    h += psSec('1. Haushalt und Berechnung', psTab([
+      psRow('Berechnungsart', pSel('calcMode')),
+      psRow(calc ? 'Beziehung und Veranlagung' : 'Familienstand', calc ? pSel('coupleType') : pSel('famEin')),
+      psRow('Kinder', pNum('kinder')), psRow('Kirchensteuer', pSel('kirche')),
+      psRow(calc ? 'Haushalts-Netto pro Monat' : 'Netto pro Monat', pEur('netto') + (nettoAuto ? ' (geschätzt aus Brutto, nicht eingegeben)' : ' (eingegeben)'))
+    ]));
+    // 2 Person 1
+    var ret1 = R ? ageText(R.retAge) + ', ca. ' + R.retYear : '–';
+    h += psSec('2. ' + esc(nm1) + (partner ? ' (1. Person)' : ''), psTab([
+      psRow('Geburtsjahr', pYear('by')), psRow('Wunschalter', pNum('wunsch')), psRow('Beruf', pSel('beruf')),
+      psRow('Brutto pro Jahr', pEur('brutto')), psRow('Berufsstart (Alter)', pNum('startAge')),
+      psRow('Rente laut Renteninformation (brutto pro Monat)', pEur('renteInfo')),
+      psRow('Renteneintritt (berechnet, Regelaltersgrenze)', esc(ret1))
+    ]));
+    // 3 Person 2
+    if (partner) {
+      var ret2 = R && R.retAge2 != null ? ageText(R.retAge2) + ', ca. ' + Math.floor(P.partner.by + R.retAge2) : '–';
+      h += psSec('3. ' + esc(nm2) + ' (2. Person)', psTab([
+        psRow('Geburtsjahr', pYear('pby')), psRow('Beruf', pSel('pberuf')), psRow('Brutto pro Jahr', pEur('pbrutto')),
+        psRow('Berufsstart (Alter)', pNum('pstart')), psRow('Rente laut Renteninformation (brutto pro Monat)', pEur('prenteInfo')),
+        psRow('Renteneintritt (berechnet)', esc(ret2))
+      ]));
+    }
+    // 4 Sparen und Anlegen
+    var aE = parseFloat(pv('aE')) || 0, aA = parseFloat(pv('aA')) || 0;
+    h += psSec((partner ? '4' : '3') + '. Sparen und Anlegen', psTab([
+      psRow('Vermögen heute', pEur('W0')), psRow('Sparrate pro Monat', pEur('sparrate')),
+      psRow('Sparrate steigt pro Jahr um', pNum('dyn', ' %')), psRow('Sparen bis', pSel('saveUntil')),
+      psRow('Anlagemischung', 'Tagesgeld ' + num(Math.max(0, 100 - aE - aA)) + ' %, breiter ETF ' + num(aE) + ' %, Einzelaktien ' + num(aA) + ' %')
+    ]));
+    var n = partner ? 5 : 4;
+    // 5 Ausgaben
+    var ausRows = [], sum = 0;
+    AUS.forEach(function (a) { var v = parseFloat(pv(a[0]).replace(',', '.')); if (isFinite(v) && v > 0) { sum += v; ausRows.push('<tr><td>' + a[1] + '</td><td class="r">' + eur(v) + '</td></tr>'); } });
+    h += psSec(n + '. Ausgaben im Ruhestand (pro Monat, heutige Preise)', ausRows.length ? '<table class="grid"><thead><tr><th>Posten</th><th class="r">Betrag pro Monat</th></tr></thead>' + ausRows.join('') + '<tr class="sum"><td>Summe</td><td class="r">' + eur(sum) + '</td></tr></table><div class="ps-sub">Kranken- und Pflegeversicherung sind nicht enthalten.</div>' : '<p>Keine Ausgaben eingetragen.</p>');
+    n++;
+    // 6 Verträge, nach Zweck gruppiert
+    var conRow = function (c) {
+      var d = CT[c.type], det = [];
+      if (c.name) det.push(esc(c.name)); if (c.tarif) det.push(esc(c.tarif)); if (c.nr) det.push('Nr. ' + esc(c.nr));
+      var ben = [];
+      if (c.leistung) ben.push(esc(d.ben) + ': ' + eur(+c.leistung));
+      if (c.heute) ben.push((c.type === 'bkap' ? 'Guthaben heute' : 'Anspruch heute pro Monat') + ': ' + eur(+c.heute));
+      if (c.garant) ben.push('Garantie zum Ablauf: ' + eur(+c.garant));
+      if (c.type === 'lv') { if (c.paid) ben.push('selbst eingezahlt: ' + eur(+c.paid)); ben.push('Abschluss ' + (c.zusatz === 'vor2005' ? 'vor 2005 (steuerfrei)' : '2005 oder später')); }
+      if (c.type === 'bkap') ben.push('Auszahlung: ' + (c.form === 'einmal' ? 'Einmalzahlung' + (c.jahr ? ' ' + esc(c.jahr) : ' zum Renteneintritt') : 'Jahresraten' + (c.n ? ' (' + esc(c.n) + ')' : '')));
+      return '<tr><td>' + esc(d.n) + '</td><td>' + det.join('<br>') + '</td><td>' + (c.insured ? esc(c.insured) : '–') + '</td><td class="r">' + (c.beitrag ? eur(+c.beitrag) : '–') + '</td><td>' + (ben.join('<br>') || '–') + '</td></tr>';
+    };
+    var conGroup = function (title, types) {
+      var rows = CON.filter(function (c) { return types.indexOf(c.type) >= 0; }).map(conRow);
+      if (!rows.length) return '';
+      return '<h3>' + title + '</h3><table class="grid cg"><thead><tr><th>Art</th><th>Gesellschaft, Tarif, Vertrag</th><th>Person</th><th class="r">Beitrag pro Monat</th><th>Leistung</th></tr></thead>' + rows.join('') + '</table>';
+    };
+    var cg = conGroup('Altersvorsorge', ['riester', 'basis', 'bav', 'prv', 'bkap', 'lv']) + conGroup('Absicherung', ['bu', 'rlv', 'pfl', 'sonst']);
+    h += psSec(n + '. Versicherungen und Vorsorgeverträge', cg || '<p>Keine Verträge eingetragen.</p>'); n++;
+    // 7 Szenario
+    if (pv('stopOn') === '1') {
+      var S = R && R.stop, rows = [psRow('Letzter Arbeitstag', pDate('stopDate') === '–' ? 'ab sofort (kein Datum eingetragen)' : pDate('stopDate'))];
+      if (S) {
+        rows.push(psRow('Abfindung netto (in der Rechnung)', eur(S.abf) + (ABF && !(pv('stopAbf') > 0) ? ' (aus Abfindungsdatei: brutto ' + eur(ABF.abf) + ', geschätzte Steuer ' + eur(S.abfInfo ? S.abfInfo.tax : 0) + ')' : (pv('stopAbf') ? ' (manuell eingetragen)' : ''))));
+        if (S.abfInfo && !S.abfInfo.manuell && S.abfInfo.einbehalt > 0) rows.push(psRow('Abfindung: voraussichtlicher Steuereinbehalt bei Auszahlung', eur(S.abfInfo.einbehalt) + ' (ohne Fünftelregelung); Erstattung mit dem Steuerbescheid ca. ' + eur(Math.max(0, S.abfInfo.einbehalt - S.abfInfo.tax)) + ', Steuer endgültig ca. ' + eur(S.abfInfo.tax) + ' (davon Soli ca. ' + eur(S.abfInfo.soli) + ')'));
+      } else rows.push(psRow('Abfindung netto', pEur('stopAbf')));
+      rows.push(psRow('Ausgaben pro Monat nach dem Ausstieg', pv('stopLeben') ? pEur('stopLeben') : (S ? eur(S.living) + ' (aus den Ausgaben im Ruhestand)' : '–')));
+      rows.push(psRow('Weitere Einnahmen pro Monat (netto)', pv('stopExtra') ? pEur('stopExtra') : (S && S.extraAuto ? eur(S.extra) + ' (geschätzt, Netto der 2. Person)' : '0 €')));
+      rows.push(psRow('Kranken- und Pflegeversicherung pro Monat', pv('stopKv') ? pEur('stopKv') : (S ? eur(S.kv) + ' (geschätzter Mindestbeitrag)' : '–')));
+      rows.push(psRow('Zins auf das Guthaben', pNum('stopZins', ' %')));
+      rows.push(psRow('Rente bisher (brutto pro Monat)', pEur('stopRente')));
+      if (pv('stopNeu')) rows.push(psRow('Neuer Job: Gehalt brutto pro Monat, ab', pEur('stopNeu') + ', ab ' + (pDate('stopNeuDatum') === '–' ? 'dem letzten Arbeitstag' : pDate('stopNeuDatum'))));
+      h += psSec(n + '. Szenario „Aufhören zu arbeiten“ (Annahmen)', psTab(rows)); n++;
+    }
+    // Annahmen
+    var an = [psRow('Rendite Tagesgeld', pNum('rS', ' %')), psRow('Rendite breiter ETF', pNum('rE', ' %')), psRow('Rendite Einzelaktien', pNum('rA', ' %')),
+      psRow('Inflation', pNum('infl', ' %')), psRow('Rendite im Ruhestand', pNum('rRet', ' %')), psRow('Entnahme bis Alter', pNum('planAge'))];
+    var ky = [['kfPreis', 'Kaufpreis', 'e'], ['kfEK', 'Eigenkapital', 'e'], ['kfMiete', 'Miete pro Monat', 'e'], ['kfJahre', 'Zeitraum in Jahren', 'n'], ['kfNK', 'Kaufnebenkosten', 'p'], ['kfZins', 'Zins Darlehen', 'p'], ['kfTilg', 'Tilgung', 'p'], ['kfInst', 'Instandhaltung pro Jahr (vom Wert)', 'p'], ['kfWert', 'Wertsteigerung pro Jahr', 'p'], ['kfMietG', 'Mietsteigerung pro Jahr', 'p'], ['kfRend', 'Rendite der Geldanlage nach Steuern', 'p']];
+    var kyRows = pv('kfPreis') ? ky.filter(function (k) { return pv(k[0]) !== ''; }).map(function (k) { return psRow(k[1], k[2] === 'e' ? pEur(k[0]) : pNum(k[0], k[2] === 'p' ? ' %' : '')); }) : [];
+    h += psSec(n + '. Annahmen für die Berechnung', psTab(an) + '<div class="ps-sub">Renditen sind Annahmen vor Steuern und vor Inflation, keine Prognose und nicht garantiert.</div>' + (kyRows.length ? '<h3>Vergleich Kaufen oder Mieten</h3>' + psTab(kyRows) : '')); n++;
+    // Ergebnisse
+    if (R) {
+      var f = function (age) { return R.infl(age - R.age0); };
+      var ms = [['Heute', R.age0, R.at.today], ['Renteneintritt', R.retAge, R.at.ret], ['Wunschalter', R.wunsch, R.at.wunsch]].map(function (m) {
+        return '<tr><td>' + m[0] + '</td><td>' + ageText(m[1]) + '</td><td class="r">' + eur(m[2].net) + '</td><td class="r">' + eur(m[2].net / f(m[1])) + '</td><td class="r">' + eur(m[2].paid) + '</td></tr>';
+      }).join('');
+      var res = '<h3>Vermögen nach Steuern</h3><table class="grid"><thead><tr><th>Zeitpunkt</th><th>Alter</th><th class="r">nominal</th><th class="r">in heutiger Kaufkraft</th><th class="r">davon eingezahlt</th></tr></thead>' + ms + '</table>';
+      var inc = [psRow('Renten netto pro Monat (alle Quellen)', eur(R.pn.net)), psRow('Entnahme aus dem Vermögen pro Monat', eur(R.payout)),
+        psRow('Summe im Ruhestand pro Monat', eur(R.total) + ' (' + pct(R.quota) + ' vom heutigen Netto)')];
+      if (L.ausTot > 0) inc.push(psRow('Geplante Ausgaben im Ruhestand pro Monat', eur(L.ausTot) + ', Deckung ' + pct(R.total / L.ausTot)));
+      res += '<h3>Ruhestand pro Monat (netto, in heutiger Kaufkraft)</h3>' + psTab(inc);
+      if (R.stop) {
+        var tb = document.querySelector('#stopOut table.stopt'), vd = document.querySelector('#stopOut .verdict');
+        res += '<h3>Szenario „Aufhören“ im Vergleich zu „Weiter arbeiten“</h3>' + (vd ? '<div class="verd">' + esc(vd.textContent) + '</div>' : '');
+        if (tb) res += '<table class="grid">' + tb.innerHTML + '</table>';
+      }
+      h += psSec(n + '. Rechenergebnisse zu diesen Eingaben', res); n++;
+    }
+    // Offene Punkte zur Klärung
+    (function () {
+      var rowsOp = [], add = function (t, x, k) { rowsOp.push('<tr><td>' + t + '</td><td>' + x + '</td><td>' + k + '</td></tr>'); };
+      var St = R && R.stop, stopOn = pv('stopOn') === '1';
+      if (stopOn) {
+        if (pv('stopAbf') > 0 || (pv('stopAbf') && parseFloat(String(pv('stopAbf')).replace(',', '.')) > 0)) add('Abfindung', 'Netto-Betrag manuell eingetragen und nicht bestätigt. Seit 2025 wird die Fünftelregelung im Lohnsteuerabzug nicht mehr berücksichtigt, sie greift erst in der Steuererklärung (Erstattung später).', 'Schriftliche Angabe des Arbeitgebers: Brutto, Auszahlungsmonat, einbehaltene Steuer. Steuerberater: Steuerjahr 2027 komplett rechnen.');
+        else if (St && St.abfInfo && St.abfInfo.einbehalt > 0) add('Abfindung', 'Steuer wird mit Fünftelregelung geschätzt. Bei Auszahlung wird voraussichtlich mehr Steuer einbehalten (ca. ' + eur(St.abfInfo.einbehalt) + ' statt ' + eur(St.abfInfo.tax) + '), die Erstattung folgt mit dem Steuerbescheid.', 'Arbeitgeber: Abrechnung der Abfindung. Steuerberater: Veranlagung und Zahlungszeitpunkt.');
+        add('Solidaritätszuschlag', 'Wird nur genähert (Kinderfreibetrag vereinfacht, übrige Einkünfte und Vorsorgeaufwendungen nicht einzeln).', 'Steuerberater: Berechnung für das Jahr der Abfindung.');
+        add('Krankenversicherung nach dem Ausstieg', (pv('stopKv') ? 'Beitrag manuell eingetragen.' : 'Nur als Mindestbeitrag geschätzt.') + ' Bei freiwilliger Versicherung zählen Kapitalerträge und Entnahmen mit. Ob die Abfindung beitragspflichtig ist, hängt von der Kasse ab.', 'Krankenkasse: Beitragsprognose für freiwillig Versicherte mit erwarteten Kapitalerträgen.');
+        add('Arbeitslosengeld I', 'Nicht berücksichtigt (konservativ). Dauer, Höhe, Sperrzeit und Ruhen bei Aufhebungsvertrag sind offen.', 'Agentur für Arbeit: Anspruch und Dauer prüfen.');
+        if (!pv('stopRente')) add('Rente nach dem Ausstieg', '„Bisher erreichte Rente“ fehlt. Das Modell schätzt aus der Renteninformation (Hochrechnung bis zur Regelaltersgrenze) minus entfallene Beitragsjahre.', 'Deutsche Rentenversicherung: aktuelle Renteninformation bzw. Rentenauskunft (bisher erreichte Rente).');
+        add('Frührente und Ausgleichszahlung', 'Rente vor der Regelaltersgrenze (mit Abschlägen, auch mit Ausgleichszahlung nach § 187a SGB VI) ist nicht abgebildet.', 'Deutsche Rentenversicherung: Rentenauskunft mit Ausgleichszahlung. Steuerberater: Sonderausgabenabzug und Verteilung über Jahre.');
+      }
+      if (parseFloat(String(pv('renteInfo') || '').replace(',', '.')) > 0) add('Renteninformation', 'Die Renteninformation nennt Werte mit und ohne Rentenanpassung. Welcher Wert eingetragen ist, steht nicht in den Eingaben.', 'Renteninformation prüfen und Wert eintragen („ohne Anpassung“ passt zu „heutige Preise“).');
+      CON.forEach(function (c) { if (c.type === 'bu' && +c.leistung > 0 && +c.beitrag > 0 && +c.leistung < +c.beitrag * 2) add('Berufsunfähigkeitsversicherung', 'Versicherte Rente (' + eur(+c.leistung) + ' pro Monat) ist niedrig im Verhältnis zum Beitrag (' + eur(+c.beitrag) + ' pro Monat). Mögliche Fehleingabe.', 'Police oder Versicherungsschein prüfen.'); });
+      var wu = parseFloat(String(pv('wunsch') || '').replace(',', '.')); if (wu > 95) add('Wunschalter', 'Eingegeben ist ' + num(wu) + ', die Berechnung begrenzt auf höchstens 95.', 'Eingabe anpassen.');
+      add('Betriebliche Leistungen', 'Auszahlungsform, Zeitpunkt und Besteuerung hängen vom Durchführungsweg ab (zum Beispiel Auszahlung vor Rentenbeginn).', 'Versorger: schriftliche Auskunft zu Auszahlung, Steuer und Krankenkassenbeiträgen.');
+      add('Rendite und Risiko', 'Konstante Rendite ohne Schwankungen. Ein Kursrückgang zu Beginn der Entnahme ist nicht abgebildet.', 'Zweites Szenario mit niedrigerer Rendite.');
+      add('Absicherung der Familie', 'Hinterbliebenenversorgung, Pflegekosten und Erbfall sind nicht berechnet.', 'Beratung: Versorgung bei Tod oder Pflege einer Person prüfen.');
+      h += psSec('Offene Punkte zur Klärung', '<table class="grid op"><thead><tr><th>Thema</th><th>Offener Punkt</th><th>Klärung durch</th></tr></thead>' + rowsOp.join('') + '</table>');
+    })();
+    h += psSec('Vereinfachungen und Grenzen', '<ul><li>Steuern und Sozialabgaben sind nach einem vereinfachten Modell gerechnet. Die Steuer auf die Abfindung (Fünftelregelung) ist eine Schätzung mit genähertem Solidaritätszuschlag (Kinderfreibetrag vereinfacht) und ohne weitere Einkünfte im Jahr der Zahlung.</li>' +
+      '<li>Die gesetzliche Rente stammt aus der angegebenen Renteninformation bzw. einer Schätzung aus Brutto und Berufsjahren. Betriebliche Leistungen sind so eingegeben, wie sie oben stehen.</li>' +
+      '<li>Kranken- und Pflegeversicherung nach dem Ausstieg sind als Mindestbeitrag geschätzt. Arbeitslosengeld, Sperrzeit, Hinterbliebenenversorgung und Pflegekosten sind nicht berücksichtigt.</li>' +
+      '<li>In der gemeinsamen Berechnung arbeitet die zweite Person bis zu ihrem Renteneintritt weiter.</li>' +
+      '<li>Renditen, Inflation und Entnahmedauer sind Annahmen, keine Prognosen.</li></ul>');
+    h += '<div class="ps-foot">Erstellt mit dem privaten Finanzplaner am ' + stamp + '. ' + HINT_TXT + '</div>';
+    return h;
+  }
+  function fillPrint() { var el = $('printSheet'); if (el) el.innerHTML = buildPrint(); }
+  $('printBtn').addEventListener('click', function () { fillPrint(); window.print(); });
+  window.addEventListener('beforeprint', fillPrint);
 })();
 </script>
 
@@ -2305,6 +2492,7 @@ function compute(P) {
     try { document.execCommand('copy'); say('Link kopiert'); } catch (e) { say('Kopieren nicht möglich'); }
     document.body.removeChild(ta);
   }
+
   $('shareBtn').addEventListener('click', function () {
     var url = location.href.split('#')[0].split('?')[0];
     var data = { title: 'Finanzplanung', text: 'Finanzplanung: Wo stehst du heute, bei Rente und im Wunschalter?', url: url };
