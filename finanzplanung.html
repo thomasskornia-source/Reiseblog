@@ -1504,9 +1504,20 @@ function compute(P) {
     });
     var marks = [{ x: R.retAge, label: 'Rente ' + ageText(R.retAge), row: 0 }, { x: R.wunsch, label: 'Wunsch ' + R.wunsch, row: 0 }];
     if (Math.abs(R.retAge - R.wunsch) < 4) { marks[1].row = 1; if (R.wunsch < R.retAge) { marks[0].row = 1; marks[1].row = 0; } }
-    if (R.stop) { var qa = R.stop.quitAge, near = Math.abs(qa - R.retAge) < 4 || Math.abs(qa - R.wunsch) < 4; marks.push({ x: qa, label: 'Ausstieg ' + ageText(qa), row: near ? 1 : 0 }); if (near && marks[0].row === 1) marks[2].row = 0; }
+    if (R.stop) { var qa = R.stop.quitAge, near = Math.abs(qa - R.retAge) < 4 || Math.abs(qa - R.wunsch) < 4 || window.innerWidth < 700; marks.push({ x: qa, label: 'Ausstieg ' + ageText(qa), row: near ? 1 : 0 }); if (near && marks[0].row === 1) marks[2].row = 0; }
     var o1 = baseOpts(t);
     o1.scales.x = { type: 'linear', min: R.age0, max: xMax, grid: { display: false }, border: { color: t.line }, ticks: { color: t.muted, stepSize: xMax - R.age0 > 30 ? 5 : 2, callback: function (v) { return Number.isInteger(v) ? v : ''; } }, title: { display: true, text: 'Alter', color: t.muted } };
+    // Der Vergleich ohne Entnahmen steigt oft weit über alles andere: Achse kappen, die Linie läuft nach oben aus dem Bild
+    var capped = false;
+    (function () {
+      var mx = 0, mxRef = 0, vals = function (arr, f) { arr.forEach(function (p) { if (p.y !== null && isFinite(p.y)) f(p.y); }); };
+      [dNet, dPaid, dWD, dCum].forEach(function (arr) { vals(arr, function (y) { if (y > mx) mx = y; }); });
+      vals(dRef, function (y) { if (y > mxRef) mxRef = y; });
+      if (!split || mx <= 0 || mxRef <= mx * 1.8) return;
+      var v = mx * 1.25, p = Math.pow(10, Math.floor(Math.log10(v))), cap = v, ms = [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10];
+      for (var i = 0; i < ms.length; i++) if (v <= ms[i] * p) { cap = ms[i] * p; break; }
+      o1.scales.y.max = cap; capped = true;
+    })();
     o1.plugins.markers = { items: marks, color: t.muted, text: t.ink2, font: t.font, cross: t.muted };
     o1.plugins.tooltip.callbacks = { title: function (it) { return 'Alter ' + num(it[0].parsed.x, 0); }, label: function (c) { return c.dataset.label + ': ' + eur(c.parsed.y); } };
     var ds1 = [
@@ -1527,7 +1538,7 @@ function compute(P) {
         if (WD.depAge !== null) wn += ' Das Vermögen ist bei dieser Entnahme etwa mit ' + num(WD.depAge) + ' aufgebraucht.';
         else wn += lastBal < 1000 ? ' Das Vermögen wird bis Alter ' + num(P.planAge) + ' planmäßig aufgebraucht.' : ' Bis Alter ' + num(P.planAge) + ' bleibt noch ' + eur(lastBal) + ' übrig.';
       }
-      if (split) wn += ' Die feine gepunktete Linie zeigt zum Vergleich den Verlauf ohne Entnahmen. Die blaue Linie zeigt bis zum Renteneintritt, was du eingezahlt hast, danach die Summe deiner Entnahmen.';
+      if (split) wn += ' Die feine gepunktete Linie zeigt zum Vergleich den Verlauf ohne Entnahmen' + (capped ? ' (sie läuft oben aus dem Bild, die Werte stehen in der Tabelle)' : '') + '. Die blaue Linie zeigt bis zum Renteneintritt, was du eingezahlt hast, danach die Summe deiner Entnahmen.';
     }
     $('withNote').textContent = wn;
     var tAges = []; for (var a = R.age0; a < xMax; a += 5) tAges.push(a);
