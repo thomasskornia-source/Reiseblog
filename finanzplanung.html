@@ -1179,7 +1179,7 @@ function compute(P) {
   function syncStatus() { var m = $('calcMode').value; $('status').value = m === 'paar' ? $('coupleType').value : $('famEin').value; $('coupleWrap').hidden = m !== 'paar'; $('famWrap').hidden = m === 'paar'; }
   function syncUI() { var s = $('status').value; if (s === 'verheiratet' || s === 'paar') { $('calcMode').value = 'paar'; $('coupleType').value = s; } else { $('calcMode').value = 'einzel'; $('famEin').value = s; } syncStatus(); }
   syncUI();
-  var nettoAuto = true, mode = 'nom', userTouched = false;
+  var nettoAuto = true, mode = 'real', userTouched = false;
 
   var fmt = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
   var eur = function (v) { return isFinite(v) ? fmt.format(Math.round(v)) : '–'; };
@@ -1951,7 +1951,7 @@ function compute(P) {
     var oldB = parseFloat(String(o.fields.bRente || '').replace(',', '.'));
     nettoAuto = o.nettoAuto !== false;
     if (!nettoAuto && o.fields.netto != null) $('netto').value = String(o.fields.netto).slice(0, 20);
-    mode = o.mode === 'real' ? 'real' : 'nom';
+    mode = 'real'; // Standard: Kaufkraft heute. Der gespeicherte Wert wird nicht übernommen, weil ältere Dateien immer „nominal“ enthalten.
     ABF = o.abfindung && typeof o.abfindung === 'object' ? abfClean(o.abfindung) : null;
     CON = Array.isArray(o.contracts) ? o.contracts.slice(0, 12).map(conClean) : [];
     CON.forEach(function (c) { ['beitrag', 'leistung', 'paid', 'jahr', 'heute', 'garant'].forEach(function (k) { if (!c[k]) c[k] = ''; }); });
