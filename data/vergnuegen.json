@@ -2051,5 +2051,125 @@
   "url": "https://www.arte.tv/de/",
   "stand": "2026-10-11",
   "thema": "ARTE Mediathek"
+ },
+ {
+  "id": "tv-cd36c3185d",
+  "rubrik": "tv",
+  "titel": "Tatort: Unter Freunden (Teil 1 von 2)",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Krimi, ca. 90 Minuten. Kommissarin Sahin bewirbt sich in Kiel. Programm kann sich ändern.",
+  "tags": [
+   "Serie"
+  ],
+  "quelle": "tvinfo.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-11",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-9fbe235315",
+  "rubrik": "tv",
+  "titel": "Ozeane – Eine Menschheitsgeschichte: Pazifik",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Wie sich Kulturen im riesigen Pazifik entwickelten. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "tvinfo.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-11",
+  "thema": "ZDF"
+ },
+ {
+  "id": "tv-2c3230773e",
+  "rubrik": "tv",
+  "titel": "Dr. Nice: Unter die Haut",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Romantische Serie, ca. 90 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Serie"
+  ],
+  "quelle": "tvinfo.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-11",
+  "thema": "ZDF"
+ },
+ {
+  "id": "tv-87c7c8b910",
+  "rubrik": "tv",
+  "titel": "360° Reportage: Vietnam – Brücken bauen für bedrohte Affen",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "19:40",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Schutz bedrohter Kleideraffen auf der Halbinsel Son Tra. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "tvinfo.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-11",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-040a737097",
+  "rubrik": "tv",
+  "titel": "Der Sternwanderer",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Märchenhafter Fantasyfilm um einen vom Himmel gefallenen Stern. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "tvinfo.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-11",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-4374d57493",
+  "rubrik": "tv",
+  "titel": "Schätze der Welt: Gartenreich Dessau-Wörlitz",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-10-11",
+  "datum_bis": "",
+  "zeit": "19:40",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Porträt des Gartenreichs an der Elbe mit sieben Schloss- und Parkanlagen. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "tvinfo.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-10-11",
+  "thema": "3sat"
  }
 ]

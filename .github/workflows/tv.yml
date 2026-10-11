@@ -1,0 +1,35 @@
+name: TV heute
+
+on:
+  schedule:
+    - cron: '10 4 * * *'    # 06:10 (Sommer) / 05:10 (Winter) deutsche Zeit
+    - cron: '10 14 * * *'   # 16:10 / 15:10, Nachholversuch und Aktualisierung
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vergnuegen
+
+jobs:
+  tv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: TV-Programm holen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python tools/tv-sammeln.py
+      - name: Speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then echo "Keine Änderungen"; exit 0; fi
+          git commit -m "TV heute: Abendprogramm aktualisiert"
+          git pull --rebase origin main
+          git push origin HEAD:main
