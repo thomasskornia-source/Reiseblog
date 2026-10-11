@@ -1961,9 +1961,9 @@
   "kinoseite": "https://breitwand.com/"
  },
  {
-  "id": "stream-netflix-below",
+  "id": "stream-netflix-animals",
   "rubrik": "stream",
-  "titel": "Below",
+  "titel": "Animals",
   "ort": "Netflix",
   "adresse": "",
   "datum": "",
@@ -1971,41 +1971,20 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Thriller-Serie, seit 8. Oktober bei Netflix.",
+  "kurz": "Thriller seit 9. Oktober: Nach einer Entführung steht ein Bürgermeisterkandidat vor einem moralischen Dilemma ums Lösegeld.",
   "tags": [
-   "Serie",
+   "Film",
    "Thriller"
   ],
   "quelle": "mobiflip.de",
   "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-10",
+  "stand": "2026-10-11",
   "thema": "Netflix"
  },
  {
-  "id": "stream-netflix-crazy-rich-incredibly-broke",
+  "id": "stream-amazon-prime-barbie",
   "rubrik": "stream",
-  "titel": "Crazy Rich, Incredibly Broke",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Komödie, seit 1. Oktober bei Netflix im Programm.",
-  "tags": [
-   "Film",
-   "Komödie"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-10",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-amazon-prime-from",
-  "rubrik": "stream",
-  "titel": "From",
+  "titel": "Barbie",
   "ort": "Amazon Prime",
   "adresse": "",
   "datum": "",
@@ -2013,107 +1992,171 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Staffel 3 der Mystery-Horrorserie seit 1. Oktober bei Prime Video.",
-  "tags": [
-   "Serie",
-   "Horror",
-   "Drama"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-10",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-ard-mediathek-hubert-ohne-staller",
-  "rubrik": "stream",
-  "titel": "Hubert ohne Staller",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Bayerische Provinzpolizei mit unorthodoxen Methoden, Staffel 10. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Serie",
-   "Krimi",
-   "Komödie"
-  ],
-  "quelle": "news.de",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-10",
-  "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-netflix-im-kreis-der-korruption",
-  "rubrik": "stream",
-  "titel": "Im Kreis der Korruption",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Thriller-Serie, seit 7. Oktober bei Netflix.",
-  "tags": [
-   "Serie",
-   "Thriller"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-10",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-ard-mediathek-juliet-naked",
-  "rubrik": "stream",
-  "titel": "Juliet, Naked",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Eine Frau kritisiert online das Demoalbum eines verschollenen Rockstars – und er meldet sich. Verfügbarkeit bitte prüfen.",
+  "kurz": "Seit 11. Oktober bei Prime: Barbie verlässt Barbieland und entdeckt die echte Welt. Bunte Komödie mit Fantasy-Einschlag.",
   "tags": [
    "Film",
    "Komödie",
-   "Drama"
+   "Fantasy"
   ],
-  "quelle": "news.de",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-10",
-  "thema": "ARD Mediathek"
+  "quelle": "mobiflip.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-11",
+  "thema": "Amazon Prime"
  },
  {
-  "id": "stream-apple-tv-k2-katastrophe-im-eis",
+  "id": "stream-amazon-prime-rocky-reihe",
   "rubrik": "stream",
-  "titel": "K2: Katastrophe im Eis",
-  "ort": "Apple TV",
+  "titel": "Rocky (Filmreihe)",
+  "ort": "Amazon Prime",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Dokumentarfilm, seit 2. Oktober bei Apple TV.",
+  "kurz": "Seit 1. Oktober bei Prime: die Rocky-Reihe um den Boxer aus Philadelphia.",
   "tags": [
    "Film",
-   "Doku"
+   "Drama"
   ],
-  "quelle": "netzwelt.de",
-  "url": "https://tv.apple.com/de",
-  "stand": "2026-10-10",
-  "thema": "Apple TV"
+  "quelle": "mobiflip.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-11",
+  "thema": "Amazon Prime"
  },
  {
-  "id": "stream-ard-mediathek-meine-mutter-raubt-die-braut",
+  "id": "stream-arte-mediathek-studio-54",
   "rubrik": "stream",
-  "titel": "Meine Mutter raubt die Braut",
+  "titel": "Studio 54",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "2026-10-14",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Drama von 1998: Aufstieg und Fall eines jungen Kellners im New Yorker Nachtclub der 1970er. Verfügbar bis 14.10.2026.",
+  "tags": [
+   "Film",
+   "Drama"
+  ],
+  "quelle": "hifi.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-11",
+  "thema": "ARTE Mediathek"
+ },
+ {
+  "id": "stream-arte-mediathek-berlin-alexanderplatz",
+  "rubrik": "stream",
+  "titel": "Berlin Alexanderplatz",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "2026-10-15",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Neuverfilmung des Döblin-Romans von 2020 über einen Geflüchteten ohne Papiere in Berlin. Verfügbar bis 15.10.2026.",
+  "tags": [
+   "Film",
+   "Drama"
+  ],
+  "quelle": "hifi.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-11",
+  "thema": "ARTE Mediathek"
+ },
+ {
+  "id": "stream-netflix-east-of-eden",
+  "rubrik": "stream",
+  "titel": "East of Eden",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 1. Oktober: Eine Frau entzweit zwei Brüder, daraus wird eine Familiengeschichte über zwei Generationen.",
+  "tags": [
+   "Serie",
+   "Drama"
+  ],
+  "quelle": "mobiflip.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-10-11",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-netflix-matlock",
+  "rubrik": "stream",
+  "titel": "Matlock",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 1. Oktober: Eine Anwältin kehrt nach einer Tragödie aus dem Ruhestand zurück, um Fälle zu lösen.",
+  "tags": [
+   "Serie",
+   "Krimi",
+   "Drama"
+  ],
+  "quelle": "mobiflip.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-10-11",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-netflix-mayor-of-kingstown",
+  "rubrik": "stream",
+  "titel": "Mayor of Kingstown",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 5. Oktober Staffel 1–4: Die Familie McLusky hält in einer Gefängnisstadt mühsam den Frieden.",
+  "tags": [
+   "Serie",
+   "Drama",
+   "Krimi"
+  ],
+  "quelle": "mobiflip.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-10-11",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-netflix-haunted-hotel",
+  "rubrik": "stream",
+  "titel": "Haunted Hotel: Staffel 2",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 9. Oktober: Eine Familie richtet sich in einem Spukhotel ein, während die übernatürlichen Probleme zunehmen.",
+  "tags": [
+   "Serie",
+   "Komödie",
+   "Fantasy"
+  ],
+  "quelle": "mobiflip.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-10-11",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-ard-mediathek-die-tieraerzte-retter-mit-herz",
+  "rubrik": "stream",
+  "titel": "Die Tierärzte – Retter mit Herz",
   "ort": "ARD Mediathek",
   "adresse": "",
   "datum": "",
@@ -2121,222 +2164,14 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Eine Wirtin aus der Eifel wünscht sich ein Kind und sucht dafür einen Vater. Verfügbarkeit bitte prüfen.",
+  "kurz": "Doku-Serie über Tierärzte im Einsatz, vier neue Folgen von etwa 44 Minuten. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Film",
-   "Komödie"
+   "Serie",
+   "Doku"
   ],
   "quelle": "news.de",
   "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-10",
+  "stand": "2026-10-11",
   "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-amazon-prime-the-rookie",
-  "rubrik": "stream",
-  "titel": "The Rookie",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Polizeiserie, Staffel 1 bis 7 seit 1. Oktober bei Prime Video.",
-  "tags": [
-   "Serie",
-   "Krimi",
-   "Drama"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-10",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-amazon-prime-the-social-network",
-  "rubrik": "stream",
-  "titel": "The Social Network",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Drama über die Anfänge von Facebook, seit 8. Oktober bei Prime Video.",
-  "tags": [
-   "Film",
-   "Drama"
-  ],
-  "quelle": "mobiflip.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-10",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "tv-chauvet-hoehle-arte-20261010-2015",
-  "rubrik": "tv",
-  "titel": "Auf den Spuren prähistorischer Künstler – Die Chauvet-Höhle",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über die Höhlenmalerei der Chauvet-Höhle. Programm kann sich ändern.",
-  "tags": [
-   "Doku",
-   "Historie"
-  ],
-  "quelle": "tvmovie.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-10",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-becoming-taylor-swift-3sat-20261010-2015",
-  "rubrik": "tv",
-  "titel": "Becoming Taylor Swift",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über den Weg von Taylor Swift. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "tvmovie.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-10-10",
-  "thema": "3sat"
- },
- {
-  "id": "tv-frankfurt-mord-zdf-20261010-2015",
-  "rubrik": "tv",
-  "titel": "Frankfurt Mord – Ein neues Leben",
-  "ort": "ZDF",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Krimiserie um Ermittlungen in Frankfurt. Programm kann sich ändern.",
-  "tags": [
-   "Serie",
-   "Krimi"
-  ],
-  "quelle": "tvmovie.de",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-10-10",
-  "thema": "ZDF"
- },
- {
-  "id": "tv-hitgiganten-ndr-20261010-2015",
-  "rubrik": "tv",
-  "titel": "Hitgiganten – Die Stars hinter den Stars",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Musiksendung über die Stars hinter den Stars. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "fernsehprogrammheuteabend.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-10",
-  "thema": "NDR"
- },
- {
-  "id": "tv-ich-will-mein-glueck-zurueck-br-20261010-2015",
-  "rubrik": "tv",
-  "titel": "Ich will mein Glück zurück",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Spielfilm im BR Fernsehen. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "fernsehprogrammheuteabend.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-10-10",
-  "thema": "BR"
- },
- {
-  "id": "tv-nord-bei-nordwest-estonia-swr-20261010-2015",
-  "rubrik": "tv",
-  "titel": "Nord bei Nordwest: Estonia",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Film der Reihe Nord bei Nordwest. Programm kann sich ändern.",
-  "tags": [
-   "Film",
-   "Krimi"
-  ],
-  "quelle": "fernsehprogrammheuteabend.de",
-  "url": "https://www.swr.de/",
-  "stand": "2026-10-10",
-  "thema": "SWR"
- },
- {
-  "id": "tv-sulawesi-arte-20261010-2145",
-  "rubrik": "tv",
-  "titel": "Sulawesi – Am Anfang war die Höhlenmalerei",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über Höhlenmalerei auf Sulawesi. Programm kann sich ändern.",
-  "tags": [
-   "Doku",
-   "Historie",
-   "Reise"
-  ],
-  "quelle": "tvmovie.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-10",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-verstehen-sie-spass-das-erste-20261010-2015",
-  "rubrik": "tv",
-  "titel": "Verstehen Sie Spaß?",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Live-Unterhaltung mit Clips und versteckter Kamera. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "tvmovie.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-10-10",
-  "thema": "Das Erste"
  }
 ]
