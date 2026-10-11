@@ -1,0 +1,13 @@
+Quelle ok 9000 https://www.tvinfo.de/tv-programm
+Quelle ok 9000 https://www.tv-programmheute.de/
+Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/ARD,29 HTTP Error 403: Forbidden
+Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/ZDF,2008 HTTP Error 403: Forbidden
+Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/BR,570537 HTTP Error 403: Forbidden
+Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/NDR,664723 HTTP Error 403: Forbidden
+Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/HR,633655 HTTP Error 403: Forbidden
+Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/arte,13735 HTTP Error 403: Forbidden
+Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/3sat,13737 HTTP Error 403: Forbidden
+Quelle fehlt https://www.prisma.de/tv-programm/?page=2 HTTP Error 403: Forbidden
+gemini-3.8-flash: HTTP 429
+gemini-flash-latest: HTTP 429
+Gemini-Fehler: gemini-flash-latest: HTTP 429
