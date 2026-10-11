@@ -33,7 +33,7 @@
     }
     return 0;
   }
-  var last = 0;
+  var last = 0, vEma = 0, tPrev = 0, yPrev = 0;   // vEma: zuletzt gemessene Laufgeschwindigkeit in Pixel pro Sekunde (nach oben)
   function tick() {
     if (!root) return;
     if (mode === 'outro') {   // Musik läuft: Text wandert gleichmäßig weiter nach oben und verlässt am Ende des Ausschnitts das Bild
@@ -41,7 +41,14 @@
       setY(out.y0 + (out.y1 - out.y0) * f); raf = requestAnimationFrame(tick); return;
     }
     var p = progress(); if (p < last && mode === 'speech') p = last; last = p;   // nie rückwärts laufen
-    place(p); raf = requestAnimationFrame(tick);
+    place(p);
+    var now = performance.now();
+    if (tPrev && now > tPrev) {   // Geschwindigkeit glätten; in Sprechpausen (Stillstand) nicht mitmitteln
+      var v = (yPrev - curY) / ((now - tPrev) / 1000);
+      if (v > 2 && v < 600) vEma += (v - vEma) * (1 - Math.exp(-((now - tPrev) / 1000) / 2.5));
+    }
+    tPrev = now; yPrev = curY;
+    raf = requestAnimationFrame(tick);
   }
   function onKey(e) { if (e.key === 'Escape') x(); }
   function onResize() { layout(); }
@@ -55,7 +62,7 @@
   window.Lesebuehne = {
     /* parts: [{k: 't'|'by'|'h'|'p', t: Text}], onClose: wird aufgerufen, wenn der Nutzer schließt */
     open: function (parts, onClose) {
-      close(); cb = onClose || null; last = 0;
+      close(); cb = onClose || null; last = 0; vEma = 0; tPrev = 0;
       root = el('div', 'lb'); root.setAttribute('role', 'dialog'); root.setAttribute('aria-label', 'Vorgelesener Text');
       var fade = el('div', 'lb-fade'); box = el('div', 'lb-box');
       parts.forEach(function (p) { box.appendChild(el(p.k === 'h' ? 'h2' : 'p', 'lb-' + p.k, p.t)); });
@@ -74,7 +81,9 @@
     /* Stimme ist zu Ende, die Musik beginnt: Text läuft in sec Sekunden weiter aus dem Bild, das Albumcover (Adresse oder leer) wird eingeblendet */
     outro: function (cover, sec) {
       if (!root || !box || mode === 'outro') return;
-      out.t0 = performance.now(); out.dur = Math.max(4, sec || 30) * 1000; out.y0 = curY; out.y1 = -box.offsetHeight - 24; mode = 'outro'; audio = null;
+      out.t0 = performance.now(); out.y0 = curY; out.y1 = -box.offsetHeight - 24; mode = 'outro'; audio = null;
+      // gleiche Geschwindigkeit wie beim Sprechen weiterlaufen (sonst wird der Text am Ende sichtbar langsamer)
+      out.dur = vEma > 5 ? Math.max(0.3, (out.y0 - out.y1) / vEma) * 1000 : Math.max(4, sec || 30) * 1000;
       if (cover && !root.querySelector('.lb-cover')) {
         var im = new Image(), r = root; im.className = 'lb-cover'; im.alt = ''; im.decoding = 'async';
         im.onload = function () { if (r.parentNode) requestAnimationFrame(function () { im.classList.add('on'); }); };
