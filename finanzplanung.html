@@ -1350,8 +1350,8 @@ function compute(P) {
     var vm = function (b, a) { var d = a - b; return '<td class="' + (Math.abs(d) < 0.5 ? '' : (d < 0 ? 'neg' : 'pos')) + '">' + (Math.abs(d) < 0.5 ? '–' : (d < 0 ? '−' : '+') + eur(Math.abs(d))) + '</td>'; };
     var row = function (lab, b, a) { return ['<span>' + lab + '</span>', eur(b), eur(a), vm(b, a).replace(/^<td[^>]*>|<\/td>$/g, '')]; };
     var rowsT = [
-      ['Gesetzliche Rente (netto/Monat)', B.pn0.net, R.pn0.net],
-      ['Betriebsrenten (netto/Monat)', B.bNet + B.cNet, R.bNet + R.cNet],
+      ['Gesetzliche Rente' + (P.status === 'verheiratet' ? ', gemeinsame Veranlagung' : (P.partner ? ', beide zusammen' : '')) + ' (netto/Monat)', B.pn0.net, R.pn0.net],
+      ['Betriebsrenten' + (P.partner ? ', beide zusammen' : '') + ' (netto/Monat)', B.bNet + B.cNet, R.bNet + R.cNet],
       ['Einmalzahlungen, netto', B.lumpNom / dfl, R.lumpNom / dfl],
       ['Vermögen zur Rente', B.at.ret.net / dfl, R.at.ret.net / dfl],
       ['Im Ruhestand pro Monat', B.total, R.total]
