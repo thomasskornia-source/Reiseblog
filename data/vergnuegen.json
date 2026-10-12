@@ -2062,363 +2062,43 @@
   "thema": "ARTE Mediathek"
  },
  {
-  "id": "tv-26d5ffef42",
+  "id": "tv-2bb4116ec7",
   "rubrik": "tv",
-  "titel": "Dahoam is Dahoam",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Geschichten rund um den bayerischen fiktiven Ort Lansing. Programm kann sich ändern.",
-  "tags": [
-   "Serie"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-10-12",
-  "thema": "BR"
- },
- {
-  "id": "tv-9668125a16",
-  "rubrik": "tv",
-  "titel": "Das Mädchen mit den goldenen Händen",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "21:40",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Spielfilmdrama im Abendprogramm auf ARTE. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-12",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-fed3ebe38d",
-  "rubrik": "tv",
-  "titel": "Die Ernährungs-Docs Folge 92",
+  "titel": "Visite",
   "ort": "NDR",
   "adresse": "",
-  "datum": "2026-10-12",
+  "datum": "2026-10-13",
   "datum_bis": "",
-  "zeit": "21:00",
+  "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Ernährungsmediziner behandeln Adipositas, PMOS, Endometriose und Arthrose. Programm kann sich ändern.",
+  "kurz": "Gesundheitsmagazin, Sendedauer 45 Minuten. Programm kann sich ändern.",
   "tags": [
    "Doku"
   ],
   "quelle": "ndr.de",
   "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-12",
+  "stand": "2026-10-13",
   "thema": "NDR"
  },
  {
-  "id": "tv-3fb0165198",
+  "id": "tv-2ad50af54f",
   "rubrik": "tv",
-  "titel": "Die Wahrheit über Sonderangebote",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über Schnäppchen und Rabattaktionen mit 45 Minuten Laufzeit. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "tv-programmheute.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-10-12",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-ff84ad858f",
-  "rubrik": "tv",
-  "titel": "Hart aber fair",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Politisches Diskussionsformat zu aktuellen gesellschaftlichen Streitfragen. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "tv-programmheute.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-10-12",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-7f49de9f42",
-  "rubrik": "tv",
-  "titel": "Heli Retter",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Reportage über Rettungshubschrauberbesatzungen bei Notfalleinsätzen. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-10-12",
-  "thema": "SWR"
- },
- {
-  "id": "tv-7c83a8a095",
-  "rubrik": "tv",
-  "titel": "In höchster Not - Bergretter im Einsatz",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Begleitung von Rettungskräften bei gefährlichen Einsätzen im alpinen Gelände. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-10-12",
-  "thema": "BR"
- },
- {
-  "id": "tv-a462cebcc7",
-  "rubrik": "tv",
-  "titel": "Kommissar Maigret sieht rot!",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kriminalfilmklassiker mit Ermittler Kommissar Maigret. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-12",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-437192fc0c",
-  "rubrik": "tv",
-  "titel": "Lecker an Bord - Ostfriesland von Emden nach Leer",
-  "ort": "WDR",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kulinarische Entdeckungsreise per Schiff durch Ostfriesland. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www1.wdr.de/fernsehen/",
-  "stand": "2026-10-12",
-  "thema": "WDR"
- },
- {
-  "id": "tv-4b6f1e5832",
-  "rubrik": "tv",
-  "titel": "Lecker aufs Land - Kulinarische Schätze",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Landfrauen stellen regionale Rezepte und Kochtraditionen vor. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-10-12",
-  "thema": "SWR"
- },
- {
-  "id": "tv-343da78a2e",
-  "rubrik": "tv",
-  "titel": "Lust aufs Land - Bayerische Hofgeschichten",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Einblicke in das Leben und den Alltag bayerischer Landwirtsfamilien. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-10-12",
-  "thema": "BR"
- },
- {
-  "id": "tv-c153f1ac54",
-  "rubrik": "tv",
-  "titel": "Markt",
+  "titel": "Abenteuer Diagnose",
   "ort": "NDR",
   "adresse": "",
-  "datum": "2026-10-12",
+  "datum": "2026-10-13",
   "datum_bis": "",
-  "zeit": "20:15",
+  "zeit": "21:00",
   "preis": "",
   "dauer": "",
-  "kurz": "Wirtschafts- und Verbrauchermagazin mit Tests und Praxistipps. Programm kann sich ändern.",
+  "kurz": "Medizinisches Doku-Format, Sendedauer 45 Minuten. Programm kann sich ändern.",
   "tags": [
-   "Show"
+   "Doku"
   ],
   "quelle": "ndr.de",
   "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-12",
+  "stand": "2026-10-13",
   "thema": "NDR"
- },
- {
-  "id": "tv-d5a490e96d",
-  "rubrik": "tv",
-  "titel": "Re: Workuta - Russlands vergessene Stadt in der Arktis",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "19:40",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Reportage über den Alltag in der entlegenen arktischen Stadt Workuta. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-12",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-f541d88053",
-  "rubrik": "tv",
-  "titel": "Sarah Kohr - Drecksarbeit",
-  "ort": "ZDF",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Krimithriller mit Ermittlerin Sarah Kohr über 90 Minuten. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "tv-programmheute.de",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-10-12",
-  "thema": "ZDF"
- },
- {
-  "id": "tv-a5231c411e",
-  "rubrik": "tv",
-  "titel": "Viel für wenig - Clever kochen mit Björn Freitag",
-  "ort": "WDR",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kochsendung mit Tipps für geschmackvolle Gerichte bei kleinem Budget. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www1.wdr.de/fernsehen/",
-  "stand": "2026-10-12",
-  "thema": "WDR"
- },
- {
-  "id": "tv-acda0e271e",
-  "rubrik": "tv",
-  "titel": "Wissen vor acht - Zukunft",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "19:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kurzes Wissensmagazin über zukunftsweisende Entwicklungen. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "tv-programmheute.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-10-12",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-74891c9f13",
-  "rubrik": "tv",
-  "titel": "Zwischen Fels und Fluss",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Naturdokumentation über Fels- und Flusslandschaften. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-10-12",
-  "thema": "3sat"
- },
- {
-  "id": "tv-c4dd5be82f",
-  "rubrik": "tv",
-  "titel": "Zwischen Fels und Fluss",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Zweiter Teil der Naturdokumentationsreihe über Flussbiotope. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-10-12",
-  "thema": "3sat"
  }
 ]
