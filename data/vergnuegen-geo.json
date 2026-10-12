@@ -165,5 +165,26 @@
 "kirche st. ludwig": null,
 "musik-forum münchen": null,
 "köşk, zenettistraße": null,
-"köşk": null
+"köşk": null,
+"mariahilfplatz": [
+48.12422,
+11.58117
+],
+"diverse orte in münchen": null,
+"olympiahalle": [
+48.1749,
+11.55002
+],
+"deutsches museum münchen": [
+48.13004,
+11.58291
+],
+"residenz münchen": [
+48.14081,
+11.57755
+],
+"münchner kammerspiele": [
+48.1384,
+11.58247
+]
 }
