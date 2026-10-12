@@ -15,13 +15,9 @@ SENDER = ["Das Erste", "ZDF", "BR", "WDR", "NDR", "hr", "SWR", "ARTE", "3sat"]
 HOME = {"Das Erste": "https://www.daserste.de/", "ZDF": "https://www.zdf.de/", "BR": "https://www.br.de/fernsehen/", "WDR": "https://www1.wdr.de/fernsehen/",
         "NDR": "https://www.ndr.de/fernsehen/", "hr": "https://www.hr-fernsehen.de/", "SWR": "https://www.swrfernsehen.de/", "ARTE": "https://www.arte.tv/de/", "3sat": "https://www.3sat.de/"}
 QUELLEN = [("tvinfo.de", "https://www.tvinfo.de/tv-programm"), ("tv-programmheute.de", "https://www.tv-programmheute.de/"),
-           # prisma.de sperrt die GitHub-Server (403) und wurde entfernt. Kandidaten für die Regionalsender, was nicht lesbar ist, steht im Log:
-           ("tvspielfilm.de", "https://www.tvspielfilm.de/tv-programm/sendungen/abends.html"), ("tvspielfilm.de", "https://www.tvspielfilm.de/tv-programm/sendungen/?time=prime&channel=BR"),
-           ("fernsehserien.de", "https://www.fernsehserien.de/tv-programm/br"), ("fernsehserien.de", "https://www.fernsehserien.de/tv-programm/ndr"),
-           ("fernsehserien.de", "https://www.fernsehserien.de/tv-programm/hr"), ("fernsehserien.de", "https://www.fernsehserien.de/tv-programm/wdr"), ("fernsehserien.de", "https://www.fernsehserien.de/tv-programm/swr"),
+           # Entfernt, weil von den GitHub-Servern nicht lesbar (403/404): prisma.de, tvspielfilm.de, fernsehserien.de, br.de, hr-fernsehen.de, wdr.de.
            ("hoerzu.de", "https://www.hoerzu.de/tv-programm/jetzt/"), ("tv.de", "https://www.tv.de/programm/"),
-           ("programm.ard.de", "https://programm.ard.de/TV/Programm/Alle-Sender/"), ("br.de", "https://www.br.de/fernsehen/br-fernsehen/programm/index.html"),
-           ("ndr.de", "https://www.ndr.de/fernsehen/programm/index.html"), ("hr-fernsehen.de", "https://www.hr-fernsehen.de/programm/"), ("wdr.de", "https://www1.wdr.de/fernsehen/programm/index.html")]
+           ("programm.ard.de", "https://programm.ard.de/TV/Programm/Alle-Sender/"), ("ndr.de", "https://www.ndr.de/fernsehen/programm/index.html")]
 
 
 def get(url):
