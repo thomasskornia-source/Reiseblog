@@ -353,6 +353,28 @@ body.st-open { overflow: hidden; }
 .pr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 18px; font-size: 12px; }
 .pr-grid div { display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--line); padding: 2px 0; }
 .pr-grid span { color: var(--ink2); }
+#printSheet.view { display: block !important; position: fixed; inset: 0; z-index: 9999; overflow: auto; -webkit-overflow-scrolling: touch; background: #fff; padding: 112px 16px 32px; box-sizing: border-box; font: 10pt/1.4 'Helvetica Neue', Arial, sans-serif; color: #111; }
+#printSheet.view h1 { font-size: 17pt; margin: 0 0 2pt; letter-spacing: 0; }
+#printSheet.view .ps-sub { color: #444; font-size: 9pt; margin-bottom: 8pt; }
+#printSheet.view .ps-hint { border: 1pt solid #444; padding: 6pt 8pt; font-size: 9pt; margin: 0 0 10pt; }
+#printSheet.view h2 { font-size: 11.5pt; margin: 12pt 0 4pt; padding-bottom: 2pt; border-bottom: 1.2pt solid #111; break-after: avoid; page-break-after: avoid; }
+#printSheet.view h3 { font-size: 10pt; margin: 8pt 0 3pt; break-after: avoid; page-break-after: avoid; }
+#printSheet.view table { width: 100%; border-collapse: collapse; margin: 0 0 4pt; }
+#printSheet.view th, #printSheet td { text-align: left; vertical-align: top; padding: 2.5pt 6pt 2.5pt 0; border-bottom: .5pt solid #bbb; font-weight: 400; }
+#printSheet.view th { width: 46%; color: #333; }
+#printSheet.view table.grid th, #printSheet table.grid td { white-space: normal !important; overflow-wrap: anywhere; word-break: normal; min-width: 0 !important; max-width: none !important; } #printSheet table.grid { table-layout: fixed; width: 100% !important; max-width: 100%; } #printSheet table.cg th:nth-child(1), #printSheet table.cg td:nth-child(1) { width: 20%; } #printSheet table.cg th:nth-child(2), #printSheet table.cg td:nth-child(2) { width: 27%; } #printSheet table.cg th:nth-child(3), #printSheet table.cg td:nth-child(3) { width: 10%; } #printSheet table.cg th:nth-child(4), #printSheet table.cg td:nth-child(4) { width: 13%; } #printSheet table.cg th:nth-child(5), #printSheet table.cg td:nth-child(5) { width: 30%; } #printSheet table.op th:nth-child(1), #printSheet table.op td:nth-child(1) { width: 20%; } #printSheet table.op th:nth-child(2), #printSheet table.op td:nth-child(2) { width: 48%; } #printSheet table.op th:nth-child(3), #printSheet table.op td:nth-child(3) { width: 32%; } #printSheet table.cg td.r, #printSheet table.cg th.r { white-space: normal; } #printSheet table.grid th, #printSheet table.grid td { width: auto; overflow-wrap: anywhere; font-size: 9pt; }
+#printSheet.view table.grid thead th { font-weight: 700; border-bottom: .8pt solid #111; color: #111; }
+#printSheet.view td.r, #printSheet th.r { text-align: right; white-space: nowrap; }
+#printSheet.view tr.sum td, #printSheet tr.sum th { font-weight: 700; border-top: .8pt solid #111; }
+#printSheet.view section, #printSheet .keep { break-inside: avoid; page-break-inside: avoid; }
+#printSheet.view ul { margin: 2pt 0 0 14pt; padding: 0; } #printSheet li { margin: 0 0 2pt; }
+#printSheet.view .ps-foot { margin-top: 12pt; font-size: 8.5pt; color: #444; border-top: .5pt solid #888; padding-top: 4pt; }
+#printSheet.view .verd { font-weight: 700; margin: 2pt 0 4pt; }
+#printSheet.view .con { break-inside: avoid; page-break-inside: avoid; margin-bottom: 6pt; }
+#printSheet.view section { overflow-x: auto; } #printSheet.view th, #printSheet.view td { overflow-wrap: anywhere; } #printSheet.view td.r, #printSheet.view th.r { white-space: normal; }
+#printSheet .ps-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 10000; display: flex; gap: 10px; align-items: center; justify-content: space-between; padding: 10px 16px; background: #2f3a33; color: #fff; font: 14px/1.3 -apple-system, 'Helvetica Neue', Arial, sans-serif; } #printSheet .ps-bar button { min-height: 40px; padding: 6px 16px; border: 0; border-radius: 10px; background: #FAF3E8; color: #2f3a33; font: 600 14px -apple-system, Arial, sans-serif; }
+#printSheet:not(.view) .ps-bar { display: none; }
+@media print { #printSheet .ps-bar { display: none !important; } }
 @media print {
   @page { size: A4; margin: 14mm 14mm 16mm; }
   html, body { background: #fff !important; color: #000 !important; }
@@ -2504,8 +2526,23 @@ function compute(P) {
     return h;
   }
   function fillPrint() { var el = $('printSheet'); if (el) el.innerHTML = buildPrint(); }
-  $('printBtn').addEventListener('click', function () { fillPrint(); window.print(); });
-  window.addEventListener('beforeprint', fillPrint);
+  var PRINTED = false;
+  function closeView() { var el = $('printSheet'); el.classList.remove('view'); document.documentElement.style.overflow = ''; }
+  function showView() {
+    var el = $('printSheet'); fillPrint();
+    var bar = document.createElement('div'); bar.className = 'ps-bar';
+    bar.innerHTML = '<span>Druckansicht. Zum Drucken oder Sichern in Safari: Teilen-Symbol, dann „Drucken“ oder „Als PDF sichern“.</span><button type="button">Schließen</button>';
+    el.insertBefore(bar, el.firstChild); bar.querySelector('button').addEventListener('click', closeView);
+    el.classList.add('view'); el.scrollTop = 0; document.documentElement.style.overflow = 'hidden';
+  }
+  $('printBtn').addEventListener('click', function () {
+    PRINTED = false; fillPrint();
+    try { window.print(); } catch (e) { /* weiter mit Druckansicht */ }
+    // Wo der Druckdialog nicht öffnet (zum Beispiel in der App vom Home-Bildschirm), zeigt die Seite stattdessen die Druckansicht.
+    setTimeout(function () { if (!PRINTED) showView(); }, 700);
+  });
+  window.addEventListener('beforeprint', function () { PRINTED = true; fillPrint(); });
+  window.addEventListener('afterprint', closeView);
 })();
 </script>
 
