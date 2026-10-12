@@ -2062,26 +2062,6 @@
   "thema": "ARTE Mediathek"
  },
  {
-  "id": "tv-2bb4116ec7",
-  "rubrik": "tv",
-  "titel": "Visite",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-13",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Gesundheitsmagazin, Sendedauer 45 Minuten. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-13",
-  "thema": "NDR"
- },
- {
   "id": "tv-2ad50af54f",
   "rubrik": "tv",
   "titel": "Abenteuer Diagnose",
@@ -2093,6 +2073,26 @@
   "preis": "",
   "dauer": "",
   "kurz": "Medizinisches Doku-Format, Sendedauer 45 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-13",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-2bb4116ec7",
+  "rubrik": "tv",
+  "titel": "Visite",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-13",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Gesundheitsmagazin, Sendedauer 45 Minuten. Programm kann sich ändern.",
   "tags": [
    "Doku"
   ],
