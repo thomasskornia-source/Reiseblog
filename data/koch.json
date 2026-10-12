@@ -1,6 +1,132 @@
 {
  "beitraege": [
   {
+   "id": "949S5FUtBlE",
+   "titel": "KI-Trade: Stimmung trübt sich zunehmend ein.",
+   "datum": "2026-10-12",
+   "zeit": "2026-10-12T20:34:18+00:00",
+   "art": "closing",
+   "score": -20,
+   "pfeil": "runter",
+   "thema": "Dünnes Feiertagsvolumen an der Wall Street bei anhaltender Skepsis im KI-Sektor und vor Beginn der Banken-Berichtssaison.",
+   "gesamtstimmung": "Die Marktstimmung präsentiert sich verhalten und zunehmend eingetrübt, da die Euphorie um KI-Werte schwindet und Zweifel am weiteren Investitionszyklus aufkommen. Gleichzeitig sorgen steigende Renditen und anziehende Ölpreise für Gegenwind vor dem Start der Quartalszahlen.",
+   "begruendung": "Belastend wirken vor allem die Abkühlung im KI-Bereich, der Zinsdruck auf das Kreditgeschäft der Banken sowie steigende Energiepreise. Eine noch ordentliche Marktbreite abseits der Tech-Giganten und niedrigere Erwartungshaltungen vor den Quartalsberichten verhindern jedoch stärkere Abverkäufe.",
+   "indikatoren": [
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Equal-Weight-Index und Dow robuster als der technologielastige Nasdaq",
+     "pfeil": "seitwaerts",
+     "rolle": "Eine breitere Beteiligung anderer Sektoren stützt den Gesamtmarkt, wenn die großen Tech-Schwergewichte korrigieren."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Zunehmende Skepsis bzgl. Umsatzwachstum und Rentabilität der KI-Ausgaben",
+     "pfeil": "runter",
+     "rolle": "Zweifel an der Tragfähigkeit der massiven Investitionen belasten das gesamte Marktumfeld im Technologiesektor."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Aufwärtsdynamik bei Renditen seit der Jackson-Hole-Tagung",
+     "pfeil": "runter",
+     "rolle": "Höhere Renditen belasten Hypothekengeschäft und Anleiheportfolios der Banken."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Auftakt der Banken- und Halbleiterergebnisse bei gesenkter Messlatte",
+     "pfeil": "seitwaerts",
+     "rolle": "Die anstehenden Unternehmensberichte entscheiden darüber, ob der Markt eine Trendwende einleiten kann."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Ölpreise ziehen wieder an",
+     "pfeil": "runter",
+     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Angriffe auf Energieinfrastruktur dauern an, Skepsis bezüglich Entspannung",
+     "pfeil": "runter",
+     "rolle": "Geopolitische Unsicherheiten stützen den Ölpreis und schüren Skepsis an den Märkten."
+    }
+   ],
+   "zitate": [
+    "die Stimmung unter den AI-Werten sich zunehmend eintrübt",
+    "dass wir hier einen Wachstumszenit erreicht haben"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 96510
+  },
+  {
+   "id": "frHubErXKU4",
+   "titel": "NVIDIA vor Mega-Deal. Banken und Inflation werden zum Börsentest.",
+   "datum": "2026-10-12",
+   "zeit": "2026-10-12T14:48:37+00:00",
+   "art": "opening",
+   "score": -15,
+   "pfeil": "runter",
+   "thema": "Markus Koch analysiert eine richtungsweisende Börsenwoche geprägt von anstehenden Inflationsdaten, dem Start der Banken-Berichtssaison und geopolitischen Risiken.",
+   "gesamtstimmung": "Die Marktstimmung ist verhalten und von spürbarer Vorsicht vor anstehenden Schlüsselereignissen geprägt. Geopolitische Spannungen und Warnsignale bei der Finanzierung des KI-Booms belasten, während eine Stabilisierung am Anleihemarkt und überverkaufte Bankenwerte Hoffnung machen.",
+   "begruendung": "Der anstehende Veröffentlichungsmarathon aus Inflationsdaten und Großbanken-Zahlen sorgt für Nervosität, verstärkt durch anhaltenden Druck durch hohe Diesel- und Energiekosten. Demgegenüber steht eine leichte Entlastung bei den Renditen der US-Staatsanleihen, die das Abwärtsrisiko vorerst abfedert.",
+   "indikatoren": [
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "Verbraucher- und Erzeugerpreise erwartet, Energiepreise treiben Risiken",
+     "pfeil": "runter",
+     "rolle": "Höhere Inflationsdaten könnten die Hoffnungen auf geldpolitische Lockerungen dämpfen und die Zinsängste wieder anfachen."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Berichte der US-Großbanken stehen an, Sektor zuvor eher überverkauft",
+     "pfeil": "hoch",
+     "rolle": "Gute Quartalszahlen und solide Kreditqualitäten der Großbanken könnten eine Erleichterungsrallye am Aktienmarkt auslösen."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Erste Stabilisierung und solide Auktionsnachfrage, Fokus auf T-Bills",
+     "pfeil": "hoch",
+     "rolle": "Ein nachlassender Renditedruck am langen Ende nimmt den akuten Bewertungsstress von den Aktienmärkten."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Leichter Auftrieb bei WTI, hohe Dieselpreise belasten Speditionen",
+     "pfeil": "runter",
+     "rolle": "Teurere Energie schlägt direkt auf die Transportwirtschaft durch und nährt neue Inflationssorgen."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Angriffe auf Energieinfrastruktur und Huthi-Schläge im Nahen Osten",
+     "pfeil": "runter",
+     "rolle": "Eskalationen im Energiebereich und Angriffe auf Logistikknotenpunkte erhöhen die Risikoaufschläge weltweit."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Abkühlung bei KI-Finanzierungen und Warnungen vor privater Überschuldung",
+     "pfeil": "runter",
+     "rolle": "Gerät der Finanzierungsmotor für Rechenzentren ins Stocken, bedroht dies die zentrale Wachstumsstory der Tech-Rallye."
+    }
+   ],
+   "zitate": [
+    "eine Woche, in der wir uns alle anschnallen sollten",
+    "man braucht einfach mehr Geld"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 149662
+  },
+  {
    "id": "OGzNe28uAqQ",
    "titel": "KI-Comeback. Drosselt Apple die iPhone 18 Produktion?",
    "datum": "2026-10-09",
@@ -858,9 +984,11 @@
   "Nf6Q8OlW8M4",
   "7Vh2ukJyHMk",
   "JloRSV2iBwI",
-  "OGzNe28uAqQ"
+  "OGzNe28uAqQ",
+  "949S5FUtBlE",
+  "frHubErXKU4"
  ],
- "stand": "2026-10-09T18:56Z",
+ "stand": "2026-10-12T21:51Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
