@@ -77,6 +77,9 @@ input[type=date]::-webkit-date-and-time-value { text-align: left; margin: 0; }
 .inhead[aria-expanded="true"] .chev { transform: rotate(-135deg); margin-top: 4px; }
 #inputs .stopbox { margin-top: 6px; padding: 14px; }
 #inBody:not([hidden]) + .stopbox { margin-top: 14px; }
+.as-btn, .goBtn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 18px; border-radius: 10px; border: 0; background: var(--accent); color: var(--accent-ink); font: inherit; font-weight: 600; font-size: 15px; cursor: pointer; text-decoration: none; }
+.as-btn:focus-visible, .goBtn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.goBtn { margin-top: 4px; align-self: flex-start; }
 .panel > header p { color: var(--ink2); font-size: 13px; }
 .stack { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
 
@@ -548,7 +551,8 @@ body.fp-body { padding-bottom: 0; }
             <button type="button" class="switch" id="stopSw" role="switch" aria-checked="false" aria-label="Should I stay or should I go, Szenario Aufhören ein- oder ausschalten"><i></i></button>
           </div>
         </header>
-        <input type="hidden" id="stopOn" value="0">
+        <a class="goBtn" id="goAus" href="ausstieg.html">So geht es weiter: Steuer-Check →</a>
+    <input type="hidden" id="stopOn" value="0">
         <div class="stopbody" id="stopBody" hidden>
           <div class="stopin">
             <label class="f" for="stopDate"><span>Letzter Arbeitstag</span><input id="stopDate" type="date"></label>
@@ -1878,6 +1882,7 @@ function compute(P) {
   });
   ['atzY', 'atzP'].forEach(function (id) { $(id).addEventListener('input', render); });
   $('inToggle').addEventListener('click', function () { var o = this.getAttribute('aria-expanded') !== 'true'; this.setAttribute('aria-expanded', o ? 'true' : 'false'); $('inBody').hidden = !o; });
+  (function () { var g = $('goAus'); function stash() { try { localStorage.setItem('fp-stand', JSON.stringify(collect())); } catch (e) { /* ohne Speicher */ } } ['pointerdown', 'touchstart', 'click', 'keydown'].forEach(function (ev) { g.addEventListener(ev, stash); }); })();
   $('stopSw').addEventListener('click', function () { $('stopOn').value = $('stopOn').value === '1' ? '0' : '1'; dirty(); render(); });
   $('conDet').addEventListener('toggle', function () { if ($('conDet').open) conRender(); });
   ['calcMode', 'coupleType', 'famEin'].forEach(function (id) { $(id).addEventListener('input', function () { syncStatus(); conRender(); dirty(); render(); }); });
