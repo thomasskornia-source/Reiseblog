@@ -71,6 +71,12 @@ input[type=date]::-webkit-date-and-time-value { text-align: left; margin: 0; }
 }
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .panel > header { display: flex; flex-direction: column; gap: 4px; }
+.inhead { all: unset; box-sizing: border-box; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; font: inherit; color: inherit; }
+.inhead:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.inhead .chev { width: 9px; height: 9px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); margin: -4px 4px 0 0; transition: transform .2s ease; flex: none; }
+.inhead[aria-expanded="true"] .chev { transform: rotate(-135deg); margin-top: 4px; }
+#inputs .stopbox { margin-top: 6px; padding: 14px; }
+#inBody:not([hidden]) + .stopbox { margin-top: 14px; }
 .panel > header p { color: var(--ink2); font-size: 13px; }
 .stack { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
 
@@ -420,48 +426,16 @@ body.fp-body { padding-bottom: 0; }
   </div>
   <div class="note-priv" role="note"><b>Hinweis:</b> Privates Projekt ohne Anspruch auf Vollständigkeit oder Richtigkeit. Die Berechnungen sind vereinfachte Schätzungen und keine Steuer-, Rechts- oder Anlageberatung. Sie dienen als Berechnungsgrundlage für ein Gespräch mit einer Steuerberaterin bzw. einem Steuerberater oder Finanzberater.</div>
   <div class="demo"><span><b>Neu für Einsteiger:</b> Die <a href="zinseszins.html" style="color:var(--rust)">kurze Version mit Szenarien und Zinseszins-Grafik</a> zeigt in zwei Minuten, warum früh sparen sich lohnt.</span></div>
-  <div class="demo" id="demo"><span><b>Beispielwerte.</b> Trage unten deine eigenen Angaben ein. Alle Zahlen und Grafiken passen sich sofort an.</span></div>
+  <div class="demo" id="demo"><span><b>Beispielwerte.</b> Öffne unten „Deine Angaben“ und trage deine eigenen Werte ein. Alle Zahlen und Grafiken passen sich sofort an.</span></div>
 
-  <section class="miles" id="miles" aria-label="Meilensteine"></section>
 
-  <section class="panel stopbox" id="stopBox" aria-labelledby="h-stop">
-    <header>
-      <div class="stophead">
-        <div>
-          <h2 id="h-stop">Was, wenn ich aufhöre zu arbeiten?</h2>
-          <p>Schalter an: Gehalt und Sparen enden am gewählten Tag. Rente, Betriebsvorsorge und Vermögen werden neu gerechnet.</p>
-        </div>
-        <button type="button" class="switch" id="stopSw" role="switch" aria-checked="false" aria-label="Aufhören zu arbeiten, Szenario ein- oder ausschalten"><i></i></button>
-      </div>
-    </header>
-    <input type="hidden" id="stopOn" value="0">
-    <div class="stopbody" id="stopBody" hidden>
-      <div class="stopin">
-        <label class="f" for="stopDate"><span>Letzter Arbeitstag</span><input id="stopDate" type="date"></label>
-        <label class="f" for="stopAbf"><span>Abfindung (netto)</span><input id="stopAbf" type="number" inputmode="decimal" min="0" step="1000" placeholder="€"></label>
-        <label class="f" for="stopLeben"><span>Ausgaben pro Monat</span><input id="stopLeben" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
-        <label class="f" for="stopNeu"><span>Neues Gehalt (brutto)</span><input id="stopNeu" type="number" inputmode="decimal" min="0" step="100" placeholder="€ pro Monat"></label>
-        <label class="f" for="stopNeuDatum"><span>Neuer Job ab</span><input id="stopNeuDatum" type="date"></label>
-      </div>
-      <p class="small">Neuer Job: optional. Leeres Datum = gleich nach dem letzten Arbeitstag. Ab dann zahlt das neue Gehalt (netto) die Ausgaben mit, es fließen wieder Rentenbeiträge, und es wird weniger aus dem Vermögen entnommen. Ohne Datum gilt: ab sofort. Die Abfindung kommt am letzten Arbeitstag zum Vermögen dazu (Nettowert, z. B. von der Abfindungsseite). Ausgaben leer lassen = deine Ausgaben im Ruhestand, sonst Netto minus Sparrate.</p>
-      <details class="more"><summary>Weitere Annahmen</summary>
-        <div class="stopin" style="margin-top:12px">
-          <label class="f" for="stopExtra"><span>Weitere Einnahmen</span><input id="stopExtra" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
-          <label class="f" for="stopKv"><span>Kranken- und Pflege</span><input id="stopKv" type="number" inputmode="decimal" min="0" step="10" placeholder="€"></label>
-          <label class="f" for="stopZins"><span>Zins Guthaben (%)</span><input id="stopZins" type="number" inputmode="decimal" step="0.5"></label>
-          <label class="f" for="stopRente"><span>Rente bisher (brutto)</span><input id="stopRente" type="number" inputmode="decimal" min="0" step="10" placeholder="€ pro Monat"></label>
-        </div>
-        <p class="small" style="margin-top:10px">Weitere Einnahmen: netto pro Monat, z. B. Arbeitslosengeld, Nebenjob. Bei Paaren wird das Netto der Partnerin bzw. des Partners geschätzt, wenn das Feld leer bleibt. Kranken- und Pflege: leer = geschätzter Mindestbeitrag als freiwillig Versicherter. Zins Guthaben: so wächst dein Betriebsguthaben bis zur Auszahlung, wenn nichts mehr eingezahlt wird. Rente bisher: die „bisher erreichte Rente“ aus der Renteninformation, sonst wird anteilig nach Beitragsjahren gekürzt.</p>
-      </details>
-      <div class="stopout" id="stopOut" aria-live="polite"></div>
-    </div>
-  </section>
 
 
 
   <div class="layout">
     <aside id="inputs" class="panel" aria-label="Deine Angaben">
-      <header><h2>Deine Angaben</h2><p>Alle Werte bleiben auf deinem Gerät und werden nur zum Rechnen genutzt.</p></header>
+      <header><h2><button type="button" class="inhead" id="inToggle" aria-expanded="false" aria-controls="inBody">Deine Angaben<i class="chev" aria-hidden="true"></i></button></h2><p>Alle Werte bleiben auf deinem Gerät und werden nur zum Rechnen genutzt.</p></header>
+      <div id="inBody" hidden>
 
       <details class="sec" open><summary>Berechnung und Haushalt</summary><div class="secb">
         <label class="f" for="calcMode"><span>Wofür rechnest du?</span>
@@ -563,6 +537,39 @@ body.fp-body { padding-bottom: 0; }
           <p class="small">Renditen sind Annahmen vor Steuern und vor Inflation. Sie sind keine Prognose und nicht garantiert.</p>
         </div>
       </div></details>
+      </div>
+      <section class="panel stopbox" id="stopBox" aria-labelledby="h-stop">
+        <header>
+          <div class="stophead">
+            <div>
+              <h2 id="h-stop">Should I stay or should I go?</h2>
+              <p>Schalter an: Gehalt und Sparen enden am gewählten Tag. Rente, Betriebsvorsorge und Vermögen werden neu gerechnet.</p>
+            </div>
+            <button type="button" class="switch" id="stopSw" role="switch" aria-checked="false" aria-label="Should I stay or should I go, Szenario Aufhören ein- oder ausschalten"><i></i></button>
+          </div>
+        </header>
+        <input type="hidden" id="stopOn" value="0">
+        <div class="stopbody" id="stopBody" hidden>
+          <div class="stopin">
+            <label class="f" for="stopDate"><span>Letzter Arbeitstag</span><input id="stopDate" type="date"></label>
+            <label class="f" for="stopAbf"><span>Abfindung (netto)</span><input id="stopAbf" type="number" inputmode="decimal" min="0" step="1000" placeholder="€"></label>
+            <label class="f" for="stopLeben"><span>Ausgaben pro Monat</span><input id="stopLeben" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
+            <label class="f" for="stopNeu"><span>Neues Gehalt (brutto)</span><input id="stopNeu" type="number" inputmode="decimal" min="0" step="100" placeholder="€ pro Monat"></label>
+            <label class="f" for="stopNeuDatum"><span>Neuer Job ab</span><input id="stopNeuDatum" type="date"></label>
+          </div>
+          <p class="small">Neuer Job: optional. Leeres Datum = gleich nach dem letzten Arbeitstag. Ab dann zahlt das neue Gehalt (netto) die Ausgaben mit, es fließen wieder Rentenbeiträge, und es wird weniger aus dem Vermögen entnommen. Ohne Datum gilt: ab sofort. Die Abfindung kommt am letzten Arbeitstag zum Vermögen dazu (Nettowert, z. B. von der Abfindungsseite). Ausgaben leer lassen = deine Ausgaben im Ruhestand, sonst Netto minus Sparrate.</p>
+          <details class="more"><summary>Weitere Annahmen</summary>
+            <div class="stopin" style="margin-top:12px">
+              <label class="f" for="stopExtra"><span>Weitere Einnahmen</span><input id="stopExtra" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
+              <label class="f" for="stopKv"><span>Kranken- und Pflege</span><input id="stopKv" type="number" inputmode="decimal" min="0" step="10" placeholder="€"></label>
+              <label class="f" for="stopZins"><span>Zins Guthaben (%)</span><input id="stopZins" type="number" inputmode="decimal" step="0.5"></label>
+              <label class="f" for="stopRente"><span>Rente bisher (brutto)</span><input id="stopRente" type="number" inputmode="decimal" min="0" step="10" placeholder="€ pro Monat"></label>
+            </div>
+            <p class="small" style="margin-top:10px">Weitere Einnahmen: netto pro Monat, z. B. Arbeitslosengeld, Nebenjob. Bei Paaren wird das Netto der Partnerin bzw. des Partners geschätzt, wenn das Feld leer bleibt. Kranken- und Pflege: leer = geschätzter Mindestbeitrag als freiwillig Versicherter. Zins Guthaben: so wächst dein Betriebsguthaben bis zur Auszahlung, wenn nichts mehr eingezahlt wird. Rente bisher: die „bisher erreichte Rente“ aus der Renteninformation, sonst wird anteilig nach Beitragsjahren gekürzt.</p>
+          </details>
+          <div class="stopout" id="stopOut" aria-live="polite"></div>
+        </div>
+      </section>
     </aside>
 
     <main class="stack" id="results">
@@ -1477,7 +1484,7 @@ function compute(P) {
     var m3 = mileHTML('', 'Wunschalter', R.wunsch + ' Jahre, ca. ' + Math.floor(P.by + R.wunsch), eur(adj(wu.net, yTo(R.wunsch))),
       'Davon eingezahlt ' + eur(adj(wu.paid, yTo(R.wunsch))) + ', Erträge nach Steuern ' + eur(adj(wu.net - wu.paid, yTo(R.wunsch))),
       other(wu.net, yTo(R.wunsch)) + (P.saveUntil === 'rente' && R.wunsch > R.retAge ? ', ohne Entnahmen' : '') + (hasWD && R.wunsch > R.retAge ? '. Mit Entnahmen ab ' + ageText(R.retAge) + ': ' + eur(adj(wdAt(R.wunsch), yTo(R.wunsch))) : ''));
-    $('miles').innerHTML = m1 + m2 + m3;
+    if ($('miles')) $('miles').innerHTML = m1 + m2 + m3;
     exitRender(R, P, netMonth, ausTot0, two);
     stopRender(R, P);
     $('bar').innerHTML = '<div>Rente mit ' + ageText(R.retAge) + '<b>' + eur(adj(ret.net, yTo(R.retAge))) + '</b></div><div style="text-align:right">Wunschalter ' + R.wunsch + '<b>' + eur(adj(wu.net, yTo(R.wunsch))) + '</b></div>';
@@ -1870,6 +1877,7 @@ function compute(P) {
     });
   });
   ['atzY', 'atzP'].forEach(function (id) { $(id).addEventListener('input', render); });
+  $('inToggle').addEventListener('click', function () { var o = this.getAttribute('aria-expanded') !== 'true'; this.setAttribute('aria-expanded', o ? 'true' : 'false'); $('inBody').hidden = !o; });
   $('stopSw').addEventListener('click', function () { $('stopOn').value = $('stopOn').value === '1' ? '0' : '1'; dirty(); render(); });
   $('conDet').addEventListener('toggle', function () { if ($('conDet').open) conRender(); });
   ['calcMode', 'coupleType', 'famEin'].forEach(function (id) { $(id).addEventListener('input', function () { syncStatus(); conRender(); dirty(); render(); }); });
