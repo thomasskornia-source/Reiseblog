@@ -558,7 +558,7 @@ body.fp-body { padding-bottom: 0; }
           <div class="stopin">
             <label class="f" for="stopDate"><span>Letzter Arbeitstag</span><input id="stopDate" type="date"></label>
             <label class="f" for="stopAbfB"><span>Abfindung (brutto)</span><input id="stopAbfB" type="number" inputmode="decimal" min="0" step="1000" placeholder="€"></label>
-            <label class="f" for="stopAbf"><span>Abfindung (netto)</span><input id="stopAbf" type="number" inputmode="decimal" min="0" step="1000" placeholder="€"></label>
+            <input id="stopAbf" type="hidden">
             <label class="f" for="stopLeben"><span>Ausgaben pro Monat</span><input id="stopLeben" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
             <label class="f" for="stopNeu"><span>Neues Gehalt (brutto)</span><input id="stopNeu" type="number" inputmode="decimal" min="0" step="100" placeholder="€ pro Monat"></label>
             <label class="f" for="stopNeuDatum"><span>Neuer Job ab</span><input id="stopNeuDatum" type="date"></label>
@@ -1360,7 +1360,7 @@ function compute(P) {
     if (!S) { out.innerHTML = '<p>Das gewählte Datum liegt am oder nach dem Renteneintritt mit ' + ageJ(R.retAge) + '. Dann ändert sich nichts.</p>'; return; }
     var B = compute(Object.assign({}, P, { stop: null })), dfl = R.infl(R.retAge - R.age0), dflQ = R.infl(S.quitAge - R.age0);
     $('stopLeben').placeholder = eur(S.living); $('stopExtra').placeholder = S.extraAuto ? eur(S.extra) + ' (Partner)' : '0 €'; $('stopKv').placeholder = '≈ ' + eur(S.kvAuto); $('stopAbf').placeholder = S.abfInfo && S.abfInfo.ausBrutto ? eur(S.abf) + ' (aus Brutto)' : (ABF && S.abfInfo && !S.abfInfo.manuell ? eur(S.abf) + ' (Datei)' : '€');
-    var an = $('abfNote'); if (S.abfInfo && S.abfInfo.ausBrutto) { an.hidden = false; an.textContent = 'Abfindung brutto ' + eur(S.abfInfo.brutto) + ' ergibt netto etwa ' + eur(S.abf) + ' (Steuer ' + eur(S.abfInfo.tax) + ', mit Fünftelregelung, Auszahlung im Jahr des Austritts). Die Netto-Eingabe daneben wird dann nicht benutzt.'; } else an.hidden = true;
+    var an = $('abfNote'); if (S.abfInfo && S.abfInfo.ausBrutto) { an.hidden = false; an.textContent = 'Abfindung brutto ' + eur(S.abfInfo.brutto) + ' ergibt netto etwa ' + eur(S.abf) + ' (Steuer ' + eur(S.abfInfo.tax) + ', mit Fünftelregelung, Auszahlung im Jahr des Austritts). Die Netto-Eingabe daneben wird dann nicht benutzt.'; } else if (S.abfInfo && S.abfInfo.manuell) { an.hidden = false; an.textContent = 'Es wird ein gespeicherter Netto-Betrag von ' + eur(S.abf) + ' benutzt. Trage die Abfindung (brutto) ein, dann rechnet die Seite das Netto selbst und ersetzt ihn.'; } else an.hidden = true;
     var sd = $('stopDate').value, when = 'ab sofort';
     if (/^\d{4}-\d{2}-\d{2}$/.test(sd)) { var dd = new Date(sd + 'T12:00:00'); when = 'ab dem ' + dd.getDate() + '. ' + DEUTSCH_MON[dd.getMonth()] + ' ' + dd.getFullYear(); }
     var yrs = S.years, yTxt = num(yrs, 1) + ' Jahre';
