@@ -436,6 +436,10 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
 .as-final ul { margin: 6px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px; line-height: 1.5; }
 .as-final .alt { margin: 10px 0 0; font-size: 14px; line-height: 1.5; }
 .as-final .fine { margin: 10px 0 0; font-size: 12.5px; line-height: 1.45; color: var(--ink2); }
+
+.as-warn{margin:0 0 10px;padding:10px 12px;border-radius:12px;background:#fdecea;color:#7a1f16;font-size:13.5px;line-height:1.45}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .as-warn{background:#3a1c18;color:#ffd9d4}}
+:root[data-theme="dark"] .as-warn{background:#3a1c18;color:#ffd9d4}
 </style>
 </head>
 <body class="pc">
@@ -476,7 +480,8 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
       <label class="f"><span>Kinder</span><input id="g-kinder" type="number" inputmode="numeric" min="0" max="8" step="1"></label>
       <label class="f"><span>Kirchensteuer</span><select id="g-kirche"><option value="0">Nein</option><option value="9">Ja, 9 %</option><option value="8">Ja, 8 % (BY, BW)</option></select></label>
       <label class="f" id="w-pbrutto"><span>Partner brutto/Jahr</span><input id="g-pbrutto" type="number" inputmode="decimal" min="0" step="1000" placeholder="€"></label>
-      <label class="f"><span>Abfindung brutto</span><input id="g-abf" type="number" inputmode="decimal" min="0" step="1000" placeholder="€"></label>
+      <label class="f"><span>Abfindung bis 31.3.27</span><input id="g-abf" type="number" inputmode="decimal" min="0" step="1000" placeholder="€ brutto, Turbo"></label>
+      <label class="f"><span>Abfindung ab 1.4.27</span><input id="g-abf2" type="number" inputmode="decimal" min="0" step="1000" placeholder="€ brutto, niedriger"></label>
       <label class="f"><span>Letzter Arbeitstag</span><input id="g-exit" type="date"></label>
       <label class="f"><span>Gewinnbeteiligung</span><input id="g-gb" type="number" inputmode="decimal" min="0" step="100" placeholder="€ brutto"></label>
       <label class="f"><span>Auszahlung im Monat</span><select id="g-gbm"></select></label>
@@ -514,10 +519,9 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
       <div class="as-grid">
         <label class="f"><span>Frühester Austritt</span><input id="g-von" type="date"></label>
         <label class="f"><span>Spätester Austritt</span><input id="g-bis" type="date"></label>
-        <label class="f"><span>Abfindung ± je Monat</span><input id="g-abfd" type="number" inputmode="decimal" step="500" placeholder="± € je Monat später"></label>
       </div>
       <div class="as-out" id="o3"></div>
-      <p class="small">Annahmen: Der Austritt ist jeweils zum Monatsende, das Arbeitslosengeld beginnt im Folgemonat ohne Sperrzeit, kein Nebenjob. Die Abfindung ist für alle Termine gleich hoch, außer du trägst oben eine Änderung je Monat ein (zum Beispiel wenn das Angebot für späte Termine sinkt). Urlaub, Kündigungsfrist, Betriebsrente und Rentenpunkte sind nicht in der Bilanz (siehe Themen 6, 11 und die Hinweise unten).</p>
+      <p class="small">Annahmen: Der Austritt ist jeweils zum Monatsende, das Arbeitslosengeld beginnt im Folgemonat ohne Sperrzeit, kein Nebenjob. Die Abfindung kommt aus deinem Angebot: bis 31.03.2027 der höhere Betrag (Turbo), danach bis zum Programmende am 31.10.2027 der niedrigere. Beide trägst du oben ein. Urlaub, Kündigungsfrist, Betriebsrente und Rentenpunkte sind nicht in der Bilanz (siehe Themen 6, 11 und die Hinweise unten). Das Angebot erlaubt die Auszahlung in bis zu drei Raten innerhalb von 36 Monaten nach dem Austritt, frühestens im Austrittsmonat. Gerechnet wird hier mit einer Einmalzahlung, denn bei Raten über mehrere Jahre kann die Fünftelregelung verloren gehen. Das gehört zum Steuerberater.</p>
     </div>
   </details>
 
@@ -732,7 +736,7 @@ function abfindungNetto(P, A) {
   function defaults() {
     var d = {};
     var by = fv('by') || YEAR - 55;
-    d['g-by'] = by; d['g-bm'] = 6;
+    d['g-by'] = by; d['g-bm'] = 11;
     d['g-brutto'] = fv('brutto') || 62000;
     d['g-bj'] = Math.max(0, Math.round((YEAR - by) - (fv('startAge') || 23)));
     d['g-status'] = F.status || 'ledig';
@@ -749,7 +753,7 @@ function abfindungNetto(P, A) {
     d['g-rbeg'] = 63;
     d['g-rente'] = Math.round(fv('stopRente') || fv('renteInfo')) || '';
     d['g-einz'] = '';
-    d['g-von'] = YEAR + '-10-31'; d['g-bis'] = (YEAR + 1) + '-12-31'; d['g-abfd'] = 0; d['g-sk'] = 'iv';
+    d['g-von'] = YEAR + '-10-31'; d['g-bis'] = (YEAR + 1) + '-10-31'; d['g-abf2'] = ''; d['g-sk'] = 'iv';
     var kv0 = fv('stopKv'), kb0 = kv0 > 0 ? kv0 / (0.175 + pvTotal(Math.round(fv('kinder')))) : 0;
     d['g-kap'] = kb0 > K.MINBASIS_KV + 50 ? Math.round(kb0 * 12 / 1000) * 1000 : '';
     return d;
@@ -785,12 +789,13 @@ function abfindungNetto(P, A) {
   function rd(id, d, lo, hi) { var x = parseFloat(String($(id).value).replace(',', '.')); if (!isFinite(x)) return d; return Math.min(hi, Math.max(lo, x)); }
   function readX() {
     var X = {};
-    X.by = Math.round(rd('g-by', YEAR - 55, 1940, YEAR - 16)); X.bm = Math.round(rd('g-bm', 6, 1, 12));
+    X.by = Math.round(rd('g-by', YEAR - 55, 1940, YEAR - 16)); X.bm = Math.round(rd('g-bm', 11, 1, 12));
     X.brutto = rd('g-brutto', 0, 0, 5e6); X.bj = rd('g-bj', 0, 0, 50);
     X.status = $('g-status').value; X.kinder = Math.round(rd('g-kinder', 0, 0, 8)); X.kirche = $('g-kirche').value;
     X.split = X.status === 'verheiratet'; X.sep = X.status === 'paar';
     X.pbrutto = (X.split || X.sep) ? rd('g-pbrutto', 0, 0, 5e6) : 0;
-    X.abf = rd('g-abf', 0, 0, 5e6);
+    X.abf = rd('g-abf', 0, 0, 5e6); X.abf2 = rd('g-abf2', 0, 0, 5e6);
+    X.turbo = (2027 - YEAR) * 12 + 3; X.pend = (2027 - YEAR) * 12 + 10; // Turbo-Zeitraum bis 31.03.2027, Programmende 31.10.2027
     var ex = $('g-exit').value, m = /^(\d{4})-(\d{2})-\d{2}$/.exec(ex);
     X.exitY = m ? +m[1] : YEAR; X.exitM = m ? Math.min(12, Math.max(1, +m[2])) : 12; X.hasExit = !!m;
     X.gb = rd('g-gb', 0, 0, 5e6); X.gbm = Math.round(rd('g-gbm', 8, 1, 12));
@@ -799,9 +804,10 @@ function abfindungNetto(P, A) {
     X.rbeg = rd('g-rbeg', 63, 55, 70); X.rente = rd('g-rente', 0, 0, 20000); X.einz = String($('g-einz').value).trim() === '' ? -1 : rd('g-einz', 0, 0, 1e7);
     var pv = function (id, dy, dm) { var mm = /^(\d{4})-(\d{2})/.exec($(id).value); return mm ? { y: +mm[1], m: Math.min(12, Math.max(1, +mm[2])) } : { y: dy, m: dm }; };
     var v0 = pv('g-von', YEAR, 10), v1 = pv('g-bis', YEAR + 1, 12);
-    X.e0 = Math.max(1, (v0.y - YEAR) * 12 + v0.m); X.e1 = Math.max(X.e0, Math.min(X.e0 + 35, (v1.y - YEAR) * 12 + v1.m));
+    X.e0 = Math.max(1, (v0.y - YEAR) * 12 + v0.m); X.e1 = Math.max(X.e0, Math.min(X.pend, X.e0 + 35, (v1.y - YEAR) * 12 + v1.m));
+    X.eLate = (v1.y - YEAR) * 12 + v1.m > X.pend;
     X.hyEnd = YEAR + Math.floor((X.e1 - 1) / 12) + 2;
-    X.abfd = rd('g-abfd', 0, -1e5, 1e5); X.kap = rd('g-kap', 0, 0, 1e7); X.sk = X.split ? $('g-sk').value : 'iv';
+    X.abfd = 0; X.kap = rd('g-kap', 0, 0, 1e7); X.sk = X.split ? $('g-sk').value : 'iv';
     X.P = { by: X.by, status: X.status, kinder: X.kinder, kirche: X.kirche, beruf: 'angestellt', brutto: X.brutto, partner: (X.split || X.sep) ? { brutto: X.pbrutto, beruf: 'angestellt' } : null };
     X.ageExit = X.exitY - X.by - (X.exitM < X.bm ? 1 : 0);
     return X;
@@ -841,7 +847,8 @@ function abfindungNetto(P, A) {
   var MON3 = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
   function pvTotal(k) { return k === 0 ? 0.042 : 0.036 - 0.0025 * Math.min(Math.max(k - 1, 0), 4); }
   // Beitrag als freiwilliges Mitglied (Kranken- und Pflegeversicherung, voller Satz, durchschnittlicher Zusatzbeitrag 2,9 %)
-  function kvFrei(X, kapM) { return Math.min(BBG_KV_M, Math.max(K.MINBASIS_KV, kapM)) * (0.146 + 0.029 + pvTotal(X.kinder)); }
+  // Freiwillig versichert ohne Krankengeldanspruch: 14,0 % + 2,9 % Zusatzbeitrag (Merkblatt der Krankenkasse, Stand Oktober 2026). Mit Abfindung zählt fiktiv das letzte Bruttogehalt (bis zur Beitragsbemessungsgrenze).
+  function kvFrei(X, kapM, mitAbf) { var base = mitAbf ? Math.min(BBG_KV_M, kapM + X.brutto / 12) : kapM; return Math.min(BBG_KV_M, Math.max(K.MINBASIS_KV, base)) * (0.14 + 0.029 + pvTotal(X.kinder)); }
   function lstJahr(z, cls) { // Lohnsteuer-Näherung auf ein zu versteuerndes Jahreseinkommen
     if (!(z > 0)) return 0;
     if (cls === 'iii') return est(z, true);
@@ -873,13 +880,14 @@ function abfindungNetto(P, A) {
     var Y0 = YEAR, NY = X.hyEnd - Y0 + 1, N = NY * 12;
     var pensIdx = (X.by + Math.round(X.rbeg) - Y0) * 12 + X.bm - 1; if (pensIdx < N) N = Math.max(0, pensIdx);
     var ei = (ey - Y0) * 12 + em, payY = payMode === 'jan' ? ey + 1 : (payMode === 'jan2' ? ey + 2 : ey);
-    var abfAmt = Math.max(0, X.abf + X.abfd * (ei - X.e0));
+    var abfAmt = Math.max(0, ei <= X.turbo || !(X.abf2 > 0) ? X.abf : X.abf2), payIdx = payMode === 'same' ? ei - 1 : (payY - Y0) * 12;
     var sy = Y0 + Math.floor(ei / 12), sm = ei % 12 + 1, age = sy - X.by - (sm <= X.bm ? 1 : 0);
     var M = algMonate(age), sperre = ['aufhebung_eigen', 'eigen_kuend'].indexOf(X.ende) >= 0;
     var delay = sperre ? 3 : 0, paid = sperre ? Math.max(0, M - Math.max(3, Math.ceil(M / 4))) : M;
     var algM = algOf(X, cls), kapM = X.kap / 12;
-    var famOk = X.kv === 'gkv' && X.pk === 'gkv' && kapM <= 565, kvM = X.kv === 'gkv' && !famOk ? kvFrei(X, kapM) : 0;
-    var R = { ei: ei, ey: ey, em: em, pm: payMode, cls: cls, age: age, M: M, paid: paid, algM: algM, kvM: kvM, famOk: famOk, total: 0, sal: 0, abf: abfAmt, taxAbf: 0, taxAll: 0, alg: 0, kv: 0, kvMonths: 0, gbN: 0, algMonths: 0 };
+    var famOk = X.kv === 'gkv' && X.pk === 'gkv' && kapM <= 565, kvM = X.kv === 'gkv' && !famOk ? kvFrei(X, kapM, false) : 0;
+    var famEnd = abfAmt > 0 && X.brutto > 0 ? payIdx + Math.ceil(abfAmt / (X.brutto / 12)) : 0; // Familienversicherung ist ausgeschlossen, solange die Abfindung rechnerisch das Einkommen füllt
+    var R = { ei: ei, ey: ey, em: em, pm: payMode, cls: cls, age: age, M: M, paid: paid, algM: algM, kvM: kvM, famOk: famOk, total: 0, sal: 0, abf: abfAmt, taxAbf: 0, taxAll: 0, alg: 0, kv: 0, kvMonths: 0, kvAbfMonths: 0, gbN: 0, algMonths: 0 };
     for (var yi = 0; yi < NY; yi++) {
       var mw = Math.min(12, Math.max(0, ei - yi * 12)), f = mw / 12;
       var gbY = X.gb > 0 && ei > yi * 12 + X.gbm - 1 ? X.gb : 0;
@@ -888,7 +896,10 @@ function abfindungNetto(P, A) {
       var b = z + pz - (X.split ? 72 : 36), algY = 0, kvY = 0;
       for (var mi = yi * 12; mi < yi * 12 + 12 && mi < N; mi++) {
         if (mi >= ei + delay && mi < ei + delay + paid) { algY += algM; R.algMonths++; }
-        else if (mi >= ei) { kvY += kvM; if (kvM > 0) R.kvMonths++; }
+        else if (mi >= ei) {
+          var inW = abfAmt > 0 && mi >= payIdx && mi < payIdx + 12, km = X.kv !== 'gkv' ? 0 : (famOk && mi >= famEnd ? 0 : kvFrei(X, kapM, inW));
+          kvY += km; if (km > 0) R.kvMonths++; if (inW && km > kvM) R.kvAbfMonths++;
+        }
       }
       var payA = payY === Y0 + yi ? abfAmt : 0;
       var burden = yearBurden(X, b, algY, payA), bare = payA > 0 ? yearBurden(X, b, algY, 0) : burden;
@@ -1001,6 +1012,8 @@ function abfindungNetto(P, A) {
       var B = (X.by + a - YEAR) * 12 + X.bm;
       if (B >= X.e0 && B <= X.e1) hints.push('Wer bis Ende ' + MON[X.bm - 1] + ' ' + (X.by + a) + ' bleibt, ist beim Start des Arbeitslosengeldes ' + a + ' Jahre alt: ' + algMonate(a) + ' statt ' + algMonate(a - 1) + ' Monate Arbeitslosengeld (angenommen Geburtsmonat ' + MON[X.bm - 1] + ', bitte oben prüfen).');
     });
+    var B55 = (X.by + 55 - YEAR) * 12 + X.bm;
+    if (B55 > X.pend && B55 <= X.pend + 12) hints.push('Dein 55. Geburtstag liegt im ' + MON[X.bm - 1] + ' ' + (X.by + 55) + ', also <b>nach dem Programmende (31.10.2027)</b>. Das hat zwei Folgen: Die Gleichstellung mit Rentnern bei den Mitarbeiterleistungen (eine Klausel im Muster-Vertrag für Ab-55-Jährige) gilt dann nicht, und das Arbeitslosengeld beginnt noch mit ' + algMonate(54) + ' Monaten Dauer. Ob und wie sich die 18 Monate trotzdem sichern lassen, klärst du vorab mit der Agentur für Arbeit.');
     if (hints.length) h += box('y', hints.join('<br>'));
     var j2 = b.pm === 'jan' ? sim(X, b.ey, b.em, 'jan2', X.sk) : null;
     if (j2 && j2.total - b.best.total > 3000) h += box('b', 'Zum Nachdenken: Würde die Abfindung erst im Januar ' + (b.ey + 2) + ' fließen, sinkt die Steuer darauf noch einmal um etwa ' + eur(j2.total - b.best.total) + ', weil dann weniger Arbeitslosengeld im selben Jahr den Steuersatz hebt. Eine so späte Auszahlung muss der Arbeitgeber mittragen und im Vertrag stehen (Zinsen, Absicherung). Das gehört zum Steuerberater.');
@@ -1105,13 +1118,14 @@ function abfindungNetto(P, A) {
       if (X.pk === 'gkv') items.push('<b>Familienversicherung</b> über den Partner bzw. die Partnerin ist nur möglich, wenn dein Gesamteinkommen regelmäßig höchstens <b>565 € im Monat</b> beträgt. ' + (kapM > 565 ? 'Mit Kapitalerträgen von ' + eur(X.kap) + ' im Jahr (' + eur(kapM) + ' im Monat) ist das <b>nicht</b> möglich.' : 'Deine Kapitalerträge liegen darunter. Auch die Abfindung kann als Einkommen zählen: klären, ab wann.'));
       else if (X.pk === 'pkv') items.push('Eine Familienversicherung über privat versicherte Partner oder Beamte ist nicht möglich, hier wird freiwillig versichert.');
     }
-    items.push('Wenn die Kasse die Abfindung beitragspflichtig behandelt (bei freiwilliger Versicherung möglich), steigt der Beitrag zeitweise. <b>Vor der Unterschrift die Krankenkasse schriftlich fragen.</b>');
+    items.push('<b>Abfindung und Beitrag (Merkblatt der Krankenkasse, Stand Oktober 2026):</b> Bei freiwilliger Versicherung zählt die Abfindung als Einnahme, und zwar fiktiv in Höhe deines letzten Bruttogehalts pro Monat, höchstens bis zur Beitragsbemessungsgrenze (' + eur(BBG_KV_M) + '). Das gilt ab dem Auszahlungsmonat für den kürzeren Zeitraum aus „Ende der Kündigungsfrist“ und 12 Monaten. Der Zeitraum läuft nach dem Kalender: Monate mit Arbeitslosengeld (pflichtversichert, kein Beitrag) verbrauchen ihn. <b>Zahlt die Abfindung in einer Zeit mit Arbeitslosengeld, fällt darauf kein Beitrag an.</b> Mit voller Anrechnung wären es etwa ' + eur(kvFrei(X, kapM, true)) + ' im Monat statt ' + eur(kvDein) + '.');
+    items.push('<b>Familienversicherung:</b> Die Abfindung wird fiktiv auf die Zeit nach dem Austritt verteilt (Abfindung geteilt durch das tägliche Gehalt). Bei einer Abfindung im sechsstelligen Bereich ist die Familienversicherung deshalb oft Jahre ausgeschlossen. <b>Vor der Unterschrift die Krankenkasse schriftlich fragen</b> (Aufhebungsvertrag, letzte Gehaltsabrechnung und Nachweise über Kapitaleinkünfte bereithalten).');
     var tb = '';
     if (X.kv !== 'pkv') {
       var vals = [0, 10000, 20000, 40000, 80000, 150000];
       tb = '<table class="as-t as-t3"><thead><tr><th>Kapitalerträge pro Jahr</th><th class="r">Beitrag/Monat</th><th class="r">pro Jahr</th></tr></thead><tbody>';
       vals.forEach(function (v) { var m = kvFrei(X, v / 12); tb += '<tr><td>' + (v ? eur(v) : 'keine') + '</td><td class="r">' + eur(m) + '</td><td class="r">' + eur(m * 12) + '</td></tr>'; });
-      tb += '<tr class="best"><td>Deine Angabe: ' + (X.kap ? eur(X.kap) : 'keine') + '</td><td class="r">' + eur(kvDein) + '</td><td class="r">' + eur(kvDein * 12) + '</td></tr></tbody></table><p class="small">Kranken- und Pflegeversicherung zusammen, voller Satz (14,6 % plus durchschnittlich 2,9 % Zusatzbeitrag, Pflege ' + num(pvTotal(X.kinder) * 100, 2) + ' %). Mindestbeitrag bei ' + eur(K.MINBASIS_KV) + ' Einnahmen im Monat, Höchstbeitrag ab ' + eur(BBG_KV_M) + ' im Monat (' + eur(kvMax) + '). Einkünfte aus Vermietung, Rente oder Nebenjob kommen gegebenenfalls dazu.</p>';
+      tb += '<tr class="best"><td>Deine Angabe: ' + (X.kap ? eur(X.kap) : 'keine') + '</td><td class="r">' + eur(kvDein) + '</td><td class="r">' + eur(kvDein * 12) + '</td></tr></tbody></table><p class="small">Kranken- und Pflegeversicherung zusammen, ermäßigter Satz ohne Krankengeld (14,0 % plus 2,9 % Zusatzbeitrag der Kasse, Pflege ' + num(pvTotal(X.kinder) * 100, 2) + ' %). Mindestbeitrag bei ' + eur(K.MINBASIS_KV) + ' Einnahmen im Monat, Höchstbeitrag ab ' + eur(BBG_KV_M) + ' im Monat (' + eur(kvMax) + '). Einkünfte aus Vermietung, Rente oder Nebenjob kommen gegebenenfalls dazu.</p>';
     }
     var T = Q.t3, rb = T ? T.rows[T.bi].best : null, kvTxt = '';
     if (rb && rb.kvMonths > 0) kvTxt = box('b', 'Beim rechnerisch besten Austritt (' + MON3[rb.em - 1] + ' ' + rb.ey + ') bist du ab ' + MON3[(rb.ei + rb.paid) % 12] + ' ' + (YEAR + Math.floor((rb.ei + rb.paid) / 12)) + ' freiwillig versichert. Bis Ende ' + X.hyEnd + ' kostet das etwa <b>' + eur(rb.kv) + '</b> (' + rb.kvMonths + ' Monate).');
@@ -1208,9 +1222,12 @@ function abfindungNetto(P, A) {
     if (!(X.abf > 0)) return '<div class="as-final"><p class="lead">Trage oben die Abfindung (brutto) ein, dann kann ich den günstigsten Austrittstermin berechnen.</p></div>';
     var b = T.rows[T.bi], f = T.rows[0], rb = b.best, rf = f.best, rows = T.rows;
     var date = dstr(b.ey, b.em), when = b.pm === 'jan' ? 'im Januar ' + (b.ey + 1) : 'im Jahr ' + b.ey;
-    var li = [];
+    var li = [], pre = '';
+    var p2 = function (n) { return (n < 10 ? '0' : '') + n; }, fd = function (d) { return p2(d.getDate()) + '.' + p2(d.getMonth() + 1) + '.' + d.getFullYear(); };
+    if (!(X.abf2 > 0)) pre += '<div class="as-warn"><b>Noch nicht belastbar:</b> Trage oben bei „Abfindung ab 1.4.27“ den niedrigeren Betrag aus deinem Angebot ein (zweiter Betrag, für Austritte nach dem Turbo-Zeitraum). Bis dahin rechnet die Seite für alle Termine mit dem Betrag bis 31.3.27, und spätere Termine sehen besser aus, als sie sind.</div>';
+    if (X.eLate) pre += '<div class="as-warn">Das Programm endet am 31.10.2027. Spätere Austrittstermine gibt es dort nicht, die Rechnung endet deshalb am 31.10.2027.</div>';
     if (b.ei > f.ei) li.push('Jeder zusätzliche Arbeitsmonat bringt in der Gesamtbilanz rund <b>' + eur((rb.total - rf.total) / (b.ei - f.ei)) + '</b> mehr: Bis ' + date + ' sind es insgesamt <b>' + eur(rb.total - rf.total) + '</b> mehr als bei einem Austritt am ' + dstr(f.ey, f.em) + ' (Bilanz bis Ende ' + X.hyEnd + ', nach Steuer und Sozialabgaben).');
-    else li.push('Jeder spätere Monat bringt in der Gesamtbilanz weniger als er kostet' + (X.abfd < 0 ? ' (die Abfindung sinkt um ' + eur(-X.abfd) + ' je Monat)' : '') + '.');
+    else li.push('Jeder spätere Monat bringt in der Gesamtbilanz weniger als er kostet' + (X.abf2 > 0 && X.abf2 < X.abf ? ' (nach dem 31.03.2027 sinkt die Abfindung um ' + eur(X.abf - X.abf2) + ')' : '') + '.');
     if (rb.M > rf.M) li.push('Beim Start des Arbeitslosengeldes bist Du ' + rb.age + ' Jahre alt: <b>' + rb.M + ' statt ' + rf.M + ' Monate</b> Arbeitslosengeld (rund ' + eur((rb.M - rf.M) * rb.algM) + ' mehr).');
     else li.push('Das Arbeitslosengeld läuft ' + rb.M + ' Monate (ca. ' + eur(rb.algM) + ' im Monat).');
     if (b.pm === 'jan' && b.alt) { var dj = rb.total - b.alt.total; if (dj > 500) li.push('Die Abfindung fließt erst im Januar ' + (b.ey + 1) + ', wenn Du kein Gehalt mehr beziehst. Dann beträgt die Steuer darauf ' + eur(rb.taxAbf) + ' statt ' + eur(b.alt.taxAbf) + ' bei Auszahlung im Austrittsjahr (' + eur(dj) + ' weniger Steuer insgesamt). Das muss im Aufhebungsvertrag stehen.'); }
@@ -1219,12 +1236,15 @@ function abfindungNetto(P, A) {
     if (rb.kv < rf.kv - 100) li.push('Die freiwillige Krankenversicherung (' + eur(rb.kvM) + ' im Monat bei deinen Kapitalerträgen) beginnt später: ' + eur(rf.kv - rb.kv) + ' weniger Beitrag bis Ende ' + X.hyEnd + '.');
     if (b.ei > f.ei) { var pts = (b.ei - f.ei) * Math.min(X.brutto, K.BBG_RV) / K.DURCHSCHNITT / 12; li.push('Dazu kommen ' + num(pts, 2) + ' Rentenpunkte (etwa ' + eur(pts * K.RENTENWERT) + ' Rente im Monat, ein Leben lang). Sie stecken nicht in der Bilanz.'); }
     if (X.split && Q.t11 && Q.t11.gain > 300 && Q.t11.best.id !== 'iv' && X.sk === 'iv') li.push('Mit Steuerklasse III (Du) und V (Partner/in) ist das Arbeitslosengeld ' + eur(Q.t11.best.algM - Q.t11.base.algM) + ' im Monat höher (' + eur(Q.t11.gain) + ' mehr in der Bilanz). Den Wechsel rechtzeitig beantragen und vorher die Agentur fragen.');
+    var E = new Date(b.ey, b.em, 0), s1 = new Date(E.getTime() - 7 * 864e5); while (s1.getDay() === 0 || s1.getDay() === 6) s1.setDate(s1.getDate() + 1);
+    var s2 = new Date(b.ey, b.em - 1, 0); while (s2.getDay() === 0 || s2.getDay() === 6) s2.setDate(s2.getDate() - 1);
+    li.push('<b>Fristen im Vertrag:</b> Das unterschriebene Original muss innerhalb von zwei Wochen nach dem Ausstellungsdatum beim Arbeitgeber sein, und zusätzlich spätestens am <b>' + fd(s1) + '</b> (eine Woche vor dem Austritt). Soll Geld im Austrittsmonat fließen oder etwas in die PVK oder Direktversicherung gehen, gilt der <b>' + fd(s2) + '</b> (letzter Arbeitstag des Vormonats). Es zählt, wer zuerst wirksam unterschreibt („first come first served“).');
     var maxM = Math.max.apply(null, rows.map(function (r) { return r.best.M; })), early = null;
     rows.forEach(function (r) { if (!early && r.best.M === maxM) early = r; });
     var alt = '';
     if (early && early.ei < b.ei) { var m2 = (rb.total - early.best.total) / (b.ei - early.ei); alt = '<p class="alt"><b>Wenn Du früher gehen möchtest:</b> frühestens zum <b>' + dstr(early.ey, early.em) + '</b>. Ab da gibt es das volle Arbeitslosengeld (' + maxM + ' Monate). Jeder Monat, den Du danach noch arbeitest, bringt in der Bilanz rund ' + eur(m2) + '. Ist Dir ein freier Monat mehr wert, ist das der früheste Termin ohne Verlust beim Arbeitslosengeld.</p>'; }
     else if (b.ei === f.ei && rows.length > 1) alt = '<p class="alt">Jeder spätere Termin in deinem Fenster schneidet in der Bilanz schlechter ab.</p>';
-    return '<div class="as-final"><p class="lead">Es macht am meisten Sinn, dass Du die Firma zum <b>' + date + '</b> verlässt und die Abfindung <b>' + when + '</b> auszahlen lässt. Das ist die günstigste Variante, weil …</p><ul>' + li.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>' + alt + '<p class="fine">Rechenmodell mit vereinfachten Annahmen: gleiche Abfindung für jeden Termin' + (X.abfd ? ' (korrigiert um ' + eur(X.abfd) + ' je Monat)' : '') + ', kein Nebenjob, keine Sperrzeit' + (X.ende === 'aufhebung_eigen' || X.ende === 'eigen_kuend' ? '' : '') + ', Arbeitslosengeld ab dem Monat nach dem Austritt. Die Auszahlung im Januar muss im Aufhebungsvertrag stehen. Ob das so zusammenpasst, entscheiden Steuerberater, Fachanwalt und Arbeitgeber.</p></div>';
+    return pre + '<div class="as-final"><p class="lead">Es macht am meisten Sinn, dass Du die Firma zum <b>' + date + '</b> verlässt und die Abfindung <b>' + when + '</b> auszahlen lässt. Das ist die günstigste Variante, weil …</p><ul>' + li.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>' + alt + '<p class="fine">Rechenmodell mit vereinfachten Annahmen: Abfindung wie im Angebot (bis 31.03.2027 höherer, danach niedrigerer Betrag, Programmende 31.10.2027), kein Nebenjob, keine Sperrzeit' + (X.ende === 'aufhebung_eigen' || X.ende === 'eigen_kuend' ? '' : '') + ', Arbeitslosengeld ab dem Monat nach dem Austritt. Die Auszahlung im Januar muss im Aufhebungsvertrag stehen. Ob das so zusammenpasst, entscheiden Steuerberater, Fachanwalt und Arbeitgeber.</p></div>';
   }
 
   function summary(X) {
