@@ -374,6 +374,7 @@ body.st-open { overflow: hidden; }
 #printSheet.view section { overflow-x: auto; } #printSheet.view th, #printSheet.view td { overflow-wrap: anywhere; } #printSheet.view td.r, #printSheet.view th.r { white-space: normal; }
 #printSheet .ps-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 10000; display: flex; gap: 10px; align-items: center; justify-content: space-between; padding: 10px 16px; background: #2f3a33; color: #fff; font: 14px/1.3 -apple-system, 'Helvetica Neue', Arial, sans-serif; } #printSheet .ps-bar button { min-height: 40px; padding: 6px 16px; border: 0; border-radius: 10px; background: #FAF3E8; color: #2f3a33; font: 600 14px -apple-system, Arial, sans-serif; }
 #printSheet:not(.view) .ps-bar { display: none; }
+#printSheet ul.chk { list-style: none; margin-left: 0; padding: 0; }
 @media print { #printSheet .ps-bar { display: none !important; } }
 @media print {
   @page { size: A4; margin: 14mm 14mm 16mm; }
@@ -395,6 +396,7 @@ body.st-open { overflow: hidden; }
   #printSheet section, #printSheet .keep { break-inside: avoid; page-break-inside: avoid; }
   #printSheet ul { margin: 2pt 0 0 14pt; padding: 0; } #printSheet li { margin: 0 0 2pt; }
   #printSheet .ps-foot { margin-top: 12pt; font-size: 8.5pt; color: #444; border-top: .5pt solid #888; padding-top: 4pt; }
+  #printSheet ul.chk { list-style: none; margin-left: 0; } #printSheet ul.chk li { margin: 0 0 4pt; }
   #printSheet .verd { font-weight: 700; margin: 2pt 0 4pt; }
   #printSheet .con { break-inside: avoid; page-break-inside: avoid; margin-bottom: 6pt; }
 }
@@ -2517,6 +2519,33 @@ function compute(P) {
       add('Absicherung der Familie', 'Hinterbliebenenversorgung, Pflegekosten und Erbfall sind nicht berechnet.', 'Beratung: Versorgung bei Tod oder Pflege einer Person prüfen.');
       h += psSec('Offene Punkte zur Klärung', '<table class="grid op"><thead><tr><th>Thema</th><th>Offener Punkt</th><th>Klärung durch</th></tr></thead>' + rowsOp.join('') + '</table>');
     })();
+    if (P && P.stop && (P.stop.on || P.stop.abfB > 0)) {
+      var q = function (t, items) { return '<div class="con"><h3>' + t + '</h3><ul class="chk">' + items.map(function (i) { return '<li>☐ ' + i + '</li>'; }).join('') + '</ul></div>'; };
+      h += psSec('Fragen an den Steuerberater', '<p class="ps-sub">Zum Abhaken im Gespräch. Das Rechenmodell ist vereinfacht, die Fragen klären, was wirklich gilt.</p>' +
+        q('1. Austrittstermin und Abfindung', [
+          'Ende März 2027 (höherer Betrag) oder Ende Oktober 2027 (niedrigerer Betrag): Welcher Termin ist nach Steuer und Sozialabgaben besser? Stimmt die Modellrechnung?',
+          'Anteilige Gewinnbeteiligung im Austrittsjahr: Wie wird sie behandelt, und was bringt der Zeitpunkt (Auszahlung vor oder nach dem Austritt)?',
+          'Hat die Abfindung Auswirkungen auf Familienversicherung, Kindergeld oder Förderungen der Kinder (Studium)?']) +
+        q('2. Auszahlung und Fünftelregelung', [
+          'Auszahlung als Einmalzahlung im Austrittsjahr, im Jahr danach oder später: Welches Jahr ist am günstigsten? (Modell: Januar nach dem Austritt, bis rund 20.000 € weniger Steuer bei noch einem Jahr später.)',
+          'Auszahlung in bis zu drei Raten innerhalb von 36 Monaten: Geht die Fünftelregelung verloren? Was gilt für Haupt- und Nebenleistung?',
+          'Die Fünftelregelung gibt es nur über die Steuererklärung: Wie hoch sollte die Rücklage sein, und lohnt eine Vorauszahlung?',
+          'Im Jahr der Abfindung kostet jeder zusätzliche Euro Einkommen etwa 65 bis 80 Cent Steuer (Modell): Was heißt das für Nebenjob, neuen Job, Zinsen, Dividenden und Aktienverkäufe in diesem Jahr?']) +
+        q('3. Steuerklasse und Arbeitslosengeld', [
+          'Wechsel auf III (ich) und V (Partnerin): Wann beantragen, welche Folgen für Vorauszahlungen und Nachzahlung, wie hoch ist das Risiko?',
+          'Welche Steuerklasse soll ich im Formular „Lohnsteuermerkmale nach Austritt“ für die Abfindung angeben (Frist: 1. Tag des Auszahlungsmonats)? Klasse VI führt zu hoher Erstattung später.',
+          'Progressionsvorbehalt durch das Arbeitslosengeld: Wie hoch ist die zusätzliche Steuer in den Jahren mit Bezug?']) +
+        q('4. Altersvorsorge', [
+          'Teil der Abfindung in PVK oder Direktversicherung einbringen (Grenzen 33 % bzw. 50 % der Hauptleistung): Lohnt sich das, und was kostet es bei der späteren Besteuerung und bei den Sozialabgaben?',
+          'Ausgleichszahlung an die Rentenversicherung (§ 187a SGB VI) für die Frührente: Ist sie als Sonderausgabe abziehbar, und in welchem Jahr ist der Abzug am wertvollsten?',
+          'Höchstbetrag für Altersvorsorgeaufwendungen: Wie viel Platz bleibt im Abfindungsjahr?',
+          'Betriebsrente und andere Zusagen: Wie werden Auszahlungen später besteuert (Kapitalauszahlung oder Rente)?']) +
+        q('5. Krankenversicherung', [
+          'Vorauszahlung der Basis-Kranken- und Pflegebeiträge für bis zu drei Jahre im Abfindungsjahr: Steuerersparnis, Obergrenze, Folgen bei Rückerstattung (zum Beispiel bei neuem Job)?',
+          'Beitragspflicht auf die Abfindung bei freiwilliger Versicherung (bis zu 12 Monate ab Auszahlung) und auf Kapitalerträge: Wie lässt sich der Zeitpunkt günstig legen?',
+          'Wann Kursgewinne realisieren, damit sie nicht in die Beitragspflicht oder in das Abfindungsjahr fallen?']) +
+        '<div class="con"><h3>Mitbringen</h3><ul class="chk"><li>☐ Angebot beider Optionen und Muster-Aufhebungsvertrag</li><li>☐ Letzte Steuerbescheide und Gehaltsabrechnung, Nachweis der Kapitalerträge</li><li>☐ Renteninformation und Übersicht der betrieblichen Altersvorsorge</li><li>☐ Diese Ergebnisseite und der Steuer-Check mit der Empfehlung</li></ul></div>');
+    }
     h += psSec('Vereinfachungen und Grenzen', '<ul><li>Steuern und Sozialabgaben sind nach einem vereinfachten Modell gerechnet. Die Steuer auf die Abfindung (Fünftelregelung) ist eine Schätzung mit genähertem Solidaritätszuschlag (Kinderfreibetrag vereinfacht) und ohne weitere Einkünfte im Jahr der Zahlung.</li>' +
       '<li>Die gesetzliche Rente stammt aus der angegebenen Renteninformation bzw. einer Schätzung aus Brutto und Berufsjahren. Betriebliche Leistungen sind so eingegeben, wie sie oben stehen.</li>' +
       '<li>Kranken- und Pflegeversicherung nach dem Ausstieg sind als Mindestbeitrag geschätzt. Arbeitslosengeld, Sperrzeit, Hinterbliebenenversorgung und Pflegekosten sind nicht berücksichtigt.</li>' +
