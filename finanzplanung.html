@@ -557,11 +557,13 @@ body.fp-body { padding-bottom: 0; }
         <div class="stopbody" id="stopBody" hidden>
           <div class="stopin">
             <label class="f" for="stopDate"><span>Letzter Arbeitstag</span><input id="stopDate" type="date"></label>
+            <label class="f" for="stopAbfB"><span>Abfindung (brutto)</span><input id="stopAbfB" type="number" inputmode="decimal" min="0" step="1000" placeholder="€"></label>
             <label class="f" for="stopAbf"><span>Abfindung (netto)</span><input id="stopAbf" type="number" inputmode="decimal" min="0" step="1000" placeholder="€"></label>
             <label class="f" for="stopLeben"><span>Ausgaben pro Monat</span><input id="stopLeben" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
             <label class="f" for="stopNeu"><span>Neues Gehalt (brutto)</span><input id="stopNeu" type="number" inputmode="decimal" min="0" step="100" placeholder="€ pro Monat"></label>
             <label class="f" for="stopNeuDatum"><span>Neuer Job ab</span><input id="stopNeuDatum" type="date"></label>
           </div>
+          <p class="small" id="abfNote" hidden></p>
           <p class="small">Neuer Job: optional. Leeres Datum = gleich nach dem letzten Arbeitstag. Ab dann zahlt das neue Gehalt (netto) die Ausgaben mit, es fließen wieder Rentenbeiträge, und es wird weniger aus dem Vermögen entnommen. Ohne Datum gilt: ab sofort. Die Abfindung kommt am letzten Arbeitstag zum Vermögen dazu (Nettowert, z. B. von der Abfindungsseite). Ausgaben leer lassen = deine Ausgaben im Ruhestand, sonst Netto minus Sparrate.</p>
           <details class="more"><summary>Weitere Annahmen</summary>
             <div class="stopin" style="margin-top:12px">
@@ -953,7 +955,9 @@ function compute(P) {
     const kvAuto = P.beruf === 'beamte' ? 0 : K.MINBASIS_KV * (0.146 + 0.029 + pvFull);
     const kv = stop.kv >= 0 ? stop.kv : kvAuto;
     const wReal = Math.max(0, living + kv - extra);
-    abfRes = stop.abf > 0 ? { net: stop.abf, tax: 0, brutto: stop.abf, manuell: true } : Object.assign(abfindungNetto(P, stop.abfJ), { manuell: false });
+    const exM = /^(\d{4})-(\d{2})-\d{2}$/.exec(stop.exitDate || ''), exY = exM ? +exM[1] : new Date().getFullYear(), exMo = exM ? +exM[2] : 12;
+    abfRes = stop.abfB > 0 ? Object.assign(abfindungNetto(P, { abf: stop.abfB, exitY: exY, exitM: exMo, z1y: exY, z1p: 100, z2y: 0, z2p: 0, z3y: 0, z3p: 0 }), { manuell: false, ausBrutto: true })
+      : (stop.abf > 0 ? { net: stop.abf, tax: 0, brutto: stop.abf, manuell: true } : Object.assign(abfindungNetto(P, stop.abfJ), { manuell: false }));
     abfN = abfRes.net;
     wdSpec = { from: Math.round((quitAge - age0) * 12), to: Math.round((retAge - age0) * 12), w: wReal, infl: P.infl };
     // Neuer Job nach dem Ausstieg: Netto deckt die Ausgaben mit, kein Krankenkassen-Mindestbeitrag, weitere Rentenbeiträge
@@ -1150,7 +1154,7 @@ function compute(P) {
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var DEF = { stopOn: '0', stopDate: '', stopLeben: '', stopExtra: '', stopKv: '', stopZins: '2', stopAbf: '', stopRente: '', stopNeu: '', stopNeuDatum: '', vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: '', kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: '', kfMietG: '', kfRend: '' };
+  var DEF = { stopOn: '0', stopDate: '', stopLeben: '', stopExtra: '', stopKv: '', stopZins: '2', stopAbf: '', stopAbfB: '', stopRente: '', stopNeu: '', stopNeuDatum: '', vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: '', kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: '', kfMietG: '', kfRend: '' };
 
   var AUS = [
     ['aWohnen', 'Wohnen', 'Miete bzw. Wohnkosten, Nebenkosten, Energie', 1100],
@@ -1226,7 +1230,7 @@ function compute(P) {
     P.retOverride = 0;
     var sd = $('stopDate').value, sy = 0, blank = function (id, hi) { return String($(id).value).trim() === '' ? -1 : rd(id, 0, 0, hi); };
     if (/^\d{4}-\d{2}-\d{2}$/.test(sd)) sy = Math.max(0, (Date.parse(sd + 'T12:00:00') - Date.now()) / (365.25 * 864e5));
-    P.stop = { on: $('stopOn').value === '1', inYears: sy, living: rd('stopLeben', 0, 0, 1e5), extra: blank('stopExtra', 1e5), kv: blank('stopKv', 1e4), abf: rd('stopAbf', 0, 0, 5e6), abfJ: ABF, zins: rd('stopZins', 2, -2, 8) / 100, renteBisher: rd('stopRente', 0, 0, 20000), neu: rd('stopNeu', 0, 0, 5e4), neuIn: /^\d{4}-\d{2}-\d{2}$/.test($('stopNeuDatum').value) ? Math.max(0, (Date.parse($('stopNeuDatum').value + 'T12:00:00') - Date.now()) / (365.25 * 864e5)) : 0 };
+    P.stop = { on: $('stopOn').value === '1', inYears: sy, living: rd('stopLeben', 0, 0, 1e5), extra: blank('stopExtra', 1e5), kv: blank('stopKv', 1e4), abf: rd('stopAbf', 0, 0, 5e6), abfB: rd('stopAbfB', 0, 0, 5e6), exitDate: $('stopDate').value, abfJ: ABF, zins: rd('stopZins', 2, -2, 8) / 100, renteBisher: rd('stopRente', 0, 0, 20000), neu: rd('stopNeu', 0, 0, 5e4), neuIn: /^\d{4}-\d{2}-\d{2}$/.test($('stopNeuDatum').value) ? Math.max(0, (Date.parse($('stopNeuDatum').value + 'T12:00:00') - Date.now()) / (365.25 * 864e5)) : 0 };
     var kb = function (id, d, lo, hi) { return String($(id).value).trim() === '' ? d : rd(id, d, lo, hi) / 100; };
     P.kauf.wert = kb('kfWert', Math.max(P.infl, 0.035), -5, 10); P.kauf.mietg = kb('kfMietG', P.infl, -2, 10);
     P.kauf.rend = kb('kfRend', P.rE * (1 - kapStRate(P.kirche) * (1 - K.TEILFREI)), -2, 15);
@@ -1355,7 +1359,8 @@ function compute(P) {
     var S = R.stop;
     if (!S) { out.innerHTML = '<p>Das gewählte Datum liegt am oder nach dem Renteneintritt mit ' + ageJ(R.retAge) + '. Dann ändert sich nichts.</p>'; return; }
     var B = compute(Object.assign({}, P, { stop: null })), dfl = R.infl(R.retAge - R.age0), dflQ = R.infl(S.quitAge - R.age0);
-    $('stopLeben').placeholder = eur(S.living); $('stopExtra').placeholder = S.extraAuto ? eur(S.extra) + ' (Partner)' : '0 €'; $('stopKv').placeholder = '≈ ' + eur(S.kvAuto); $('stopAbf').placeholder = ABF && S.abfInfo && !S.abfInfo.manuell ? eur(S.abf) + ' (Datei)' : '€';
+    $('stopLeben').placeholder = eur(S.living); $('stopExtra').placeholder = S.extraAuto ? eur(S.extra) + ' (Partner)' : '0 €'; $('stopKv').placeholder = '≈ ' + eur(S.kvAuto); $('stopAbf').placeholder = S.abfInfo && S.abfInfo.ausBrutto ? eur(S.abf) + ' (aus Brutto)' : (ABF && S.abfInfo && !S.abfInfo.manuell ? eur(S.abf) + ' (Datei)' : '€');
+    var an = $('abfNote'); if (S.abfInfo && S.abfInfo.ausBrutto) { an.hidden = false; an.textContent = 'Abfindung brutto ' + eur(S.abfInfo.brutto) + ' ergibt netto etwa ' + eur(S.abf) + ' (Steuer ' + eur(S.abfInfo.tax) + ', mit Fünftelregelung, Auszahlung im Jahr des Austritts). Die Netto-Eingabe daneben wird dann nicht benutzt.'; } else an.hidden = true;
     var sd = $('stopDate').value, when = 'ab sofort';
     if (/^\d{4}-\d{2}-\d{2}$/.test(sd)) { var dd = new Date(sd + 'T12:00:00'); when = 'ab dem ' + dd.getDate() + '. ' + DEUTSCH_MON[dd.getMonth()] + ' ' + dd.getFullYear(); }
     var yrs = S.years, yTxt = num(yrs, 1) + ' Jahre';
@@ -2433,7 +2438,7 @@ function compute(P) {
     if (pv('stopOn') === '1') {
       var S = R && R.stop, rows = [psRow('Letzter Arbeitstag', pDate('stopDate') === '–' ? 'ab sofort (kein Datum eingetragen)' : pDate('stopDate'))];
       if (S) {
-        rows.push(psRow('Abfindung netto (in der Rechnung)', eur(S.abf) + (ABF && !(pv('stopAbf') > 0) ? ' (aus Abfindungsdatei: brutto ' + eur(ABF.abf) + ', geschätzte Steuer ' + eur(S.abfInfo ? S.abfInfo.tax : 0) + ')' : (pv('stopAbf') ? ' (manuell eingetragen)' : ''))));
+        rows.push(psRow('Abfindung netto (in der Rechnung)', eur(S.abf) + (S.abfInfo && S.abfInfo.ausBrutto ? ' (aus Brutto ' + eur(S.abfInfo.brutto) + ', geschätzte Steuer ' + eur(S.abfInfo.tax) + ')' : ABF && !(pv('stopAbf') > 0) ? ' (aus Abfindungsdatei: brutto ' + eur(ABF.abf) + ', geschätzte Steuer ' + eur(S.abfInfo ? S.abfInfo.tax : 0) + ')' : (pv('stopAbf') ? ' (manuell eingetragen)' : ''))));
         if (S.abfInfo && !S.abfInfo.manuell && S.abfInfo.einbehalt > 0) rows.push(psRow('Abfindung: voraussichtlicher Steuereinbehalt bei Auszahlung', eur(S.abfInfo.einbehalt) + ' (ohne Fünftelregelung); Erstattung mit dem Steuerbescheid ca. ' + eur(Math.max(0, S.abfInfo.einbehalt - S.abfInfo.tax)) + ', Steuer endgültig ca. ' + eur(S.abfInfo.tax) + ' (davon Soli ca. ' + eur(S.abfInfo.soli) + ')'));
       } else rows.push(psRow('Abfindung netto', pEur('stopAbf')));
       rows.push(psRow('Ausgaben pro Monat nach dem Ausstieg', pv('stopLeben') ? pEur('stopLeben') : (S ? eur(S.living) + ' (aus den Ausgaben im Ruhestand)' : '–')));
