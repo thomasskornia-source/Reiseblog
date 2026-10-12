@@ -8,11 +8,11 @@ Quelle fehlt https://www.fernsehserien.de/tv-programm/hr HTTP Error 404: Not Fou
 Quelle fehlt https://www.fernsehserien.de/tv-programm/wdr HTTP Error 404: Not Found
 Quelle fehlt https://www.fernsehserien.de/tv-programm/swr HTTP Error 404: Not Found
 Quelle ok 7000 Zeichen mit 20:15 https://www.hoerzu.de/tv-programm/jetzt/
-Quelle ok 6037 Zeichen mit 20:15 https://www.tv.de/programm/
+Quelle ok 6533 Zeichen mit 20:15 https://www.tv.de/programm/
 Quelle ok 7000 Zeichen mit 20:15 https://programm.ard.de/TV/Programm/Alle-Sender/
 Quelle fehlt https://www.br.de/fernsehen/br-fernsehen/programm/index.html HTTP Error 404: Not Found
-Quelle ok 3073 Zeichen mit 20:15 https://www.ndr.de/fernsehen/programm/index.html
+Quelle ok 3470 Zeichen mit 20:15 https://www.ndr.de/fernsehen/programm/index.html
 Quelle fehlt https://www.hr-fernsehen.de/programm/ HTTP Error 404: Not Found
 Quelle fehlt https://www1.wdr.de/fernsehen/programm/index.html HTTP Error 404: Not Found
-9 Sendungen für heute
-Sender heute: ['ARTE', 'BR', 'Das Erste', 'NDR', 'ZDF'] | fehlend: ['3sat', 'SWR', 'WDR', 'hr']
+18 Sendungen für heute
+Sender heute: ['3sat', 'ARTE', 'BR', 'Das Erste', 'NDR', 'SWR', 'WDR', 'ZDF'] | fehlend: ['hr']
