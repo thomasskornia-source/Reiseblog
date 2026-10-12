@@ -1839,146 +1839,6 @@
   "stand": "2026-10-11"
  },
  {
-  "id": "tv-87c7c8b910",
-  "rubrik": "tv",
-  "titel": "360° Reportage: Vietnam – Brücken bauen für bedrohte Affen",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-11",
-  "datum_bis": "",
-  "zeit": "19:40",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Schutz bedrohter Kleideraffen auf der Halbinsel Son Tra. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-11",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-2a97eb5f2d",
-  "rubrik": "tv",
-  "titel": "Caren Miosga",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-11",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Talkshow (Dauer: 60 Minuten). Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "tv-programmheute.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-10-11",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-040a737097",
-  "rubrik": "tv",
-  "titel": "Der Sternwanderer",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-11",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Märchenhafter Fantasyfilm um einen vom Himmel gefallenen Stern. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-11",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-2c3230773e",
-  "rubrik": "tv",
-  "titel": "Dr. Nice: Unter die Haut",
-  "ort": "ZDF",
-  "adresse": "",
-  "datum": "2026-10-11",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dr. Nice und Charlie geraten emotional aus der Bahn, während die neue Pastorin unter mysteriösen Beschwerden leidet. Programm kann sich ändern.",
-  "tags": [
-   "Serie"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-10-11",
-  "thema": "ZDF"
- },
- {
-  "id": "tv-1e65dbfc21",
-  "rubrik": "tv",
-  "titel": "Ozeane - Eine Menschheitsgeschichte Pazifik",
-  "ort": "ZDF",
-  "adresse": "",
-  "datum": "2026-10-11",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über den Pazifik, seine extremen Seefahrtsleistungen und die dort entstandenen eigenständigen Kulturen. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-10-11",
-  "thema": "ZDF"
- },
- {
-  "id": "tv-4374d57493",
-  "rubrik": "tv",
-  "titel": "Schätze der Welt: Gartenreich Dessau-Wörlitz",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-10-11",
-  "datum_bis": "",
-  "zeit": "19:40",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Porträt des Gartenreichs an der Elbe mit sieben Schloss- und Parkanlagen. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-10-11",
-  "thema": "3sat"
- },
- {
-  "id": "tv-9721fae2bf",
-  "rubrik": "tv",
-  "titel": "Tatort: Unter Freunden (Folge 1)",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-11",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Mila Sahin bewirbt sich in Kiel und trifft auf ihre frühere Polizeischulkollegin Anna Nowak. Programm kann sich ändern.",
-  "tags": [
-   "Serie"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-10-11",
-  "thema": "Das Erste"
- },
- {
   "id": "stream-the-alto-knights",
   "rubrik": "stream",
   "titel": "The Alto Knights",
@@ -2193,5 +2053,185 @@
   "url": "https://www.zdf.de/filme",
   "stand": "2026-10-12",
   "thema": "ZDF Mediathek"
+ },
+ {
+  "id": "tv-d5a490e96d",
+  "rubrik": "tv",
+  "titel": "Re: Workuta - Russlands vergessene Stadt in der Arktis",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-12",
+  "datum_bis": "",
+  "zeit": "19:40",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Reportage über die vom Wandel geprägte arktische Stadt Workuta in Russland. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-12",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-a462cebcc7",
+  "rubrik": "tv",
+  "titel": "Kommissar Maigret sieht rot!",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-12",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kriminalfilm um den bekannten Ermittler Maigret. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-12",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-26d5ffef42",
+  "rubrik": "tv",
+  "titel": "Dahoam is Dahoam",
+  "ort": "BR",
+  "adresse": "",
+  "datum": "2026-10-12",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Bayerische Familienserie. Programm kann sich ändern.",
+  "tags": [
+   "Serie"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.br.de/fernsehen/",
+  "stand": "2026-10-12",
+  "thema": "BR"
+ },
+ {
+  "id": "tv-acda0e271e",
+  "rubrik": "tv",
+  "titel": "Wissen vor acht - Zukunft",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-12",
+  "datum_bis": "",
+  "zeit": "19:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kurzes Wissensmagazin über Zukunftsthemen. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-12",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-3fb0165198",
+  "rubrik": "tv",
+  "titel": "Die Wahrheit über Sonderangebote",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-12",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentation rund um Schnäppchen und Sonderangebote (Dauer: 45 Minuten). Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-12",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-ff84ad858f",
+  "rubrik": "tv",
+  "titel": "Hart aber fair",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-12",
+  "datum_bis": "",
+  "zeit": "21:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Politisches Diskussions- und Talkformat. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-12",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-c153f1ac54",
+  "rubrik": "tv",
+  "titel": "Markt",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-12",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Wirtschafts- und Verbrauchermagazin mit einer Sendedauer von 45 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-12",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-ee867e49dc",
+  "rubrik": "tv",
+  "titel": "Die Ernährungs-Docs (Folge 92)",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-12",
+  "datum_bis": "",
+  "zeit": "21:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Ernährungsberatung bei Adipositas, PMOS, Endometriose und Arthrose (44 Minuten). Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-12",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-f541d88053",
+  "rubrik": "tv",
+  "titel": "Sarah Kohr - Drecksarbeit",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-12",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Thriller mit einer Laufzeit von 1 Stunde und 30 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-12",
+  "thema": "ZDF"
  }
 ]

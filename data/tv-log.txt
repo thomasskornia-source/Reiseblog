@@ -1,13 +1,18 @@
-Quelle ok 9000 https://www.tvinfo.de/tv-programm
-Quelle ok 9000 https://www.tv-programmheute.de/
-Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/ARD,29 HTTP Error 403: Forbidden
-Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/ZDF,2008 HTTP Error 403: Forbidden
-Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/BR,570537 HTTP Error 403: Forbidden
-Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/NDR,664723 HTTP Error 403: Forbidden
-Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/HR,633655 HTTP Error 403: Forbidden
-Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/arte,13735 HTTP Error 403: Forbidden
-Quelle fehlt https://www.prisma.de/tv-programm/programm-nach-sendern/3sat,13737 HTTP Error 403: Forbidden
-Quelle fehlt https://www.prisma.de/tv-programm/?page=2 HTTP Error 403: Forbidden
-gemini-3.8-flash: HTTP 429
-gemini-flash-latest: HTTP 429
-Gemini-Fehler: gemini-flash-latest: HTTP 429
+Quelle ok 7000 Zeichen ohne 20:15 https://www.tvinfo.de/tv-programm
+Quelle ok 7000 Zeichen mit 20:15 https://www.tv-programmheute.de/
+Quelle fehlt https://www.tvspielfilm.de/tv-programm/sendungen/abends.html HTTP Error 403: Forbidden
+Quelle fehlt https://www.tvspielfilm.de/tv-programm/sendungen/?time=prime&channel=BR HTTP Error 403: Forbidden
+Quelle fehlt https://www.fernsehserien.de/tv-programm/br HTTP Error 404: Not Found
+Quelle fehlt https://www.fernsehserien.de/tv-programm/ndr HTTP Error 404: Not Found
+Quelle fehlt https://www.fernsehserien.de/tv-programm/hr HTTP Error 404: Not Found
+Quelle fehlt https://www.fernsehserien.de/tv-programm/wdr HTTP Error 404: Not Found
+Quelle fehlt https://www.fernsehserien.de/tv-programm/swr HTTP Error 404: Not Found
+Quelle ok 7000 Zeichen mit 20:15 https://www.hoerzu.de/tv-programm/jetzt/
+Quelle ok 6037 Zeichen mit 20:15 https://www.tv.de/programm/
+Quelle ok 7000 Zeichen mit 20:15 https://programm.ard.de/TV/Programm/Alle-Sender/
+Quelle fehlt https://www.br.de/fernsehen/br-fernsehen/programm/index.html HTTP Error 404: Not Found
+Quelle ok 3073 Zeichen mit 20:15 https://www.ndr.de/fernsehen/programm/index.html
+Quelle fehlt https://www.hr-fernsehen.de/programm/ HTTP Error 404: Not Found
+Quelle fehlt https://www1.wdr.de/fernsehen/programm/index.html HTTP Error 404: Not Found
+9 Sendungen für heute
+Sender heute: ['ARTE', 'BR', 'Das Erste', 'NDR', 'ZDF'] | fehlend: ['3sat', 'SWR', 'WDR', 'hr']
