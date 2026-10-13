@@ -1,11 +1,12 @@
 name: Persönlicher Podcast (täglich)
 
 on:
-  schedule:
+  # PAUSIERT (Thomas, 13.10.2026): Zeitplan aus, bis entschieden ist, ob der Podcast bleibt. Von Hand startbar (workflow_dispatch).
+  # schedule:
     # Ziel: Folge fertig gegen 06:00 deutsche Zeit. Start 05:15 (der Lauf dauert einige Minuten, GitHub startet manchmal verspätet).
     # GitHub plant nur in UTC: Sommer- und Winterzeit-Variante, die jeweils falsche überspringt der Job „zeit“.
-    - cron: '15 3 * * *'   # Sommer 05:15
-    - cron: '15 4 * * *'   # Winter 05:15
+    # - cron: '15 3 * * *'   # Sommer 05:15
+    # - cron: '15 4 * * *'   # Winter 05:15
   workflow_dispatch:
     inputs:
       trocken:
