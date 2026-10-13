@@ -47,29 +47,6 @@
   "stand": "2026-10-08"
  },
  {
-  "id": "events-7ffeb9b2d6",
-  "lat": 48.15104,
-  "lon": 11.46128,
-  "rubrik": "events",
-  "titel": "Der gute Mensch von Sezuan",
-  "ort": "Pasinger Fabrik",
-  "adresse": "",
-  "datum": "2026-10-09",
-  "datum_bis": "2026-10-10",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "1,5 Std.",
-  "kurz": "Die Freie Bühne München bringt das bekannte Drama von Bertolt Brecht auf die Bühne.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-08"
- },
- {
   "id": "events-288656dea1",
   "lat": 48.12366,
   "lon": 11.5559,
@@ -88,31 +65,6 @@
    "Abends"
   ],
   "thema": "Kabarett & Theater",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-08"
- },
- {
-  "id": "events-1f5e7f41ab",
-  "lat": 48.13289,
-  "lon": 11.58949,
-  "rubrik": "events",
-  "titel": "Digitalanalog Festival",
-  "ort": "Muffatwerk",
-  "adresse": "",
-  "datum": "2026-10-09",
-  "datum_bis": "2026-10-10",
-  "zeit": "20:30",
-  "preis": "frei",
-  "dauer": "4,5 Std.",
-  "kurz": "Kostenloses Musik- und Medienfestival im Muffatwerk mit Live-Bands und Visuals verschiedener Künstler.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Kostenlos",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-08"
@@ -164,118 +116,6 @@
   "stand": "2026-10-08"
  },
  {
-  "id": "events-9d3b7073d3",
-  "lat": 48.13793,
-  "lon": 11.55293,
-  "rubrik": "events",
-  "titel": "25 Jahre EineWeltHaus",
-  "ort": "EineWeltHaus",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Das EineWeltHaus feiert sein 25-jähriges Jubiläum mit einem vielfältigen Programm aus Workshops, Vernissagen und weiteren Aktionen.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Feste & Märkte",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-10"
- },
- {
-  "id": "events-fed3e5838b",
-  "lat": 48.13845,
-  "lon": 11.58272,
-  "rubrik": "events",
-  "titel": "Au au au Hi hi hi - A Temporary Monument",
-  "ort": "Münchner Kammerspiele (Habibi Kiosk)",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Publikationsrelease und szenische Lesung rund um das Kunstprojekt im Habibi Kiosk bei freiem Eintritt.",
-  "tags": [
-   "Kultur",
-   "Kostenlos",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-10"
- },
- {
-  "id": "events-betontod",
-  "rubrik": "events",
-  "titel": "Betontod",
-  "ort": "Tonhalle",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Rockkonzert der Band auf ihrer Tour.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-05",
-  "thema": "Konzert & Musik"
- },
- {
-  "id": "events-25a5aa7dd8",
-  "rubrik": "events",
-  "titel": "Capsula Extrema bei KulTüren 2026",
-  "ort": "Offene Ateliers Neuhausen",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Kinetische Performance und Skulptur aus Kaffeekapseln von Robert Kis und Katrin Schafitel bei den offenen Ateliers.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Ausstellung & Museum",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-09"
- },
- {
-  "id": "events-8f0faaea09",
-  "lat": 48.15422,
-  "lon": 11.53152,
-  "rubrik": "events",
-  "titel": "Capsula Extrema – KulTüren 2026",
-  "ort": "Neuhausen",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Im Rahmen offener Ateliers zeigt die Performance eine kinetische Skulptur aus Kaffeekapseln im Zusammenspiel von Bildhauerei und Tanz.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Ausstellung & Museum",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-10"
- },
- {
   "id": "events-119aaf5eb1",
   "lat": 48.14236,
   "lon": 11.57053,
@@ -299,53 +139,6 @@
   "stand": "2026-10-10"
  },
  {
-  "id": "events-552a5eda8b",
-  "lat": 48.12366,
-  "lon": 11.5559,
-  "rubrik": "events",
-  "titel": "David Mayonga aka Roger Rekless",
-  "ort": "Münchner Volkstheater",
-  "adresse": "Tumblingerstraße 29, 80337 München",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Musikalische Lesung von David Mayonga zu seinem Buch 'Wo kommst du wirklich her?' auf Bühne 2.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Münchner Volkstheater (Spielplan)",
-  "url": "https://www.muenchner-volkstheater.de/spielplan",
-  "stand": "2026-10-10"
- },
- {
-  "id": "abend-volkstheater-der-aufhaltsame-aufstieg-des-arturo-ui-2026-10-10",
-  "rubrik": "events",
-  "titel": "Der aufhaltsame Aufstieg des Arturo Ui",
-  "ort": "Volkstheater",
-  "adresse": "Brienner Straße 50",
-  "lat": 48.1472,
-  "lon": 11.5531,
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Bühne 1, auch So.",
-  "tags": [
-   "Theater",
-   "Abends"
-  ],
-  "quelle": "Münchner Volkstheater",
-  "url": "https://www.muenchner-volkstheater.de/spielplan",
-  "stand": "2026-10-06",
-  "thema": "Kabarett & Theater"
- },
- {
   "id": "events-220b7c1dba",
   "lat": 48.12366,
   "lon": 11.5559,
@@ -367,79 +160,6 @@
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-10"
- },
- {
-  "id": "events-03cc4b3869",
-  "lat": 48.13289,
-  "lon": 11.58949,
-  "rubrik": "events",
-  "titel": "Digitalanalog Festival",
-  "ort": "Muffatwerk",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "2026-10-10",
-  "zeit": "20:30",
-  "preis": "frei",
-  "dauer": "7,5 Std.",
-  "kurz": "Kostenloses Musik- und Visualfestival mit Live-Bands und VJ-Shows in der Muffathalle.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Kostenlos",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-10"
- },
- {
-  "id": "events-f804cf6f6d",
-  "lat": 48.13711,
-  "lon": 11.57538,
-  "rubrik": "events",
-  "titel": "Digitalanalog-Festival",
-  "ort": "München",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Das traditionsreiche Münchner Festival verbindet aktuelle Popkultur mit analogen und digitalen Kunstformen bei freiem Eintritt.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-10"
- },
- {
-  "id": "events-871cbfa460",
-  "lat": 48.09725,
-  "lon": 11.52685,
-  "rubrik": "events",
-  "titel": "Herbstfest der SWW",
-  "ort": "Südbayerische Wohn- und Werkstätten",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Inklusives Herbstfest mit Schwerpunkt Polen, Livemusik, Tanz, kulinarischen Spezialitäten und der Ausstellung Anders sehen.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Feste & Märkte",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-09"
  },
  {
   "id": "events-db7a8f8ea4",
@@ -508,52 +228,6 @@
   "stand": "2026-10-10"
  },
  {
-  "id": "events-33c3870e43",
-  "lat": 48.14011,
-  "lon": 11.57943,
-  "rubrik": "events",
-  "titel": "König Lear",
-  "ort": "Residenztheater",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "29 bis 74 €",
-  "dauer": "3 Std. 10 Min.",
-  "kurz": "Manfred Zapatka verkörpert in William Shakespeares monumentaler Tragödie die Charakterstudie des unberechenbaren, alternden Herrschers.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-10"
- },
- {
-  "id": "abend-residenztheater-koenig-lear-premiere-2026-10-10",
-  "rubrik": "events",
-  "titel": "König Lear (Premiere)",
-  "ort": "Residenztheater",
-  "adresse": "Max-Joseph-Platz 1",
-  "lat": 48.1392,
-  "lon": 11.5789,
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Auch am 12.10.",
-  "tags": [
-   "Theater",
-   "Abends"
-  ],
-  "quelle": "Residenztheater",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-06",
-  "thema": "Kabarett & Theater"
- },
- {
   "id": "events-725248aba6",
   "lat": 48.14614,
   "lon": 11.55945,
@@ -600,77 +274,6 @@
   "stand": "2026-10-08"
  },
  {
-  "id": "events-40a6b276f8",
-  "lat": 48.14007,
-  "lon": 11.58154,
-  "rubrik": "events",
-  "titel": "Reigen. Variationen",
-  "ort": "Marstall",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "33 €",
-  "dauer": "1 Std. 30 Min.",
-  "kurz": "Anja Hilling versetzt Arthur Schnitzlers Klassiker für vierundzwanzig Stunden und zehn intime Begegnungen in den Englischen Garten.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-10"
- },
- {
-  "id": "abend-unterfahrt-renaud-garcia-fons-2026-10-10",
-  "rubrik": "events",
-  "titel": "Renaud Garcia-Fons",
-  "ort": "Unterfahrt",
-  "adresse": "Einsteinstraße 42",
-  "lat": 48.1325,
-  "lon": 11.5997,
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Jazz, mediterran.",
-  "tags": [
-   "Musik",
-   "Jazz",
-   "Abends"
-  ],
-  "quelle": "Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-06",
-  "thema": "Konzert & Musik"
- },
- {
-  "id": "events-823b677685",
-  "lat": 48.1354,
-  "lon": 11.60088,
-  "rubrik": "events",
-  "titel": "Renaud Garcia-Fons",
-  "ort": "Jazzclub Unterfahrt",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Der Bassist Renaud Garcia-Fons präsentiert sein facettenreiches Mittelmeer-Programm mit arabischen Skalen und mehrsprachigen Gesängen.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-10"
- },
- {
   "id": "events-2d56d34adc",
   "lat": 48.14413,
   "lon": 11.59137,
@@ -690,52 +293,6 @@
   "thema": "Ausstellung & Museum",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-10"
- },
- {
-  "id": "abend-kammerspiele-schauspielhaus-wokey-wokey-2026-10-10",
-  "rubrik": "events",
-  "titel": "Wokey Wokey",
-  "ort": "Kammerspiele Schauspielhaus",
-  "adresse": "Maximilianstraße 28",
-  "lat": 48.1344,
-  "lon": 11.5834,
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Uraufführung.",
-  "tags": [
-   "Theater",
-   "Abends"
-  ],
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-06",
-  "thema": "Kabarett & Theater"
- },
- {
-  "id": "events-0304d06606",
-  "lat": 48.13819,
-  "lon": 11.5824,
-  "rubrik": "events",
-  "titel": "Wokey Wokey",
-  "ort": "Münchner Kammerspiele (Schauspielhaus)",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "90 Min.",
-  "kurz": "Satirische Inszenierung von Nora Abdel-Maksoud über die Verfilmung eines Weltbestsellers und gesellschaftliche Debatten.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
   "stand": "2026-10-10"
  },
  {
@@ -1306,7 +863,7 @@
   "zeit": "20:30",
   "preis": "",
   "dauer": "",
-  "kurz": "Der brasilianische Gitarrist Chico Pinheiro verbindet virtuosen Jazz mit traditionellen Rhythmen und klassischer Eleganz.",
+  "kurz": "Der brasilianische Gitarrist Chico Pinheiro verbindet klassische Einflüsse, Leichtigkeit und südamerikanische Rhythmik mit modernem Jazz.",
   "tags": [
    "Musik",
    "Kultur",
@@ -1315,7 +872,7 @@
   "thema": "Konzert & Musik",
   "quelle": "Jazzclub Unterfahrt",
   "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-10"
+  "stand": "2026-10-13"
  },
  {
   "id": "events-16e258cd3a",
@@ -1457,17 +1014,40 @@
   "stand": "2026-10-12"
  },
  {
+  "id": "events-f4a7597a07",
+  "lat": 48.18937,
+  "lon": 11.46766,
+  "rubrik": "events",
+  "titel": "München – und jetzt?",
+  "ort": "Münchner Volkshochschule",
+  "adresse": "",
+  "datum": "2026-10-13",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Auftaktveranstaltung der MVHS zur Neuerkundung der Stadt München jenseits typischer Klischees.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-13"
+ },
+ {
   "id": "events-69316e9f5c",
   "rubrik": "events",
   "titel": "Teesalon im Köşk",
   "ort": "Köşk",
-  "adresse": "Zenettistraße",
+  "adresse": "Zenettistraße, München",
   "datum": "2026-10-13",
   "datum_bis": "",
   "zeit": "17:00",
   "preis": "frei",
-  "dauer": "2 Stunden",
-  "kurz": "Offenes Kennenlernen und gemütlicher Austausch über Ideen und Wünsche im unkommerziellen Kunstraum im Schlachthofviertel.",
+  "dauer": "2 Std.",
+  "kurz": "Offenes Treffen bei Tee zum Kennenlernen und Diskutieren von Ideen im unkommerziellen Kunstraum Köşk im Schlachthofviertel.",
   "tags": [
    "Kultur",
    "Kostenlos"
@@ -1475,7 +1055,50 @@
   "thema": "Sonstiges",
   "quelle": "Eintritt frei München",
   "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-11"
+  "stand": "2026-10-13"
+ },
+ {
+  "id": "events-5f3b5e9f54",
+  "rubrik": "events",
+  "titel": "Vortrag zu den Beneš-Dekreten",
+  "ort": "",
+  "adresse": "",
+  "datum": "2026-10-13",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Vortrag von Dr. Péter Techet über die Enteignung und Entrechtung deutscher und ungarischer Gruppen durch die Beneš-Dekrete.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-13"
+ },
+ {
+  "id": "events-2b6629acc5",
+  "rubrik": "events",
+  "titel": "Wie im Himmel: Bachs h-Moll-Messe",
+  "ort": "",
+  "adresse": "",
+  "datum": "2026-10-13",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Michael Roth und Hansjörg Albrecht analysieren Johann Sebastian Bachs h-Moll-Messe und stellen unterschiedliche Interpretationen des Werks gegenüber.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-13"
  },
  {
   "id": "events-5ba117e522",
@@ -1500,6 +1123,27 @@
   "quelle": "Zenith, Kulturhalle (Konzerte)",
   "url": "https://www.in-muenchen.de/locations/zenith.html",
   "stand": "2026-10-11"
+ },
+ {
+  "id": "events-9d52082ff0",
+  "rubrik": "events",
+  "titel": "Buchvorstellung: Friedenstüchtig werden",
+  "ort": "",
+  "adresse": "",
+  "datum": "2026-10-14",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Sozialphilosoph Wigbert Tocha präsentiert sein Buch mit Thesen gegen Kriegsdenken und Kriegshandeln.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-13"
  },
  {
   "id": "events-48d815061a",
@@ -1549,6 +1193,30 @@
   "stand": "2026-10-12"
  },
  {
+  "id": "events-98df39c019",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Loreen Sima feat. Jakob Bänsch",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-14",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Bassistin und Sängerin Loreen Sima begeistert mit klarer Stimme, warmen Klangfarben und eingängigen Melodien.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-13"
+ },
+ {
   "id": "events-f5c255497f",
   "lat": 48.14498,
   "lon": 11.52197,
@@ -1570,6 +1238,28 @@
   "quelle": "Backstage München (Konzerte)",
   "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
   "stand": "2026-10-11"
+ },
+ {
+  "id": "events-4d634eb365",
+  "rubrik": "events",
+  "titel": "PingPong & Poğaca",
+  "ort": "",
+  "adresse": "",
+  "datum": "2026-10-14",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Tischtennis-Abend an drei Platten mit Reggae-Beats, Getränken und türkischem Gebäck für Anfänger und Fortgeschrittene.",
+  "tags": [
+   "Musik",
+   "Abends",
+   "Kostenlos"
+  ],
+  "thema": "Draußen & Sport",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-13"
  },
  {
   "id": "events-dfe152258a",
@@ -1684,6 +1374,30 @@
   "quelle": "Münchner Kammerspiele",
   "url": "https://www.muenchner-kammerspiele.de/",
   "stand": "2026-10-12"
+ },
+ {
+  "id": "events-fca456d779",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Elephant 9",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-15",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Das norwegische Trio Elephant 9 entfesselt eine energiegeladene Fusion aus Progressive Rock, Psychedelic und Jazzrock.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-13"
  },
  {
   "id": "events-39dcc158eb",
@@ -1846,6 +1560,391 @@
   "stand": "2026-10-12"
  },
  {
+  "id": "events-eaa9638123",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Dida Pelled",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Die Singer-Songwriterin und Jazz-Gitarristin Dida Pelled stellt mit bluesiger Stimme und Allstar-Quartett ihr aktuelles Album vor.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-13"
+ },
+ {
+  "id": "events-c2604f8281",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Kravchenko | Ambrosin | Herzog | Parzhuber",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-17",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Die ukrainische Vokalistin Kateryna Kravchenko präsentiert mit ihrem Ensemble traumverlorene, cinematische und geheimnisvolle Klangwelten.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-13"
+ },
+ {
+  "id": "events-38cd8401cc",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Jam Session mit Maxim Frischmann",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Saxofonist Maxim Frischmann und seine Band Maxed Out laden zur Session mit frischen Grooves und modernen Beats.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-13"
+ },
+ {
+  "id": "events-aa4f3fbe44",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Dusko Goykovich Big Band",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-19",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Münchens traditionsreichste Big Band ehrt das musikalische Erbe des Trompeters Dusko Goykovich mit Klassikern und späten Werken.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-13"
+ },
+ {
+  "id": "events-8bad4ffbd5",
+  "lat": 48.13545,
+  "lon": 11.60065,
+  "rubrik": "events",
+  "titel": "Harmen Fraanje",
+  "ort": "Einstein",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-19",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Der niederländische Pianist Harmen Fraanje zeigt in der Reihe Einsteins Piano facettenreiche, innovative Klaviermusik.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-13"
+ },
+ {
+  "id": "events-0f0ae34cd5",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Barencia",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-20",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Das Ensemble um Tänzerin Karen Lugo und Pianist Xavi Torres feiert musikalische Lebenslust zwischen Jazz und Tanz.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-13"
+ },
+ {
+  "id": "events-4f842481d2",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Rabih Abou-Khalil",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-21",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Der Oud-Virtuose Rabih Abou-Khalil verbindet orientalische Skalen meisterhaft mit den Freiheiten des Jazz und humorvollen Anekdoten.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-13"
+ },
+ {
+  "id": "stream-animals",
+  "rubrik": "stream",
+  "titel": "Animals",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 9. Oktober: Netflix-Krimithriller, Regie führte Ben Affleck.",
+  "tags": [
+   "Film",
+   "Krimi",
+   "Thriller"
+  ],
+  "quelle": "netzwelt/serienjunkies (Netflix Oktober 2026)",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-10-13",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-below",
+  "rubrik": "stream",
+  "titel": "Below",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 8. Oktober: Josh Hartnett als Fischer, der seine Heimatstadt vor einem Meeresungeheuer schützt.",
+  "tags": [
+   "Serie",
+   "Thriller",
+   "Horror"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-10-13",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-carrie",
+  "rubrik": "stream",
+  "titel": "Carrie",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 7. Oktober als Prime-Original: Neuauflage des Horror-Stoffs als Serie.",
+  "tags": [
+   "Serie",
+   "Horror",
+   "Drama"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-13",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-cold-storage",
+  "rubrik": "stream",
+  "titel": "Cold Storage",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 10. Oktober als Prime-Exclusive im Programm; ein Genre-Mix mit Sci-Fi-Einschlag.",
+  "tags": [
+   "Film",
+   "Sci-Fi"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-13",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-eine-almhuette-fuer-zwei",
+  "rubrik": "stream",
+  "titel": "Eine Almhütte für Zwei",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 11. Oktober: Ein Bergbauer mit Heilwasserquelle unter der Alm sucht eine Partnerin und verliebt sich in eine Urlauberin. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Drama"
+  ],
+  "quelle": "news.de",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-10-13",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-matchbox-the-movie",
+  "rubrik": "stream",
+  "titel": "Matchbox The Movie",
+  "ort": "Apple TV",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 9. Oktober: John Cena als CIA-Agent, der mit Kindheitsfreunden in eine internationale Verfolgungsjagd gerät.",
+  "tags": [
+   "Film",
+   "Action",
+   "Abenteuer"
+  ],
+  "quelle": "apfelpatient.de",
+  "url": "https://tv.apple.com/de",
+  "stand": "2026-10-13",
+  "thema": "Apple TV"
+ },
+ {
+  "id": "stream-meine-stunden-mit-leo",
+  "rubrik": "stream",
+  "titel": "Meine Stunden mit Leo",
+  "ort": "ZDF Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 11. Oktober: Eine verwitwete Ex-Lehrerin bucht einen Callboy für eine Nacht, daraus wird mehr. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Komödie",
+   "Drama"
+  ],
+  "quelle": "news.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-13",
+  "thema": "ZDF Mediathek"
+ },
+ {
+  "id": "stream-portobello-unschuldig-verurteilt",
+  "rubrik": "stream",
+  "titel": "Portobello – Unschuldig verurteilt",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 8. Oktober: Serie über den Justizskandal um den Showmaster Enzo Tortora. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Serie",
+   "Drama",
+   "Historie"
+  ],
+  "quelle": "wochenblatt-reporter.de (ARTE Oktober 2026)",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-13",
+  "thema": "ARTE Mediathek"
+ },
+ {
+  "id": "stream-small-prophets",
+  "rubrik": "stream",
+  "titel": "Small Prophets",
+  "ort": "Apple TV",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Seit 7. Oktober: Britische Comedy von Mackenzie Crook, kleine Wesen sollen die Zukunft vorhersagen; mit Michael Palin.",
+  "tags": [
+   "Serie",
+   "Komödie"
+  ],
+  "quelle": "apfelpatient.de",
+  "url": "https://tv.apple.com/de",
+  "stand": "2026-10-13",
+  "thema": "Apple TV"
+ },
+ {
+  "id": "stream-the-miniaturist-die-magie-der-kleinen-dinge",
+  "rubrik": "stream",
+  "titel": "The Miniaturist – Die Magie der kleinen Dinge",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Amsterdam 1686: Die junge Nella heiratet einen Kaufmann und gerät in ein Netz aus Geheimnissen. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Serie",
+   "Historie",
+   "Fantasy"
+  ],
+  "quelle": "news.de",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-10-13",
+  "thema": "ARD Mediathek"
+ },
+ {
   "id": "tv-2ad50af54f",
   "rubrik": "tv",
   "titel": "Abenteuer Diagnose",
@@ -1884,222 +1983,5 @@
   "url": "https://www.ndr.de/fernsehen/",
   "stand": "2026-10-13",
   "thema": "NDR"
- },
- {
-  "id": "stream-animals",
-  "rubrik": "stream",
-  "titel": "Animals",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Seit 9. Oktober: Netflix-Krimithriller, Regie führte Ben Affleck.",
-  "tags": [
-   "Film",
-   "Krimi",
-   "Thriller"
-  ],
-  "quelle": "netzwelt/serienjunkies (Netflix Oktober 2026)",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-13",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-cold-storage",
-  "rubrik": "stream",
-  "titel": "Cold Storage",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Seit 10. Oktober als Prime-Exclusive im Programm; ein Genre-Mix mit Sci-Fi-Einschlag.",
-  "tags": [
-   "Film",
-   "Sci-Fi"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-13",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-matchbox-the-movie",
-  "rubrik": "stream",
-  "titel": "Matchbox The Movie",
-  "ort": "Apple TV",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Seit 9. Oktober: John Cena als CIA-Agent, der mit Kindheitsfreunden in eine internationale Verfolgungsjagd gerät.",
-  "tags": [
-   "Film",
-   "Action",
-   "Abenteuer"
-  ],
-  "quelle": "apfelpatient.de",
-  "url": "https://tv.apple.com/de",
-  "stand": "2026-10-13",
-  "thema": "Apple TV"
- },
- {
-  "id": "stream-eine-almhuette-fuer-zwei",
-  "rubrik": "stream",
-  "titel": "Eine Almhütte für Zwei",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Seit 11. Oktober: Ein Bergbauer mit Heilwasserquelle unter der Alm sucht eine Partnerin und verliebt sich in eine Urlauberin. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Drama"
-  ],
-  "quelle": "news.de",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-13",
-  "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-meine-stunden-mit-leo",
-  "rubrik": "stream",
-  "titel": "Meine Stunden mit Leo",
-  "ort": "ZDF Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Seit 11. Oktober: Eine verwitwete Ex-Lehrerin bucht einen Callboy für eine Nacht, daraus wird mehr. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Komödie",
-   "Drama"
-  ],
-  "quelle": "news.de",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-10-13",
-  "thema": "ZDF Mediathek"
- },
- {
-  "id": "stream-below",
-  "rubrik": "stream",
-  "titel": "Below",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Seit 8. Oktober: Josh Hartnett als Fischer, der seine Heimatstadt vor einem Meeresungeheuer schützt.",
-  "tags": [
-   "Serie",
-   "Thriller",
-   "Horror"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-13",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-small-prophets",
-  "rubrik": "stream",
-  "titel": "Small Prophets",
-  "ort": "Apple TV",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Seit 7. Oktober: Britische Comedy von Mackenzie Crook, kleine Wesen sollen die Zukunft vorhersagen; mit Michael Palin.",
-  "tags": [
-   "Serie",
-   "Komödie"
-  ],
-  "quelle": "apfelpatient.de",
-  "url": "https://tv.apple.com/de",
-  "stand": "2026-10-13",
-  "thema": "Apple TV"
- },
- {
-  "id": "stream-carrie",
-  "rubrik": "stream",
-  "titel": "Carrie",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Seit 7. Oktober als Prime-Original: Neuauflage des Horror-Stoffs als Serie.",
-  "tags": [
-   "Serie",
-   "Horror",
-   "Drama"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-13",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-portobello-unschuldig-verurteilt",
-  "rubrik": "stream",
-  "titel": "Portobello – Unschuldig verurteilt",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Seit 8. Oktober: Serie über den Justizskandal um den Showmaster Enzo Tortora. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Serie",
-   "Drama",
-   "Historie"
-  ],
-  "quelle": "wochenblatt-reporter.de (ARTE Oktober 2026)",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-13",
-  "thema": "ARTE Mediathek"
- },
- {
-  "id": "stream-the-miniaturist-die-magie-der-kleinen-dinge",
-  "rubrik": "stream",
-  "titel": "The Miniaturist – Die Magie der kleinen Dinge",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Amsterdam 1686: Die junge Nella heiratet einen Kaufmann und gerät in ein Netz aus Geheimnissen. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Serie",
-   "Historie",
-   "Fantasy"
-  ],
-  "quelle": "news.de",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-13",
-  "thema": "ARD Mediathek"
  }
 ]
