@@ -4,20 +4,7 @@ Kanal theprofgpod -> UCp4CBeq4nzeg9smAvdjPrig
 Kanal lynxbrokergermany -> UCpVi-t7Mf9ObllQEA2Kradw
 Kanal creativeplanning -> UCRoWRnXa4ZM85Fw9EN7xICA
 Kanal jamesbulltard -> UCRdVq4StMUVOOJNkbqvDY9g
-Video: Creative Planning | The State of the Markets (October 2026) | Charlie Bilello | Creative P
-Video: The Prof G Pod – Scott Galloway | Cal Newport: The AI Industry Is Betting On The Wrong Kind Of AI
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: Remote end closed connection without response
-gemini-flash-latest: Remote end closed connection without response
-  nicht ausgewertet, wird morgen noch einmal versucht: gemini-flash-latest: Remote end closed connection without response
-Sprechtext: 1943 Wörter
+Sprechtext: 1624 Wörter
 Sprachausgabe Block 1
 Sprachausgabe Block 2
 Sprachausgabe Block 3
@@ -26,10 +13,6 @@ Sprachausgabe Block 5
 Sprachausgabe Block 6
 Sprachausgabe Block 7
 Sprachausgabe Block 8
-Sprachausgabe Block 9
-Sprachausgabe Block 10
-Sprachausgabe Block 11
-Sprachausgabe Block 12
 Traceback (most recent call last):
   File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 421, in <module>
     main()
@@ -41,4 +24,4 @@ Traceback (most recent call last):
                         ^^^^^^
   File "/home/runner/work/Reiseblog/Reiseblog/tools/podcast-bauen.py", line 283, in tts
     raise RuntimeError(letzt)
-RuntimeError: HTTP 429 {"error":{"message":"Rate limit exceeded for model gemini-3.8-flash-tts (limit: 10 requests per day on Free Tier). Please retry in 13h40m32s or upgrade your tier at https://ai.dev/rate-limit.","code":
+RuntimeError: HTTP 429 {"error":{"message":"Rate limit exceeded for model gemini-3.8-flash-tts (limit: 10 requests per day on Free Tier). Please retry in 13h5m27s or upgrade your tier at https://ai.dev/rate-limit.","code":"
