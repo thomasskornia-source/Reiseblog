@@ -2430,6 +2430,15 @@ function compute(P) {
   try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render); } catch (e) {}
   try { new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] }); } catch (e) {}
   render();
+  /* Stand merken: beim Zurückkommen vom Steuer-Check (oder nach dem Neuladen) sind die Eingaben wieder da */
+  try {
+    var _st = JSON.parse(localStorage.getItem('fp-stand') || 'null');
+    if (_st && _st.app === 'finanzplanung' && _st.fields) { applyState(_st); svMsg('Dein letzter Stand ist wieder da (' + dt(_st.saved) + ').'); }
+  } catch (e) { /* ohne Speicher oder ungültiger Stand */ }
+  (function () {
+    var tm; function sv() { clearTimeout(tm); tm = setTimeout(function () { if (userTouched) { try { localStorage.setItem('fp-stand', JSON.stringify(collect())); } catch (e) { /* ohne Speicher */ } } }, 500); }
+    ['input', 'change', 'click'].forEach(function (ev) { document.addEventListener(ev, sv); });
+  })();
   window.addEventListener('load', render);
   /* Info und Druckblatt */
   $('infoBtn').addEventListener('click', function () {
