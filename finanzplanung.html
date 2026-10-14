@@ -584,7 +584,7 @@ body.fp-body { padding-bottom: 0; }
           <div class="stopin">
             <label class="f" for="stopDate"><span>Letzter Arbeitstag</span><input id="stopDate" type="date"></label>
             <label class="f" for="stopAbfB"><span>Abfindung (brutto)</span><input id="stopAbfB" type="number" inputmode="decimal" min="0" step="1000" placeholder="€"></label>
-            <label class="f" for="stopAbfMon"><span title="Auszahlungsmonat der Abfindung">Auszahlung</span><input id="stopAbfMon" type="month"></label>
+            <label class="f" for="stopAbfMon"><span title="Auszahlungstag der Abfindung">Auszahlung am</span><input id="stopAbfMon" type="date"></label>
             <input id="stopAbf" type="hidden">
             <label class="f" for="stopAlgB"><span>ALG I pro Monat</span><input id="stopAlgB" type="number" inputmode="decimal" min="0" step="50" placeholder="€ netto"></label>
             <label class="f" for="stopAlgM"><span>ALG I Monate</span><input id="stopAlgM" type="number" inputmode="numeric" min="0" max="24" step="1" placeholder="Monate"></label>
@@ -1002,7 +1002,7 @@ function compute(P) {
     const wReal = Math.max(0, living + kv - extra);
     const exM = /^(\d{4})-(\d{2})-\d{2}$/.exec(stop.exitDate || ''), exY = exM ? +exM[1] : new Date().getFullYear(), exMo = exM ? +exM[2] : 12;
     // Auszahlungsmonat der Abfindung (leer oder vor dem Austritt = Austrittsmonat) und Arbeitslosengeld I (nur Bezugsmonate, bis zum neuen Job)
-    const pm = /^(\d{4})-(\d{2})$/.exec(stop.abfMon || '');
+    const pm = /^(\d{4})-(\d{2})(?:-\d{2})?$/.exec(stop.abfMon || '');
     let payY = exY, payM = exMo;
     if (pm && (+pm[1] * 12 + +pm[2]) > (exY * 12 + exMo)) { payY = +pm[1]; payM = +pm[2]; }
     const payDelay = Math.max(0, (payY * 12 + payM - 1) - (exY * 12 + exMo - 1) - 1);
@@ -2039,7 +2039,7 @@ function compute(P) {
   }
   function applyState(o) {
     if (!o || o.app !== 'finanzplanung' || typeof o.fields !== 'object' || !o.fields) throw new Error('format');
-    Object.keys(DEF).forEach(function (k) { if (o.fields[k] != null) $(k).value = String(o.fields[k]).slice(0, 80); });
+    Object.keys(DEF).forEach(function (k) { if (o.fields[k] != null) $(k).value = (k === 'stopAbfMon' && /^\d{4}-\d{2}$/.test(o.fields[k])) ? o.fields[k] + '-01' : String(o.fields[k]).slice(0, 80); });
     syncUI(); lastNm = { vorname: $('vorname').value.trim(), pvorname: $('pvorname').value.trim() };
     var oldB = parseFloat(String(o.fields.bRente || '').replace(',', '.'));
     nettoAuto = o.nettoAuto !== false;

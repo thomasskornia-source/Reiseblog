@@ -488,8 +488,8 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
       <label class="f"><span>Kinder</span><input id="g-kinder" type="number" inputmode="numeric" min="0" max="8" step="1"></label>
       <label class="f"><span>Kirchensteuer</span><select id="g-kirche"><option value="0">Nein</option><option value="9">Ja, 9 %</option><option value="8">Ja, 8 % (BY, BW)</option></select></label>
       <label class="f" id="w-pbrutto"><span>Partner brutto/Jahr</span><input id="g-pbrutto" type="number" inputmode="decimal" min="0" step="1000" placeholder="€"></label>
-      <label class="f"><span>Abfindung (€ brutto)</span><input id="g-abf" type="number" inputmode="decimal" min="0" step="1000" placeholder="€ brutto"></label>
-      <label class="f"><span>Auszahlung am</span><input id="g-pd" type="date"></label>
+      <input id="g-abf" type="hidden"><input id="g-pd" type="hidden">
+      <div class="as-box" id="abfBox" style="grid-column:1/-1"></div>
       <label class="f"><span>Letzter Arbeitstag</span><input id="g-exit" type="date"></label>
       <label class="f"><span>Gewinnbeteiligung</span><input id="g-gb" type="number" inputmode="decimal" min="0" step="100" placeholder="€ brutto"></label>
       <label class="f"><span>Gewinnbet. im Monat</span><select id="g-gbm"></select></label>
@@ -739,7 +739,7 @@ function abfindungNetto(P, A) {
   var S = null, OVR = {};
   try { S = JSON.parse(localStorage.getItem('fp-stand') || 'null'); } catch (e) { S = null; }
   try { OVR = JSON.parse(localStorage.getItem('fp-ausstieg') || '{}') || {}; } catch (e) { OVR = {}; }
-  if (OVR['g-abf2'] && !OVR['g-abf']) OVR['g-abf'] = OVR['g-abf2']; delete OVR['g-abf2']; delete OVR['g-fz'];
+  if (OVR['g-abf2'] && !OVR['g-abf']) OVR['g-abf'] = OVR['g-abf2']; delete OVR['g-abf2']; delete OVR['g-fz']; delete OVR['g-pd'];
   if (!S || S.app !== 'finanzplanung' || !S.fields) S = null;
   var F = S ? S.fields : {};
   var A = S && S.abfindung && typeof S.abfindung === 'object' ? S.abfindung : null;
@@ -767,7 +767,7 @@ function abfindungNetto(P, A) {
     d['g-einz'] = '';
     d['g-sz'] = 60000;
     var am = F.stopAbfMon && /^\d{4}-\d{2}/.test(F.stopAbfMon) ? F.stopAbfMon.slice(0, 7) : (+ex.slice(0, 4) + 1) + '-01';
-    d['g-pd'] = am + '-01';
+    d['g-pd'] = F.stopAbfMon && /^\d{4}-\d{2}-\d{2}$/.test(F.stopAbfMon) ? F.stopAbfMon : am + '-01';
     d['g-von'] = YEAR + '-10-31'; d['g-bis'] = (YEAR + 1) + '-10-31'; d['g-sk'] = 'iv';
     var kv0 = fv('stopKv'), kb0 = kv0 > 0 ? kv0 / (0.175 + pvTotal(Math.round(fv('kinder')))) : 0;
     d['g-kap'] = kb0 > K.MINBASIS_KV + 50 ? Math.round(kb0 * 12 / 1000) * 1000 : '';
@@ -781,7 +781,7 @@ function abfindungNetto(P, A) {
     var bm = $('g-bm'), gm = $('g-gbm');
     MON.forEach(function (m, i) { bm.add(new Option(m, i + 1)); gm.add(new Option(m, i + 1)); });
   })();
-  IDS.forEach(function (id) { var e = $(id); if (!e) return; var v = OVR[id] != null ? OVR[id] : DEFS[id]; e.value = v === '' ? '' : String(v); });
+  IDS.forEach(function (id) { var e = $(id); if (!e) return; var v = OVR[id] != null && !(id === 'g-abf' && DEFS[id] !== '') ? OVR[id] : DEFS[id]; e.value = v === '' ? '' : String(v); });
   $('noState').hidden = !!S;
 
   // Die Finanzplanung kennt die Abfindung meist nur netto. Hier wird daraus ein Brutto-Betrag zurückgerechnet, bis der echte aus dem Angebot eingetragen ist.
@@ -988,6 +988,13 @@ function abfindungNetto(P, A) {
     h += '<div class="fz-bars"><div class="fz-t">Steuer auf die Abfindung</div>' + bar('Ohne Fünftel', A0, 'c0') + bar('Mit Fünftel', A1, 'c1') + (ded > 0 ? bar('Ohne Fünftel + Rente', B0, 'c2') + bar('Mit Fünftel + Rente', B1, 'c3') : '') + '</div>';
     h += tab('Ohne Sonderzahlung', A0, A1, false);
     if (ded > 0) h += tab('Mit Sonderzahlung ' + eur(X.sz), B0, B1, true);
+    var einb = A0.tax, fin = ded > 0 ? B1 : A1;
+    var fl = [row('Abfindung brutto', eur(abf)), row('Einbehalt bei der Auszahlung (Lohnsteuer, Soli, ohne Fünftelregelung)', '− ' + eur(einb), 'neg'), row('Netto bei der Auszahlung', eur(abf - einb))];
+        fl.push(row('Erstattung Fünftelregelung (Steuererklärung ' + payY + ')', '+ ' + eur(A0.tax - A1.tax), 'pos'));
+    if (ded > 0) fl.push(row('Erstattung Sonderzahlung Rente (Sonderausgaben)', '+ ' + eur(A1.tax - B1.tax), 'pos'));
+    fl.push(row('Netto nach der Steuererklärung', eur(abf - fin.tax)));
+    if (X.sz > 0) fl.push(row('Abzüglich Sonderzahlung in die Rente', '− ' + eur(X.sz), 'neg'), row('Bleibt nach der Einzahlung', eur(abf - fin.tax - X.sz)));
+    h += '<div class="fz-t" style="margin-top:6px">So fließt das Geld (Abfindung netto)</div>' + tbl(fl) + '<p class="small">Die Steuer auf die Abfindung wird mit deinem übrigen Einkommen gemeinsam veranlagt. Der Arbeitgeber behält bei der Auszahlung die Lohnsteuer ohne Fünftelregelung ein. Zu viel gezahlte Steuer kommt mit dem Steuerbescheid für ' + payY + ' zurück, in der Regel im Jahr ' + (payY + 1) + '. Die Abfindung ist sozialabgabenfrei. Alles Näherung.</p>';
     h += box(gA > 100 ? 'g' : 'y', gA > 100 ? '<b>Fünftelregelung ohne Sonderzahlung: ' + eur(gA) + ' weniger Steuer.</b> Rechnung: Ein Fünftel der Abfindung (' + eur(abf / 5) + ') erhöht die Einkommensteuer um ' + eur(mehr) + '. Mal 5 sind das ' + eur(mehr * 5) + ' (ohne Kirchensteuer und Soli).' : '<b>Die Fünftelregelung bringt hier kaum etwas (' + eur(gA) + ').</b> Dein Einkommen im Auszahlungsjahr ist zusammen mit dem Ehepartner schon so hoch, dass auch ein Fünftel der Abfindung im oberen Steuersatz landet. Dann zählt vor allem, in welchem Jahr die Abfindung fließt.');
     if (X.sz > 0) {
       var cost = X.sz - saveSZ, ep = X.sz / (0.186 * K.DURCHSCHNITT), rm = ep * K.RENTENWERT, fmax = 0.186 * K.BBG_RV;
@@ -1341,6 +1348,11 @@ function abfindungNetto(P, A) {
 
   function render() {
     var X = readX(); REC = []; Q = {};
+    (function () {
+      var ab = $('abfBox'), pd = $('g-pd').value, m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(pd), ds = m ? m[3] + '.' + m[2] + '.' + m[1] : '';
+      ab.className = 'as-box ' + (X.abf > 0 ? 'g' : 'y');
+      ab.innerHTML = X.abf > 0 ? '<b>Abfindung ' + eur(X.abf) + ' brutto' + (ds ? ', Auszahlung am ' + ds : '') + '</b> (aus deiner Finanzplanung). <a href="finanzplanung.html">Ändern auf der ersten Seite</a>' : 'Die Abfindung (brutto) fehlt. <a href="finanzplanung.html">Trage sie auf der ersten Seite ein</a> (Bereich „Aufhören“).';
+    })();
     $('w-pbrutto').hidden = !(X.split || X.sep); $('w-sk').hidden = !X.split;
     $('baseHint').textContent = ABFEST && String($('g-abf').value) === String(ABFEST) ? 'Die Abfindung (brutto) ist aus deinem Netto-Betrag in der Finanzplanung (' + eur(fv('stopAbf')) + ') zurückgerechnet. Trage den Bruttobetrag aus dem Angebot ein, sobald du ihn kennst.' : (X.abf > 0 ? '' : 'Tipp: Ohne Abfindung (brutto) können die meisten Themen nichts rechnen.');
     [t1, t2, t3, t11, t4, t5, t6, t7, t8, t9].forEach(function (fn) { try { fn(X); } catch (e) { if (window.console) console.error(fn.name, e); } });
