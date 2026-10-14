@@ -822,7 +822,7 @@ function abfindungNetto(P, A) {
     const pay = A.abf * pr / sumP, alg = (A.alg && A.alg[y]) || 0;
     const base = fpBase(P, A, y);
     const pvT = b => alg > 0 && b > 0 ? est(b + alg, split) * b / (b + alg) : est(b, split);
-    const normal = pvT(base + pay) - pvT(base), fifth = 5 * (est(base + alg + pay / 5, split) - est(base + alg, split));
+    const normal = pvT(base + pay) - pvT(base), fifth = 5 * (pvT(base + pay / 5) - pvT(base)); // Progressionsvorbehalt über den Steuersatz (BFH VI R 44/07)
     const eb = pvT(base), useFifth = fifth <= normal;
     const sBase = soliOf(eb, base, split, P.kinder);
     const soliN = soliOf(pvT(base + pay), base + pay, split, P.kinder) - sBase;

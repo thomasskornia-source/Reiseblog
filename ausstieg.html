@@ -884,7 +884,7 @@ function abfindungNetto(P, A) {
     var pvTax = function (base, a) { var bp = base + a; return base > 0 && bp > 0 ? est(bp, split) * base / bp : 0; };
     var t;
     if (pay > 0) {
-      var bp = b + alg, normal = pvTax(b + pay, alg), fifth = pvTax(b, alg) + 5 * (est(bp + pay / 5, split) - est(bp, split));
+      var bp = b + alg, normal = pvTax(b + pay, alg), fifth = pvTax(b, alg) + 5 * (pvTax(b + pay / 5, alg) - pvTax(b, alg)); // Progressionsvorbehalt wirkt über den Steuersatz (BFH VI R 44/07), das Arbeitslosengeld wird nicht zum Einkommen addiert
       t = noFifth ? normal : Math.min(normal, fifth);
     } else t = pvTax(b, alg);
     return t * (1 + ki) + soliOf(t, b + pay, split, X.kinder);
@@ -983,7 +983,7 @@ function abfindungNetto(P, A) {
     var bar = function (l, r, c) { return '<div class="fz-r"><span class="fz-l">' + l + '</span><span class="fz-b"><i class="' + c + '" style="width:' + Math.max(2, r.tax / mx * 100).toFixed(1) + '%"></i></span><span class="fz-v">' + eur(r.tax) + '</span></div>'; };
     var gA = A0.tax - A1.tax, gB = B0.tax - B1.tax, saveSZ = A1.tax - B1.tax;
     var when = pm === 'jan' ? 'im Januar ' + payY : (pm === 'jan2' ? 'im Januar ' + payY : 'im Jahr ' + payY);
-    var bp = yr.b + yr.alg, mehr = est(bp + abf / 5, split) - est(bp, split);
+    var pvS = function (base) { return yr.alg > 0 && base > 0 ? est(base + yr.alg, split) * base / (base + yr.alg) : est(Math.max(0, base), split); }, mehr = pvS(yr.b + abf / 5) - pvS(yr.b);
     var h = '<p class="small">Austritt ' + MON3[bw.em - 1] + ' ' + bw.ey + (own ? '' : ' (rechnerisch am besten)') + ', Abfindung ' + eur(abf) + ' brutto ' + (own ? 'am ' + String(X.pdD).padStart(2, '0') + '.' + String(X.pdM).padStart(2, '0') + '.' + X.pdY : when) + ', ALG in diesem Jahr ' + eur(yr.alg) + '.</p>';
     h += '<div class="fz-bars"><div class="fz-t">Steuer auf die Abfindung</div>' + bar('Ohne Fünftel', A0, 'c0') + bar('Mit Fünftel', A1, 'c1') + (ded > 0 ? bar('Ohne Fünftel + Rente', B0, 'c2') + bar('Mit Fünftel + Rente', B1, 'c3') : '') + '</div>';
     h += tab('Ohne Sonderzahlung', A0, A1, false);
