@@ -760,7 +760,7 @@ function abfindungNetto(P, A) {
     d['g-gb'] = Math.round((d['g-brutto'] / 12 * 1.5) / 100) * 100;
     d['g-gbm'] = 8;
     d['g-nj'] = fv('stopNeu') || '';
-    d['g-ende'] = 'aufhebung_ag'; d['g-frist'] = 'ja';
+    d['g-ende'] = 'aufhebung_eigen'; d['g-frist'] = 'ja';
     d['g-kv'] = 'gkv'; d['g-pk'] = (d['g-status'] === 'verheiratet' || d['g-status'] === 'paar') ? 'gkv' : 'keine';
     d['g-rbeg'] = 63;
     d['g-rente'] = Math.round(fv('stopRente') || fv('renteInfo')) || '';
