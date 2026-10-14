@@ -446,7 +446,7 @@ body.fp-body { padding-bottom: 0; }
   <div class="infobox" id="infoBox" hidden>
     <h2>Über diese Seite</h2>
     <p>Der Finanzplaner rechnet aus deinen Angaben hoch, wie sich Vermögen, Rente und Ausgaben entwickeln, auch für das Szenario „Aufhören zu arbeiten“ mit Abfindung. Alles wird im Browser gerechnet, es werden keine Zahlen an einen Server geschickt. Mit „Speichern“ legst du deine Eingaben als Datei ab, mit „Drucken“ erzeugst du ein Blatt mit allen Eingaben und den wichtigsten Ergebnissen für ein Beratungsgespräch.</p>
-    <p><b>Wichtig:</b> Privates Projekt ohne Anspruch auf Vollständigkeit oder Richtigkeit. Die Berechnungen sind vereinfachte Schätzungen und keine Steuer-, Rechts- oder Anlageberatung. Sie dienen als Berechnungsgrundlage für ein Gespräch mit einer Steuerberaterin bzw. einem Steuerberater oder Finanzberater. Steuern, Sozialabgaben, Renten und Renditen sind vereinfacht und teils geschätzt (zum Beispiel Solidaritätszuschlag nur genähert, Kranken- und Pflegeversicherung als Mindestbeitrag, kein Arbeitslosengeld).</p>
+    <p><b>Wichtig:</b> Privates Projekt ohne Anspruch auf Vollständigkeit oder Richtigkeit. Die Berechnungen sind vereinfachte Schätzungen und keine Steuer-, Rechts- oder Anlageberatung. Sie dienen als Berechnungsgrundlage für ein Gespräch mit einer Steuerberaterin bzw. einem Steuerberater oder Finanzberater. Steuern, Sozialabgaben, Renten und Renditen sind vereinfacht und teils geschätzt (zum Beispiel Solidaritätszuschlag nur genähert, Kranken- und Pflegeversicherung als Mindestbeitrag, Arbeitslosengeld nur grob).</p>
   </div>
   <div class="intro" style="display:flex;flex-direction:column;gap:8px">
     <h2 id="h1">Wo stehst du heute, bei Rente und im Wunschalter?</h2>
@@ -583,13 +583,16 @@ body.fp-body { padding-bottom: 0; }
           <div class="stopin">
             <label class="f" for="stopDate"><span>Letzter Arbeitstag</span><input id="stopDate" type="date"></label>
             <label class="f" for="stopAbfB"><span>Abfindung (brutto)</span><input id="stopAbfB" type="number" inputmode="decimal" min="0" step="1000" placeholder="€"></label>
+            <label class="f" for="stopAbfMon"><span title="Auszahlungsmonat der Abfindung">Auszahlung</span><input id="stopAbfMon" type="month"></label>
             <input id="stopAbf" type="hidden">
+            <label class="f" for="stopAlgB"><span>ALG I pro Monat</span><input id="stopAlgB" type="number" inputmode="decimal" min="0" step="50" placeholder="€ netto"></label>
+            <label class="f" for="stopAlgM"><span>ALG I Monate</span><input id="stopAlgM" type="number" inputmode="numeric" min="0" max="24" step="1" placeholder="Monate"></label>
             <label class="f" for="stopLeben"><span>Ausgaben pro Monat</span><input id="stopLeben" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
             <label class="f" for="stopNeu"><span>Neues Gehalt (brutto)</span><input id="stopNeu" type="number" inputmode="decimal" min="0" step="100" placeholder="€ pro Monat"></label>
             <label class="f" for="stopNeuDatum"><span>Neuer Job ab</span><input id="stopNeuDatum" type="date"></label>
           </div>
           <p class="small" id="abfNote" hidden></p>
-          <p class="small">Neuer Job: optional. Leeres Datum = gleich nach dem letzten Arbeitstag. Ab dann zahlt das neue Gehalt (netto) die Ausgaben mit, es fließen wieder Rentenbeiträge, und es wird weniger aus dem Vermögen entnommen. Ohne Datum gilt: ab sofort. Die Abfindung kommt am letzten Arbeitstag zum Vermögen dazu (Nettowert, z. B. von der Abfindungsseite). Ausgaben leer lassen = deine Ausgaben im Ruhestand, sonst Netto minus Sparrate.</p>
+          <p class="small">Neuer Job: optional. Leeres Datum = gleich nach dem letzten Arbeitstag. Ab dann zahlt das neue Gehalt (netto) die Ausgaben mit, es fließen wieder Rentenbeiträge, und es wird weniger aus dem Vermögen entnommen. Ohne Datum gilt: ab sofort. Die Abfindung kommt im gewählten Auszahlungsmonat zum Vermögen dazu (leer = letzter Arbeitstag) und wird in diesem Jahr versteuert (Fünftelregelung, Progressionsvorbehalt durch das ALG). Arbeitslosengeld I: netto pro Monat, leer = Schätzung aus dem letzten Gehalt, 0 = ohne ALG; Monate leer = Anspruch nach Alter; es läuft nur bis zum neuen Job, in den Bezugsmonaten entfällt der Krankenkassenbeitrag. Ausgaben leer lassen = deine Ausgaben im Ruhestand, sonst Netto minus Sparrate.</p>
           <details class="more"><summary>Weitere Annahmen</summary>
             <div class="stopin" style="margin-top:12px">
               <label class="f" for="stopExtra"><span>Weitere Einnahmen</span><input id="stopExtra" type="number" inputmode="decimal" min="0" step="50" placeholder="€"></label>
@@ -789,24 +792,39 @@ function netIncome(P) {
   const soli = sep ? sepSoli : soliOf(tax, zve, split, P.kinder);
   return { net: sumB - sumSv - tax - kist - soli, sv: sumSv, tax, kist, soli };
 }
+function fpBase(P, A, y) {
+  // Übriges zu versteuerndes Einkommen eines Jahres ohne Abfindung (Gehalt bis zum Austritt, neuer Job, Partner)
+  const split = P.status === 'verheiratet', exitY = +A.exitY || 0, exitM = Math.min(12, Math.max(0, +A.exitM || 12));
+  const zOf = (b, beruf, f) => { b = Math.max(0, b) * f; const sv = b > 0 ? svOf(b, beruf, P.kinder) : 0; return b > 0 ? Math.max(0, b - sv - 1230 * f) : 0; };
+  const f = y < exitY ? 1 : (y === exitY ? exitM / 12 : 0);
+  const nf = !(A.neuB > 0) ? 0 : (y > A.neuY ? 1 : (y === A.neuY ? (13 - A.neuM) / 12 : 0));
+  return Math.max(0, zOf(P.brutto, P.beruf, f) + zOf(A.neuB || 0, P.beruf, nf) + (P.partner ? zOf(P.partner.brutto, P.partner.beruf, 1) : 0) - (split ? 72 : 36));
+}
+function algMehrsteuer(P, A, y, alg) {
+  // Das Arbeitslosengeld ist steuerfrei, hebt aber den Steuersatz auf die übrigen Einkünfte desselben Jahres (Progressionsvorbehalt)
+  if (!(alg > 0)) return 0;
+  const split = P.status === 'verheiratet', ki = kistRate(P.kirche), base = fpBase(P, A, y);
+  if (!(base > 0)) return 0;
+  const t0 = est(base, split), t1 = est(base + alg, split) * base / (base + alg);
+  return Math.max(0, t1 - t0) * (1 + ki) + Math.max(0, soliOf(t1, base, split, P.kinder) - soliOf(t0, base, split, P.kinder));
+}
 function abfindungNetto(P, A) {
   // A: Werte aus der Abfindung.json (abf brutto, exitY/exitM, z1y/z1p … Auszahlungsjahre mit Prozent). Grobe Rechnung: Fünftelregelung gegen normale Besteuerung, Günstigerprüfung, mit Soli (genähert).
+  // Optional A.alg {Jahr: ALG im Jahr} für den Progressionsvorbehalt, A.neuB/neuY/neuM = neuer Job (Jahresbrutto, Startjahr, Startmonat).
   const res = { net: 0, tax: 0, brutto: 0, soli: 0, einbehalt: 0 };
   if (!A || !(A.abf > 0)) return res;
-  const split = P.status === 'verheiratet', ki = kistRate(P.kirche), exitY = +A.exitY || 0, exitM = Math.min(12, Math.max(0, +A.exitM || 12));
+  const split = P.status === 'verheiratet', ki = kistRate(P.kirche), exitY = +A.exitY || 0;
   const parts = [[A.z1y, A.z1p], [A.z2y, A.z2p], [A.z3y, A.z3p]].map(x => [+x[0], +x[1]]).filter(x => x[0] > 0 && x[1] > 0);
   const sumP = parts.reduce((a, x) => a + x[1], 0) || 1;
   if (!parts.length) parts.push([exitY || YEAR, 100]);
-  const zOf = (p, f) => { const b = Math.max(0, p.b) * f, sv = b > 0 ? svOf(b, p.beruf, P.kinder) : 0; return b > 0 ? Math.max(0, b - sv - 1230 * f) : 0; };
-  const partnerZ = P.partner ? zOf({ b: P.partner.brutto, beruf: P.partner.beruf }, 1) : 0;
   parts.forEach(([y, pr]) => {
-    const pay = A.abf * pr / sumP;
-    const f = y < exitY ? 1 : (y === exitY ? exitM / 12 : 0);
-    const base = Math.max(0, zOf({ b: P.brutto, beruf: P.beruf }, f) + partnerZ - (split ? 72 : 36));
-    const normal = est(base + pay, split) - est(base, split), fifth = 5 * (est(base + pay / 5, split) - est(base, split));
-    const eb = est(base, split), useFifth = fifth <= normal;
+    const pay = A.abf * pr / sumP, alg = (A.alg && A.alg[y]) || 0;
+    const base = fpBase(P, A, y);
+    const pvT = b => alg > 0 && b > 0 ? est(b + alg, split) * b / (b + alg) : est(b, split);
+    const normal = pvT(base + pay) - pvT(base), fifth = 5 * (est(base + alg + pay / 5, split) - est(base + alg, split));
+    const eb = pvT(base), useFifth = fifth <= normal;
     const sBase = soliOf(eb, base, split, P.kinder);
-    const soliN = soliOf(est(base + pay, split), base + pay, split, P.kinder) - sBase;
+    const soliN = soliOf(pvT(base + pay), base + pay, split, P.kinder) - sBase;
     const soliF = soliOf(eb + fifth, base + pay / 5, split, P.kinder) - sBase;
     const taxF = (useFifth ? fifth : normal) * (1 + ki) + Math.max(0, useFifth ? soliF : soliN);
     const taxLSt = normal * (1 + ki) + Math.max(0, soliN);
@@ -915,7 +933,8 @@ function simulate(c) {
     if (c.inj && i === c.inj.at && c.inj.v > 0) { const v = c.inj.v; S += v * a.S; E += v * a.E; Ec += v * a.E; A += v * a.A; Ac += v * a.A; paid += v; }
     if (c.wd && i >= c.wd.from && i < c.wd.to) {
       // Lebenshaltung nach dem Ausstieg aus dem Vermögen: brutto so viel entnehmen, dass nach Steuern auf die Gewinne der Betrag bleibt
-      const w = (c.wd.w2 != null && i >= c.wd.from2 ? c.wd.w2 : c.wd.w) * Math.pow(1 + c.wd.infl, i / 12), G = S + E + A;
+      let w = (c.wd.w2 != null && i >= c.wd.from2 ? c.wd.w2 : c.wd.w) * Math.pow(1 + c.wd.infl, i / 12); const G = S + E + A;
+      if (c.wd.alg) for (let q = 0; q < c.wd.alg.length; q++) { const g = c.wd.alg[q]; if (i >= g.from && i < g.to) { w = Math.max(0, c.wd.wA * Math.pow(1 + c.wd.infl, i / 12) - g.a); break; } }
       if (w > 0 && G > 0) {
         const tau = Math.min(0.6, (Math.max(0, E - Ec) * (1 - K.TEILFREI) + Math.max(0, A - Ac)) * c.t / G), need = w / (1 - tau);
         if (need >= G) { S = E = A = Ec = Ac = 0; if (out.dep === null) out.dep = i; }
@@ -981,10 +1000,34 @@ function compute(P) {
     const kv = stop.kv >= 0 ? stop.kv : kvAuto;
     const wReal = Math.max(0, living + kv - extra);
     const exM = /^(\d{4})-(\d{2})-\d{2}$/.exec(stop.exitDate || ''), exY = exM ? +exM[1] : new Date().getFullYear(), exMo = exM ? +exM[2] : 12;
-    abfRes = stop.abfB > 0 ? Object.assign(abfindungNetto(P, { abf: stop.abfB, exitY: exY, exitM: exMo, z1y: exY, z1p: 100, z2y: 0, z2p: 0, z3y: 0, z3p: 0 }), { manuell: false, ausBrutto: true })
+    // Auszahlungsmonat der Abfindung (leer oder vor dem Austritt = Austrittsmonat) und Arbeitslosengeld I (nur Bezugsmonate, bis zum neuen Job)
+    const pm = /^(\d{4})-(\d{2})$/.exec(stop.abfMon || '');
+    let payY = exY, payM = exMo;
+    if (pm && (+pm[1] * 12 + +pm[2]) > (exY * 12 + exMo)) { payY = +pm[1]; payM = +pm[2]; }
+    const payDelay = Math.max(0, (payY * 12 + payM - 1) - (exY * 12 + exMo - 1) - 1);
+    const nd = /^(\d{4})-(\d{2})-\d{2}$/.exec(stop.neuDate || '');
+    let neuY = exY + (exMo >= 12 ? 1 : 0), neuM = exMo >= 12 ? 1 : exMo + 1;
+    if (nd && (+nd[1] * 12 + +nd[2]) > (exY * 12 + exMo)) { neuY = +nd[1]; neuM = +nd[2]; }
+    const gapM = Math.max(0, Math.round(((stop.neu > 0 ? Math.min(retAge, Math.max(quitAge, age0 + stop.neuIn)) : retAge) - quitAge) * 12));
+    const nMain = Math.max(0, netIncome(Object.assign({}, P, { brutto: Math.min(P.brutto, K.BBG_RV) })).net - netIncome(Object.assign({}, P, { brutto: 0 })).net) / 12;
+    const algAuto = P.beruf === 'angestellt' ? Math.round((P.kinder > 0 ? 0.67 : 0.60) * nMain) : 0;
+    const ageC = exY - P.by - (exMo < 12 ? 1 : 0); // nur das Geburtsjahr ist bekannt: vorsichtig, Geburtstag später im Jahr
+    const algMAuto = P.beruf !== 'angestellt' ? 0 : (ageC >= 58 ? 24 : (ageC >= 55 ? 18 : (ageC >= 50 ? 15 : 12)));
+    const algA = stop.algB >= 0 ? stop.algB : algAuto, algMon = stop.algM >= 0 ? Math.round(stop.algM) : algMAuto;
+    const nAlg = algA > 0 ? Math.max(0, Math.min(algMon, gapM)) : 0;
+    const algYear = {}, algCnt = {};
+    for (let k = 0; k < nAlg; k++) { const yy = Math.floor((exY * 12 + exMo + k) / 12); algYear[yy] = (algYear[yy] || 0) + algA; algCnt[yy] = (algCnt[yy] || 0) + 1; }
+    const AA = { abf: stop.abfB, exitY: exY, exitM: exMo, z1y: payY, z1p: 100, z2y: 0, z2p: 0, z3y: 0, z3p: 0, alg: algYear, neuB: stop.neu > 0 ? stop.neu * 12 : 0, neuY, neuM };
+    const algSeg = []; let algMehr = 0, algNetSum = 0, kk = 0;
+    Object.keys(algYear).sort().forEach(ys => {
+      const yy = +ys, cnt = algCnt[yy], ms = algMehrsteuer(P, AA, yy, algYear[yy]), netY = Math.max(0, algYear[yy] - ms), i0 = Math.round((quitAge - age0) * 12);
+      algSeg.push({ from: i0 + kk, to: i0 + kk + cnt, a: netY / cnt }); kk += cnt; algMehr += ms; algNetSum += netY;
+    });
+    abfRes = stop.abfB > 0 ? Object.assign(abfindungNetto(P, AA), { manuell: false, ausBrutto: true })
       : (stop.abf > 0 ? { net: stop.abf, tax: 0, brutto: stop.abf, manuell: true } : Object.assign(abfindungNetto(P, stop.abfJ), { manuell: false }));
     abfN = abfRes.net;
     wdSpec = { from: Math.round((quitAge - age0) * 12), to: Math.round((retAge - age0) * 12), w: wReal, infl: P.infl };
+    if (algSeg.length) { wdSpec.alg = algSeg; wdSpec.wA = Math.max(0, living - extra); }
     // Neuer Job nach dem Ausstieg: Netto deckt die Ausgaben mit, kein Krankenkassen-Mindestbeitrag, weitere Rentenbeiträge
     let neuInfo = null;
     if (stop.neu > 0) {
@@ -998,6 +1041,9 @@ function compute(P) {
     }
     stopInfo = { neu: null, quitAge, inYears: quitAge - age0, years: retAge - quitAge, living, extra, extraAuto, kv, kvAuto, wReal, abf: abfN, abfInfo: abfRes, cap: 0, capLow: 0, capWork: 0, rent: 0, rentLow: 0, rentWork: 0, depAge: null, capQuit: 0, capRet: 0 };
     stopInfo.neu = neuInfo;
+    stopInfo.abfPay = { y: payY, m: payM, delay: payDelay, later: payY !== exY };
+    stopInfo.algAuto = algAuto; stopInfo.algMAuto = algMAuto;
+    stopInfo.alg = nAlg > 0 ? { a: algA, months: nAlg, net: algNetSum, mehr: algMehr, avgNet: algNetSum / nAlg, years: Object.keys(algYear).map(Number) } : null;
   }
   const wunsch = Math.max(P.wunsch, age0 + 1);
   const endAge = Math.max(wunsch, retAge, age0 + 1);
@@ -1009,7 +1055,7 @@ function compute(P) {
   const aS = Math.max(0, 1 - P.aE - P.aA);
   const mix = { S: aS, E: P.aE, A: P.aA };
   const rates = { S: P.rS, E: P.rE, A: P.rA };
-  const base = { age0, months, W0: P.W0, monthly: P.sparrate, dyn: P.dyn, saveMonths, alloc: mix, rates, t, fb, wd: wdSpec, inj: stop && abfN > 0 ? { at: Math.round((quitAge - age0) * 12), v: abfN } : null };
+  const base = { age0, months, W0: P.W0, monthly: P.sparrate, dyn: P.dyn, saveMonths, alloc: mix, rates, t, fb, wd: wdSpec, inj: stop && abfN > 0 ? { at: Math.round((quitAge - age0) * 12) + (stopInfo && stopInfo.abfPay ? stopInfo.abfPay.delay : 0), v: abfN } : null };
   const run = o => simulate(Object.assign({}, base, o));
   const sim = run({});
   const infl = f => Math.pow(1 + P.infl, f);
@@ -1179,7 +1225,7 @@ function compute(P) {
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var DEF = { stopOn: '0', stopDate: '', stopLeben: '', stopExtra: '', stopKv: '', stopZins: '2', stopAbf: '', stopAbfB: '', stopRente: '', stopNeu: '', stopNeuDatum: '', vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: '', kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: '', kfMietG: '', kfRend: '' };
+  var DEF = { stopOn: '0', stopDate: '', stopLeben: '', stopExtra: '', stopKv: '', stopZins: '2', stopAbf: '', stopAbfB: '', stopAbfMon: '', stopAlgB: '', stopAlgM: '', stopRente: '', stopNeu: '', stopNeuDatum: '', vorname: '', pvorname: '', pby: YEAR - 42, pberuf: 'angestellt', pbrutto: '', pstart: 23, prenteInfo: '', by: YEAR - 42, wunsch: 70, status: 'ledig', kinder: 0, kirche: '0', beruf: 'angestellt', brutto: 62000, startAge: 23, renteInfo: '', W0: 45000, sparrate: 500, dyn: 2, aE: 50, aA: 10, rS: 2.5, rE: 6, rA: 6, infl: 2, rRet: 3, planAge: 90, saveUntil: 'rente', kfPreis: 880000, kfEK: '', kfMiete: '', kfJahre: 25, kfNK: 9.5, kfZins: 3.8, kfTilg: 2, kfInst: 1, kfWert: '', kfMietG: '', kfRend: '' };
 
   var AUS = [
     ['aWohnen', 'Wohnen', 'Miete bzw. Wohnkosten, Nebenkosten, Energie', 1100],
@@ -1255,7 +1301,7 @@ function compute(P) {
     P.retOverride = 0;
     var sd = $('stopDate').value, sy = 0, blank = function (id, hi) { return String($(id).value).trim() === '' ? -1 : rd(id, 0, 0, hi); };
     if (/^\d{4}-\d{2}-\d{2}$/.test(sd)) sy = Math.max(0, (Date.parse(sd + 'T12:00:00') - Date.now()) / (365.25 * 864e5));
-    P.stop = { on: $('stopOn').value === '1', inYears: sy, living: rd('stopLeben', 0, 0, 1e5), extra: blank('stopExtra', 1e5), kv: blank('stopKv', 1e4), abf: rd('stopAbf', 0, 0, 5e6), abfB: rd('stopAbfB', 0, 0, 5e6), exitDate: $('stopDate').value, abfJ: ABF, zins: rd('stopZins', 2, -2, 8) / 100, renteBisher: rd('stopRente', 0, 0, 20000), neu: rd('stopNeu', 0, 0, 5e4), neuIn: /^\d{4}-\d{2}-\d{2}$/.test($('stopNeuDatum').value) ? Math.max(0, (Date.parse($('stopNeuDatum').value + 'T12:00:00') - Date.now()) / (365.25 * 864e5)) : 0 };
+    P.stop = { on: $('stopOn').value === '1', inYears: sy, living: rd('stopLeben', 0, 0, 1e5), extra: blank('stopExtra', 1e5), kv: blank('stopKv', 1e4), abf: rd('stopAbf', 0, 0, 5e6), abfB: rd('stopAbfB', 0, 0, 5e6), abfMon: $('stopAbfMon').value, algB: blank('stopAlgB', 1e5), algM: blank('stopAlgM', 24), neuDate: $('stopNeuDatum').value, exitDate: $('stopDate').value, abfJ: ABF, zins: rd('stopZins', 2, -2, 8) / 100, renteBisher: rd('stopRente', 0, 0, 20000), neu: rd('stopNeu', 0, 0, 5e4), neuIn: /^\d{4}-\d{2}-\d{2}$/.test($('stopNeuDatum').value) ? Math.max(0, (Date.parse($('stopNeuDatum').value + 'T12:00:00') - Date.now()) / (365.25 * 864e5)) : 0 };
     var kb = function (id, d, lo, hi) { return String($(id).value).trim() === '' ? d : rd(id, d, lo, hi) / 100; };
     P.kauf.wert = kb('kfWert', Math.max(P.infl, 0.035), -5, 10); P.kauf.mietg = kb('kfMietG', P.infl, -2, 10);
     P.kauf.rend = kb('kfRend', P.rE * (1 - kapStRate(P.kirche) * (1 - K.TEILFREI)), -2, 15);
@@ -1385,7 +1431,8 @@ function compute(P) {
     if (!S) { out.innerHTML = '<p>Das gewählte Datum liegt am oder nach dem Renteneintritt mit ' + ageJ(R.retAge) + '. Dann ändert sich nichts.</p>'; return; }
     var B = compute(Object.assign({}, P, { stop: null })), dfl = R.infl(R.retAge - R.age0), dflQ = R.infl(S.quitAge - R.age0);
     $('stopLeben').placeholder = eur(S.living); $('stopExtra').placeholder = S.extraAuto ? eur(S.extra) + ' (Partner)' : '0 €'; $('stopKv').placeholder = '≈ ' + eur(S.kvAuto); $('stopAbf').placeholder = S.abfInfo && S.abfInfo.ausBrutto ? eur(S.abf) + ' (aus Brutto)' : (ABF && S.abfInfo && !S.abfInfo.manuell ? eur(S.abf) + ' (Datei)' : '€');
-    var an = $('abfNote'); if (S.abfInfo && S.abfInfo.ausBrutto) { an.hidden = false; an.textContent = 'Abfindung brutto ' + eur(S.abfInfo.brutto) + ' ergibt netto etwa ' + eur(S.abf) + ' (Steuer ' + eur(S.abfInfo.tax) + ', mit Fünftelregelung, Auszahlung im Jahr des Austritts). Die Netto-Eingabe daneben wird dann nicht benutzt.'; } else if (S.abfInfo && S.abfInfo.manuell) { an.hidden = false; an.textContent = 'Es wird ein gespeicherter Netto-Betrag von ' + eur(S.abf) + ' benutzt. Trage die Abfindung (brutto) ein, dann rechnet die Seite das Netto selbst und ersetzt ihn.'; } else an.hidden = true;
+    $('stopAlgB').placeholder = S.algAuto > 0 ? '≈ ' + eur(S.algAuto) : '€ netto'; $('stopAlgM').placeholder = S.algMAuto > 0 ? '≈ ' + S.algMAuto : 'Monate';
+    var an = $('abfNote'); if (S.abfInfo && S.abfInfo.ausBrutto) { an.hidden = false; an.textContent = 'Abfindung brutto ' + eur(S.abfInfo.brutto) + ' ergibt netto etwa ' + eur(S.abf) + ' (Steuer ' + eur(S.abfInfo.tax) + ', mit Fünftelregelung, Auszahlung ' + (S.abfPay && S.abfPay.later ? 'im ' + DEUTSCH_MON[S.abfPay.m - 1] + ' ' + S.abfPay.y : 'im Jahr des Austritts') + (S.alg && S.alg.years.indexOf(S.abfPay ? S.abfPay.y : 0) >= 0 ? ', Progressionsvorbehalt durch das ALG berücksichtigt' : '') + '). Die Netto-Eingabe daneben wird dann nicht benutzt.'; } else if (S.abfInfo && S.abfInfo.manuell) { an.hidden = false; an.textContent = 'Es wird ein gespeicherter Netto-Betrag von ' + eur(S.abf) + ' benutzt. Trage die Abfindung (brutto) ein, dann rechnet die Seite das Netto selbst und ersetzt ihn.'; } else an.hidden = true;
     var sd = $('stopDate').value, when = 'ab sofort';
     if (/^\d{4}-\d{2}-\d{2}$/.test(sd)) { var dd = new Date(sd + 'T12:00:00'); when = 'ab dem ' + dd.getDate() + '. ' + DEUTSCH_MON[dd.getMonth()] + ' ' + dd.getFullYear(); }
     var yrs = S.years, yTxt = num(yrs, 1) + ' Jahre';
@@ -1412,6 +1459,7 @@ function compute(P) {
     }
     var h = '<span class="verdict ' + cls + '">' + vt + '</span>';
     h += '<p>Du hörst <b>' + when + '</b> mit ' + ageJ(S.quitAge) + ' auf. ' + (S.neu ? 'Bis zum neuen Job sind das <b>' + num(S.neu.gap, 1) + ' Jahre</b> ohne Gehalt.' : 'Bis zum Renteneintritt mit ' + ageJ(R.retAge) + ' sind das <b>' + yTxt + '</b> ohne Gehalt.') + ' In dieser Zeit lebst du vom Vermögen: Ausgaben ' + eur(S.living) + ' plus Kranken- und Pflegeversicherung ' + eur(S.kv) + (S.extra > 0 ? ' minus Einnahmen ' + eur(S.extra) : '') + ' sind <b>' + eur(S.wReal) + ' pro Monat</b> (heutige Kaufkraft). Das Vermögen geht dabei von ' + eur(S.capQuit / dflQ) + ' auf ' + eur(S.capRet / dfl) + ' zurück (heutige Kaufkraft), und die Sparrate von ' + eur(P.sparrate) + ' entfällt.' + (S.abf > 0 ? ' Darin enthalten ist deine Abfindung von ' + eur(S.abf) + ' netto' + (S.abfInfo && !S.abfInfo.manuell ? ' (brutto ' + eur(S.abfInfo.brutto) + ', geschätzte Steuer ' + eur(S.abfInfo.tax) + ' mit Fünftelregelung)' : '') + '.' : '') + '</p>';
+    if (S.alg) { h += '<p><b>Arbeitslosengeld I:</b> ' + S.alg.months + ' Monate zu ' + eur(S.alg.a) + ' netto. Durch den Progressionsvorbehalt kostet das ' + eur(S.alg.mehr) + ' Steuern, es bleiben im Schnitt ' + eur(S.alg.avgNet) + ' pro Monat. In diesen Monaten entfällt der Krankenkassenbeitrag (zahlt die Agentur), die Entnahme aus dem Vermögen sinkt entsprechend.</p>'; }
     if (S.neu) {
       var N = S.neu, nd = new Date(Date.now() + (N.start - R.age0) * 365.25 * 864e5), ndat = ' ab ' + DEUTSCH_MON[nd.getMonth()] + ' ' + nd.getFullYear() + (N.gap > 0.1 ? ' (nach ' + num(N.gap, 1) + ' Jahren Pause)' : '');
       h += '<p><b>Neuer Job' + ndat + ':</b> ' + eur(N.brutto) + ' brutto, etwa ' + eur(N.net) + ' netto pro Monat. Dann sinkt die Entnahme aus dem Vermögen auf <b>' + eur(N.wAfter) + ' pro Monat</b> (heutige Kaufkraft), und bis zur Rente kommen ' + num(N.years, 1) + ' Beitragsjahre dazu. Die Sparrate bleibt ausgesetzt.</p>';
@@ -1424,7 +1472,7 @@ function compute(P) {
     } else if (P.contracts.some(function (c) { return c.type === 'bav' || c.type === 'bkap'; })) {
       h += '<p class="small">Bei deinen Betriebsverträgen fehlen „Guthaben heute“ und „Garantie zum Ablauf“. Trage sie unter „Versicherungen und Vorsorgeverträge“ ein, dann rechnet das Szenario mit echten Werten statt anteilig nach Berufsjahren.</p>';
     }
-    h += '<p class="small">Grobe Rechnung. Nicht enthalten: Arbeitslosengeld, Sperrzeit und Steuern auf diese Zahlungen. Kranken- und Pflegeversicherung ist als Mindestbeitrag geschätzt, Kapitalerträge und Betriebsrenten können ihn erhöhen; ist dein Ehepartner gesetzlich versichert, kann eine Familienversicherung greifen. Wer vor der Regelaltersgrenze in Rente will, braucht die Wartezeit (35 bzw. 45 Beitragsjahre), Zeiten ohne Beitrag zählen meist nicht. Dein Partner bzw. deine Partnerin arbeitet in der Rechnung weiter.</p>';
+    h += '<p class="small">Grobe Rechnung. Nicht enthalten: Sperrzeit und Ruhen des Arbeitslosengeldes; das ALG ist grob aus dem letzten Gehalt geschätzt (maßgeblich ist der Bescheid der Agentur). Kranken- und Pflegeversicherung ist als Mindestbeitrag geschätzt, Kapitalerträge und Betriebsrenten können ihn erhöhen; ist dein Ehepartner gesetzlich versichert, kann eine Familienversicherung greifen. Wer vor der Regelaltersgrenze in Rente will, braucht die Wartezeit (35 bzw. 45 Beitragsjahre), Zeiten ohne Beitrag zählen meist nicht. Dein Partner bzw. deine Partnerin arbeitet in der Rechnung weiter.</p>';
     out.innerHTML = h;
   }
   function exitRender(R, P, netMonth, ausTot0, two) {
@@ -2464,6 +2512,8 @@ function compute(P) {
       var S = R && R.stop, rows = [psRow('Letzter Arbeitstag', pDate('stopDate') === '–' ? 'ab sofort (kein Datum eingetragen)' : pDate('stopDate'))];
       if (S) {
         rows.push(psRow('Abfindung netto (in der Rechnung)', eur(S.abf) + (S.abfInfo && S.abfInfo.ausBrutto ? ' (aus Brutto ' + eur(S.abfInfo.brutto) + ', geschätzte Steuer ' + eur(S.abfInfo.tax) + ')' : ABF && !(pv('stopAbf') > 0) ? ' (aus Abfindungsdatei: brutto ' + eur(ABF.abf) + ', geschätzte Steuer ' + eur(S.abfInfo ? S.abfInfo.tax : 0) + ')' : (pv('stopAbf') ? ' (manuell eingetragen)' : ''))));
+        if (S.abfPay) rows.push(psRow('Auszahlung der Abfindung', S.abfPay.later ? DEUTSCH_MON[S.abfPay.m - 1] + ' ' + S.abfPay.y + ' (versteuert in diesem Jahr)' : 'im Austrittsmonat (versteuert im Austrittsjahr)'));
+        rows.push(psRow('Arbeitslosengeld I', S.alg ? S.alg.months + ' Monate zu ' + eur(S.alg.a) + ' netto, Mehrsteuer durch Progressionsvorbehalt ca. ' + eur(S.alg.mehr) + '; Krankenkassenbeitrag entfällt in den Bezugsmonaten' : 'nicht berücksichtigt (kein Anspruch angesetzt oder neuer Job gleich nach dem Austritt)'));
         if (S.abfInfo && !S.abfInfo.manuell && S.abfInfo.einbehalt > 0) rows.push(psRow('Abfindung: voraussichtlicher Steuereinbehalt bei Auszahlung', eur(S.abfInfo.einbehalt) + ' (ohne Fünftelregelung); Erstattung mit dem Steuerbescheid ca. ' + eur(Math.max(0, S.abfInfo.einbehalt - S.abfInfo.tax)) + ', Steuer endgültig ca. ' + eur(S.abfInfo.tax) + ' (davon Soli ca. ' + eur(S.abfInfo.soli) + ')'));
       } else rows.push(psRow('Abfindung netto', pEur('stopAbf')));
       rows.push(psRow('Ausgaben pro Monat nach dem Ausstieg', pv('stopLeben') ? pEur('stopLeben') : (S ? eur(S.living) + ' (aus den Ausgaben im Ruhestand)' : '–')));
@@ -2507,7 +2557,7 @@ function compute(P) {
         else if (St && St.abfInfo && St.abfInfo.einbehalt > 0) add('Abfindung', 'Steuer wird mit Fünftelregelung geschätzt. Bei Auszahlung wird voraussichtlich mehr Steuer einbehalten (ca. ' + eur(St.abfInfo.einbehalt) + ' statt ' + eur(St.abfInfo.tax) + '), die Erstattung folgt mit dem Steuerbescheid.', 'Arbeitgeber: Abrechnung der Abfindung. Steuerberater: Veranlagung und Zahlungszeitpunkt.');
         add('Solidaritätszuschlag', 'Wird nur genähert (Kinderfreibetrag vereinfacht, übrige Einkünfte und Vorsorgeaufwendungen nicht einzeln).', 'Steuerberater: Berechnung für das Jahr der Abfindung.');
         add('Krankenversicherung nach dem Ausstieg', (pv('stopKv') ? 'Beitrag manuell eingetragen.' : 'Nur als Mindestbeitrag geschätzt.') + ' Bei freiwilliger Versicherung zählen Kapitalerträge und Entnahmen mit. Ob die Abfindung beitragspflichtig ist, hängt von der Kasse ab.', 'Krankenkasse: Beitragsprognose für freiwillig Versicherte mit erwarteten Kapitalerträgen.');
-        add('Arbeitslosengeld I', 'Nicht berücksichtigt (konservativ). Dauer, Höhe, Sperrzeit und Ruhen bei Aufhebungsvertrag sind offen.', 'Agentur für Arbeit: Anspruch und Dauer prüfen.');
+        add('Arbeitslosengeld I', (S && S.alg ? 'Höhe und Dauer sind geschätzt' + (pv('stopAlgB') ? ' (Betrag manuell eingetragen).' : ' (aus dem letzten Gehalt).') : 'Nicht berücksichtigt.') + ' Sperrzeit und Ruhen bei Aufhebungsvertrag sind offen.', 'Agentur für Arbeit: Anspruch, Dauer und Höhe schriftlich prüfen.');
         if (!pv('stopRente')) add('Rente nach dem Ausstieg', '„Bisher erreichte Rente“ fehlt. Das Modell schätzt aus der Renteninformation (Hochrechnung bis zur Regelaltersgrenze) minus entfallene Beitragsjahre.', 'Deutsche Rentenversicherung: aktuelle Renteninformation bzw. Rentenauskunft (bisher erreichte Rente).');
         add('Frührente und Ausgleichszahlung', 'Rente vor der Regelaltersgrenze (mit Abschlägen, auch mit Ausgleichszahlung nach § 187a SGB VI) ist nicht abgebildet.', 'Deutsche Rentenversicherung: Rentenauskunft mit Ausgleichszahlung. Steuerberater: Sonderausgabenabzug und Verteilung über Jahre.');
       }
@@ -2548,7 +2598,7 @@ function compute(P) {
     }
     h += psSec('Vereinfachungen und Grenzen', '<ul><li>Steuern und Sozialabgaben sind nach einem vereinfachten Modell gerechnet. Die Steuer auf die Abfindung (Fünftelregelung) ist eine Schätzung mit genähertem Solidaritätszuschlag (Kinderfreibetrag vereinfacht) und ohne weitere Einkünfte im Jahr der Zahlung.</li>' +
       '<li>Die gesetzliche Rente stammt aus der angegebenen Renteninformation bzw. einer Schätzung aus Brutto und Berufsjahren. Betriebliche Leistungen sind so eingegeben, wie sie oben stehen.</li>' +
-      '<li>Kranken- und Pflegeversicherung nach dem Ausstieg sind als Mindestbeitrag geschätzt. Arbeitslosengeld, Sperrzeit, Hinterbliebenenversorgung und Pflegekosten sind nicht berücksichtigt.</li>' +
+      '<li>Kranken- und Pflegeversicherung nach dem Ausstieg sind als Mindestbeitrag geschätzt. Sperrzeit, Ruhen des Arbeitslosengeldes, Hinterbliebenenversorgung und Pflegekosten sind nicht berücksichtigt, das Arbeitslosengeld nur grob geschätzt.</li>' +
       '<li>In der gemeinsamen Berechnung arbeitet die zweite Person bis zu ihrem Renteneintritt weiter.</li>' +
       '<li>Renditen, Inflation und Entnahmedauer sind Annahmen, keine Prognosen.</li></ul>');
     h += '<div class="ps-foot">Erstellt mit dem privaten Finanzplaner am ' + stamp + '. ' + HINT_TXT + '</div>';
