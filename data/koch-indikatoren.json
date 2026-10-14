@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-12",
+ "stand": "2026-10-14",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -8,14 +8,14 @@
   {
    "kategorie": "Anleihen & Renditen",
    "status": "bestaetigt",
-   "tage_anzahl": 8,
+   "tage_anzahl": 10,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-12",
+   "zuletzt": "2026-10-14",
    "name": "US-Staatsanleiherenditen",
    "namen": [
     "US-Staatsanleiherenditen"
    ],
-   "rolle": "Höhere Renditen belasten Hypothekengeschäft und Anleiheportfolios der Banken.",
+   "rolle": "Steigende Renditen setzen Bewertungsniveaus unter Druck und sorgen für unmittelbaren Gegenwind an den Aktienmärkten.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -72,15 +72,114 @@
       "US-Staatsanleiherenditen"
      ],
      "rolle": "Höhere Renditen belasten Hypothekengeschäft und Anleiheportfolios der Banken."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Der Rückzug von den Renditespitzen nimmt etwas Druck vom Aktienmarkt, insbesondere vor den anstehenden Verbraucherpreisen."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Steigende Renditen setzen Bewertungsniveaus unter Druck und sorgen für unmittelbaren Gegenwind an den Aktienmärkten."
+    }
+   }
+  },
+  {
+   "kategorie": "Öl & Rohstoffe",
+   "status": "bestaetigt",
+   "tage_anzahl": 10,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-14",
+   "name": "Öl- und Dieselpreise",
+   "namen": [
+    "Öl- und Dieselpreise",
+    "Ölpreise"
+   ],
+   "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
+    },
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Ölpreise"
+     ],
+     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
+    },
+    "2026-10-07": {
+     "p": 2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
+    },
+    "2026-10-08": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
+    },
+    "2026-10-12": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Trotz leichter Tagesgewinne bleibt das Rohöl klar unter den Spitzenwerten des Vormonats, was die Inflationssorgen dämpft."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein."
     }
    }
   },
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 8,
+   "tage_anzahl": 9,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-12",
+   "zuletzt": "2026-10-14",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
@@ -88,7 +187,7 @@
     "Tech-Sektor & KI",
     "Sektorale Kapitalallokation & CapEx-Konzentration"
    ],
-   "rolle": "Eine breitere Beteiligung anderer Sektoren stützt den Gesamtmarkt, wenn die großen Tech-Schwergewichte korrigieren.",
+   "rolle": "Die schwache Marktbreite verdeutlicht, dass die breite Wirtschaft unter den hohen Zinsen leidet.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -147,140 +246,27 @@
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
      "rolle": "Eine breitere Beteiligung anderer Sektoren stützt den Gesamtmarkt, wenn die großen Tech-Schwergewichte korrigieren."
-    }
-   }
-  },
-  {
-   "kategorie": "Öl & Rohstoffe",
-   "status": "bestaetigt",
-   "tage_anzahl": 8,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-12",
-   "name": "Öl- und Dieselpreise",
-   "namen": [
-    "Öl- und Dieselpreise",
-    "Ölpreise"
-   ],
-   "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften.",
-   "tage": {
-    "2026-10-01": {
+    },
+    "2026-10-14": {
      "p": -1,
      "namen": [
-      "Öl- und Dieselpreise"
+      "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
-     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
-    },
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Ölpreise"
-     ],
-     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
-    },
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
-    },
-    "2026-10-06": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
-    },
-    "2026-10-07": {
-     "p": 2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
-    },
-    "2026-10-08": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
-    },
-    "2026-10-12": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
-    }
-   }
-  },
-  {
-   "kategorie": "Geopolitik",
-   "status": "bestaetigt",
-   "tage_anzahl": 5,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-12",
-   "name": "Nahost & Ukraine-Krieg",
-   "namen": [
-    "Nahost & Ukraine-Krieg"
-   ],
-   "rolle": "Geopolitische Unsicherheiten stützen den Ölpreis und schüren Skepsis an den Märkten.",
-   "tage": {
-    "2026-10-02": {
-     "p": -1,
-     "namen": [
-      "Nahost & Ukraine-Krieg"
-     ],
-     "rolle": "Geopolitische Unsicherheiten bleiben ein ständiger Belastungsfaktor für das Marktumfeld."
-    },
-    "2026-10-05": {
-     "p": -1,
-     "namen": [
-      "Nahost & Ukraine-Krieg"
-     ],
-     "rolle": "Geopolitische Spannungen bleiben ein latenter Unsicherheitsfaktor für Rohstoffe und Märkte."
-    },
-    "2026-10-08": {
-     "p": -2,
-     "namen": [
-      "Nahost & Ukraine-Krieg"
-     ],
-     "rolle": "Geopolitische Spannungen sorgen für Nervosität und unberechenbare Preissprünge beim Rohöl."
-    },
-    "2026-10-09": {
-     "p": -1,
-     "namen": [
-      "Nahost & Ukraine-Krieg"
-     ],
-     "rolle": "Geopolitische Konflikte halten das Risiko von Ölpreisspitzen und Lieferkettenstörungen hoch."
-    },
-    "2026-10-12": {
-     "p": -2,
-     "namen": [
-      "Nahost & Ukraine-Krieg"
-     ],
-     "rolle": "Geopolitische Unsicherheiten stützen den Ölpreis und schüren Skepsis an den Märkten."
+     "rolle": "Die schwache Marktbreite verdeutlicht, dass die breite Wirtschaft unter den hohen Zinsen leidet."
     }
    }
   },
   {
    "kategorie": "Gewinnsaison",
    "status": "bestaetigt",
-   "tage_anzahl": 5,
+   "tage_anzahl": 7,
    "erstmals": "2026-10-05",
-   "zuletzt": "2026-10-12",
+   "zuletzt": "2026-10-14",
    "name": "Q3-Gewinnschätzungen",
    "namen": [
     "Q3-Gewinnschätzungen"
    ],
-   "rolle": "Die anstehenden Unternehmensberichte entscheiden darüber, ob der Markt eine Trendwende einleiten kann.",
+   "rolle": "Schwache Marktreaktionen auf Bankbilanzen signalisieren Vorsicht und zunehmende Belastungen im Kreditbereich.",
    "tage": {
     "2026-10-05": {
      "p": 2,
@@ -316,15 +302,142 @@
       "Q3-Gewinnschätzungen"
      ],
      "rolle": "Die anstehenden Unternehmensberichte entscheiden darüber, ob der Markt eine Trendwende einleiten kann."
+    },
+    "2026-10-13": {
+     "p": -1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die fehlende Nachhaltigkeit bei Kursgewinnen nach guten Zahlen zeigt die Zurückhaltung der Investoren."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Schwache Marktreaktionen auf Bankbilanzen signalisieren Vorsicht und zunehmende Belastungen im Kreditbereich."
+    }
+   }
+  },
+  {
+   "kategorie": "Geopolitik",
+   "status": "bestaetigt",
+   "tage_anzahl": 6,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-14",
+   "name": "Nahost & Ukraine-Krieg",
+   "namen": [
+    "Nahost & Ukraine-Krieg"
+   ],
+   "rolle": "Geopolitische Unsicherheiten halten die Risikoprämien hoch und stützen Rohstoffpreise.",
+   "tage": {
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Unsicherheiten bleiben ein ständiger Belastungsfaktor für das Marktumfeld."
+    },
+    "2026-10-05": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Spannungen bleiben ein latenter Unsicherheitsfaktor für Rohstoffe und Märkte."
+    },
+    "2026-10-08": {
+     "p": -2,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Spannungen sorgen für Nervosität und unberechenbare Preissprünge beim Rohöl."
+    },
+    "2026-10-09": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Konflikte halten das Risiko von Ölpreisspitzen und Lieferkettenstörungen hoch."
+    },
+    "2026-10-12": {
+     "p": -2,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Unsicherheiten stützen den Ölpreis und schüren Skepsis an den Märkten."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Unsicherheiten halten die Risikoprämien hoch und stützen Rohstoffpreise."
+    }
+   }
+  },
+  {
+   "kategorie": "Inflation",
+   "status": "bestaetigt",
+   "tage_anzahl": 6,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-14",
+   "name": "Inflationsdynamik",
+   "namen": [
+    "Inflationsdynamik",
+    "Bevorstehende Inflationsdaten (CPI)"
+   ],
+   "rolle": "Die hartnäckig hohe Kern- und Gesamtinflation zerstört Hoffnungen auf ein baldiges Ende des Zinsdrucks.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Hartnäckige Teuerungsraten dämpfen Hoffnungen auf rasche Zinssenkungen der Notenbanken."
+    },
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Bevorstehende Inflationsdaten (CPI)"
+     ],
+     "rolle": "Anhaltende Preissorgen könnten die Erholung am Anleihe- und Aktienmarkt dämpfen."
+    },
+    "2026-10-09": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Hartnäckige Inflationsdaten könnten die Notenbank zu längeren Zinserhöhungsphasen zwingen."
+    },
+    "2026-10-12": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Höhere Inflationsdaten könnten die Hoffnungen auf geldpolitische Lockerungen dämpfen und die Zinsängste wieder anfachen."
+    },
+    "2026-10-13": {
+     "p": 0,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Treffen die Daten die Schätzungen, könnte dies den Anleiherenditen weiteren Raum nach unten geben."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Die hartnäckig hohe Kern- und Gesamtinflation zerstört Hoffnungen auf ein baldiges Ende des Zinsdrucks."
     }
    }
   },
   {
    "kategorie": "Konjunktur",
    "status": "bestaetigt",
-   "tage_anzahl": 5,
+   "tage_anzahl": 6,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-08",
+   "zuletzt": "2026-10-13",
    "name": "Industrie- und Exportdaten (Asien & USA)",
    "namen": [
     "Industrie- und Exportdaten (Asien & USA)",
@@ -332,7 +445,7 @@
     "Atlanta-Fed-GDPNow-Schätzung",
     "Konjunktur & Kapitalverfügbarkeit"
    ],
-   "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung.",
+   "rolle": "Als historischer Frühindikator für das Gewinnwachstum des S&P 500 deutet dieser Anstieg auf eine robuste Tech-Nachfrage hin.",
    "tage": {
     "2026-10-01": {
      "p": 0,
@@ -369,6 +482,69 @@
       "Konjunktur & Kapitalverfügbarkeit"
      ],
      "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Als historischer Frühindikator für das Gewinnwachstum des S&P 500 deutet dieser Anstieg auf eine robuste Tech-Nachfrage hin."
+    }
+   }
+  },
+  {
+   "kategorie": "Zinsen & Notenbank",
+   "status": "bestaetigt",
+   "tage_anzahl": 6,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-14",
+   "name": "Fed-Zinserwartungen",
+   "namen": [
+    "Fed-Zinserwartungen"
+   ],
+   "rolle": "Zusätzliche Zinserhöhungen erhöhen das Risiko eines wirtschaftlichen Abschwungs.",
+   "tage": {
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
+    },
+    "2026-10-06": {
+     "p": 2,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
+    },
+    "2026-10-07": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Aussicht, dass nach einer möglichen letzten Zinserhöhung im laufenden Jahr im Folgejahr keine weiteren Schritte folgen, beruhigt die Zinsdebatte."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Zusätzliche Zinserhöhungen erhöhen das Risiko eines wirtschaftlichen Abschwungs."
     }
    }
   },
@@ -476,87 +652,37 @@
    }
   },
   {
-   "kategorie": "Inflation",
+   "kategorie": "Sonstiges",
    "status": "bestaetigt",
-   "tage_anzahl": 4,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-12",
-   "name": "Inflationsdynamik",
+   "tage_anzahl": 3,
+   "erstmals": "2026-10-08",
+   "zuletzt": "2026-10-13",
+   "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
-    "Inflationsdynamik",
-    "Bevorstehende Inflationsdaten (CPI)"
+    "Tech-Investitionszyklus (CapEx)"
    ],
-   "rolle": "Höhere Inflationsdaten könnten die Hoffnungen auf geldpolitische Lockerungen dämpfen und die Zinsängste wieder anfachen.",
+   "rolle": "Befürchtungen über nachlassende Investitionsdynamik und teure Kreditfinanzierungen im Halbleiterbereich belasten das Sentiment.",
    "tage": {
-    "2026-10-01": {
-     "p": -1,
+    "2026-10-08": {
+     "p": 1,
      "namen": [
-      "Inflationsdynamik"
+      "Tech-Investitionszyklus (CapEx)"
      ],
-     "rolle": "Hartnäckige Teuerungsraten dämpfen Hoffnungen auf rasche Zinssenkungen der Notenbanken."
-    },
-    "2026-10-02": {
-     "p": -1,
-     "namen": [
-      "Bevorstehende Inflationsdaten (CPI)"
-     ],
-     "rolle": "Anhaltende Preissorgen könnten die Erholung am Anleihe- und Aktienmarkt dämpfen."
-    },
-    "2026-10-09": {
-     "p": -1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Hartnäckige Inflationsdaten könnten die Notenbank zu längeren Zinserhöhungsphasen zwingen."
+     "rolle": "Die massiven Unternehmensausgaben treiben das Wachstum der führenden Tech-Konzerne an."
     },
     "2026-10-12": {
+     "p": -2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Zweifel an der Tragfähigkeit der massiven Investitionen belasten das gesamte Marktumfeld im Technologiesektor."
+    },
+    "2026-10-13": {
      "p": -1,
      "namen": [
-      "Inflationsdynamik"
+      "Tech-Investitionszyklus (CapEx)"
      ],
-     "rolle": "Höhere Inflationsdaten könnten die Hoffnungen auf geldpolitische Lockerungen dämpfen und die Zinsängste wieder anfachen."
-    }
-   }
-  },
-  {
-   "kategorie": "Zinsen & Notenbank",
-   "status": "bestaetigt",
-   "tage_anzahl": 4,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-07",
-   "name": "Fed-Zinserwartungen",
-   "namen": [
-    "Fed-Zinserwartungen"
-   ],
-   "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren.",
-   "tage": {
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
-    },
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
-    },
-    "2026-10-06": {
-     "p": 2,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
-    },
-    "2026-10-07": {
-     "p": 0,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren."
+     "rolle": "Befürchtungen über nachlassende Investitionsdynamik und teure Kreditfinanzierungen im Halbleiterbereich belasten das Sentiment."
     }
    }
   },
@@ -585,34 +711,6 @@
       "US-Zollpolitik & Schuldenpläne"
      ],
      "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt."
-    }
-   }
-  },
-  {
-   "kategorie": "Sonstiges",
-   "status": "beobachtet",
-   "tage_anzahl": 2,
-   "erstmals": "2026-10-08",
-   "zuletzt": "2026-10-12",
-   "name": "Tech-Investitionszyklus (CapEx)",
-   "namen": [
-    "Tech-Investitionszyklus (CapEx)"
-   ],
-   "rolle": "Zweifel an der Tragfähigkeit der massiven Investitionen belasten das gesamte Marktumfeld im Technologiesektor.",
-   "tage": {
-    "2026-10-08": {
-     "p": 1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Die massiven Unternehmensausgaben treiben das Wachstum der führenden Tech-Konzerne an."
-    },
-    "2026-10-12": {
-     "p": -2,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Zweifel an der Tragfähigkeit der massiven Investitionen belasten das gesamte Marktumfeld im Technologiesektor."
     }
    }
   },

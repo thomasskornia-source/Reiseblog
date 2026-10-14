@@ -1,2 +1,149 @@
-Feed nicht lesbar: HTTP Error 404: Not Found
-Nichts Neues.
+Feed: 15 Videos
+   Nw5Q7CWeMX8 2026-10-14 Inflation verschreckt Wall Street. Starke Ergebnisse ignoriert.
+   FLMD819X5Ps 2026-10-14 Inflation verschreckt Wall Street. Starke Ergebnisse ignoriert.
+   44a91nG4zSI 2026-10-13 Kampf am Rekordhoch. Tech und Banken unter Druck.
+   XQ1dFmtr9lk 2026-10-13 Gewinnmitnahmen, selbst nach guten Zahlen. Banken und Tech unter Druck
+   949S5FUtBlE 2026-10-12 KI-Trade: Stimmung trübt sich zunehmend ein.
+   frHubErXKU4 2026-10-12 NVIDIA vor Mega-Deal. Banken und Inflation werden zum Börsentest.
+   OGzNe28uAqQ 2026-10-09 KI-Comeback. Drosselt Apple die iPhone 18 Produktion?
+   7Vh2ukJyHMk 2026-10-08 Bounce bei Non-Tech. Meldung um Open AI trifft KI-Werte.
+Werte aus: 44a91nG4zSI Kampf am Rekordhoch. Tech und Banken unter Druck. 2026-10-13 closing
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: The read operation timed out
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  Score 10 Pfeil seitwaerts (105789 Tokens)
+Werte aus: XQ1dFmtr9lk Gewinnmitnahmen, selbst nach guten Zahlen. Banken und Tech unter Druck. 2026-10-13 opening
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-flash-latest: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-flash-latest: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "s
+Werte aus: Nw5Q7CWeMX8 Inflation verschreckt Wall Street. Starke Ergebnisse ignoriert. 2026-10-14 opening
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  Score -45 Pfeil runter (193198 Tokens)
+Werte aus: FLMD819X5Ps Inflation verschreckt Wall Street. Starke Ergebnisse ignoriert. 2026-10-14 opening
+gemini-3.8-flash: HTTP 403 {
+  "error": {
+    "code": 403,
+    "message": "The caller does not have permission",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+gemini-3.7-flash: HTTP 403 {
+  "error": {
+    "code": 403,
+    "message": "The caller does not have permission",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+gemini-flash-latest: HTTP 403 {
+  "error": {
+    "code": 403,
+    "message": "The caller does not have permission",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 403 {
+  "error": {
+    "code": 403,
+    "message": "The caller does not have permission",
+    "status": "PERMISSION_DENIED"
+  }
+}
+

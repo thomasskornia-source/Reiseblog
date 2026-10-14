@@ -1,6 +1,146 @@
 {
  "beitraege": [
   {
+   "id": "Nw5Q7CWeMX8",
+   "titel": "Inflation verschreckt Wall Street. Starke Ergebnisse ignoriert.",
+   "datum": "2026-10-14",
+   "zeit": "2026-10-14T15:42:06+00:00",
+   "art": "opening",
+   "score": -45,
+   "pfeil": "runter",
+   "thema": "Heißere US-Verbraucherpreise, sprunghaft steigende Anleiherenditen sowie geopolitische Risiken und gemischte Bankzahlen setzen die Wall Street unter Druck.",
+   "gesamtstimmung": "Die Marktstimmung ist von deutlichem Gegenwind geprägt, da hartnäckige Inflationsdaten und steigende Renditen die Zinssorgen neu entfachen. Zudem trüben geopolitische Spannungen und Kursrückgänge im Bankensektor trotz teils robuster Tech-Fundamentaldaten das Gesamtbild.",
+   "begruendung": "Koch sieht die Notenbank in einem Dilemma gefangen, da die Teuerung vor allem durch Energiepreise getrieben wird, Zinsanhebungen aber die breite Wirtschaft treffen. Gleichzeitig belasten anziehende Renditen und geopolitische Brandherde die Risikobereitschaft spürbar.",
+   "indikatoren": [
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "heißer als erwartet über fast alle Segmente hinweg",
+     "pfeil": "runter",
+     "rolle": "Die hartnäckig hohe Kern- und Gesamtinflation zerstört Hoffnungen auf ein baldiges Ende des Zinsdrucks."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "sprunghafter Anstieg der 10-jährigen Renditen über 5,30 %",
+     "pfeil": "runter",
+     "rolle": "Steigende Renditen setzen Bewertungsniveaus unter Druck und sorgen für unmittelbaren Gegenwind an den Aktienmärkten."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Markt preist deutlich höhere Wahrscheinlichkeiten für weitere Zinsschritte ein",
+     "pfeil": "runter",
+     "rolle": "Zusätzliche Zinserhöhungen erhöhen das Risiko eines wirtschaftlichen Abschwungs."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "verharren auf hohem Niveau um 95 Dollar",
+     "pfeil": "runter",
+     "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "anhaltende Eskalationen im Nahen Osten und neue Angriffe in der Ukraine",
+     "pfeil": "runter",
+     "rolle": "Geopolitische Unsicherheiten halten die Risikoprämien hoch und stützen Rohstoffpreise."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Enttäuschungen und scharfe Kursabschläge bei Banken trotz teils ordentlicher Gew",
+     "pfeil": "runter",
+     "rolle": "Schwache Marktreaktionen auf Bankbilanzen signalisieren Vorsicht und zunehmende Belastungen im Kreditbereich."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Hälfte der Aktien im Russell 3000 bereits im Bärenmarkt",
+     "pfeil": "runter",
+     "rolle": "Die schwache Marktbreite verdeutlicht, dass die breite Wirtschaft unter den hohen Zinsen leidet."
+    }
+   ],
+   "zitate": [
+    "mit ordentlich Gegenwind an der Wall Street",
+    "da riecht man Lunte an der Wall Street"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-flash-latest",
+   "tokens": 193198
+  },
+  {
+   "id": "44a91nG4zSI",
+   "titel": "Kampf am Rekordhoch. Tech und Banken unter Druck.",
+   "datum": "2026-10-13",
+   "zeit": "2026-10-13T20:48:24+00:00",
+   "art": "closing",
+   "score": 10,
+   "pfeil": "seitwaerts",
+   "thema": "Markus Koch analysiert die fragile Stabilisierung der Wall Street im Spannungsfeld sinkender Renditen, anstehender Inflationsdaten und anhaltender Skepsis im Technologiesektor.",
+   "gesamtstimmung": "Die Marktstimmung ist verhalten konstruktiv, da sich Anleiherenditen und Ölpreise unter ihren jüngsten Höchstständen stabilisieren und fundamentale Frühindikatoren wie die südkoreanischen Exporte robust bleiben. Belastend wirken jedoch die negative Kursreaktion auf solide Quartalsergebnisse sowie anhaltende Sorgen vor einem Investitionsgipfel bei KI.",
+   "begruendung": "Der Moderator sieht die überbordende Furcht vor einem KI-Einbruch und einer Zinseskalation als potenziell übertrieben an, gestützt durch nachlassenden Renditedruck und starke Exportdaten. Zugleich bremst die Tatsache, dass selbst starke Unternehmensergebnisse unmittelbar abverkauft werden, eine deutlichere Erholung.",
+   "indikatoren": [
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "von den Höchstständen bei 5,35 % auf rund 5,22 % zurückgelaufen",
+     "pfeil": "hoch",
+     "rolle": "Der Rückzug von den Renditespitzen nimmt etwas Druck vom Aktienmarkt, insbesondere vor den anstehenden Verbraucherpreisen."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "stabil um 94,60 Dollar, deutlich unter den September-Hochs",
+     "pfeil": "hoch",
+     "rolle": "Trotz leichter Tagesgewinne bleibt das Rohöl klar unter den Spitzenwerten des Vormonats, was die Inflationssorgen dämpft."
+    },
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "Spannung vor den US-Verbraucherpreisen bei erwarteter moderater Kernrate",
+     "pfeil": "seitwaerts",
+     "rolle": "Treffen die Daten die Schätzungen, könnte dies den Anleiherenditen weiteren Raum nach unten geben."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Signale für Zinsgipfel durch Äußerungen von Fed-Vertreter Williams",
+     "pfeil": "hoch",
+     "rolle": "Die Aussicht, dass nach einer möglichen letzten Zinserhöhung im laufenden Jahr im Folgejahr keine weiteren Schritte folgen, beruhigt die Zinsdebatte."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Industrie- und Exportdaten (Asien & USA)",
+     "lage": "südkoreanische Exporte springen im Jahresvergleich um 84 % an",
+     "pfeil": "hoch",
+     "rolle": "Als historischer Frühindikator für das Gewinnwachstum des S&P 500 deutet dieser Anstieg auf eine robuste Tech-Nachfrage hin."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "selbst gute Quartalszahlen werden am Markt zügig abverkauft",
+     "pfeil": "runter",
+     "rolle": "Die fehlende Nachhaltigkeit bei Kursgewinnen nach guten Zahlen zeigt die Zurückhaltung der Investoren."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Angst vor Dotcom-Parallelen und steigende Zinsen auf KI-Finanzierungen",
+     "pfeil": "runter",
+     "rolle": "Befürchtungen über nachlassende Investitionsdynamik und teure Kreditfinanzierungen im Halbleiterbereich belasten das Sentiment."
+    }
+   ],
+   "zitate": [
+    "mit einem blauen Auge davongekommen",
+    "vielleicht ist diese ganze Sorge und Angst schon wieder ein bisschen übertrieben"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 105789
+  },
+  {
    "id": "949S5FUtBlE",
    "titel": "KI-Trade: Stimmung trübt sich zunehmend ein.",
    "datum": "2026-10-12",
@@ -986,9 +1126,11 @@
   "JloRSV2iBwI",
   "OGzNe28uAqQ",
   "949S5FUtBlE",
-  "frHubErXKU4"
+  "frHubErXKU4",
+  "44a91nG4zSI",
+  "Nw5Q7CWeMX8"
  ],
- "stand": "2026-10-12T21:51Z",
+ "stand": "2026-10-14T18:32Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
