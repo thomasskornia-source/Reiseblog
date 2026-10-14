@@ -437,6 +437,14 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
 .as-final .alt { margin: 10px 0 0; font-size: 14px; line-height: 1.5; }
 .as-final .fine { margin: 10px 0 0; font-size: 12.5px; line-height: 1.45; color: var(--ink2); }
 
+.fz-bars{display:flex;flex-direction:column;gap:6px;margin:2px 0 4px}
+.fz-t{font-size:12px;font-weight:600;color:var(--muted)}
+.fz-r{display:grid;grid-template-columns:118px 1fr 76px;align-items:center;gap:8px;font-size:12.5px}
+.fz-l{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink2)}
+.fz-b{background:var(--paper-warm);border-radius:6px;height:14px;overflow:hidden;display:block}
+.fz-b i{display:block;height:100%;border-radius:6px;background:var(--muted)}
+.fz-b i.c1{background:var(--accent)}.fz-b i.c2{background:#C99A3E}.fz-b i.c3{background:var(--good)}
+.fz-v{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 .as-warn{margin:0 0 10px;padding:10px 12px;border-radius:12px;background:#fdecea;color:#7a1f16;font-size:13.5px;line-height:1.45}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .as-warn{background:#3a1c18;color:#ffd9d4}}
 :root[data-theme="dark"] .as-warn{background:#3a1c18;color:#ffd9d4}
@@ -492,11 +500,15 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
   <div class="as-tt">Die Themen</div>
 
   <!-- 1 Fünftelregelung -->
-  <details class="tc" id="t1"><summary><span class="tn">1</span><span class="tt">Fünftelregelung: Wie viel Steuer spart sie?</span><span class="chip" id="c1"></span></summary>
+  <details class="tc" id="t1"><summary><span class="tn">1</span><span class="tt">Fünftelregelung: Mit und ohne im Vergleich</span><span class="chip" id="c1"></span></summary>
     <div class="tb">
-      <p>Die Abfindung wird nicht wie normales Gehalt besteuert. Das Finanzamt rechnet so, als wäre sie über fünf Jahre verteilt. Das senkt den Steuersatz. Es klappt nur, wenn die Abfindung <b>im Wesentlichen in einem Kalenderjahr</b> fließt. Bis etwa 10 % dürfen im Folgejahr kommen, mehr nicht.</p>
+      <p>Die Abfindung wird nicht wie normales Gehalt besteuert. Das Finanzamt rechnet so, als wäre sie über fünf Jahre verteilt: Es nimmt <b>ein Fünftel</b> der Abfindung, rechnet die Mehrsteuer darauf aus und nimmt sie <b>mal 5</b>. Das senkt den Steuersatz. Es klappt nur, wenn die Abfindung <b>im Wesentlichen in einem Kalenderjahr</b> fließt (bis etwa 10 % dürfen im Folgejahr kommen). Das Finanzamt wählt automatisch die günstigere Rechnung.</p>
+      <div class="as-grid">
+        <label class="f"><span>Auszahlung</span><select id="g-fz"><option value="auto">Empfohlener Termin</option><option value="same">Im Austrittsjahr</option><option value="jan">Januar danach</option><option value="jan2">Januar übernächstes Jahr</option></select></label>
+        <label class="f"><span>Sonderzahlung Rente</span><input id="g-sz" type="number" inputmode="decimal" min="0" step="1000" placeholder="€ im Auszahlungsjahr"></label>
+      </div>
       <div class="as-out" id="o1"></div>
-      <p class="small">Seit 2026 behält der Arbeitgeber die volle Lohnsteuer ein, den Vorteil gibt es erst über die Steuererklärung zurück (nach Presseberichten, bitte vom Steuerberater bestätigen lassen). Du rechnest also mit einem Einbehalt und einer späteren Erstattung.</p>
+      <p class="small">Gemeinsame Veranlagung (Splitting), mit ALG im selben Jahr (Progressionsvorbehalt). Seit 2026 behält der Arbeitgeber die volle Lohnsteuer ein, den Vorteil der Fünftelregelung gibt es erst über die Steuererklärung zurück (nach Presseberichten, bitte vom Steuerberater bestätigen lassen). Du rechnest also mit einem Einbehalt und einer späteren Erstattung. Die Sonderzahlung muss im selben Jahr wie die Abfindung auf das Rentenkonto gehen und als Altersvorsorgeaufwand abziehbar sein; Näherung, keine Steuerberatung.</p>
     </div>
   </details>
 
@@ -753,6 +765,7 @@ function abfindungNetto(P, A) {
     d['g-rbeg'] = 63;
     d['g-rente'] = Math.round(fv('stopRente') || fv('renteInfo')) || '';
     d['g-einz'] = '';
+    d['g-fz'] = 'auto'; d['g-sz'] = 60000;
     d['g-von'] = YEAR + '-10-31'; d['g-bis'] = (YEAR + 1) + '-10-31'; d['g-abf2'] = ''; d['g-sk'] = 'iv';
     var kv0 = fv('stopKv'), kb0 = kv0 > 0 ? kv0 / (0.175 + pvTotal(Math.round(fv('kinder')))) : 0;
     d['g-kap'] = kb0 > K.MINBASIS_KV + 50 ? Math.round(kb0 * 12 / 1000) * 1000 : '';
@@ -807,7 +820,7 @@ function abfindungNetto(P, A) {
     X.e0 = Math.max(1, (v0.y - YEAR) * 12 + v0.m); X.e1 = Math.max(X.e0, Math.min(X.pend, X.e0 + 35, (v1.y - YEAR) * 12 + v1.m));
     X.eLate = (v1.y - YEAR) * 12 + v1.m > X.pend;
     X.hyEnd = YEAR + Math.floor((X.e1 - 1) / 12) + 2;
-    X.abfd = 0; X.kap = rd('g-kap', 0, 0, 1e7); X.sk = X.split ? $('g-sk').value : 'iv';
+    X.sz = rd('g-sz', 0, 0, 1e6); X.fz = $('g-fz').value; X.abfd = 0; X.kap = rd('g-kap', 0, 0, 1e7); X.sk = X.split ? $('g-sk').value : 'iv';
     X.P = { by: X.by, status: X.status, kinder: X.kinder, kirche: X.kirche, beruf: 'angestellt', brutto: X.brutto, partner: (X.split || X.sep) ? { brutto: X.pbrutto, beruf: 'angestellt' } : null };
     X.ageExit = X.exitY - X.by - (X.exitM < X.bm ? 1 : 0);
     return X;
@@ -863,14 +876,14 @@ function abfindungNetto(P, A) {
     return (X.kinder > 0 ? 0.67 : 0.60) * le / 12;
   }
   // Steuer eines Jahres (Einkommensteuer, Soli, Kirchensteuer): b = zu versteuerndes Einkommen ohne Abfindung, alg = Progressionsvorbehalt, pay = Abfindung
-  function yearBurden(X, b, alg, pay) {
+  function yearBurden(X, b, alg, pay, noFifth) {
     var split = X.split, ki = kistRate(X.kirche);
     if (b < 0) { pay = Math.max(0, pay + b); b = 0; }
     var pvTax = function (base, a) { var bp = base + a; return base > 0 && bp > 0 ? est(bp, split) * base / bp : 0; };
     var t;
     if (pay > 0) {
       var bp = b + alg, normal = pvTax(b + pay, alg), fifth = pvTax(b, alg) + 5 * (est(bp + pay / 5, split) - est(bp, split));
-      t = Math.min(normal, fifth);
+      t = noFifth ? normal : Math.min(normal, fifth);
     } else t = pvTax(b, alg);
     return t * (1 + ki) + soliOf(t, b + pay, split, X.kinder);
   }
@@ -887,7 +900,7 @@ function abfindungNetto(P, A) {
     var algM = algOf(X, cls), kapM = X.kap / 12;
     var famOk = X.kv === 'gkv' && X.pk === 'gkv' && kapM <= 565, kvM = X.kv === 'gkv' && !famOk ? kvFrei(X, kapM, false) : 0;
     var famEnd = abfAmt > 0 && X.brutto > 0 ? payIdx + Math.ceil(abfAmt / (X.brutto / 12)) : 0; // Familienversicherung ist ausgeschlossen, solange die Abfindung rechnerisch das Einkommen füllt
-    var R = { ei: ei, ey: ey, em: em, pm: payMode, cls: cls, age: age, M: M, paid: paid, algM: algM, kvM: kvM, famOk: famOk, total: 0, sal: 0, abf: abfAmt, taxAbf: 0, taxAll: 0, alg: 0, kv: 0, kvMonths: 0, kvAbfMonths: 0, gbN: 0, algMonths: 0 };
+    var R = { yrs: [], ei: ei, ey: ey, em: em, pm: payMode, cls: cls, age: age, M: M, paid: paid, algM: algM, kvM: kvM, famOk: famOk, total: 0, sal: 0, abf: abfAmt, taxAbf: 0, taxAll: 0, alg: 0, kv: 0, kvMonths: 0, kvAbfMonths: 0, gbN: 0, algMonths: 0 };
     for (var yi = 0; yi < NY; yi++) {
       var mw = Math.min(12, Math.max(0, ei - yi * 12)), f = mw / 12;
       var gbY = X.gb > 0 && ei > yi * 12 + X.gbm - 1 ? X.gb : 0;
@@ -904,6 +917,7 @@ function abfindungNetto(P, A) {
       var payA = payY === Y0 + yi ? abfAmt : 0;
       var burden = yearBurden(X, b, algY, payA), bare = payA > 0 ? yearBurden(X, b, algY, 0) : burden;
       var partNet = X.split ? X.pbrutto - svOf(X.pbrutto, 'angestellt', X.kinder) : 0;
+      R.yrs.push({ y: Y0 + yi, b: b, alg: algY, earned: earned, pay: payA });
       R.total += earned - sv + partNet + algY + payA - burden - kvY;
       R.sal += earned - sv; R.alg += algY; R.kv += kvY; R.taxAll += burden; R.taxAbf += burden - bare; if (gbY > 0) R.gbN++;
     }
@@ -936,19 +950,58 @@ function abfindungNetto(P, A) {
   function t1(X) {
     var o = $('o1');
     if (!(X.abf > 0)) { o.innerHTML = box('y', 'Trage oben die Abfindung (brutto) ein.'); chip('c1', 'y', 'Abfindung fehlt'); return; }
-    var f = X.hasExit ? X.exitM / 12 : 1, base = baseOf(X, f, gbIn(X, X.exitM), 0), r = abfTax(X, base, X.abf);
-    Q.t1 = r; Q.base1 = base;
-    o.innerHTML = tbl([
-      row('Steuer ohne Fünftelregelung', eur(r.taxNormal)),
-      row('Steuer mit Fünftelregelung', eur(r.tax)),
-      row('Ersparnis', eur(r.saving), r.saving > 0 ? 'pos' : ''),
-      row('Netto von ' + eur(X.abf), eur(X.abf - r.tax)),
-      row('Steuer in Prozent der Abfindung', pct(r.tax / X.abf, 1)),
-      row('Einbehalt bei der Auszahlung', eur(r.taxNormal)),
-      row('Erstattung mit der Steuererklärung', eur(r.saving))
-    ]) + '<p class="small">Rechnerisch: Abfindung bei einem Austritt Ende ' + MON[X.exitM - 1] + ' ' + X.exitY + ', Auszahlung im selben Jahr, übriges Einkommen ' + eur(Math.max(0, base)) + ' zu versteuern.</p>';
-    chip('c1', r.saving > 0 ? 'g' : 'y', r.saving > 0 ? 'spart ' + eur(r.saving) : 'kein Vorteil');
-    REC.push({ k: r.saving > 0 ? 'g' : 'y', t: r.saving > 0 ? 'Fünftelregelung nutzen: Die Abfindung muss im Wesentlichen in einem Kalenderjahr fließen (höchstens etwa 10 % im Folgejahr). Das spart rechnerisch rund ' + eur(r.saving) + '. Vom Arbeitgeber wird die volle Steuer einbehalten, die Erstattung kommt mit der Steuererklärung.' : 'Die Fünftelregelung bringt bei deinen Angaben keinen Vorteil. Prüfe das mit dem Steuerberater.', who: ['st'] });
+    var f = X.hasExit ? X.exitM / 12 : 1, base = baseOf(X, f, gbIn(X, X.exitM), 0);
+    Q.t1 = abfTax(X, base, X.abf); Q.base1 = base;
+    var SC = Q.SC || (Q.SC = scenarios(X)), bw = SC.rows[SC.bi], pm = X.fz === 'auto' || !X.fz ? bw.pm : X.fz;
+    var R = sim(X, bw.ey, bw.em, pm, X.sk), payY = pm === 'jan' ? bw.ey + 1 : (pm === 'jan2' ? bw.ey + 2 : bw.ey);
+    var yr = null; R.yrs.forEach(function (y) { if (y.y === payY) yr = y; });
+    if (!yr) { o.innerHTML = box('y', 'Für dieses Auszahlungsjahr liegt keine Rechnung vor.'); chip('c1', 'y', ''); return; }
+    var abf = R.abf, split = X.split;
+    var share = 0.186 * Math.min(yr.earned, K.BBG_RV) + (X.P.partner ? 0.186 * Math.min(X.pbrutto, K.BBG_RV) : 0);
+    var room = Math.max(0, H_BASIS * (split ? 2 : 1) - share), ded = Math.min(X.sz, room);
+    var calc = function (b, noF) { var t = yearBurden(X, b, yr.alg, abf, noF), bare = yearBurden(X, b, yr.alg, 0); return { tot: t, tax: t - bare, bare: bare, b: b, net: abf - (t - bare) }; };
+    var A0 = calc(yr.b, true), A1 = calc(yr.b, false), B0 = calc(yr.b - ded, true), B1 = calc(yr.b - ded, false);
+    Q.t1b = { A0: A0, A1: A1, B0: B0, B1: B1, ded: ded, payY: payY };
+    var tab = function (head, N, M, extra) {
+      var h = '<table class="as-t as-t3"><thead><tr><th>' + head + '</th><th class="r">Ohne</th><th class="r">Mit</th></tr></thead><tbody>';
+      [['Übriges Einkommen im Jahr' + (extra ? ' nach Abzug' : ''), function (r) { return eur(r.b); }],
+       ['Steuer auf die Abfindung', function (r) { return eur(r.tax); }],
+       ['Steuersatz auf die Abfindung', function (r) { return pct(r.tax / abf, 1); }],
+       ['Steuer insgesamt im Jahr', function (r) { return eur(r.tot); }],
+       ['Abfindung netto', function (r) { return eur(r.net); }]].forEach(function (rw, i, arr) {
+        h += '<tr' + (i === arr.length - 1 ? ' class="best"' : '') + '><td>' + rw[0] + '</td><td class="r">' + rw[1](N) + '</td><td class="r">' + rw[1](M) + '</td></tr>';
+      });
+      return h + '</tbody></table>';
+    };
+    var mx = Math.max(A0.tax, A1.tax, B0.tax, B1.tax, 1);
+    var bar = function (l, r, c) { return '<div class="fz-r"><span class="fz-l">' + l + '</span><span class="fz-b"><i class="' + c + '" style="width:' + Math.max(2, r.tax / mx * 100).toFixed(1) + '%"></i></span><span class="fz-v">' + eur(r.tax) + '</span></div>'; };
+    var gA = A0.tax - A1.tax, gB = B0.tax - B1.tax, saveSZ = A1.tax - B1.tax;
+    var when = pm === 'jan' ? 'im Januar ' + payY : (pm === 'jan2' ? 'im Januar ' + payY : 'im Jahr ' + payY);
+    var bp = yr.b + yr.alg, mehr = est(bp + abf / 5, split) - est(bp, split);
+    var h = '<p class="small">Austritt ' + MON3[bw.em - 1] + ' ' + bw.ey + ' (rechnerisch am besten), Abfindung ' + eur(abf) + ' brutto ' + when + ', ALG in diesem Jahr ' + eur(yr.alg) + '.</p>';
+    h += '<div class="fz-bars"><div class="fz-t">Steuer auf die Abfindung</div>' + bar('Ohne Fünftel', A0, 'c0') + bar('Mit Fünftel', A1, 'c1') + (ded > 0 ? bar('Ohne Fünftel + Rente', B0, 'c2') + bar('Mit Fünftel + Rente', B1, 'c3') : '') + '</div>';
+    h += tab('Ohne Sonderzahlung', A0, A1, false);
+    if (ded > 0) h += tab('Mit Sonderzahlung ' + eur(X.sz), B0, B1, true);
+    h += box(gA > 100 ? 'g' : 'y', gA > 100 ? '<b>Fünftelregelung ohne Sonderzahlung: ' + eur(gA) + ' weniger Steuer.</b> Rechnung: Ein Fünftel der Abfindung (' + eur(abf / 5) + ') erhöht die Einkommensteuer um ' + eur(mehr) + '. Mal 5 sind das ' + eur(mehr * 5) + ' (ohne Kirchensteuer und Soli).' : '<b>Die Fünftelregelung bringt hier kaum etwas (' + eur(gA) + ').</b> Dein Einkommen im Auszahlungsjahr ist zusammen mit dem Ehepartner schon so hoch, dass auch ein Fünftel der Abfindung im oberen Steuersatz landet. Dann zählt vor allem, in welchem Jahr die Abfindung fließt.');
+    if (X.sz > 0) {
+      var cost = X.sz - saveSZ, ep = X.sz / (0.186 * K.DURCHSCHNITT), rm = ep * K.RENTENWERT, fmax = 0.186 * K.BBG_RV;
+      h += tbl([
+        row('Sonderzahlung in die Rente', eur(X.sz)),
+        row('Davon als Sonderausgabe abziehbar (Platz im Höchstbetrag)', eur(ded) + ' von ' + eur(room)),
+        row('Steuerersparnis (mit Fünftelregelung)', eur(saveSZ), saveSZ > 0 ? 'pos' : ''),
+        row('Echte Kosten nach Steuerersparnis', eur(cost)),
+        row('Steuerersparnis in % der Zahlung', pct(X.sz > 0 ? saveSZ / X.sz : 0, 0)),
+        row('Gegenwert als Rentenpunkte (Näherung)', num(ep, 1) + ' Punkte, ' + eur(rm) + ' Rente/Monat'),
+        row('Echte Kosten ausgeglichen nach', rm > 0 && cost > 0 ? num(cost / (rm * 12), 1) + ' Jahren Rente' : '–')
+      ]);
+      if (X.sz > room + 1) h += box('y', 'Die Zahlung ist größer als der freie Höchstbetrag (' + eur(room) + '). Der Rest ist steuerlich nicht abziehbar.');
+      h += box(saveSZ > 0 ? 'g' : 'y', saveSZ > 0 ? '<b>Mit Sonderzahlung sparst Du zusätzlich ' + eur(saveSZ) + ' Steuer</b> im Auszahlungsjahr. Von den ' + eur(X.sz) + ' kommt also rechnerisch etwa ' + pct(saveSZ / X.sz, 0) + ' über die Steuer zurück.' : 'Die Sonderzahlung senkt die Steuer hier nicht.');
+      if (saveSZ > 0) h += '<p class="small">Warum die Ersparnis so hoch ausfällt: Die Fünftelregelung rechnet die Mehrsteuer auf ein Fünftel der Abfindung und nimmt sie mal 5. Ein Abzug im selben Jahr senkt dein übriges Einkommen und verschiebt dieses Fünftel in niedrigere Steuersätze, und dieser Effekt wird ebenfalls mit 5 multipliziert. Das ist eine Näherung. Der Steuerberater muss sie mit der echten Steuerlage nachrechnen, bevor Du einzahlst.</p>';
+      if (X.sz > fmax + 1) h += '<p class="small">Hinweis: Freiwillige Beiträge sind je Jahr auf etwa ' + eur(fmax) + ' (Höchstbeitrag) begrenzt. Darüber geht nur der Ausgleich von Rentenabschlägen nach § 187a (Thema 9). Die Rentenpunkte oben gelten daher nur für den Teil, der als normaler Beitrag Punkte bringt.</p>';
+    }
+    o.innerHTML = h;
+    chip('c1', gA > 100 || saveSZ > 0 ? 'g' : 'y', gA > 100 ? 'spart ' + eur(gA) : 'kaum Vorteil');
+    REC.push({ k: gA > 100 ? 'g' : 'y', t: (gA > 100 ? 'Fünftelregelung nutzen: Sie spart rechnerisch rund ' + eur(gA) + ' (Auszahlung ' + when + '). ' : 'Fünftelregelung bringt bei deinen Angaben nur ' + eur(gA) + '. ') + (X.sz > 0 && saveSZ > 0 ? 'Eine Sonderzahlung von ' + eur(X.sz) + ' in die Rentenversicherung im selben Jahr senkt die Steuer zusätzlich um etwa ' + eur(saveSZ) + ' (echte Kosten ' + eur(X.sz - saveSZ) + '). ' : '') + 'Die Abfindung muss im Wesentlichen in einem Kalenderjahr fließen. Vom Arbeitgeber wird die volle Steuer einbehalten, die Erstattung kommt mit der Steuererklärung.', who: ['st', 'drv'] });
   }
 
   function t2(X) {
@@ -974,7 +1027,7 @@ function abfindungNetto(P, A) {
   }
 
   function t3(X) {
-    var o = $('o3'), SC = scenarios(X), rows = SC.rows, b = rows[SC.bi], f = rows[0];
+    var o = $('o3'), SC = Q.SC || (Q.SC = scenarios(X)), rows = SC.rows, b = rows[SC.bi], f = rows[0];
     Q.t3 = { rows: rows, bi: SC.bi };
     var en = function (v) { return isFinite(v) ? Math.round(v).toLocaleString('de-DE') : '–'; };
     var h = '<div class="as-scroll"><table class="as-t as-t3"><thead><tr><th>Austritt</th><th class="r">ALG</th><th class="r">Zahlung</th><th class="r">Netto €</th><th class="r">± €</th></tr></thead><tbody>';
