@@ -437,6 +437,10 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
 .as-final .alt { margin: 10px 0 0; font-size: 14px; line-height: 1.5; }
 .as-final .fine { margin: 10px 0 0; font-size: 12.5px; line-height: 1.45; color: var(--ink2); }
 
+.as-grid .f > span.hasi{display:flex;align-items:center;gap:6px}
+.ibtn{margin-left:0;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--accent,#A8553A);background:transparent;color:var(--accent,#A8553A);font:italic 700 13px/1 Georgia,serif;cursor:pointer;padding:0;flex:none;display:inline-flex;align-items:center;justify-content:center}
+.ibtn[aria-expanded="true"]{background:var(--accent,#A8553A);color:#fff}
+.as-box[hidden]{display:none}
 .fz-bars{display:flex;flex-direction:column;gap:6px;margin:2px 0 4px}
 .fz-t{font-size:12px;font-weight:600;color:var(--muted)}
 .fz-r{cursor:pointer;border-radius:8px;padding:2px 4px;margin:0 -4px}.fz-r.sel{background:var(--paper-warm);box-shadow:inset 0 0 0 1.5px var(--accent)}.fz-r{display:grid;grid-template-columns:118px 1fr 76px;align-items:center;gap:8px;font-size:12.5px}
@@ -504,7 +508,21 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
     <div class="tb">
       <p>Die Abfindung wird nicht wie normales Gehalt besteuert. Das Finanzamt rechnet so, als wäre sie über fünf Jahre verteilt: Es nimmt <b>ein Fünftel</b> der Abfindung, rechnet die Mehrsteuer darauf aus und nimmt sie <b>mal 5</b>. Das senkt den Steuersatz. Es klappt nur, wenn die Abfindung <b>im Wesentlichen in einem Kalenderjahr</b> fließt (bis etwa 10 % dürfen im Folgejahr kommen). Das Finanzamt wählt automatisch die günstigere Rechnung.</p>
       <div class="as-grid">
-        <label class="f"><span>Sonderzahlung Rente</span><input id="g-sz" type="number" inputmode="decimal" min="0" step="1000" placeholder="€ im Auszahlungsjahr"></label>
+        <label class="f"><span class="hasi">Einzahlung Rente<button type="button" class="ibtn" id="szI" aria-label="Info zur Sonderzahlung Rente" aria-expanded="false">i</button></span><input id="g-sz" type="number" inputmode="decimal" min="0" step="1000" placeholder="€ im Auszahlungsjahr"></label>
+      </div>
+      <div class="as-box b" id="szInfo" hidden style="font-size:13.5px;line-height:1.5">
+        <b>Wie kommst du an so eine Sonderzahlung in die Rente?</b>
+        <p style="margin:6px 0"><b>1. Freiwillige Beiträge</b> bringen echte neue Rentenpunkte, sind aber stark begrenzt: 2026 höchstens 1.571,70 € im Monat, etwa 18.860 € im Jahr. Du darfst sie nur für Monate zahlen, in denen du nicht rentenversicherungspflichtig bist. Mit Arbeitslosengeld bist du pflichtversichert, deshalb bleiben für 2028 vermutlich nur wenige Monate (zum Beispiel die Sperrzeit). Das bei der Rentenversicherung bestätigen lassen.</p>
+        <p style="margin:6px 0"><b>2. Ausgleich von Rentenabschlägen (§ 187a SGB VI)</b> ist der Weg für größere Summen. Du zahlst, um die Kürzung bei vorzeitiger Rente auszugleichen (bei Rente mit 63 bis zu 14,4 %).</p>
+        <ul style="margin:6px 0 6px;padding-left:18px">
+          <li>Mindestalter 50. Du brauchst eine Rentenauskunft mit deinem geplanten Rentenbeginn und musst erklären, dass du vorzeitig in Rente gehen willst.</li>
+          <li>Den Höchstbetrag nennt die Rentenversicherung in dieser Auskunft. Er hängt von deinen Entgeltpunkten ab. Grobe Schätzung für dich: 60.000 bis 100.000 €.</li>
+          <li>Einmalzahlung oder Teilbeträge, höchstens zwei Zahlungen pro Jahr. Arbeitslosengeld steht dem nicht im Weg (nach meinem Kenntnisstand, bitte bestätigen lassen).</li>
+          <li>Steuerlich ist der Betrag nach meinem Wissen wie andere Rentenbeiträge als Altersvorsorge abziehbar (Höchstbetrag 61.652 € gemeinsam, abzüglich der Rentenbeiträge aus dem Gehalt). Der Steuerberater muss das bestätigen.</li>
+          <li>Gehst du doch nicht früher, wird nichts erstattet, das Geld zählt aber als Bonus auf deine Entgeltpunkte.</li>
+        </ul>
+        <p style="margin:6px 0"><b>Für deine Rechnung:</b> Die 53.000 € passen nur über den zweiten Weg. Die gezeigte Rente ist dann kein Zuschlag auf die normale Rente, sondern weniger Abschlag bei einer Rente mit 63. Der Steuervorteil ist derselbe.</p>
+        <p style="margin:6px 0"><b>Nächster Schritt:</b> Rentenauskunft mit Ausgleichsbetrag bei der Rentenversicherung beantragen. Quellen: <a href="https://lxgesetze.de/sgb-vi/187a" target="_blank" rel="noopener">§ 187a SGB VI</a>, <a href="https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260209-freiwillige-beitraege-rente-erhoehen" target="_blank" rel="noopener">freiwillige Beiträge 2026</a>.</p>
       </div>
       <div class="as-out" id="o1"></div>
       <p class="small">Gemeinsame Veranlagung (Splitting), mit ALG im selben Jahr (Progressionsvorbehalt). Seit 2026 behält der Arbeitgeber die volle Lohnsteuer ein, den Vorteil der Fünftelregelung gibt es erst über die Steuererklärung zurück (nach Presseberichten, bitte vom Steuerberater bestätigen lassen). Du rechnest also mit einem Einbehalt und einer späteren Erstattung. Die Sonderzahlung muss im selben Jahr wie die Abfindung auf das Rentenkonto gehen und als Altersvorsorgeaufwand abziehbar sein; Näherung, keine Steuerberatung.</p>
@@ -965,6 +983,7 @@ function abfindungNetto(P, A) {
     var k = r.getAttribute('data-k'); if (FZN[k] == null) return;
     ev.preventDefault(); fzSel = k; try { localStorage.setItem('fp-fz-sel', k); } catch (e) { /* ohne Speicher */ } fzApply();
   }
+  (function () { var b = $('szI'), bx = $('szInfo'); b.addEventListener('click', function (ev) { ev.preventDefault(); ev.stopPropagation(); bx.hidden = !bx.hidden; b.setAttribute('aria-expanded', String(!bx.hidden)); }); })();
   document.addEventListener('click', fzPick); document.addEventListener('keydown', fzPick);
   var REC = []; // Empfehlungen für die Zusammenfassung: {k: g|y|r, t: Text, who: [..]}
   var Q = {};   // gemerkte Ergebnisse
