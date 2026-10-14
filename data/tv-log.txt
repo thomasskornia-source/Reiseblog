@@ -1,8 +1,13 @@
-Quelle ok 7000 Zeichen ohne 20:15 https://www.tvinfo.de/tv-programm
+Quelle ok 7000 Zeichen mit 20:15 https://www.tvinfo.de/tv-programm
 Quelle ok 7000 Zeichen mit 20:15 https://www.tv-programmheute.de/
 Quelle ok 7000 Zeichen mit 20:15 https://www.hoerzu.de/tv-programm/jetzt/
-Quelle ok 6637 Zeichen mit 20:15 https://www.tv.de/programm/
+Quelle ok 5103 Zeichen mit 20:15 https://www.tv.de/programm/
 Quelle ok 7000 Zeichen mit 20:15 https://programm.ard.de/TV/Programm/Alle-Sender/
-Quelle ok 3257 Zeichen mit 20:15 https://www.ndr.de/fernsehen/programm/index.html
-6 Sendungen für heute
-Sender heute: ['Das Erste', 'NDR', 'ZDF'] | fehlend: ['3sat', 'ARTE', 'BR', 'SWR', 'WDR', 'hr']
+Quelle ok 3529 Zeichen mit 20:15 https://www.ndr.de/fernsehen/programm/index.html
+gemini-3.8-flash: HTTP 503
+gemini-3.8-flash: HTTP 503
+gemini-3.8-flash: HTTP 503
+gemini-flash-latest: HTTP 503
+gemini-flash-latest: HTTP 503
+gemini-flash-latest: HTTP 429
+Gemini-Fehler: gemini-flash-latest: HTTP 429
