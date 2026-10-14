@@ -439,7 +439,7 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
 
 .fz-bars{display:flex;flex-direction:column;gap:6px;margin:2px 0 4px}
 .fz-t{font-size:12px;font-weight:600;color:var(--muted)}
-.fz-r{display:grid;grid-template-columns:118px 1fr 76px;align-items:center;gap:8px;font-size:12.5px}
+.fz-r{cursor:pointer;border-radius:8px;padding:2px 4px;margin:0 -4px}.fz-r.sel{background:var(--paper-warm);box-shadow:inset 0 0 0 1.5px var(--accent)}.fz-r{display:grid;grid-template-columns:118px 1fr 76px;align-items:center;gap:8px;font-size:12.5px}
 .fz-l{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink2)}
 .fz-b{background:var(--paper-warm);border-radius:6px;height:14px;overflow:hidden;display:block}
 .fz-b i{display:block;height:100%;border-radius:6px;background:var(--muted)}
@@ -491,8 +491,8 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
       <input id="g-abf" type="hidden"><input id="g-pd" type="hidden">
       <div class="as-box" id="abfBox" style="grid-column:1/-1"></div>
       <label class="f"><span>Letzter Arbeitstag</span><input id="g-exit" type="date"></label>
-      <label class="f"><span>Gewinnbeteiligung</span><input id="g-gb" type="number" inputmode="decimal" min="0" step="100" placeholder="€ brutto"></label>
-      <label class="f"><span>Gewinnbet. im Monat</span><select id="g-gbm"></select></label>
+      <label class="f"><span>Abfindung netto</span><input id="fz-netto" type="text" readonly placeholder="Auswahl unten"></label>
+      <div hidden><input id="g-gb" type="number"><select id="g-gbm"></select></div>
     </div>
     <p class="small" id="baseHint"></p>
   </section>
@@ -945,12 +945,26 @@ function abfindungNetto(P, A) {
   function box(kind, html) { return '<div class="as-box ' + kind + '">' + html + '</div>'; }
   var WHO = { st: 'Steuerberater', ra: 'Fachanwalt Arbeitsrecht', ba: 'Agentur für Arbeit', kk: 'Krankenkasse', drv: 'Rentenversicherung', ag: 'Arbeitgeber' };
 
+  var FZN = null, fzSel = 'a1';
+  try { fzSel = localStorage.getItem('fp-fz-sel') || 'a1'; } catch (e) { /* ohne Speicher */ }
+  function fzApply() {
+    var el = $('fz-netto'); if (!el) return;
+    el.value = FZN && FZN[fzSel] != null ? eur(FZN[fzSel]) : '';
+    var rs = document.querySelectorAll('#o1 .fz-r'); for (var i = 0; i < rs.length; i++) rs[i].classList.toggle('sel', rs[i].getAttribute('data-k') === fzSel);
+  }
+  function fzPick(ev) {
+    if (ev.type === 'keydown' && ev.key !== 'Enter' && ev.key !== ' ') return;
+    var r = ev.target.closest ? ev.target.closest('.fz-r') : null; if (!r || !FZN) return;
+    var k = r.getAttribute('data-k'); if (FZN[k] == null) return;
+    ev.preventDefault(); fzSel = k; try { localStorage.setItem('fp-fz-sel', k); } catch (e) { /* ohne Speicher */ } fzApply();
+  }
+  document.addEventListener('click', fzPick); document.addEventListener('keydown', fzPick);
   var REC = []; // Empfehlungen für die Zusammenfassung: {k: g|y|r, t: Text, who: [..]}
   var Q = {};   // gemerkte Ergebnisse
 
   /* ---------- Themen ---------- */
   function t1(X) {
-    var o = $('o1');
+    var o = $('o1'); FZN = null; $('fz-netto').value = '';
     if (!(X.abf > 0)) { o.innerHTML = box('y', 'Trage oben die Abfindung (brutto) ein.'); chip('c1', 'y', 'Abfindung fehlt'); return; }
     var f = X.hasExit ? X.exitM / 12 : 1, base = baseOf(X, f, gbIn(X, X.exitM), 0);
     Q.t1 = abfTax(X, base, X.abf); Q.base1 = base;
@@ -968,6 +982,8 @@ function abfindungNetto(P, A) {
     var calc = function (b, noF) { var t = yearBurden(X, b, yr.alg, abf, noF), bare = yearBurden(X, b, yr.alg, 0); return { tot: t, tax: t - bare, bare: bare, b: b, net: abf - (t - bare) }; };
     var A0 = calc(yr.b, true), A1 = calc(yr.b, false), B0 = calc(yr.b - ded, true), B1 = calc(yr.b - ded, false);
     Q.t1b = { A0: A0, A1: A1, B0: B0, B1: B1, ded: ded, payY: payY };
+    FZN = { a0: A0.net, a1: A1.net }; if (ded > 0) { FZN.b0 = B0.net; FZN.b1 = B1.net; }
+    if (!FZN[fzSel]) fzSel = 'a1';
     var tab = function (head, N, M, extra) {
       var h = '<table class="as-t as-t3"><thead><tr><th>' + head + '</th><th class="r">Ohne</th><th class="r">Mit</th></tr></thead><tbody>';
       [['Übriges Einkommen im Jahr' + (extra ? ' nach Abzug' : ''), function (r) { return eur(r.b); }],
@@ -980,12 +996,12 @@ function abfindungNetto(P, A) {
       return h + '</tbody></table>';
     };
     var mx = Math.max(A0.tax, A1.tax, B0.tax, B1.tax, 1);
-    var bar = function (l, r, c) { return '<div class="fz-r"><span class="fz-l">' + l + '</span><span class="fz-b"><i class="' + c + '" style="width:' + Math.max(2, r.tax / mx * 100).toFixed(1) + '%"></i></span><span class="fz-v">' + eur(r.tax) + '</span></div>'; };
+    var bar = function (l, r, c, k) { return '<div class="fz-r' + (k === fzSel ? ' sel' : '') + '" data-k="' + k + '" role="button" tabindex="0" title="Antippen: Abfindung netto oben übernehmen"><span class="fz-l">' + l + '</span><span class="fz-b"><i class="' + c + '" style="width:' + Math.max(2, r.tax / mx * 100).toFixed(1) + '%"></i></span><span class="fz-v">' + eur(r.tax) + '</span></div>'; };
     var gA = A0.tax - A1.tax, gB = B0.tax - B1.tax, saveSZ = A1.tax - B1.tax;
     var when = pm === 'jan' ? 'im Januar ' + payY : (pm === 'jan2' ? 'im Januar ' + payY : 'im Jahr ' + payY);
     var pvS = function (base) { return yr.alg > 0 && base > 0 ? est(base + yr.alg, split) * base / (base + yr.alg) : est(Math.max(0, base), split); }, mehr = pvS(yr.b + abf / 5) - pvS(yr.b);
     var h = '<p class="small">Austritt ' + MON3[bw.em - 1] + ' ' + bw.ey + (own ? '' : ' (rechnerisch am besten)') + ', Abfindung ' + eur(abf) + ' brutto ' + (own ? 'am ' + String(X.pdD).padStart(2, '0') + '.' + String(X.pdM).padStart(2, '0') + '.' + X.pdY : when) + ', ALG in diesem Jahr ' + eur(yr.alg) + '.</p>';
-    h += '<div class="fz-bars"><div class="fz-t">Steuer auf die Abfindung</div>' + bar('Ohne Fünftel', A0, 'c0') + bar('Mit Fünftel', A1, 'c1') + (ded > 0 ? bar('Ohne Fünftel + Rente', B0, 'c2') + bar('Mit Fünftel + Rente', B1, 'c3') : '') + '</div>';
+    h += '<div class="fz-bars"><div class="fz-t">Steuer auf die Abfindung (antippen)</div>' + bar('Ohne Fünftel', A0, 'c0', 'a0') + bar('Mit Fünftel', A1, 'c1', 'a1') + (ded > 0 ? bar('Ohne Fünftel + Rente', B0, 'c2', 'b0') + bar('Mit Fünftel + Rente', B1, 'c3', 'b1') : '') + '</div>';
     h += tab('Ohne Sonderzahlung', A0, A1, false);
     if (ded > 0) h += tab('Mit Sonderzahlung ' + eur(X.sz), B0, B1, true);
     var einb = A0.tax, fin = ded > 0 ? B1 : A1;
@@ -1014,6 +1030,7 @@ function abfindungNetto(P, A) {
       if (X.sz > fmax + 1) h += '<p class="small">Hinweis: Freiwillige Beiträge sind je Jahr auf etwa ' + eur(fmax) + ' (Höchstbeitrag) begrenzt. Darüber geht nur der Ausgleich von Rentenabschlägen nach § 187a (Thema 9). Die Rentenpunkte oben gelten daher nur für den Teil, der als normaler Beitrag Punkte bringt.</p>';
     }
     o.innerHTML = h;
+    fzApply();
     chip('c1', gA > 100 || saveSZ > 0 ? 'g' : 'y', gA > 100 ? 'spart ' + eur(gA) : 'kaum Vorteil');
     REC.push({ k: gA > 100 ? 'g' : 'y', t: (gA > 100 ? 'Fünftelregelung nutzen: Sie spart rechnerisch rund ' + eur(gA) + ' (Auszahlung ' + when + '). ' : 'Fünftelregelung bringt bei deinen Angaben nur ' + eur(gA) + '. ') + (X.sz > 0 && saveSZ > 0 ? 'Eine Sonderzahlung von ' + eur(X.sz) + ' in die Rentenversicherung im selben Jahr senkt die Steuer zusätzlich um etwa ' + eur(saveSZ) + ' (echte Kosten ' + eur(X.sz - saveSZ) + '). ' : '') + 'Die Abfindung muss im Wesentlichen in einem Kalenderjahr fließen. Vom Arbeitgeber wird die volle Steuer einbehalten, die Erstattung kommt mit der Steuererklärung.', who: ['st', 'drv'] });
   }
