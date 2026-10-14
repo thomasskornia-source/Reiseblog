@@ -22,5 +22,22 @@
   },
   "lat": 47.6808,
   "lon": 10.9006
+ },
+ {
+  "id": "grube-messel",
+  "date": "2026-10-14",
+  "titel": "Die Grube Messel",
+  "ort": "Messel, Hessen",
+  "land": "Deutschland",
+  "seit": 1995,
+  "kurz": "Ein ehemaliger Ölschiefer-Tagebau, der Fossilien aus einem Urwald von vor rund 47 Millionen Jahren bewahrt.",
+  "text": "Die Grube Messel bei Darmstadt sieht auf den ersten Blick wenig spektakulär aus: ein riesiges Loch im Wald, etwa fünfunddreißig Kilometer südöstlich von Frankfurt. Doch in diesem Loch liegt eine der reichsten Fundstellen der Erdgeschichte, ein Fenster in den Dschungel von vor rund siebenundvierzig Millionen Jahren.\n\nDamals, im Eozän, füllte ein Kratersee die Senke. Feiner Schlamm und abgestorbene Pflanzen sanken auf den sauerstoffarmen Grund und verwandelten sich über unvorstellbar lange Zeit in Ölschiefer. Tiere, die im See oder an seinem Ufer starben, blieben darin erstaunlich gut erhalten, oft sogar mit Haaren, Federn oder Mageninhalt. Gefunden wurden Fische, Krokodile, Schildkröten, Fledermäuse, Insekten und frühe Verwandte der Pferde.\n\nAb dem Jahr achtzehnhundertneunundfünfzig baute man hier zuerst Braunkohle ab, später Ölschiefer. Neunzehnhunderteinundsiebzig war Schluss, und die Grube sollte zur Mülldeponie werden. Dagegen wehrten sich Bürgerinitiativen, Wissenschaftler und Naturschützer, bis ein Gericht die Pläne stoppte. Neunzehnhunderteinundneunzig kaufte das Land Hessen das Gelände, um es für die Forschung zu sichern.\n\nHeute ist die Grube Messel ein Ort für Forschende und Neugierige. Auf einer Aussichtsplattform und bei Führungen bekommt man ein Gefühl für diesen Schatz. Seit neunzehnhundertfünfundneunzig steht sie auf der UNESCO-Welterbeliste, als Naturerbe, weil sie so einzigartig Einblicke in die Entwicklung der Säugetiere gibt. Wer sie besucht, steht sozusagen am Rand eines versunkenen Urwalds.",
+  "sprech": "Die Grube Messel. Die Grube Messel bei Darmstadt sieht auf den ersten Blick wenig spektakulär aus: ein riesiges Loch im Wald, etwa fünfunddreißig Kilometer südöstlich von Frankfurt. Doch in diesem Loch liegt eine der reichsten Fundstellen der Erdgeschichte, ein Fenster in den Dschungel von vor rund siebenundvierzig Millionen Jahren. Damals, im Eozän, füllte ein Kratersee die Senke. Feiner Schlamm und abgestorbene Pflanzen sanken auf den sauerstoffarmen Grund und verwandelten sich über unvorstellbar lange Zeit in Ölschiefer. Tiere, die im See oder an seinem Ufer starben, blieben darin erstaunlich gut erhalten, oft sogar mit Haaren, Federn oder Mageninhalt. Gefunden wurden Fische, Krokodile, Schildkröten, Fledermäuse, Insekten und frühe Verwandte der Pferde. Ab dem Jahr achtzehnhundertneunundfünfzig baute man hier zuerst Braunkohle ab, später Ölschiefer. Neunzehnhunderteinundsiebzig war Schluss, und die Grube sollte zur Mülldeponie werden. Dagegen wehrten sich Bürgerinitiativen, Wissenschaftler und Naturschützer, bis ein Gericht die Pläne stoppte. Neunzehnhunderteinundneunzig kaufte das Land Hessen das Gelände, um es für die Forschung zu sichern. Heute ist die Grube Messel ein Ort für Forschende und Neugierige. Auf einer Aussichtsplattform und bei Führungen bekommt man ein Gefühl für diesen Schatz. Seit neunzehnhundertfünfundneunzig steht sie auf der UNESCO-Welterbeliste, als Naturerbe, weil sie so einzigartig Einblicke in die Entwicklung der Säugetiere gibt. Wer sie besucht, steht sozusagen am Rand eines versunkenen Urwalds.",
+  "lat": 49.9175,
+  "lon": 8.7567,
+  "quelle": {
+   "titel": "Wikipedia: Grube Messel",
+   "url": "https://de.wikipedia.org/wiki/Grube_Messel"
+  }
  }
 ]
