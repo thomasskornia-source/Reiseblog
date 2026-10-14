@@ -373,6 +373,7 @@ body.st-open { overflow: hidden; }
 #printSheet.view .con { break-inside: avoid; page-break-inside: avoid; margin-bottom: 6pt; }
 #printSheet.view section { overflow-x: auto; } #printSheet.view th, #printSheet.view td { overflow-wrap: anywhere; } #printSheet.view td.r, #printSheet.view th.r { white-space: normal; }
 #printSheet .ps-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 10000; display: flex; gap: 10px; align-items: center; justify-content: space-between; padding: 10px 16px; background: #2f3a33; color: #fff; font: 14px/1.3 -apple-system, 'Helvetica Neue', Arial, sans-serif; } #printSheet .ps-bar button { min-height: 40px; padding: 6px 16px; border: 0; border-radius: 10px; background: #FAF3E8; color: #2f3a33; font: 600 14px -apple-system, Arial, sans-serif; }
+#printSheet .ps-bar .ps-btns { display: flex; gap: 8px; flex: none; }
 #printSheet:not(.view) .ps-bar { display: none; }
 #printSheet ul.chk { list-style: none; margin-left: 0; padding: 0; }
 @media print { #printSheet .ps-bar { display: none !important; } }
@@ -2605,13 +2606,97 @@ function compute(P) {
     return h;
   }
   function fillPrint() { var el = $('printSheet'); if (el) el.innerHTML = buildPrint(); }
+  // PDF direkt aus der Druckansicht (für Geräte ohne Druckdialog, z. B. iPhone-App): jsPDF liegt im Ordner lib/
+  function loadScript(src) { return new Promise(function (ok, no) { var s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = no; document.head.appendChild(s); }); }
+  var PDFLIB = null;
+  function pdfLib() {
+    if (window.jspdf && window.jspdf.jsPDF && window.jspdf.jsPDF.API.autoTable) return Promise.resolve();
+    if (!PDFLIB) PDFLIB = loadScript('lib/jspdf.umd.min.js?v=1').then(function () { return loadScript('lib/jspdf.plugin.autotable.min.js?v=1'); }).catch(function (e) { PDFLIB = null; throw e; });
+    return PDFLIB;
+  }
+  function pdfTxt(s) {
+    return String(s).replace(/[  ]/g, ' ').replace(/[‐‑−]/g, '-').replace(/☐/g, '[ ]').replace(/[✓✔]/g, 'OK').replace(/[✕✗]/g, 'x').replace(/≈/g, 'ca.').replace(/→/g, '->').replace(/≥/g, '>=').replace(/≤/g, '<=').replace(/[^\x20-\x7e\xa1-\xff€–—‘’‚“”„•…]/g, '').replace(/\s+/g, ' ').trim();
+  }
+  function pdfEl(el) { var c = el.cloneNode(true); Array.prototype.forEach.call(c.querySelectorAll('br'), function (b) { b.parentNode.replaceChild(document.createTextNode(' '), b); }); return pdfTxt(c.textContent); }
+  function buildPdf() {
+    var doc = new window.jspdf.jsPDF({ unit: 'pt', format: 'a4' }), W = 595.28, H = 841.89, M = 40, CW = W - 2 * M, y = M;
+    doc.setProperties({ title: 'Finanzplanung: Eingaben und Ergebnisse' });
+    function room(h) { if (y + h > H - M - 14) { doc.addPage(); y = M; } }
+    function para(t, size, bold, gap, color, indent) {
+      if (!t) return;
+      doc.setFont('helvetica', bold ? 'bold' : 'normal'); doc.setFontSize(size); doc.setTextColor(color || 20);
+      var lines = doc.splitTextToSize(t, CW - (indent || 0)), lh = size * 1.3;
+      lines.forEach(function (ln) { room(lh); doc.text(ln, M + (indent || 0), y + size); y += lh; });
+      y += gap || 0;
+    }
+    function table(t) {
+      var head = [], body = [], right = {}, ncol = 0;
+      Array.prototype.forEach.call(t.rows, function (r) {
+        var cells = Array.prototype.map.call(r.cells, pdfEl);
+        if (r.parentNode.tagName.toLowerCase() === 'thead') head.push(cells); else body.push(cells);
+        ncol = Math.max(ncol, cells.length);
+        Array.prototype.forEach.call(r.cells, function (c, i) { if (/(^|\s)r(\s|$)/.test(c.className)) right[i] = { halign: 'right' }; });
+      });
+      if (!ncol) return;
+      var label = !head.length && ncol === 2;
+      if (label) right[0] = { cellWidth: CW * 0.42 };
+      room(50);
+      doc.autoTable({ startY: y, head: head, body: body, margin: { left: M, right: M, bottom: M + 14 }, theme: 'grid',
+        styles: { font: 'helvetica', fontSize: 8.5, cellPadding: 3, lineColor: [205, 205, 205], lineWidth: 0.4, textColor: 20, overflow: 'linebreak' },
+        headStyles: { fillColor: [236, 231, 221], textColor: 20, fontStyle: 'bold' }, columnStyles: right,
+        didParseCell: function (d) { if (label && d.section === 'body' && d.column.index === 0) d.cell.styles.fillColor = [248, 245, 239]; } });
+      y = doc.lastAutoTable.finalY + 8;
+    }
+    function list(ul) {
+      Array.prototype.forEach.call(ul.children, function (li) {
+        var t = pdfEl(li); if (!t) return;
+        para(t.indexOf('[ ]') === 0 ? t : '- ' + t, 9.5, false, 2);
+      });
+      y += 4;
+    }
+    function walk(el) {
+      Array.prototype.forEach.call(el.children, function (c) {
+        var tag = c.tagName.toLowerCase(), cl = String(c.className || '');
+        if (cl.indexOf('ps-bar') >= 0) return;
+        if (tag === 'h1') para(pdfEl(c), 18, true, 6);
+        else if (tag === 'h2') { room(110); y += 8; para(pdfEl(c), 13, true, 2); doc.setDrawColor(60); doc.setLineWidth(0.8); doc.line(M, y, W - M, y); y += 6; }
+        else if (tag === 'h3') { room(30); y += 4; para(pdfEl(c), 10.5, true, 2); }
+        else if (tag === 'table') table(c);
+        else if (tag === 'ul' || tag === 'ol') list(c);
+        else if (c.querySelector('table,ul,ol,h1,h2,h3,p,div,section')) walk(c);
+        else para(pdfEl(c), /ps-sub|ps-foot/.test(cl) ? 8.5 : 9.5, false, 4, /ps-sub|ps-foot/.test(cl) ? 90 : 20);
+      });
+    }
+    walk($('printSheet'));
+    var n = doc.getNumberOfPages();
+    for (var i = 1; i <= n; i++) { doc.setPage(i); doc.setFont('helvetica', 'normal'); doc.setFontSize(8); doc.setTextColor(110); doc.text('Finanzplanung, Seite ' + i + ' von ' + n, W / 2, H - 22, { align: 'center' }); }
+    return doc.output('blob');
+  }
+  function pdfDownload(blob, name) {
+    var u = URL.createObjectURL(blob), a = document.createElement('a'); a.href = u; a.download = name; document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(u); if (a.parentNode) a.parentNode.removeChild(a); }, 5000);
+  }
+  function pdfSave(btn, msg) {
+    var old = btn.textContent; btn.textContent = '…'; btn.disabled = true;
+    pdfLib().then(function () {
+      var blob = buildPdf(), name = 'Finanzplanung-' + new Date().toISOString().slice(0, 10) + '.pdf', f = null;
+      try { f = new File([blob], name, { type: 'application/pdf' }); } catch (e) { f = null; }
+      if (f && navigator.canShare && navigator.canShare({ files: [f] })) {
+        return navigator.share({ files: [f], title: 'Finanzplanung' }).catch(function (e) { if (!e || e.name !== 'AbortError') pdfDownload(blob, name); });
+      }
+      pdfDownload(blob, name);
+    }).catch(function () { msg.textContent = 'Das PDF konnte nicht erstellt werden. Bitte die Seite neu laden und noch einmal versuchen.'; }).then(function () { btn.textContent = old; btn.disabled = false; });
+  }
   var PRINTED = false;
   function closeView() { var el = $('printSheet'); el.classList.remove('view'); document.documentElement.style.overflow = ''; }
   function showView() {
     var el = $('printSheet'); fillPrint();
     var bar = document.createElement('div'); bar.className = 'ps-bar';
-    bar.innerHTML = '<span>Druckansicht. Zum Drucken oder Sichern in Safari: Teilen-Symbol, dann „Drucken“ oder „Als PDF sichern“.</span><button type="button">Schließen</button>';
-    el.insertBefore(bar, el.firstChild); bar.querySelector('button').addEventListener('click', closeView);
+    bar.innerHTML = '<span class="ps-msg">Druckansicht. Mit „PDF“ speicherst oder teilst du die Seiten als Datei.</span><div class="ps-btns"><button type="button" data-a="pdf">PDF</button><button type="button" data-a="x">Schließen</button></div>';
+    el.insertBefore(bar, el.firstChild);
+    bar.querySelector('[data-a="x"]').addEventListener('click', closeView);
+    bar.querySelector('[data-a="pdf"]').addEventListener('click', function (e) { pdfSave(e.currentTarget, bar.querySelector('.ps-msg')); });
+    pdfLib().catch(function () { /* lädt beim Tippen noch einmal */ });
     el.classList.add('view'); el.scrollTop = 0; document.documentElement.style.overflow = 'hidden';
   }
   $('printBtn').addEventListener('click', function () {
