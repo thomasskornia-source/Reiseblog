@@ -1728,46 +1728,6 @@
   "stand": "2026-10-13"
  },
  {
-  "id": "tv-2ad50af54f",
-  "rubrik": "tv",
-  "titel": "Abenteuer Diagnose",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-13",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Medizinisches Doku-Format, Sendedauer 45 Minuten. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-13",
-  "thema": "NDR"
- },
- {
-  "id": "tv-2bb4116ec7",
-  "rubrik": "tv",
-  "titel": "Visite",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-13",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Gesundheitsmagazin, Sendedauer 45 Minuten. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-13",
-  "thema": "NDR"
- },
- {
   "id": "stream-shutter-island",
   "rubrik": "stream",
   "titel": "Shutter Island",
@@ -1988,5 +1948,125 @@
   "url": "https://www.netflix.com/de/",
   "stand": "2026-10-14",
   "thema": "Netflix"
+ },
+ {
+  "id": "tv-1e5820cf9c",
+  "rubrik": "tv",
+  "titel": "Wissen vor acht - Erde",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-14",
+  "datum_bis": "",
+  "zeit": "19:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kurzes Wissensformat über die Erde mit einer Dauer von fünf Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-14",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-7d913f4f26",
+  "rubrik": "tv",
+  "titel": "Frau ohne Namen",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-14",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Spielfilm und Thriller mit einer Laufzeit von rund 90 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-14",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-50d405dc99",
+  "rubrik": "tv",
+  "titel": "Plusminus",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-14",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Wirtschaftsmagazin mit einer Sendedauer von etwa 30 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-14",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-3fedeb7a7f",
+  "rubrik": "tv",
+  "titel": "Expeditionen ins Tierreich - Das Rote Meer - Wunderwelt zwischen Wüste und Meer",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-14",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Naturdokumentation über die faszinierende Unterwasserwelt des Roten Meeres. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-14",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-deb652573f",
+  "rubrik": "tv",
+  "titel": "Wir werden Camper! - Die Erbslöhs an der Côte d’Azur",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-14",
+  "datum_bis": "",
+  "zeit": "21:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Begleitung von Familie Erbslöh bei ihren Camping-Erlebnissen an der Côte d’Azur. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-14",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-3fc9c9c181",
+  "rubrik": "tv",
+  "titel": "Lass dich überwachen!",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-14",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Unterhaltungsshow mit einer Sendedauer von rund 90 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-14",
+  "thema": "ZDF"
  }
 ]
