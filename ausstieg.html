@@ -581,7 +581,7 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
   <details class="tc" id="t7"><summary><span class="tn">8</span><span class="tt">Wie bin ich danach krankenversichert?</span><span class="chip" id="c7"></span></summary>
     <div class="tb">
       <div class="as-grid">
-        <label class="f"><span>Heute versichert</span><select id="g-kv"><option value="gkv">Gesetzlich</option><option value="pkv">Privat</option></select></label>
+        <label class="f"><span>Heute versichert</span><select id="g-kv"><option value="gkv">Gesetzlich (auch freiwillig)</option><option value="pkv">Privat</option></select></label>
         <label class="f"><span>Partner/in</span><select id="g-pk"><option value="gkv">Gesetzlich versichert</option><option value="pkv">Privat oder Beamte</option><option value="keine">Kein Partner / keine Partnerin</option></select></label>
         <label class="f"><span>Kapitalerträge/Jahr</span><input id="g-kap" type="number" inputmode="decimal" min="0" step="1000" placeholder="€ Dividenden + Kursgewinne"></label>
       </div>
@@ -906,18 +906,18 @@ function abfindungNetto(P, A) {
       var gbY = X.gb > 0 && ei > yi * 12 + X.gbm - 1 ? X.gb : 0;
       var earned = X.brutto * f + gbY, sv = earned > 0 ? svPart(earned, f, X.kinder) : 0;
       var z = earned > 0 ? zOfSelf(earned, f, X.kinder) : 0, pz = X.split ? zOfSelf(X.pbrutto, 1, X.kinder) : 0;
-      var b = z + pz - (X.split ? 72 : 36), algY = 0, kvY = 0;
+      var b = z + pz - (X.split ? 72 : 36), algY = 0, kvY = 0, algMY = 0, kvMY = 0;
       for (var mi = yi * 12; mi < yi * 12 + 12 && mi < N; mi++) {
-        if (mi >= ei + delay && mi < ei + delay + paid) { algY += algM; R.algMonths++; }
+        if (mi >= ei + delay && mi < ei + delay + paid) { algY += algM; R.algMonths++; algMY++; }
         else if (mi >= ei) {
           var inW = abfAmt > 0 && mi >= payIdx && mi < payIdx + 12, km = X.kv !== 'gkv' ? 0 : (famOk && mi >= famEnd ? 0 : kvFrei(X, kapM, inW));
-          kvY += km; if (km > 0) R.kvMonths++; if (inW && km > kvM) R.kvAbfMonths++;
+          kvY += km; if (km > 0) { R.kvMonths++; kvMY++; } if (inW && km > kvM) R.kvAbfMonths++;
         }
       }
       var payA = payY === Y0 + yi ? abfAmt : 0;
       var burden = yearBurden(X, b, algY, payA), bare = payA > 0 ? yearBurden(X, b, algY, 0) : burden;
       var partNet = X.split ? X.pbrutto - svOf(X.pbrutto, 'angestellt', X.kinder) : 0;
-      R.yrs.push({ y: Y0 + yi, b: b, alg: algY, earned: earned, pay: payA });
+      R.yrs.push({ y: Y0 + yi, b: b, alg: algY, earned: earned, pay: payA, kv: kvY, algMon: algMY, kvMon: kvMY });
       R.total += earned - sv + partNet + algY + payA - burden - kvY;
       R.sal += earned - sv; R.alg += algY; R.kv += kvY; R.taxAll += burden; R.taxAbf += burden - bare; if (gbY > 0) R.gbN++;
     }
@@ -1183,7 +1183,26 @@ function abfindungNetto(P, A) {
     var T = Q.t3, rb = T ? T.rows[T.bi].best : null, kvTxt = '';
     if (rb && rb.kvMonths > 0) kvTxt = box('b', 'Beim rechnerisch besten Austritt (' + MON3[rb.em - 1] + ' ' + rb.ey + ') bist du ab ' + MON3[(rb.ei + rb.paid) % 12] + ' ' + (YEAR + Math.floor((rb.ei + rb.paid) / 12)) + ' freiwillig versichert. Bis Ende ' + X.hyEnd + ' kostet das etwa <b>' + eur(rb.kv) + '</b> (' + rb.kvMonths + ' Monate).');
     else if (rb && rb.famOk) kvTxt = box('g', 'Mit deinen Angaben wäre eine Familienversicherung möglich (Kapitalerträge unter 565 € im Monat).');
-    o.innerHTML = box(kind, head) + '<ul class="as-list">' + items.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul>' + tb + kvTxt;
+    var jb = '';
+    if (X.kv !== 'pkv' && rb) {
+      var X0 = Object.assign({}, X, { kap: 0 }), R0 = sim(X0, rb.ey, rb.em, rb.pm, X.sk), kvTot = 0, kvTot0 = 0;
+      jb = '<div class="fz-t" style="margin-top:6px">Krankenversicherung Jahr für Jahr (Austritt ' + MON3[rb.em - 1] + ' ' + rb.ey + ', Abfindung ' + (rb.pm === 'jan' ? 'Januar ' + (rb.ey + 1) : rb.ey) + ')</div><div class="as-scroll"><table class="as-t as-t3"><thead><tr><th>Jahr</th><th class="r">ALG</th><th class="r">freiwillig</th><th class="r">Beitrag</th><th class="r">wegen Kapital</th></tr></thead><tbody>';
+      rb.yrs.forEach(function (y, i) {
+        var k0 = R0.yrs[i].kv; kvTot += y.kv; kvTot0 += k0;
+        if (y.algMon > 0 || y.kvMon > 0) jb += '<tr><td>' + y.y + '</td><td class="r">' + y.algMon + ' M.</td><td class="r">' + y.kvMon + ' M.</td><td class="r">' + eur(y.kv) + '</td><td class="r">' + eur(y.kv - k0) + '</td></tr>';
+      });
+      jb += '<tr class="best"><td>Summe</td><td class="r">' + rb.algMonths + ' M.</td><td class="r">' + rb.kvMonths + ' M.</td><td class="r">' + eur(kvTot) + '</td><td class="r">' + eur(kvTot - kvTot0) + '</td></tr></tbody></table></div>';
+      jb += '<p class="small">ALG = Monate mit Arbeitslosengeld (pflichtversichert, Beitrag trägt die Agentur, keine Beiträge auf Kapitalerträge). freiwillig = Monate, in denen du selbst zahlst. „Wegen Kapital“ = Mehrbeitrag durch deine Kapitalerträge von ' + eur(X.kap) + ' im Jahr.</p>';
+      var rKV = 0.14 + 0.029 + pvTotal(X.kinder), rSt = 0.26375, cap = kapM + X.brutto / 12 >= BBG_KV_M;
+      var rest1 = 1 - rSt, rest2 = 1 - rSt - rKV;
+      jb += '<div class="fz-t" style="margin-top:6px">Was bleibt von 1.000 € realisiertem Kursgewinn?</div><table class="as-t as-t3"><thead><tr><th>Wann realisiert</th><th class="r">Bleibt</th></tr></thead><tbody>'
+        + '<tr><td>In Monaten mit Arbeitslosengeld<small>nur Abgeltungsteuer 26,4 %, Beitrag fällt nicht an</small></td><td class="r">' + eur(1000 * rest1) + '</td></tr>'
+        + '<tr><td>Im Abfindungsfenster (12 Monate ab Auszahlung)<small>die Abfindung füllt den Beitrag bis zur Höchstgrenze, mehr geht nicht</small></td><td class="r">' + eur(1000 * rest1) + '</td></tr>'
+        + '<tr class="best"><td>In freiwilligen Monaten ohne Abfindungsfenster<small>Abgeltungsteuer plus ' + pct(rKV, 1) + ' Beitrag, bis zur Höchstgrenze</small></td><td class="r">' + eur(1000 * rest2) + '</td></tr></tbody></table>';
+      var extra = kvTot - kvTot0;
+      jb += box(rest2 < 0.5 ? 'y' : 'g', '<b>Fazit:</b> ' + (extra > 100 ? 'Deine Kapitalerträge von ' + eur(X.kap) + ' im Jahr kosten im Zeitraum bis ' + X.hyEnd + ' zusätzlich <b>' + eur(extra) + '</b> Krankenversicherung. ' : 'Deine Kapitalerträge erhöhen den Krankenkassenbeitrag im Zeitraum nicht spürbar (Arbeitslosengeld oder Abfindungsfenster decken die Monate ab). ') + 'In freiwilligen Monaten ohne Abfindungsfenster bleiben von jedem Euro Gewinn nur etwa <b>' + pct(rest2, 0) + '</b> übrig (Steuer und Beitrag zusammen ' + pct(1 - rest2, 0) + '). ' + (rest2 < 0.5 ? 'Rendite am Aktienmarkt lohnt sich dann deutlich weniger. ' : '') + '<b>Sinnvoll ist, Gewinne nicht ausgerechnet in freiwillig versicherten Monaten zu realisieren</b>, sondern in Monaten mit Arbeitslosengeld oder im Abfindungsfenster (Bestätigung der Kasse einholen). Nicht verkaufte Kursgewinne zählen nicht. Ganz auf Rendite zu verzichten macht deshalb keinen Sinn: Es geht um den Zeitpunkt der Verkäufe.');
+    }
+    o.innerHTML = box(kind, head) + '<ul class="as-list">' + items.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul>' + tb + kvTxt + jb;
     chip('c7', 'b', X.kv === 'pkv' ? 'Fachmann nötig' : 'ca. ' + eur(kvDein) + '/Monat');
     REC.push({ k: kind === 'r' ? 'r' : 'y', t: X.kv === 'pkv' ? 'Private Krankenversicherung: Beitrag und Wechselmöglichkeiten vor dem Austritt mit einem unabhängigen Versicherungsberater klären.' : 'Krankenversicherung: Mit Arbeitslosengeld läuft sie über die Agentur. Danach bist du freiwillig versichert und zahlst auch auf Dividenden und realisierte Kursgewinne: bei deinen Angaben etwa ' + eur(kvDein) + ' im Monat (Mindestbeitrag ' + eur(kvMin) + ', Höchstbeitrag ' + eur(kvMax) + '). ' + (X.pk === 'gkv' && kapM > 565 ? 'Die Familienversicherung scheidet mit diesen Kapitalerträgen aus. ' : '') + 'Schriftlich bei der Krankenkasse klären, wie Abfindung und Kapitalerträge behandelt werden.', who: ['kk'] });
   }
