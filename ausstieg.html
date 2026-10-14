@@ -570,7 +570,9 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
       <p>Wer sein Arbeitsverhältnis selbst beendet oder an der Beendigung mitwirkt, bekommt normalerweise <b>12 Wochen Sperrzeit</b>. Die Anspruchsdauer sinkt dabei um mindestens ein Viertel. Ausnahmen gibt es, zum Beispiel bei drohender betriebsbedingter Kündigung. Zusätzlich kann das Arbeitslosengeld <b>ruhen</b>, wenn du vor Ablauf der Kündigungsfrist ausscheidest.</p>
       <div class="as-grid">
         <label class="f"><span>Beendigung durch</span><select id="g-ende"><option value="aufhebung_ag">Aufhebung, AG will es</option><option value="programm">Abfindungsprogramm</option><option value="ag_kuend">Kündigung durch AG</option><option value="aufhebung_eigen">Aufhebung, mein Wunsch</option><option value="eigen_kuend">Eigene Kündigung</option></select></label>
-        <label class="f"><span>Frist eingehalten?</span><select id="g-frist"><option value="ja">Ja</option><option value="nein">Nein, früher raus</option><option value="unklar">Weiß ich nicht</option></select></label>
+        <label class="f"><span>Kündigungsfrist (Mon.)</span><input id="g-kf" type="number" inputmode="numeric" min="0" max="12" step="1"></label>
+        <label class="f"><span>Unterschrift am</span><input id="g-sd" type="date"></label>
+        <select id="g-frist" hidden style="display:none"><option value="ja">Ja</option><option value="nein">Nein</option></select>
       </div>
       <div class="as-out" id="o6"></div>
     </div>
@@ -760,7 +762,7 @@ function abfindungNetto(P, A) {
     d['g-gb'] = Math.round((d['g-brutto'] / 12 * 1.5) / 100) * 100;
     d['g-gbm'] = 8;
     d['g-nj'] = fv('stopNeu') || '';
-    d['g-ende'] = 'aufhebung_eigen'; d['g-frist'] = 'ja';
+    d['g-ende'] = 'aufhebung_eigen'; d['g-frist'] = 'ja'; d['g-kf'] = 5; (function () { var t = new Date(); d['g-sd'] = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0'); })();
     d['g-kv'] = 'gkv'; d['g-pk'] = (d['g-status'] === 'verheiratet' || d['g-status'] === 'paar') ? 'gkv' : 'keine';
     d['g-rbeg'] = 63;
     d['g-rente'] = Math.round(fv('stopRente') || fv('renteInfo')) || '';
@@ -815,7 +817,10 @@ function abfindungNetto(P, A) {
     X.exitY = m ? +m[1] : YEAR; X.exitM = m ? Math.min(12, Math.max(1, +m[2])) : 12; X.hasExit = !!m;
     X.gb = rd('g-gb', 0, 0, 5e6); X.gbm = Math.round(rd('g-gbm', 8, 1, 12));
     X.nj = rd('g-nj', 0, 0, 1e5);
-    X.ende = $('g-ende').value; X.frist = $('g-frist').value; X.kv = $('g-kv').value; X.pk = $('g-pk').value;
+    X.ende = $('g-ende').value;
+    X.kf = Math.round(rd('g-kf', 5, 0, 12)); var sdm = /^(\d{4})-(\d{2})-\d{2}$/.exec($('g-sd').value), sdY = sdm ? +sdm[1] : YEAR, sdM = sdm ? +sdm[2] : 1;
+    X.fe = (sdY - YEAR) * 12 + sdM + X.kf; // Ende der ordentlichen Kündigungsfrist (Monatsende, Monatsindex wie bei Austritt)
+    X.frist = X.hasExit && (X.exitY - YEAR) * 12 + X.exitM < X.fe ? 'nein' : 'ja'; X.kv = $('g-kv').value; X.pk = $('g-pk').value;
     X.rbeg = rd('g-rbeg', 63, 55, 70); X.rente = rd('g-rente', 0, 0, 20000); X.einz = String($('g-einz').value).trim() === '' ? -1 : rd('g-einz', 0, 0, 1e7);
     var pv = function (id, dy, dm) { var mm = /^(\d{4})-(\d{2})/.exec($(id).value); return mm ? { y: +mm[1], m: Math.min(12, Math.max(1, +mm[2])) } : { y: dy, m: dm }; };
     var v0 = pv('g-von', YEAR, 10), v1 = pv('g-bis', YEAR + 1, 12);
@@ -898,11 +903,13 @@ function abfindungNetto(P, A) {
     var abfAmt = Math.max(0, ei <= X.turbo || !(X.abf2 > 0) ? X.abf : X.abf2), payIdx = payMode === 'same' ? ei - 1 : (payY - Y0) * 12;
     var sy = Y0 + Math.floor(ei / 12), sm = ei % 12 + 1, age = sy - X.by - (sm <= X.bm ? 1 : 0);
     var M = algMonate(age), sperre = ['aufhebung_eigen', 'eigen_kuend'].indexOf(X.ende) >= 0;
-    var delay = sperre ? 3 : 0, paid = sperre ? Math.max(0, M - Math.max(3, Math.ceil(M / 4))) : M;
+    var ruhM = 0;
+    if (abfAmt > 0 && ei < X.fe) { var pctR = Math.max(0.25, 0.60 - 0.05 * Math.floor(X.bj / 5) - 0.05 * Math.floor(Math.max(0, age - 35) / 5)); ruhM = Math.min(12, X.fe - ei, X.brutto > 0 ? Math.ceil(pctR * abfAmt / (X.brutto / 12)) : 12); } // Ruhen nach § 158 SGB III
+    var delay = Math.max(sperre ? 3 : 0, ruhM), paid = sperre ? Math.max(0, M - Math.max(3, Math.ceil(M / 4))) : M;
     var algM = algOf(X, cls), kapM = X.kap / 12;
     var famOk = X.kv === 'gkv' && X.pk === 'gkv' && kapM <= 565, kvM = X.kv === 'gkv' && !famOk ? kvFrei(X, kapM, false) : 0;
     var famEnd = abfAmt > 0 && X.brutto > 0 ? payIdx + Math.ceil(abfAmt / (X.brutto / 12)) : 0; // Familienversicherung ist ausgeschlossen, solange die Abfindung rechnerisch das Einkommen füllt
-    var R = { yrs: [], ei: ei, ey: ey, em: em, pm: payMode, cls: cls, age: age, M: M, paid: paid, algM: algM, kvM: kvM, famOk: famOk, total: 0, sal: 0, abf: abfAmt, taxAbf: 0, taxAll: 0, alg: 0, kv: 0, kvMonths: 0, kvAbfMonths: 0, gbN: 0, algMonths: 0 };
+    var R = { yrs: [], ei: ei, ey: ey, em: em, pm: payMode, cls: cls, age: age, M: M, paid: paid, algM: algM, kvM: kvM, ruhM: ruhM, famOk: famOk, total: 0, sal: 0, abf: abfAmt, taxAbf: 0, taxAll: 0, alg: 0, kv: 0, kvMonths: 0, kvAbfMonths: 0, gbN: 0, algMonths: 0 };
     for (var yi = 0; yi < NY; yi++) {
       var mw = Math.min(12, Math.max(0, ei - yi * 12)), f = mw / 12;
       var gbY = X.gb > 0 && ei > yi * 12 + X.gbm - 1 ? X.gb : 0;
@@ -912,7 +919,7 @@ function abfindungNetto(P, A) {
       for (var mi = yi * 12; mi < yi * 12 + 12 && mi < N; mi++) {
         if (mi >= ei + delay && mi < ei + delay + paid) { algY += algM; R.algMonths++; algMY++; }
         else if (mi >= ei) {
-          var inW = abfAmt > 0 && mi >= payIdx && mi < payIdx + 12, km = X.kv !== 'gkv' ? 0 : (famOk && mi >= famEnd ? 0 : kvFrei(X, kapM, inW));
+          var inW = ruhM > 0 && mi < ei + ruhM, km = X.kv !== 'gkv' ? 0 : (famOk && mi >= famEnd ? 0 : kvFrei(X, kapM, inW));
           kvY += km; if (km > 0) { R.kvMonths++; kvMY++; } if (inW && km > kvM) R.kvAbfMonths++;
         }
       }
@@ -1180,7 +1187,8 @@ function abfindungNetto(P, A) {
       row('Abfindung je Beschäftigungsjahr in Monatsgehältern', fak > 0 ? num(fak, 2) : '–')
     ];
     if (sperre) rows.push(row('Verlust durch Sperrzeit (Schätzung)', 'etwa ' + eur(minderung * alg), 'neg'));
-    if (X.frist === 'nein') rows.push(row('Ruhen wegen vorzeitigem Ausscheiden', 'bis zu 12 Monate', 'neg'));
+    rows.push(row('Ende der ordentlichen Kündigungsfrist (' + X.kf + ' Monate ab Unterschrift)', dstr(YEAR + Math.floor((X.fe - 1) / 12), (X.fe - 1) % 12 + 1)));
+    if (X.hasExit && X.abf > 0) { var Rr = sim(X, X.exitY, X.exitM, 'same', X.sk); rows.push(row('Ruhen des Arbeitslosengelds wegen der Abfindung', Rr.ruhM > 0 ? Rr.ruhM + (Rr.ruhM === 1 ? ' Monat' : ' Monate') + ' ab Austritt (läuft zugleich mit der Sperrzeit)' : 'keins, die Kündigungsfrist ist eingehalten', Rr.ruhM > 0 ? 'neg' : 'pos')); }
     o.innerHTML = tbl(rows) + box(kind, txt) + '<p class="small">Das Ruhen betrifft nur den Fall, dass das Verhältnis früher endet, als die ordentliche Kündigungsfrist erlaubt. Es verschiebt den Beginn, die Dauer bleibt. Die Regeln sind komplex: vor der Unterschrift Agentur für Arbeit und Fachanwalt fragen.</p>';
     chip('c6', kind, kind === 'g' ? 'unkritisch' : (kind === 'y' ? 'prüfen' : 'Sperrzeit droht'));
     REC.push({ k: kind, t: txt, who: ['ra', 'ba'] });
@@ -1202,7 +1210,7 @@ function abfindungNetto(P, A) {
       if (X.pk === 'gkv') items.push('<b>Familienversicherung</b> über den Partner bzw. die Partnerin ist nur möglich, wenn dein Gesamteinkommen regelmäßig höchstens <b>565 € im Monat</b> beträgt. ' + (kapM > 565 ? 'Mit Kapitalerträgen von ' + eur(X.kap) + ' im Jahr (' + eur(kapM) + ' im Monat) ist das <b>nicht</b> möglich.' : 'Deine Kapitalerträge liegen darunter. Auch die Abfindung kann als Einkommen zählen: klären, ab wann.'));
       else if (X.pk === 'pkv') items.push('Eine Familienversicherung über privat versicherte Partner oder Beamte ist nicht möglich, hier wird freiwillig versichert.');
     }
-    items.push('<b>Abfindung und Beitrag (Merkblatt der Krankenkasse, Stand Oktober 2026):</b> Bei freiwilliger Versicherung zählt die Abfindung als Einnahme, und zwar fiktiv in Höhe deines letzten Bruttogehalts pro Monat, höchstens bis zur Beitragsbemessungsgrenze (' + eur(BBG_KV_M) + '). Das gilt ab dem Auszahlungsmonat für den kürzeren Zeitraum aus „Ende der Kündigungsfrist“ und 12 Monaten. Der Zeitraum läuft nach dem Kalender: Monate mit Arbeitslosengeld (pflichtversichert, kein Beitrag) verbrauchen ihn. <b>Zahlt die Abfindung in einer Zeit mit Arbeitslosengeld, fällt darauf kein Beitrag an.</b> Mit voller Anrechnung wären es etwa ' + eur(kvFrei(X, kapM, true)) + ' im Monat statt ' + eur(kvDein) + '.');
+    items.push('<b>Abfindung und Beitrag (Merkblatt einer Krankenkasse):</b> Eine einmalige Abfindung ist bei freiwillig Versicherten <b>beitragsfrei, wenn die ordentliche Kündigungsfrist eingehalten wird</b> (bei dir ' + X.kf + ' Monate, Ende ' + dstr(YEAR + Math.floor((X.fe - 1) / 12), (X.fe - 1) % 12 + 1) + '). Endet das Arbeitsverhältnis früher, zählt sie als Einnahme: fiktiv in Höhe deines letzten Bruttogehalts pro Monat (höchstens ' + eur(BBG_KV_M) + '), verteilt auf den Ruhenszeitraum von höchstens 12 Monaten ab Austritt. Mit voller Anrechnung wären es etwa ' + eur(kvFrei(X, kapM, true)) + ' im Monat statt ' + eur(kvDein) + '. Die Frist rechnet ab Unterschrift des Aufhebungsvertrags (Annahme: Ende zum Monatsende).');
     items.push('<b>Familienversicherung:</b> Die Abfindung wird fiktiv auf die Zeit nach dem Austritt verteilt (Abfindung geteilt durch das tägliche Gehalt). Bei einer Abfindung im sechsstelligen Bereich ist die Familienversicherung deshalb oft Jahre ausgeschlossen. <b>Vor der Unterschrift die Krankenkasse schriftlich fragen</b> (Aufhebungsvertrag, letzte Gehaltsabrechnung und Nachweise über Kapitaleinkünfte bereithalten).');
     var tb = '';
     if (X.kv !== 'pkv') {
@@ -1228,10 +1236,10 @@ function abfindungNetto(P, A) {
       var rest1 = 1 - rSt, rest2 = 1 - rSt - rKV;
       jb += '<div class="fz-t" style="margin-top:6px">Was bleibt von 1.000 € realisiertem Kursgewinn?</div><table class="as-t as-t3"><thead><tr><th>Wann realisiert</th><th class="r">Bleibt</th></tr></thead><tbody>'
         + '<tr><td>In Monaten mit Arbeitslosengeld<small>nur Abgeltungsteuer 26,4 %, Beitrag fällt nicht an</small></td><td class="r">' + eur(1000 * rest1) + '</td></tr>'
-        + '<tr><td>Im Abfindungsfenster (12 Monate ab Auszahlung)<small>die Abfindung füllt den Beitrag bis zur Höchstgrenze, mehr geht nicht</small></td><td class="r">' + eur(1000 * rest1) + '</td></tr>'
-        + '<tr class="best"><td>In freiwilligen Monaten ohne Abfindungsfenster<small>Abgeltungsteuer plus ' + pct(rKV, 1) + ' Beitrag, bis zur Höchstgrenze</small></td><td class="r">' + eur(1000 * rest2) + '</td></tr></tbody></table>';
+        + (rb.ruhM > 0 ? '<tr><td>Im Ruhenszeitraum der Abfindung<small>die Abfindung füllt den Beitrag bis zur Höchstgrenze, mehr geht nicht</small></td><td class="r">' + eur(1000 * rest1) + '</td></tr>' : '')
+        + '<tr class="best"><td>In freiwilligen Monaten<small>Abgeltungsteuer plus ' + pct(rKV, 1) + ' Beitrag, bis zur Höchstgrenze</small></td><td class="r">' + eur(1000 * rest2) + '</td></tr></tbody></table>';
       var extra = kvTot - kvTot0;
-      jb += box(rest2 < 0.5 ? 'y' : 'g', '<b>Fazit:</b> ' + (extra > 100 ? 'Deine Kapitalerträge von ' + eur(X.kap) + ' im Jahr kosten im Zeitraum bis ' + X.hyEnd + ' zusätzlich <b>' + eur(extra) + '</b> Krankenversicherung. ' : 'Deine Kapitalerträge erhöhen den Krankenkassenbeitrag im Zeitraum nicht spürbar (Arbeitslosengeld oder Abfindungsfenster decken die Monate ab). ') + 'In freiwilligen Monaten ohne Abfindungsfenster bleiben von jedem Euro Gewinn nur etwa <b>' + pct(rest2, 0) + '</b> übrig (Steuer und Beitrag zusammen ' + pct(1 - rest2, 0) + '). ' + (rest2 < 0.5 ? 'Rendite am Aktienmarkt lohnt sich dann deutlich weniger. ' : '') + '<b>Sinnvoll ist, Gewinne nicht ausgerechnet in freiwillig versicherten Monaten zu realisieren</b>, sondern in Monaten mit Arbeitslosengeld oder im Abfindungsfenster (Bestätigung der Kasse einholen). Nicht verkaufte Kursgewinne zählen nicht. Ganz auf Rendite zu verzichten macht deshalb keinen Sinn: Es geht um den Zeitpunkt der Verkäufe.');
+      jb += box(rest2 < 0.5 ? 'y' : 'g', '<b>Fazit:</b> ' + (extra > 100 ? 'Deine Kapitalerträge von ' + eur(X.kap) + ' im Jahr kosten im Zeitraum bis ' + X.hyEnd + ' zusätzlich <b>' + eur(extra) + '</b> Krankenversicherung. ' : 'Deine Kapitalerträge erhöhen den Krankenkassenbeitrag im Zeitraum nicht spürbar (Arbeitslosengeld oder Ruhenszeitraum decken die Monate ab). ') + 'In freiwilligen Monaten bleiben von jedem Euro Gewinn nur etwa <b>' + pct(rest2, 0) + '</b> übrig (Steuer und Beitrag zusammen ' + pct(1 - rest2, 0) + '). ' + (rest2 < 0.5 ? 'Rendite am Aktienmarkt lohnt sich dann deutlich weniger. ' : '') + '<b>Sinnvoll ist, Gewinne nicht ausgerechnet in freiwillig versicherten Monaten zu realisieren</b>, sondern in Monaten mit Arbeitslosengeld oder' + (rb.ruhM > 0 ? ' im Ruhenszeitraum der Abfindung' : ' in Monaten mit Arbeitslosengeld') + ' (Bestätigung der Kasse einholen). Nicht verkaufte Kursgewinne zählen nicht. Ganz auf Rendite zu verzichten macht deshalb keinen Sinn: Es geht um den Zeitpunkt der Verkäufe.');
     }
     o.innerHTML = box(kind, head) + '<ul class="as-list">' + items.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul>' + tb + kvTxt + jb;
     chip('c7', 'b', X.kv === 'pkv' ? 'Fachmann nötig' : 'ca. ' + eur(kvDein) + '/Monat');
