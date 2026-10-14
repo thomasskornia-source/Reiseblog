@@ -2528,7 +2528,7 @@ function compute(P) {
     var an = [psRow('Rendite Tagesgeld', pNum('rS', ' %')), psRow('Rendite breiter ETF', pNum('rE', ' %')), psRow('Rendite Einzelaktien', pNum('rA', ' %')),
       psRow('Inflation', pNum('infl', ' %')), psRow('Rendite im Ruhestand', pNum('rRet', ' %')), psRow('Entnahme bis Alter', pNum('planAge'))];
     var ky = [['kfPreis', 'Kaufpreis', 'e'], ['kfEK', 'Eigenkapital', 'e'], ['kfMiete', 'Miete pro Monat', 'e'], ['kfJahre', 'Zeitraum in Jahren', 'n'], ['kfNK', 'Kaufnebenkosten', 'p'], ['kfZins', 'Zins Darlehen', 'p'], ['kfTilg', 'Tilgung', 'p'], ['kfInst', 'Instandhaltung pro Jahr (vom Wert)', 'p'], ['kfWert', 'Wertsteigerung pro Jahr', 'p'], ['kfMietG', 'Mietsteigerung pro Jahr', 'p'], ['kfRend', 'Rendite der Geldanlage nach Steuern', 'p']];
-    var kyRows = pv('kfPreis') ? ky.filter(function (k) { return pv(k[0]) !== ''; }).map(function (k) { return psRow(k[1], k[2] === 'e' ? pEur(k[0]) : pNum(k[0], k[2] === 'p' ? ' %' : '')); }) : [];
+    var kyRows = false && pv('kfPreis') ? ky.filter(function (k) { return pv(k[0]) !== ''; }).map(function (k) { return psRow(k[1], k[2] === 'e' ? pEur(k[0]) : pNum(k[0], k[2] === 'p' ? ' %' : '')); }) : [];
     h += psSec(n + '. Annahmen für die Berechnung', psTab(an) + '<div class="ps-sub">Renditen sind Annahmen vor Steuern und vor Inflation, keine Prognose und nicht garantiert.</div>' + (kyRows.length ? '<h3>Vergleich Kaufen oder Mieten</h3>' + psTab(kyRows) : '')); n++;
     // Ergebnisse
     if (R) {
