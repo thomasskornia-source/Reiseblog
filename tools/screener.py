@@ -79,12 +79,17 @@ def warren(f, kurs, z):
     r.append(('KGV zwischen 0 und 25', (kgv <= 25) if kgv is not None else (False if eps is not None else None)))
     return r, (round(kgv, 1) if kgv else None), (round(roe * 100) if roe is not None else None), (round(marge * 100) if marge is not None else None)
 
+def momentum_sicher(zeilen, bm):
+    try: return trend.momentum(zeilen, bm)
+    except Exception: return None
+
 def james(f, bm):
     try:
         meta, zeilen = trend.holen(f['t'].replace('.', '-'))
         a = trend.analyse(zeilen, meta, benchmark=bm)
         return {'kurs': a['kurs'], 'ampel': a['ampel'], 'lage': a['lage'], 'punkte': a['score']['punkte'], 'stufe': a['score']['stufe'],
-                'rsi': a['rsi'], 'abstand_pct': a['abstand_pct'], 'pos_52w_pct': a['pos_52w_pct'], '_a': a, '_h': verlauf(zeilen)}
+                'rsi': a['rsi'], 'abstand_pct': a['abstand_pct'], 'pos_52w_pct': a['pos_52w_pct'], '_a': a, '_h': verlauf(zeilen),
+                '_m': momentum_sicher(zeilen, bm)}
     except Exception:
         return None
 
@@ -192,7 +197,28 @@ def breite(js, fl=None, sp_z=None):
     with open(pfad, 'w', encoding='utf-8') as fh:
         fh.write(json.dumps({'stand': heute, 'n': len(a), 'megacaps': mega, 'verlauf': verlauf_liste}, ensure_ascii=False, indent=None).replace('},', '},\n') + '\n')
 
-def universum(fl, js):
+def momentum_liste(fl, js, bm):
+    """Momentum-Ratings (Thomas, 15.10.2026): Aktien mit mindestens 5 Punkten und nicht unter der 200er, nach Punkten und Stärke-Rang (RS-Perzentil über alle
+    geprüften Aktien, 3 Monate gegen den S&P 500) sortiert, höchstens 150. Zahlen aus trend.momentum(); Texte entstehen auf der Seite. Liegt in universum.json (Schlüssel momentum)."""
+    alle = [(f, j) for f, j in zip(fl, js) if j and j.get('_m')]
+    rs = sorted(j['_m']['rs3_roh'] for f, j in alle if j['_m']['rs3_roh'] is not None)
+    perz = lambda x: round(100 * sum(1 for y in rs if y < x) / max(1, len(rs) - 1)) if x is not None and rs else None
+    d1 = {}
+    for f, j in alle: d1.setdefault(f['sektor'], []).append(j['_m']['d1'])
+    med = {k: sorted(v)[len(v) // 2] for k, v in d1.items()}
+    out = []
+    for f, j in alle:
+        m = j['_m']
+        if j['punkte'] < 5 or j['ampel'] == 'Down': continue
+        out.append({'t': f['t'], 'n': f['name'], 's': f['sektor'], 'k': round(j['kurs'], 2), 'p': j['punkte'], 'st': j['stufe'], 'a': j['ampel'], 'c': m['chips'],
+                    'rv': m['rvol'], 'atr': m['atr_pct'], 'hh': m['hh_tage'], 'ud': m['ud'], 'r10': m['roc10'], 'r20': m['roc20'], 'adx': m['adx'], 'up': m['plus10'],
+                    'm': m['mom'], 'fr': m['frueh'], 'ah': m['abstand_hoch_pct'], 'h52': m['hoch52'], 'rs': m['rs3'], 'rp': perz(m['rs3_roh']), 'we': m['wema'],
+                    'd1': m['d1'], 'sd1': med.get(f['sektor'])})
+    out.sort(key=lambda x: (-x['p'], -(x['rp'] or 0), -x['m']))
+    spy = round((bm[-1] / bm[-2] - 1) * 100, 2) if bm and len(bm) > 1 else None
+    return {'spy_d1': spy, 'geprueft': len(alle), 'aktien': out[:150]}
+
+def universum(fl, js, bm=None):
     """Alle S&P-500-Aktien in Kurzform (Kurs, Ampel, Lage, kleiner Verlauf) -> data/universum.json, für die Watchlist auf der Seite (ohne Token)."""
     heute = datetime.date.today().strftime('%d.%m.%Y'); liste = []
     for f, j in zip(fl, js):
@@ -204,7 +230,7 @@ def universum(fl, js):
                       'd1': round((c[-1] / c[-2] - 1) * 100, 2), 'sp': sp})
     liste.sort(key=lambda x: x['t'])
     with open(os.path.join(ROOT, 'data', 'universum.json'), 'w', encoding='utf-8') as fh:
-        fh.write(json.dumps({'stand': heute, 'skala': 11, 'aktien': liste}, ensure_ascii=False, separators=(',', ':')).replace('},{', '},\n{') + '\n')
+        fh.write(json.dumps({'stand': heute, 'skala': 11, 'aktien': liste, 'momentum': momentum_liste(fl, js, bm)}, ensure_ascii=False, separators=(',', ':')).replace('},{', '},\n{') + '\n')
 
 def beobachten(bm):
     """Eigene Aktien aus data/aktien.json: James' Ampel täglich neu (ohne Texte, ohne Token) -> data/beobachtung.json."""
@@ -237,7 +263,7 @@ def main():
     except Exception as e: print('SEC-Zahlen nicht abrufbar:', e)
     with ThreadPoolExecutor(8) as ex: js = list(ex.map(lambda f: james(f, bm), fl))
     breite(js, fl, sp_z)
-    universum(fl, js)
+    universum(fl, js, bm)
     sek = sektor_rotation(fl, js, sp_z)
     alle = []
     for f, j in zip(fl, js):
@@ -247,7 +273,7 @@ def main():
         if z and n < 4: continue            # zu wenig Zahlen für ein Urteil
         wp = ok / n if n else 0
         rang = (0.5 * wp + 0.5 * j['punkte'] / 11) if z else j['punkte'] / 11
-        alle.append({'ticker': f['t'], 'cik': f['cik'], 'name': f['name'], 'sektor': f['sektor'], **{k: v for k, v in j.items() if k != '_a'}, '_a': j['_a'], 'warren_ok': ok, 'warren_von': n,
+        alle.append({'ticker': f['t'], 'cik': f['cik'], 'name': f['name'], 'sektor': f['sektor'], **{k: v for k, v in j.items() if k not in ('_a', '_m')}, '_a': j['_a'], 'warren_ok': ok, 'warren_von': n,
                      'kgv': kgv, 'roe_pct': roe, 'marge_pct': marge,
                      'warren_gut': [t for t, v in w if v is True], 'warren_fehlt': [t for t, v in w if v is False], 'rang': round(rang, 3)})
     kandidaten = sorted((a for a in alle if a['ampel'] != 'Down'), key=lambda a: -a['rang'])

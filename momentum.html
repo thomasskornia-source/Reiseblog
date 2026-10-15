@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>WCJ – Momentum-Ratings</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=29">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+  .mr { max-width: 760px; margin: 0 auto; padding-bottom: 48px; }
+  .mr .zurueck { display: inline-block; margin: 8px 0 0; font-size: 14.5px; color: var(--ink-soft); }
+  .mr h1 { margin-bottom: 4px; }
+  .mr .sub { color: var(--ink-soft); font-size: 15px; line-height: 1.55; margin: 6px 0 14px; }
+  .pillen { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 12px; }
+  .pille { display: inline-flex; align-items: center; gap: 6px; background: var(--paper); border: 1px solid rgba(46,58,50,.14); border-radius: 99px; padding: 7px 14px; font-size: 13.5px; color: var(--ink-soft); font-family: inherit; }
+  .pille b { color: var(--ink); font-weight: 600; }
+  .pille.warn { color: #9a6b0c; border-color: rgba(176,122,14,.35); background: #fbf4e2; }
+  .pille .pkt { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+  button.pille { cursor: pointer; color: var(--ink); font-weight: 600; }
+  .hinweisbox { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 14px; padding: 12px 16px; font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 14px; }
+  .hinweisbox b { color: var(--ink); }
+  .testbox { background: #fbf4e2; border-color: rgba(176,122,14,.35); color: #7d5a10; }
+  .reiter { display: flex; gap: 6px; border-bottom: 1px solid rgba(46,58,50,.14); margin: 0 0 18px; overflow-x: auto; scrollbar-width: none; }
+  .reiter::-webkit-scrollbar { display: none; }
+  .reiter button { background: none; border: 0; border-bottom: 3px solid transparent; padding: 12px 16px 10px; font: inherit; font-size: 16px; color: var(--ink-soft); cursor: pointer; white-space: nowrap; margin-bottom: -1px; }
+  .reiter button[aria-selected="true"] { color: #1f8a5b; border-bottom-color: #1f8a5b; font-weight: 600; }
+  .mr h2.ueb { font-family: 'Fraunces', serif; font-size: 22px; margin: 22px 0 12px; }
+  .mr h3.klein { font-size: 12.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; margin: 24px 0 10px; }
+  .raster { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .kt { background: #fff; border: 1px solid rgba(46,58,50,.12); border-left: 4px solid var(--st, #8a9490); border-radius: 16px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(46,58,50,.06); }
+  .kt.stark { --st: #1f8a5b; } .kt.aufbau { --st: #b07a0e; } .kt.beob { --st: #5b7a99; }
+  .kt .kopf { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
+  .kt .tk { font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
+  .kt .kurs { margin-left: auto; font-size: 18px; font-weight: 700; }
+  .kt .tag { font-size: 11.5px; font-weight: 700; letter-spacing: .05em; padding: 3px 10px; border-radius: 99px; background: #e6edf4; color: #2a5db0; white-space: nowrap; }
+  .kt .nm { flex-basis: 100%; font-size: 13px; color: var(--ink-soft); margin-top: -2px; }
+  .kt .zeile2 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 10px 0 4px; }
+  .kt .pkt { font-size: 18px; font-weight: 700; }
+  .kt .stufe { font-size: 15px; font-weight: 700; padding: 4px 14px; border-radius: 99px; background: #f6ecd6; color: #b07a0e; }
+  .kt.stark .stufe { background: #e3f3ea; color: #1f8a5b; } .kt.beob .stufe { background: #e6edf4; color: #3f6283; }
+  .kt .trend { font-size: 15.5px; font-weight: 600; margin: 6px 0 10px; }
+  .kt .trend.up { color: #1f8a5b; } .kt .trend.mid { color: #b07a0e; } .kt .trend.down { color: #c8502d; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
+  .chips span { font-size: 12.5px; font-weight: 700; letter-spacing: .06em; padding: 5px 12px; border-radius: 99px; background: #eeefec; color: #8a9490; }
+  .chips span.an { background: #e3f3ea; color: #1f7a52; }
+  .toprs { color: #5b4bd6; font-weight: 700; font-size: 14px; letter-spacing: .04em; margin: 4px 0 2px; }
+  .frueh { color: #5b4bd6; font-size: 14.5px; margin: 2px 0 6px; }
+  .kurztext { color: var(--ink-soft); font-size: 14.5px; line-height: 1.5; margin: 4px 0 10px; }
+  .langtext { font-size: 15px; line-height: 1.7; margin: 8px 0 4px; }
+  .langtext b { font-weight: 700; }
+  .fuss { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; font-size: 14px; color: var(--ink-soft); font-weight: 600; }
+  .fuss b { color: var(--ink); }
+  .fuss .gut { color: #1f7a52; } .fuss .gold { color: #b07a0e; } .fuss .gross { text-transform: uppercase; letter-spacing: .05em; font-size: 13px; }
+  .filter { display: flex; flex-direction: column; gap: 10px; margin: 0 0 12px; }
+  .seg { display: inline-flex; flex-wrap: nowrap; max-width: 100%; overflow-x: auto; border: 1px solid rgba(46,58,50,.16); border-radius: 99px; background: var(--paper); align-self: flex-start; scrollbar-width: none; }
+  .seg::-webkit-scrollbar { display: none; }
+  .seg button { border: 0; background: none; padding: 11px 20px; font: inherit; font-size: 16px; color: var(--ink-soft); cursor: pointer; border-right: 1px solid rgba(46,58,50,.1); white-space: nowrap; }
+  .seg button:last-child { border-right: 0; }
+  .seg button[aria-pressed="true"] { background: #1f8a5b; color: #fff; font-weight: 600; }
+  .zeile { display: flex; gap: 10px; flex-wrap: wrap; }
+  .zeile input, .zeile select { flex: 1 1 200px; min-width: 0; font: inherit; font-size: 16px; padding: 12px 16px; border: 1px solid rgba(46,58,50,.16); border-radius: 14px; background: #fff; color: var(--ink); }
+  .anzahl { color: var(--ink-soft); font-size: 15px; margin: 4px 0 12px; }
+  .mehr { display: block; margin: 16px auto 0; padding: 12px 26px; border-radius: 99px; border: 1px solid rgba(46,58,50,.2); background: var(--paper); font: inherit; font-size: 15px; cursor: pointer; }
+  .leer { color: var(--ink-soft); padding: 14px 2px; }
+  .sig { background: #fff; border: 1px solid rgba(46,58,50,.12); border-radius: 16px; padding: 14px 18px; margin: 0 0 12px; }
+  .sig h3 { font-size: 16.5px; margin: 0 0 4px; }
+  .sig p { font-size: 14px; color: var(--ink-soft); line-height: 1.55; margin: 0 0 10px; }
+  .sig .tk-pillen { display: flex; flex-wrap: wrap; gap: 6px; }
+  .sig .tk-pillen span { background: #eef6f1; color: #1f7a52; font-weight: 700; font-size: 13.5px; border-radius: 99px; padding: 4px 12px; }
+  .faq details { background: #fff; border: 1px solid rgba(46,58,50,.12); border-radius: 14px; margin: 0 0 10px; }
+  .faq summary { cursor: pointer; padding: 14px 18px; font-weight: 600; font-size: 16px; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '＋'; float: right; color: var(--ink-soft); }
+  .faq details[open] summary::after { content: '–'; }
+  .faq .inh { padding: 0 18px 14px; font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
+  .faq .inh dt { font-weight: 700; color: var(--ink); margin-top: 8px; font-size: 13.5px; letter-spacing: .05em; }
+  .faq .inh dd { margin: 2px 0 0; }
+  .mr .rechts { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 22px 2px 0; }
+  @media (min-width: 1100px) {
+    body.pc .mr { max-width: none; }
+    .raster { grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 18px; }
+    .raster.top { grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); }
+    .filter { flex-direction: row; flex-wrap: wrap; align-items: center; }
+    .zeile { flex: 1 1 360px; }
+    .zeile input, .zeile select { flex: 1 1 180px; }
+  }
+</style>
+</head>
+<body class="page-wide pc">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="quiz.html">München</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+    </div>
+  </div></nav>
+<div class="wrap mr">
+  <a class="zurueck" href="aktien.html">← Zurück zu WCJ</a>
+  <header class="entry-header">
+    <h1>Momentum-Ratings</h1>
+    <hr class="rule">
+  </header>
+  <p class="sub">Trend und Schwung der S&amp;P-500-Aktien auf einen Blick: abgeleitete Kennzahlen, jeden Abend nach Börsenschluss neu gerechnet.</p>
+  <div class="pillen" id="pillen"></div>
+  <div class="hinweisbox"><b>Nur zur Information.</b> Das ist keine Anlageberatung und keine Empfehlung zum Kaufen oder Verkaufen. Die Zahlen sind abgeleitete Kennzahlen aus Tageskursen und können verspätet sein.</div>
+  <div class="hinweisbox testbox" id="testbox" hidden></div>
+
+  <div class="reiter" role="tablist">
+    <button role="tab" aria-selected="true" data-t="ratings">Ratings</button>
+    <button role="tab" aria-selected="false" data-t="signale">Signale</button>
+    <button role="tab" aria-selected="false" data-t="faq">FAQ</button>
+  </div>
+
+  <section id="p-ratings">
+    <h2 class="ueb">Top 5</h2>
+    <div class="raster top" id="top5"><p class="leer">Lädt …</p></div>
+    <h3 class="klein">Alle Namen</h3>
+    <div class="filter">
+      <div class="seg" id="f-pkt" role="group" aria-label="Mindestpunktzahl"></div>
+      <div class="seg" id="f-st" role="group" aria-label="Stufe"></div>
+      <div class="zeile">
+        <input id="f-q" type="search" placeholder="Kürzel oder Name suchen …" aria-label="Suchen" autocomplete="off">
+        <select id="f-sek" aria-label="Branche"></select>
+        <select id="f-so" aria-label="Sortierung">
+          <option value="p">Sortierung · Punkte</option>
+          <option value="rp">Sortierung · Stärke-Rang</option>
+          <option value="m">Sortierung · Momentum-Wert</option>
+          <option value="d1">Sortierung · Tagesveränderung</option>
+          <option value="rv">Sortierung · Umsatz (RVOL)</option>
+          <option value="ah">Sortierung · Nähe zum 52-Wochen-Hoch</option>
+          <option value="t">Sortierung · Kürzel A–Z</option>
+        </select>
+      </div>
+    </div>
+    <div class="anzahl" id="anzahl"></div>
+    <div class="raster" id="liste"></div>
+    <button class="mehr" id="mehr" hidden>Mehr anzeigen</button>
+  </section>
+
+  <section id="p-signale" hidden></section>
+
+  <section id="p-faq" class="faq" hidden>
+    <details open><summary>Was bedeuten die Kürzel?</summary><div class="inh"><dl>
+      <dt>VOL</dt><dd>Hoher Umsatz: Der Umsatz des letzten Tages liegt mindestens beim 1,5-Fachen des 50-Tage-Mittels (RVOL ab 1,5).</dd>
+      <dt>MA FAN</dt><dd>Die Durchschnittslinien sind geordnet und fächern auf: Kurs über EMA 8 über EMA 21 über SMA 50.</dd>
+      <dt>ATR SQZ</dt><dd>Die tägliche Schwankungsbreite (ATR) ist höchstens 80 % ihres 100-Tage-Mittels, die Kurse sind ruhiger geworden.</dd>
+      <dt>CLOSE HI</dt><dd>Der Schlusskurs liegt im oberen Viertel der Tagesspanne: Käufer hatten am Ende das Sagen.</dd>
+      <dt>52W HI</dt><dd>Höchstens 5 % unter dem 52-Wochen-Hoch. Ausbrüche in Hochnähe haben oft den besten Anschluss.</dd>
+      <dt>VDU</dt><dd>Volume Dry-Up: Der Umsatz der letzten fünf Tage liegt höchstens bei 70 % des 50-Tage-Mittels. Verkäufer trocknen aus.</dd>
+      <dt>HH/HL</dt><dd>Höhere Hochs und höhere Tiefs bei den letzten Wendepunkten: der Aufwärtstrend ist intakt.</dd>
+      <dt>W.EMA</dt><dd>Der Kurs liegt über dem 10-Wochen-EMA. Tages- und Wochenbild passen zusammen.</dd>
+      <dt>OBV+</dt><dd>Das On-Balance-Volume steigt: Über 20 Tage fließt mehr Umsatz in Aufwärts- als in Abwärtstage.</dd>
+      <dt>NR7</dt><dd>Engste Tagesspanne der letzten sieben Tage: Die Kurse ziehen sich zusammen.</dd>
+      <dt>U/D VOL</dt><dd>Auf-/Abtage-Umsatz über 1,1: Über 50 Tage ist der Umsatz an steigenden Tagen größer als an fallenden.</dd>
+      <dt>SQUEEZE</dt><dd>Die Bollinger-Bänder liegen innerhalb der Keltner-Kanäle: Die Schwankung ist stark verdichtet, oft vor einer größeren Bewegung.</dd>
+      <dt>SPRING</dt><dd>Das Tief der letzten drei Tage lag unter dem 20-Tage-Tief davor, der Schluss aber wieder darüber: ein misslungener Ausbruch nach unten.</dd>
+    </dl></div></details>
+    <details><summary>Wie entstehen die Punkte (x/11)?</summary><div class="inh">Das ist der James-Score von WCJ: zwölf offene Regeln zu Trend, Stärke, Momentum, Umsatz und Spannung. Die zehn Kernregeln zählen je einen Punkt, die zwei Spannungsregeln je einen halben, höchstens 11. Pflicht ist ein Kurs über der steigenden 200-Tage-Linie. Ab 8 Punkten heißt die Stufe „Stark“, ab 6 „Momentum im Aufbau“, ab 4 „Beobachten“. Wer schwächer als der S&amp;P 500 ist, bleibt bei höchstens 7,5. <a href="wcj-info.html">Mehr dazu</a></div></details>
+    <details><summary>Was sind Frühsignale?</summary><div class="inh">Hinweise, dass sich etwas aufbaut, bevor der Kurs es zeigt: OBV-Divergenz (Kurs macht ein tieferes Tief, das On-Balance-Volume ein höheres), mehr Umsatz an Aufwärts- als an Abwärtstagen, Squeeze und Spring. „+2“ heißt zwei dieser vier Signale sind aktiv.</div></details>
+    <details><summary>Was ist der Momentum-Wert (0–5)?</summary><div class="inh">Je ein Punkt für: Kursplus der letzten 10 Tage von mindestens 3 % (ROC10), der letzten 20 Tage von mindestens 5 % (ROC20), ADX ab 25 (Trendstärke), mindestens 6 von 10 Tagen im Plus und RSI zwischen 50 und 75.</div></details>
+    <details><summary>Was heißt „Top RS“?</summary><div class="inh">Relative Stärke: Die Aktie hat in den letzten drei Monaten mehr zugelegt als mindestens 80 % aller geprüften S&amp;P-500-Werte (gegenüber dem S&amp;P 500 gerechnet). Das Perzentil steht im Text der Top 5.</div></details>
+    <details><summary>Warum kein Backtest und keine Mid-/Small-Caps?</summary><div class="inh">Einen Backtest gibt es hier noch nicht: Er braucht ein sauberes Archiv der täglichen Ratings, das erst nach und nach entsteht. Geprüft werden bisher nur die rund 500 Werte des S&amp;P 500 (also Large Caps); statt der Größenfilter gibt es einen Branchenfilter.</div></details>
+  </section>
+
+  <p class="rechts" id="rechts"></p>
+</div>
+<script>
+(function () {
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function zahl(x, n) { return Number(x).toLocaleString('de-DE', { minimumFractionDigits: n || 0, maximumFractionDigits: n == null ? 0 : n }); }
+  function vz(x, n) { return (x > 0 ? '+' : x < 0 ? '−' : '') + zahl(Math.abs(x), n == null ? 1 : n); }
+  function usd(x) { return '$' + Number(x).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  var SEK = { 'Communication Services': 'Kommunikation', 'Consumer Discretionary': 'Konsum (zyklisch)', 'Consumer Staples': 'Basiskonsum', 'Energy': 'Energie', 'Financials': 'Finanzen', 'Health Care': 'Gesundheit', 'Industrials': 'Industrie', 'Information Technology': 'Technologie', 'Materials': 'Rohstoffe', 'Real Estate': 'Immobilien', 'Utilities': 'Versorger' };
+  var CHIPS = ['VOL', 'MA FAN', 'ATR SQZ', 'CLOSE HI', '52W HI', 'VDU', 'HH/HL', 'W.EMA', 'OBV+', 'NR7', 'U/D VOL', 'SQUEEZE', 'SPRING'];
+  var D = null, ALLE = [], pkt = 0, stufe = '', anz = 30, spy = null;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function klasse(st) { return st === 'Stark' ? 'stark' : st === 'Beobachten' ? 'beob' : 'aufbau'; }
+  function trendTxt(a) { return a === 'Up' ? ['Aufwärtstrend', 'up'] : a === 'Medium' ? ['Übergang', 'mid'] : ['Abwärtstrend', 'down']; }
+  function hat(x, c) { return x.c.indexOf(c) >= 0; }
+
+  function kurztext(x) {
+    var t = [];
+    if (x.fr.length) t.push('Das Setup reift');
+    else if (hat(x, 'MA FAN')) t.push('Trend sauber geordnet');
+    else t.push('Kurs über der 200-Tage-Linie');
+    var b = [];
+    if (x.ah >= -3) b.push('nahe am Hoch der Spanne');
+    if (hat(x, 'MA FAN') && x.fr.length) b.push('Linien gut geordnet');
+    if (hat(x, 'SQUEEZE') || hat(x, 'ATR SQZ') || hat(x, 'VDU')) b.push('Schwankung verdichtet');
+    if (x.ud > 1.3) b.push('Käufer bestimmen den Umsatz');
+    if (!b.length && x.hh >= 3) b.push('höhere Hochs und Tiefs');
+    return t[0] + (b.length ? ' – ' + b.slice(0, 2).join(', ') : '') + '.';
+  }
+
+  function langtext(x) {
+    var s = [];
+    if (hat(x, 'MA FAN')) s.push('Trend ausgerichtet und beschleunigend – <b>EMA 8 &gt; EMA 21 &gt; SMA 50</b>, Kurs darüber.');
+    else s.push('Kurs über der 200-Tage-Linie, die kurzen Durchschnitte sind aber noch nicht aufgefächert.');
+    if (x.rv >= 1.5) s.push('Umsatz heute <b>' + zahl(x.rv, 1) + '×</b> des Schnitts – erhöhtes Volumen, die Bewegung hat Überzeugung.');
+    else if (x.rv < 0.8) s.push('Umsatz nur <b>' + zahl(x.rv, 1) + '×</b> des 50-Tage-Schnitts – Volumen unter der Schwelle, die Bewegung wirkt ohne Überzeugung.');
+    else s.push('Umsatz normal (<b>' + zahl(x.rv, 1) + '×</b> des Schnitts).');
+    if (x.hh >= 2) s.push('Höhere Hochs und höhere Tiefs seit <b>' + x.hh + ' Tagen</b> – Mikrotrend intakt.');
+    if (x.we) s.push('Kurs über dem Wochen-EMA – Tages- und Wochenbild stimmen überein.');
+    if (x.rp != null) s.push(x.rp >= 80 ? 'Oberes Stärke-Viertel (<b>' + x.rp + '. Perzentil</b> im heutigen Umfeld) – einer der stärksten Werte des Tages.' : 'Relative Stärke im <b>' + x.rp + '. Perzentil</b> des heutigen Umfelds.');
+    if (x.ah >= -10) s.push('Höchstens 10 % unter dem 52-Wochen-Hoch (<b>' + usd(x.h52) + '</b>) – Ausbrüche in Hochnähe haben oft den besten Anschluss.');
+    if (x.sd1 != null) s.push(x.d1 >= x.sd1 ? 'Besser als die Branche heute (Branchen-Median ' + vz(x.sd1, 2) + ' %) – echte Einzelstärke, nicht nur die steigende Flut.' : 'Schwächer als die Branche heute (Branchen-Median ' + vz(x.sd1, 2) + ' %) – hinter den Mitbewerbern, Überzeugung etwas geringer.');
+    if (spy != null) s.push('S&amp;P 500 ' + vz(spy, 2) + ' % am letzten Handelstag.');
+    if (x.fr.indexOf('OBV-Divergenz') >= 0) s.push('OBV-Divergenz – der Kurs machte ein tieferes Tief, das On-Balance-Volume ein höheres: leise Anhäufung.');
+    if (x.ud > 1.1) s.push('Auf-/Abtage-Umsatz <b>' + zahl(x.ud, 2) + '</b> – Käufer bestimmen den Umsatz im Beobachtungsfenster.');
+    if (hat(x, 'SQUEEZE')) s.push('Squeeze aktiv – die Schwankung ist in den Kanälen verdichtet, Energie für eine gerichtete Bewegung baut sich auf.');
+    s.push('Momentum-Wert <b>' + x.m + '/5</b> – ' + (x.m >= 4 ? 'hohe Trendgeschwindigkeit' : x.m >= 2 ? 'mittlere Trendgeschwindigkeit' : 'geringe Trendgeschwindigkeit') + ': ROC10=<b>' + vz(x.r10) + ' %</b> ROC20=<b>' + vz(x.r20) + ' %</b>' + (x.adx != null ? ' ADX=<b>' + x.adx + '</b>' : '') + ' Plus-Tage=<b>' + x.up + '/10</b>.');
+    return s.join(' ');
+  }
+
+  function karte(x, lang) {
+    var tr = trendTxt(x.a), k = klasse(x.st);
+    var h = '<article class="kt ' + k + '"><div class="kopf"><span class="tk">' + esc(x.t) + '</span><span class="kurs">' + usd(x.k) + '</span><span class="tag">' + esc(SEK[x.s] || x.s || '–') + '</span><span class="nm">' + esc(x.n) + '</span></div>' +
+      '<div class="zeile2"><span class="pkt">' + zahl(x.p, x.p % 1 ? 1 : 0) + '/11</span><span class="stufe">' + esc(x.st) + '</span></div>' +
+      '<div class="trend ' + tr[1] + '">' + tr[0] + (x.d1 != null ? ' · heute ' + vz(x.d1, 2) + ' %' : '') + '</div>';
+    if (!lang) h += '<div class="chips">' + CHIPS.map(function (c) { return '<span' + (hat(x, c) ? ' class="an"' : '') + '>' + c + '</span>'; }).join('') + '</div>';
+    if (x.rp != null && x.rp >= 80) h += '<div class="toprs">★ TOP RS</div>';
+    if (x.fr.length) h += '<div class="frueh">⚡ Frühsignale +' + x.fr.length + ' · ' + esc(x.fr.join(' · ')) + '</div>';
+    h += lang ? '<p class="langtext">' + langtext(x) + '</p>' : '<p class="kurztext">' + esc(kurztext(x)) + '</p>';
+    h += '<div class="fuss"><span>RVOL <b>' + zahl(x.rv, 1) + '×</b></span><span>ATR <b>' + zahl(x.atr, 2) + ' %</b></span>' + '<span class="gut">✓ über 200er</span>' +
+      (x.ah >= -5 ? '<span class="gold">★ nahe 52W-Hoch</span>' : '') + (x.rs != null && x.rs > 0 ? '<span class="gut gross">Besser als S&amp;P 500</span>' : '') + '</div></article>';
+    return h;
+  }
+
+  function zeigeTop() {
+    var t = ALLE.slice(0, 5);
+    $('top5').innerHTML = t.length ? t.map(function (x) { return karte(x, true); }).join('') : '<p class="leer">Keine Werte mit mindestens 5 Punkten.</p>';
+  }
+
+  function gefiltert() {
+    var q = $('f-q').value.trim().toLowerCase(), sk = $('f-sek').value, so = $('f-so').value;
+    var l = ALLE.filter(function (x) {
+      return x.p >= pkt && (!stufe || x.st === stufe) && (!sk || x.s === sk) && (!q || x.t.toLowerCase().indexOf(q) === 0 || x.n.toLowerCase().indexOf(q) >= 0);
+    });
+    l.sort(function (a, b) {
+      if (so === 't') return a.t < b.t ? -1 : 1;
+      var va = so === 'ah' ? a.ah : a[so], vb = so === 'ah' ? b.ah : b[so];
+      va = va == null ? -1e9 : va; vb = vb == null ? -1e9 : vb;
+      return vb - va || b.p - a.p;
+    });
+    return l;
+  }
+
+  function zeigeListe() {
+    var l = gefiltert();
+    $('anzahl').textContent = l.length + (l.length === 1 ? ' Name' : ' Namen');
+    $('liste').innerHTML = l.length ? l.slice(0, anz).map(function (x) { return karte(x, false); }).join('') : '<p class="leer">Nichts gefunden. Filter lockern oder anders suchen.</p>';
+    $('mehr').hidden = l.length <= anz;
+  }
+
+  function seg(id, opts, get, set) {
+    var el = $(id);
+    el.innerHTML = opts.map(function (o) { return '<button type="button" data-v="' + esc(o[0]) + '" aria-pressed="' + (String(get()) === String(o[0])) + '">' + esc(o[1]) + '</button>'; }).join('');
+    el.onclick = function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      set(b.getAttribute('data-v')); anz = 30;
+      Array.prototype.forEach.call(el.children, function (c) { c.setAttribute('aria-pressed', c === b ? 'true' : 'false'); });
+      zeigeListe();
+    };
+  }
+
+  function signale() {
+    var G = [
+      ['Spring', 'Das Tief der letzten drei Tage lag unter dem 20-Tage-Tief, der Schluss aber wieder darüber.', function (x) { return x.fr.indexOf('Spring') >= 0; }],
+      ['OBV-Divergenz', 'Kurs mit tieferem Tief, On-Balance-Volume mit höherem Tief: leise Anhäufung.', function (x) { return x.fr.indexOf('OBV-Divergenz') >= 0; }],
+      ['Squeeze', 'Bollinger-Bänder innerhalb der Keltner-Kanäle: stark verdichtete Schwankung.', function (x) { return hat(x, 'SQUEEZE'); }],
+      ['Hoher Umsatz (RVOL ab 1,5)', 'Der Umsatz des letzten Tages liegt mindestens beim 1,5-Fachen des 50-Tage-Schnitts.', function (x) { return x.rv >= 1.5; }],
+      ['Käufer im Umsatz (Auf-/Abtage ab 1,5)', 'Über 50 Tage deutlich mehr Umsatz an steigenden als an fallenden Tagen.', function (x) { return x.ud >= 1.5; }],
+      ['Top RS (ab 80. Perzentil)', 'In drei Monaten stärker als vier Fünftel der geprüften Aktien.', function (x) { return x.rp != null && x.rp >= 80; }]
+    ];
+    $('p-signale').innerHTML = G.map(function (g) {
+      var l = ALLE.filter(g[2]);
+      return '<div class="sig"><h3>' + esc(g[0]) + ' <span style="color:var(--ink-soft);font-weight:400">(' + l.length + ')</span></h3><p>' + esc(g[1]) + '</p>' +
+        (l.length ? '<div class="tk-pillen">' + l.map(function (x) { return '<span>' + esc(x.t) + '</span>'; }).join('') + '</div>' : '<p style="margin:0">Heute keine.</p>') + '</div>';
+    }).join('');
+  }
+
+  function reiter(t) {
+    ['ratings', 'signale', 'faq'].forEach(function (n) { $('p-' + n).hidden = n !== t; });
+    Array.prototype.forEach.call(document.querySelectorAll('.reiter button'), function (b) { b.setAttribute('aria-selected', b.getAttribute('data-t') === t ? 'true' : 'false'); });
+    try { history.replaceState(null, '', '#' + t); } catch (e) {}
+  }
+
+  document.querySelector('.reiter').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) reiter(b.getAttribute('data-t')); });
+  $('mehr').onclick = function () { anz += 30; zeigeListe(); };
+  ['f-q', 'f-sek', 'f-so'].forEach(function (id) { $(id).addEventListener(id === 'f-q' ? 'input' : 'change', function () { anz = 30; zeigeListe(); }); });
+
+  Promise.all([
+    fetch('data/universum.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }),
+    fetch('data/markt.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return null; })
+  ]).then(function (res) {
+    D = res[0]; var M = res[1], mo = D.momentum || { aktien: [] };
+    ALLE = mo.aktien || []; spy = mo.spy_d1;
+    var p = '';
+    if (M && M.ampel) { p += '<span class="pille">Markt <b>' + esc(M.ampel === 'Up' ? 'Aufwärts' : M.ampel === 'Medium' ? 'Übergang' : 'Abwärts') + '</b></span>'; }
+    p += '<span class="pille">Stand <b>' + esc(D.stand || '–') + '</b></span>';
+    p += '<span class="pille">Geprüft <b>' + (mo.geprueft || 0) + '</b> · Treffer <b>' + ALLE.length + '</b></span>';
+    p += '<button type="button" class="pille" id="neu">↻ Neu laden</button>';
+    $('pillen').innerHTML = p;
+    $('neu').onclick = function () { location.reload(); };
+    if (mo.starter) { $('testbox').hidden = false; $('testbox').innerHTML = '<b>Vorläufige Testdaten:</b> Es sind erst ' + ALLE.length + ' Namen aus den bisherigen Auswertungen drin. Die vollständige Liste aller S&amp;P-500-Werte kommt mit dem nächsten Abendlauf.'; }
+    var sek = {}; ALLE.forEach(function (x) { if (x.s) sek[x.s] = 1; });
+    $('f-sek').innerHTML = '<option value="">Branche · Alle</option>' + Object.keys(sek).sort(function (a, b) { return (SEK[a] || a).localeCompare(SEK[b] || b, 'de'); }).map(function (k) { return '<option value="' + esc(k) + '">' + esc(SEK[k] || k) + '</option>'; }).join('');
+    seg('f-pkt', [[0, 'Alle'], [5, '5+'], [6, '6+'], [7, '7+'], [8, '8+']], function () { return pkt; }, function (v) { pkt = Number(v); });
+    seg('f-st', [['', 'Alle Stufen'], ['Stark', 'Stark'], ['Momentum im Aufbau', 'Im Aufbau'], ['Beobachten', 'Beobachten']], function () { return stufe; }, function (v) { stufe = v; });
+    zeigeTop(); zeigeListe(); signale();
+    $('rechts').innerHTML = 'Rang der Top 5: Punkte, dann Stärke-Rang. Die Liste zeigt Aktien mit mindestens 5 Punkten über der 200-Tage-Linie, höchstens 150. Texte werden aus den Zahlen zusammengesetzt, es steht keine Einschätzung dahinter. Kursdaten: Yahoo Finance (inoffiziell), Branchen laut S&amp;P-500-Liste. <a href="wcj-info.html">So funktioniert WCJ</a>';
+    var h = (location.hash || '').slice(1); if (['signale', 'faq'].indexOf(h) >= 0) reiter(h);
+  }).catch(function () { $('top5').innerHTML = '<p class="leer">Die Daten konnten nicht geladen werden.</p>'; });
+})();
+</script>
+<script src="nav.js?v=21" defer></script>
+</body>
+</html>

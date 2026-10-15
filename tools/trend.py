@@ -154,6 +154,79 @@ def score(zeilen, c, m8, m21, m50, m200, rsi, macd, signal, benchmark):
     if rs_schwach and roh > 7.5 and pflicht: out['rs_gedeckelt'] = True
     return out
 
+def adx_wert(h, l, c, n=14):
+    """ADX nach Wilder (Trendstärke, 0-100)."""
+    if len(c) < 2 * n + 2: return None
+    pdm, mdm, tr = [], [], []
+    for i in range(1, len(c)):
+        up, dn = h[i] - h[i - 1], l[i - 1] - l[i]
+        pdm.append(up if up > dn and up > 0 else 0); mdm.append(dn if dn > up and dn > 0 else 0)
+        tr.append(max(h[i] - l[i], abs(h[i] - c[i - 1]), abs(l[i] - c[i - 1])))
+    def wilder(x):
+        out = [sum(x[:n])]
+        for v in x[n:]: out.append(out[-1] - out[-1] / n + v)
+        return out
+    t, p, m = wilder(tr), wilder(pdm), wilder(mdm)
+    dx = []
+    for a, b, d in zip(t, p, m):
+        pi, mi = (100 * b / a, 100 * d / a) if a else (0, 0)
+        dx.append(100 * abs(pi - mi) / (pi + mi) if pi + mi else 0)
+    adx = sum(dx[:n]) / n
+    for v in dx[n:]: adx = (adx * (n - 1) + v) / n
+    return adx
+
+def momentum(zeilen, benchmark=None):
+    """Momentum-Rating (Chips, Kennzahlen, Frühsignale) für die Seite momentum.html. Eigene Regeln, alle offen:
+    VOL = Umsatz heute mindestens das 1,5-Fache des 50-Tage-Mittels; MA FAN = Kurs über 8 > 21 > 50; ATR SQZ = ATR höchstens 80 % des 100-Tage-Mittels;
+    CLOSE HI = Schluss im oberen Viertel der Tagesspanne; 52W HI = höchstens 5 % unter dem 52-Wochen-Hoch; VDU = Umsatz der letzten 5 Tage höchstens 70 % des 50-Tage-Mittels;
+    HH/HL = höhere Hochs und Tiefs (Wendepunkte); W.EMA = Kurs über dem 10-Wochen-EMA; OBV+ = On-Balance-Volume steigt; NR7 = engste Tagesspanne der letzten 7 Tage;
+    U/D VOL = Umsatz an Auf- zu Abtagen (50 Tage) über 1,1; SQUEEZE = Bollinger-Bänder innerhalb der Keltner-Kanäle; SPRING = Tief der letzten 3 Tage unter dem 20-Tage-Tief davor, Schluss wieder darüber.
+    Frühsignale: OBV-Divergenz, Auf-/Abtage-Umsatz, Squeeze, Spring. Momentum-Wert (0-5): ROC10 >= 3 %, ROC20 >= 5 %, ADX >= 25, 6 von 10 Tagen im Plus, RSI 50-75."""
+    c = [z[4] for z in zeilen]; h = [z[2] for z in zeilen]; l = [z[3] for z in zeilen]; v = [z[5] for z in zeilen]; n = len(c)
+    kurs = c[-1]
+    tr = [max(h[i] - l[i], abs(h[i] - c[i - 1]), abs(l[i] - c[i - 1])) for i in range(1, n)]
+    atr = sma_reihe(tr, 14); atr100 = [x for x in atr[-100:] if x is not None]
+    sma20 = sum(c[-20:]) / 20; sd = (sum((x - sma20) ** 2 for x in c[-20:]) / 20) ** 0.5
+    e20 = ema_reihe(c, 20)[-1]; atr20 = sum(tr[-20:]) / 20
+    squeeze = (sma20 + 2 * sd < e20 + 1.5 * atr20) and (sma20 - 2 * sd > e20 - 1.5 * atr20)
+    atr_enge = bool(atr100) and atr[-1] <= 0.8 * (sum(atr100) / len(atr100))
+    obv = [0]
+    for i in range(1, n): obv.append(obv[-1] + (v[i] if c[i] > c[i - 1] else -v[i] if c[i] < c[i - 1] else 0))
+    obv_steigt = obv[-1] > obv[-21] and obv[-1] > sum(obv[-20:]) / 20
+    obv_div = min(c[-20:]) < min(c[-40:-20]) and min(obv[-20:]) > min(obv[-40:-20])
+    auf = sum(v[i] for i in range(n - 50, n) if c[i] > c[i - 1]); ab = sum(v[i] for i in range(n - 50, n) if c[i] < c[i - 1])
+    ud = auf / ab if ab else 9
+    schnitt50 = sum(v[-51:-1]) / 50
+    rvol = v[-1] / schnitt50 if schnitt50 else 0
+    nr7 = (h[-1] - l[-1]) <= min(h[i] - l[i] for i in range(n - 7, n))
+    vdu = (sum(v[-5:]) / 5) <= 0.7 * (sum(v[-50:]) / 50)
+    tiefs = muster.wendepunkte(l, 'tief'); hochs = muster.wendepunkte(h, 'hoch')
+    hhhl = len(tiefs) >= 2 and len(hochs) >= 2 and tiefs[-1][1] > tiefs[-2][1] and hochs[-1][1] > hochs[-2][1]
+    tage = 0
+    while tage < n - 1 and h[-1 - tage] > h[-2 - tage] and l[-1 - tage] > l[-2 - tage]: tage += 1
+    m8, m21, m50, m200 = ema_reihe(c, 8)[-1], ema_reihe(c, 21)[-1], sma_reihe(c, 50)[-1], sma_reihe(c, 200)[-1]
+    wema = wochen_ema(zeilen, 10)
+    hoch52 = max(h[-252:])
+    spanne = h[-1] - l[-1]
+    tief20 = min(l[-23:-3])
+    spring = min(l[-3:]) < tief20 and kurs > tief20
+    rs = (kurs / c[-64] - 1) - (benchmark[-1] / benchmark[-64] - 1) if benchmark and len(benchmark) > 64 else None
+    roc10 = (kurs / c[-11] - 1) * 100; roc20 = (kurs / c[-21] - 1) * 100
+    adx = adx_wert(h, l, c)
+    plus = sum(1 for i in range(n - 10, n) if c[i] > c[i - 1])
+    rsi = rsi_reihe(c)[-1]
+    mom = sum([roc10 >= 3, roc20 >= 5, adx is not None and adx >= 25, plus >= 6, rsi is not None and 50 <= rsi <= 75])
+    chips = {'VOL': rvol >= 1.5, 'MA FAN': kurs > m8 > m21 > m50, 'ATR SQZ': atr_enge, 'CLOSE HI': spanne > 0 and (kurs - l[-1]) / spanne >= 0.75,
+             '52W HI': kurs >= hoch52 * 0.95, 'VDU': vdu, 'HH/HL': hhhl, 'W.EMA': wema is not None and kurs > wema, 'OBV+': obv_steigt,
+             'NR7': nr7, 'U/D VOL': ud > 1.1, 'SQUEEZE': squeeze, 'SPRING': spring}
+    frueh = [k for k, ok in (('OBV-Divergenz', obv_div), ('Auf-/Abtage-Umsatz', ud > 1.1), ('Squeeze', squeeze), ('Spring', spring)) if ok]
+    return {'chips': [k for k, ok in chips.items() if ok], 'rvol': round(rvol, 1), 'atr_pct': round(atr[-1] / kurs * 100, 2),
+            'hh_tage': tage, 'ud': round(ud, 2), 'roc10': round(roc10, 1), 'roc20': round(roc20, 1), 'adx': None if adx is None else round(adx),
+            'plus10': plus, 'mom': mom, 'frueh': frueh, 'abstand_hoch_pct': round((kurs / hoch52 - 1) * 100, 1), 'hoch52': round(hoch52, 2),
+            'rs3': None if rs is None else round(rs * 100, 1), 'rs3_roh': rs, 'wema': bool(wema is not None and kurs > wema),
+            'ma200': bool(kurs > m200), 'close_hi': chips['CLOSE HI'], 'ma_fan': chips['MA FAN'], 'd1': round((c[-1] / c[-2] - 1) * 100, 2),
+            'obv_div': bool(obv_div), 'squeeze': bool(squeeze), 'atr_enge': bool(atr_enge), 'vdu': bool(vdu), 'nr7': bool(nr7), 'spring': bool(spring)}
+
 def kreuzung(schnell, langsam, start, namen):
     """Letzte Kreuzung zweier Linien: 'hoch' = die schnelle kreuzt von unten über die langsame (Golden Cross bei 50/200),
     'runter' = von oben (Death Cross). start = Index des ersten Tags im Chartfenster; i ist relativ dazu (None, wenn davor)."""
