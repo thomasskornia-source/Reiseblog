@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Sektor-Optionsfluss (Thomas, 15.10.2026, nach Screenshots einer fremden Sektor-Seite) -> data/sektorflow.json, Seite sektorfluss.html.
 
-Aufruf:  python3 tools/sektorflow.py          läuft werktags nach US-Börsenschluss (sektorflow.yml, erst nach Freigabe anlegen)
+Aufruf:  python3 tools/sektorflow.py          läuft werktags nach US-Börsenschluss (sektorflow.yml)
 Quelle: verzögerte Optionsdaten der Cboe (wie tools/optionsfluesse.py), alle S&P-500-Aktien plus ein paar ETFs.
 Gezählt wird je Aktie und Tag, welche Kontrakte „auffällig“ waren: Tagesumsatz mindestens 200 Kontrakte UND Prämie mindestens 100.000 $ (Umsatz x letzter Preis x 100).
 Seite des Geschäfts (geschätzt!): liegt der letzte Preis im oberen Drittel zwischen Geld- und Briefkurs, gilt der Kontrakt als gekauft, im unteren Drittel als verkauft,
 dazwischen bleibt er ungezählt. Das ist eine Näherung (nur der letzte Preis eines Tages, nicht jedes einzelne Geschäft) und kein echter Käufer-/Verkäufer-Flow.
 Bullisch = gekaufte Calls + verkaufte Puts, bärisch = gekaufte Puts, Score = bullisch minus bärisch (verkaufte Calls zählen nicht, wie in der Vorlage).
 Pro Tag und Aktie wird [gekaufte Calls, verkaufte Puts, gekaufte Puts, Prämie der gezählten Kontrakte in 1.000 $] gespeichert, 30 Handelstage (Tagesdaten sollen nicht anwachsen).
+Zusätzlich je Aktie die 3 größten Kontrakte des neuesten Tages (Schlüssel gross, wird täglich ersetzt).
 Ohne mindestens 250 abgerufene Aktien wird nichts überschrieben.
 """
 import csv, datetime, io, json, os, re, sys, time, urllib.request
@@ -34,20 +35,23 @@ def seite(bid, ask, last):
     return 'K' if p >= 2 / 3 else 'V' if p <= 1 / 3 else None
 
 def auswerten(j, sym):
-    """Liefert (Datum, [gekaufte Calls, verkaufte Puts, gekaufte Puts, Prämie in 1.000 $]) aus einer Cboe-Kette."""
-    d = j.get('data', {}); cb = ps = pb = 0; pr = 0.0
+    """Liefert (Datum, [gekaufte Calls, verkaufte Puts, gekaufte Puts, Prämie in 1.000 $], die 3 größten Kontrakte) aus einer Cboe-Kette.
+    Kontrakt = [C|P, Strike, Verfall, Kontrakte, Prämie in 1.000 $, K|V|'' (geschätzte Seite)]; auch Kontrakte mit unklarer Seite stehen drin."""
+    d = j.get('data', {}); cb = ps = pb = 0; pr = 0.0; gross = []
     for o in d.get('options') or []:
         m = re.fullmatch(r'([A-Z]+)(\d{6})([CP])(\d{8})', o.get('option', ''))
         if not m or m.group(1) != sym.replace('-', ''): continue
         vol = o.get('volume') or 0; last = o.get('last_trade_price') or 0
         if vol < MIN_VOL or vol * last * 100 < MIN_PRAEMIE: continue
         s = seite(o.get('bid') or 0, o.get('ask') or 0, last)
+        e = m.group(2); gross.append([m.group(3), int(m.group(4)) / 1000, '20%s-%s-%s' % (e[:2], e[2:4], e[4:]), int(vol), int(round(vol * last * 100 / 1000)), s or ''])
         if (m.group(3), s) == ('C', 'K'): cb += 1
         elif (m.group(3), s) == ('P', 'V'): ps += 1
         elif (m.group(3), s) == ('P', 'K'): pb += 1
         else: continue
         pr += vol * last * 100
-    return (j.get('timestamp') or '')[:10], [cb, ps, pb, int(round(pr / 1000))]
+    gross.sort(key=lambda g: -g[4])
+    return (j.get('timestamp') or '')[:10], [cb, ps, pb, int(round(pr / 1000))], gross[:3]
 
 def holen(sym):
     for versuch in range(3):
@@ -76,9 +80,10 @@ def main():
     except Exception: alt = {'tage': {}}
     tage = alt.get('tage', {})
     tage[tag] = {s: r[1] for s, r in ok if r[0] == tag and any(r[1][:3])}
+    gross = {s: r[2] for s, r in ok if r[0] == tag and r[2] and s in tage[tag]}   # nur der neueste Tag, damit nichts anwächst
     tage = {k: tage[k] for k in sorted(tage)[-MAX_TAGE:]}
     gebraucht = {s for t in tage.values() for s in t}
-    out = {'stand': tag, 'schwellen': {'volumen': MIN_VOL, 'praemie_usd': MIN_PRAEMIE}, 'sektor': {s: sektoren[s] for s in sorted(gebraucht) if s in sektoren}, 'tage': tage}
+    out = {'stand': tag, 'schwellen': {'volumen': MIN_VOL, 'praemie_usd': MIN_PRAEMIE}, 'sektor': {s: sektoren[s] for s in sorted(gebraucht) if s in sektoren}, 'gross': gross, 'tage': tage}
     with open(PFAD, 'w', encoding='utf-8') as fh:
         fh.write(json.dumps(out, ensure_ascii=False, separators=(',', ':')).replace('},"', '},\n"') + '\n')
     print('Tag %s: %d Aktien mit Treffern' % (tag, len(tage[tag])))

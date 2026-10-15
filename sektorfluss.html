@@ -32,6 +32,13 @@
   .zeile.kop { font-weight: 700; font-size: 13.5px; color: var(--ink-soft); background: #fff; }
   .zeile .r { text-align: right; font-variant-numeric: tabular-nums; }
   .zeile .tk { font-weight: 700; }
+  .zeile.kl { cursor: pointer; }
+  .zeile.kl .tk::after { content: ' ▾'; font-weight: 400; color: var(--ink-soft); font-size: 12px; }
+  .gx { padding: 8px 16px 12px; background: rgba(46,58,50,.03); border-bottom: 1px solid rgba(46,58,50,.08); font-size: 13.5px; }
+  .gx .k { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; padding: 5px 0; border-bottom: 1px dashed rgba(46,58,50,.12); }
+  .gx .k:last-of-type { border-bottom: 0; }
+  .gx .k small { grid-column: 1 / -1; color: var(--ink-soft); }
+  .gx .fz { margin-top: 6px; font-weight: 600; }
   .gruen { color: #1f8a5b; } .rot { color: #d4373a; } .grau { color: var(--ink-soft); }
   .sektor { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 13px 16px; border-bottom: 1px solid rgba(46,58,50,.08); align-items: center; }
   .sektor:last-child { border-bottom: 0; }
@@ -123,12 +130,30 @@
       var nm = SEK[b.s] || [b.s, '']; if (!b.l.length) return '';
       return '<div class="kasten"><div class="kopf"><span class="nm">' + esc(nm[0]) + '</span>' + (nm[1] ? '<span class="etf">' + nm[1] + '</span>' : '') + '<span class="sc ' + (b.score >= 0 ? 'gruen' : 'rot') + '">' + vz(b.score) + '</span></div>' +
         '<div class="zeile kop"><span>Kürzel</span><span class="r">Score</span><span class="r">Kontrakte</span><span class="r">Prämie</span></div>' +
-        b.l.map(function (x) { return '<div class="zeile"><span class="tk">' + esc(x.t) + '</span><span class="r ' + (x.score >= 0 ? 'gruen' : 'rot') + '">' + vz(x.score) + '</span><span class="r grau">' + zahl(x.n) + '</span><span class="r">' + usd(x.p) + '</span></div>'; }).join('') + '</div>';
+        b.l.map(function (x) { return '<div class="zeile' + (D.gross && D.gross[x.t] ? ' kl' : '') + '" data-t="' + esc(x.t) + '" data-sc="' + x.score + '"><span class="tk">' + esc(x.t) + '</span><span class="r ' + (x.score >= 0 ? 'gruen' : 'rot') + '">' + vz(x.score) + '</span><span class="r grau">' + zahl(x.n) + '</span><span class="r">' + usd(x.p) + '</span></div>'; }).join('') + '</div>';
     }).join('');
     $('inhalt').innerHTML = '<div class="wrapSek"><div><h2>Sektor-Score</h2>' + tab + '</div><div><h2>Top-Aktien je Branche</h2><div class="raster">' + top + '</div></div></div>';
   }
 
   function $(id) { return document.getElementById(id); }
+  var ART = { CK: ['Call gekauft', 1], PV: ['Put verkauft', 1], PK: ['Put gekauft', -1], CV: ['Call verkauft', 0] };
+  function gross(t, sc) {   // größte Kontrakte des letzten Tages; Übereinstimmung: Richtung des größten Geschäfts gegen den Score im Zeitraum
+    var G = (D.gross || {})[t] || []; if (!G.length) return '';
+    var h = G.map(function (g) {
+      var a = ART[g[0] + g[5]], tx = a ? a[0] : (g[0] === 'C' ? 'Call' : 'Put') + ', Seite unklar';
+      return '<div class="k"><span><b>' + g[0] + ' ' + String(g[1]).replace('.', ',') + '</b> · Verfall ' + g[2].split('-').reverse().join('.') + '</span><span><b>' + usd(g[4]) + '</b></span><small>' + zahl(g[3]) + ' Kontrakte · ' + tx + '</small></div>';
+    }).join('');
+    var a0 = ART[G[0][0] + G[0][5]], r = a0 ? a0[1] : 0, fz = '';
+    if (a0 && r !== 0 && sc !== 0) fz = (r > 0) === (sc > 0) ? 'Das größte Geschäft passt zur Richtung des Scores.' : 'Das größte Geschäft läuft gegen den Score (Absicherung oder Gegenwette möglich).';
+    else if (a0 && r === 0) fz = 'Das größte Geschäft (verkaufter Call) zählt nicht in den Score.';
+    return '<div class="gx"><small>Größte Kontrakte am ' + D.stand.split('-').reverse().join('.') + ' (Seite geschätzt)</small>' + h + (fz ? '<div class="fz">' + fz + '</div>' : '') + '</div>';
+  }
+  document.addEventListener('click', function (e) {
+    var z = e.target.closest && e.target.closest('.zeile.kl'); if (!z) return;
+    var nx = z.nextElementSibling;
+    if (nx && nx.classList.contains('gx')) { nx.remove(); return; }
+    z.insertAdjacentHTML('afterend', gross(z.getAttribute('data-t'), Number(z.getAttribute('data-sc'))));
+  });
   fetch('data/sektorflow.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
     D = d; tage = Object.keys(d.tage || {}).sort();
     if (!tage.length) throw 0;
