@@ -1,0 +1,41 @@
+name: KI-These (Test)
+
+on:
+  workflow_dispatch:
+    inputs:
+      anzahl:
+        description: 'Wie viele Aktien der Top 10 (Standard 2)'
+        default: '2'
+      ticker:
+        description: 'Oder eine bestimmte Aktie (z. B. AMZN), leer = Top 10'
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: thesen
+
+jobs:
+  these:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Thesen erzeugen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANZAHL: ${{ inputs.anzahl }}
+          TICKER: ${{ inputs.ticker }}
+        run: python tools/these-sammeln.py 2>&1 | tee /tmp/these-log.txt
+      - name: Speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/thesen.json
+          if git diff --cached --quiet; then echo "Keine Änderungen"; exit 0; fi
+          git commit -m "KI-These (Test) erzeugt"
+          git pull --rebase origin main
+          git push origin HEAD:main
