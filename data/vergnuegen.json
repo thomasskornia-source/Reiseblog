@@ -228,29 +228,6 @@
   "stand": "2026-10-10"
  },
  {
-  "id": "abend-nationaltheater-ariadne-auf-naxos-strauss-2026-10-12",
-  "rubrik": "events",
-  "titel": "Ariadne auf Naxos (Strauss)",
-  "ort": "Nationaltheater",
-  "adresse": "Max-Joseph-Platz 2",
-  "lat": 48.1394,
-  "lon": 11.579,
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Oper, auch 16. und 19.10.",
-  "tags": [
-   "Oper",
-   "Abends"
-  ],
-  "quelle": "Bayerische Staatsoper",
-  "url": "https://www.staatsoper.de/spielplan",
-  "stand": "2026-10-06",
-  "thema": "Konzert & Musik"
- },
- {
   "id": "events-24d5ee7cc6",
   "lat": 48.13004,
   "lon": 11.58291,
@@ -272,168 +249,6 @@
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-12"
- },
- {
-  "id": "events-dcd9dd44f8",
-  "rubrik": "events",
-  "titel": "Henri Bonamy – Klavier",
-  "ort": "Musik-Forum München",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Klavierabend mit Henri Bonamy, der Stücke von Abbé Vogler, Max Reger, Harald Genzmer, Bertold Hummel und Thomas Uhlmann spielt.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-11"
- },
- {
-  "id": "events-d4e6a648fa",
-  "lat": 48.14011,
-  "lon": 11.57943,
-  "rubrik": "events",
-  "titel": "König Lear",
-  "ort": "Residenztheater",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "25 bis 69 €",
-  "dauer": "3 Std. 10 Min.",
-  "kurz": "Shakespeares Drama über einen unberechenbaren, alternden Patriarchen mit Manfred Zapatka in der Hauptrolle.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-12"
- },
- {
-  "id": "abend-unterfahrt-munich-uptown-jazz-orchestra-2026-10-12",
-  "rubrik": "events",
-  "titel": "Munich Uptown Jazz Orchestra",
-  "ort": "Unterfahrt",
-  "adresse": "Einsteinstraße 42",
-  "lat": 48.1325,
-  "lon": 11.5997,
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Big Band.",
-  "tags": [
-   "Musik",
-   "Jazz",
-   "Abends"
-  ],
-  "quelle": "Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-06",
-  "thema": "Konzert & Musik"
- },
- {
-  "id": "events-25623d41da",
-  "lat": 48.1354,
-  "lon": 11.60088,
-  "rubrik": "events",
-  "titel": "Munich Uptown Jazz Orchestra",
-  "ort": "Jazzclub Unterfahrt",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Das Ensemble unter Franz Weyerer interpretiert klassischen Big-Band-Sound im Stil von Duke Ellington mit hochkarätigen Solisten der Münchner Szene.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-10"
- },
- {
-  "id": "events-766c36dde3",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "Northcote",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-12",
-  "datum_bis": "2026-10-12",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "3 Std. 45 Min.",
-  "kurz": "Northcote tritt live mit handgemachter Musik im Kulturzentrum Backstage auf.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-11"
- },
- {
-  "id": "events-b8accb6902",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "Raised Fist + Drover",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-12",
-  "datum_bis": "2026-10-12",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "2 Std. 30 Min.",
-  "kurz": "Energetisches Live-Konzert von Raised Fist gemeinsam mit der Band Drover.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-11"
- },
- {
-  "id": "events-b8df144aa0",
-  "rubrik": "events",
-  "titel": "Treenighedskirkens Drengekor",
-  "ort": "Kirche St. Ludwig",
-  "adresse": "",
-  "datum": "2026-10-12",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Kostenloses Gastkonzert des renommierten dänischen Knabenchors mit Sopran- und Männerstimmen, zuvor Mitwirkung bei der Abendmesse um 19 Uhr.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Kostenlos",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-11"
  },
  {
   "id": "abend-marstall-alice-hasters-anti-opfer-2026-10-13",
@@ -973,7 +788,7 @@
   "zeit": "19:30",
   "preis": "17 bis 57 €",
   "dauer": "1 Std. 20 Min.",
-  "kurz": "Lorcas Drama um eine Witwe, die ihre Töchter in strengste Trauer und familiäre Isolation zwingt.",
+  "kurz": "Nach dem Tod ihres Gatten verhängt Witwe Bernarda eine achtjährige Trauer und sperrt ihre Töchter in strenger Isolation ein.",
   "tags": [
    "Kultur",
    "Abends"
@@ -981,7 +796,7 @@
   "thema": "Kabarett & Theater",
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-12"
+  "stand": "2026-10-15"
  },
  {
   "id": "events-8ae0a725d6",
@@ -996,16 +811,16 @@
   "zeit": "19:30",
   "preis": "29 bis 74 €",
   "dauer": "3 Std.",
-  "kurz": "Das berühmte Musical entführt in das verruchte Berliner Nachtleben der 1930er-Jahre vor dem Aufstieg des Faschismus.",
+  "kurz": "Das Musical entführt in den verruchten Berliner Kit-Kat-Club der 1930er-Jahre, während sich allmählich der Faschismus breitmacht.",
   "tags": [
-   "Musik",
    "Kultur",
+   "Musik",
    "Abends"
   ],
   "thema": "Kabarett & Theater",
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-12"
+  "stand": "2026-10-15"
  },
  {
   "id": "events-bbce2b7f6c",
@@ -1078,11 +893,34 @@
   "stand": "2026-10-12"
  },
  {
+  "id": "events-9060cebe6b",
+  "lat": 48.1749,
+  "lon": 11.55002,
+  "rubrik": "events",
+  "titel": "Felix Lobrecht: Sell Out",
+  "ort": "Olympiahalle",
+  "adresse": "",
+  "datum": "2026-10-15",
+  "datum_bis": "2026-10-17",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Der bekannte Stand-up-Comedian Felix Lobrecht präsentiert sein aktuelles Bühnenprogramm live vor großem Publikum in der Olympiahalle.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-15"
+ },
+ {
   "id": "events-ea24f4194d",
   "lat": 48.14498,
   "lon": 11.52197,
   "rubrik": "events",
-  "titel": "Monolord",
+  "titel": "MONOLORD",
   "ort": "Backstage",
   "adresse": "Reitknechtstr. 6, 80639 München",
   "datum": "2026-10-15",
@@ -1090,7 +928,7 @@
   "zeit": "20:00",
   "preis": "",
   "dauer": "1 Std.",
-  "kurz": "Die schwedische Doom-Metal-Band Monolord spielt ein kraftvolles Set in München.",
+  "kurz": "Die Band Monolord tritt live im Münchner Kulturzentrum Backstage auf.",
   "tags": [
    "Musik",
    "Abends"
@@ -1098,7 +936,7 @@
   "thema": "Konzert & Musik",
   "quelle": "Backstage München (Konzerte)",
   "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-11"
+  "stand": "2026-10-15"
  },
  {
   "id": "events-b65e23625a",
@@ -1205,14 +1043,15 @@
   "zeit": "19:00",
   "preis": "33 €",
   "dauer": "2 Std. 15 Min.",
-  "kurz": "Anna Gmeyners Stück über Kleinstadtbewohner, revolutionäre Pläne und eine Fremde, die alles durcheinanderbringt.",
+  "kurz": "In Anna Gmeyners Stück gerät das gewohnte Kleinstadtleben durch eine geheimnisvolle Fremde und eigenwillige Pläne ins Wanken.",
   "tags": [
-   "Kultur"
+   "Kultur",
+   "Abends"
   ],
   "thema": "Kabarett & Theater",
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-12"
+  "stand": "2026-10-15"
  },
  {
   "id": "events-eaa9638123",
@@ -1239,6 +1078,214 @@
   "stand": "2026-10-13"
  },
  {
+  "id": "events-71378bc59d",
+  "lat": 48.12366,
+  "lon": 11.5559,
+  "rubrik": "events",
+  "titel": "Die Geierwally",
+  "ort": "Münchner Volkstheater",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "2026-11-15",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "2 Std.",
+  "kurz": "Moderne Schauspieladaption des bekannten alpinen Heimatstoffs über Freiheit und Eigensinn auf der Volkstheater-Bühne.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-9857a7f5e9",
+  "lat": 48.1369,
+  "lon": 11.56204,
+  "rubrik": "events",
+  "titel": "Disney Der Glöckner von Notre Dame",
+  "ort": "Deutsches Theater",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "2026-11-08",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "2,5 Std.",
+  "kurz": "Das Musical erzählt die berühmte Geschichte von Quasimodo und Esmeralda mit aufwendiger Bühnenshow und dramatischer Musik.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-0ae879cac0",
+  "lat": 48.14614,
+  "lon": 11.55945,
+  "rubrik": "events",
+  "titel": "Peter Pan",
+  "ort": "Münchner Theater für Kinder",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "2027-01-23",
+  "zeit": "15:00",
+  "preis": "",
+  "dauer": "2 Std.",
+  "kurz": "Kindgerechte Theaterinszenierung über die Abenteuer von Peter Pan, Wendy und Kapitän Hook im märchenhaften Nimmerland.",
+  "tags": [
+   "Familie",
+   "Kultur"
+  ],
+  "thema": "Familie & Kinder",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-675a1aea58",
+  "rubrik": "events",
+  "titel": "Residenzwoche: Eröffnungskonzert",
+  "ort": "Antiquarium der Residenz",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "2026-10-16",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "2 Std.",
+  "kurz": "Klassisches Auftaktkonzert der Residenzwoche zu Ehren Max Emanuels im Renaissance-Saal der Münchner Residenz.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-1997c8a948",
+  "lat": 48.14412,
+  "lon": 11.58596,
+  "rubrik": "events",
+  "titel": "Steina: Playback",
+  "ort": "Haus der Kunst",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "2026-12-07",
+  "zeit": "10:00",
+  "preis": "",
+  "dauer": "10 Std.",
+  "kurz": "Einblick in das pionierhafte Schaffen der Videokünstlerin Steina mit innovativen Arbeiten an der Schnittstelle von Bild und Klang.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-658f9b745a",
+  "lat": 48.14413,
+  "lon": 11.59137,
+  "rubrik": "events",
+  "titel": "Stonehenge. Uralte Geheimnisse",
+  "ort": "Archäologische Staatssammlung",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "2027-08-29",
+  "zeit": "10:00",
+  "preis": "",
+  "dauer": "7 Std.",
+  "kurz": "Die Sonderausstellung beleuchtet neue archäologische Erkenntnisse und jahrtausendealte Geheimnisse rund um das weltberühmte Monument in England.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-67851188cb",
+  "lat": 48.12422,
+  "lon": 11.58117,
+  "rubrik": "events",
+  "titel": "Auer Dult - Kirchweihdult",
+  "ort": "Mariahilfplatz",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-10-25",
+  "zeit": "10:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Traditioneller Münchner Jahrmarkt mit Verkaufsständen, Karussells und bayerischen Schmankerln unter freiem Himmel auf dem Mariahilfplatz.",
+  "tags": [
+   "Märkte",
+   "Familie",
+   "Draußen",
+   "Kultur"
+  ],
+  "thema": "Feste & Märkte",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-f75860356d",
+  "lat": 48.19469,
+  "lon": 11.60785,
+  "rubrik": "events",
+  "titel": "Bijelo Dugme",
+  "ort": "Zenith",
+  "adresse": "Lilienthalallee 29, 80939 München",
+  "datum": "2026-10-17",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Die Rocklegenden um Goran Bregovic zelebrieren ihr fünfzigjähriges Bandjubiläum mit Klassikern und mitreißenden Gitarrensounds in der Kulturhalle.",
+  "tags": [
+   "Musik",
+   "Abends",
+   "Kultur"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Zenith, Kulturhalle (Konzerte)",
+  "url": "https://www.in-muenchen.de/locations/zenith.html",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-72b79bfdf9",
+  "lat": 48.14007,
+  "lon": 11.58154,
+  "rubrik": "events",
+  "titel": "Eine Zierde für den Verein",
+  "ort": "Marstall",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "33 €",
+  "dauer": "1 Std. 40 Min.",
+  "kurz": "Bühnenfassung nach Marieluise Fleißer über Geschlechterrollen, kleinstädtische Konventionen und eine Liebe, die als Zweckbündnis missbraucht wird.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-15"
+ },
+ {
   "id": "events-c2604f8281",
   "lat": 48.1354,
   "lon": 11.60088,
@@ -1263,6 +1310,160 @@
   "stand": "2026-10-13"
  },
  {
+  "id": "events-e26125df0c",
+  "lat": 48.16912,
+  "lon": 11.54616,
+  "rubrik": "events",
+  "titel": "LOOP ONE Festival - Biathlon Opening",
+  "ort": "Olympiapark in München",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-10-18",
+  "zeit": "10:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sportliches Event zum Biathlon-Saisonauftakt im Olympiapark mit sportlichen Wettbewerben und Aktionen für Interessierte und Familien.",
+  "tags": [
+   "Draußen",
+   "Familie"
+  ],
+  "thema": "Draußen & Sport",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-0f5c441519",
+  "rubrik": "events",
+  "titel": "Lange Nacht der Münchner Museen",
+  "ort": "Diverse Orte in München",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-10-17",
+  "zeit": "18:00",
+  "preis": "",
+  "dauer": "7 Std.",
+  "kurz": "Rund 100 Münchner Museen und Kulturinstitutionen öffnen zu nächtlicher Stunde ihre Ausstellungen und präsentieren vielfältige Sonderprogramme.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-544ffcfe16",
+  "lat": 48.14011,
+  "lon": 11.57943,
+  "rubrik": "events",
+  "titel": "Maria Stuart",
+  "ort": "Residenztheater",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "21 bis 64 €",
+  "dauer": "2 Std. 20 Min.",
+  "kurz": "Schillers historischer Machtkampf zwischen zwei Herrscherinnen, bei dem vor jeder Vorstellung per Los über die Rollenverteilung entschieden wird.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-e360b61a10",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "TENSIDE/AURORAWAVE",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-10-17",
+  "zeit": "19:00",
+  "preis": "",
+  "dauer": "4 Std.",
+  "kurz": "Konzertabend mit Tenside und Aurorawave auf dem Gelände des Backstage München.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-b5d8bfd393",
+  "lat": 48.14011,
+  "lon": 11.57943,
+  "rubrik": "events",
+  "titel": "Theaterführung",
+  "ort": "Residenztheater",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "",
+  "zeit": "15:00",
+  "preis": "10 €",
+  "dauer": "1 Std. 20 Min.",
+  "kurz": "Ein geführter Samstagsrundgang eröffnet faszinierende Einblicke hinter die Kulissen und Abläufe des Münchner Residenztheaters.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-e911c25816",
+  "rubrik": "events",
+  "titel": "Buch trifft Bühne: Leseclub zu »Bye Bye Lolita«",
+  "ort": "Marstall Salon",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "16:00",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Gemeinsam mit Dramaturgie und Ensemble entdecken Teilnehmende im offenen Leseclub die literarischen Vorlagen der Theaterproduktionen.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-5a05b79a6a",
+  "rubrik": "events",
+  "titel": "Bye Bye Lolita",
+  "ort": "Cuvilliéstheater",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "17 bis 57 €",
+  "dauer": "1 Std. 50 Min.",
+  "kurz": "Lea Ruckpauls Theateradaption dreht Nabokovs Perspektive um und lässt die Betroffene selbst auf ihre Erfahrungen zurückblicken.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-15"
+ },
+ {
   "id": "events-38cd8401cc",
   "lat": 48.1354,
   "lon": 11.60088,
@@ -1285,6 +1486,121 @@
   "quelle": "Jazzclub Unterfahrt",
   "url": "https://www.unterfahrt.de/",
   "stand": "2026-10-13"
+ },
+ {
+  "id": "events-efcace73bb",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "KÄRBHOLZ",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-18",
+  "datum_bis": "2026-10-18",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "3 Std.",
+  "kurz": "Live-Auftritt der Formation Kärbholz im Münchner Backstage.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-af8855ea60",
+  "lat": 48.14011,
+  "lon": 11.57943,
+  "rubrik": "events",
+  "titel": "König Lear",
+  "ort": "Residenztheater",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "18:30",
+  "preis": "25 bis 69 €",
+  "dauer": "3 Std. 10 Min.",
+  "kurz": "Manfred Zapatka brilliert in Shakespeares Tragödie als alternder Herrscher, der durch seinen Kontrollverlust ins Verderben stürzt.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-2f77766d4c",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "MARKO HIETALA",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-18",
+  "datum_bis": "2026-10-18",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "3 Std.",
+  "kurz": "Marko Hietala gastiert für ein abendliches Konzert im Backstage.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-3dcfdfe746",
+  "lat": 48.14011,
+  "lon": 11.57943,
+  "rubrik": "events",
+  "titel": "Macht Theater!",
+  "ort": "Residenztheater",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "11:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Ein Aktionstag an neun Münchner Bühnen mit Workshops für alle von 6 bis 99 Jahren rund um Demokratie und Vielfalt.",
+  "tags": [
+   "Kultur",
+   "Familie"
+  ],
+  "thema": "Familie & Kinder",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-acb0a19c6f",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "Band Of Horses",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-19",
+  "datum_bis": "2026-10-19",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "2,5 Std.",
+  "kurz": "Band Of Horses spielen live im Münchner Kulturzentrum Backstage.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-15"
  },
  {
   "id": "events-aa4f3fbe44",
@@ -1335,6 +1651,29 @@
   "stand": "2026-10-13"
  },
  {
+  "id": "events-1a6d9cb404",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "AUDREY HORNE + Motorowl",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-20",
+  "datum_bis": "2026-10-20",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Gemeinsamer Rockabend mit Audrey Horne und Motorowl im Backstage.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-15"
+ },
+ {
   "id": "events-0f0ae34cd5",
   "lat": 48.1354,
   "lon": 11.60088,
@@ -1359,6 +1698,75 @@
   "stand": "2026-10-13"
  },
  {
+  "id": "events-633986d128",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "SARI SCHORR",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-20",
+  "datum_bis": "2026-10-20",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "3 Std.",
+  "kurz": "Sari Schorr gibt ein Live-Konzert im Kulturzentrum Backstage.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-9ca1f78fe6",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "BIJI",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-21",
+  "datum_bis": "2026-10-21",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "3 Std.",
+  "kurz": "Biji steht für einen Konzertabend auf der Bühne im Backstage München.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-e7e685d5c7",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "MATTERZ",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-21",
+  "datum_bis": "2026-10-21",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "1 Std.",
+  "kurz": "Matterz präsentieren ihr einstündiges Konzertprogramm live im Backstage.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-15"
+ },
+ {
   "id": "events-4f842481d2",
   "lat": 48.1354,
   "lon": 11.60088,
@@ -1381,6 +1789,270 @@
   "quelle": "Jazzclub Unterfahrt",
   "url": "https://www.unterfahrt.de/",
   "stand": "2026-10-13"
+ },
+ {
+  "id": "events-e3439131f2",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "SLOPE",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-22",
+  "datum_bis": "2026-10-22",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "3,5 Std.",
+  "kurz": "Slope spielen ein abendliches Konzert im Münchner Kulturzentrum Backstage.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-dfee2a136f",
+  "lat": 48.19469,
+  "lon": 11.60785,
+  "rubrik": "events",
+  "titel": "Simple Plan",
+  "ort": "Zenith",
+  "adresse": "Lilienthalallee 29, 80939 München",
+  "datum": "2026-10-23",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Auf ihrer europäischen Tour gastiert die Pop-Punk-Band zusammen mit Neck Deep und Charlotte Sands live in München.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Zenith, Kulturhalle (Konzerte)",
+  "url": "https://www.in-muenchen.de/locations/zenith.html",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "stream-anatomie-eines-falls",
+  "rubrik": "stream",
+  "titel": "Anatomie eines Falls",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "2026-11-09",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Eine Schriftstellerin steht nach dem Tod ihres Mannes vor Gericht; der Prozess legt die Risse der Ehe offen.",
+  "tags": [
+   "Film",
+   "Drama",
+   "Krimi"
+  ],
+  "quelle": "filmdienst.de Mediathek-Tipps (15.10.2026)",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-10-15",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-das-haus-am-hang",
+  "rubrik": "stream",
+  "titel": "Das Haus am Hang",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "2026-11-28",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Japanische Drama-Serie über Menschen, deren Leben sich an einem Haus am Hang kreuzen.",
+  "tags": [
+   "Serie",
+   "Drama"
+  ],
+  "quelle": "filmdienst.de Mediathek-Tipps (15.10.2026)",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-15",
+  "thema": "ARTE Mediathek"
+ },
+ {
+  "id": "stream-eismayer",
+  "rubrik": "stream",
+  "titel": "Eismayer",
+  "ort": "ZDF Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "2026-11-08",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Ein harter Ausbilder beim Bundesheer verliebt sich in einen Rekruten – ein leises, kraftvolles Drama.",
+  "tags": [
+   "Film",
+   "Drama"
+  ],
+  "quelle": "filmdienst.de Mediathek-Tipps (15.10.2026)",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-15",
+  "thema": "ZDF Mediathek"
+ },
+ {
+  "id": "stream-extrawurst",
+  "rubrik": "stream",
+  "titel": "Extrawurst",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Ein Streit um einen Grill im Tennisclub eskaliert zur bissigen Komödie über Vorurteile.",
+  "tags": [
+   "Film",
+   "Komödie"
+  ],
+  "quelle": "serienjunkies.de Netflix Oktober 2026 (Start 15.10.)",
+  "url": "https://www.netflix.com/",
+  "stand": "2026-10-15",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-from",
+  "rubrik": "stream",
+  "titel": "From",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Staffel 3: Gestrandete in einer Kleinstadt, die niemand verlassen kann, überleben die Nacht.",
+  "tags": [
+   "Serie",
+   "Horror",
+   "Thriller"
+  ],
+  "quelle": "serienjunkies.de Prime Video Oktober 2026 (Start 1.10.)",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-15",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-furiosa-a-mad-max-saga",
+  "rubrik": "stream",
+  "titel": "Furiosa: A Mad Max Saga",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Die Vorgeschichte der Kriegerin Furiosa: Rache und Flucht durch die Wüste nach der Apokalypse.",
+  "tags": [
+   "Film",
+   "Action",
+   "Sci-Fi",
+   "Abenteuer"
+  ],
+  "quelle": "serienjunkies.de Prime Video Oktober 2026 (Start 15.10.)",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-15",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-gerta-und-die-welt-am-abgrund",
+  "rubrik": "stream",
+  "titel": "Gerta und die Welt am Abgrund",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "2027-01-06",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Zweiteiliges tschechisches Historiendrama über eine Frau in unruhigen Zeiten.",
+  "tags": [
+   "Serie",
+   "Historie",
+   "Drama"
+  ],
+  "quelle": "filmdienst.de Mediathek-Tipps (15.10.2026)",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-15",
+  "thema": "ARTE Mediathek"
+ },
+ {
+  "id": "stream-nikita",
+  "rubrik": "stream",
+  "titel": "Nikita",
+  "ort": "3sat Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "2026-11-09",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Eine Straftäterin wird zur Agentin ausgebildet und gerät zwischen Auftrag und eigenem Leben.",
+  "tags": [
+   "Film",
+   "Action",
+   "Thriller"
+  ],
+  "quelle": "filmdienst.de Mediathek-Tipps (15.10.2026)",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-10-15",
+  "thema": "3sat Mediathek"
+ },
+ {
+  "id": "stream-the-diplomat",
+  "rubrik": "stream",
+  "titel": "The Diplomat",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Staffel 4: Diplomatin Kate Wyler jongliert zwischen Weltpolitik und Ehe-Chaos.",
+  "tags": [
+   "Serie",
+   "Drama",
+   "Thriller"
+  ],
+  "quelle": "serienjunkies.de Netflix Oktober 2026 (Start 15.10.)",
+  "url": "https://www.netflix.com/",
+  "stand": "2026-10-15",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-the-rookie",
+  "rubrik": "stream",
+  "titel": "The Rookie",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Ein Mittvierziger beginnt als ältester Anfänger bei der Polizei von Los Angeles – Staffel 1–7.",
+  "tags": [
+   "Serie",
+   "Krimi",
+   "Drama"
+  ],
+  "quelle": "serienjunkies.de Prime Video Oktober 2026 (Start 1.10.)",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-15",
+  "thema": "Amazon Prime"
  },
  {
   "id": "tv-3fedeb7a7f",
@@ -1501,223 +2173,5 @@
   "url": "https://www.daserste.de/",
   "stand": "2026-10-14",
   "thema": "Das Erste"
- },
- {
-  "id": "stream-anatomie-eines-falls",
-  "rubrik": "stream",
-  "titel": "Anatomie eines Falls",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "2026-11-09",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Eine Schriftstellerin steht nach dem Tod ihres Mannes vor Gericht; der Prozess legt die Risse der Ehe offen.",
-  "tags": [
-   "Film",
-   "Drama",
-   "Krimi"
-  ],
-  "quelle": "filmdienst.de Mediathek-Tipps (15.10.2026)",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-15",
-  "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-eismayer",
-  "rubrik": "stream",
-  "titel": "Eismayer",
-  "ort": "ZDF Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "2026-11-08",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Ein harter Ausbilder beim Bundesheer verliebt sich in einen Rekruten – ein leises, kraftvolles Drama.",
-  "tags": [
-   "Film",
-   "Drama"
-  ],
-  "quelle": "filmdienst.de Mediathek-Tipps (15.10.2026)",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-10-15",
-  "thema": "ZDF Mediathek"
- },
- {
-  "id": "stream-nikita",
-  "rubrik": "stream",
-  "titel": "Nikita",
-  "ort": "3sat Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "2026-11-09",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Eine Straftäterin wird zur Agentin ausgebildet und gerät zwischen Auftrag und eigenem Leben.",
-  "tags": [
-   "Film",
-   "Action",
-   "Thriller"
-  ],
-  "quelle": "filmdienst.de Mediathek-Tipps (15.10.2026)",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-10-15",
-  "thema": "3sat Mediathek"
- },
- {
-  "id": "stream-furiosa-a-mad-max-saga",
-  "rubrik": "stream",
-  "titel": "Furiosa: A Mad Max Saga",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die Vorgeschichte der Kriegerin Furiosa: Rache und Flucht durch die Wüste nach der Apokalypse.",
-  "tags": [
-   "Film",
-   "Action",
-   "Sci-Fi",
-   "Abenteuer"
-  ],
-  "quelle": "serienjunkies.de Prime Video Oktober 2026 (Start 15.10.)",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-15",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-extrawurst",
-  "rubrik": "stream",
-  "titel": "Extrawurst",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Ein Streit um einen Grill im Tennisclub eskaliert zur bissigen Komödie über Vorurteile.",
-  "tags": [
-   "Film",
-   "Komödie"
-  ],
-  "quelle": "serienjunkies.de Netflix Oktober 2026 (Start 15.10.)",
-  "url": "https://www.netflix.com/",
-  "stand": "2026-10-15",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-das-haus-am-hang",
-  "rubrik": "stream",
-  "titel": "Das Haus am Hang",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "2026-11-28",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Japanische Drama-Serie über Menschen, deren Leben sich an einem Haus am Hang kreuzen.",
-  "tags": [
-   "Serie",
-   "Drama"
-  ],
-  "quelle": "filmdienst.de Mediathek-Tipps (15.10.2026)",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-15",
-  "thema": "ARTE Mediathek"
- },
- {
-  "id": "stream-gerta-und-die-welt-am-abgrund",
-  "rubrik": "stream",
-  "titel": "Gerta und die Welt am Abgrund",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "2027-01-06",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Zweiteiliges tschechisches Historiendrama über eine Frau in unruhigen Zeiten.",
-  "tags": [
-   "Serie",
-   "Historie",
-   "Drama"
-  ],
-  "quelle": "filmdienst.de Mediathek-Tipps (15.10.2026)",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-15",
-  "thema": "ARTE Mediathek"
- },
- {
-  "id": "stream-the-diplomat",
-  "rubrik": "stream",
-  "titel": "The Diplomat",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Staffel 4: Diplomatin Kate Wyler jongliert zwischen Weltpolitik und Ehe-Chaos.",
-  "tags": [
-   "Serie",
-   "Drama",
-   "Thriller"
-  ],
-  "quelle": "serienjunkies.de Netflix Oktober 2026 (Start 15.10.)",
-  "url": "https://www.netflix.com/",
-  "stand": "2026-10-15",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-from",
-  "rubrik": "stream",
-  "titel": "From",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Staffel 3: Gestrandete in einer Kleinstadt, die niemand verlassen kann, überleben die Nacht.",
-  "tags": [
-   "Serie",
-   "Horror",
-   "Thriller"
-  ],
-  "quelle": "serienjunkies.de Prime Video Oktober 2026 (Start 1.10.)",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-15",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-the-rookie",
-  "rubrik": "stream",
-  "titel": "The Rookie",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Ein Mittvierziger beginnt als ältester Anfänger bei der Polizei von Los Angeles – Staffel 1–7.",
-  "tags": [
-   "Serie",
-   "Krimi",
-   "Drama"
-  ],
-  "quelle": "serienjunkies.de Prime Video Oktober 2026 (Start 1.10.)",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-15",
-  "thema": "Amazon Prime"
  }
 ]
