@@ -2,7 +2,7 @@
   var bar = document.getElementById('topbar');
   if (!bar) return;
   var file = location.pathname.split('/').pop() || 'index.html';
-  var map = { 'reiseberater.html': 'reisen.html', 'reiseideen.html': 'reisen.html', 'muenchen-quiz.html': 'quiz.html', 'raetsel.html': 'quiz.html', 'vergnuegen.html': 'quiz.html', 'wochenplaner.html': 'rezepte.html', 'sektoren.html': 'aktien.html', 'momentum.html': 'aktien.html', 'sektorfluss.html': 'aktien.html', 'wcj-info.html': 'aktien.html', 'megas.html': 'aktien.html', 'cholesterin.html': 'ernaehrung.html', 'lebensmittel-basics.html': 'ernaehrung.html', 'podcast-richtig-essen.html': 'ernaehrung.html' };
+  var map = { 'reiseberater.html': 'reisen.html', 'reiseideen.html': 'reisen.html', 'muenchen-quiz.html': 'quiz.html', 'raetsel.html': 'quiz.html', 'vergnuegen.html': 'quiz.html', 'wochenplaner.html': 'rezepte.html', 'sektoren.html': 'aktien.html', 'momentum.html': 'aktien.html', 'sektorfluss.html': 'aktien.html', 'analyse.html': 'aktien.html', 'wcj-info.html': 'aktien.html', 'megas.html': 'aktien.html', 'cholesterin.html': 'ernaehrung.html', 'lebensmittel-basics.html': 'ernaehrung.html', 'podcast-richtig-essen.html': 'ernaehrung.html' };
   if (/-reise\.html$/.test(file)) file = 'reisen.html';
   if (location.pathname.indexOf('/rezepte/') !== -1) file = 'rezepte.html';
   file = map[file] || file;

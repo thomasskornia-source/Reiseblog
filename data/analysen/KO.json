@@ -1,0 +1,101 @@
+{
+ "ticker": "KO", "name": "The Coca-Cola Company", "stand": "15.10.2026", "erstellt_von": "Claude",
+ "kurz": "Coca-Cola verkauft kaum Getränke selbst, sondern vor allem Konzentrate und Markenrechte an Abfüller und verdient daran sehr hohe Margen (operative Marge 2025 laut Firma 28,7 % bzw. 31,2 % bereinigt) [3]. Das Wachstum kommt zuletzt aus Menge und Preis zugleich: Im zweiten Quartal 2026 stieg die Absatzmenge um 5 %, der organische Umsatz um 6 %, und die Firma hob ihre Jahresziele an [1]. Der größte offene Punkt ist kein Marktthema, sondern ein Steuerstreit mit der US-Steuerbehörde um bis zu 14 Mrd. $ [4].",
+ "teile": [
+  {"titel": "1 · Branche",
+   "intro": "Nicht-alkoholische Fertiggetränke (Erfrischungsgetränke, Wasser, Sport, Tee, Kaffee, Säfte). Die Quellen unten sind die Firmenunterlagen und die Berichte der Wettbewerber, keine Branchenstudie. Marktgrößen und Marktanteile der Branche als Ganzes habe ich nicht belegt.",
+   "abschnitte": [
+    {"h": "Wie die Branche Geld verdient", "punkte": [
+      "Markenhersteller verkaufen Konzentrat oder Sirup an Abfüller (Bottler), die daraus mit Zucker/Süßstoff, Wasser, Flaschen und Dosen das fertige Getränk machen und an den Handel liefern. Der Markeninhaber hat dadurch wenig Kapitalbindung und hohe Marge, der Abfüller das Kapital- und Logistikgeschäft mit niedrigerer Marge [2].",
+      "Coca-Cola betreibt beides: Konzentratgeschäft in den vier geografischen Segmenten und ein Fertiggetränkegeschäft (meist über eigene Abfüller im Segment Bottling Investments), das laut 10-K höheren Umsatz, aber niedrigere Bruttomarge hat [2]."]},
+    {"h": "Was die Nachfrage treibt", "punkte": [
+      "Menge (Absatzkästen) vor allem in Schwellenländern: 84 % der weltweiten Absatzmenge entstehen außerhalb der USA, die größten Märkte Mexiko, China, Brasilien und Indien zusammen 33 % [2].",
+      "Preis und Mix: In den USA stiegen Preis/Mix im Q2 2026 um 4 %, in Asien-Pazifik fielen sie um 9 % wegen bewusst günstigerer Packungen [1].",
+      "Zuckerfreie Marken und Neuprodukte: Coca-Cola Zero Sugar +16 % Menge im Q2 2026 [1]."]},
+    {"h": "Branchenrisiken laut Firmenunterlagen", "punkte": [
+      "Gesundheitspolitik: Steuern und Regeln für gesüßte Getränke [2].",
+      "Gewichtsabnahme-Medikamente werden im 10-K als möglicher Einfluss auf den Konsum genannt, ohne Zahlen und ohne Medikamentennamen [2].",
+      "Wasserknappheit, Pfand- und Verpackungsvorschriften (z. B. PFAS-Beschränkungen), Wechselkurse [2]."]}
+   ],
+   "unklar": ["Gesamtgröße des weltweiten Markts und Marktanteile über alle Kategorien: nicht belegt.", "Wie stark Gewichtsabnahme-Medikamente den Konsum tatsächlich senken: in den Unterlagen nicht beziffert."]},
+  {"titel": "2 · Wettbewerber",
+   "intro": "Die im 10-K genannten Konkurrenten sind unter anderem PepsiCo, Nestlé, Keurig Dr Pepper, Danone, Suntory, Red Bull und Brauereien wie Anheuser-Busch InBev, Heineken und Kirin [2]. Zwei davon habe ich mit aktuellen Quartalszahlen belegt.",
+   "abschnitte": [
+    {"tabelle": {"kopf": ["Unternehmen", "Aktuelle Lage (Quartal)", "Einordnung"], "zeilen": [
+      ["Coca-Cola", "Q2 2026: Menge +5 %, organischer Umsatz +6 %, Preis/Mix +2 % [1]", "Reines Getränkehaus, Konzentrat plus Abfüller"],
+      ["PepsiCo", "Q2 2026: organischer Umsatz +2,4 %; Getränke Nordamerika organisch +1 %, Menge −4 % (organisch −2 %); Auslands-Franchise-Getränke Menge +5 % [5]", "Getränke und Snacks; Getränke in den USA zuletzt schwächer"],
+      ["Keurig Dr Pepper", "Q2 2026: Umsatz +75,6 % wegen der Übernahme von JDE Peet's (abgeschlossen am 1. April); ohne sie +7,3 %; US-Erfrischungsgetränke +10,0 % [6]", "Fast nur USA, jetzt auch Kaffee; Verschuldung 4,4-fach (Zielwert 4,1-fach) [6]"]
+    ]}},
+    {"h": "Was daraus folgt", "punkte": [
+      "Coca-Cola wächst in der Menge zuletzt stärker als PepsiCo in den USA und international auf breiter Basis [1][5].",
+      "Ob Coca-Cola damit Marktanteile gewinnt, sagt die Firma selbst: Wertanteil bei nicht-alkoholischen Fertiggetränken insgesamt gewonnen, in Asien-Pazifik (mit Indien) verloren [1]."]}
+   ],
+   "unklar": ["Nestlé, Danone, Suntory, Red Bull: keine aktuellen Zahlen geprüft.", "Eigenmarken des Handels und Preisdruck: in den Quellen nicht beziffert."]},
+  {"titel": "3 · Unternehmen",
+   "abschnitte": [
+    {"h": "Geschäftsmodell und Struktur", "punkte": [
+      "Segmente: Europa/Naher Osten/Afrika, Lateinamerika, Nordamerika, Asien-Pazifik und Bottling Investments [2].",
+      "Sparkling Soft Drinks machen 69 % der weltweiten Menge aus, die Marke Coca-Cola allein 47 %. Die fünf größten Abfüllpartner (Coca-Cola FEMSA, CCEP, CCHBC, Arca Continental, Swire) stehen für 44 % der Menge [2].",
+      "Rund 65.900 Beschäftigte Ende 2025 (Vorjahr 69.700) [2]."]},
+    {"h": "Zahlen 2025", "tabelle": {"kopf": ["Kennzahl", "2025"], "zeilen": [
+      ["Umsatz", "47,9 Mrd. $ (+2 %), organisch +5 % [3]"],
+      ["Absatzmenge", "0 % Veränderung (33,8 Mrd. Kästen) [2][3]"],
+      ["Operative Marge", "28,7 % (2024: 21,2 %), bereinigt 31,2 % (30,0 %) [3]"],
+      ["Ergebnis je Aktie", "3,04 $ (+23 %), bereinigt 3,00 $ (+4 %) [3]"],
+      ["Cashflow aus Geschäft / freier Cashflow", "7,4 Mrd. $ / 5,3 Mrd. $; ohne die Zahlung für fairlife 11,4 Mrd. $ [3]"],
+      ["Dividenden / Aktienrückkäufe", "8,8 Mrd. $ / 0,7 Mrd. $ (netto 0,4 Mrd. $) [3]"]
+    ]}},
+    {"h": "Zahlen 2026 bisher", "punkte": [
+      "Q2 2026: Umsatz 13,4 Mrd. $ (+7 %), organisch +6 %, Menge +5 %, operative Marge 34,9 %, bereinigtes Ergebnis je Aktie 0,97 $ (+11 %) [1].",
+      "Erstes Halbjahr: Cashflow aus Geschäft 7,5 Mrd. $, freier Cashflow 6,9 Mrd. $ [1].",
+      "Jahresziele (im Juli angehoben): organischer Umsatz etwa +5 %, bereinigtes Ergebnis je Aktie +9 bis +10 %, freier Cashflow etwa 12,4 Mrd. $ [1]."]},
+    {"h": "Segmente im Q2 2026", "tabelle": {"kopf": ["Segment", "Menge", "Preis/Mix", "Bemerkung"], "zeilen": [
+      ["Europa/Naher Osten/Afrika", "+4 %", "+1 %", "Bereinigtes Betriebsergebnis währungsbereinigt −5 % (mehr Marketing/Kosten) [1]"],
+      ["Lateinamerika", "+3 %", "+3 %", "Betriebsergebnis +23 % [1]"],
+      ["Nordamerika", "+3 %", "+4 %", "Bereinigtes Betriebsergebnis währungsbereinigt +12 % [1]"],
+      ["Asien-Pazifik", "+8 %", "−9 %", "Wertanteil verloren, vor allem in Indien [1]"],
+      ["Bottling Investments", "+5 %", "+2 %", "Betriebsergebnis +55 % [1]"]
+    ]}},
+    {"h": "Besonderheiten", "punkte": [
+      "Verkauf der afrikanischen Abfüllbetriebe: Die Jahresziele gehen davon aus, dass er Ende Q3 oder im Q4 2026 abgeschlossen wird, vorbehaltlich Genehmigung [1]. Eine Meldung nannte eine Belastung von rund 1 Mrd. $ für die Firma [7].",
+      "Steuerstreit: Die Firma hat 6 Mrd. $ bereits an die US-Steuerbehörde gezahlt (Rückzahlung bei Sieg) und nennt bis zu 14 Mrd. $ mögliche Nachzahlung. Verhandelt wird im Berufungsverfahren in Miami (Mündliche Verhandlung war für den 25. Juni 2026 angesetzt); ein Urteil habe ich nicht gefunden [4]. Die Steuerquote in den Jahreszielen (19,9 %) enthält diesen Streit nicht [1]."]}
+   ],
+   "unklar": ["Anteil der Segmente am Gesamtumsatz: nicht ausgelesen.", "Entwicklung von fairlife und Costa: in der Q2-Mitteilung nicht erwähnt.", "Ausgang der Berufungsverhandlung: nicht gefunden.", "Erwarteter Erlös aus dem Verkauf der afrikanischen Abfüller: nicht gefunden."]},
+  {"titel": "4 · Gesamtbericht",
+   "intro": "Zusammenführung der drei Teile. Keine Bewertung, kein Kursziel, keine Empfehlung.",
+   "bull": [
+    "Menge und Preis wachsen gemeinsam: Q2 2026 Menge +5 %, Preis/Mix +2 %, organischer Umsatz +6 % [1].",
+    "Hohe und steigende Marge: operative Marge im Q2 34,9 % nach 34,1 % im Vorjahr [1].",
+    "Zuckerfreie Marken wachsen am schnellsten (Zero Sugar +16 %) und das in allen Segmenten [1].",
+    "Breite Streuung über Regionen und Kategorien, 84 % der Menge außerhalb der USA [2].",
+    "Hoher freier Cashflow (Jahresziel etwa 12,4 Mrd. $), der die Dividende von zuletzt 8,8 Mrd. $ deutlich überdeckt [1][3]."],
+   "bear": [
+    "2025 war die Absatzmenge flach (0 %), das Wachstum kam vor allem aus Preisen [3]. Ob die starke Menge im Q2 2026 anhält, ist offen.",
+    "Asien-Pazifik: Preis/Mix −9 %, Wertanteil in Indien verloren [1].",
+    "Europa/Naher Osten/Afrika: Betriebsergebnis zuletzt rückläufig [1].",
+    "Steuerstreit mit bis zu 14 Mrd. $ möglicher Nachzahlung; ein Verlust würde den Cashflow belasten [4].",
+    "Gesundheitspolitik und Gewichtsabnahme-Medikamente als langfristige Gegenwinde, in den Unterlagen aber nicht beziffert [2]."],
+   "kausal": [
+    ["Mehr Absatzkästen in Indien, China, USA, Brasilien", "Mehr Konzentratverkäufe an Abfüller (Q2: +4 %, zeitlich leicht hinter der Menge)", "Organischer Umsatz +6 %, Marge 34,9 % [1]"],
+    ["Zuckerfreie Marken wachsen schneller als der Durchschnitt", "Mix verschiebt sich zu Zero Sugar; Preis/Mix in Nordamerika +4 %", "Nordamerika bereinigtes Betriebsergebnis währungsbereinigt +12 % [1]"],
+    ["Bewusst günstigere Packungen in Asien", "Menge steigt, Preis/Mix sinkt", "Asien-Pazifik Menge +8 %, Preis/Mix −9 %, Betriebsergebnis flach [1]"],
+    ["Schwächerer Dollar", "Auslandsumsätze zählen umgerechnet mehr", "Währung trug 2 Punkte zum Ergebnis-Wachstum je Aktie im Q2 bei [1]"],
+    ["Steuerstreit verloren", "Nachzahlung plus Zinsen an die US-Steuerbehörde", "Belastung von Cashflow und Ergebnis; Höhe bis 14 Mrd. $ laut Firma [4]"]
+   ],
+   "beobachten": [
+    "Ergebnis zum dritten Quartal 2026 (Termin nicht geprüft): Menge gegenüber +5 % im Q2, Asien-Pazifik, Europa.",
+    "Abschluss des Verkaufs der afrikanischen Abfüllbetriebe.",
+    "Entscheidung des Berufungsgerichts im Steuerstreit.",
+    "Zahlen zu fairlife und Costa, die in den Q2-Mitteilungen nicht auftauchen."],
+   "unklar": ["Gegenläufige Signale: Die Firma nennt sowohl Wertanteilsgewinn insgesamt als auch Verlust in Asien-Pazifik. Beides steht in derselben Mitteilung [1]."]}
+ ],
+ "quellen": [
+  {"n": 1, "titel": "Coca-Cola Reports Second Quarter 2026 Results and Raises Full Year Guidance", "url": "https://investors.coca-colacompany.com/news-events/press-releases/detail/1168", "art": "Pressemitteilung der Firma", "datum": "28.07.2026"},
+  {"n": 2, "titel": "Coca-Cola Form 10-K für 2025", "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm", "art": "Jahresbericht (SEC)", "datum": "2026"},
+  {"n": 3, "titel": "Coca-Cola Q4 und Gesamtjahr 2025 (Ergebnismitteilung, 8-K)", "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026006642/a2025q4earningsreleaseex-9.htm", "art": "SEC-Einreichung", "datum": "10.02.2026"},
+  {"n": 4, "titel": "Coca-Cola, IRS Face Off in Tax Appeal With Huge Stakes for Both (Bloomberg Tax, Wiedergabe im TaxProf Blog)", "url": "https://taxprofblog.aals.org/2026/06/22/bloomberg-coca-cola-irs-face-off-in-tax-appeal-with-huge-stakes-for-both/", "art": "Fachpresse", "datum": "22.06.2026"},
+  {"n": 5, "titel": "PepsiCo Q2 2026 Ergebnismitteilung (8-K, Exhibit 99.1)", "url": "https://www.sec.gov/Archives/edgar/data/0000077476/000007747626000037/q220268-kxexhibit991.htm", "art": "SEC-Einreichung", "datum": "09.07.2026"},
+  {"n": 6, "titel": "Keurig Dr Pepper Reports Q2 Results and Reaffirms Guidance for 2026", "url": "https://news.keurigdrpepper.com/2026-08-06-Keurig-Dr-Pepper-Reports-Q2-Results-and-Reaffirms-Guidance-for-2026", "art": "Pressemitteilung der Firma", "datum": "06.08.2026"},
+  {"n": 7, "titel": "Coca-Cola to incur $1bn charge for African bottling stake sale (Engineering News, nur Überschrift gelesen)", "url": "https://www.engineeringnews.co.za/article/coca-cola-to-incur-1bn-charge-for-african-bottling-stake-sale-2025-10-24", "art": "Presse", "datum": "24.10.2025"}
+ ]
+}

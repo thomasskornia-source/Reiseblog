@@ -24,6 +24,7 @@
   .ak-form { display: flex; gap: 8px; background: var(--paper-warm); border: 1px solid rgba(46,58,50,.12); border-radius: 999px; padding: 6px; }
   .ak-form input { flex: 1; min-width: 0; font: inherit; font-size: 16px; border: 0; background: transparent; padding: 8px 14px; color: var(--ink); outline: 0; }
   .btn { font: inherit; font-size: 15px; background: var(--rust); color: #fff; border: 0; border-radius: 999px; padding: 9px 20px; cursor: pointer; white-space: nowrap; }
+  a.btn { display: inline-block; text-decoration: none; white-space: normal; text-align: center; }
   .btn[disabled] { opacity: .5; cursor: default; }
   .msg { font-size: 13.5px; color: var(--ink-soft); text-align: center; margin: -4px 0 0; min-height: 1em; }
   .pend { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
@@ -705,6 +706,12 @@
   }
   function pf(r) { return '<b class="pf ' + (r > 0 ? 'up' : r < 0 ? 'dn' : 'ne') + '" aria-hidden="true">' + (r > 0 ? '▲' : r < 0 ? '▼' : '–') + '</b>'; }
   function rsiR(v) { return v > 70 ? -1 : v < 30 ? 1 : 0; }
+  var ANA = {};
+  fetch('data/analysen/index.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (ix) { if (ix && ix.aktien) ix.aktien.forEach(function (a) { ANA[normT(a.ticker)] = a; }); if (typeof renderBeo === 'function' && beoB) renderBeo(); }, function () {});
+  function anaKnopf(t) {
+    var a = ANA[normT(t)];
+    return a ? '<a class="btn" href="analyse.html?t=' + encodeURIComponent(a.ticker) + '">📄 Ausführliche Analyse (Stand ' + esc(a.stand) + ')</a>' : '<p class="klein">Ausführliche Analyse: noch nicht erstellt (bei Claude im Chat anfragen).</p>';
+  }
   function detail(x, voll) {
     var d = x.detail || (voll && voll.detail), h = '';
     var e = data.filter(function (z) { return sym(z).toUpperCase().replace('.', '-') === x.ticker.toUpperCase().replace('.', '-'); })[0];
@@ -742,7 +749,7 @@
     } else {
       h += '<p class="klein">Noch nicht geschrieben. Ein Klick startet die Prüfung, das Ergebnis erscheint nach wenigen Minuten oben in der Liste.</p><button class="btn" type="button" data-pr="' + esc(x.ticker) + '">Warren und Charlie fragen</button>';
     }
-    return h + '<button class="btn alt" type="button" data-wl="' + esc(x.ticker) + '">＋ Zur Watchlist</button></div>';
+    return h + '<button class="btn alt" type="button" data-wl="' + esc(x.ticker) + '">＋ Zur Watchlist</button></div><div class="dsec"><h5>Ausführliche Analyse</h5>' + anaKnopf(x.ticker) + '</div>';
   }
   fetch('data/top10.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (t) {
     SK.t10 = t.skala || 12;
@@ -865,7 +872,7 @@
       el.innerHTML = detail(x, null); c.setAttribute('data-offen', li.getAttribute('data-t'));
     } else {
       var t = li.getAttribute('data-w'), y = uni && uni.aktien.filter(function (q) { return normT(q.t) === t; })[0];
-      el.innerHTML = y ? '<div class="dsec"><h5>' + esc(y.t) + ' · ' + esc(y.n) + '</h5><p>Kurs ' + zahl(y.k, 2) + ' USD · James ' + pz(y.p) + '/' + SK.uni + ' · ' + esc(y.l) + '</p>' + sparkline(y.sp) + '<p class="klein">Verlauf der letzten 40 Handelstage. Branche: ' + esc(SEKTOR[y.s] || y.s) + '.</p><button class="btn" type="button" data-pr="' + esc(y.t) + '">Warren und Charlie fragen</button></div>'
+      el.innerHTML = y ? '<div class="dsec"><h5>' + esc(y.t) + ' · ' + esc(y.n) + '</h5><p>Kurs ' + zahl(y.k, 2) + ' USD · James ' + pz(y.p) + '/' + SK.uni + ' · ' + esc(y.l) + '</p>' + sparkline(y.sp) + '<p class="klein">Verlauf der letzten 40 Handelstage. Branche: ' + esc(SEKTOR[y.s] || y.s) + '.</p><button class="btn" type="button" data-pr="' + esc(y.t) + '">Warren und Charlie fragen</button></div><div class="dsec"><h5>Ausführliche Analyse</h5>' + anaKnopf(y.t) + '</div>'
         : '<div class="dsec"><p class="klein">Diese Aktie gehört nicht zum S&amp;P 500, deshalb gibt es keine Tageswerte. Ein Klick startet die Prüfung, das Ergebnis erscheint nach wenigen Minuten unter „Prüfen“.</p><button class="btn" type="button" data-pr="' + esc(t) + '">Warren und Charlie fragen</button></div>';
       c.setAttribute('data-offen', t);
     }
