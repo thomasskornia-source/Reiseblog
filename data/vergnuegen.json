@@ -755,6 +755,28 @@
   "stand": "2026-10-12"
  },
  {
+  "id": "events-898a909f61",
+  "lat": 48.13819,
+  "lon": 11.5824,
+  "rubrik": "events",
+  "titel": "11. QFFM – Queer Filmfestival München",
+  "ort": "Münchner Kammerspiele - Schauspielhaus",
+  "adresse": "",
+  "datum": "2026-10-15",
+  "datum_bis": "",
+  "zeit": "19:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Eröffnung des queeren Filmfestivals München mit dem Film Feito Pipa – Gugu's World des Regisseurs Allan Deberton.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Sonstiges",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-10-15"
+ },
+ {
   "id": "events-3b0a48eb67",
   "lat": 48.12366,
   "lon": 11.5559,
@@ -799,6 +821,29 @@
   "stand": "2026-10-15"
  },
  {
+  "id": "events-fc9f9c83bc",
+  "lat": 48.12366,
+  "lon": 11.5559,
+  "rubrik": "events",
+  "titel": "Buchpräsentation Andreas Bönte",
+  "ort": "Münchner Volkstheater",
+  "adresse": "Tumblingerstraße 29, 80337 München",
+  "datum": "2026-10-15",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Buchpräsentation und Gespräch über die Aufarbeitung familiärer Schatten der NS-Vergangenheit auf Bühne 2.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Münchner Volkstheater (Spielplan)",
+  "url": "https://www.muenchner-volkstheater.de/spielplan",
+  "stand": "2026-10-15"
+ },
+ {
   "id": "events-8ae0a725d6",
   "lat": 48.14011,
   "lon": 11.57943,
@@ -828,14 +873,14 @@
   "lon": 11.58247,
   "rubrik": "events",
   "titel": "Edgar Selge: Juras letzter Winter",
-  "ort": "Münchner Kammerspiele",
+  "ort": "Münchner Kammerspiele - Schauspielhaus",
   "adresse": "",
   "datum": "2026-10-15",
   "datum_bis": "",
   "zeit": "20:00",
   "preis": "",
   "dauer": "",
-  "kurz": "Der Schauspieler und Autor Edgar Selge stellt in Kooperation mit dem Literaturhaus sein neues Buch im Schauspielhaus vor.",
+  "kurz": "Der renommierte Schauspieler Edgar Selge präsentiert sein Buch in einer gemeinsamen Veranstaltung mit dem Literaturhaus München.",
   "tags": [
    "Kultur",
    "Abends"
@@ -843,7 +888,7 @@
   "thema": "Führung & Vortrag",
   "quelle": "Münchner Kammerspiele",
   "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-12"
+  "stand": "2026-10-15"
  },
  {
   "id": "events-fca456d779",
@@ -944,14 +989,14 @@
   "lon": 11.58188,
   "rubrik": "events",
   "titel": "Oft wollte ich weglaufen, nie habe ich es getan.",
-  "ort": "Münchner Kammerspiele (Werkraum)",
+  "ort": "Münchner Kammerspiele - Werkraum",
   "adresse": "",
   "datum": "2026-10-15",
   "datum_bis": "",
   "zeit": "19:30",
   "preis": "",
   "dauer": "",
-  "kurz": "Szenische Lesung unter der Regie von Sapir Heller mit Texten und biografischen Erinnerungen von Grete Weil.",
+  "kurz": "Szenische Lesung unter Regie von Sapir Heller mit berührenden Texten und biografischen Zeugnissen von Grete Weil.",
   "tags": [
    "Kultur",
    "Abends"
@@ -959,7 +1004,7 @@
   "thema": "Kabarett & Theater",
   "quelle": "Münchner Kammerspiele",
   "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-12"
+  "stand": "2026-10-15"
  },
  {
   "id": "events-9b25bc1c9d",
@@ -974,7 +1019,7 @@
   "zeit": "19:30",
   "preis": "",
   "dauer": "",
-  "kurz": "William Shakespeares berühmte Komödie über Verwirrung und Leidenschaft, inszeniert von Christian Stückl auf Bühne 1.",
+  "kurz": "Aufführung von William Shakespeares berühmter Komödie in einer Inszenierung von Christian Stückl auf Bühne 1.",
   "tags": [
    "Kultur",
    "Abends"
@@ -982,7 +1027,7 @@
   "thema": "Kabarett & Theater",
   "quelle": "Münchner Volkstheater (Spielplan)",
   "url": "https://www.muenchner-volkstheater.de/spielplan",
-  "stand": "2026-10-12"
+  "stand": "2026-10-15"
  },
  {
   "id": "events-9dcfcc1df0",
@@ -990,14 +1035,14 @@
   "lon": 11.58137,
   "rubrik": "events",
   "titel": "(Münchner) Verkehr",
-  "ort": "Münchner Kammerspiele (Therese-Giehse-Halle)",
+  "ort": "Münchner Kammerspiele - Therese-Giehse-Halle",
   "adresse": "",
   "datum": "2026-10-16",
   "datum_bis": "",
   "zeit": "20:00",
   "preis": "",
   "dauer": "",
-  "kurz": "Eine choreografische Versuchsanordnung über Vergänglichkeit und Tanz, inspiriert von der Künstlerin Valeska Gert.",
+  "kurz": "Choreografische Versuchsanordnung über Vergänglichkeit und Tanz, inspiriert vom Leben und Wirken der Tänzerin Valeska Gert.",
   "tags": [
    "Kultur",
    "Abends"
@@ -1005,7 +1050,7 @@
   "thema": "Kabarett & Theater",
   "quelle": "Münchner Kammerspiele",
   "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-12"
+  "stand": "2026-10-15"
  },
  {
   "id": "events-44594c299b",
@@ -1084,20 +1129,20 @@
   "rubrik": "events",
   "titel": "Die Geierwally",
   "ort": "Münchner Volkstheater",
-  "adresse": "",
+  "adresse": "Tumblingerstraße 29, 80337 München",
   "datum": "2026-10-16",
-  "datum_bis": "2026-11-15",
+  "datum_bis": "",
   "zeit": "19:30",
   "preis": "",
-  "dauer": "2 Std.",
-  "kurz": "Moderne Schauspieladaption des bekannten alpinen Heimatstoffs über Freiheit und Eigensinn auf der Volkstheater-Bühne.",
+  "dauer": "",
+  "kurz": "Bühnenadaption des Romans von Wilhelmine von Hillern, inszeniert von Regisseurin Julia Prechsl.",
   "tags": [
    "Kultur",
    "Abends"
   ],
   "thema": "Kabarett & Theater",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "quelle": "Münchner Volkstheater (Spielplan)",
+  "url": "https://www.muenchner-volkstheater.de/spielplan",
   "stand": "2026-10-15"
  },
  {
@@ -1122,6 +1167,52 @@
   "thema": "Konzert & Musik",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-273a8111ef",
+  "lat": 48.12366,
+  "lon": 11.5559,
+  "rubrik": "events",
+  "titel": "Freddy & Friends Comedy",
+  "ort": "Münchner Volkstheater",
+  "adresse": "Tumblingerstraße 29, 80337 München",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Ein unterhaltsamer Comedy-Abend unter der Leitung von Freddy Ekué auf Bühne 2.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Volkstheater (Spielplan)",
+  "url": "https://www.muenchner-volkstheater.de/spielplan",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-27d6d348cf",
+  "lat": 48.13845,
+  "lon": 11.58272,
+  "rubrik": "events",
+  "titel": "Haltestelle: Ja aber",
+  "ort": "Habibi Kiosk",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "19:00",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Ein Tanz- und Performance-Abend über menschliche Nähe und Missverständnisse mit Einsatz von Gebärdensprache, gestaltet von Lina Mattei und Mark Petersen.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
   "stand": "2026-10-15"
  },
  {
@@ -1263,6 +1354,29 @@
   "stand": "2026-10-15"
  },
  {
+  "id": "events-5ebebc9968",
+  "lat": 48.13767,
+  "lon": 11.58188,
+  "rubrik": "events",
+  "titel": "Das Ereignis",
+  "ort": "Münchner Kammerspiele - Werkraum",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "1:15 h",
+  "kurz": "Eine direkte und schonungslose Theateradaption basierend auf dem autobiografischen Text von Literaturnobelpreisträgerin Annie Ernaux.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-10-15"
+ },
+ {
   "id": "events-72b79bfdf9",
   "lat": 48.14007,
   "lon": 11.58154,
@@ -1283,6 +1397,29 @@
   "thema": "Kabarett & Theater",
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-ec179bec4f",
+  "lat": 48.13819,
+  "lon": 11.5824,
+  "rubrik": "events",
+  "titel": "Jugend ohne Gott",
+  "ort": "Münchner Kammerspiele - Schauspielhaus",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Theaterfassung nach Ödön von Horváths bekanntem Roman, ergänzt um zeitgenössische Texte und Szenen von Anne Habermehl.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
   "stand": "2026-10-15"
  },
  {
@@ -1464,6 +1601,29 @@
   "stand": "2026-10-15"
  },
  {
+  "id": "events-87f5132c7b",
+  "lat": 48.13845,
+  "lon": 11.58272,
+  "rubrik": "events",
+  "titel": "ECHO 92 – Erinnern. Schreiben. Zuhören.",
+  "ort": "Habibi Kiosk",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "14:00",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Ein kreativer Workshop rund um Poetry und Schreiben, präsentiert von ausARTen im Rahmen des Projekts heimaten.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-10-15"
+ },
+ {
   "id": "events-38cd8401cc",
   "lat": 48.1354,
   "lon": 11.60088,
@@ -1486,6 +1646,28 @@
   "quelle": "Jazzclub Unterfahrt",
   "url": "https://www.unterfahrt.de/",
   "stand": "2026-10-13"
+ },
+ {
+  "id": "events-602dc2087d",
+  "lat": 48.13819,
+  "lon": 11.5824,
+  "rubrik": "events",
+  "titel": "Jeeps",
+  "ort": "Münchner Kammerspiele - Schauspielhaus",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "16:00",
+  "preis": "",
+  "dauer": "1:30 h",
+  "kurz": "Humorvolles Stück über gesellschaftliche Ungleichheit, Vermögenssteuer und das System des Arbeitslosengelds.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-10-15"
  },
  {
   "id": "events-efcace73bb",
@@ -1580,6 +1762,52 @@
   "stand": "2026-10-15"
  },
  {
+  "id": "events-52d33fa247",
+  "lat": 48.12366,
+  "lon": 11.5559,
+  "rubrik": "events",
+  "titel": "Tatort Mittelmeer",
+  "ort": "Münchner Volkstheater",
+  "adresse": "Tumblingerstraße 29, 80337 München",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Szenische Lesung, bei der bekannte TV-Ermittlerinnen und Ermittler über Menschenrechtsverbrechen auf dem Mittelmeer berichten.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Volkstheater (Spielplan)",
+  "url": "https://www.muenchner-volkstheater.de/spielplan",
+  "stand": "2026-10-15"
+ },
+ {
+  "id": "events-2ce8e98c27",
+  "lat": 48.12366,
+  "lon": 11.5559,
+  "rubrik": "events",
+  "titel": "Tide",
+  "ort": "Münchner Volkstheater",
+  "adresse": "Tumblingerstraße 29, 80337 München",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "19:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Uraufführung des Tanztheaterstücks von Sophie Haydee Colindres Zühlke und Serhat Saïd Perhat.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Volkstheater (Spielplan)",
+  "url": "https://www.muenchner-volkstheater.de/spielplan",
+  "stand": "2026-10-15"
+ },
+ {
   "id": "events-acb0a19c6f",
   "lat": 48.14498,
   "lon": 11.52197,
@@ -1600,240 +1828,6 @@
   "thema": "Konzert & Musik",
   "quelle": "Backstage München (Konzerte)",
   "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-aa4f3fbe44",
-  "lat": 48.1354,
-  "lon": 11.60088,
-  "rubrik": "events",
-  "titel": "Dusko Goykovich Big Band",
-  "ort": "Jazzclub Unterfahrt",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-10-19",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Münchens traditionsreichste Big Band ehrt das musikalische Erbe des Trompeters Dusko Goykovich mit Klassikern und späten Werken.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-13"
- },
- {
-  "id": "events-8bad4ffbd5",
-  "lat": 48.13545,
-  "lon": 11.60065,
-  "rubrik": "events",
-  "titel": "Harmen Fraanje",
-  "ort": "Einstein",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-10-19",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Der niederländische Pianist Harmen Fraanje zeigt in der Reihe Einsteins Piano facettenreiche, innovative Klaviermusik.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-13"
- },
- {
-  "id": "events-1a6d9cb404",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "AUDREY HORNE + Motorowl",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-20",
-  "datum_bis": "2026-10-20",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Gemeinsamer Rockabend mit Audrey Horne und Motorowl im Backstage.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-0f0ae34cd5",
-  "lat": 48.1354,
-  "lon": 11.60088,
-  "rubrik": "events",
-  "titel": "Barencia",
-  "ort": "Jazzclub Unterfahrt",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-10-20",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Das Ensemble um Tänzerin Karen Lugo und Pianist Xavi Torres feiert musikalische Lebenslust zwischen Jazz und Tanz.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-13"
- },
- {
-  "id": "events-633986d128",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "SARI SCHORR",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-20",
-  "datum_bis": "2026-10-20",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "3 Std.",
-  "kurz": "Sari Schorr gibt ein Live-Konzert im Kulturzentrum Backstage.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-9ca1f78fe6",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "BIJI",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-21",
-  "datum_bis": "2026-10-21",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "3 Std.",
-  "kurz": "Biji steht für einen Konzertabend auf der Bühne im Backstage München.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-e7e685d5c7",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "MATTERZ",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-21",
-  "datum_bis": "2026-10-21",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "1 Std.",
-  "kurz": "Matterz präsentieren ihr einstündiges Konzertprogramm live im Backstage.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-4f842481d2",
-  "lat": 48.1354,
-  "lon": 11.60088,
-  "rubrik": "events",
-  "titel": "Rabih Abou-Khalil",
-  "ort": "Jazzclub Unterfahrt",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-10-21",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Der Oud-Virtuose Rabih Abou-Khalil verbindet orientalische Skalen meisterhaft mit den Freiheiten des Jazz und humorvollen Anekdoten.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-13"
- },
- {
-  "id": "events-e3439131f2",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "SLOPE",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-22",
-  "datum_bis": "2026-10-22",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "3,5 Std.",
-  "kurz": "Slope spielen ein abendliches Konzert im Münchner Kulturzentrum Backstage.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-dfee2a136f",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Simple Plan",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-10-23",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Auf ihrer europäischen Tour gastiert die Pop-Punk-Band zusammen mit Neck Deep und Charlotte Sands live in München.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
   "stand": "2026-10-15"
  },
  {
