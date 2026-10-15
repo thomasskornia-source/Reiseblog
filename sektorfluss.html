@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>WCJ – Sektor-Optionsfluss</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=29">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+  .sf { max-width: 760px; margin: 0 auto; padding-bottom: 48px; }
+  .sf .zurueck { display: inline-block; margin: 8px 0 0; font-size: 14.5px; color: var(--ink-soft); }
+  .sf h1 { margin-bottom: 4px; }
+  .sf .sub { color: var(--ink-soft); font-size: 15px; line-height: 1.55; margin: 6px 0 14px; }
+  .sf .box { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 14px; padding: 12px 16px; font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 14px; }
+  .sf .box b { color: var(--ink); }
+  .sf .box.warn { background: #fbf4e2; border-color: rgba(176,122,14,.35); color: #7d5a10; }
+  .sf .ctrl { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 0 0 14px; }
+  .sf .ctrl label { font-size: 16px; }
+  .sf .ctrl select { font: inherit; font-size: 16px; padding: 10px 16px; border: 1px solid rgba(46,58,50,.18); border-radius: 12px; background: #fff; color: var(--ink); }
+  .sf .ctrl .stand { color: var(--ink-soft); font-size: 14px; margin-left: auto; }
+  .sf h2 { font-family: 'Fraunces', serif; font-size: 22px; margin: 22px 0 10px; }
+  .kasten { background: #fff; border: 1px solid rgba(46,58,50,.12); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 18px rgba(46,58,50,.06); margin: 0 0 16px; }
+  .kasten > .kopf { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid rgba(46,58,50,.1); background: rgba(46,58,50,.03); }
+  .kasten > .kopf .nm { font-size: 17px; font-weight: 600; }
+  .kasten > .kopf .etf { font-size: 12.5px; font-weight: 700; letter-spacing: .05em; background: #e9ece8; border-radius: 8px; padding: 3px 9px; }
+  .kasten > .kopf .sc { margin-left: auto; font-size: 17px; font-weight: 700; }
+  .zeile { display: grid; grid-template-columns: 1fr auto auto auto; gap: 2px 14px; align-items: center; padding: 11px 16px; border-bottom: 1px solid rgba(46,58,50,.08); font-size: 15px; }
+  .zeile:last-child { border-bottom: 0; }
+  .zeile.kop { font-weight: 700; font-size: 13.5px; color: var(--ink-soft); background: #fff; }
+  .zeile .r { text-align: right; font-variant-numeric: tabular-nums; }
+  .zeile .tk { font-weight: 700; }
+  .gruen { color: #1f8a5b; } .rot { color: #d4373a; } .grau { color: var(--ink-soft); }
+  .sektor { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 13px 16px; border-bottom: 1px solid rgba(46,58,50,.08); align-items: center; }
+  .sektor:last-child { border-bottom: 0; }
+  .sektor .n { font-size: 16.5px; font-weight: 600; }
+  .sektor .n small { font-size: 12px; font-weight: 700; letter-spacing: .05em; margin-left: 8px; background: #e9ece8; border-radius: 8px; padding: 2px 8px; color: var(--ink); }
+  .sektor .s { font-size: 20px; font-weight: 700; text-align: right; }
+  .sektor .z { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 2px 16px; font-size: 14px; color: var(--ink-soft); }
+  .sektor .z b { color: var(--ink); font-weight: 600; }
+  .sektor .bar { grid-column: 1 / -1; height: 10px; background: #e9ece8; border-radius: 99px; overflow: hidden; }
+  .sektor .bar i { display: block; height: 100%; background: #1f8a5b; border-radius: 99px; }
+  .sektor .bar i.neg { background: #d4373a; }
+  .raster { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .leer { color: var(--ink-soft); padding: 14px 2px; }
+  .sf .rechts { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 22px 2px 0; }
+  @media (min-width: 1100px) {
+    body.pc .sf { max-width: none; }
+    .raster { grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 18px; align-items: start; }
+    .wrapSek { display: grid; grid-template-columns: minmax(560px, 5fr) 7fr; gap: 24px; align-items: start; }
+  }
+</style>
+</head>
+<body class="page-wide pc">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="quiz.html">München</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+    </div>
+  </div></nav>
+<div class="wrap sf">
+  <a class="zurueck" href="sektoren.html">← Zurück zur Sektor-Rotation</a>
+  <header class="entry-header">
+    <h1>Sektor-Optionsfluss</h1>
+    <hr class="rule">
+  </header>
+  <p class="sub">Wohin zeigen die großen Optionsgeschäfte? Zusammengefasst je Branche über die letzten Handelstage. <b>Score = (gekaufte Calls + verkaufte Puts) − gekaufte Puts</b>, gezählt werden nur auffällige Kontrakte.</p>
+  <div class="box warn"><b>Näherung, kein echter Flow:</b> Die Daten sind verzögerte Optionsdaten der Cboe. Ob ein Kontrakt gekauft oder verkauft wurde, wird aus der Lage des letzten Preises zwischen Geld- und Briefkurs geschätzt. Bezahldienste sehen jedes einzelne Geschäft, hier ist es nur der letzte Preis des Tages. Absicherungen und Stillhalter-Geschäfte lassen sich nicht erkennen. Keine Empfehlung.</div>
+  <div class="ctrl" id="ctrl" hidden>
+    <label for="fenster">Zeitraum:</label>
+    <select id="fenster"></select>
+    <span class="stand" id="stand"></span>
+  </div>
+  <div id="inhalt"><p class="leer">Lädt …</p></div>
+  <p class="rechts" id="rechts"></p>
+</div>
+<script>
+(function () {
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var SEK = { 'Communication Services': ['Kommunikation', 'XLC'], 'Consumer Discretionary': ['Konsum (zyklisch)', 'XLY'], 'Consumer Staples': ['Basiskonsum', 'XLP'], 'Energy': ['Energie', 'XLE'], 'Financials': ['Finanzen', 'XLF'], 'Health Care': ['Gesundheit', 'XLV'], 'Industrials': ['Industrie', 'XLI'], 'Information Technology': ['Technologie', 'XLK'], 'Materials': ['Rohstoffe', 'XLB'], 'Real Estate': ['Immobilien', 'XLRE'], 'Utilities': ['Versorger', 'XLU'], 'ETF / Index': ['ETF / Index', ''] };
+  function zahl(x) { return Number(x).toLocaleString('de-DE'); }
+  function vz(x) { return (x > 0 ? '+' : x < 0 ? '−' : '') + zahl(Math.abs(x)); }
+  function usd(k) { var v = k * 1000; return v >= 1e9 ? '$' + (v / 1e9).toLocaleString('de-DE', { maximumFractionDigits: 2 }) + ' Mrd.' : v >= 1e6 ? '$' + (v / 1e6).toLocaleString('de-DE', { maximumFractionDigits: v >= 1e8 ? 0 : 1 }) + ' Mio.' : '$' + Math.round(v / 1000).toLocaleString('de-DE') + ' Tsd.'; }
+  var D = null, tage = [];
+
+  function rechne(n) {
+    var use = tage.slice(-n), sek = {}, tk = {};
+    use.forEach(function (d) {
+      var T = D.tage[d];
+      Object.keys(T).forEach(function (t) {
+        var s = D.sektor[t] || 'Sonstige', v = T[t], bull = v[0] + v[1], bear = v[2];
+        var a = tk[t] = tk[t] || { t: t, s: s, bull: 0, bear: 0, n: 0, p: 0 };
+        a.bull += bull; a.bear += bear; a.n += bull + bear; a.p += v[3];
+        var b = sek[s] = sek[s] || { s: s, bull: 0, bear: 0, n: 0, p: 0, l: [] };
+        b.bull += bull; b.bear += bear; b.n += bull + bear; b.p += v[3];
+      });
+    });
+    Object.keys(tk).forEach(function (t) { (sek[tk[t].s]).l.push(tk[t]); });
+    var L = Object.keys(sek).map(function (k) { var b = sek[k]; b.score = b.bull - b.bear; b.l.forEach(function (x) { x.score = x.bull - x.bear; }); b.l.sort(function (a, b) { return b.score - a.score || b.p - a.p; }); b.l = b.l.slice(0, 10); return b; });
+    L.sort(function (a, b) { return b.score - a.score; });
+    return L;
+  }
+
+  function zeige() {
+    var n = Number($('fenster').value), L = rechne(n);
+    if (!L.length) { $('inhalt').innerHTML = '<p class="leer">In diesem Zeitraum gab es keine auffälligen Kontrakte.</p>'; return; }
+    var mx = Math.max.apply(null, L.map(function (b) { return Math.abs(b.score); }).concat([1]));
+    var tab = '<div class="kasten">' + L.map(function (b) {
+      var nm = SEK[b.s] || [b.s, ''];
+      return '<div class="sektor"><div class="n">' + esc(nm[0]) + (nm[1] ? '<small>' + nm[1] + '</small>' : '') + '</div><div class="s ' + (b.score >= 0 ? 'gruen' : 'rot') + '">' + vz(b.score) + '</div>' +
+        '<div class="z"><span>bullisch <b class="gruen">+' + zahl(b.bull) + '</b></span><span>bärisch <b class="rot">−' + zahl(b.bear) + '</b></span><span>Kontrakte <b>' + zahl(b.n) + '</b></span><span>Prämie <b>' + usd(b.p) + '</b></span></div>' +
+        '<div class="bar"><i class="' + (b.score < 0 ? 'neg' : '') + '" style="width:' + Math.max(2, Math.round(Math.abs(b.score) / mx * 100)) + '%"></i></div></div>';
+    }).join('') + '</div>';
+    var top = L.map(function (b) {
+      var nm = SEK[b.s] || [b.s, '']; if (!b.l.length) return '';
+      return '<div class="kasten"><div class="kopf"><span class="nm">' + esc(nm[0]) + '</span>' + (nm[1] ? '<span class="etf">' + nm[1] + '</span>' : '') + '<span class="sc ' + (b.score >= 0 ? 'gruen' : 'rot') + '">' + vz(b.score) + '</span></div>' +
+        '<div class="zeile kop"><span>Kürzel</span><span class="r">Score</span><span class="r">Kontrakte</span><span class="r">Prämie</span></div>' +
+        b.l.map(function (x) { return '<div class="zeile"><span class="tk">' + esc(x.t) + '</span><span class="r ' + (x.score >= 0 ? 'gruen' : 'rot') + '">' + vz(x.score) + '</span><span class="r grau">' + zahl(x.n) + '</span><span class="r">' + usd(x.p) + '</span></div>'; }).join('') + '</div>';
+    }).join('');
+    $('inhalt').innerHTML = '<div class="wrapSek"><div><h2>Sektor-Score</h2>' + tab + '</div><div><h2>Top-Aktien je Branche</h2><div class="raster">' + top + '</div></div></div>';
+  }
+
+  function $(id) { return document.getElementById(id); }
+  fetch('data/sektorflow.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
+    D = d; tage = Object.keys(d.tage || {}).sort();
+    if (!tage.length) throw 0;
+    var opt = [1, 3, 5, 10, 20].filter(function (n) { return n <= tage.length || n === 1; });
+    if (tage.length > 1 && opt.indexOf(tage.length) < 0 && tage.length < 20) opt.push(tage.length);
+    opt.sort(function (a, b) { return a - b; });
+    $('fenster').innerHTML = opt.map(function (n) { return '<option value="' + n + '"' + (n === Math.min(5, tage.length) || (opt.indexOf(5) < 0 && n === opt[opt.length - 1]) ? ' selected' : '') + '>' + (n === 1 ? '1 Handelstag' : n + ' Handelstage') + '</option>'; }).join('');
+    $('fenster').onchange = zeige; $('ctrl').hidden = false;
+    var p = d.stand.split('-'); $('stand').textContent = 'Stand ' + p[2] + '.' + p[1] + '.' + p[0] + ' · ' + tage.length + ' Tage im Archiv';
+    $('rechts').innerHTML = 'Gezählt wird ein Kontrakt, wenn sein Tagesumsatz mindestens ' + zahl(d.schwellen.volumen) + ' Kontrakte und seine Prämie mindestens ' + zahl(d.schwellen.praemie_usd) + ' $ beträgt. Gekauft = letzter Preis im oberen Drittel zwischen Geld und Brief, verkauft = im unteren Drittel, dazwischen bleibt ungezählt. Verkaufte Calls zählen nicht. Quelle: Cboe, verzögert; Branchen laut S&amp;P-500-Liste. Das Archiv hält 30 Handelstage und füllt sich Tag für Tag.';
+    zeige();
+  }).catch(function () {
+    $('inhalt').innerHTML = '<div class="box"><b>Noch keine Daten.</b> Der Optionsfluss wird jeden Börsentag nach Handelsschluss eingesammelt. Sobald der erste Lauf durch ist, erscheinen hier Sektor-Score und Top-Aktien je Branche.</div>';
+  });
+})();
+</script>
+<script src="nav.js?v=21" defer></script>
+</body>
+</html>
