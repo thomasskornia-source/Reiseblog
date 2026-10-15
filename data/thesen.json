@@ -1,0 +1,131 @@
+{
+ "stand": "2026-10-15",
+ "thesen": {
+  "VRSN": {
+   "ticker": "VRSN",
+   "name": "Verisign Information Technology",
+   "datum": "2026-10-15",
+   "erzeugt_von": "Claude (Websuche)",
+   "titel": "Verisign: Rekord bei Neuregistrierungen, Quartalszahlen am 22. Oktober",
+   "zusammenfassung": "Verisign hat im zweiten Quartal 2026 Umsatz und Gewinn gesteigert, die Prognose für den Domainbestand angehoben und das Rückkaufprogramm um 884 Mio. $ aufgestockt. Die Aktie notiert nahe ihrem 52-Wochen-Hoch. Die nächsten Zahlen stehen laut Yahoo Finance am 22. Oktober an. Analysten sehen im Schnitt etwa 8 % Luft nach oben, die Spanne der Ziele ist aber breit.",
+   "katalysatoren": [
+    {
+     "art": "earnings",
+     "titel": "Quartalszahlen am 22. Oktober",
+     "text": "Laut Yahoo Finance berichtet Verisign das dritte Quartal am 22. Oktober 2026. Der Termin liegt damit nur wenige Tage nach dem Stand dieser Auswertung; das Unternehmen selbst hatte den Termin zuvor angekündigt.",
+     "beleg": "Yahoo Finance, Stand 13.10.2026: Nächster Earnings-Termin 22.10.2026"
+    },
+    {
+     "art": "nachricht",
+     "titel": "Zweites Quartal: Umsatz und Gewinn steigen",
+     "text": "Der Umsatz lag bei 435 Mio. $ (+6 %), der verwässerte Gewinn je Aktie bei 2,38 $ nach 2,21 $ im Vorjahr. Der freie Cashflow stieg auf 213 Mio. $ nach 109 Mio. $.",
+     "beleg": "MarketBeat, 23.07.2026 (Zusammenfassung der Telefonkonferenz)"
+    },
+    {
+     "art": "guidance",
+     "titel": "Prognose angehoben, Rückkäufe ausgeweitet",
+     "text": "Für 2026 erwartet Verisign 5,2 bis 6 % Wachstum beim Domainbestand und 1,745 bis 1,755 Mrd. $ Umsatz. Das Rückkaufprogramm wurde um 884 Mio. $ auf 1,5 Mrd. $ erhöht; in zwölf Monaten flossen über 100 % des freien Cashflows an Aktionäre zurück.",
+     "beleg": "MarketBeat, 23.07.2026"
+    },
+    {
+     "art": "sektor",
+     "titel": "Rekord bei Neuregistrierungen",
+     "text": "Im zweiten Quartal gab es 12,7 Mio. neue Domainnamen (Vorquartal 11,5 Mio., Vorjahr 10,4 Mio.). Der Bestand an .com und .net wuchs um 3,05 Mio. auf 179,1 Mio. Die Verlängerungsquote lag mit 75,2 % leicht unter dem Vorjahr (75,5 %).",
+     "beleg": "MarketBeat, 23.07.2026"
+    },
+    {
+     "art": "technik",
+     "titel": "Nahe dem Jahreshoch, Analysten überwiegend positiv",
+     "text": "Der Kurs lag am 13. Oktober bei 301,76 $; die 52-Wochen-Spanne reicht von 208,86 bis 312,48 $. Das durchschnittliche Kursziel liegt bei 324,40 $ (Spanne 285 bis 355 $). Wedbush hob am 1. September das Ziel von 324 auf 341 $ an.",
+     "beleg": "Yahoo Finance, Stand 13.10.2026"
+    }
+   ],
+   "flow_bezug": "Für diese Aktie liegen noch keine Optionsdaten aus dem Sammel-Skript vor. Der Flow-Bezug folgt, sobald der erste Lauf von sektorflow.yml durch ist.",
+   "risiken": [
+    "Die Verlängerungsquote ist leicht gesunken (75,2 % nach 75,5 % im Vorjahr); sinkt sie weiter, bremst das das Wachstum.",
+    "Die Aktie steht nahe ihrem Jahreshoch; eine enttäuschende Prognose am 22. Oktober könnte stark wirken.",
+    "Das neue Geschäft mit .web bringt 2026 laut Unternehmen keinen wesentlichen Umsatz; die Freigabe wird erst für Ende 2026 oder Anfang 2027 erwartet.",
+    "Die Kursziele der Analysten streuen von 285 bis 355 $; die Datenbasis besteht nur aus wenigen Analysten."
+   ],
+   "quellen": [
+    {
+     "titel": "Yahoo Finance: VeriSign (VRSN)",
+     "url": "https://finance.yahoo.com/quote/VRSN/"
+    },
+    {
+     "titel": "MarketBeat: Verisign Q2 earnings call highlights (23.07.2026)",
+     "url": "https://www.marketbeat.com/instant-alerts/verisign-q2-earnings-call-highlights-2026-07-23/"
+    },
+    {
+     "titel": "Wealth Awesome: VeriSign to report third quarter 2026 (07.10.2026)",
+     "url": "https://wealthawesome.com/verisign-to-report-third-quarter-2026-financial-results-10072026-event"
+    },
+    {
+     "titel": "Business Wire: Verisign Reports Second Quarter 2026 Results",
+     "url": "https://www.businesswire.com/news/home/20260723155898/en/"
+    }
+   ]
+  },
+  "APA": {
+   "ticker": "APA",
+   "name": "APA Corporation",
+   "datum": "2026-10-15",
+   "erzeugt_von": "Claude (Websuche)",
+   "titel": "APA: Ölpreis stützt den Gewinn, Produktion sinkt, Zahlen am 5. November",
+   "zusammenfassung": "APA hat im zweiten Quartal die Gewinnerwartung knapp übertroffen, weil die Ölpreise deutlich über Vorjahr lagen. Die Förderung ging allerdings um fast 12 % zurück. Das Unternehmen will durch Sparmaßnahmen mehr Kosten einsparen. Die Ergebnisse für das dritte Quartal werden am 5. November besprochen.",
+   "katalysatoren": [
+    {
+     "art": "earnings",
+     "titel": "Telefonkonferenz zu den Q3-Zahlen am 5. November",
+     "text": "APA hat am 7. Oktober die Zusatzinformationen zum dritten Quartal veröffentlicht und die Telefonkonferenz für Donnerstag, 5. November, 10 Uhr Central Time angesetzt (etwa 17 Uhr MEZ). Sie wird als Webcast übertragen.",
+     "beleg": "Finviz/Pressemitteilung von APA, 07.10.2026"
+    },
+    {
+     "art": "nachricht",
+     "titel": "Zweites Quartal knapp über Erwartung",
+     "text": "Der bereinigte Gewinn je Aktie lag bei 1,89 $ gegen eine durchschnittliche Erwartung von 1,87 $. Der realisierte Ölpreis betrug 98,24 $ je Barrel nach 65,58 $ im Vorjahr.",
+     "beleg": "Energy Now, 05.08.2026 (Meldung mit Daten von LSEG)"
+    },
+    {
+     "art": "sektor",
+     "titel": "Ölpreis deutlich über Vorjahr",
+     "text": "Brent kostete im zweiten Quartal im Schnitt 89,62 $ je Barrel, 19,2 % mehr als ein Jahr zuvor. Das stützt die Erlöse eines reinen Öl- und Gasproduzenten direkt.",
+     "beleg": "Energy Now, 05.08.2026"
+    },
+    {
+     "art": "guidance",
+     "titel": "Förderung gesunken, Sparziel angehoben",
+     "text": "Die Produktion fiel um fast 12 % auf 410.000 Barrel Öläquivalent pro Tag, mit geringeren Mengen in den USA, Ägypten und der Nordsee. Die Prognose für die US-Ölförderung wurde auf 123.000 von 122.000 Barrel pro Tag angehoben. Die jährlichen Einsparungen sollen bis Ende 2026 rund 500 Mio. $ erreichen (zuvor 450 Mio. $).",
+     "beleg": "Energy Now, 05.08.2026"
+    },
+    {
+     "art": "technik",
+     "titel": "Kurs über den kurzen und mittleren Linien",
+     "text": "Laut unserem Screening steht die Aktie bei 47,37 $ über der 8-, 21- und 50-Tage-Linie (James-Score 9 von 11).",
+     "beleg": "Eigene Berechnung aus data/top10.json, Stand 15.10.2026"
+    }
+   ],
+   "flow_bezug": "Für diese Aktie liegen noch keine Optionsdaten aus dem Sammel-Skript vor. Der Flow-Bezug folgt, sobald der erste Lauf von sektorflow.yml durch ist.",
+   "risiken": [
+    "Die Förderung sinkt (fast 12 % weniger als im Vorjahr); ohne Ausgleich schrumpfen die Erlöse bei fallenden Ölpreisen schneller.",
+    "Der Gewinn hängt stark am Ölpreis; Brent lag im zweiten Quartal rund 19 % über dem Vorjahr, ein Rückgang würde direkt auf das Ergebnis durchschlagen.",
+    "Der Gewinn übertraf die Erwartung nur knapp (1,89 $ gegen 1,87 $).",
+    "Zur Verschuldung und zu Aktienrückkäufen enthielt die geprüfte Quelle keine Angaben; dieser Punkt ist hier nicht bewertet."
+   ],
+   "quellen": [
+    {
+     "titel": "Finviz: APA Corporation provides third quarter 2026 supplemental information (07.10.2026)",
+     "url": "https://finviz.com/news/400071/apa-corporation-provides-third-quarter-2026-supplemental-information-and-schedules-results-conference-call-for-nov-5-at-10-am-central-time"
+    },
+    {
+     "titel": "Energy Now: Shale producer APA beats second-quarter profit estimates (05.08.2026)",
+     "url": "https://energynow.com/2026/08/shale-producer-apa-beats-second-quarter-profit-estimates/"
+    },
+    {
+     "titel": "APA Investor Relations: Second quarter 2026 financial and operational results",
+     "url": "https://investor.apacorp.com/news-releases/news-release-details/apa-corporation-announces-second-quarter-2026-financial-and"
+    }
+   ]
+  }
+ }
+}
