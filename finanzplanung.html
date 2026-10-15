@@ -1437,6 +1437,12 @@ function compute(P) {
     var sd = $('stopDate').value, when = 'ab sofort';
     if (/^\d{4}-\d{2}-\d{2}$/.test(sd)) { var dd = new Date(sd + 'T12:00:00'); when = 'ab dem ' + dd.getDate() + '. ' + DEUTSCH_MON[dd.getMonth()] + ' ' + dd.getFullYear(); }
     var yrs = S.years, yTxt = num(yrs, 1) + ' Jahre';
+    function kaufDaten() { var k = null; try { k = JSON.parse(localStorage.getItem('fp-rentenkauf') || 'null'); } catch (e) { k = null; } return k && k.sz > 0 ? k : null; }
+    function kaufZeile() { var k = kaufDaten(); return k ? '<tr><td>Zusatzrente durch Rentenzukauf (brutto/Monat, Näherung)</td><td>–</td><td>+' + eur(k.rente) + '</td><td class="pos">+' + eur(k.rente) + '</td></tr>' : ''; }
+    function kaufBox() {
+      var k = kaufDaten(); if (!k) return '';
+      return '<div style="margin-top:10px;padding:10px 12px;border-radius:12px;background:#e4eddc;font-size:14px;line-height:1.5"><b>Rentenpunkte zugekauft (Entscheidung im Steuer-Check)</b><br>Einzahlung ' + eur(k.sz) + ' im Jahr ' + k.jahr + ', Steuerersparnis ' + eur(k.ersparnis) + ', echte Kosten ' + eur(k.kosten) + '. Gegenwert etwa ' + num(k.punkte, 1) + ' Rentenpunkte, rund ' + eur(k.rente) + ' Rente brutto pro Monat (Näherung). Diese Zusatzrente und die Kosten sind in den Zahlen der Tabelle <b>nicht</b> enthalten. <a href="ausstieg.html">Im Steuer-Check ändern</a> (Stand ' + k.stand + ').</div>';
+    }
     var vm = function (b, a) { var d = a - b; return '<td class="' + (Math.abs(d) < 0.5 ? '' : (d < 0 ? 'neg' : 'pos')) + '">' + (Math.abs(d) < 0.5 ? '–' : (d < 0 ? '−' : '+') + eur(Math.abs(d))) + '</td>'; };
     var row = function (lab, b, a) { return ['<span>' + lab + '</span>', eur(b), eur(a), vm(b, a).replace(/^<td[^>]*>|<\/td>$/g, '')]; };
     var rowsT = [
@@ -1449,7 +1455,7 @@ function compute(P) {
     var tb = '<div class="tw"><table class="stopt"><thead><tr><th></th><th>Weiter</th><th>Aufhören</th><th>Diff.</th></tr></thead><tbody>' + rowsT.map(function (r) {
       var d = r[2] - r[1], cls = Math.abs(d) < 0.5 ? '' : (d < 0 ? 'neg' : 'pos');
       return '<tr><td>' + r[0] + '</td><td>' + eur(r[1]) + '</td><td>' + eur(r[2]) + '</td><td class="' + cls + '">' + (Math.abs(d) < 0.5 ? '–' : (d < 0 ? '−' : '+') + eur(Math.abs(d))) + '</td></tr>';
-    }).join('') + '<tr><td>Vom heutigen Netto</td><td>' + pct(B.quota) + '</td><td>' + pct(R.quota) + '</td><td class="' + (R.quota < B.quota - 0.0005 ? 'neg' : 'pos') + '">' + (R.quota < B.quota ? '−' : '+') + num(Math.abs(R.quota - B.quota) * 100, 1) + ' Pkt.</td></tr></tbody></table></div><p class="small">Alle Beträge in heutiger Kaufkraft, Ruhestand-Zahlen pro Monat.</p>';
+    }).join('') + kaufZeile() + '<tr><td>Vom heutigen Netto</td><td>' + pct(B.quota) + '</td><td>' + pct(R.quota) + '</td><td class="' + (R.quota < B.quota - 0.0005 ? 'neg' : 'pos') + '">' + (R.quota < B.quota ? '−' : '+') + num(Math.abs(R.quota - B.quota) * 100, 1) + ' Pkt.</td></tr></tbody></table></div><p class="small">Alle Beträge in heutiger Kaufkraft, Ruhestand-Zahlen pro Monat.</p>' + kaufBox();
     var cls = S.depAge ? 'crit' : (R.quota >= 0.8 ? 'good' : (R.quota >= 0.6 ? 'warn' : 'crit'));
     var vt = S.depAge ? '✕ Das Vermögen ist mit ' + ageJ(S.depAge) + ' aufgebraucht, bis zur Rente fehlt Geld' : (R.quota >= 0.8 ? '✓ Im Ruhestand bleiben ' + pct(R.quota) + ' vom heutigen Netto' : (R.quota >= 0.6 ? '! Im Ruhestand bleiben nur ' + pct(R.quota) + ' vom heutigen Netto' : '✕ Im Ruhestand bleiben nur ' + pct(R.quota) + ' vom heutigen Netto'));
     var ausT = (P.aus || []).reduce(function (x, y) { return x + y; }, 0);

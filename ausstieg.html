@@ -509,6 +509,7 @@ details.tc[open] > summary::after { transform: rotate(-135deg); margin-top: 3px;
       <p>Die Abfindung wird nicht wie normales Gehalt besteuert. Das Finanzamt rechnet so, als wäre sie über fünf Jahre verteilt: Es nimmt <b>ein Fünftel</b> der Abfindung, rechnet die Mehrsteuer darauf aus und nimmt sie <b>mal 5</b>. Das senkt den Steuersatz. Es klappt nur, wenn die Abfindung <b>im Wesentlichen in einem Kalenderjahr</b> fließt (bis etwa 10 % dürfen im Folgejahr kommen). Das Finanzamt wählt automatisch die günstigere Rechnung.</p>
       <div class="as-grid">
         <label class="f"><span class="hasi">Einzahlung Rente<button type="button" class="ibtn" id="szI" aria-label="Info zur Sonderzahlung Rente" aria-expanded="false">i</button></span><input id="g-sz" type="number" inputmode="decimal" min="0" step="1000" placeholder="€ im Auszahlungsjahr"></label>
+        <label class="f"><span>Rentenpunkte kaufen?</span><select id="g-kauf"><option value="0">Nein</option><option value="1">Ja</option></select></label>
       </div>
       <div class="as-box b" id="szInfo" hidden style="font-size:13.5px;line-height:1.5">
         <b>Wie kommst du an so eine Sonderzahlung in die Rente?</b>
@@ -785,7 +786,7 @@ function abfindungNetto(P, A) {
     d['g-rbeg'] = 63;
     d['g-rente'] = Math.round(fv('stopRente') || fv('renteInfo')) || '';
     d['g-einz'] = '';
-    d['g-sz'] = 60000;
+    d['g-sz'] = 60000; d['g-kauf'] = '0';
     var am = F.stopAbfMon && /^\d{4}-\d{2}/.test(F.stopAbfMon) ? F.stopAbfMon.slice(0, 7) : (+ex.slice(0, 4) + 1) + '-01';
     d['g-pd'] = F.stopAbfMon && /^\d{4}-\d{2}-\d{2}$/.test(F.stopAbfMon) ? F.stopAbfMon : am + '-01';
     d['g-von'] = YEAR + '-10-31'; d['g-bis'] = (YEAR + 1) + '-10-31'; d['g-sk'] = 'iv';
@@ -1041,6 +1042,7 @@ function abfindungNetto(P, A) {
     if (ded > 0) h += box(gB > 100 ? 'g' : 'y', '<b>Fünftelregelung mit Sonderzahlung: ' + eur(gB) + ' weniger Steuer</b> (' + eur(B0.tax) + ' ohne, ' + eur(B1.tax) + ' mit Fünftelregelung). Die Sonderzahlung senkt dein übriges Einkommen und das Arbeitslosengeld treibt den Steuersatz weniger hoch: Die Fünftelregelung wirkt dadurch deutlich stärker.');
     if (X.sz > 0) {
       var cost = X.sz - saveSZ, ep = X.sz / (0.186 * K.DURCHSCHNITT), rm = ep * K.RENTENWERT, fmax = 0.186 * K.BBG_RV;
+      if ($('g-kauf').value === '1') { var td = new Date(); KAUF = { sz: X.sz, abzug: ded, ersparnis: saveSZ, kosten: cost, punkte: ep, rente: rm, jahr: payY, stand: td.getDate() + '.' + (td.getMonth() + 1) + '.' + td.getFullYear() }; }
       h += tbl([
         row('Sonderzahlung in die Rente', eur(X.sz)),
         row('Davon als Sonderausgabe abziehbar (Platz im Höchstbetrag)', eur(ded) + ' von ' + eur(room)),
@@ -1391,8 +1393,12 @@ function abfindungNetto(P, A) {
     $('sumBody').innerHTML = finalBox(X) + h;
   }
 
+  var KAUF = null;
+  function kaufSchreiben() {   // Entscheidung für die erste Seite: nur bei „Ja“ gespeichert, sonst entfernt
+    try { if (KAUF) localStorage.setItem('fp-rentenkauf', JSON.stringify(KAUF)); else localStorage.removeItem('fp-rentenkauf'); } catch (e) { /* ohne Speicher */ }
+  }
   function render() {
-    var X = readX(); REC = []; Q = {};
+    var X = readX(); REC = []; Q = {}; KAUF = null;
     (function () {
       var ab = $('abfBox'), pd = $('g-pd').value, m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(pd), ds = m ? m[3] + '.' + m[2] + '.' + m[1] : '';
       ab.className = 'as-box ' + (X.abf > 0 ? 'g' : 'y');
@@ -1401,6 +1407,7 @@ function abfindungNetto(P, A) {
     $('w-pbrutto').hidden = !(X.split || X.sep); $('w-sk').hidden = !X.split;
     $('baseHint').textContent = ABFEST && String($('g-abf').value) === String(ABFEST) ? 'Die Abfindung (brutto) ist aus deinem Netto-Betrag in der Finanzplanung (' + eur(fv('stopAbf')) + ') zurückgerechnet. Trage den Bruttobetrag aus dem Angebot ein, sobald du ihn kennst.' : (X.abf > 0 ? '' : 'Tipp: Ohne Abfindung (brutto) können die meisten Themen nichts rechnen.');
     [t1, t2, t3, t11, t4, t5, t6, t7, t8, t9].forEach(function (fn) { try { fn(X); } catch (e) { if (window.console) console.error(fn.name, e); } });
+    kaufSchreiben();
     chip('c10', 'b', 'Unterlagen prüfen');
     REC.push({ k: 'y', t: 'Betriebsrente und Verträge über den Arbeitgeber (Unverfallbarkeit, Kapitalwahlrecht, Zeitwertkonto, Aktienprogramm) vor Austritt schriftlich klären.', who: ['ag'] });
     summary(X);
