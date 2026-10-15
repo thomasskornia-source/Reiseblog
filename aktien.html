@@ -24,6 +24,9 @@
   .ak-form { display: flex; gap: 8px; background: var(--paper-warm); border: 1px solid rgba(46,58,50,.12); border-radius: 999px; padding: 6px; }
   .ak-form input { flex: 1; min-width: 0; font: inherit; font-size: 16px; border: 0; background: transparent; padding: 8px 14px; color: var(--ink); outline: 0; }
   .btn { font: inherit; font-size: 15px; background: var(--rust); color: #fff; border: 0; border-radius: 999px; padding: 9px 20px; cursor: pointer; white-space: nowrap; }
+  .ask { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; margin-top: 8px; padding: 8px 12px; background: #fbf4e2; border-radius: 12px; font-size: 14.5px; }
+  .ask span { flex: 1; }
+  .ask button { font-size: 22px; background: #fff; border: 1px solid rgba(46,58,50,.2); border-radius: 12px; padding: 4px 12px; cursor: pointer; }
   a.btn { display: inline-block; text-decoration: none; white-space: normal; text-align: center; }
   .btn[disabled] { opacity: .5; cursor: default; }
   .msg { font-size: 13.5px; color: var(--ink-soft); text-align: center; margin: -4px 0 0; min-height: 1em; }
@@ -816,10 +819,11 @@
   }
   function renderBeo() {
     var dpl = lies(DEPOT).map(aufTicker), weg0 = lies(WEG).map(normT);
+    schreib(PWEG, lies(PWEG).map(normT).filter(function (t) { return dpl.indexOf(t) < 0; }));
     if (weg0.some(function (t) { return dpl.indexOf(t) >= 0; })) schreib(WEG, weg0.filter(function (t) { return dpl.indexOf(t) < 0; })); // im Depot eingetragen = nicht ausgeblendet
-    var weg = lies(WEG).map(normT);
-    var eigene = beoB && beoB.aktien ? beoB.aktien.filter(function (x) { return weg.indexOf(normT(x.ticker)) < 0; }) : [];
-    var ausg = beoB && beoB.aktien ? beoB.aktien.length - eigene.length : 0;
+    var weg = lies(WEG).map(normT), pweg = lies(PWEG).map(normT);
+    var eigene = beoB && beoB.aktien ? beoB.aktien.filter(function (x) { return weg.indexOf(normT(x.ticker)) < 0 && pweg.indexOf(normT(x.ticker)) < 0; }) : [];
+    var ausg = beoB && beoB.aktien ? beoB.aktien.filter(function (x) { return weg.indexOf(normT(x.ticker)) >= 0 && pweg.indexOf(normT(x.ticker)) < 0; }).length : 0;
     var wechsel = eigene.filter(function (x) { return x.ampel_vorher && x.ampel_vorher !== x.ampel; });
     var stand = beoB ? beoB.stand : (uni && uni.stand);
     var standT = '<span>(James, Stand ' + esc(String(stand || '').slice(0, 5)) + ')</span>';
@@ -831,7 +835,7 @@
         '<small>' + esc(x.lage) + (x.ampel_vorher && x.ampel_vorher !== x.ampel ? ' · vorher ' + esc(x.ampel_vorher) : '') + '</small></span><span class="z">James ' + pz(x.punkte) + '/' + SK.beo + ' <button type="button" class="xb" data-weg="' + esc(x.ticker) + '" aria-label="' + esc(x.ticker) + ' ausblenden" title="Ausblenden">×</button></span></li>';
     }).join('') + '</ol>';
     if (!eigene.length) h2 = '<p class="hinweis">Keine Aktien in der Liste.</p>';
-    if (ausg) h2 += '<p class="hinweis">' + ausg + ' ausgeblendet · <button type="button" class="lk" data-alle="1">alle zurückholen</button> (gilt nur auf diesem Gerät)</p>';
+    if (ausg) h2 += '<p class="hinweis">' + ausg + ' ausgeblendet · <button type="button" class="lk" data-alle="1">alle zurückholen</button> · <button type="button" class="lk" data-endg="1">endgültig entfernen</button> (gilt nur auf diesem Gerät)</p>';
     var dp = listeBlock(DEPOT, 'ly', 'Hier kannst du weitere Aktien aus deinem Depot eintragen.');
     $('lynx-s').innerHTML = 'Lynx-Depot ' + standT + (wechsel.length ? ' <b>' + wechsel.length + ' Wechsel</b>' : '');
     $('lynx-c').innerHTML = '<h4 class="wl-h" style="margin-top:4px"><small>Meine Aktien im Depot. Zeile antippen: Trend, Chart und die Meinung von Warren und Charlie klappen auf. Nur Kurs und Trend, täglich neu.</small></h4>' + h2 + (dp.n || true ? '<h4 class="wl-h">Weitere Depotwerte</h4>' + dp.html : '');
@@ -853,7 +857,8 @@
   function addTicker(raw, key) {
     var t = aufTicker(raw); if (!t) return;
     if (key === DEPOT) {
-      var weg = lies(WEG).map(normT);
+      var weg = lies(WEG).map(normT), pw = lies(PWEG).map(normT);
+      if (pw.indexOf(t) >= 0) { schreib(PWEG, pw.filter(function (x) { return x !== t; })); msg[key] = t + ' steht wieder oben in der Lynx-Liste.'; return; }
       if (weg.indexOf(t) >= 0) { schreib(WEG, weg.filter(function (x) { return x !== t; })); msg[key] = t + ' war ausgeblendet und steht jetzt wieder oben in der Lynx-Liste.'; return; }
       if (beoB && beoB.aktien && beoB.aktien.some(function (x) { return normT(x.ticker) === t; })) { msg[key] = t + ' steht schon oben in der Lynx-Liste.'; return; }
     }
@@ -878,14 +883,28 @@
     }
     li.appendChild(el); li.classList.add('auf');
   }
+  function frage(btn, t, liste) {
+    var li = btn.closest('li'); if (!li) return;
+    var old = li.querySelector('.ask'); if (old) { old.remove(); return; }
+    var nm = (li.querySelector('.t') ? li.querySelector('.t').firstChild && li.querySelector('.t').textContent : t) || t;
+    var u = uni && uni.aktien ? uni.aktien.filter(function (q) { return normT(q.t) === normT(t); })[0] : null;
+    var b0 = beoB && beoB.aktien ? beoB.aktien.filter(function (q) { return normT(q.ticker) === normT(t); })[0] : null;
+    var name = (b0 && b0.name) || (u && u.n) || t;
+    var d = document.createElement('div'); d.className = 'ask';
+    d.innerHTML = '<span>Soll ' + esc(name) + ' wirklich entfernen?</span><button type="button" data-ja="' + esc(t) + '" data-liste="' + esc(liste) + '" aria-label="Ja, entfernen">👍🏻</button><button type="button" data-nein="1" aria-label="Nein, behalten">👎🏻</button>';
+    li.appendChild(d);
+  }
   function beoKlick(ev) {
     var kb = ev.target.closest('[data-karte]'); if (kb) { zeigeKarte(kb.getAttribute('data-karte')); return; }
     var bt = ev.target.closest('[data-pr]'); if (bt) { pruefen(bt.getAttribute('data-pr')); return; }
     var wl = ev.target.closest('[data-wl]'); if (wl) { addTicker(wl.getAttribute('data-wl'), WATCH); renderBeo(); return; }
-    var xw = ev.target.closest('[data-weg]'); if (xw) { var w = lies(WEG); w.push(xw.getAttribute('data-weg')); schreib(WEG, w); renderBeo(); return; }
+    var nein = ev.target.closest('[data-nein]'); if (nein) { var a0 = nein.closest('.ask'); if (a0) a0.remove(); return; }
+    var ja = ev.target.closest('[data-ja]'); if (ja) { var jt = ja.getAttribute('data-ja'), jk = ja.getAttribute('data-liste'); if (jk) { schreib(jk, lies(jk).filter(function (t) { return normT(t) !== normT(jt); })); msg[jk] = ''; } else { var pw2 = lies(PWEG); pw2.push(jt); schreib(PWEG, pw2); } renderBeo(); return; }
+    if (ev.target.closest('[data-endg]')) { var pw3 = lies(PWEG).concat(lies(WEG)); schreib(PWEG, pw3); schreib(WEG, []); renderBeo(); return; }
+    var xw = ev.target.closest('[data-weg]'); if (xw) { frage(xw, xw.getAttribute('data-weg'), ''); return; }
     if (ev.target.closest('[data-alle]')) { schreib(WEG, []); renderBeo(); return; }
-    var xd = ev.target.closest('[data-wdel]'); if (xd) { var key = xd.getAttribute('data-liste'); schreib(key, lies(key).filter(function (t) { return normT(t) !== normT(xd.getAttribute('data-wdel')); })); msg[key] = ''; renderBeo(); return; }
-    if (ev.target.closest('.det') || ev.target.closest('form')) return;
+    var xd = ev.target.closest('[data-wdel]'); if (xd) { frage(xd, xd.getAttribute('data-wdel'), xd.getAttribute('data-liste')); return; }
+    if (ev.target.closest('.det') || ev.target.closest('form') || ev.target.closest('.ask')) return;
     var li = ev.target.closest('li'); if (!li || !(li.getAttribute('data-t') || li.getAttribute('data-w'))) return;
     toggleBeo(li);
   }

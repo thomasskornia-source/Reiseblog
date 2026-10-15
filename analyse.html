@@ -25,6 +25,12 @@
   .an h3 { font-size: 16.5px; margin: 18px 0 6px; }
   .an p, .an li { font-size: 15.5px; line-height: 1.6; }
   .an ul { padding-left: 20px; margin: 6px 0 10px; }
+  .an .zwei ul { list-style: none; padding: 0; margin: 6px 0 2px; }
+  .an .zwei li { position: relative; padding: 9px 0 9px 28px; margin: 0; border-top: 1px solid rgba(46,58,50,.1); font-size: 15px; line-height: 1.5; }
+  .an .zwei li:first-child { border-top: 0; }
+  .an .zwei li::before { position: absolute; left: 2px; top: 9px; width: 18px; height: 18px; border-radius: 50%; text-align: center; font-size: 13px; line-height: 18px; font-weight: 700; color: #fff; }
+  .an .zwei .bull li::before { content: '+'; background: #1f8a5b; }
+  .an .zwei .bear li::before { content: '–'; background: #c8453f; }
   .an li { margin: 0 0 6px; }
   .an .tab { margin: 0 0 8px; }
   .an .tab-intro { color: var(--ink-soft); font-size: 14.5px; }
@@ -33,7 +39,7 @@
   .an .kk th, .an .kk td { word-break: break-word; min-width: 90px; text-align: left; vertical-align: top; padding: 8px 8px; border-bottom: 1px solid rgba(46,58,50,.1); }
   .an .kk th { font-size: 13px; color: var(--ink-soft); }
   .an .zwei { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 8px 0 14px; }
-  .an .zwei > div { border-radius: 14px; padding: 12px 16px; border: 1px solid rgba(46,58,50,.12); }
+  .an .zwei > div { border-radius: 16px; padding: 14px 18px; border: 0; }
   .an .zwei .bull { background: #eaf4ee; } .an .zwei .bear { background: #fbeceb; }
   .an .zwei h3 { margin-top: 2px; }
   .an .unklar { background: #f3f1ea; border: 1px dashed rgba(46,58,50,.3); border-radius: 14px; padding: 10px 16px; margin: 12px 0; }
