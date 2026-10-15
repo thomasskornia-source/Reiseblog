@@ -227,6 +227,51 @@ def momentum(zeilen, benchmark=None):
             'ma200': bool(kurs > m200), 'close_hi': chips['CLOSE HI'], 'ma_fan': chips['MA FAN'], 'd1': round((c[-1] / c[-2] - 1) * 100, 2),
             'obv_div': bool(obv_div), 'squeeze': bool(squeeze), 'atr_enge': bool(atr_enge), 'vdu': bool(vdu), 'nr7': bool(nr7), 'spring': bool(spring)}
 
+def _letztes_kreuz(schnell, langsam, n=10):
+    """Jüngste Kreuzung in den letzten n Kerzen: ('b'|'s', Alter) oder None (Alter 0 = letzte Kerze)."""
+    L = len(schnell)
+    for age in range(0, n):
+        i = L - 1 - age
+        if i < 1 or None in (schnell[i - 1], langsam[i - 1], schnell[i], langsam[i]): break
+        v, h = schnell[i - 1] - langsam[i - 1], schnell[i] - langsam[i]
+        if v <= 0 < h: return 'b', age
+        if v >= 0 > h: return 's', age
+    return None
+
+def signale(zeilen):
+    """Signale der letzten 10 Kerzen je Zeitebene (täglich, wöchentlich, monatlich) für momentum.html, Reiter Signale.
+    Kürzel: b821/s821 = EMA 8 kreuzt EMA 21 nach oben/unten, b1350/s1350 = EMA 13 / EMA 50, gc/dc = SMA 50 kreuzt SMA 200 (Golden/Death Cross),
+    ob/os = RSI(14) über 70 / unter 30, hi/lo = neues 52-Wochen-Hoch/-Tief (nur täglich). Monatlich nur 8/21 und RSI (zu wenig Kursverlauf für 13/50 und 50/200).
+    Liefert {zeitebene: [[kürzel, alter], ...]}."""
+    def reihen(c, lang=True):
+        out = []
+        e8, e21 = ema_reihe(c, 8), ema_reihe(c, 21)
+        k = _letztes_kreuz(e8, e21)
+        if k: out.append(('b821' if k[0] == 'b' else 's821', k[1]))
+        if len(c) >= 52:
+            k = _letztes_kreuz(ema_reihe(c, 13), ema_reihe(c, 50))
+            if k: out.append(('b1350' if k[0] == 'b' else 's1350', k[1]))
+        if lang and len(c) >= 205:
+            k = _letztes_kreuz(sma_reihe(c, 50), sma_reihe(c, 200))
+            if k: out.append(('gc' if k[0] == 'b' else 'dc', k[1]))
+        r = rsi_reihe(c)[-1] if len(c) > 15 else None
+        if r is not None and r > 70: out.append(('ob', 0))
+        if r is not None and r < 30: out.append(('os', 0))
+        return out
+    def gruppe(f):
+        g = {}
+        for z in zeilen:
+            g[f(datetime.datetime.utcfromtimestamp(z[0]))] = z[4]
+        return list(g.values())
+    c = [z[4] for z in zeilen]
+    d = reihen(c)
+    h = [z[2] for z in zeilen]; l = [z[3] for z in zeilen]
+    if len(h) > 252:
+        if h[-1] >= max(h[-252:-1]): d.append(('hi', 0))
+        if l[-1] <= min(l[-252:-1]): d.append(('lo', 0))
+    w = gruppe(lambda t: t.isocalendar()[:2]); m = gruppe(lambda t: (t.year, t.month))
+    return {'d': d, 'w': reihen(w) if len(w) > 22 else [], 'm': reihen(m, False) if len(m) > 22 else []}
+
 def kreuzung(schnell, langsam, start, namen):
     """Letzte Kreuzung zweier Linien: 'hoch' = die schnelle kreuzt von unten über die langsame (Golden Cross bei 50/200),
     'runter' = von oben (Death Cross). start = Index des ersten Tags im Chartfenster; i ist relativ dazu (None, wenn davor)."""

@@ -79,6 +79,10 @@ def warren(f, kurs, z):
     r.append(('KGV zwischen 0 und 25', (kgv <= 25) if kgv is not None else (False if eps is not None else None)))
     return r, (round(kgv, 1) if kgv else None), (round(roe * 100) if roe is not None else None), (round(marge * 100) if marge is not None else None)
 
+def signale_sicher(zeilen):
+    try: return trend.signale(zeilen)
+    except Exception: return None
+
 def momentum_sicher(zeilen, bm):
     try: return trend.momentum(zeilen, bm)
     except Exception: return None
@@ -89,7 +93,7 @@ def james(f, bm):
         a = trend.analyse(zeilen, meta, benchmark=bm)
         return {'kurs': a['kurs'], 'ampel': a['ampel'], 'lage': a['lage'], 'punkte': a['score']['punkte'], 'stufe': a['score']['stufe'],
                 'rsi': a['rsi'], 'abstand_pct': a['abstand_pct'], 'pos_52w_pct': a['pos_52w_pct'], '_a': a, '_h': verlauf(zeilen),
-                '_m': momentum_sicher(zeilen, bm)}
+                '_m': momentum_sicher(zeilen, bm), '_s': signale_sicher(zeilen)}
     except Exception:
         return None
 
@@ -218,6 +222,47 @@ def momentum_liste(fl, js, bm):
     spy = round((bm[-1] / bm[-2] - 1) * 100, 2) if bm and len(bm) > 1 else None
     return {'spy_d1': spy, 'geprueft': len(alle), 'aktien': out[:150]}
 
+def signale_liste(fl, js):
+    """Signale (Thomas, 15.10.2026): je Zeitebene (d, w, m) und Kürzel die Liste [[Ticker, Alter in Kerzen], ...] über alle geprüften Aktien."""
+    out = {'d': {}, 'w': {}, 'm': {}}
+    for f, j in zip(fl, js):
+        if not j or not j.get('_s'): continue
+        for tf in out:
+            for typ, alter in j['_s'].get(tf, []): out[tf].setdefault(typ, []).append([f['t'], alter])
+    for tf in out:
+        for typ in out[tf]: out[tf][typ].sort(key=lambda x: (x[1], x[0]))
+    return out
+
+def backtest_liste(fl, js, top5, alt):
+    """Backtest der Top 5 (Thomas, 15.10.2026): Jeder Wert, der in die Top 5 des Tages kommt, wird mit Datum und Schlusskurs im Archiv festgehalten (je Aktie höchstens
+    einmal in 20 Handelstagen). Daraus werden bei jedem Lauf die Kursverläufe danach gerechnet: Rendite nach 1, 3, 5, 10 und 20 Handelstagen (Schlusskurse),
+    höchster Anstieg (MFE) und größter Rückgang (MAE) in den 20 Tagen danach. Archiv in universum.json unter backtest.archiv, 90 Handelstage. Beginnt erst mit dem ersten Lauf, keine Rückrechnung."""
+    h = {f['t']: j['_h'] for f, j in zip(fl, js) if j}
+    archiv = list((alt or {}).get('archiv', []))
+    heute = None
+    for t in top5:
+        hh = h.get(t)
+        if not hh: continue
+        heute = hh['d'][-1]
+        pos = {d: i for i, d in enumerate(hh['d'])}
+        letzte = [a for a in archiv if a['t'] == t and a['d'] in pos]
+        if letzte and len(hh['d']) - 1 - max(pos[a['d']] for a in letzte) < 20: continue
+        archiv.append({'t': t, 'd': heute, 'k': round(hh['c'][-1], 2)})
+    picks, neu_archiv = [], []
+    for a in archiv:
+        hh = h.get(a['t'])
+        if not hh or a['d'] not in hh['d']: continue
+        i0 = hh['d'].index(a['d']); n = len(hh['d']) - 1 - i0
+        if n > 90: continue
+        neu_archiv.append(a)
+        c = hh['c']; c0 = a['k'] or c[i0]
+        r = lambda k: round((c[i0 + k] / c0 - 1) * 100, 2) if n >= k else None
+        fenster = c[i0 + 1:i0 + 21]
+        picks.append({'t': a['t'], 'd': a['d'], 'k': a['k'], 'n': n, 'r1': r(1), 'r3': r(3), 'r5': r(5), 'r10': r(10), 'r20': r(20),
+                      'mfe': round((max(fenster) / c0 - 1) * 100, 2) if fenster else None, 'mae': round((min(fenster) / c0 - 1) * 100, 2) if fenster else None,
+                      'last': round((c[-1] / c0 - 1) * 100, 2)})
+    return {'seit': neu_archiv[0]['d'] if neu_archiv else heute, 'archiv': neu_archiv, 'picks': picks}
+
 def universum(fl, js, bm=None):
     """Alle S&P-500-Aktien in Kurzform (Kurs, Ampel, Lage, kleiner Verlauf) -> data/universum.json, für die Watchlist auf der Seite (ohne Token)."""
     heute = datetime.date.today().strftime('%d.%m.%Y'); liste = []
@@ -229,8 +274,12 @@ def universum(fl, js, bm=None):
         liste.append({'t': f['t'], 'n': f['name'], 's': f['sektor'], 'k': round(j['kurs'], 2), 'a': j['ampel'], 'p': j['punkte'], 'l': j['lage'],
                       'd1': round((c[-1] / c[-2] - 1) * 100, 2), 'sp': sp})
     liste.sort(key=lambda x: x['t'])
+    try: alt_bt = json.load(open(os.path.join(ROOT, 'data', 'universum.json'), encoding='utf-8')).get('backtest')
+    except Exception: alt_bt = None
     with open(os.path.join(ROOT, 'data', 'universum.json'), 'w', encoding='utf-8') as fh:
-        fh.write(json.dumps({'stand': heute, 'skala': 11, 'aktien': liste, 'momentum': momentum_liste(fl, js, bm)}, ensure_ascii=False, separators=(',', ':')).replace('},{', '},\n{') + '\n')
+        mo = momentum_liste(fl, js, bm)
+        fh.write(json.dumps({'stand': heute, 'skala': 11, 'aktien': liste, 'momentum': mo, 'signale': signale_liste(fl, js),
+                             'backtest': backtest_liste(fl, js, [x['t'] for x in mo['aktien'][:5]], alt_bt)}, ensure_ascii=False, separators=(',', ':')).replace('},{', '},\n{') + '\n')
 
 def beobachten(bm):
     """Eigene Aktien aus data/aktien.json: James' Ampel täglich neu (ohne Texte, ohne Token) -> data/beobachtung.json."""
@@ -273,7 +322,7 @@ def main():
         if z and n < 4: continue            # zu wenig Zahlen für ein Urteil
         wp = ok / n if n else 0
         rang = (0.5 * wp + 0.5 * j['punkte'] / 11) if z else j['punkte'] / 11
-        alle.append({'ticker': f['t'], 'cik': f['cik'], 'name': f['name'], 'sektor': f['sektor'], **{k: v for k, v in j.items() if k not in ('_a', '_m')}, '_a': j['_a'], 'warren_ok': ok, 'warren_von': n,
+        alle.append({'ticker': f['t'], 'cik': f['cik'], 'name': f['name'], 'sektor': f['sektor'], **{k: v for k, v in j.items() if k not in ('_a', '_m', '_s')}, '_a': j['_a'], 'warren_ok': ok, 'warren_von': n,
                      'kgv': kgv, 'roe_pct': roe, 'marge_pct': marge,
                      'warren_gut': [t for t, v in w if v is True], 'warren_fehlt': [t for t, v in w if v is False], 'rang': round(rang, 3)})
     kandidaten = sorted((a for a in alle if a['ampel'] != 'Down'), key=lambda a: -a['rang'])

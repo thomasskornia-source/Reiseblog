@@ -70,6 +70,34 @@
   .sig p { font-size: 14px; color: var(--ink-soft); line-height: 1.55; margin: 0 0 10px; }
   .sig .tk-pillen { display: flex; flex-wrap: wrap; gap: 6px; }
   .sig .tk-pillen span { background: #eef6f1; color: #1f7a52; font-weight: 700; font-size: 13.5px; border-radius: 99px; padding: 4px 12px; }
+  .tfseg { margin: 0 0 12px; }
+  .sigtypen { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 12px; }
+  .sigtyp { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid rgba(46,58,50,.16); border-radius: 14px; padding: 10px 16px; font: inherit; font-size: 16px; color: var(--ink); cursor: pointer; }
+  .sigtyp .z { font-size: 14px; font-weight: 700; border-radius: 99px; padding: 2px 10px; background: #eeefec; }
+  .sigtyp.gut .z { background: #e3f3ea; color: #1f7a52; } .sigtyp.schlecht .z { background: #fbe5e1; color: #c8502d; }
+  .sigtyp.multi { border-color: #d9a21e; color: #8a6a0c; font-weight: 600; }
+  .sigtyp[aria-pressed="true"] { border-color: #1f8a5b; box-shadow: 0 0 0 2px rgba(31,138,91,.25); }
+  .sigliste { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 0; }
+  .sigliste span { background: #fff; border: 1px solid rgba(46,58,50,.14); border-radius: 12px; padding: 7px 12px; font-size: 15px; font-weight: 700; }
+  .sigliste span small { font-weight: 400; color: var(--ink-soft); font-size: 12.5px; margin-left: 6px; }
+  .hinw { color: var(--ink-soft); font-style: italic; margin: 16px 0; }
+  .kacheln { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 14px 0 6px; }
+  .kachel { background: #fff; border: 1px solid rgba(46,58,50,.12); border-radius: 14px; padding: 14px 16px; }
+  .kachel .l { font-size: 14px; color: var(--ink-soft); } .kachel .w { font-size: 26px; font-weight: 700; margin-top: 4px; letter-spacing: -.01em; }
+  .gruen { color: #1f8a5b; } .rot { color: #d4373a; }
+  .verteilung { display: flex; align-items: flex-end; gap: 6px; height: 170px; margin: 14px 0 4px; }
+  .verteilung .sp { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; font-size: 11.5px; color: var(--ink); }
+  .verteilung .bal { width: 100%; border-radius: 4px 4px 0 0; min-height: 2px; }
+  .verteilung .ach { display: flex; gap: 6px; font-size: 11px; color: var(--ink-soft); }
+  .achse { display: flex; gap: 6px; font-size: 11px; color: var(--ink-soft); text-align: center; }
+  .achse span { flex: 1; }
+  .mm { display: grid; grid-template-columns: 56px 1fr auto auto; gap: 4px 10px; align-items: center; font-size: 14.5px; padding: 5px 0; }
+  .mm .tk { font-weight: 700; }
+  .mm .bahn { position: relative; height: 22px; background: transparent; }
+  .mm .bahn i { position: absolute; top: 2px; bottom: 2px; border-radius: 3px; }
+  .mm .bahn i.g { background: #d3e8df; } .mm .bahn i.r { background: #f6dcdc; } .mm .bahn b { position: absolute; top: 0; bottom: 0; width: 3px; border-radius: 2px; }
+  .mm .gr { font-size: 13px; white-space: nowrap; } .mm .ende { font-weight: 700; text-align: right; min-width: 64px; }
+  @media (max-width: 480px) { .mm { grid-template-columns: 48px 1fr auto; } .mm .gr { display: none; } }
   .faq details { background: #fff; border: 1px solid rgba(46,58,50,.12); border-radius: 14px; margin: 0 0 10px; }
   .faq summary { cursor: pointer; padding: 14px 18px; font-weight: 600; font-size: 16px; list-style: none; }
   .faq summary::-webkit-details-marker { display: none; }
@@ -116,6 +144,7 @@
   <div class="reiter" role="tablist">
     <button role="tab" aria-selected="true" data-t="ratings">Ratings</button>
     <button role="tab" aria-selected="false" data-t="signale">Signale</button>
+    <button role="tab" aria-selected="false" data-t="backtest">Backtest</button>
     <button role="tab" aria-selected="false" data-t="faq">FAQ</button>
   </div>
 
@@ -145,7 +174,20 @@
     <button class="mehr" id="mehr" hidden>Mehr anzeigen</button>
   </section>
 
-  <section id="p-signale" hidden></section>
+  <section id="p-signale" hidden>
+    <h3 class="klein" style="margin-top:0">Signale</h3>
+    <p class="sub">Trend-Kreuzungen aus den letzten 10 Kerzen jeder Zeitebene (mit Alter), dazu RSI(14)-Extreme und neue 52-Wochen-Hochs und -Tiefs im Tagesbild. Abgeleitete Kennzahlen, keine Empfehlung.</p>
+    <div class="seg tfseg" id="s-tf" role="group" aria-label="Zeitebene"></div>
+    <div class="zeile"><input id="s-q" type="search" placeholder="Kürzel suchen …" aria-label="Kürzel suchen" autocomplete="off"><span class="anzahl" id="s-n" style="align-self:center;flex:0 0 auto"></span></div>
+    <div class="sigtypen" id="s-typen"></div>
+    <div id="s-ergebnis"></div>
+  </section>
+
+  <section id="p-backtest" hidden>
+    <h3 class="klein" style="margin-top:0">Backtest</h3>
+    <p class="sub">Wie sich die Top 5 der vergangenen Tage danach entwickelt haben. Ausgewählte Vergangenheit zur Veranschaulichung, nicht typisch, und keine Garantie für die Zukunft.</p>
+    <div id="b-inhalt"></div>
+  </section>
 
   <section id="p-faq" class="faq" hidden>
     <details open><summary>Was bedeuten die Kürzel?</summary><div class="inh"><dl>
@@ -167,7 +209,31 @@
     <details><summary>Was sind Frühsignale?</summary><div class="inh">Hinweise, dass sich etwas aufbaut, bevor der Kurs es zeigt: OBV-Divergenz (Kurs macht ein tieferes Tief, das On-Balance-Volume ein höheres), mehr Umsatz an Aufwärts- als an Abwärtstagen, Squeeze und Spring. „+2“ heißt zwei dieser vier Signale sind aktiv.</div></details>
     <details><summary>Was ist der Momentum-Wert (0–5)?</summary><div class="inh">Je ein Punkt für: Kursplus der letzten 10 Tage von mindestens 3 % (ROC10), der letzten 20 Tage von mindestens 5 % (ROC20), ADX ab 25 (Trendstärke), mindestens 6 von 10 Tagen im Plus und RSI zwischen 50 und 75.</div></details>
     <details><summary>Was heißt „Top RS“?</summary><div class="inh">Relative Stärke: Die Aktie hat in den letzten drei Monaten mehr zugelegt als mindestens 80 % aller geprüften S&amp;P-500-Werte (gegenüber dem S&amp;P 500 gerechnet). Das Perzentil steht im Text der Top 5.</div></details>
-    <details><summary>Warum kein Backtest und keine Mid-/Small-Caps?</summary><div class="inh">Einen Backtest gibt es hier noch nicht: Er braucht ein sauberes Archiv der täglichen Ratings, das erst nach und nach entsteht. Geprüft werden bisher nur die rund 500 Werte des S&amp;P 500 (also Large Caps); statt der Größenfilter gibt es einen Branchenfilter.</div></details>
+    <details><summary>Was die Seite tut und was nicht</summary><div class="inh">
+      <p><b>Sie tut:</b> jeden Abend den S&amp;P 500 durchsehen und Werte mit sauberem Trend und Schwung nach Punkten ordnen; Kennzahlen und Frühsignale zeigen; kurze Texte aus den Zahlen bauen; festhalten, wie die Top 5 danach gelaufen sind.</p>
+      <p><b>Sie tut nicht:</b> Kauf- oder Verkaufssignale geben, Einstiegs- oder Ausstiegskurse nennen, die Zukunft vorhersagen, Nachrichten, Quartalszahlen oder Handelsstopps berücksichtigen, Positionsgrößen oder Risiko steuern, auf Deine persönliche Lage eingehen. Eine hohe Punktzahl zeigt Stärke, kein Versprechen auf weitere Gewinne.</p></div></details>
+    <details><summary>Was bedeuten die Stufen?</summary><div class="inh"><dl>
+      <dt>STARK</dt><dd>Die Stufe mit der höchsten Überzeugung: ein sauberes Chartbild mit mehreren stützenden Signalen (ab 8 Punkten).</dd>
+      <dt>MOMENTUM IM AUFBAU</dt><dd>Ein konstruktives Bild, das sich entwickelt, aber noch nicht voll bestätigt ist (ab 6 Punkten).</dd>
+      <dt>BEOBACHTEN</dt><dd>Auf dem Radar: etwas Stärke ist da, im Auge behalten (ab 4 Punkten).</dd></dl></div></details>
+    <details><summary>Glossar</summary><div class="inh"><dl>
+      <dt>RVOL</dt><dd>Relativer Umsatz: der Umsatz des letzten Tages im Vergleich zum üblichen Niveau (50-Tage-Mittel). Erhöhte Werte zeigen ungewöhnlich starke Beteiligung.</dd>
+      <dt>ATR</dt><dd>Average True Range: wie weit sich die Aktie an einem Tag typischerweise bewegt, ein Maß für die Schwankung.</dd>
+      <dt>ADX</dt><dd>Misst die Trendstärke, nicht die Richtung. Höhere Werte stehen für einen stärkeren, etablierteren Trend.</dd>
+      <dt>ROC</dt><dd>Rate of Change: Kursänderung über ein Zeitfenster, also wie schnell sich die Aktie bewegt hat.</dd>
+      <dt>OBV</dt><dd>On-Balance-Volume: zeigt, ob Umsatz in eine Aktie hinein oder aus ihr heraus fließt; dient dazu, Anhäufung zu erkennen.</dd>
+      <dt>RS / RS-Perzentil</dt><dd>Relative Stärke: wie sich die Aktie im Vergleich zu allen anderen geprüften Werten entwickelt hat. Ein hohes Perzentil heißt, sie schlägt die meisten.</dd>
+      <dt>EMA / SMA</dt><dd>Exponentieller und einfacher gleitender Durchschnitt: geglättete Kurslinien für Richtung und Aufbau des Trends.</dd></dl></div></details>
+    <details><summary>Häufige Fragen</summary><div class="inh"><dl>
+      <dt>WIE OFT AKTUALISIERT SICH DIE SEITE?</dt><dd>Einmal pro Börsentag am Abend nach Schluss (22:30 UTC). Oben steht der Stand.</dd>
+      <dt>HEISST EINE HOHE PUNKTZAHL, DASS ICH KAUFEN SOLLTE?</dt><dd>Nein. Sie zeigt technische Stärke, keine Empfehlung. Einstieg, Ausstieg und Größe sind Deine Entscheidungen.</dd>
+      <dt>FÜR WELCHEN ZEITRAUM IST SIE GEBAUT?</dt><dd>Für Swing- und Positionsbewegungen über Tage bis Wochen, auf Tagesdaten, nicht für kurzfristiges Hin und Her am Tag.</dd>
+      <dt>WARUM TAUCHT EIN NAME AUF UND VERSCHWINDET WIEDER?</dt><dd>Die Lage ändert sich. Erfüllt eine Aktie die Kriterien nicht mehr, wird sie nicht mehr gezeigt. Das ist gewollt, kein Fehler.</dd>
+      <dt>FUNKTIONIERT SIE IN JEDER MARKTLAGE?</dt><dd>Momentum-Werkzeuge laufen am besten in Trendmärkten und tun sich in Seitwärts- oder abrupt drehenden Märkten schwer. Die Markt-Pille oben gibt den Hintergrund.</dd>
+      <dt>KANN SIE FALSCH LIEGEN?</dt><dd>Ja. Manche Treffer laufen schlechter oder drehen um. Es ist ein Filter mit Wahrscheinlichkeiten, keine Kristallkugel, darum zählen eigene Prüfung und Risikodisziplin.</dd>
+      <dt>MUSS ICH TROTZDEM SELBST PRÜFEN?</dt><dd>Ja. Nimm die Seite als Filter und Ausgangspunkt, prüfe selbst und bestätige, bevor Du handelst.</dd></dl></div></details>
+    <details><summary>Haftungshinweis</summary><div class="inh">Dieses Werkzeug dient nur der Information und Bildung. Es ist keine Finanz-, Anlage- oder Handelsberatung, und nichts hier ist eine Empfehlung, ein Wertpapier zu kaufen oder zu verkaufen. Die Ratings beruhen nur auf technischer und Momentum-Analyse und berücksichtigen weder Nachrichten noch Bilanzzahlen noch Deine persönliche Lage. Handel birgt erhebliches Verlustrisiko. Vergangene Wertentwicklung garantiert keine künftigen Ergebnisse. Ich bin kein Finanzberater.</div></details>
+    <details><summary>Warum keine Mid-/Small-Caps?</summary><div class="inh">Geprüft werden bisher nur die rund 500 Werte des S&amp;P 500 (also Large Caps); statt der Größenfilter gibt es einen Branchenfilter.</div></details>
   </section>
 
   <p class="rechts" id="rechts"></p>
@@ -272,24 +338,71 @@
     };
   }
 
-  function signale() {
-    var G = [
-      ['Spring', 'Das Tief der letzten drei Tage lag unter dem 20-Tage-Tief, der Schluss aber wieder darüber.', function (x) { return x.fr.indexOf('Spring') >= 0; }],
-      ['OBV-Divergenz', 'Kurs mit tieferem Tief, On-Balance-Volume mit höherem Tief: leise Anhäufung.', function (x) { return x.fr.indexOf('OBV-Divergenz') >= 0; }],
-      ['Squeeze', 'Bollinger-Bänder innerhalb der Keltner-Kanäle: stark verdichtete Schwankung.', function (x) { return hat(x, 'SQUEEZE'); }],
-      ['Hoher Umsatz (RVOL ab 1,5)', 'Der Umsatz des letzten Tages liegt mindestens beim 1,5-Fachen des 50-Tage-Schnitts.', function (x) { return x.rv >= 1.5; }],
-      ['Käufer im Umsatz (Auf-/Abtage ab 1,5)', 'Über 50 Tage deutlich mehr Umsatz an steigenden als an fallenden Tagen.', function (x) { return x.ud >= 1.5; }],
-      ['Top RS (ab 80. Perzentil)', 'In drei Monaten stärker als vier Fünftel der geprüften Aktien.', function (x) { return x.rp != null && x.rp >= 80; }]
-    ];
-    $('p-signale').innerHTML = G.map(function (g) {
-      var l = ALLE.filter(g[2]);
-      return '<div class="sig"><h3>' + esc(g[0]) + ' <span style="color:var(--ink-soft);font-weight:400">(' + l.length + ')</span></h3><p>' + esc(g[1]) + '</p>' +
-        (l.length ? '<div class="tk-pillen">' + l.map(function (x) { return '<span>' + esc(x.t) + '</span>'; }).join('') + '</div>' : '<p style="margin:0">Heute keine.</p>') + '</div>';
-    }).join('');
+  var SIGT = [['b821', '8/21 Bullisch', 'gut'], ['s821', '8/21 Bärisch', 'schlecht'], ['b1350', '13/50 Bullisch', 'gut'], ['s1350', '13/50 Bärisch', 'schlecht'],
+              ['gc', 'Golden Cross', 'gut'], ['dc', 'Death Cross', 'schlecht'], ['ob', 'RSI überkauft', 'schlecht'], ['os', 'RSI überverkauft', 'gut'], ['hi', '52W-Hochs', 'gut'], ['lo', '52W-Tiefs', 'schlecht']];
+  var TFN = { d: ['Kerze', 'Tage', 'Täglich'], w: ['Kerze', 'Wochen', 'Wöchentlich'], m: ['Kerze', 'Monate', 'Monatlich'] };
+  var sigTf = 'd', sigTyp = '';
+
+  function sigDaten() {
+    var S = (D && D.signale && D.signale[sigTf]) || {}, q = $('s-q').value.trim().toLowerCase(), out = {};
+    var f = function (l) { return (l || []).filter(function (x) { return !q || x[0].toLowerCase().indexOf(q) === 0; }); };
+    SIGT.forEach(function (t) { out[t[0]] = f(S[t[0]]); });
+    if (sigTf === 'd') {   // Multi-Signal: mindestens zwei bullische Signale zugleich (täglich)
+      var z = {}; ['b821', 'b1350', 'gc', 'hi'].forEach(function (k) { (S[k] || []).forEach(function (x) { (z[x[0]] = z[x[0]] || []).push(x[1]); }); });
+      out.multi = Object.keys(z).filter(function (t) { return z[t].length >= 2 && (!q || t.toLowerCase().indexOf(q) === 0); }).map(function (t) { return [t, Math.min.apply(null, z[t])]; }).sort(function (a, b) { return a[1] - b[1]; });
+    } else out.multi = [];
+    return out;
   }
 
+  function alterTxt(a) { var n = TFN[sigTf][1]; return a === 0 ? 'neu' : 'vor ' + a + ' ' + (a === 1 ? n.replace('Tage', 'Tag').replace('Wochen', 'Woche').replace('Monate', 'Monat') : n); }
+
+  function signale() {
+    var d = sigDaten(), gesamt = 0;
+    var typen = (sigTf === 'd' ? [['multi', '⭐ Multi-Signal', 'multi']] : []).concat(SIGT.filter(function (t) { return sigTf !== 'm' || (t[0] !== 'gc' && t[0] !== 'dc' && t[0] !== 'hi' && t[0] !== 'lo' && t[0].indexOf('1350') < 0); }).filter(function (t) { return sigTf === 'd' || (t[0] !== 'hi' && t[0] !== 'lo'); }));
+    typen.forEach(function (t) { if (t[0] !== 'multi') gesamt += d[t[0]].length; });
+    if (typen.every(function (t) { return t[0] !== sigTyp; })) sigTyp = '';
+    $('s-n').textContent = gesamt + ' Signale';
+    $('s-typen').innerHTML = typen.map(function (t) { return '<button type="button" class="sigtyp ' + t[2] + '" data-k="' + t[0] + '" aria-pressed="' + (sigTyp === t[0]) + '">' + esc(t[1]) + ' <span class="z">' + d[t[0]].length + '</span></button>'; }).join('');
+    var e = $('s-ergebnis');
+    if (!sigTyp) { e.innerHTML = '<p class="hinw">Wähle oben eine Signalart, um die Namen zu sehen.</p>'; return; }
+    var l = d[sigTyp];
+    e.innerHTML = l.length ? '<div class="sigliste">' + l.map(function (x) { return '<span>' + esc(x[0]) + '<small>' + alterTxt(x[1]) + '</small></span>'; }).join('') + '</div>' : '<p class="hinw">Dazu gibt es in dieser Zeitebene gerade nichts.</p>';
+  }
+
+  function backtest() {
+    var B = (D && D.backtest) || { picks: [] }, P = (B.picks || []).filter(function (x) { return x.n >= 1; }), el = $('b-inhalt');
+    if (!P.length) {
+      el.innerHTML = '<div class="hinweisbox"><b>Das Archiv beginnt gerade erst.</b> Jeder Wert, der in die Top 5 kommt, wird mit Datum und Schlusskurs festgehalten (je Aktie höchstens einmal in 20 Handelstagen). Sobald die ersten Picks mindestens einen Handelstag alt sind, erscheinen hier Trefferquote, Durchschnittsgewinn, Durchschnittsverlust, die Verteilung der Renditen und der höchste Anstieg gegen den größten Rückgang je Pick. Rückgerechnet wird nichts, es zählen nur echte Tage ab dem ersten Lauf.' + (B.seit ? ' Erster Eintrag: ' + esc(B.seit) + '.' : '') + '</div>';
+      return;
+    }
+    var H = [['r1', '1T'], ['r3', '3T'], ['r5', '5T'], ['r10', '10T'], ['r20', '20T']];
+    var ausw = bt.h || 'r5';
+    var R = P.filter(function (x) { return x[ausw] != null; }), w = R.filter(function (x) { return x[ausw] > 0; }), v = R.filter(function (x) { return x[ausw] <= 0; });
+    var mw = function (a) { return a.length ? a.reduce(function (s, x) { return s + x[ausw]; }, 0) / a.length : 0; };
+    var quote = R.length ? w.length / R.length : 0, erw = quote * mw(w) + (1 - quote) * mw(v);
+    var h = '<div class="seg tfseg" id="b-h" role="group" aria-label="Zeitraum">' + H.map(function (k) { return '<button type="button" data-v="' + k[0] + '" aria-pressed="' + (k[0] === ausw) + '">' + k[1] + '</button>'; }).join('') + '</div>';
+    h += '<p class="sub">Stand je Pick nach dem gewählten Zeitraum, vom Schlusskurs am Tag der Aufnahme aus. Einträge: ' + P.length + ', davon ' + R.length + ' mit Wert für diesen Zeitraum.</p>';
+    h += '<div class="kacheln"><div class="kachel"><div class="l">Trefferquote</div><div class="w">' + Math.round(quote * 100) + ' % <span style="font-size:15px;font-weight:400">(' + w.length + '/' + R.length + ')</span></div></div>' +
+      '<div class="kachel"><div class="l">Ø Gewinner</div><div class="w gruen">' + vz(mw(w), 2) + ' %</div></div>' +
+      '<div class="kachel"><div class="l">Ø Verlierer</div><div class="w rot">' + vz(mw(v), 2) + ' %</div></div>' +
+      '<div class="kachel"><div class="l">Erwartungswert</div><div class="w ' + (erw >= 0 ? 'gruen' : 'rot') + '">' + vz(erw, 2) + ' %</div></div></div>';
+    var G = [[-1e9, -8, '<−8'], [-8, -5, '−8:−5'], [-5, -3, '−5:−3'], [-3, -1, '−3:−1'], [-1, 1, '−1:+1'], [1, 3, '+1:+3'], [3, 5, '+3:+5'], [5, 8, '+5:+8'], [8, 1e9, '>+8']];
+    var z = G.map(function (g) { return R.filter(function (x) { return x[ausw] >= g[0] && x[ausw] < g[1]; }).length; }), mx = Math.max.apply(null, z.concat([1]));
+    h += '<h2 class="ueb">Verteilung der Renditen</h2><p class="sub">Anzahl der Picks je Renditebereich (in Prozent) nach dem gewählten Zeitraum.</p><div class="verteilung">' +
+      G.map(function (g, i) { return '<div class="sp"><span>' + z[i] + '</span><div class="bal" style="height:' + Math.round(z[i] / mx * 130) + 'px;background:' + (i < 4 ? '#e24b4b' : i === 4 ? '#8a8a80' : '#1fa070') + '"></div></div>'; }).join('') + '</div>' +
+      '<div class="achse">' + G.map(function (g) { return '<span>' + g[2] + '</span>'; }).join('') + '</div>';
+    var M = P.filter(function (x) { return x.mfe != null; }).sort(function (a, b) { return b.mfe - a.mfe; }).slice(0, 40);
+    var lo = Math.min.apply(null, M.map(function (x) { return Math.min(x.mae, 0); }).concat([-1])), hi = Math.max.apply(null, M.map(function (x) { return x.mfe; }).concat([1])), sp = hi - lo;
+    var px = function (a) { return ((a - lo) / sp * 100).toFixed(1); };
+    h += '<h2 class="ueb">Anstieg gegen Rückgang je Pick</h2><p class="sub"><span class="gruen">Grün</span> = höchster Anstieg (MFE), <span class="rot">Rot</span> = größter Rückgang (MAE) in den 20 Tagen danach, Strich = aktueller Stand. Auf Schlusskursbasis, nach höchstem Anstieg sortiert.</p>' +
+      M.map(function (x) { return '<div class="mm"><span class="tk">' + esc(x.t) + '</span><div class="bahn"><i class="g" style="left:' + px(0) + '%;width:' + (px(Math.max(x.mfe, 0)) - px(0)).toFixed(1) + '%"></i><i class="r" style="left:' + px(Math.min(x.mae, 0)) + '%;width:' + (px(0) - px(Math.min(x.mae, 0))).toFixed(1) + '%"></i><b style="left:' + px(x.last) + '%;background:' + (x.last >= 0 ? '#1f8a5b' : '#d4373a') + '"></b></div><span class="gr"><span class="gruen">' + vz(x.mfe, 2) + ' %</span> / <span class="rot">' + vz(x.mae, 2) + ' %</span></span><span class="ende ' + (x.last >= 0 ? 'gruen' : 'rot') + '">' + vz(x.last, 2) + ' %</span></div>'; }).join('');
+    el.innerHTML = h;
+    $('b-h').onclick = function (e) { var b = e.target.closest('button'); if (b) { bt.h = b.getAttribute('data-v'); backtest(); } };
+  }
+  var bt = { h: 'r5' };
+
   function reiter(t) {
-    ['ratings', 'signale', 'faq'].forEach(function (n) { $('p-' + n).hidden = n !== t; });
+    ['ratings', 'signale', 'backtest', 'faq'].forEach(function (n) { $('p-' + n).hidden = n !== t; });
     Array.prototype.forEach.call(document.querySelectorAll('.reiter button'), function (b) { b.setAttribute('aria-selected', b.getAttribute('data-t') === t ? 'true' : 'false'); });
     try { history.replaceState(null, '', '#' + t); } catch (e) {}
   }
@@ -311,14 +424,18 @@
     p += '<button type="button" class="pille" id="neu">↻ Neu laden</button>';
     $('pillen').innerHTML = p;
     $('neu').onclick = function () { location.reload(); };
-    if (mo.starter) { $('testbox').hidden = false; $('testbox').innerHTML = '<b>Vorläufige Testdaten:</b> Es sind erst ' + ALLE.length + ' Namen aus den bisherigen Auswertungen drin. Die vollständige Liste aller S&amp;P-500-Werte kommt mit dem nächsten Abendlauf.'; }
+    if (mo.starter) { $('testbox').hidden = false; $('testbox').innerHTML = '<b>Vorläufige Testdaten:</b> Es sind erst ' + ALLE.length + ' Namen aus den bisherigen Auswertungen drin, auch Signale zeigen nur diese. Die vollständige Liste aller S&amp;P-500-Werte kommt mit dem nächsten Abendlauf.'; }
     var sek = {}; ALLE.forEach(function (x) { if (x.s) sek[x.s] = 1; });
     $('f-sek').innerHTML = '<option value="">Branche · Alle</option>' + Object.keys(sek).sort(function (a, b) { return (SEK[a] || a).localeCompare(SEK[b] || b, 'de'); }).map(function (k) { return '<option value="' + esc(k) + '">' + esc(SEK[k] || k) + '</option>'; }).join('');
     seg('f-pkt', [[0, 'Alle'], [5, '5+'], [6, '6+'], [7, '7+'], [8, '8+']], function () { return pkt; }, function (v) { pkt = Number(v); });
     seg('f-st', [['', 'Alle Stufen'], ['Stark', 'Stark'], ['Momentum im Aufbau', 'Im Aufbau'], ['Beobachten', 'Beobachten']], function () { return stufe; }, function (v) { stufe = v; });
-    zeigeTop(); zeigeListe(); signale();
+    seg('s-tf', [['d', 'Täglich'], ['w', 'Wöchentlich'], ['m', 'Monatlich']], function () { return sigTf; }, function (v) { sigTf = v; });
+    $('s-tf').onclick = function (e) { var b = e.target.closest('button'); if (!b) return; sigTf = b.getAttribute('data-v'); Array.prototype.forEach.call($('s-tf').children, function (c) { c.setAttribute('aria-pressed', c === b ? 'true' : 'false'); }); signale(); };
+    $('s-q').addEventListener('input', signale);
+    $('s-typen').onclick = function (e) { var b = e.target.closest('button'); if (!b) return; sigTyp = sigTyp === b.getAttribute('data-k') ? '' : b.getAttribute('data-k'); signale(); };
+    zeigeTop(); zeigeListe(); signale(); backtest();
     $('rechts').innerHTML = 'Rang der Top 5: Punkte, dann Stärke-Rang. Die Liste zeigt Aktien mit mindestens 5 Punkten über der 200-Tage-Linie, höchstens 150. Texte werden aus den Zahlen zusammengesetzt, es steht keine Einschätzung dahinter. Kursdaten: Yahoo Finance (inoffiziell), Branchen laut S&amp;P-500-Liste. <a href="wcj-info.html">So funktioniert WCJ</a>';
-    var h = (location.hash || '').slice(1); if (['signale', 'faq'].indexOf(h) >= 0) reiter(h);
+    var h = (location.hash || '').slice(1); if (['signale', 'backtest', 'faq'].indexOf(h) >= 0) reiter(h);
   }).catch(function () { $('top5').innerHTML = '<p class="leer">Die Daten konnten nicht geladen werden.</p>'; });
 })();
 </script>
