@@ -141,6 +141,69 @@
    "tokens": 105789
   },
   {
+   "id": "XQ1dFmtr9lk",
+   "titel": "Gewinnmitnahmen, selbst nach guten Zahlen. Banken und Tech unter Druck.",
+   "datum": "2026-10-13",
+   "zeit": "2026-10-13T14:29:57+00:00",
+   "art": "opening",
+   "score": -15,
+   "pfeil": "runter",
+   "thema": "Die US-Börsen zeigen eine deutliche Sektorrotation weg von Tech- und KI-Werten hin zu Standardwerten, begleitet von ersten gemischten Bankenbilanzen und anhaltenden geopolitischen Risiken.",
+   "gesamtstimmung": "Markus Koch blickt verhalten auf das Marktgeschehen, da der bisherige Haupttreiber Künstliche Intelligenz zunehmend durch Bewertungszweifel und Warnungen unter Druck gerät. Gestützt wird das Umfeld jedoch durch sinkende Anleiherenditen und eine Rotation in zuvor vernachlässigte Marktsegmente.",
+   "begruendung": "Der Technologiesektor leidet unter skeptischen Aussagen zur KI-Monetarisierung und verschobenen Börsengängen, während geopolitische Spannungen im Nahen Osten belasten. Demgegenüber stehen stabilisierende Signale der US-Notenbank, nachgebende Staatsanleiherenditen und ein starker Quartalsbericht von Goldman Sachs.",
+   "indikatoren": [
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Zunehmende Skepsis und Warnungen vor überhitzten Bewertungen im KI-Sektor",
+     "pfeil": "runter",
+     "rolle": "Bedenken hinsichtlich hoher Bewertungen und verzögerter Refinanzierungen dämpfen die Begeisterung für den bisher wichtigsten Kurstreiber."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Renditen der langlaufenden Staatsanleihen laufen zurück",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Renditen mindern den Konkurrenzdruck durch festverzinsliche Papiere und entlasten die Aktienmärkte."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Umschichtungen aus Technologiewerten in den Dow Jones und zyklischere Branchen",
+     "pfeil": "seitwaerts",
+     "rolle": "Die historisch enge Marktführung bricht auf und führt zu einer gesünderen, aber kurzfristig holprigen Umschichtung."
+    },
+    {
+     "kategorie": "Arbeitsmarkt",
+     "name": "US-Arbeitsmarktdaten",
+     "lage": "JOLTS-Stellenangebote schwächer als erwartet",
+     "pfeil": "hoch",
+     "rolle": "Eine spürbare Abkühlung des Arbeitsmarktes nimmt weiteren Druck von der Zinsfront."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Notenbanker stellen Zinspause für Oktober in Aussicht",
+     "pfeil": "hoch",
+     "rolle": "Aussagen führender Fed-Vertreter untermauern, dass der Zinsgipfel möglicherweise bereits erreicht ist."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Drohungen einer regionalen Eskalation durch den Iran belasten das Sentiment",
+     "pfeil": "runter",
+     "rolle": "Die unberechenbare Lage im Nahen Osten sorgt für latente Risikoaversion und Ölpreisrisiken."
+    }
+   ],
+   "zitate": [
+    "mittlerweile Kasinogänger geworden sein",
+    "da bleibt die Lage extrem morastig"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 140970
+  },
+  {
    "id": "949S5FUtBlE",
    "titel": "KI-Trade: Stimmung trübt sich zunehmend ein.",
    "datum": "2026-10-12",
@@ -1128,9 +1191,10 @@
   "949S5FUtBlE",
   "frHubErXKU4",
   "44a91nG4zSI",
-  "Nw5Q7CWeMX8"
+  "Nw5Q7CWeMX8",
+  "XQ1dFmtr9lk"
  ],
- "stand": "2026-10-14T18:32Z",
+ "stand": "2026-10-15T18:00Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
