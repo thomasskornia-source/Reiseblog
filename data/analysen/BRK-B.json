@@ -1,0 +1,63 @@
+{
+ "ticker": "BRK-B", "name": "Berkshire Hathaway Inc. (Klasse B)", "stand": "15.10.2026", "erstellt_von": "Claude",
+ "kurz": "Berkshire ist eine Holding aus Versicherungen, Bahn, Energie, Industrie und Handel plus einem riesigen Aktien- und Geldpolster. Im zweiten Quartal 2026 lag das operative Ergebnis bei 12,9 Mrd. $ (+16,3 %), der Nettogewinn bei 25,67 Mrd. $, den größten Teil davon machen Kursgewinne aus Aktien aus (16,08 Mrd. $) [1]. Die Barreserve erreichte mit 359,2 Mrd. $ einen Rekord, Greg Abel leitet den Konzern [1].",
+ "teile": [
+  {"titel": "1 · Branche",
+   "intro": "Berkshire ist ein Mischkonzern, deshalb gibt es keine einzelne Branche. Die Quelle gibt nur Konzernzahlen, keine Zahlen je Sparte. Die Beschreibungen der Sparten unten sind allgemeines Wissen und nicht aus der Quelle belegt.",
+   "abschnitte": [
+    {"h": "Was das Ergebnis treibt", "punkte": [
+      "Operatives Geschäft aller Töchter: 12,9 Mrd. $ im Quartal, 24,3 Mrd. $ im ersten Halbjahr (+16,9 %) [1].",
+      "Kurswert der Aktienbeteiligungen: Im Quartal 16,08 Mrd. $ nicht realisierte Gewinne, genannt werden Apple, Alphabet, American Express, Bank of America und Coca-Cola als größte Beiträge [1].",
+      "Versicherungsgeld (Float) von rund 177,5 Mrd. $, das Berkshire investieren kann [1]."]}
+   ],
+   "unklar": ["Ergebnisse von Versicherung, BNSF, Energie, Industrie und Handel einzeln: in der Quelle nicht enthalten.", "Bahn-, Versicherungs- und Energiemärkte: nicht untersucht."]},
+  {"titel": "2 · Wettbewerber",
+   "intro": "Direkt vergleichbar sind große Beteiligungsgesellschaften und Versicherer. Zahlen dazu habe ich nicht geprüft.",
+   "abschnitte": [
+    {"h": "Einordnung", "punkte": [
+      "Berkshire konkurriert nicht mit einer einzelnen Firma, sondern um Kapital: Wer Berkshire kauft, bekommt eine Mischung aus Operativgeschäft und einem Aktienportfolio, dessen Kurse stark schwanken (siehe 16,08 Mrd. $ Kursgewinn im Quartal) [1].",
+      "Einige Beteiligungen sind Aktien anderer Firmen aus dieser Liste, zum Beispiel Alphabet und Coca-Cola [1]."]}
+   ],
+   "unklar": ["Vergleichsunternehmen und deren Kennzahlen: nicht geprüft."]},
+  {"titel": "3 · Unternehmen",
+   "abschnitte": [
+    {"h": "Zahlen Q2 2026", "tabelle": {"kopf": ["Kennzahl", "Wert"], "zeilen": [
+      ["Nettogewinn", "25,67 Mrd. $ (Vorjahr 12,37 Mrd. $) [1]"],
+      ["Operatives Ergebnis", "12,9 Mrd. $ (+16,3 %) [1]"],
+      ["Kursgewinne Aktien", "16,08 Mrd. $ (nicht realisiert) [1]"],
+      ["Ergebnis je B-Aktie (Äquivalent)", "11,91 $ (+107,8 %) [1]"],
+      ["Barreserve", "359,2 Mrd. $ (Rekord) [1]"],
+      ["Aktienrückkäufe", "4,53 Mrd. $ im Quartal, 4,76 Mrd. $ im Halbjahr [1]"],
+      ["Versicherungs-Float", "rund 177,5 Mrd. $ [1]"]
+    ]}},
+    {"h": "Kapitalpolitik", "punkte": [
+      "Rückkäufe nur, wenn das Management die Aktie unter innerem Wert sieht; die Barreserve soll über 30 Mrd. $ bleiben (laut Bericht der Quelle) [1].",
+      "Leitung: Greg Abel [1]."]}
+   ],
+   "unklar": ["Ergebnisse der Sparten (Versicherung, BNSF, BHE, Industrie, Handel): nicht in der Quelle.", "Anteile der Barreserve in Staatsanleihen: nicht belegt.", "Nettokäufe/-verkäufe von Aktien im Quartal: nicht belegt.", "Die Quelle ist ein Bericht über die Zahlen, nicht die Quartalsmitteilung."]},
+  {"titel": "4 · Gesamtbericht",
+   "intro": "Zusammenführung der drei Teile. Keine Bewertung, kein Kursziel, keine Empfehlung.",
+   "bull": [
+    "Operatives Ergebnis wächst zweistellig (+16,3 % im Quartal, +16,9 % im Halbjahr) [1].",
+    "Rekord-Barreserve von 359,2 Mrd. $ gibt Spielraum für Zukäufe und Rückkäufe [1].",
+    "Rückkäufe wieder aufgenommen (4,53 Mrd. $ im Quartal) [1].",
+    "Breite Streuung über viele Geschäftsfelder und Aktien (eigene Einordnung)."],
+   "bear": [
+    "Der Nettogewinn schwankt mit Aktienkursen: 16,08 Mrd. $ des Quartals sind nicht realisierte Kursgewinne [1].",
+    "Der Geldberg von 359,2 Mrd. $ ist auch ein Zeichen, dass Berkshire wenig passende Zukäufe findet. Das ist meine Deutung, die Quelle sagt es nicht [1].",
+    "Neue Führung unter Greg Abel; die Wirkung auf die Kapitalverteilung ist offen [1]."],
+   "kausal": [
+    ["Aktienkurse großer Beteiligungen steigen", "Buchgewinne im Konzernergebnis", "Nettogewinn 25,67 Mrd. $ gegen operativ 12,9 Mrd. $ [1]"],
+    ["Hohe Zinsen auf Barreserve", "Zinsertrag", "In der Quelle nicht beziffert"],
+    ["Rückkäufe unter innerem Wert", "Weniger Aktien, mehr Anteil je Aktie", "4,53 Mrd. $ im Quartal [1]"]
+   ],
+   "beobachten": [
+    "Ergebnis zum dritten Quartal und Rückkäufe.",
+    "Wie die Barreserve eingesetzt wird.",
+    "Ergebnisse der einzelnen Sparten aus dem Quartalsbericht (10-Q)."],
+   "unklar": ["Die Spartenzahlen fehlen komplett. Für eine belastbare Einschätzung bitte den 10-Q auf berkshirehathaway.com lesen."]}
+ ],
+ "quellen": [
+  {"n": 1, "titel": "Berkshire Hathaway Q2 earnings soar 107% as cash hits record $359B (Parameter.io)", "url": "https://parameter.io/berkshire-hathaway-brk-a-q2-earnings-soar-107-as-cash-hits-record-359b/", "art": "Sekundärquelle (Bericht)", "datum": "August 2026"}
+ ]
+}

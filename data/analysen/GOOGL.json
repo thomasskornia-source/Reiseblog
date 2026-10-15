@@ -1,0 +1,68 @@
+{
+ "ticker": "GOOGL", "name": "Alphabet Inc. (Google)", "stand": "15.10.2026", "erstellt_von": "Claude",
+ "kurz": "Alphabet verdient sein Geld weiter mit Werbung (Suche, YouTube), die Cloud-Sparte ist aber zum zweiten großen Standbein geworden: Im zweiten Quartal 2026 stieg der Cloud-Umsatz um 82 % auf 24,8 Mrd. $, bei 35,6 % operativer Marge, und der Auftragsbestand liegt bei 514 Mrd. $ [1]. Der Preis dafür sind Rekord-Investitionen (2026 geplant 195 bis 205 Mrd. $), die den freien Cashflow im Quartal ins Minus gedrückt haben [1].",
+ "teile": [
+  {"titel": "1 · Branche",
+   "intro": "Digitale Werbung und Cloud/KI-Infrastruktur. Marktgrößen habe ich nicht belegt, die Lage ergibt sich aus den Quartalsmeldungen der Beteiligten.",
+   "abschnitte": [
+    {"h": "Treiber", "punkte": [
+      "KI verändert die Suche: Alphabet nennt über 1 Mrd. monatliche Nutzer für den KI-Modus der Suche und 950 Mio. monatliche Nutzer der Gemini-App [1].",
+      "Cloud-Nachfrage nach KI-Rechenleistung: Cloud +82 %, Backlog 514 Mrd. $ (davon rund die Hälfte in den nächsten 24 Monaten umsatzwirksam) [1].",
+      "Kapitalintensität: Die Branche investiert massiv, Amazon meldet für zwölf Monate netto 169,0 Mrd. $ Investitionen und negativen freien Cashflow [2]."]}
+   ],
+   "unklar": ["Gesamtmarkt für Online-Werbung und Marktanteile der Suche: nicht belegt.", "Regulatorische Lage (Kartellverfahren): in der gelesenen Quelle nicht enthalten."]},
+  {"titel": "2 · Wettbewerber",
+   "abschnitte": [
+    {"tabelle": {"kopf": ["Unternehmen", "Cloud-Sparte, Q2 2026", "Bemerkung"], "zeilen": [
+      ["Alphabet (Google Cloud)", "24,8 Mrd. $ (+82 %), operatives Ergebnis 8,8 Mrd. $ [1]", "Backlog 514 Mrd. $ [1]"],
+      ["Amazon (AWS)", "42,2 Mrd. $ (+37 %), operatives Ergebnis 16,6 Mrd. $ [2]", "Größer, wächst aber langsamer [1][2]"]
+    ]}},
+    {"h": "Weitere Wettbewerber", "punkte": ["Microsoft (Azure), Meta, OpenAI, Apple und weitere sind die naheliegenden Gegenspieler in Cloud, KI und Werbung. Zahlen habe ich dazu nicht geprüft."]}
+   ],
+   "unklar": ["Microsoft Azure und Meta Werbung: keine aktuellen Zahlen geprüft.", "Marktanteil Google-Suche gegenüber KI-Assistenten anderer Anbieter: nicht belegt."]},
+  {"titel": "3 · Unternehmen",
+   "abschnitte": [
+    {"h": "Zahlen Q2 2026", "tabelle": {"kopf": ["Kennzahl", "Wert"], "zeilen": [
+      ["Umsatz", "119,8 Mrd. $ (+24 %) [1]"],
+      ["Suche und Sonstiges", "über 63 Mrd. $ (+17 %) [1]"],
+      ["YouTube-Werbung / Netzwerk-Werbung", "+13 % / −1 % [1]"],
+      ["Google Cloud", "24,8 Mrd. $ (+82 %), Marge 35,6 % (Vorjahr 20,7 %) [1]"],
+      ["Operatives Ergebnis gesamt", "40,8 Mrd. $ (+30 %), Marge 34 % [1]"],
+      ["Cashflow aus Geschäft / freier Cashflow", "39,1 Mrd. $ / −5,9 Mrd. $ [1]"],
+      ["Investitionen", "44,9 Mrd. $ im Quartal; Prognose 2026 195–205 Mrd. $ (vorher 180–190 Mrd. $) [1]"],
+      ["Liquidität / Langfristschulden", "242,5 Mrd. $ (davon 87,1 Mrd. $ Aktienbeteiligungen) / 98,2 Mrd. $ [1]"]
+    ]}},
+    {"h": "Besonderheiten", "punkte": [
+      "Erstmals Umsatz aus TPU-Systemen, die an Kundenrechenzentren geliefert wurden, ohne Beträge [1].",
+      "Im dritten Quartal will Alphabet zusätzlich Fremdkapazitäten nutzen, was die Marge leicht belasten kann [1].",
+      "Dividende 0,22 $ je Quartal [1]."]}
+   ],
+   "unklar": ["Ergebnis je Aktie, Nettogewinn und Aktienrückkäufe: in der gelesenen Quelle nicht enthalten.", "Rechtliche und regulatorische Themen: nicht enthalten.", "Die Quelle ist eine automatische Zusammenfassung, keine Firmenmitteilung."]},
+  {"titel": "4 · Gesamtbericht",
+   "intro": "Zusammenführung der drei Teile. Keine Bewertung, kein Kursziel, keine Empfehlung.",
+   "bull": [
+    "Cloud wächst mit +82 % und die Marge stieg von 20,7 % auf 35,6 % [1].",
+    "Backlog von 514 Mrd. $ gibt Sicht auf künftigen Umsatz, die Hälfte binnen 24 Monaten [1].",
+    "Das Kerngeschäft Suche wächst weiter zweistellig (+17 %) trotz KI-Konkurrenz [1].",
+    "Hohe Liquidität (242,5 Mrd. $) [1]."],
+   "bear": [
+    "Freier Cashflow im Quartal −5,9 Mrd. $, weil die Investitionen (44,9 Mrd. $) den Cashflow aus dem Geschäft (39,1 Mrd. $) übersteigen [1].",
+    "Investitionen sollen 2027 „deutlich“ weiter steigen [1].",
+    "Netzwerk-Werbung schrumpft (−1 %) [1].",
+    "Das Cloud-Ergebnis hängt an der Auslastung der teuren Anlagen. Wird weniger nachgefragt, drückt das die Marge (eigene Ableitung)."],
+   "kausal": [
+    ["Starke Nachfrage nach KI-Rechenleistung", "Cloud wächst, Auslastung und Skaleneffekte", "Cloud +82 %, Marge 35,6 %, Betriebsergebnis 8,8 Mrd. $ [1]"],
+    ["Ausbau der Rechenzentren", "Hohe Investitionen, später Abschreibungen", "Investitionen 44,9 Mrd. $, freier Cashflow −5,9 Mrd. $ [1]"],
+    ["KI-Modus in der Suche", "Nutzung steigt; Werbewirkung ist offen", "Suche +17 % [1]"]
+   ],
+   "beobachten": [
+    "Entwicklung des Backlogs und der Cloud-Marge im nächsten Quartal.",
+    "Investitionsplan 2027 gegenüber dem Cashflow.",
+    "Fremdkapazitäten im dritten Quartal und deren Marge."],
+   "unklar": ["Gelesen wurde eine automatische Zusammenfassung. Vor Entscheidungen bitte Mitteilung und 10-Q von Alphabet gegenlesen."]}
+ ],
+ "quellen": [
+  {"n": 1, "titel": "Alphabet Q2 Earnings Call Highlights (Nasdaq/MarketBeat-Zusammenfassung)", "url": "https://www.nasdaq.com/articles/alphabet-q2-earnings-call-highlights", "art": "Sekundärquelle", "datum": "Juli 2026"},
+  {"n": 2, "titel": "Amazon.com Announces Second Quarter Results (8-K, Exhibit 99.1)", "url": "https://www.sec.gov/Archives/edgar/data/0001018724/000101872426000024/amzn-20260630xex991.htm", "art": "SEC-Einreichung", "datum": "30.07.2026"}
+ ]
+}

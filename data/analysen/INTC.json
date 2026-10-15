@@ -1,0 +1,72 @@
+{
+ "ticker": "INTC", "name": "Intel Corporation", "stand": "15.10.2026", "erstellt_von": "Claude",
+ "kurz": "Intel verkauft Prozessoren (PC und Rechenzentrum) und betreibt zugleich eine eigene Chipfertigung, die noch Verluste schreibt. Im zweiten Quartal 2026 stieg der Umsatz um 25 % auf 16,1 Mrd. $, das Rechenzentrumsgeschäft sogar um 59 % [1]. Die Fertigungssparte Intel Foundry machte dabei einen operativen Verlust von 2,1 Mrd. $ [1], und der GAAP-Nettoverlust von 11,0 Mrd. $ kommt hauptsächlich aus einer Buchbewertung von Aktien, die für die US-Regierung hinterlegt sind [1].",
+ "teile": [
+  {"titel": "1 · Branche",
+   "intro": "Prozessoren und Halbleiterfertigung. Marktgrößen habe ich nicht belegt, die Lage ergibt sich aus Intels Mitteilung und den Zahlen von NVIDIA.",
+   "abschnitte": [
+    {"h": "Treiber", "punkte": [
+      "KI-Rechenzentren: Intels Rechenzentrums- und KI-Sparte wuchs im Quartal um 59 % auf 6,3 Mrd. $ [1].",
+      "Neue Fertigungstechnik (18A): Das erste Serverprodukt auf 18A (Xeon 6+) ist gestartet, Panther Lake für PCs läuft teilweise in Serienfertigung, 18A-P ist in der Risikoproduktion [1].",
+      "Staatliche Förderung: Aktien liegen für das US-Handelsministerium im Treuhandkonto (Escrow) im Rahmen eines CHIPS-Act-Vertrags, die Regierung hat laut Risikohinweisen bedeutende Beteiligungen erworben [1]."]}
+   ],
+   "unklar": ["Größe des Marktes für Server-CPUs und Auftragsfertigung: nicht belegt.", "Stand von 14A (nächste Fertigungsgeneration): in der Mitteilung nur in Risikohinweisen erwähnt."]},
+  {"titel": "2 · Wettbewerber",
+   "abschnitte": [
+    {"tabelle": {"kopf": ["Unternehmen", "Lage", "Bezug zu Intel"], "zeilen": [
+      ["NVIDIA", "Q2 (bis 26.07.2026): Umsatz 96,2 Mrd. $, Rechenzentrum 89,0 Mrd. $ [2]", "Intel DCAI 6,3 Mrd. $ [1] ist nur ein Bruchteil davon. Intel nennt Nvidia-Blackwell-GPUs als Bestandteil eines eigenen Cloud-Angebots [1]."]
+    ]}},
+    {"h": "Weitere Wettbewerber", "punkte": ["AMD, Arm-basierte Chips, TSMC und Samsung in der Auftragsfertigung sind aus allgemeinem Wissen genannt. Zahlen habe ich dazu nicht geprüft."]}
+   ],
+   "unklar": ["AMD, TSMC, Samsung: keine Zahlen geprüft.", "Kunden der Intel Foundry außerhalb von Intel: in der Mitteilung nicht beziffert."]},
+  {"titel": "3 · Unternehmen",
+   "abschnitte": [
+    {"h": "Zahlen Q2 2026 (Quartal bis 27.06.2026)", "tabelle": {"kopf": ["Kennzahl", "Wert"], "zeilen": [
+      ["Umsatz", "16,1 Mrd. $ (+25 %) [1]"],
+      ["Bruttomarge", "40,4 % GAAP, 41,8 % bereinigt [1]"],
+      ["Betriebsergebnis", "1,8 Mrd. $ GAAP (11,1 %), 2,8 Mrd. $ bereinigt (17,2 %) [1]"],
+      ["Ergebnis je Aktie", "−2,16 $ GAAP (Nettoverlust 11,0 Mrd. $, darin 12,5 Mrd. $ Bewertungsverlust auf hinterlegte Aktien), 0,42 $ bereinigt [1]"],
+      ["Cashflow aus Geschäft", "7,0 Mrd. $ im Quartal [1]"],
+      ["Bereinigter freier Cashflow", "−8,4 Mrd. $ (nach −12,2 Mrd. $ Nettobeiträge von Partnern) [1]"],
+      ["Barmittel / Kurzfristanlagen", "12,9 Mrd. $ / 16,9 Mrd. $ [1]"],
+      ["Langfristschulden", "48,5 Mrd. $ [1]"]
+    ]}},
+    {"h": "Sparten Q2 2026", "tabelle": {"kopf": ["Sparte", "Umsatz", "Betriebsergebnis"], "zeilen": [
+      ["Client Computing und Physical AI", "8,9 Mrd. $ (+13 %)", "2,3 Mrd. $"],
+      ["Data Center und AI", "6,3 Mrd. $ (+59 %)", "2,5 Mrd. $"],
+      ["Intel Foundry", "5,8 Mrd. $ (+31 %)", "−2,1 Mrd. $"],
+      ["Alle anderen", "0,7 Mrd. $ (−33 %)", "nicht angegeben"]
+    ]}},
+    {"h": "Ausblick drittes Quartal", "punkte": ["Umsatz 15,8 bis 16,8 Mrd. $, Bruttomarge 42,0 % bereinigt, Ergebnis je Aktie 0,38 $ bereinigt (0,31 $ GAAP) [1]."]}
+   ],
+   "unklar": ["Höhe der Beteiligung der US-Regierung und Vertragsbedingungen: nicht in der Mitteilung.", "Gesamtjahresprognose für Umsatz und Investitionen: nur Betriebskosten (rund 16,5 Mrd. $ bereinigt) genannt.", "Details der Zusammenarbeit mit Nvidia: nicht gefunden."]},
+  {"titel": "4 · Gesamtbericht",
+   "intro": "Zusammenführung der drei Teile. Keine Bewertung, kein Kursziel, keine Empfehlung.",
+   "bull": [
+    "Umsatz +25 %, Rechenzentrum +59 %; das Betriebsergebnis (bereinigt 2,8 Mrd. $) ist deutlich im Plus nach Verlust im Vorjahr [1].",
+    "Bruttomarge um rund 12 Punkte gestiegen (40,4 % GAAP) [1].",
+    "Technik-Fortschritt: Serverprodukt auf 18A gestartet, Panther Lake teilweise in Serienfertigung [1].",
+    "Prognose für Q3 liegt mit 15,8 bis 16,8 Mrd. $ auf ähnlichem Niveau [1]."],
+   "bear": [
+    "Intel Foundry verliert weiter Geld (−2,1 Mrd. $ im Quartal) [1].",
+    "Der bereinigte freie Cashflow ist −8,4 Mrd. $ und stützt sich auf 12,2 Mrd. $ Beiträge von Partnern [1].",
+    "Langfristschulden von 48,5 Mrd. $ [1].",
+    "Gegen NVIDIAs Rechenzentrumsumsatz (89,0 Mrd. $) ist Intels 6,3 Mrd. $ klein [1][2].",
+    "Stand und Fortschritt von 14A sind nicht bekannt [1]."],
+   "kausal": [
+    ["KI-Nachfrage nach Servern", "Mehr Verkäufe der Rechenzentrums-Sparte", "DCAI +59 %, Betriebsergebnis 2,5 Mrd. $ [1]"],
+    ["Hohe Investitionen in Fertigung", "Anlaufverluste, Abschreibungen", "Foundry −2,1 Mrd. $; Investitionen brutto 2,7 Mrd. $ im Quartal [1]"],
+    ["Partner finanzieren den Ausbau mit", "Cashflow stützt sich auf externe Beiträge", "Nettobeiträge von Partnern 12,2 Mrd. $ [1]"],
+    ["Kurs der hinterlegten Aktien steigt", "Bewertungsverlust in der GAAP-Rechnung", "−12,5 Mrd. $, ohne Auswirkung auf den Geldfluss laut Bilanzlogik (eigene Einordnung) [1]"]
+   ],
+   "beobachten": [
+    "Verlust der Foundry im nächsten Quartal.",
+    "Externe Kunden für 18A und 14A.",
+    "Freier Cashflow und Schuldenstand."],
+   "unklar": ["Die GAAP-Zahlen sind durch die Escrow-Bewertung stark verzerrt. Für die Entwicklung des Geschäfts sind die bereinigten Zahlen aussagekräftiger, haben aber eigene Schwächen."]}
+ ],
+ "quellen": [
+  {"n": 1, "titel": "Intel Reports Second-Quarter 2026 Financial Results", "url": "https://www.intc.com/news-events/press-releases/detail/1776/intel-reports-second-quarter-2026-financial-results", "art": "Pressemitteilung der Firma", "datum": "23.07.2026"},
+  {"n": 2, "titel": "NVIDIA Fiscal 2Q27 Financial Results (Wiedergabe der Firmenmitteilung, Storage Newsletter)", "url": "https://www.storagenewsletter.com/2026/08/27/nvidia-fiscal-2q27-financial-results/", "art": "Sekundärquelle", "datum": "27.08.2026"}
+ ]
+}

@@ -5,6 +5,36 @@
    "ticker": "KO",
    "name": "The Coca-Cola Company",
    "stand": "15.10.2026"
+  },
+  {
+   "ticker": "GOOGL",
+   "name": "Alphabet Inc. (Google)",
+   "stand": "15.10.2026"
+  },
+  {
+   "ticker": "BRK-B",
+   "name": "Berkshire Hathaway Inc. (Klasse B)",
+   "stand": "15.10.2026"
+  },
+  {
+   "ticker": "NVDA",
+   "name": "NVIDIA Corporation",
+   "stand": "15.10.2026"
+  },
+  {
+   "ticker": "TTWO",
+   "name": "Take-Two Interactive Software, Inc.",
+   "stand": "15.10.2026"
+  },
+  {
+   "ticker": "AMZN",
+   "name": "Amazon.com, Inc.",
+   "stand": "15.10.2026"
+  },
+  {
+   "ticker": "INTC",
+   "name": "Intel Corporation",
+   "stand": "15.10.2026"
   }
  ]
 }

@@ -1,0 +1,67 @@
+{
+ "ticker": "TTWO", "name": "Take-Two Interactive Software, Inc.", "stand": "15.10.2026", "erstellt_von": "Claude",
+ "kurz": "Take-Two entwickelt und veröffentlicht Videospiele unter den Labels Rockstar Games, 2K und Zynga. Das Geschäft hängt stark an einzelnen großen Veröffentlichungen: Das Unternehmen peilt für das Geschäftsjahr bis März 2027 Net Bookings von 8,0 bis 8,2 Mrd. $ an, nach 1,39 Mrd. $ im ersten Quartal [1]. Die Prognose setzt damit voraus, dass das zweite Halbjahr rund 5 Mrd. $ bringt, vor allem durch Grand Theft Auto VI mit Termin 19. November 2026 [1].",
+ "teile": [
+  {"titel": "1 · Branche",
+   "intro": "Videospiele für Konsole, PC und Mobilgeräte. Marktgrößen und Branchenzahlen habe ich nicht belegt.",
+   "abschnitte": [
+    {"h": "Wie das Geschäft funktioniert (laut Mitteilung)", "punkte": [
+      "Fast alles läuft digital: 98 % des Umsatzes im Quartal kamen aus digitalem Vertrieb [1].",
+      "Wiederkehrende Ausgaben der Spieler (Zusatzinhalte, Ingame-Käufe) machen 84 % der Net Bookings aus, also nicht der einmalige Spielekauf [1].",
+      "Plattformen im Quartal: Mobil 50 %, Konsole 42 %, PC und Sonstiges 8 % [1]."]}
+   ],
+   "unklar": ["Branchenwachstum, Konsolen-Basis, Preise für Spiele: nicht belegt."]},
+  {"titel": "2 · Wettbewerber",
+   "abschnitte": [
+    {"h": "Stand der Prüfung", "punkte": ["Wettbewerber (z. B. Electronic Arts, Microsoft/Activision, Sony, Ubisoft, Tencent) sind aus allgemeinem Wissen genannt. Ich habe zu keinem aktuelle Zahlen geprüft. Bitte hier keine Schlüsse ziehen."]}
+   ],
+   "unklar": ["Zahlen der Wettbewerber: nicht geprüft.", "Terminüberschneidungen mit anderen Großveröffentlichungen im Herbst 2026: nicht untersucht."]},
+  {"titel": "3 · Unternehmen",
+   "abschnitte": [
+    {"h": "Zahlen Q1 Geschäftsjahr 2027 (Quartal bis 30.06.2026)", "tabelle": {"kopf": ["Kennzahl", "Wert"], "zeilen": [
+      ["Net Bookings", "1,386 Mrd. $ (−3 % zum Vorjahr, damals 1,423 Mrd. $) [1]"],
+      ["Umsatz nach US-GAAP", "1,534 Mrd. $ (Vorjahr 1,504 Mrd. $) [1]"],
+      ["Nettoverlust", "34,1 Mio. $ (−0,18 $ je Aktie), darin 43,4 Mio. $ Abschreibung auf einen noch nicht angekündigten Titel eines Dritten [1]"],
+      ["Cashflow aus Geschäft", "−168,8 Mio. $ [1]"],
+      ["Liquidität", "1,365 Mrd. $ Bargeld plus 462 Mio. $ kurzfristige Anlagen [1]"],
+      ["Regionen", "USA 60 %, International 40 % [1]"]
+    ]}},
+    {"h": "Prognose", "tabelle": {"kopf": ["Zeitraum", "Net Bookings", "Weitere Angaben"], "zeilen": [
+      ["Q2 (bis 30.09.2026)", "1,62 bis 1,67 Mrd. $", "Verlust je Aktie −0,84 bis −0,75 $ [1]"],
+      ["Gesamtjahr (bis 31.03.2027)", "8,0 bis 8,2 Mrd. $ (bestätigt)", "Umsatz 7,9–8,1 Mrd. $; Ergebnis je Aktie 0,55–0,75 $; Cashflow aus Geschäft über 1 Mrd. $; Investitionen rund 290 Mio. $ [1]"]
+    ]}},
+    {"h": "Veröffentlichungen", "punkte": [
+      "Grand Theft Auto VI (Rockstar Games): 19. November 2026 für PS5 und Xbox Series X|S [1].",
+      "NBA 2K27: 4. September 2026 [1].",
+      "Weitere Titel (PGA TOUR 2K27, WWE 2K27, Project ETHOS, nächstes BioShock, Judas, Top Goal, CSR 3) ohne Termin [1]."]},
+    {"h": "Eigene Rechnung zur Prognose", "text": "Zieht man aus 8,0 bis 8,2 Mrd. $ das erste Quartal (1,386 Mrd. $) und die Q2-Prognose (1,62 bis 1,67 Mrd. $) ab, bleiben für die zweite Jahreshälfte rund 5,0 bis 5,1 Mrd. $ übrig. Die erste Jahreshälfte käme damit auf rund 3,0 bis 3,1 Mrd. $, die zweite müsste also etwa das 1,7-Fache davon liefern. Das hängt zu einem großen Teil an GTA VI (Anteil nicht beziffert)."}
+   ],
+   "unklar": ["Anteil von GTA VI an der Prognose: nicht beziffert.", "Verkaufspreis, Marketingplan und Absatzziele von GTA VI: nicht in der Mitteilung.", "Zahlen je Label (Rockstar, 2K, Zynga): nicht angegeben.", "Grund für den Cashflow-Abfluss im Quartal über die Postenveränderungen hinaus: nicht erläutert."]},
+  {"titel": "4 · Gesamtbericht",
+   "intro": "Zusammenführung der drei Teile. Keine Bewertung, kein Kursziel, keine Empfehlung.",
+   "bull": [
+    "Der Termin für GTA VI (19. November 2026) steht, und die Firma bestätigt die Jahresprognose von 8,0 bis 8,2 Mrd. $ [1].",
+    "84 % der Net Bookings sind wiederkehrende Spielerausgaben, was das Geschäft zwischen großen Neuerscheinungen stabilisiert [1].",
+    "98 % digitaler Vertrieb, kaum Lager- und Handelsrisiko [1].",
+    "Prognose: Cashflow aus Geschäft über 1 Mrd. $ im Gesamtjahr [1]."],
+   "bear": [
+    "Die Prognose braucht im zweiten Halbjahr rund 5 Mrd. $ Net Bookings, etwa das 1,7-Fache der ersten Hälfte (eigene Rechnung) [1].",
+    "Eine Verschiebung von GTA VI würde die Jahresprognose direkt treffen. Das ist eine Ableitung aus der Struktur der Prognose, die Firma nennt keinen Anteil [1].",
+    "Net Bookings im ersten Quartal −3 %, Nettoverlust 34,1 Mio. $, Cashflow −168,8 Mio. $ [1].",
+    "Für Q2 erwartet die Firma einen Verlust von 0,75 bis 0,84 $ je Aktie [1]."],
+   "kausal": [
+    ["GTA VI erscheint am 19.11.2026", "Großer Einmalumsatz plus anschließende Zusatzkäufe", "Prognose Gesamtjahr 8,0–8,2 Mrd. $ gegen 1,39 Mrd. $ im ersten Quartal [1]"],
+    ["Hoher Anteil wiederkehrender Ausgaben (84 %)", "Umsatz auch ohne Neuerscheinung", "Net Bookings Q1 1,39 Mrd. $ [1]"],
+    ["Entwicklungs- und Marketingkosten vor dem Start", "Verlust in den Quartalen davor", "Q2-Prognose: Verlust −0,84 bis −0,75 $ je Aktie [1]"],
+    ["Termin verschiebt sich", "Umsatz rutscht ins nächste Geschäftsjahr", "Eigene Ableitung, nicht von der Firma beziffert"]
+   ],
+   "beobachten": [
+    "Ob GTA VI am 19. November 2026 erscheint.",
+    "Zahlen zum zweiten Quartal (Prognose: Net Bookings 1,62–1,67 Mrd. $).",
+    "Aussagen zu Preis, Marketing und Vorbestellungen."],
+   "unklar": ["Der gesamte Jahreserfolg hängt an einem einzelnen Titel. Wie groß sein Anteil ist, gibt die Mitteilung nicht an."]}
+ ],
+ "quellen": [
+  {"n": 1, "titel": "Take-Two Interactive: Earnings Release Q1 Fiscal 2027 (8-K)", "url": "https://www.sec.gov/Archives/edgar/data/0000946581/000162828026054580/ttwo1q27earningsrelease.htm", "art": "SEC-Einreichung", "datum": "August 2026"}
+ ]
+}

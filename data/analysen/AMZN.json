@@ -1,0 +1,71 @@
+{
+ "ticker": "AMZN", "name": "Amazon.com, Inc.", "stand": "15.10.2026", "erstellt_von": "Claude",
+ "kurz": "Amazon besteht aus drei Teilen: Handel in Nordamerika, Handel international und die Cloud AWS. AWS erzielt mit 16,6 Mrd. $ den größten Teil des Betriebsergebnisses (27,5 Mrd. $ insgesamt) [1]. Der Nettogewinn von 62,6 Mrd. $ im zweiten Quartal 2026 ist allerdings verzerrt: 53,4 Mrd. $ stammen aus Bewertungsgewinnen, vor allem aus Anthropic-Beteiligungen, nicht aus dem laufenden Geschäft [1]. Der freie Cashflow der letzten zwölf Monate ist wegen der KI-Investitionen mit −7,6 Mrd. $ negativ [1].",
+ "teile": [
+  {"titel": "1 · Branche",
+   "intro": "Onlinehandel mit Marktplatz, Logistik und Werbung sowie Cloud-Infrastruktur. Marktgrößen habe ich nicht belegt, die Lage ergibt sich aus den Quartalsmeldungen.",
+   "abschnitte": [
+    {"h": "Treiber", "punkte": [
+      "Cloud und KI: AWS wächst mit 37 % auf 42,2 Mrd. Quartalsumsatz [1].",
+      "Werbung im Handelsgeschäft: Werbeumsatz 19,8 Mrd. $ (+26 %) [1].",
+      "Kapitalbedarf: Investitionen in Sachanlagen in den letzten zwölf Monaten netto 169,0 Mrd. $ (+64 %) [1]."]}
+   ],
+   "unklar": ["Marktanteil im Onlinehandel und in der Cloud: nicht belegt.", "Zölle und Verbraucherstimmung: nicht untersucht."]},
+  {"titel": "2 · Wettbewerber",
+   "abschnitte": [
+    {"tabelle": {"kopf": ["Unternehmen", "Cloud-Sparte, Q2 2026", "Bemerkung"], "zeilen": [
+      ["Amazon (AWS)", "42,2 Mrd. $ (+37 %), operatives Ergebnis 16,6 Mrd. $ [1]", "Marge rund 39 % (eigene Rechnung)"],
+      ["Alphabet (Google Cloud)", "24,8 Mrd. $ (+82 %), operatives Ergebnis 8,8 Mrd. $ [2]", "Kleiner, wächst schneller, Backlog 514 Mrd. $ [2]"]
+    ]}},
+    {"h": "Weitere Wettbewerber", "punkte": ["Im Handel Walmart, Temu, Shein, Shopify-Händler und andere, in der Cloud Microsoft Azure. Zahlen habe ich dazu nicht geprüft."]}
+   ],
+   "unklar": ["Walmart, Microsoft Azure: keine aktuellen Zahlen geprüft."]},
+  {"titel": "3 · Unternehmen",
+   "abschnitte": [
+    {"h": "Zahlen Q2 2026", "tabelle": {"kopf": ["Kennzahl", "Wert"], "zeilen": [
+      ["Umsatz", "200,6 Mrd. $ (+20 %) [1]"],
+      ["Betriebsergebnis", "27,5 Mrd. $ (+43 %), Marge 13,7 % [1]"],
+      ["Nettogewinn", "62,6 Mrd. $ (5,75 $ je Aktie), davon 53,4 Mrd. $ sonstige Erträge, vor allem aus Anthropic [1]"],
+      ["Cashflow aus Geschäft (12 Monate)", "161,4 Mrd. $ (+33 %) [1]"],
+      ["Freier Cashflow (12 Monate)", "−7,6 Mrd. $ (Vorjahr +18,2 Mrd. $) [1]"],
+      ["Beschäftigte", "rund 1.595.000 (+3 %) [1]"]
+    ]}},
+    {"h": "Segmente Q2 2026", "tabelle": {"kopf": ["Segment", "Umsatz", "Betriebsergebnis", "Marge (eigene Rechnung)"], "zeilen": [
+      ["Nordamerika", "116,2 Mrd. $ (+16 %)", "9,1 Mrd. $ (Vorjahr 7,5)", "7,8 %"],
+      ["International", "42,2 Mrd. $ (+15 %)", "1,7 Mrd. $ (1,5)", "4,0 %"],
+      ["AWS", "42,2 Mrd. $ (+37 %)", "16,6 Mrd. $ (10,2)", "39,3 %"]
+    ]}},
+    {"h": "Ausblick drittes Quartal", "punkte": [
+      "Umsatz 197,0 bis 202,0 Mrd. $ (+9 bis +12 %); ohne den Effekt des Prime-Day-Termins wäre das Wachstum fast 4 Punkte höher [1].",
+      "Betriebsergebnis 22,5 bis 26,5 Mrd. $ (Vorjahr 17,4 Mrd. $) [1]."]}
+   ],
+   "unklar": ["Wert und Bilanzierung der Anthropic-Beteiligung: in der Mitteilung nicht aufgeschlüsselt.", "Gesamtjahresprognose: nicht gegeben.", "Wirkung des Prime-Day-Termins in Euro: nicht beziffert."]},
+  {"titel": "4 · Gesamtbericht",
+   "intro": "Zusammenführung der drei Teile. Keine Bewertung, kein Kursziel, keine Empfehlung.",
+   "bull": [
+    "AWS wächst +37 % bei rund 39 % Marge und liefert den Großteil des Betriebsergebnisses [1].",
+    "Das Betriebsergebnis wächst schneller (+43 %) als der Umsatz (+20 %) [1].",
+    "Werbung wächst +26 % auf 19,8 Mrd. $ [1].",
+    "Cashflow aus dem Geschäft wächst +33 % auf 161,4 Mrd. $ [1]."],
+   "bear": [
+    "Freier Cashflow negativ (−7,6 Mrd. $ in zwölf Monaten), weil Investitionen netto 169,0 Mrd. $ erreichen [1].",
+    "Der Nettogewinn ist stark durch einen Bewertungsgewinn aufgeblasen (53,4 Mrd. $) und kein Maßstab für das laufende Geschäft [1].",
+    "Internationale Handelsmarge nur 4 % [1].",
+    "AWS wächst langsamer als Google Cloud (+37 % gegen +82 %) [1][2]."],
+   "kausal": [
+    ["KI-Nachfrage in der Cloud", "AWS wächst, Auslastung steigt", "AWS +37 %, Betriebsergebnis 16,6 Mrd. $ [1]"],
+    ["Ausbau von Rechenzentren und Chips", "Hohe Investitionen", "Freier Cashflow −7,6 Mrd. $ (12 Monate) [1]"],
+    ["Wert der Anthropic-Beteiligung steigt", "Buchgewinn ohne Geldzufluss", "53,4 Mrd. $ sonstige Erträge im Quartal, 17,7 Mrd. $ davon latente Steuern im Steueraufwand [1]"],
+    ["Werbung im Marktplatz", "Hohe Marge auf Handelsumsatz", "Werbeumsatz +26 % [1]"]
+   ],
+   "beobachten": [
+    "Drittes Quartal gegenüber der Prognose (Umsatz 197–202 Mrd. $, Betriebsergebnis 22,5–26,5 Mrd. $).",
+    "AWS-Wachstum im Vergleich zu Google Cloud.",
+    "Investitionen gegenüber dem Cashflow."],
+   "unklar": ["Die Höhe künftiger Gewinne oder Verluste aus der Anthropic-Beteiligung ist nicht prognostizierbar und kann den Nettogewinn stark schwanken lassen."]}
+ ],
+ "quellen": [
+  {"n": 1, "titel": "Amazon.com Announces Second Quarter Results (8-K, Exhibit 99.1)", "url": "https://www.sec.gov/Archives/edgar/data/0001018724/000101872426000024/amzn-20260630xex991.htm", "art": "SEC-Einreichung", "datum": "30.07.2026"},
+  {"n": 2, "titel": "Alphabet Q2 Earnings Call Highlights (Nasdaq/MarketBeat-Zusammenfassung)", "url": "https://www.nasdaq.com/articles/alphabet-q2-earnings-call-highlights", "art": "Sekundärquelle", "datum": "Juli 2026"}
+ ]
+}

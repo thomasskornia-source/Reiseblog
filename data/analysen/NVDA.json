@@ -1,0 +1,71 @@
+{
+ "ticker": "NVDA", "name": "NVIDIA Corporation", "stand": "15.10.2026", "erstellt_von": "Claude",
+ "kurz": "NVIDIA liefert die Rechenchips und Netzwerktechnik für KI-Rechenzentren. Im zweiten Quartal des Geschäftsjahres 2027 (Ende Juli 2026) lag der Umsatz bei 96,2 Mrd. $, plus 106 % zum Vorjahr, davon 89,0 Mrd. $ aus dem Rechenzentrumsgeschäft [1]. Das Geschäft hängt damit fast ganz an den Investitionen weniger Großkunden in KI-Infrastruktur, und China ist in der Prognose für das nächste Quartal gar nicht eingerechnet [1].",
+ "teile": [
+  {"titel": "1 · Branche",
+   "intro": "KI-Rechenzentren: Chips, Netzwerk und Systeme, mit denen Cloud-Konzerne und KI-Firmen Modelle trainieren und betreiben. Eine Branchenstudie habe ich nicht herangezogen. Die Nachfrageseite lässt sich aber aus den Investitionen der Kunden ablesen, die selbst berichten.",
+   "abschnitte": [
+    {"h": "Was die Nachfrage treibt", "punkte": [
+      "Die Investitionen der großen Cloud-Anbieter in KI-Infrastruktur: Alphabet hob die Investitionsprognose für 2026 auf 195 bis 205 Mrd. $ an (vorher 180 bis 190 Mrd. $) und erwartet für 2027 deutlich mehr [3]. Amazon gab in den letzten zwölf Monaten netto 169,0 Mrd. $ für Sachanlagen aus, +64 % [4].",
+      "Beide Kunden berichten dabei negativen freien Cashflow (Alphabet im Quartal −5,9 Mrd. $, Amazon über zwölf Monate −7,6 Mrd. $) [3][4]. Die Nachfrage nach Chips hängt also an Investitionen, die gerade den Cashflow der Kunden auffressen. Das ist meine Schlussfolgerung aus beiden Meldungen, keine Aussage der Firmen."]},
+    {"h": "Was die Branche bremsen kann", "punkte": [
+      "Ausfuhrbeschränkungen: NVIDIA rechnet für das dritte Quartal mit null Rechenzentrums-Umsatz aus China [1].",
+      "Eigene Chips der Kunden: Alphabet meldete erstmals Umsatz aus dem Verkauf von TPU-Systemen an Kundenrechenzentren, ohne Zahlen [3]."]}
+   ],
+   "unklar": ["Größe und Wachstum des gesamten KI-Chipmarkts: nicht belegt.", "Marktanteil von NVIDIA: nicht belegt."]},
+  {"titel": "2 · Wettbewerber",
+   "intro": "Direkte Konkurrenten (z. B. AMD, Broadcom) habe ich nicht mit Zahlen belegt. Belegt sind zwei Gegenpole: Intel und die hauseigenen Chips der Cloud-Konzerne.",
+   "abschnitte": [
+    {"tabelle": {"kopf": ["Unternehmen", "Lage laut Quartalsmeldung", "Bezug zu NVIDIA"], "zeilen": [
+      ["Intel", "Q2 2026: Umsatz 16,1 Mrd. $ (+25 %), Rechenzentrum und KI 6,3 Mrd. $ (+59 %) [2]", "Wächst im Rechenzentrum, aber auf einem Bruchteil von NVIDIAs 89,0 Mrd. $ [1][2]"],
+      ["Alphabet (TPU)", "Erster Umsatz aus TPU-Systemverkauf an Kunden, ohne Beträge [3]", "Eigene KI-Chips eines NVIDIA-Großkunden; zugleich laufen Vera-Rubin-Systeme bei Google Cloud [1][3]"]
+    ]}}
+   ],
+   "unklar": ["AMD, Broadcom, Marvell, chinesische Anbieter: keine Zahlen geprüft.", "Wie viel der KI-Rechenleistung auf Eigenentwicklungen statt NVIDIA entfällt: nicht belegt."]},
+  {"titel": "3 · Unternehmen",
+   "abschnitte": [
+    {"h": "Zahlen Q2 Geschäftsjahr 2027 (Quartal bis 26.07.2026)", "tabelle": {"kopf": ["Kennzahl", "Wert"], "zeilen": [
+      ["Umsatz", "96,2 Mrd. $ (+106 % zum Vorjahr, +18 % zum Vorquartal) [1]"],
+      ["Rechenzentrum", "89,0 Mrd. $ (+117 %), das sind rund 93 % des Umsatzes (eigene Rechnung) [1]"],
+      ["Edge Computing", "7,2 Mrd. $ (+27 %) [1]"],
+      ["Bruttomarge", "75,0 % (GAAP und bereinigt) [1]"],
+      ["Ergebnis je Aktie", "2,46 $ (GAAP), 2,22 $ (bereinigt) [1]"],
+      ["Rückgabe an Aktionäre", "rund 26,0 Mrd. $ im Quartal, noch 99,0 Mrd. $ Rückkaufermächtigung; Dividende 0,25 $ je Aktie [1]"]
+    ]}},
+    {"h": "Ausblick drittes Quartal", "punkte": [
+      "Umsatz 108,0 Mrd. $ (± 2 %), Bruttomarge 74,0 % (± 0,5 Punkte), ohne Rechenzentrums-Umsatz aus China [1].",
+      "Vera Rubin ist laut Firma in voller Produktion, Racks laufen unter anderem bei CoreWeave, Google Cloud, Microsoft Azure, Oracle und Nebius [1]."]}
+   ],
+   "unklar": ["Betriebsergebnis, Cashflow und freier Cashflow: in der gelesenen Quelle nicht enthalten.", "Aufteilung Rechenzentrum in Rechenchips und Netzwerk: nicht gelesen (Grafik).", "Kundenkonzentration (Anteil der größten Kunden am Umsatz): nicht gefunden.", "Die gelesene Quelle ist eine Wiedergabe der Firmenmitteilung, nicht die Mitteilung selbst."]},
+  {"titel": "4 · Gesamtbericht",
+   "intro": "Zusammenführung der drei Teile. Keine Bewertung, kein Kursziel, keine Empfehlung.",
+   "bull": [
+    "Umsatz verdoppelt sich (+106 %) bei 75 % Bruttomarge [1].",
+    "Der Ausblick für das nächste Quartal liegt mit 108 Mrd. $ weitere rund 12 % über dem letzten Quartal (eigene Rechnung), und das ohne China [1].",
+    "Die Großkunden erhöhen ihre Investitionen weiter, zuletzt Alphabet auf 195 bis 205 Mrd. $ für 2026 [3].",
+    "Starke Kapitalrückgabe: 26 Mrd. $ im Quartal, 99 Mrd. $ Ermächtigung offen [1]."],
+   "bear": [
+    "Rund 93 % des Umsatzes hängen am Rechenzentrum, also am Investitionszyklus weniger Großkunden [1].",
+    "Die Kunden zahlen die Investitionen derzeit nicht aus dem freien Cashflow (negativ bei Alphabet und Amazon) [3][4].",
+    "China fällt in der Prognose komplett weg [1].",
+    "Kunden bauen eigene Chips (TPU-Verkauf bei Alphabet) [3].",
+    "Die Bruttomarge soll leicht auf 74 % sinken [1]."],
+   "kausal": [
+    ["Cloud-Konzerne erhöhen Investitionen (Alphabet 195–205 Mrd. $)", "Mehr Bestellungen für KI-Systeme", "Rechenzentrums-Umsatz 89,0 Mrd. $ (+117 %) [1][3]"],
+    ["Hohe Marge je System (Preismacht)", "Mehr vom Umsatz bleibt als Gewinn", "Bruttomarge 75,0 %, Ergebnis je Aktie bereinigt 2,22 $ [1]"],
+    ["Ausfuhrbeschränkung nach China", "Kein Umsatz aus diesem Markt in der Prognose", "Ausblick 108 Mrd. $ ohne China-Rechenzentrum [1]"],
+    ["Kunden kürzen Investitionen oder wechseln zu Eigenchips", "Weniger Bestellungen", "Wäre zuerst im Rechenzentrums-Umsatz sichtbar (eigene Ableitung)"]
+   ],
+   "beobachten": [
+    "Investitionsprognosen der Großkunden bei deren nächsten Quartalszahlen (Alphabet, Amazon, Microsoft, Meta).",
+    "Ob die Bruttomarge bei etwa 74 % hält.",
+    "Meldungen zu China-Genehmigungen."],
+   "unklar": ["Die Zahlen stammen aus einer Wiedergabe der Firmenmitteilung. Vor Entscheidungen bitte die Originalmitteilung auf nvidianews.nvidia.com gegenlesen."]}
+ ],
+ "quellen": [
+  {"n": 1, "titel": "NVIDIA Fiscal 2Q27 Financial Results (Wiedergabe der Firmenmitteilung, Storage Newsletter)", "url": "https://www.storagenewsletter.com/2026/08/27/nvidia-fiscal-2q27-financial-results/", "art": "Sekundärquelle", "datum": "27.08.2026"},
+  {"n": 2, "titel": "Intel Reports Second-Quarter 2026 Financial Results", "url": "https://www.intc.com/news-events/press-releases/detail/1776/intel-reports-second-quarter-2026-financial-results", "art": "Pressemitteilung der Firma", "datum": "23.07.2026"},
+  {"n": 3, "titel": "Alphabet Q2 Earnings Call Highlights (Nasdaq/MarketBeat-Zusammenfassung)", "url": "https://www.nasdaq.com/articles/alphabet-q2-earnings-call-highlights", "art": "Sekundärquelle", "datum": "Juli 2026"},
+  {"n": 4, "titel": "Amazon.com Announces Second Quarter Results (8-K, Exhibit 99.1)", "url": "https://www.sec.gov/Archives/edgar/data/0001018724/000101872426000024/amzn-20260630xex991.htm", "art": "SEC-Einreichung", "datum": "30.07.2026"}
+ ]
+}
