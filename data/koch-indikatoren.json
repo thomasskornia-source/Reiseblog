@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-14",
+ "stand": "2026-10-15",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -8,14 +8,14 @@
   {
    "kategorie": "Anleihen & Renditen",
    "status": "bestaetigt",
-   "tage_anzahl": 10,
+   "tage_anzahl": 11,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-14",
+   "zuletzt": "2026-10-15",
    "name": "US-Staatsanleiherenditen",
    "namen": [
     "US-Staatsanleiherenditen"
    ],
-   "rolle": "Steigende Renditen setzen Bewertungsniveaus unter Druck und sorgen für unmittelbaren Gegenwind an den Aktienmärkten.",
+   "rolle": "Sinkende Renditen dienen Koch als effektive Absicherung gegen Verluste am schwächelnden Aktienmarkt.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -86,15 +86,22 @@
       "US-Staatsanleiherenditen"
      ],
      "rolle": "Steigende Renditen setzen Bewertungsniveaus unter Druck und sorgen für unmittelbaren Gegenwind an den Aktienmärkten."
+    },
+    "2026-10-15": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Sinkende Renditen dienen Koch als effektive Absicherung gegen Verluste am schwächelnden Aktienmarkt."
     }
    }
   },
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 10,
+   "tage_anzahl": 11,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-14",
+   "zuletzt": "2026-10-15",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
@@ -102,7 +109,7 @@
     "Tech-Sektor & KI",
     "Sektorale Kapitalallokation & CapEx-Konzentration"
    ],
-   "rolle": "Die schwache Marktbreite verdeutlicht, dass die breite Wirtschaft unter den hohen Zinsen leidet.",
+   "rolle": "Die mangelnde Marktbreite offenbart, dass die hohen Indexstände eine breite Kursschwäche verdecken.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -175,6 +182,13 @@
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
      "rolle": "Die schwache Marktbreite verdeutlicht, dass die breite Wirtschaft unter den hohen Zinsen leidet."
+    },
+    "2026-10-15": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die mangelnde Marktbreite offenbart, dass die hohen Indexstände eine breite Kursschwäche verdecken."
     }
    }
   },
@@ -264,6 +278,76 @@
    }
   },
   {
+   "kategorie": "Gewinnsaison",
+   "status": "bestaetigt",
+   "tage_anzahl": 8,
+   "erstmals": "2026-10-05",
+   "zuletzt": "2026-10-15",
+   "name": "Q3-Gewinnschätzungen",
+   "namen": [
+    "Q3-Gewinnschätzungen"
+   ],
+   "rolle": "Die solide Kreditqualität stützt zwar, doch Zweifel am Erreichen des Ertragspeaks belasten die Sektorstimmung.",
+   "tage": {
+    "2026-10-05": {
+     "p": 2,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die bevorstehende Berichtssaison stützt die Kurse, da vor allem Tech-Werte kräftiges Ertragswachstum liefern dürften."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Hohe Ertragszuwächse im Technologiesektor rechtfertigen die Kursgewinne der Schwergewichte."
+    },
+    "2026-10-07": {
+     "p": 2,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Starke Unternehmensergebnisse ab nächster Woche könnten den Bullen wieder Rückenwind verleihen."
+    },
+    "2026-10-09": {
+     "p": 0,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die Bankenergebnisse zeigen den Zustand der Konjunktur und die Bonität der Verbraucher auf."
+    },
+    "2026-10-12": {
+     "p": 1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die anstehenden Unternehmensberichte entscheiden darüber, ob der Markt eine Trendwende einleiten kann."
+    },
+    "2026-10-13": {
+     "p": -1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die fehlende Nachhaltigkeit bei Kursgewinnen nach guten Zahlen zeigt die Zurückhaltung der Investoren."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Schwache Marktreaktionen auf Bankbilanzen signalisieren Vorsicht und zunehmende Belastungen im Kreditbereich."
+    },
+    "2026-10-15": {
+     "p": 0,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die solide Kreditqualität stützt zwar, doch Zweifel am Erreichen des Ertragspeaks belasten die Sektorstimmung."
+    }
+   }
+  },
+  {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
    "tage_anzahl": 7,
@@ -327,65 +411,133 @@
    }
   },
   {
-   "kategorie": "Gewinnsaison",
+   "kategorie": "Konjunktur",
    "status": "bestaetigt",
    "tage_anzahl": 7,
-   "erstmals": "2026-10-05",
-   "zuletzt": "2026-10-14",
-   "name": "Q3-Gewinnschätzungen",
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-15",
+   "name": "Industrie- und Exportdaten (Asien & USA)",
    "namen": [
-    "Q3-Gewinnschätzungen"
+    "Industrie- und Exportdaten (Asien & USA)",
+    "Atlanta-Fed GDPNow-Indikator",
+    "Atlanta-Fed-GDPNow-Schätzung",
+    "Konjunktur & Kapitalverfügbarkeit",
+    "US-Einzelhandelsumsätze"
    ],
-   "rolle": "Schwache Marktreaktionen auf Bankbilanzen signalisieren Vorsicht und zunehmende Belastungen im Kreditbereich.",
+   "rolle": "Nachlassende Konsumlaune droht die US-Konjunktur im Zusammenspiel mit gestrafften Finanzierungsbedingungen abzuwürgen.",
    "tage": {
-    "2026-10-05": {
-     "p": 2,
-     "namen": [
-      "Q3-Gewinnschätzungen"
-     ],
-     "rolle": "Die bevorstehende Berichtssaison stützt die Kurse, da vor allem Tech-Werte kräftiges Ertragswachstum liefern dürften."
-    },
-    "2026-10-06": {
-     "p": 1,
-     "namen": [
-      "Q3-Gewinnschätzungen"
-     ],
-     "rolle": "Hohe Ertragszuwächse im Technologiesektor rechtfertigen die Kursgewinne der Schwergewichte."
-    },
-    "2026-10-07": {
-     "p": 2,
-     "namen": [
-      "Q3-Gewinnschätzungen"
-     ],
-     "rolle": "Starke Unternehmensergebnisse ab nächster Woche könnten den Bullen wieder Rückenwind verleihen."
-    },
-    "2026-10-09": {
+    "2026-10-01": {
      "p": 0,
      "namen": [
-      "Q3-Gewinnschätzungen"
+      "Industrie- und Exportdaten (Asien & USA)"
      ],
-     "rolle": "Die Bankenergebnisse zeigen den Zustand der Konjunktur und die Bonität der Verbraucher auf."
+     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
     },
-    "2026-10-12": {
-     "p": 1,
+    "2026-10-05": {
+     "p": 0,
      "namen": [
-      "Q3-Gewinnschätzungen"
+      "Industrie- und Exportdaten (Asien & USA)"
      ],
-     "rolle": "Die anstehenden Unternehmensberichte entscheiden darüber, ob der Markt eine Trendwende einleiten kann."
+     "rolle": "Die anstehenden Daten entscheiden kurzfristig über die Richtung des Handelstages."
     },
-    "2026-10-13": {
+    "2026-10-06": {
      "p": -1,
      "namen": [
-      "Q3-Gewinnschätzungen"
+      "Atlanta-Fed GDPNow-Indikator"
      ],
-     "rolle": "Die fehlende Nachhaltigkeit bei Kursgewinnen nach guten Zahlen zeigt die Zurückhaltung der Investoren."
+     "rolle": "Der Rückgang illustriert die abkühlende Wirtschaftsdynamik infolge des restriktiven Zinsniveaus."
+    },
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "Atlanta-Fed-GDPNow-Schätzung"
+     ],
+     "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal."
+    },
+    "2026-10-08": {
+     "p": 0,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)",
+      "Konjunktur & Kapitalverfügbarkeit"
+     ],
+     "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Als historischer Frühindikator für das Gewinnwachstum des S&P 500 deutet dieser Anstieg auf eine robuste Tech-Nachfrage hin."
+    },
+    "2026-10-15": {
+     "p": -1,
+     "namen": [
+      "US-Einzelhandelsumsätze"
+     ],
+     "rolle": "Nachlassende Konsumlaune droht die US-Konjunktur im Zusammenspiel mit gestrafften Finanzierungsbedingungen abzuwürgen."
+    }
+   }
+  },
+  {
+   "kategorie": "Zinsen & Notenbank",
+   "status": "bestaetigt",
+   "tage_anzahl": 7,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-10-15",
+   "name": "Fed-Zinserwartungen",
+   "namen": [
+    "Fed-Zinserwartungen"
+   ],
+   "rolle": "Die Zinspfade bis Jahresende bleiben der maßgebliche Treiber für Bewertung und Liquidität an den Märkten.",
+   "tage": {
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
+    },
+    "2026-10-06": {
+     "p": 2,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
+    },
+    "2026-10-07": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren."
+    },
+    "2026-10-13": {
+     "p": 2,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Aussicht, dass nach einer möglichen letzten Zinserhöhung im laufenden Jahr im Folgejahr keine weiteren Schritte folgen, beruhigt die Zinsdebatte."
     },
     "2026-10-14": {
      "p": -1,
      "namen": [
-      "Q3-Gewinnschätzungen"
+      "Fed-Zinserwartungen"
      ],
-     "rolle": "Schwache Marktreaktionen auf Bankbilanzen signalisieren Vorsicht und zunehmende Belastungen im Kreditbereich."
+     "rolle": "Zusätzliche Zinserhöhungen erhöhen das Risiko eines wirtschaftlichen Abschwungs."
+    },
+    "2026-10-15": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Zinspfade bis Jahresende bleiben der maßgebliche Treiber für Bewertung und Liquidität an den Märkten."
     }
    }
   },
@@ -443,122 +595,6 @@
       "Inflationsdynamik"
      ],
      "rolle": "Die hartnäckig hohe Kern- und Gesamtinflation zerstört Hoffnungen auf ein baldiges Ende des Zinsdrucks."
-    }
-   }
-  },
-  {
-   "kategorie": "Konjunktur",
-   "status": "bestaetigt",
-   "tage_anzahl": 6,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-13",
-   "name": "Industrie- und Exportdaten (Asien & USA)",
-   "namen": [
-    "Industrie- und Exportdaten (Asien & USA)",
-    "Atlanta-Fed GDPNow-Indikator",
-    "Atlanta-Fed-GDPNow-Schätzung",
-    "Konjunktur & Kapitalverfügbarkeit"
-   ],
-   "rolle": "Als historischer Frühindikator für das Gewinnwachstum des S&P 500 deutet dieser Anstieg auf eine robuste Tech-Nachfrage hin.",
-   "tage": {
-    "2026-10-01": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
-    },
-    "2026-10-05": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Die anstehenden Daten entscheiden kurzfristig über die Richtung des Handelstages."
-    },
-    "2026-10-06": {
-     "p": -1,
-     "namen": [
-      "Atlanta-Fed GDPNow-Indikator"
-     ],
-     "rolle": "Der Rückgang illustriert die abkühlende Wirtschaftsdynamik infolge des restriktiven Zinsniveaus."
-    },
-    "2026-10-07": {
-     "p": -1,
-     "namen": [
-      "Atlanta-Fed-GDPNow-Schätzung"
-     ],
-     "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal."
-    },
-    "2026-10-08": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)",
-      "Konjunktur & Kapitalverfügbarkeit"
-     ],
-     "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung."
-    },
-    "2026-10-13": {
-     "p": 1,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Als historischer Frühindikator für das Gewinnwachstum des S&P 500 deutet dieser Anstieg auf eine robuste Tech-Nachfrage hin."
-    }
-   }
-  },
-  {
-   "kategorie": "Zinsen & Notenbank",
-   "status": "bestaetigt",
-   "tage_anzahl": 6,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-14",
-   "name": "Fed-Zinserwartungen",
-   "namen": [
-    "Fed-Zinserwartungen"
-   ],
-   "rolle": "Zusätzliche Zinserhöhungen erhöhen das Risiko eines wirtschaftlichen Abschwungs.",
-   "tage": {
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
-    },
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
-    },
-    "2026-10-06": {
-     "p": 2,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
-    },
-    "2026-10-07": {
-     "p": 0,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren."
-    },
-    "2026-10-13": {
-     "p": 2,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Aussicht, dass nach einer möglichen letzten Zinserhöhung im laufenden Jahr im Folgejahr keine weiteren Schritte folgen, beruhigt die Zinsdebatte."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Zusätzliche Zinserhöhungen erhöhen das Risiko eines wirtschaftlichen Abschwungs."
     }
    }
   },
@@ -668,14 +704,14 @@
   {
    "kategorie": "Sonstiges",
    "status": "bestaetigt",
-   "tage_anzahl": 3,
+   "tage_anzahl": 4,
    "erstmals": "2026-10-08",
-   "zuletzt": "2026-10-13",
+   "zuletzt": "2026-10-15",
    "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
     "Tech-Investitionszyklus (CapEx)"
    ],
-   "rolle": "Befürchtungen über nachlassende Investitionsdynamik und teure Kreditfinanzierungen im Halbleiterbereich belasten das Sentiment.",
+   "rolle": "Wachsende Skepsis bei KI-Investitionen gefährdet die Fortsetzung der Rallye bei Halbleitern und Tech-Schwergewichten.",
    "tage": {
     "2026-10-08": {
      "p": 1,
@@ -697,6 +733,13 @@
       "Tech-Investitionszyklus (CapEx)"
      ],
      "rolle": "Befürchtungen über nachlassende Investitionsdynamik und teure Kreditfinanzierungen im Halbleiterbereich belasten das Sentiment."
+    },
+    "2026-10-15": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Wachsende Skepsis bei KI-Investitionen gefährdet die Fortsetzung der Rallye bei Halbleitern und Tech-Schwergewichten."
     }
    }
   },

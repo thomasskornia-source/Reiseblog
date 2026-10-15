@@ -7,9 +7,6 @@ Feed: 15 Videos
    949S5FUtBlE 2026-10-12 KI-Trade: Stimmung trübt sich zunehmend ein.
    frHubErXKU4 2026-10-12 NVIDIA vor Mega-Deal. Banken und Inflation werden zum Börsentest.
    OGzNe28uAqQ 2026-10-09 KI-Comeback. Drosselt Apple die iPhone 18 Produktion?
-Werte aus: XQ1dFmtr9lk Gewinnmitnahmen, selbst nach guten Zahlen. Banken und Tech unter Druck. 2026-10-13 opening
-gemini-3.8-flash: Remote end closed connection without response
-  Score -15 Pfeil runter (140970 Tokens)
 Werte aus: FLMD819X5Ps Inflation verschreckt Wall Street. Starke Ergebnisse ignoriert. 2026-10-14 opening
 gemini-3.8-flash: HTTP 403 {
   "error": {
@@ -44,56 +41,12 @@ gemini-flash-latest: HTTP 403 {
 }
 
 Werte aus: Tw9LGZv6nSE Tech-Verkaufswelle bleibt. Erzeugerpreise sehr heiß. 2026-10-15 opening
-gemini-3.8-flash: HTTP 503 {
+gemini-3.8-flash: HTTP 429 {
   "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.8-flash: HTTP 503 {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+gemini-3.8-flash: HTTP 429 {
   "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "s
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+  Score -15 Pfeil runter (90137 Tokens)

@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "Tw9LGZv6nSE",
+   "titel": "Tech-Verkaufswelle bleibt. Erzeugerpreise sehr heiß.",
+   "datum": "2026-10-15",
+   "zeit": "2026-10-15T15:37:55+00:00",
+   "art": "opening",
+   "score": -15,
+   "pfeil": "runter",
+   "thema": "Markus Koch analysiert die gemischten Bankenergebnisse, die Zins- und Inflationsperspektiven der Fed sowie die Abkühlungsanzeichen bei Konsum und KI-Investitionen.",
+   "gesamtstimmung": "Markus Koch agiert vorsichtig und positioniert sich defensiv mit einem hohen Anteil an US-Staatsanleihen. Zwar entspannen rückläufige Anleiherenditen die Lage etwas, doch schwache Marktbreite, verfehlte Umsatzziele der Banken und Abkühlungstendenzen bei Konsum und Tech-Finanzierungen dämpfen den Optimismus.",
+   "begruendung": "Koch betont, dass trotz der Rekordnähe des S&P 500 über die Hälfte der Russell-3000-Aktien im Bärenmarkt notieren. Zudem verweist er auf ein Konjunkturdilemma der Notenbank und wachsende Skepsis bezüglich der Nachhaltigkeit des KI-Investitionszyklus.",
+   "indikatoren": [
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Renditen laufen zurück, TLT erholt sich",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Renditen dienen Koch als effektive Absicherung gegen Verluste am schwächelnden Aktienmarkt."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Über die Hälfte der Russell-3000-Aktien im Bärenmarkt",
+     "pfeil": "runter",
+     "rolle": "Die mangelnde Marktbreite offenbart, dass die hohen Indexstände eine breite Kursschwäche verdecken."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "US-Einzelhandelsumsätze",
+     "lage": "Kernumsätze verlieren an Dynamik",
+     "pfeil": "runter",
+     "rolle": "Nachlassende Konsumlaune droht die US-Konjunktur im Zusammenspiel mit gestrafften Finanzierungsbedingungen abzuwürgen."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Fed im Dilemma, Quiet Period beginnt",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Zinspfade bis Jahresende bleiben der maßgebliche Treiber für Bewertung und Liquidität an den Märkten."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Finanzierungsbedingungen und Börsengänge im KI-Sektor kühlen ab",
+     "pfeil": "runter",
+     "rolle": "Wachsende Skepsis bei KI-Investitionen gefährdet die Fortsetzung der Rallye bei Halbleitern und Tech-Schwergewichten."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Banken verfehlen oft Umsätze, schlagen Erträge dank geringer Rückstellungen",
+     "pfeil": "seitwaerts",
+     "rolle": "Die solide Kreditqualität stützt zwar, doch Zweifel am Erreichen des Ertragspeaks belasten die Sektorstimmung."
+    }
+   ],
+   "zitate": [
+    "über die Hälfte der Aktien im Russell 3000 in einem Bärenmarkt",
+    "droht die Konjunktur mit abzuwürgen"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 90137
+  },
+  {
    "id": "Nw5Q7CWeMX8",
    "titel": "Inflation verschreckt Wall Street. Starke Ergebnisse ignoriert.",
    "datum": "2026-10-14",
@@ -1192,9 +1255,10 @@
   "frHubErXKU4",
   "44a91nG4zSI",
   "Nw5Q7CWeMX8",
-  "XQ1dFmtr9lk"
+  "XQ1dFmtr9lk",
+  "Tw9LGZv6nSE"
  ],
- "stand": "2026-10-15T18:00Z",
+ "stand": "2026-10-15T22:40Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
