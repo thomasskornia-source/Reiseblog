@@ -1,0 +1,31 @@
+name: Sektor-Optionsfluss
+
+on:
+  schedule:
+    - cron: '40 22 * * 1-5'   # nach US-Börsenschluss, nach flows.yml und top10.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sektorflow
+  cancel-in-progress: false
+
+jobs:
+  sektorflow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Optionsketten auswerten
+        run: python3 tools/sektorflow.py
+      - name: Änderung hochladen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/sektorflow.json
+          if git diff --cached --quiet; then echo "Keine Änderung"; exit 0; fi
+          git commit -m "Sektor-Optionsfluss aktualisiert"
+          git pull --rebase origin main
+          git push origin HEAD:main
