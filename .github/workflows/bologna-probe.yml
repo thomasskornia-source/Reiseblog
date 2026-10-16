@@ -1,0 +1,36 @@
+name: Bologna – Stimmproben (Microsoft)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: edge-tts installieren
+        run: pip install edge-tts
+      - name: Hörproben erzeugen
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          d = json.load(open("data/bologna.json", encoding="utf-8"))
+          text = d.get("sprechIntroKI") or d["sprechIntro"]
+          for v in ["de-DE-KatjaNeural", "de-DE-ConradNeural", "de-DE-SeraphinaMultilingualNeural"]:
+              out = "audio/bologna-probe-" + v.split("-")[2].replace("Neural", "").lower() + ".mp3"
+              r = subprocess.run(["edge-tts", "--voice", v, "--text", text, "--write-media", out], capture_output=True, text=True)
+              print(v, r.returncode, r.stderr[-300:])
+          PY
+      - name: Hochladen
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audio
+          if git diff --cached --quiet; then echo "Keine Änderungen"; exit 0; fi
+          git commit -m "Bologna: Stimmproben (Microsoft)"
+          git pull --rebase origin main
+          git push origin HEAD:main
