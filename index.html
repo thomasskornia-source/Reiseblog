@@ -442,9 +442,10 @@
   renderWelterbe();
 
   // Sonderseite Bologna (data/bologna.json, "aktiv": false blendet den Streifen aus)
-  var boData = null, boSpeak = false;
+  var boData = null, boSpeak = false, boAudio = null;
   function boStop() {
-    boSpeak = false; if ('speechSynthesis' in window) speechSynthesis.cancel();
+    boSpeak = false; if (boAudio) { boAudio.onended = null; boAudio.onerror = null; boAudio.pause(); boAudio = null; }
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
     var b = $('bo-play'); if (b) { b.classList.remove('spielt'); b.setAttribute('aria-label', 'Bologna-Einführung vorlesen'); }
   }
   function boSprich(text) {
@@ -456,10 +457,14 @@
   document.addEventListener('click', function (ev) {
     var t = ev.target.closest && ev.target.closest('#bo-play'); if (!t || !boData) return;
     ev.preventDefault();
-    if (boSpeak) { boStop(); return; }
+    if (boSpeak || boAudio) { boStop(); return; }
     if (typeof songStop === 'function') songStop(); if (typeof whStop === 'function') whStop();
     t.classList.add('spielt'); t.setAttribute('aria-label', 'Vorlesen stoppen');
-    boSprich(boData.sprechIntro || boData.intro);
+    if (window.Audio) {
+      var a = new Audio('audio/bologna-intro.mp3'); boAudio = a;
+      a.onended = boStop; a.onerror = function () { if (boAudio === a) { boAudio = null; boSprich(boData.sprechIntro || boData.intro); } };
+      var pr = a.play(); if (pr && pr.catch) pr.catch(function () { if (boAudio === a) { boAudio = null; boSprich(boData.sprechIntro || boData.intro); } });
+    } else boSprich(boData.sprechIntro || boData.intro);
   });
   window.addEventListener('pagehide', boStop);
   function renderBologna() {

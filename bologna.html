@@ -96,7 +96,7 @@
   }
   function stop() {
     token++; sp = false; tourIdx = -1;
-    if (au) { au.pause(); au = null; }
+    if (au) { au.onended = null; au.onerror = null; au.pause(); au = null; }
     if ('speechSynthesis' in window) speechSynthesis.cancel();
     ui(null, false);
   }
@@ -120,12 +120,15 @@
       speechSynthesis.speak(u);
     })();
   }
+  var player = null;
   function lies(text, audioDatei, fertig) {
     var my = token;
     if (audioDatei && window.Audio) {
-      var a = new Audio(audioDatei); au = a;
+      if (!player) player = new Audio();   // ein einziges Audio-Element, damit iPhone-Safari die Folgedateien abspielt
+      var a = player; au = a;
       a.onended = function () { if (my === token) { au = null; fertig(true); } };
-      a.onerror = function () { if (my === token) { au = null; sprich(text, fertig); } };
+      a.onerror = function () { if (my === token && au === a) { au = null; sprich(text, fertig); } };
+      a.src = audioDatei;
       var p = a.play(); if (p && p.catch) p.catch(function () { if (my === token && au === a) { au = null; sprich(text, fertig); } });
     } else sprich(text, fertig);
   }
@@ -133,14 +136,14 @@
     var war = cards[i].btn.classList.contains('spielt');
     stop(); if (war) return;
     var o = cards[i].o; ui(i, false);
-    lies(o.sprech || o.text, o.audio ? 'audio/bologna-' + encodeURIComponent(o.id) + '.mp3' : '', function () { ui(null, false); });
+    lies(o.sprech || o.text, 'audio/bologna-' + encodeURIComponent(o.id) + '.mp3', function () { ui(null, false); });
   }
   function tour(i) {
     if (i >= cards.length) { stop(); return; }
     tourIdx = i; var my = token, c = cards[i];
     ui(i, true);
     c.el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    lies(c.o.sprech || c.o.text, c.o.audio ? 'audio/bologna-' + encodeURIComponent(c.o.id) + '.mp3' : '', function (ok) { if (my === token) tour(i + 1); });
+    lies(c.o.sprech || c.o.text, 'audio/bologna-' + encodeURIComponent(c.o.id) + '.mp3', function (ok) { if (my === token) tour(i + 1); });
   }
   function karte(o, wohin) {
     var a = document.createElement('a'); a.className = 'bo-link'; a.target = '_blank'; a.rel = 'noopener';
@@ -176,7 +179,7 @@
   $('b-all').addEventListener('click', function () { if (tourIdx >= 0) { stop(); return; } stop(); tour(0); });
   $('b-intro-btn').addEventListener('click', function () {
     var war = $('b-intro-btn').textContent.indexOf('■') === 0; stop(); if (war) return;
-    ui('intro', false); lies(D.sprechIntro || D.intro, '', function () { ui(null, false); });
+    ui('intro', false); lies(D.sprechIntro || D.intro, 'audio/bologna-intro.mp3', function () { ui(null, false); });
   });
   window.addEventListener('pagehide', stop);
   if ('speechSynthesis' in window && speechSynthesis.addEventListener) speechSynthesis.addEventListener('voiceschanged', function () {});
