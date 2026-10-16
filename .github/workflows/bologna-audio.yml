@@ -7,7 +7,7 @@ on:
       - 'data/bologna.json'
       - 'tools/bologna-audio.py'
   schedule:
-    - cron: '35 0,6 * * *'   # Nachholversuch nach dem Zurücksetzen des Tageslimits
+    - cron: '35 0,6,8,12 * * *'   # Nachholversuch nach dem Zurücksetzen des Tageslimits
   workflow_dispatch:
 
 permissions:

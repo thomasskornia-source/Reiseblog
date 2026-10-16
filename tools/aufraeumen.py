@@ -39,6 +39,8 @@ def main():
             if f[len("welterbe-"):-4] not in welterbe_behalten:
                 os.remove(os.path.join(adir, f)); print("gelöscht:", f)
             continue
+        if f.startswith("bologna-"):  # Sonderseite Bologna: Sprachdateien bleiben, solange data/bologna.json existiert
+            continue
         if not f.endswith(".mp3"):
             continue
         d = datum.get(f[:-4])
