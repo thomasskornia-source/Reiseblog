@@ -802,6 +802,52 @@
   "stand": "2026-10-12"
  },
  {
+  "id": "events-f5d2a2f517",
+  "lat": 48.14335,
+  "lon": 11.58615,
+  "rubrik": "events",
+  "titel": "Ausstellung Gedanken–Brüche",
+  "ort": "Galerie Bezirk Oberbayern",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "2026-12-02",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Die Ausstellung „Gedanken–Brüche“ ist bis Anfang Dezember in der Galerie des Bezirks Oberbayern zu sehen.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-16"
+ },
+ {
+  "id": "events-b2fd962d1a",
+  "lat": 48.13711,
+  "lon": 11.57538,
+  "rubrik": "events",
+  "titel": "Ausstellung TIRAMI_SU",
+  "ort": "München",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Vielschichtige Kunstausstellung rund um die Themen Aufbruch, Transformation und das Zusammenspiel unterschiedlicher Positionen.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-16"
+ },
+ {
   "id": "events-605fb84599",
   "lat": 48.14007,
   "lon": 11.58154,
@@ -825,6 +871,27 @@
   "stand": "2026-10-15"
  },
  {
+  "id": "events-8446a50d25",
+  "rubrik": "events",
+  "titel": "BABYRICHMAN Kunstraum",
+  "ort": "Temporärer Kunstraum",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Temporärer Kunstraum im Zentrum Münchens mit aktuellen Werken von sechs zeitgenössischen Künstlerinnen.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-16"
+ },
+ {
   "id": "events-eaa9638123",
   "lat": 48.1354,
   "lon": 11.60088,
@@ -837,7 +904,7 @@
   "zeit": "20:30",
   "preis": "",
   "dauer": "",
-  "kurz": "Die Singer-Songwriterin und Jazz-Gitarristin Dida Pelled stellt mit bluesiger Stimme und Allstar-Quartett ihr aktuelles Album vor.",
+  "kurz": "Die Singer-Songwriterin und Jazz-Gitarristin Dida Pelled präsentiert mit ihrem Allstar-Quartett ihr neues Album.",
   "tags": [
    "Musik",
    "Kultur",
@@ -846,7 +913,7 @@
   "thema": "Konzert & Musik",
   "quelle": "Jazzclub Unterfahrt",
   "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-13"
+  "stand": "2026-10-16"
  },
  {
   "id": "events-71378bc59d",
@@ -883,17 +950,63 @@
   "datum_bis": "2026-11-08",
   "zeit": "19:30",
   "preis": "",
-  "dauer": "2,5 Std.",
-  "kurz": "Das Musical erzählt die berühmte Geschichte von Quasimodo und Esmeralda mit aufwendiger Bühnenshow und dramatischer Musik.",
+  "dauer": "",
+  "kurz": "Die Musical-Adaption der bekannten Pariser Geschichte über Quasimodo und Esmeralda auf der Bühne des Deutschen Theaters.",
   "tags": [
    "Musik",
    "Kultur",
    "Abends"
   ],
-  "thema": "Konzert & Musik",
+  "thema": "Kabarett & Theater",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-15"
+  "stand": "2026-10-16"
+ },
+ {
+  "id": "events-e28e5fd1da",
+  "lat": 48.1749,
+  "lon": 11.55002,
+  "rubrik": "events",
+  "titel": "Felix Lobrecht - Sell Out",
+  "ort": "Olympiahalle",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "2026-10-17",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Der bekannte Stand-up-Comedian Felix Lobrecht gastiert im Rahmen seiner Sell-Out-Tour mit aktuellem Programm in der Olympiahalle.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-16"
+ },
+ {
+  "id": "events-87006b29a3",
+  "lat": 48.13711,
+  "lon": 11.57538,
+  "rubrik": "events",
+  "titel": "Fotoausstellung: Jüdische Friedhöfe und Synagogen",
+  "ort": "München",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Michael Graber zeigt Fotografien oberfränkischer jüdischer Friedhöfe und Synagogen in Kooperation mit der Janusz Korczak Akademie.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-16"
  },
  {
   "id": "events-273a8111ef",
@@ -919,6 +1032,29 @@
   "stand": "2026-10-15"
  },
  {
+  "id": "events-deb71db4fe",
+  "lat": 48.12391,
+  "lon": 11.60691,
+  "rubrik": "events",
+  "titel": "Freya Ridings",
+  "ort": "Tonhalle",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "2026-10-16",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Die britische Musikerin Freya Ridings begeistert mit gefühlvollem Pop und eindrucksvoller Stimme in der Tonhalle.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-16"
+ },
+ {
   "id": "events-27d6d348cf",
   "lat": 48.13845,
   "lon": 11.58272,
@@ -942,6 +1078,77 @@
   "stand": "2026-10-15"
  },
  {
+  "id": "events-3cb9c0f1a8",
+  "lat": 48.14509,
+  "lon": 11.55007,
+  "rubrik": "events",
+  "titel": "Josef Hader",
+  "ort": "Circus Krone",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "2026-10-16",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Der österreichische Kabarettist Josef Hader präsentiert sein schwarzhumoriges Solo-Bühnenprogramm live im Münchner Circus Krone.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-16"
+ },
+ {
+  "id": "events-3e46779f79",
+  "lat": 48.13711,
+  "lon": 11.57538,
+  "rubrik": "events",
+  "titel": "Karl Richter: Gespräch und Dokumentarfilm",
+  "ort": "München",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Gespräch mit Bach-Spezialisten über Karl Richter und anschließende Filmvorführung der Dokumentation von Prof. Tobias Richter.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-16"
+ },
+ {
+  "id": "events-e1eb99efe7",
+  "lat": 48.13319,
+  "lon": 11.56482,
+  "rubrik": "events",
+  "titel": "Orgelkonzert 100 Jahre Moser-Orgel",
+  "ort": "Matthäuskirche",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Gedenkkonzert zum 100-jährigen Jubiläum der Albert-Moser-Orgel in der Münchner Matthäuskirche.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-16"
+ },
+ {
   "id": "events-0ae879cac0",
   "lat": 48.14614,
   "lon": 11.55945,
@@ -953,8 +1160,8 @@
   "datum_bis": "2027-01-23",
   "zeit": "15:00",
   "preis": "",
-  "dauer": "2 Std.",
-  "kurz": "Kindgerechte Theaterinszenierung über die Abenteuer von Peter Pan, Wendy und Kapitän Hook im märchenhaften Nimmerland.",
+  "dauer": "",
+  "kurz": "Klassisches Bühnenabenteuer über Peter Pan und Nimmerland, liebevoll aufbereitet für Kinder und Familien.",
   "tags": [
    "Familie",
    "Kultur"
@@ -962,7 +1169,7 @@
   "thema": "Familie & Kinder",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-15"
+  "stand": "2026-10-16"
  },
  {
   "id": "events-675a1aea58",
@@ -998,15 +1205,15 @@
   "datum_bis": "2026-12-07",
   "zeit": "10:00",
   "preis": "",
-  "dauer": "10 Std.",
-  "kurz": "Einblick in das pionierhafte Schaffen der Videokünstlerin Steina mit innovativen Arbeiten an der Schnittstelle von Bild und Klang.",
+  "dauer": "",
+  "kurz": "Umfassende Ausstellung im Haus der Kunst über das einflussreiche Schaffen der Videokunst-Pionierin Steina.",
   "tags": [
    "Kultur"
   ],
   "thema": "Ausstellung & Museum",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-15"
+  "stand": "2026-10-16"
  },
  {
   "id": "events-658f9b745a",
@@ -1031,6 +1238,28 @@
   "stand": "2026-10-15"
  },
  {
+  "id": "events-ffc1ac2697",
+  "rubrik": "events",
+  "titel": "Zirkus Pumpernudl",
+  "ort": "Verschiedene Stadtbezirke",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "11:00",
+  "preis": "frei",
+  "dauer": "6 Stunden",
+  "kurz": "Freitags stattfindendes Zirkusangebot für Kinder und Familien an wechselnden Orten in Münchner Stadtbezirken.",
+  "tags": [
+   "Familie",
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Familie & Kinder",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-16"
+ },
+ {
   "id": "events-67851188cb",
   "lat": 48.12422,
   "lon": 11.58117,
@@ -1043,7 +1272,7 @@
   "zeit": "10:00",
   "preis": "",
   "dauer": "",
-  "kurz": "Traditioneller Münchner Jahrmarkt mit Verkaufsständen, Karussells und bayerischen Schmankerln unter freiem Himmel auf dem Mariahilfplatz.",
+  "kurz": "Traditioneller Münchner Jahrmarkt am Mariahilfplatz mit Verkaufsständen, Karussells und herbstlicher Festtagsstimmung.",
   "tags": [
    "Märkte",
    "Familie",
@@ -1053,7 +1282,7 @@
   "thema": "Feste & Märkte",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-15"
+  "stand": "2026-10-16"
  },
  {
   "id": "events-f75860356d",
@@ -1068,16 +1297,16 @@
   "zeit": "20:30",
   "preis": "",
   "dauer": "",
-  "kurz": "Die Rocklegenden um Goran Bregovic zelebrieren ihr fünfzigjähriges Bandjubiläum mit Klassikern und mitreißenden Gitarrensounds in der Kulturhalle.",
+  "kurz": "Die Rock-Ikonen um Goran Bregovic zelebrieren ihr 50-jähriges Jubiläum live mit ihren größten Hits.",
   "tags": [
    "Musik",
-   "Abends",
-   "Kultur"
+   "Kultur",
+   "Abends"
   ],
   "thema": "Konzert & Musik",
   "quelle": "Zenith, Kulturhalle (Konzerte)",
   "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-15"
+  "stand": "2026-10-16"
  },
  {
   "id": "events-5ebebc9968",
@@ -1101,6 +1330,27 @@
   "quelle": "Münchner Kammerspiele",
   "url": "https://www.muenchner-kammerspiele.de/",
   "stand": "2026-10-15"
+ },
+ {
+  "id": "events-536179adc3",
+  "rubrik": "events",
+  "titel": "Die Lange Nacht der Münchner Museen",
+  "ort": "Diverse Orte in München",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-10-17",
+  "zeit": "18:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Rund einhundert Münchner Museen und Kultureinrichtungen öffnen bis spät in die Nacht ihre Ausstellungen für Nachtschwärmer.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-16"
  },
  {
   "id": "events-72b79bfdf9",
@@ -1161,7 +1411,7 @@
   "zeit": "20:30",
   "preis": "",
   "dauer": "",
-  "kurz": "Die ukrainische Vokalistin Kateryna Kravchenko präsentiert mit ihrem Ensemble traumverlorene, cinematische und geheimnisvolle Klangwelten.",
+  "kurz": "Die ukrainische Sängerin und Komponistin Kateryna Kravchenko präsentiert traumverlorene, geheimnisvolle und cinematische Jazzklänge.",
   "tags": [
    "Musik",
    "Kultur",
@@ -1170,7 +1420,7 @@
   "thema": "Konzert & Musik",
   "quelle": "Jazzclub Unterfahrt",
   "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-13"
+  "stand": "2026-10-16"
  },
  {
   "id": "events-e26125df0c",
@@ -1185,15 +1435,14 @@
   "zeit": "10:00",
   "preis": "",
   "dauer": "",
-  "kurz": "Sportliches Event zum Biathlon-Saisonauftakt im Olympiapark mit sportlichen Wettbewerben und Aktionen für Interessierte und Familien.",
+  "kurz": "Sportfestival zum Auftakt der Biathlonsaison mit spannenden Wettbewerben und Unterhaltungsprogramm im Olympiapark.",
   "tags": [
-   "Draußen",
-   "Familie"
+   "Draußen"
   ],
   "thema": "Draußen & Sport",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-15"
+  "stand": "2026-10-16"
  },
  {
   "id": "events-0f5c441519",
@@ -1240,6 +1489,28 @@
   "stand": "2026-10-15"
  },
  {
+  "id": "events-13ffee926c",
+  "lat": 48.14081,
+  "lon": 11.57755,
+  "rubrik": "events",
+  "titel": "Residenzwoche 2026: Führungen",
+  "ort": "Residenz München",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-10-25",
+  "zeit": "11:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sonderführungen durch die prunkvollen Säle des Münchner Stadtschlosses im Rahmen der jährlichen Residenzwoche.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-16"
+ },
+ {
   "id": "events-e360b61a10",
   "lat": 48.14498,
   "lon": 11.52197,
@@ -1283,6 +1554,29 @@
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
   "stand": "2026-10-15"
+ },
+ {
+  "id": "events-066a9a7b1c",
+  "lat": 48.13825,
+  "lon": 11.58448,
+  "rubrik": "events",
+  "titel": "Ö_Werkstatt: Moving Materials",
+  "ort": "MaximiliansForum",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Kollektive Werkstatt im MaximiliansForum, gestaltet von Verena Seibt und Adrian Sölch zur laufenden Kunstausstellung.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-16"
  },
  {
   "id": "events-e911c25816",
@@ -1348,6 +1642,30 @@
   "quelle": "Münchner Kammerspiele",
   "url": "https://www.muenchner-kammerspiele.de/",
   "stand": "2026-10-15"
+ },
+ {
+  "id": "events-2fc523c2df",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Jam Session",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Saxofonist Maxim Frischmann lädt zur Session ein und kombiniert Modern Jazz mit zeitgenössischen Beats und elektronischen Sounds.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-16"
  },
  {
   "id": "events-38cd8401cc",
@@ -1508,52 +1826,6 @@
   "thema": "Kabarett & Theater",
   "quelle": "Münchner Volkstheater (Spielplan)",
   "url": "https://www.muenchner-volkstheater.de/spielplan",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-2ce8e98c27",
-  "lat": 48.12366,
-  "lon": 11.5559,
-  "rubrik": "events",
-  "titel": "Tide",
-  "ort": "Münchner Volkstheater",
-  "adresse": "Tumblingerstraße 29, 80337 München",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Uraufführung des Tanztheaterstücks von Sophie Haydee Colindres Zühlke und Serhat Saïd Perhat.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Volkstheater (Spielplan)",
-  "url": "https://www.muenchner-volkstheater.de/spielplan",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-acb0a19c6f",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "Band Of Horses",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-19",
-  "datum_bis": "2026-10-19",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "2,5 Std.",
-  "kurz": "Band Of Horses spielen live im Münchner Kulturzentrum Backstage.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
   "stand": "2026-10-15"
  },
  {
@@ -1773,106 +2045,6 @@
   "thema": "ARD Mediathek"
  },
  {
-  "id": "tv-db15ede4e1",
-  "rubrik": "tv",
-  "titel": "Das weiße Haus am Rhein (1/2)",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Historienfilm aus dem Jahr 2021 über die Geschichte eines Traditionshotels. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-10-16",
-  "thema": "3sat"
- },
- {
-  "id": "tv-f9e6c49578",
-  "rubrik": "tv",
-  "titel": "Thailand",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentarfilm aus dem Jahr 2023 über Land und Landschaften Thailands. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-10-16",
-  "thema": "3sat"
- },
- {
-  "id": "tv-92fb1fc45b",
-  "rubrik": "tv",
-  "titel": "Re: Urlaub am Polarkreis - Norwegens Lofoten am Limit",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "19:40",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Reportage über die Herausforderungen des Massentourismus auf den norwegischen Lofoten. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-16",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-e667589357",
-  "rubrik": "tv",
-  "titel": "Plan A - Was würdest du tun?",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Historisches Drama aus dem Jahr 2021 über jüdische Vergeltungspläne nach dem Zweiten Weltkrieg. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-16",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-ab9b54b1a3",
-  "rubrik": "tv",
-  "titel": "Tina Turner - My Songs. My Life",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "21:55",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation und Porträt über das musikalische Werk und das Leben von Tina Turner. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-16",
-  "thema": "ARTE"
- },
- {
   "id": "tv-07d6dd58d7",
   "rubrik": "tv",
   "titel": "Berghütten mit Marcus Fahn",
@@ -1893,104 +2065,24 @@
   "thema": "BR"
  },
  {
-  "id": "tv-dc71450dbc",
+  "id": "tv-db15ede4e1",
   "rubrik": "tv",
-  "titel": "Watzmann ermittelt",
-  "ort": "BR",
+  "titel": "Das weiße Haus am Rhein (1/2)",
+  "ort": "3sat",
   "adresse": "",
   "datum": "2026-10-16",
   "datum_bis": "",
   "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Deutsche Krimiserie aus dem Jahr 2024. Programm kann sich ändern.",
-  "tags": [
-   "Serie"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-10-16",
-  "thema": "BR"
- },
- {
-  "id": "tv-47c2ff01ec",
-  "rubrik": "tv",
-  "titel": "Watzmann ermittelt",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Eine weitere Episode der Krimiserie aus dem Jahr 2024. Programm kann sich ändern.",
-  "tags": [
-   "Serie"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-10-16",
-  "thema": "BR"
- },
- {
-  "id": "tv-6b257dc631",
-  "rubrik": "tv",
-  "titel": "Kanzlei Liebling Kreuzberg - Ein Meisterstück",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Lisa Liebling gerät in einen Streit, als ein Auszubildender am Gewinn seiner neu erfundenen Backware beteiligt werden will. Programm kann sich ändern.",
+  "kurz": "Historienfilm aus dem Jahr 2021 über die Geschichte eines Traditionshotels. Programm kann sich ändern.",
   "tags": [
    "Film"
   ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.daserste.de/",
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
   "stand": "2026-10-16",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-2c55585ecc",
-  "rubrik": "tv",
-  "titel": "die nordstory - Zwischen Watt und Wolken - Schleswig-Holstein von oben",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Regionalreportage mit Luftaufnahmen über die Landschaften Schleswig-Holsteins. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-16",
-  "thema": "NDR"
- },
- {
-  "id": "tv-be5f91274e",
-  "rubrik": "tv",
-  "titel": "Mit Mut, Mörtel und Millionen Tipps - Das erste Zimmer: Fertig",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "21:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über Sanierungsarbeiten und Handwerkertipps. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-16",
-  "thema": "NDR"
+  "thema": "3sat"
  },
  {
   "id": "tv-0e58e7e72e",
@@ -2033,24 +2125,24 @@
   "thema": "SWR"
  },
  {
-  "id": "tv-2e40a392c1",
+  "id": "tv-94f87f7fd1",
   "rubrik": "tv",
-  "titel": "Sabine Heinrich - Auf dem Wasser durch NRW",
-  "ort": "WDR",
+  "titel": "Jenseits der Spree - Kontrollverlust",
+  "ort": "ZDF",
   "adresse": "",
   "datum": "2026-10-16",
   "datum_bis": "",
   "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Dokureihe aus dem Jahr 2026 über Reisen auf Nordrhein-Westfalens Wasserwegen. Programm kann sich ändern.",
+  "kurz": "Nachdem ein Wachmann im Stadion erschlagen und seine schwangere Freundin schwer verletzt wird, ermitteln Robert und Mavi. Programm kann sich ändern.",
   "tags": [
-   "Doku"
+   "Serie"
   ],
-  "quelle": "hoerzu.de",
-  "url": "https://www1.wdr.de/fernsehen/",
+  "quelle": "tvinfo.de",
+  "url": "https://www.zdf.de/",
   "stand": "2026-10-16",
-  "thema": "WDR"
+  "thema": "ZDF"
  },
  {
   "id": "tv-68170d9954",
@@ -2073,24 +2165,84 @@
   "thema": "WDR"
  },
  {
-  "id": "tv-94f87f7fd1",
+  "id": "tv-6b257dc631",
   "rubrik": "tv",
-  "titel": "Jenseits der Spree - Kontrollverlust",
-  "ort": "ZDF",
+  "titel": "Kanzlei Liebling Kreuzberg - Ein Meisterstück",
+  "ort": "Das Erste",
   "adresse": "",
   "datum": "2026-10-16",
   "datum_bis": "",
   "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Nachdem ein Wachmann im Stadion erschlagen und seine schwangere Freundin schwer verletzt wird, ermitteln Robert und Mavi. Programm kann sich ändern.",
+  "kurz": "Lisa Liebling gerät in einen Streit, als ein Auszubildender am Gewinn seiner neu erfundenen Backware beteiligt werden will. Programm kann sich ändern.",
   "tags": [
-   "Serie"
+   "Film"
   ],
   "quelle": "tvinfo.de",
-  "url": "https://www.zdf.de/",
+  "url": "https://www.daserste.de/",
   "stand": "2026-10-16",
-  "thema": "ZDF"
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-be5f91274e",
+  "rubrik": "tv",
+  "titel": "Mit Mut, Mörtel und Millionen Tipps - Das erste Zimmer: Fertig",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "21:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentation über Sanierungsarbeiten und Handwerkertipps. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-16",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-e667589357",
+  "rubrik": "tv",
+  "titel": "Plan A - Was würdest du tun?",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Historisches Drama aus dem Jahr 2021 über jüdische Vergeltungspläne nach dem Zweiten Weltkrieg. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-16",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-92fb1fc45b",
+  "rubrik": "tv",
+  "titel": "Re: Urlaub am Polarkreis - Norwegens Lofoten am Limit",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "19:40",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Reportage über die Herausforderungen des Massentourismus auf den norwegischen Lofoten. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-16",
+  "thema": "ARTE"
  },
  {
   "id": "tv-f5b4c6f6a5",
@@ -2111,5 +2263,125 @@
   "url": "https://www.zdf.de/",
   "stand": "2026-10-16",
   "thema": "ZDF"
+ },
+ {
+  "id": "tv-2e40a392c1",
+  "rubrik": "tv",
+  "titel": "Sabine Heinrich - Auf dem Wasser durch NRW",
+  "ort": "WDR",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokureihe aus dem Jahr 2026 über Reisen auf Nordrhein-Westfalens Wasserwegen. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www1.wdr.de/fernsehen/",
+  "stand": "2026-10-16",
+  "thema": "WDR"
+ },
+ {
+  "id": "tv-f9e6c49578",
+  "rubrik": "tv",
+  "titel": "Thailand",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentarfilm aus dem Jahr 2023 über Land und Landschaften Thailands. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-10-16",
+  "thema": "3sat"
+ },
+ {
+  "id": "tv-ab9b54b1a3",
+  "rubrik": "tv",
+  "titel": "Tina Turner - My Songs. My Life",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "21:55",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentation und Porträt über das musikalische Werk und das Leben von Tina Turner. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-16",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-dc71450dbc",
+  "rubrik": "tv",
+  "titel": "Watzmann ermittelt",
+  "ort": "BR",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Deutsche Krimiserie aus dem Jahr 2024. Programm kann sich ändern.",
+  "tags": [
+   "Serie"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.br.de/fernsehen/",
+  "stand": "2026-10-16",
+  "thema": "BR"
+ },
+ {
+  "id": "tv-47c2ff01ec",
+  "rubrik": "tv",
+  "titel": "Watzmann ermittelt",
+  "ort": "BR",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "21:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Eine weitere Episode der Krimiserie aus dem Jahr 2024. Programm kann sich ändern.",
+  "tags": [
+   "Serie"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.br.de/fernsehen/",
+  "stand": "2026-10-16",
+  "thema": "BR"
+ },
+ {
+  "id": "tv-2c55585ecc",
+  "rubrik": "tv",
+  "titel": "die nordstory - Zwischen Watt und Wolken - Schleswig-Holstein von oben",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-16",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Regionalreportage mit Luftaufnahmen über die Landschaften Schleswig-Holsteins. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-16",
+  "thema": "NDR"
  }
 ]
