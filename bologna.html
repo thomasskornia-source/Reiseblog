@@ -6,6 +6,7 @@
 <title>Bologna – Die Highlights – Unterwegs und zuhause</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=29">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="song.css?v=2">
 <style>
 .bo-karte{position:relative;margin:0 0 34px;padding:0 0 26px;border-bottom:1px solid rgba(46,58,50,.12);scroll-margin-top:76px}
@@ -30,6 +31,20 @@
 .page-song .bo-link{display:inline-block;margin-top:6px;font-size:15px;color:var(--rust);text-decoration:underline;text-underline-offset:3px}
 .bo-intro{font-size:18px;line-height:1.55;margin:0 0 18px}
 .bo-stand{margin-top:26px}
+.bo-kartenbox{margin:0 0 30px}
+.bo-kartenbox h2{font-family:'Fraunces',serif;font-weight:500;font-size:24px;margin:0 0 10px}
+.bo-knoepfe{display:flex;gap:8px;margin:0 0 10px;overflow-x:auto}
+.bo-knoepfe button{all:unset;cursor:pointer;flex:none;white-space:nowrap;font:600 14px/1 'Work Sans',sans-serif;padding:10px 14px;border-radius:999px;border:1.5px solid var(--rust);color:var(--rust)}
+.bo-knoepfe button:focus-visible{outline:3px solid #F0A15A;outline-offset:2px}
+.bo-knoepfe button:active{background:var(--rust);color:#fff}
+#b-map{height:340px;border-radius:18px;overflow:hidden;background:var(--paper-warm);z-index:0}
+@media(min-width:700px){#b-map{height:440px}}
+.bo-pin span{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--rust);color:#fff;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.4);font:600 14px/1 'Work Sans',sans-serif}
+.bo-pin.an span{background:#262F63;transform:scale(1.15)}
+.bo-me span{display:block;width:16px;height:16px;border-radius:50%;background:#2A7FFF;border:3px solid #fff;box-shadow:0 0 0 4px rgba(42,127,255,.3)}
+.bo-pop b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:16px;margin:0 0 4px}
+.bo-pop a{font-size:14px;color:var(--rust)}
+.bo-maphint{font-size:13px;color:var(--ink-soft);margin:8px 0 0}
 .page-song .song-btn.stop{background:var(--ink)}
 </style>
 <link rel="manifest" href="manifest.json">
@@ -69,12 +84,19 @@
       <button type="button" class="song-btn" id="b-all">▶ Alle nacheinander anhören</button>
       <button type="button" class="song-btn alt" id="b-intro-btn">▶ Kurze Einführung</button>
     </div>
+    <div class="bo-kartenbox" id="b-kartenbox" hidden>
+      <h2>Karte</h2>
+      <div class="bo-knoepfe"><button type="button" id="b-me">Mein Standort</button><button type="button" id="b-alt">Altstadt</button><button type="button" id="b-alle">Mit San Luca</button></div>
+      <div id="b-map" role="region" aria-label="Karte mit den Highlights"></div>
+      <p class="bo-maphint">Lage der Marker ungefähr. Für die genaue Route unter jedem Ort „Auf Google Maps öffnen“ tippen.</p>
+    </div>
     <div id="b-liste"></div>
     <p class="song-note bo-stand" id="b-stand"></p>
   </article>
   <p id="b-error" class="song-note" hidden>Die Bologna-Seite konnte gerade nicht geladen werden.</p>
   <footer class="site-footer"><p>Bologna, zum Lesen und Anhören.</p></footer>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
@@ -148,7 +170,8 @@
   function karte(o, wohin) {
     var a = document.createElement('a'); a.className = 'bo-link'; a.target = '_blank'; a.rel = 'noopener';
     a.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(o.karte || (o.titel + ' Bologna'));
-    a.textContent = 'Auf der Karte zeigen →'; wohin.appendChild(a);
+    a.textContent = 'Auf Google Maps öffnen →'; wohin.appendChild(a);
+    if (typeof o.lat === 'number') { var z = document.createElement('a'); z.className = 'bo-link'; z.href = '#b-map'; z.style.marginLeft = '16px'; z.textContent = 'Auf der Karte oben →'; z.addEventListener('click', function (ev) { ev.preventDefault(); zeigeOrt(o.id); }); wohin.appendChild(z); }
   }
   function bauKarte(o, i) {
     var el = document.createElement('section'); el.className = 'bo-karte'; el.id = o.id;
@@ -176,6 +199,45 @@
     karte(o, el);
     return { el: el, btn: btn, o: o };
   }
+  // Karte
+  var map = null, pins = {}, me = null, bounds1 = null, boundsAll = null;
+  function zeigeOrt(id) {
+    if (!map || !pins[id]) return;
+    document.getElementById('b-kartenbox').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    map.setView(pins[id].getLatLng(), Math.max(map.getZoom(), 16)); pins[id].openPopup();
+  }
+  function baueKarte(orte) {
+    if (!window.L) return;
+    var mit = orte.filter(function (o) { return typeof o.lat === 'number' && typeof o.lon === 'number'; });
+    if (!mit.length) return;
+    $('b-kartenbox').hidden = false;
+    map = L.map('b-map', { scrollWheelZoom: false });
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(map);
+    var alt = [], alle = [];
+    orte.forEach(function (o, i) {
+      if (typeof o.lat !== 'number') return;
+      var ll = [o.lat, o.lon], mk = L.marker(ll, { icon: L.divIcon({ className: 'bo-pin', html: '<span>' + (i + 1) + '</span>', iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -14] }), title: o.titel, keyboard: true });
+      var pop = document.createElement('div'); pop.className = 'bo-pop';
+      var b = document.createElement('b'); b.textContent = (i + 1) + '. ' + o.titel; pop.appendChild(b);
+      if (o.kartenhinweis) { var h = document.createElement('div'); h.style.cssText = 'font-size:13px;margin:0 0 4px'; h.textContent = o.kartenhinweis; pop.appendChild(h); }
+      var a = document.createElement('a'); a.href = '#' + o.id; a.textContent = 'Zum Text ↓'; pop.appendChild(a);
+      mk.bindPopup(pop); mk.addTo(map); pins[o.id] = mk; alle.push(ll);
+      if (o.id !== 'san-luca') alt.push(ll);
+    });
+    bounds1 = L.latLngBounds(alt.length ? alt : alle); boundsAll = L.latLngBounds(alle);
+    map.fitBounds(bounds1, { padding: [28, 28] });
+    $('b-alt').addEventListener('click', function () { map.fitBounds(bounds1, { padding: [28, 28] }); });
+    $('b-alle').addEventListener('click', function () { map.fitBounds(boundsAll, { padding: [28, 28] }); });
+    $('b-me').addEventListener('click', function () {
+      if (!navigator.geolocation) { $('b-me').textContent = 'Standort nicht möglich'; return; }
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        var ll = [pos.coords.latitude, pos.coords.longitude];
+        if (me) me.setLatLng(ll); else me = L.marker(ll, { icon: L.divIcon({ className: 'bo-me', html: '<span></span>', iconSize: [16, 16], iconAnchor: [8, 8] }), interactive: false, zIndexOffset: -500 }).addTo(map);
+        map.setView(ll, Math.max(map.getZoom(), 16));
+      }, function () { $('b-me').textContent = 'Standort nicht freigegeben'; }, { enableHighAccuracy: true, timeout: 12000 });
+    });
+    setTimeout(function () { map.invalidateSize(); map.fitBounds(bounds1, { padding: [28, 28] }); }, 200);
+  }
   $('b-all').addEventListener('click', function () { if (tourIdx >= 0) { stop(); return; } stop(); tour(0); });
   $('b-intro-btn').addEventListener('click', function () {
     var war = $('b-intro-btn').textContent.indexOf('■') === 0; stop(); if (war) return;
@@ -188,7 +250,7 @@
     D = d; $('b-title').textContent = d.titel; $('b-sub').textContent = d.untertitel; $('b-intro').textContent = d.intro;
     var box = $('b-liste'); d.orte.forEach(function (o, i) { var c = bauKarte(o, i); cards.push(c); box.appendChild(c.el); });
     if (d.stand) { var x = d.stand.split('-'); $('b-stand').textContent = 'Stand der Angaben: ' + parseInt(x[2], 10) + '.' + parseInt(x[1], 10) + '.' + x[0] + '. Öffnungszeiten und Sperrungen bitte vor Ort prüfen.'; }
-    $('bo').classList.remove('song-wait');
+    $('bo').classList.remove('song-wait'); baueKarte(d.orte);
     if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
   }).catch(function () { $('b-error').hidden = false; });
 })();

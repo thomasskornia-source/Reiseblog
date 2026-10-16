@@ -19,7 +19,9 @@
     "datei": "Bologna-SanPetronioPiazzaMaggiore1.jpg",
     "alt": "Die Basilika San Petronio an der Piazza Maggiore"
    },
-   "sprechKI": "Piazza Maggiore und San Petronio. Die Piazza Maggiore ist der Mittelpunkt von Bologna: ein weiter Platz, umgeben von Palästen mit Bogengängen. An der Südseite steht die Basilika San Petronio. Mit dem Bau wurde dreizehnhundertneunzig begonnen, doch die Fassade blieb im oberen Teil unverkleidet. Der rote Backstein liegt bis heute offen. Im Inneren wartet etwas für Neugierige: die Meridianlinie. Giovanni Domenico Cassini zog sie sechzehnhundertfünfundfünfzig über den Boden. Durch ein kleines Loch im Gewölbe fällt ein Sonnenfleck auf die Linie. Steht er genau darauf, ist in Bologna Mittag. Das Loch sitzt gut siebenundzwanzig Meter über dem Boden."
+   "sprechKI": "Piazza Maggiore und San Petronio. Die Piazza Maggiore ist der Mittelpunkt von Bologna: ein weiter Platz, umgeben von Palästen mit Bogengängen. An der Südseite steht die Basilika San Petronio. Mit dem Bau wurde dreizehnhundertneunzig begonnen, doch die Fassade blieb im oberen Teil unverkleidet. Der rote Backstein liegt bis heute offen. Im Inneren wartet etwas für Neugierige: die Meridianlinie. Giovanni Domenico Cassini zog sie sechzehnhundertfünfundfünfzig über den Boden. Durch ein kleines Loch im Gewölbe fällt ein Sonnenfleck auf die Linie. Steht er genau darauf, ist in Bologna Mittag. Das Loch sitzt gut siebenundzwanzig Meter über dem Boden.",
+   "lat": 44.4936,
+   "lon": 11.3433
   },
   {
    "id": "nettuno",
@@ -33,7 +35,9 @@
     "datei": "Bologna Piazza Maggiore Fontana del Nettuno 06.jpg",
     "alt": "Der Neptunbrunnen von Giambologna"
    },
-   "sprechKI": "Der Neptunbrunnen. Gleich neben der Piazza Maggiore steht der Neptunbrunnen. Der junge flämische Bildhauer Giambologna schuf ihn fünfzehnhundertsechsundsechzig unter Kardinal Carlo Borromeo, der den Platz verschönern wollte. Für den Brunnen musste ein ganzer Block mit Häusern und Läden weichen. Die Bologneser nennen die Bronzefigur il Gigante, den Riesen. Studenten sollen vor wichtigen Prüfungen zweimal gegen den Uhrzeigersinn um den Brunnen laufen. Und der Dreizack des Neptun stand Pate für das Logo von Maserati, einer Marke aus Bologna."
+   "sprechKI": "Der Neptunbrunnen. Gleich neben der Piazza Maggiore steht der Neptunbrunnen. Der junge flämische Bildhauer Giambologna schuf ihn fünfzehnhundertsechsundsechzig unter Kardinal Carlo Borromeo, der den Platz verschönern wollte. Für den Brunnen musste ein ganzer Block mit Häusern und Läden weichen. Die Bologneser nennen die Bronzefigur il Gigante, den Riesen. Studenten sollen vor wichtigen Prüfungen zweimal gegen den Uhrzeigersinn um den Brunnen laufen. Und der Dreizack des Neptun stand Pate für das Logo von Maserati, einer Marke aus Bologna.",
+   "lat": 44.4943,
+   "lon": 11.3427
   },
   {
    "id": "due-torri",
@@ -48,7 +52,9 @@
     "datei": "Two towers in Bologna, Italy.jpg",
     "alt": "Die Türme Asinelli und Garisenda"
    },
-   "sprechKI": "Die zwei Türme. Die beiden schiefen Türme sind das Wahrzeichen von Bologna. Der Asinelli ist siebenundneunzig Komma zwei Meter hoch und neigt sich um eins Komma drei Grad. Gebaut wurde er zwischen elfhundertneun und elfhundertneunzehn. Hinauf führen vierhundertachtundneunzig steile Holzstufen. Der Garisenda misst achtundvierzig Meter und neigt sich mit etwa vier Grad deutlich stärker. Er wurde schon vor Jahrhunderten gekürzt und taucht in Dantes Göttlicher Komödie auf. Ein Volksglaube sagt: Wer als Student vor dem Abschluss den Asinelli besteigt, schließt nie ab. Aktueller Stand: Die Garisenda wird seit zweitausenddreiundzwanzig gesichert, die Arbeiten sollen mindestens bis zweitausendachtundzwanzig dauern. Der Asinelli war zuletzt für Besucher gesperrt. Ob man hinaufsteigen kann, erfragt man am besten bei Bologna Welcome auf der Piazza Maggiore."
+   "sprechKI": "Die zwei Türme. Die beiden schiefen Türme sind das Wahrzeichen von Bologna. Der Asinelli ist siebenundneunzig Komma zwei Meter hoch und neigt sich um eins Komma drei Grad. Gebaut wurde er zwischen elfhundertneun und elfhundertneunzehn. Hinauf führen vierhundertachtundneunzig steile Holzstufen. Der Garisenda misst achtundvierzig Meter und neigt sich mit etwa vier Grad deutlich stärker. Er wurde schon vor Jahrhunderten gekürzt und taucht in Dantes Göttlicher Komödie auf. Ein Volksglaube sagt: Wer als Student vor dem Abschluss den Asinelli besteigt, schließt nie ab. Aktueller Stand: Die Garisenda wird seit zweitausenddreiundzwanzig gesichert, die Arbeiten sollen mindestens bis zweitausendachtundzwanzig dauern. Der Asinelli war zuletzt für Besucher gesperrt. Ob man hinaufsteigen kann, erfragt man am besten bei Bologna Welcome auf der Piazza Maggiore.",
+   "lat": 44.4942,
+   "lon": 11.3467
   },
   {
    "id": "portici",
@@ -62,7 +68,10 @@
     "datei": "I portici di Bologna.JPG",
     "alt": "Bogengänge in Bologna"
    },
-   "sprechKI": "Die Portici. Bologna ist die Stadt der Bogengänge. Rund zweiundsechzig Kilometer Portici gibt es insgesamt, etwa zweiundvierzig davon im historischen Zentrum. Zweitausendeinundzwanzig hat die UNESCO zwölf besonders wichtige Abschnitte zum Welterbe erklärt. Entstanden sind die Arkaden im Mittelalter, nachdem tausendachtundachtzig die Universität eröffnet hatte. Die Stadt wuchs, es brauchte mehr Wohnraum, und die oberen Stockwerke durften über den Gehweg ragen, ohne öffentlichen Boden zu beanspruchen. Ab zwölfhundertachtundachtzig galt sogar eine Pflicht: Neubauten mussten einen Portikus haben. Der Vorteil für Besucher: Bei Regen bleibt man trocken."
+   "sprechKI": "Die Portici. Bologna ist die Stadt der Bogengänge. Rund zweiundsechzig Kilometer Portici gibt es insgesamt, etwa zweiundvierzig davon im historischen Zentrum. Zweitausendeinundzwanzig hat die UNESCO zwölf besonders wichtige Abschnitte zum Welterbe erklärt. Entstanden sind die Arkaden im Mittelalter, nachdem tausendachtundachtzig die Universität eröffnet hatte. Die Stadt wuchs, es brauchte mehr Wohnraum, und die oberen Stockwerke durften über den Gehweg ragen, ohne öffentlichen Boden zu beanspruchen. Ab zwölfhundertachtundachtzig galt sogar eine Pflicht: Neubauten mussten einen Portikus haben. Der Vorteil für Besucher: Bei Regen bleibt man trocken.",
+   "lat": 44.493,
+   "lon": 11.3437,
+   "kartenhinweis": "Hier: der Portico del Pavaglione neben dem Archiginnasio, die Portici gibt es überall in der Altstadt."
   },
   {
    "id": "archiginnasio",
@@ -77,7 +86,9 @@
     "datei": "Bologna, Archiginnasio, Teatro anatomico (1).jpg",
     "alt": "Das Anatomische Theater im Archiginnasio"
    },
-   "sprechKI": "Archiginnasio und Anatomisches Theater. Bologna besitzt die älteste Universität der Welt, die seit tausendachtundachtzig durchgehend lehrt. Im Archiginnasio, dem früheren Hauptsitz der Universität, liegt ein verstecktes Juwel: das Anatomische Theater. Der Saal wurde sechzehnhundertsechsunddreißig begonnen und besteht ganz aus Fichtenholz. In der Mitte steht der marmorne Seziertisch, darüber der Lehrstuhl, flankiert von zwei Figuren ohne Haut, den Spellati. An der Decke thront Apollo. Im Zweiten Weltkrieg wurde der Raum stark beschädigt und danach sorgfältig wiederhergestellt."
+   "sprechKI": "Archiginnasio und Anatomisches Theater. Bologna besitzt die älteste Universität der Welt, die seit tausendachtundachtzig durchgehend lehrt. Im Archiginnasio, dem früheren Hauptsitz der Universität, liegt ein verstecktes Juwel: das Anatomische Theater. Der Saal wurde sechzehnhundertsechsunddreißig begonnen und besteht ganz aus Fichtenholz. In der Mitte steht der marmorne Seziertisch, darüber der Lehrstuhl, flankiert von zwei Figuren ohne Haut, den Spellati. An der Decke thront Apollo. Im Zweiten Weltkrieg wurde der Raum stark beschädigt und danach sorgfältig wiederhergestellt.",
+   "lat": 44.4929,
+   "lon": 11.3427
   },
   {
    "id": "essen",
@@ -92,7 +103,9 @@
     "datei": "Tortellini in Bologna.jpg",
     "alt": "Tortellini nach Bologneser Art"
    },
-   "sprechKI": "Essen im Quadrilatero. Das alte Marktviertel Quadrilatero liegt gleich hinter dem Platz: enge Gassen, Salumerie und Läden mit frischer Pasta. Hier lohnt sich ein Stopp, denn Bologna ist die Stadt der Dicken. Tagliatelle al Ragù haben ein offiziell hinterlegtes Rezept von neunzehnhundertzweiundachtzig, Tortellini in Brodo eines von neunzehnhundertvierundsiebzig. Die Mortadella ist eine geschützte Spezialität, ihr Rezept wurde sechzehnhunderteinundsechzig festgehalten. Dazu passen Lasagne verdi und Tigelle mit Aufschnitt. Und: Spaghetti Bolognese gibt es hier nicht."
+   "sprechKI": "Essen im Quadrilatero. Das alte Marktviertel Quadrilatero liegt gleich hinter dem Platz: enge Gassen, Salumerie und Läden mit frischer Pasta. Hier lohnt sich ein Stopp, denn Bologna ist die Stadt der Dicken. Tagliatelle al Ragù haben ein offiziell hinterlegtes Rezept von neunzehnhundertzweiundachtzig, Tortellini in Brodo eines von neunzehnhundertvierundsiebzig. Die Mortadella ist eine geschützte Spezialität, ihr Rezept wurde sechzehnhunderteinundsechzig festgehalten. Dazu passen Lasagne verdi und Tigelle mit Aufschnitt. Und: Spaghetti Bolognese gibt es hier nicht.",
+   "lat": 44.4939,
+   "lon": 11.3447
   },
   {
    "id": "finestrella",
@@ -106,7 +119,9 @@
     "datei": "Via Piella, la \"finestrella\" sul canale a Bologna.JPG",
     "alt": "Das Fensterchen mit Blick auf den Kanal"
    },
-   "sprechKI": "Das Fensterchen in der Via Piella. In der Via Piella steckt ein Geheimtipp: ein unscheinbares Fensterchen in der Hauswand. Öffnet man es, sieht man den Kanal Canale delle Moline mit einer kleinen Brücke, ein Stück Klein-Venedig. Der Kanal ist eine Verlängerung des Canale di Reno und verläuft die meiste Zeit zwischen Häusern, lange war er verborgen. Dieses Stück wurde nicht überbaut, deshalb ist hier noch fließendes Wasser zu sehen. Man erreicht die Gasse durch das Torresotto di Porta Govese. Zwei weitere Fensterchen gibt es in der Via Oberdan und der Via Malcontenti."
+   "sprechKI": "Das Fensterchen in der Via Piella. In der Via Piella steckt ein Geheimtipp: ein unscheinbares Fensterchen in der Hauswand. Öffnet man es, sieht man den Kanal Canale delle Moline mit einer kleinen Brücke, ein Stück Klein-Venedig. Der Kanal ist eine Verlängerung des Canale di Reno und verläuft die meiste Zeit zwischen Häusern, lange war er verborgen. Dieses Stück wurde nicht überbaut, deshalb ist hier noch fließendes Wasser zu sehen. Man erreicht die Gasse durch das Torresotto di Porta Govese. Zwei weitere Fensterchen gibt es in der Via Oberdan und der Via Malcontenti.",
+   "lat": 44.4985,
+   "lon": 11.3394
   },
   {
    "id": "san-luca",
@@ -121,7 +136,9 @@
     "datei": "Bologna - Santuario della Madonna di San Luca.jpg",
     "alt": "Das Heiligtum Madonna di San Luca"
    },
-   "sprechKI": "San Luca und der längste Portikus der Welt. Das Santuario della Madonna di San Luca thront auf einem Hügel über Bologna. Dorthin führt der längste Portikus der Welt: dreitausendsiebenhundertsechsundneunzig Meter lang, mit sechshundertsechsundsechzig Bögen, von der Porta Saragozza bis zum Heiligtum. Er gehört zu den UNESCO-Abschnitten der Portici. Der Weg geht stetig bergauf. Wer ihn zu Fuß nimmt, wird oben mit einem weiten Blick über die roten Dächer der Stadt belohnt."
+   "sprechKI": "San Luca und der längste Portikus der Welt. Das Santuario della Madonna di San Luca thront auf einem Hügel über Bologna. Dorthin führt der längste Portikus der Welt: dreitausendsiebenhundertsechsundneunzig Meter lang, mit sechshundertsechsundsechzig Bögen, von der Porta Saragozza bis zum Heiligtum. Er gehört zu den UNESCO-Abschnitten der Portici. Der Weg geht stetig bergauf. Wer ihn zu Fuß nimmt, wird oben mit einem weiten Blick über die roten Dächer der Stadt belohnt.",
+   "lat": 44.4807,
+   "lon": 11.2985
   }
  ],
  "sprechIntroKI": "Willkommen in Bologna. Die Stadt hat drei Beinamen: La Dotta, die Gelehrte, wegen der ältesten Universität. La Grassa, die Dicke, wegen des Essens. Und La Rossa, die Rote, wegen der Ziegeldächer und Backsteinmauern. Hier sind acht Orte, fast alle zu Fuß erreichbar, in der Reihenfolge eines Spaziergangs: Piazza Maggiore, der Neptunbrunnen, die zwei Türme, die Portici, das Anatomische Theater, das Essen im Quadrilatero, das Fensterchen in der Via Piella und zum Schluss San Luca oberhalb der Stadt. Viel Freude beim Entdecken."
