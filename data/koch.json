@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "66bmABSuKic",
+   "titel": "Big Show bei Tesla. Anthropic-Investoren senken Bewertungsziele.",
+   "datum": "2026-10-16",
+   "zeit": "2026-10-16T15:16:10+00:00",
+   "art": "opening",
+   "score": 20,
+   "pfeil": "hoch",
+   "thema": "Markus Koch analysiert einen verhaltenen Börsentag an der Wall Street und verweist auf entspannende Signale von den Anleihe- und Ölmärkten.",
+   "gesamtstimmung": "Die Grundstimmung an der Wall Street ist trotz anhaltender geopolitischer Brandherde und heißer Inflationsdaten erstaunlich stabil. Für Erleichterung sorgen insbesondere sinkende Renditen bei US-Staatsanleihen, eine abnehmende Anleihevolatilität und stabile Ölpreise.",
+   "begruendung": "Koch betont positiv, dass der Rentenmarkt mit sinkenden Renditen und einem nachgebenden MOVE-Index für Beruhigung sorgt, während auch der Ölpreis trotz Nahost-Spannungen nicht eskaliert. Da zudem von Seiten der Notenbank kurz vor den Wahlen keine bösen Überraschungen drohen, überwiegt trotz eines trägen Handelsstarts ein verhalten optimistischer Grundton.",
+   "indikatoren": [
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "sinken im Wochenverlauf trotz hoher Inflationsdaten",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Renditen langlaufender Staatsanleihen nehmen Bewertungsdruck vom Aktienmarkt und wirken entlastend."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "MOVE-Index (Anleihevolatilität)",
+     "lage": "gibt nach und signalisiert Entspannung",
+     "pfeil": "hoch",
+     "rolle": "Eine nachlassende Nervosität am Zinsmarkt sorgt für ein stabileres Gesamtumfeld an den Finanzmärkten."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Brent sinkt, WTI stagniert",
+     "pfeil": "hoch",
+     "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Lage bleibt angespannt, US-Bodentruppen im Iran vom Tisch",
+     "pfeil": "seitwaerts",
+     "rolle": "Geopolitische Risiken sind zwar allgegenwärtig, führen aber aktuell nicht zu Panik an den Märkten."
+    },
+    {
+     "kategorie": "Dollar & Währungen",
+     "name": "US-Dollar",
+     "lage": "zeigt sich etwas schwächer",
+     "pfeil": "hoch",
+     "rolle": "Ein leichter Rücksetzer beim Dollar begünstigt Edelmetalle und entlastet globale Liquiditätsströme."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "keine zusätzlichen Zinsschritte vor den Midterms erwartet",
+     "pfeil": "hoch",
+     "rolle": "Das Ausbleiben hawkisher Überraschungen stützt die Zuversicht im Markt."
+    }
+   ],
+   "zitate": [
+    "relativ müder Start in den Tag",
+    "eine gewisse Entwarnung hier auf der Anleihe-Seite"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 117063
+  },
+  {
    "id": "Tw9LGZv6nSE",
    "titel": "Tech-Verkaufswelle bleibt. Erzeugerpreise sehr heiß.",
    "datum": "2026-10-15",
@@ -1256,9 +1319,10 @@
   "44a91nG4zSI",
   "Nw5Q7CWeMX8",
   "XQ1dFmtr9lk",
-  "Tw9LGZv6nSE"
+  "Tw9LGZv6nSE",
+  "66bmABSuKic"
  ],
- "stand": "2026-10-15T22:40Z",
+ "stand": "2026-10-16T22:15Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
