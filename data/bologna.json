@@ -1,0 +1,95 @@
+{
+ "aktiv": true,
+ "titel": "Bologna",
+ "untertitel": "Die Highlights zum Lesen und Anhören",
+ "stand": "2026-10-16",
+ "intro": "Bologna hat drei Beinamen: die Gelehrte wegen der ältesten Universität, die Dicke wegen des Essens und die Rote wegen der Ziegeldächer und Backsteinmauern. Hier sind acht Orte, fast alle zu Fuß erreichbar, in der Reihenfolge eines Spaziergangs. Nur San Luca liegt oberhalb der Altstadt.",
+ "sprechIntro": "Willkommen in Bolonja. Die Stadt hat drei Beinamen: La Dotta, die Gelehrte, wegen der ältesten Universität. La Grassa, die Dicke, wegen des Essens. Und La Rossa, die Rote, wegen der Ziegeldächer und Backsteinmauern. Hier sind acht Orte, fast alle zu Fuß erreichbar, in der Reihenfolge eines Spaziergangs: Piatsa Madschore, der Neptunbrunnen, die zwei Türme, die Portitschi, das Anatomische Theater, das Essen im Kwadrilatero, das Fensterchen in der Wia Pjella und zum Schluss San Luka oberhalb der Stadt. Viel Freude beim Entdecken.",
+ "orte": [
+  {
+   "id": "piazza-maggiore",
+   "titel": "Piazza Maggiore und San Petronio",
+   "ort": "Das Herz der Altstadt",
+   "kurz": "Das Wohnzimmer der Stadt, mit einer Kirche, die nie ganz fertig wurde.",
+   "text": "Die Piazza Maggiore ist der Mittelpunkt Bolognas: ein weiter Platz, umgeben von Palästen mit Bogengängen. An der Südseite steht die Basilika San Petronio. Mit dem Bau wurde 1390 begonnen, doch die Fassade blieb im oberen Teil unverkleidet, der rote Backstein liegt bis heute offen.\n\nIm Inneren wartet etwas für Neugierige: die Meridianlinie. Giovanni Domenico Cassini zog sie 1655 über den Boden. Durch ein kleines Loch im Gewölbe fällt ein Sonnenfleck auf die Linie, und steht er genau darauf, ist in Bologna Mittag. Das Loch sitzt gut 27 Meter über dem Boden.",
+   "sprech": "Piatsa Madschore und San Petronjo. Die Piatsa Madschore ist der Mittelpunkt von Bolonja: ein weiter Platz, umgeben von Palästen mit Bogengängen. An der Südseite steht die Basilika San Petronjo. Mit dem Bau wurde dreizehnhundertneunzig begonnen, doch die Fassade blieb im oberen Teil unverkleidet. Der rote Backstein liegt bis heute offen. Im Inneren wartet etwas für Neugierige: die Meridianlinie. Dschowanni Domenico Kassini zog sie sechzehnhundertfünfundfünfzig über den Boden. Durch ein kleines Loch im Gewölbe fällt ein Sonnenfleck auf die Linie. Steht er genau darauf, ist in Bolonja Mittag. Das Loch sitzt gut siebenundzwanzig Meter über dem Boden.",
+   "tipp": "In der Kirche sind bedeckte Schultern und Knie üblich.",
+   "karte": "Basilica di San Petronio Bologna",
+   "bild": {"datei": "Bologna-SanPetronioPiazzaMaggiore1.jpg", "alt": "Die Basilika San Petronio an der Piazza Maggiore"}
+  },
+  {
+   "id": "nettuno",
+   "titel": "Der Neptunbrunnen",
+   "ort": "Neben der Piazza Maggiore",
+   "kurz": "Ein Bronzegott, den die Bologneser „den Riesen“ nennen.",
+   "text": "Gleich neben der Piazza Maggiore steht der Neptunbrunnen. Der junge flämische Bildhauer Giambologna schuf ihn 1566 unter Kardinal Carlo Borromeo, der den Platz verschönern wollte. Für den Brunnen musste ein ganzer Block mit Häusern und Läden weichen.\n\nDie Bologneser nennen die Bronzefigur „il Gigante“, den Riesen. Studenten sollen vor wichtigen Prüfungen zweimal gegen den Uhrzeigersinn um den Brunnen laufen. Und der Dreizack des Neptun stand Pate für das Logo von Maserati, einer Marke aus Bologna.",
+   "sprech": "Der Neptunbrunnen. Gleich neben der Piatsa Madschore steht der Neptunbrunnen. Der junge flämische Bildhauer Dschambolonja schuf ihn fünfzehnhundertsechsundsechzig unter Kardinal Carlo Borromeo, der den Platz verschönern wollte. Für den Brunnen musste ein ganzer Block mit Häusern und Läden weichen. Die Bolonjesen nennen die Bronzefigur il Dschigante, den Riesen. Studenten sollen vor wichtigen Prüfungen zweimal gegen den Uhrzeigersinn um den Brunnen laufen. Und der Dreizack des Neptun stand Pate für das Logo von Maserati, einer Marke aus Bolonja.",
+   "karte": "Fontana del Nettuno Bologna",
+   "bild": {"datei": "Bologna Piazza Maggiore Fontana del Nettuno 06.jpg", "alt": "Der Neptunbrunnen von Giambologna"}
+  },
+  {
+   "id": "due-torri",
+   "titel": "Die zwei Türme",
+   "ort": "Piazza di Porta Ravegnana",
+   "kurz": "Asinelli und Garisenda, das schiefe Wahrzeichen der Stadt.",
+   "text": "Die beiden schiefen Türme sind das Wahrzeichen Bolognas. Der Asinelli ist 97,2 Meter hoch und neigt sich um 1,3 Grad, gebaut wurde er zwischen 1109 und 1119. Hinauf führen 498 steile Holzstufen. Der Garisenda misst 48 Meter und neigt sich mit etwa 4 Grad deutlich stärker. Er wurde schon vor Jahrhunderten gekürzt und taucht in Dantes Göttlicher Komödie auf.\n\nEin Volksglaube sagt: Wer als Student vor dem Abschluss den Asinelli besteigt, schließt nie ab.\n\nAktueller Stand: Die Garisenda wird seit 2023 gesichert, die Arbeiten sollen mindestens bis 2028 dauern. Der Asinelli war zuletzt für Besucher gesperrt. Ob man hinaufsteigen kann, am besten bei Bologna Welcome auf der Piazza Maggiore erfragen.",
+   "sprech": "Die zwei Türme. Die beiden schiefen Türme sind das Wahrzeichen von Bolonja. Der Asinelli ist siebenundneunzig Komma zwei Meter hoch und neigt sich um eins Komma drei Grad. Gebaut wurde er zwischen elfhundertneun und elfhundertneunzehn. Hinauf führen vierhundertachtundneunzig steile Holzstufen. Der Garisenda misst achtundvierzig Meter und neigt sich mit etwa vier Grad deutlich stärker. Er wurde schon vor Jahrhunderten gekürzt und taucht in Dantes Göttlicher Komödie auf. Ein Volksglaube sagt: Wer als Student vor dem Abschluss den Asinelli besteigt, schließt nie ab. Aktueller Stand: Die Garisenda wird seit zweitausenddreiundzwanzig gesichert, die Arbeiten sollen mindestens bis zweitausendachtundzwanzig dauern. Der Asinelli war zuletzt für Besucher gesperrt. Ob man hinaufsteigen kann, erfragt man am besten bei Bolonja Wellkam auf der Piatsa Madschore.",
+   "tipp": "Beide Türme sind zuletzt abgesperrt gewesen. Der Blick von unten lohnt trotzdem.",
+   "karte": "Torre degli Asinelli Bologna",
+   "bild": {"datei": "Two towers in Bologna, Italy.jpg", "alt": "Die Türme Asinelli und Garisenda"}
+  },
+  {
+   "id": "portici",
+   "titel": "Die Portici",
+   "ort": "Überall in der Altstadt",
+   "kurz": "Kilometerlange Bogengänge, seit 2021 UNESCO-Welterbe.",
+   "text": "Bologna ist die Stadt der Bogengänge. Rund 62 Kilometer Portici gibt es insgesamt, etwa 42 davon im historischen Zentrum. 2021 hat die UNESCO zwölf besonders wichtige Abschnitte zum Welterbe erklärt.\n\nEntstanden sind die Arkaden im Mittelalter, nachdem 1088 die Universität eröffnet hatte. Die Stadt wuchs, es brauchte mehr Wohnraum, und die oberen Stockwerke durften über den Gehweg ragen, ohne öffentlichen Boden zu beanspruchen. Ab 1288 galt sogar eine Pflicht: Neubauten mussten einen Portikus haben. Der Vorteil für Besucher: Bei Regen bleibt man trocken.",
+   "sprech": "Die Portitschi. Bolonja ist die Stadt der Bogengänge. Rund zweiundsechzig Kilometer Portitschi gibt es insgesamt, etwa zweiundvierzig davon im historischen Zentrum. Zweitausendeinundzwanzig hat die UNESCO zwölf besonders wichtige Abschnitte zum Welterbe erklärt. Entstanden sind die Arkaden im Mittelalter, nachdem tausendachtundachtzig die Universität eröffnet hatte. Die Stadt wuchs, es brauchte mehr Wohnraum, und die oberen Stockwerke durften über den Gehweg ragen, ohne öffentlichen Boden zu beanspruchen. Ab zwölfhundertachtundachtzig galt sogar eine Pflicht: Neubauten mussten einen Portikus haben. Der Vorteil für Besucher: Bei Regen bleibt man trocken.",
+   "karte": "Via Santo Stefano Bologna portici",
+   "bild": {"datei": "I portici di Bologna.JPG", "alt": "Bogengänge in Bologna"}
+  },
+  {
+   "id": "archiginnasio",
+   "titel": "Archiginnasio und Anatomisches Theater",
+   "ort": "Piazza Galvani",
+   "kurz": "Ein Hörsaal ganz aus Holz, in dem einst seziert wurde.",
+   "text": "Bologna besitzt die älteste Universität der Welt, die seit 1088 durchgehend lehrt. Im Archiginnasio, dem früheren Hauptsitz der Universität, liegt ein verstecktes Juwel: das Anatomische Theater. Der Saal wurde 1636 begonnen und besteht ganz aus Fichtenholz. In der Mitte steht der marmorne Seziertisch, darüber der Lehrstuhl, flankiert von zwei Figuren ohne Haut, den Spellati. An der Decke thront Apollo.\n\nIm Zweiten Weltkrieg wurde der Raum stark beschädigt und danach sorgfältig wiederhergestellt.",
+   "sprech": "Archidschinnasio und Anatomisches Theater. Bolonja besitzt die älteste Universität der Welt, die seit tausendachtundachtzig durchgehend lehrt. Im Archidschinnasio, dem früheren Hauptsitz der Universität, liegt ein verstecktes Juwel: das Anatomische Theater. Der Saal wurde sechzehnhundertsechsunddreißig begonnen und besteht ganz aus Fichtenholz. In der Mitte steht der marmorne Seziertisch, darüber der Lehrstuhl, flankiert von zwei Figuren ohne Haut, den Spellati. An der Decke thront Apollo. Im Zweiten Weltkrieg wurde der Raum stark beschädigt und danach sorgfältig wiederhergestellt.",
+   "tipp": "Laut Atlas Obscura: Mo–Fr 10–18 Uhr, Sa 10–19 Uhr, So 10–14 Uhr, Eintritt 3 €. Bitte vor Ort prüfen.",
+   "karte": "Teatro Anatomico Archiginnasio Bologna",
+   "bild": {"datei": "Bologna, Archiginnasio, Teatro anatomico (1).jpg", "alt": "Das Anatomische Theater im Archiginnasio"}
+  },
+  {
+   "id": "essen",
+   "titel": "Essen im Quadrilatero",
+   "ort": "Hinter der Piazza Maggiore",
+   "kurz": "Tortellini, Ragù und Mortadella, dort, wo sie herkommen.",
+   "text": "Das alte Marktviertel Quadrilatero liegt gleich hinter dem Platz: enge Gassen, Salumerie und Läden mit frischer Pasta. Hier lohnt sich ein Stopp, denn Bologna ist die Stadt der Dicken.\n\nTagliatelle al Ragù haben ein offiziell hinterlegtes Rezept von 1982, Tortellini in Brodo eines von 1974. Die Mortadella ist eine geschützte Spezialität, ihr Rezept wurde 1661 festgehalten. Dazu passen Lasagne verdi und Tigelle mit Aufschnitt. Und: „Spaghetti Bolognese“ gibt es hier nicht.",
+   "sprech": "Essen im Kwadrilatero. Das alte Marktviertel Kwadrilatero liegt gleich hinter dem Platz: enge Gassen, Salumerie und Läden mit frischer Pasta. Hier lohnt sich ein Stopp, denn Bolonja ist die Stadt der Dicken. Talliatelle al Ragu haben ein offiziell hinterlegtes Rezept von neunzehnhundertzweiundachtzig, Tortellini in Brodo eines von neunzehnhundertvierundsiebzig. Die Mortadella ist eine geschützte Spezialität, ihr Rezept wurde sechzehnhunderteinundsechzig festgehalten. Dazu passen Lasanje Werdi und Tidschelle mit Aufschnitt. Und: Spaghetti Bolonese gibt es hier nicht.",
+   "tipp": "Ein Essensführer nennt die Salumeria Simoni für Mortadella und Paolo Atti & Figli (seit 1880) für frische Tortellini zum Mitnehmen. Gute Trattorien sind klein, am besten vorher reservieren.",
+   "karte": "Quadrilatero Bologna",
+   "bild": {"datei": "Tortellini in Bologna.jpg", "alt": "Tortellini nach Bologneser Art"}
+  },
+  {
+   "id": "finestrella",
+   "titel": "Das Fensterchen in der Via Piella",
+   "ort": "Via Piella 16/a–18/a",
+   "kurz": "Ein Blick durch die Hauswand: Klein-Venedig mitten in Bologna.",
+   "text": "In der Via Piella steckt ein Geheimtipp: ein unscheinbares Fensterchen in der Hauswand. Öffnet man es, sieht man den Canale delle Moline mit einer kleinen Brücke, ein Stück Klein-Venedig.\n\nDer Kanal ist eine Verlängerung des Canale di Reno und verläuft die meiste Zeit zwischen Häusern, lange war er verborgen. Dieses Stück wurde nicht überbaut, deshalb ist hier noch fließendes Wasser zu sehen. Man erreicht die Gasse durch das Torresotto di Porta Govese. Zwei weitere Fensterchen gibt es in der Via Oberdan und der Via Malcontenti.",
+   "sprech": "Das Fensterchen in der Wia Pjella. In der Wia Pjella steckt ein Geheimtipp: ein unscheinbares Fensterchen in der Hauswand. Öffnet man es, sieht man den Kanal Canale delle Moline mit einer kleinen Brücke, ein Stück Klein-Venedig. Der Kanal ist eine Verlängerung des Canale di Reno und verläuft die meiste Zeit zwischen Häusern, lange war er verborgen. Dieses Stück wurde nicht überbaut, deshalb ist hier noch fließendes Wasser zu sehen. Man erreicht die Gasse durch das Torresotto di Porta Gowese. Zwei weitere Fensterchen gibt es in der Wia Oberdan und der Wia Malkontenti.",
+   "karte": "Finestrella di Via Piella Bologna",
+   "bild": {"datei": "Via Piella, la \"finestrella\" sul canale a Bologna.JPG", "alt": "Das Fensterchen mit Blick auf den Kanal"}
+  },
+  {
+   "id": "san-luca",
+   "titel": "San Luca und der längste Portikus der Welt",
+   "ort": "Hügel oberhalb der Altstadt",
+   "kurz": "666 Bögen führen hinauf zum Heiligtum über der Stadt.",
+   "text": "Das Santuario della Madonna di San Luca thront auf einem Hügel über Bologna. Dorthin führt der längste Portikus der Welt: 3.796 Meter lang, mit 666 Bögen, von der Porta Saragozza bis zum Heiligtum. Er gehört zu den UNESCO-Abschnitten der Portici.\n\nDer Weg geht stetig bergauf. Wer ihn zu Fuß nimmt, wird oben mit einem weiten Blick über die roten Dächer der Stadt belohnt.",
+   "sprech": "San Luka und der längste Portikus der Welt. Das Santuario della Madonna di San Luka thront auf einem Hügel über Bolonja. Dorthin führt der längste Portikus der Welt: dreitausendsiebenhundertsechsundneunzig Meter lang, mit sechshundertsechsundsechzig Bögen, von der Porta Saragotsa bis zum Heiligtum. Er gehört zu den UNESCO-Abschnitten der Portitschi. Der Weg geht stetig bergauf. Wer ihn zu Fuß nimmt, wird oben mit einem weiten Blick über die roten Dächer der Stadt belohnt.",
+   "tipp": "Gutes Schuhwerk und etwas Zeit mitbringen, der Weg führt die ganze Strecke bergauf.",
+   "karte": "Santuario della Madonna di San Luca Bologna",
+   "bild": {"datei": "Bologna - Santuario della Madonna di San Luca.jpg", "alt": "Das Heiligtum Madonna di San Luca"}
+  }
+ ]
+}

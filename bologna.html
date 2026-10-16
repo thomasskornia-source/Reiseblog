@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Bologna – Die Highlights – Unterwegs und zuhause</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=29">
+<link rel="stylesheet" href="song.css?v=2">
+<style>
+.bo-karte{position:relative;margin:0 0 34px;padding:0 0 26px;border-bottom:1px solid rgba(46,58,50,.12);scroll-margin-top:76px}
+.bo-karte:last-of-type{border-bottom:0}
+.bo-kopf{display:flex;align-items:center;gap:12px;margin:0 0 10px}
+.bo-nr{flex:none;width:34px;height:34px;border-radius:50%;background:var(--rust);color:#fff;font:600 16px/34px 'Work Sans',sans-serif;text-align:center}
+.bo-kopf h2{font-family:'Fraunces',serif;font-weight:500;font-size:25px;line-height:1.2;margin:0}
+.bo-ort{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--rust);margin:0 0 12px}
+.bo-foto{position:relative;margin:0 0 14px;border-radius:18px;overflow:hidden;background:var(--paper-warm);aspect-ratio:4/3}
+.bo-foto img{display:block;width:100%;height:100%;object-fit:cover}
+.bo-foto figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 12px 8px;font-size:12px;line-height:1.3;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.page-song .bo-foto figcaption a{color:#fff;text-decoration:underline}
+.bo-play{all:unset;cursor:pointer;position:absolute;right:12px;top:12px;width:56px;height:56px;border-radius:50%;background:#F6C253;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.bo-play:active{transform:scale(.94)}
+.bo-play:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.bo-play svg{width:30px;height:30px;fill:#262F63}
+.bo-play .st{display:none}
+.bo-play.spielt .pl{display:none}
+.bo-play.spielt .st{display:inline}
+.bo-ohnefoto .bo-play{position:static;margin:0 0 12px}
+.bo-karte.spielt{background:linear-gradient(90deg,rgba(246,194,83,.18),transparent);box-shadow:-12px 0 0 rgba(246,194,83,.18)}
+.page-song .bo-link{display:inline-block;margin-top:6px;font-size:15px;color:var(--rust);text-decoration:underline;text-underline-offset:3px}
+.bo-intro{font-size:18px;line-height:1.55;margin:0 0 18px}
+.bo-stand{margin-top:26px}
+.page-song .song-btn.stop{background:var(--ink)}
+</style>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+</head>
+<body class="page-song">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="quiz.html">München</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="index.html">← Zur Startseite</a>
+  </div>
+
+  <article id="bo" class="song-wait">
+    <header class="entry-header">
+      <p class="date">Sonderseite · Reise nach Bologna</p>
+      <h1><span id="b-title">Bologna</span></h1>
+      <p class="song-by" id="b-sub">Die Highlights zum Lesen und Anhören</p>
+      <hr class="rule">
+    </header>
+    <p class="bo-intro" id="b-intro"></p>
+    <div class="song-actions">
+      <button type="button" class="song-btn" id="b-all">▶ Alle nacheinander anhören</button>
+      <button type="button" class="song-btn alt" id="b-intro-btn">▶ Kurze Einführung</button>
+    </div>
+    <div id="b-liste"></div>
+    <p class="song-note bo-stand" id="b-stand"></p>
+  </article>
+  <p id="b-error" class="song-note" hidden>Die Bologna-Seite konnte gerade nicht geladen werden.</p>
+  <footer class="site-footer"><p>Bologna, zum Lesen und Anhören.</p></footer>
+</div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg>';
+  var D = null, cards = [], au = null, sp = false, tourIdx = -1, token = 0;
+
+  function ui(aktiv, labelAll) {
+    var all = $('b-all'), intro = $('b-intro-btn');
+    all.textContent = labelAll ? '■ Stopp' : '▶ Alle nacheinander anhören';
+    all.classList.toggle('stop', !!labelAll);
+    intro.textContent = '▶ Kurze Einführung';
+    cards.forEach(function (c, i) {
+      var on = aktiv === i;
+      c.el.classList.toggle('spielt', on);
+      c.btn.classList.toggle('spielt', on);
+      c.btn.setAttribute('aria-label', on ? 'Stopp' : 'Anhören: ' + c.o.titel);
+    });
+    if (aktiv === 'intro') intro.textContent = '■ Stopp';
+  }
+  function stop() {
+    token++; sp = false; tourIdx = -1;
+    if (au) { au.pause(); au = null; }
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    ui(null, false);
+  }
+  function stimme() {
+    var v = ('speechSynthesis' in window) ? speechSynthesis.getVoices() : [];
+    for (var i = 0; i < v.length; i++) if (/^de/i.test(v[i].lang)) return v[i];
+    return null;
+  }
+  function sprich(text, fertig) {
+    var my = token;
+    if (!('speechSynthesis' in window)) { fertig(false); return; }
+    var teile = text.match(/[^.!?:]+[.!?:]+|[^.!?:]+$/g) || [text], v = stimme();
+    sp = true;
+    (function next() {
+      if (my !== token) return;
+      if (!teile.length) { sp = false; fertig(true); return; }
+      var u = new SpeechSynthesisUtterance(teile.shift().trim());
+      u.lang = 'de-DE'; u.rate = 0.95; if (v) u.voice = v;
+      u.onend = next;
+      u.onerror = function (er) { if (my === token && (!er || (er.error !== 'canceled' && er.error !== 'interrupted'))) { stop(); } };
+      speechSynthesis.speak(u);
+    })();
+  }
+  function lies(text, audioDatei, fertig) {
+    var my = token;
+    if (audioDatei && window.Audio) {
+      var a = new Audio(audioDatei); au = a;
+      a.onended = function () { if (my === token) { au = null; fertig(true); } };
+      a.onerror = function () { if (my === token) { au = null; sprich(text, fertig); } };
+      var p = a.play(); if (p && p.catch) p.catch(function () { if (my === token && au === a) { au = null; sprich(text, fertig); } });
+    } else sprich(text, fertig);
+  }
+  function einzeln(i) {
+    var war = cards[i].btn.classList.contains('spielt');
+    stop(); if (war) return;
+    var o = cards[i].o; ui(i, false);
+    lies(o.sprech || o.text, o.audio ? 'audio/bologna-' + encodeURIComponent(o.id) + '.mp3' : '', function () { ui(null, false); });
+  }
+  function tour(i) {
+    if (i >= cards.length) { stop(); return; }
+    tourIdx = i; var my = token, c = cards[i];
+    ui(i, true);
+    c.el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    lies(c.o.sprech || c.o.text, c.o.audio ? 'audio/bologna-' + encodeURIComponent(c.o.id) + '.mp3' : '', function (ok) { if (my === token) tour(i + 1); });
+  }
+  function karte(o, wohin) {
+    var a = document.createElement('a'); a.className = 'bo-link'; a.target = '_blank'; a.rel = 'noopener';
+    a.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(o.karte || (o.titel + ' Bologna'));
+    a.textContent = 'Auf der Karte zeigen →'; wohin.appendChild(a);
+  }
+  function bauKarte(o, i) {
+    var el = document.createElement('section'); el.className = 'bo-karte'; el.id = o.id;
+    var kopf = document.createElement('div'); kopf.className = 'bo-kopf';
+    var nr = document.createElement('span'); nr.className = 'bo-nr'; nr.textContent = String(i + 1);
+    var h = document.createElement('h2'); h.textContent = o.titel; kopf.appendChild(nr); kopf.appendChild(h); el.appendChild(kopf);
+    var ort = document.createElement('p'); ort.className = 'bo-ort'; ort.textContent = o.ort; el.appendChild(ort);
+    var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'bo-play'; btn.innerHTML = PLAY; btn.setAttribute('aria-label', 'Anhören: ' + o.titel);
+    btn.addEventListener('click', function () { einzeln(i); });
+    var fig = document.createElement('figure'); fig.className = 'bo-foto';
+    if (o.bild && o.bild.datei) {
+      var im = document.createElement('img'); im.loading = 'lazy'; im.alt = o.bild.alt || o.titel;
+      im.onerror = function () { fig.remove(); el.classList.add('bo-ohnefoto'); kopf.parentNode.insertBefore(btn, ort.nextSibling); };
+      im.src = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(o.bild.datei) + '?width=1000';
+      var cap = document.createElement('figcaption'); cap.appendChild(document.createTextNode('Foto: Wikimedia Commons · Urheber und Lizenz auf der '));
+      var s = document.createElement('a'); s.target = '_blank'; s.rel = 'noopener';
+      s.href = 'https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(o.bild.datei.replace(/ /g, '_')); s.textContent = 'Bildseite';
+      cap.appendChild(s);
+      fig.appendChild(im); fig.appendChild(cap); fig.appendChild(btn); el.appendChild(fig);
+    } else { el.classList.add('bo-ohnefoto'); el.appendChild(btn); }
+    var body = document.createElement('div'); body.className = 'entry-body song-body';
+    o.text.split('\n\n').forEach(function (t) { var p = document.createElement('p'); p.textContent = t; body.appendChild(p); });
+    el.appendChild(body);
+    if (o.tipp) { var f = document.createElement('div'); f.className = 'song-fun'; var b = document.createElement('b'); b.textContent = 'Gut zu wissen'; var p2 = document.createElement('p'); p2.textContent = o.tipp; f.appendChild(b); f.appendChild(p2); el.appendChild(f); }
+    karte(o, el);
+    return { el: el, btn: btn, o: o };
+  }
+  $('b-all').addEventListener('click', function () { if (tourIdx >= 0) { stop(); return; } stop(); tour(0); });
+  $('b-intro-btn').addEventListener('click', function () {
+    var war = $('b-intro-btn').textContent.indexOf('■') === 0; stop(); if (war) return;
+    ui('intro', false); lies(D.sprechIntro || D.intro, '', function () { ui(null, false); });
+  });
+  window.addEventListener('pagehide', stop);
+  if ('speechSynthesis' in window && speechSynthesis.addEventListener) speechSynthesis.addEventListener('voiceschanged', function () {});
+  fetch('data/bologna.json').then(function (r) { return r.json(); }).then(function (d) {
+    if (!d || !d.orte || !d.orte.length) throw 0;
+    D = d; $('b-title').textContent = d.titel; $('b-sub').textContent = d.untertitel; $('b-intro').textContent = d.intro;
+    var box = $('b-liste'); d.orte.forEach(function (o, i) { var c = bauKarte(o, i); cards.push(c); box.appendChild(c.el); });
+    if (d.stand) { var x = d.stand.split('-'); $('b-stand').textContent = 'Stand der Angaben: ' + parseInt(x[2], 10) + '.' + parseInt(x[1], 10) + '.' + x[0] + '. Öffnungszeiten und Sperrungen bitte vor Ort prüfen.'; }
+    $('bo').classList.remove('song-wait');
+    if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+  }).catch(function () { $('b-error').hidden = false; });
+})();
+</script>
+<script src="nav.js?v=20" defer></script>
+</body>
+</html>

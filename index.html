@@ -7,7 +7,7 @@
 <title>Unterwegs und zuhause – Thomas und Andrea</title>
 <link rel="stylesheet" href="styles.css?v=13">
 <link rel="stylesheet" href="site.css?v=29">
-<link rel="stylesheet" href="home.css?v=26">
+<link rel="stylesheet" href="home.css?v=27">
 <link rel="stylesheet" href="lesebuehne.css?v=6">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png?v=4">
@@ -57,6 +57,12 @@
     </span></div>
   </header>
 
+
+  <div class="bo-bar" id="bo-bar">
+  <svg class="bo-icon" viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="#F6C253" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M16 42 L19.5 8 L26 8 L27.5 42 Z"/><path d="M30 42 L33.5 22 L40 24 L40 42 Z"/><path d="M19 8 L26 8 M18 18 L26.5 18 M17.5 28 L27 28"/></g></svg>
+  <a class="sb-link" id="bo-link" href="bologna.html" aria-label="Bologna, die Highlights, öffnen"><small>Sonderseite · Reise</small><b id="bo-title">Bologna – die Highlights</b><span id="bo-by"></span></a>
+  <button type="button" class="sb-note" id="bo-play" aria-label="Bologna-Einführung vorlesen"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg></button>
+</div>
 
   <div class="song-bar" id="song-bar">
   <a class="sb-link" id="sdt-link" href="song.html" aria-label="Song des Tages öffnen">
@@ -434,6 +440,42 @@
     }).catch(function () {});
   }
   renderWelterbe();
+
+  // Sonderseite Bologna (data/bologna.json, "aktiv": false blendet den Streifen aus)
+  var boData = null, boSpeak = false;
+  function boStop() {
+    boSpeak = false; if ('speechSynthesis' in window) speechSynthesis.cancel();
+    var b = $('bo-play'); if (b) { b.classList.remove('spielt'); b.setAttribute('aria-label', 'Bologna-Einführung vorlesen'); }
+  }
+  function boSprich(text) {
+    if (!('speechSynthesis' in window)) return;
+    var parts = text.match(/[^.!?:]+[.!?:]+|[^.!?:]+$/g) || [text], v = speechSynthesis.getVoices().filter(function (x) { return /^de/i.test(x.lang); })[0]; boSpeak = true;
+    (function next() { if (!boSpeak) return; if (!parts.length) { boStop(); return; }
+      var u = new SpeechSynthesisUtterance(parts.shift().trim()); u.lang = 'de-DE'; u.rate = 0.95; if (v) u.voice = v; u.onend = next; u.onerror = function (er) { if (!er || (er.error !== 'canceled' && er.error !== 'interrupted')) boStop(); }; speechSynthesis.speak(u); })();
+  }
+  document.addEventListener('click', function (ev) {
+    var t = ev.target.closest && ev.target.closest('#bo-play'); if (!t || !boData) return;
+    ev.preventDefault();
+    if (boSpeak) { boStop(); return; }
+    if (typeof songStop === 'function') songStop(); if (typeof whStop === 'function') whStop();
+    t.classList.add('spielt'); t.setAttribute('aria-label', 'Vorlesen stoppen');
+    boSprich(boData.sprechIntro || boData.intro);
+  });
+  window.addEventListener('pagehide', boStop);
+  function renderBologna() {
+    var box = $('bo-bar'); if (!box || !window.fetch) return;
+    fetch('data/bologna.json').then(function (r) { return r.json(); }).then(function (d) {
+      if (!d || d.aktiv === false || !d.orte || !d.orte.length) return;
+      boData = d; $('bo-by').textContent = d.orte.length + ' Orte zum Lesen und Anhören';
+      var b = d.orte[0].bild;
+      if (b && b.datei) {
+        var im = new Image(); im.onload = function () { var g = box.querySelector('.bo-icon'); if (g) { im.className = 'bo-thumb'; im.alt = ''; g.replaceWith(im); } };
+        im.src = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(b.datei) + '?width=160';
+      }
+      box.classList.add('on');
+    }).catch(function () {});
+  }
+  renderBologna();
 
   // Lieblingsfilme: Treffer in Kino/TV/Stream und ein Filmtipp aus dem Profil (nur lokal im Browser + data/tv-profil.json)
   function renderFilmfans() {

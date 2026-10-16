@@ -192,3 +192,21 @@ html:has(body.home) { overflow-x: hidden; }
 .fav-bar b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .fav-bar span { font-size: 14px; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 @media (min-width: 700px) { .fav-bar { margin: 0; } .fav-bar .fav-row { padding: 14px 28px; } }
+
+/* Sonderseite Bologna (Streifen wie Welterbe/Song) */
+.bo-bar { display: none; align-items: center; gap: 14px; margin: 0 -18px; padding: 22px 20px; color: #fff; background: linear-gradient(105deg, #B5502E 0%, #8F3B20 55%, #6E2C17 100%); }
+.bo-bar.on { display: flex; }
+.bo-bar .sb-link { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; color: inherit; text-decoration: none; }
+.bo-bar small { font: 600 11px 'Work Sans', sans-serif; letter-spacing: .1em; text-transform: uppercase; opacity: .85; }
+.bo-bar b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bo-bar #bo-by { font-size: 14px; opacity: .9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bo-bar .bo-icon { flex: none; width: 46px; height: 46px; }
+.bo-bar .bo-thumb { flex: none; width: 58px; height: 58px; border-radius: 50%; object-fit: cover; border: 2px solid #F6C253; }
+.bo-bar .sb-note { all: unset; cursor: pointer; flex: none; width: 58px; height: 58px; border-radius: 50%; background: #F6C253; color: #262F63; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(0, 0, 0, .28); }
+.bo-bar .sb-note:active { transform: scale(.94); }
+.bo-bar .sb-note:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.bo-bar .sb-note svg { width: 30px; height: 30px; fill: #262F63; }
+.bo-bar .sb-note .st { display: none; }
+.bo-bar .sb-note.spielt .pl { display: none; }
+.bo-bar .sb-note.spielt .st { display: inline; }
+@media (min-width: 700px) { .bo-bar { margin: 0; padding-left: 28px; padding-right: 28px; } }
