@@ -80,6 +80,7 @@
       <hr class="rule">
     </header>
     <p class="bo-intro" id="b-intro"></p>
+    <p class="song-note" id="b-hint" hidden>Die Sprachdatei dafür wird noch erzeugt (Gemini-Tageslimit) und ist spätestens morgen früh da. Bis dahin liest die Gerätestimme vor, falls dein Gerät eine hat.</p>
     <div class="song-actions">
       <button type="button" class="song-btn" id="b-all">▶ Alle nacheinander anhören</button>
       <button type="button" class="song-btn alt" id="b-intro-btn">▶ Kurze Einführung</button>
@@ -143,15 +144,16 @@
     })();
   }
   var player = null;
+  function rueckfall(text, fertig) { $('b-hint').hidden = false; sprich(text, fertig); }
   function lies(text, audioDatei, fertig) {
     var my = token;
     if (audioDatei && window.Audio) {
       if (!player) player = new Audio();   // ein einziges Audio-Element, damit iPhone-Safari die Folgedateien abspielt
       var a = player; au = a;
       a.onended = function () { if (my === token) { au = null; fertig(true); } };
-      a.onerror = function () { if (my === token && au === a) { au = null; sprich(text, fertig); } };
+      a.onerror = function () { if (my === token && au === a) { au = null; rueckfall(text, fertig); } };
       a.src = audioDatei;
-      var p = a.play(); if (p && p.catch) p.catch(function () { if (my === token && au === a) { au = null; sprich(text, fertig); } });
+      var p = a.play(); if (p && p.catch) p.catch(function () { if (my === token && au === a) { au = null; rueckfall(text, fertig); } });
     } else sprich(text, fertig);
   }
   function einzeln(i) {
