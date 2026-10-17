@@ -24,21 +24,15 @@ gemini-3.7-flash: HTTP 403 {
   }
 }
 
-gemini-flash-latest: HTTP 403 {
+gemini-flash-latest: HTTP 429 {
   "error": {
-    "code": 403,
-    "message": "The caller does not have permission",
-    "status": "PERMISSION_DENIED"
-  }
-}
-
-  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 403 {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+gemini-flash-latest: HTTP 429 {
   "error": {
-    "code": 403,
-    "message": "The caller does not have permission",
-    "status": "PERMISSION_DENIED"
-  }
-}
-
-Werte aus: 66bmABSuKic Big Show bei Tesla. Anthropic-Investoren senken Bewertungsziele. 2026-10-16 opening
-  Score 20 Pfeil hoch (117063 Tokens)
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
