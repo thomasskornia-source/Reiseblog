@@ -1,54 +1,30 @@
 {
- "stand": "10.10.2026",
- "zusammenfassung": "Woche 01.–09.10.2026, 14 Auswertungen von Markus Koch, 10 von 12 Kategorien bestätigt oder beobachtet (2 neu: Arbeitsmarkt, CapEx). Kurs-basierte Indikatoren (Renditen, Öl, Marktbreite, Saisonalität) lassen sich mit dem schon vorhandenen Yahoo-Abruf selbst holen; bei Stimmung, Notenbank, Inflation und Konjunktur blieb vieles ungeprüft, weil der Seitenabruf in dieser Woche nicht freigegeben war – das ist unten jeweils vermerkt. Politik/Geopolitik und Gewinnschätzungen bleiben Kochs Einschätzung.",
+ "stand": "17.10.2026",
+ "zusammenfassung": "Woche 10.–16.10.2026 (KW 42): 7 neue Auswertungen von Markus Koch, insgesamt 21 seit 01.10. 11 der 14 Kategorien sind bestätigt, 2 beobachtet, 1 neu (Dollar & Währungen). Von den 14 Punkten sind 6 frei und automatisch abrufbar (Renditen, Marktbreite, Öl/Diesel, Inflation, Arbeitsmarkt, Dollar), 4 teilweise (GDPNow, Zinserwartungen, Stimmung, Saisonalität), 4 bleiben Kochs Einschätzung (Geopolitik, Gewinnschätzungen, CapEx, Zölle/Politik). Geprüft wurden FRED (DGS10, CPIAUCSL, PAYEMS, DTWEXBGS), EIA, Atlanta Fed, AAII, CME; ob der GitHub-Runner sie erreicht und ob die APIs Schlüssel brauchen, ist noch ungetestet.",
  "indikatoren": [
   {
    "name": "US-Staatsanleiherenditen",
    "kategorie": "Anleihen & Renditen",
    "machbar": "ja",
-   "quelle": "Yahoo-Chartabruf (query1.finance.yahoo.com/v8/finance/chart), wird im Repo bereits in tools/trend.py genutzt (Ticker ^TNX für 10 Jahre)",
-   "url": "https://finance.yahoo.com/quote/%5ETNX",
-   "hinweis": "Täglich, ohne Schlüssel. Der Abrufweg läuft im Repo schon; der Ticker ^TNX wurde diese Woche nicht einzeln getestet. Alternative FRED (Serie DGS10) – Seite diese Woche nicht abrufbar, daher ungeprüft."
+   "quelle": "FRED, Serie DGS10 (Quelle: Federal Reserve H.15); Alternative Yahoo ^TNX",
+   "url": "https://fred.stlouisfed.org/series/DGS10",
+   "hinweis": "Geprüft: täglich, Stand 15.10.2026 5,10 % (Veröffentlichung mit rund 1 Tag Verzögerung), Daten seit 1962. FRED bietet laut Seite eine API (Schlüssel dafür nicht geprüft); Yahoo ^TNX läuft im Repo ohne Schlüssel, wurde einzeln nicht getestet. Ob der GitHub-Runner FRED erreicht, ist ungeprüft."
   },
   {
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "kategorie": "Marktbreite & Sektoren",
    "machbar": "ja",
-   "quelle": "Yahoo-Chartabruf (query1.finance.yahoo.com/v8/finance/chart), wird im Repo bereits in tools/trend.py genutzt: Verhältnis der ETFs RSP (Equal Weight) zu SPY",
+   "quelle": "Yahoo-Chartabruf (query1.finance.yahoo.com/v8/finance/chart), im Repo schon in tools/trend.py genutzt: Verhältnis der ETFs RSP zu SPY",
    "url": "https://finance.yahoo.com/quote/RSP",
-   "hinweis": "Das Verhältnis RSP/SPY ist selbst rechenbar, täglich, ohne Schlüssel. Kochs genaue Zahl kann leicht abweichen. Die Quotenseite von RSP wurde in der Suche gefunden, der Abruf selbst noch nicht getestet."
+   "hinweis": "Selbst rechenbar, täglich, ohne Schlüssel. Kochs Zahl kann leicht abweichen. Abruf von RSP in dieser Woche nicht einzeln getestet."
   },
   {
    "name": "Öl- und Dieselpreise",
    "kategorie": "Öl & Rohstoffe",
    "machbar": "ja",
-   "quelle": "Yahoo-Chartabruf (query1.finance.yahoo.com/v8/finance/chart), wird im Repo bereits in tools/trend.py genutzt (Ticker CL=F für WTI-Öl)",
-   "url": "https://finance.yahoo.com/quote/CL=F",
-   "hinweis": "Rohölkurs täglich möglich. Dieselpreise (Endkunde) wären eine andere Quelle und wurden nicht geprüft. Ticker nicht einzeln getestet."
-  },
-  {
-   "name": "Industrie- und Exportdaten / Atlanta-Fed GDPNow",
-   "kategorie": "Konjunktur",
-   "machbar": "teilweise",
-   "quelle": "Atlanta Fed GDPNow (Veröffentlichung durch die Notenbank selbst)",
-   "url": "https://www.atlantafed.org/cqer/research/gdpnow",
-   "hinweis": "Die Quelle ist die Atlanta Fed selbst; ob es einen freien, maschinenlesbaren Download gibt, konnte diese Woche nicht geprüft werden (Seitenabruf blieb ohne Freigabe). Asiatische Exportdaten sind eher Einzelmeldungen und schwer automatisch zu holen."
-  },
-  {
-   "name": "Q4-Saisonalität & Positionierung",
-   "kategorie": "Saisonalität & Chart",
-   "machbar": "teilweise",
-   "quelle": "Yahoo-Chartabruf (query1.finance.yahoo.com/v8/finance/chart), wird im Repo bereits in tools/trend.py genutzt (^GSPC, lange Historie)",
-   "url": "https://finance.yahoo.com/quote/%5EGSPC",
-   "hinweis": "Die Saisonalität (Durchschnittsverlauf je Monat) lässt sich aus der Kurshistorie selbst rechnen. Die Positionierung dagegen nicht sicher frei verfügbar."
-  },
-  {
-   "name": "Marktpositionierung und Hebel / Anlegerstimmung / MOVE-Index",
-   "kategorie": "Stimmung & Volatilität",
-   "machbar": "teilweise",
-   "quelle": "AAII Sentiment Survey (wöchentlich); MOVE-Index von ICE",
-   "url": "https://aaii.com/sentimentsurvey",
-   "hinweis": "AAII veröffentlicht die Umfrage wöchentlich, ob der Datenabruf ohne Anmeldung möglich ist, blieb ungeprüft. Der MOVE-Index wird von ICE geführt (Datenkatalog bei developer.ice.com), freie, automatische Tagesdaten dazu wurden nicht belegt. Hebel/Positionierung: keine freie Quelle gefunden."
+   "quelle": "Rohöl: Yahoo CL=F (Chartabruf wie oben); Diesel Endkunde: US-Energiebehörde EIA",
+   "url": "https://www.eia.gov/petroleum/gasdiesel/",
+   "hinweis": "Geprüft: EIA veröffentlicht den Diesel-Wochenpreis (zuletzt 14.10.2026, nächste 20.10.) mit Voll-Verlauf als XLS und kostenloser API; ob die API einen Schlüssel verlangt, steht auf der Seite nicht. Rohöl täglich über Yahoo, Ticker nicht einzeln getestet."
   },
   {
    "name": "Nahost & Ukraine-Krieg",
@@ -56,7 +32,7 @@
    "machbar": "nein",
    "quelle": "keine",
    "url": "",
-   "hinweis": "Politische Lage und Einschätzung, nicht als Zahl abrufbar. Höchstens indirekt über Ölpreis und Rüstungs-/Energiewerte sichtbar."
+   "hinweis": "Reine Lageeinschätzung; es gibt keinen Zahlenwert zum Abrufen. Allenfalls Ölpreis und Rüstungs-/Rohstoffkurse als indirekte Folge."
   },
   {
    "name": "Q3-Gewinnschätzungen",
@@ -64,23 +40,79 @@
    "machbar": "nein",
    "quelle": "keine geprüft",
    "url": "",
-   "hinweis": "Konsensschätzungen stammen von Datenanbietern und sind meist kostenpflichtig oder nur auf Webseiten sichtbar; keine freie, stabile Quelle belegt."
+   "hinweis": "Konsensschätzungen und Überraschungen stammen von Datenanbietern (meist kostenpflichtig oder mit Anmeldung). Ein freier, automatischer Abruf wurde nicht gefunden; Einzelergebnisse stehen in den Firmenmitteilungen, ein Gesamtbild wäre Handarbeit."
   },
   {
    "name": "Fed-Zinserwartungen",
    "kategorie": "Zinsen & Notenbank",
    "machbar": "teilweise",
-   "quelle": "CME FedWatch",
-   "url": "https://www.cmegroup.com/market-data/market-data-api/fedwatch-api.html",
-   "hinweis": "CME bietet eine FedWatch-API an; ob und zu welchen Bedingungen sie kostenfrei ist, wurde nicht geprüft. Die Webseite des Tools ist für Menschen frei, aber nicht als stabile Schnittstelle belegt."
+   "quelle": "CME FedWatch (Wahrscheinlichkeiten); als Ersatz aus Kurzläufer-Renditen ableitbar (FRED, Serien wie DGS2)",
+   "url": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
+   "hinweis": "Geprüft: Die FedWatch-Seite nennt keine freie Download- oder API-Möglichkeit, Nutzungsbedingungen und mögliche Anmeldung bleiben unklar; daher nicht als automatische Quelle zu empfehlen. Der Leitzins selbst und Renditen kurzer Laufzeiten sind über FRED frei, eine eigene Näherung der Erwartung wäre möglich, aber nicht dasselbe."
+  },
+  {
+   "name": "Industrie- und Exportdaten / Atlanta-Fed GDPNow",
+   "kategorie": "Konjunktur",
+   "machbar": "teilweise",
+   "quelle": "Atlanta Fed GDPNow (Excel-Datei mit Verlauf und Prognosen)",
+   "url": "https://www.atlantafed.org/research-and-data/data/gdpnow",
+   "hinweis": "Geprüft: Excel-Download ohne Anmeldung, Aktualisierung sechs- bis siebenmal im Monat an Werktagen (nächste 20.10.2026), kein CSV. Automatisch machbar, aber Excel-Link kann sich ändern. Asiatische Industrie- und Exportdaten und US-Einzelhandelsumsätze wurden nicht geprüft."
   },
   {
    "name": "Inflationsdynamik / CPI",
    "kategorie": "Inflation",
-   "machbar": "teilweise",
-   "quelle": "FRED (Serie CPIAUCSL) bzw. US-Arbeitsministerium BLS",
+   "machbar": "ja",
+   "quelle": "FRED, Serie CPIAUCSL (Quelle: US-Arbeitsministerium BLS)",
    "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
-   "hinweis": "Monatlich, offizielle Daten, vermutlich frei – diese Woche nicht abrufbar und daher ungeprüft. Der Erscheinungstermin (Kalender) ist ebenfalls offiziell."
+   "hinweis": "Geprüft: monatlich, letzter Stand September 2026 (aktualisiert 14.10.2026), Veränderung gegen Vorjahr selbst rechenbar. Zahlen erscheinen am Veröffentlichungstag, nicht vorher; Kochs Blick auf Erwartungen davor bleibt Einschätzung."
+  },
+  {
+   "name": "Marktpositionierung und Hebel / Anlegerstimmung / MOVE-Index",
+   "kategorie": "Stimmung & Volatilität",
+   "machbar": "teilweise",
+   "quelle": "AAII-Umfrage (wöchentlich, öffentlich nur letzte vier Wochen); MOVE über Yahoo ^MOVE",
+   "url": "https://www.aaii.com/sentimentsurvey",
+   "hinweis": "Geprüft: AAII-Gesamtverlauf nur für Mitglieder, öffentlich nur kurzer Ausschnitt, Veröffentlichung donnerstags. Yahoo zeigt zu ^MOVE einen Wert, nannte ihn aber \"Northern Trust iBoxx 5-Year Tar\", so dass unsicher ist, ob es der ICE-BofA-MOVE ist; nicht verwenden, ohne das nachzuprüfen. Hebel und Positionierung (Anleger-Schulden, Fondspositionen) nicht geprüft."
+  },
+  {
+   "name": "Q4-Saisonalität & Positionierung",
+   "kategorie": "Saisonalität & Chart",
+   "machbar": "teilweise",
+   "quelle": "Yahoo-Chartabruf (query1.finance.yahoo.com/v8/finance/chart), im Repo schon in tools/trend.py genutzt (S&P 500 ^GSPC, lange Kursreihe)",
+   "url": "https://finance.yahoo.com/quote/%5EGSPC",
+   "hinweis": "Saisonalität (Oktober bis Dezember in früheren Jahren) ist aus Kurshistorie selbst rechenbar; Positionierung gehört zum Stimmungsthema oben."
+  },
+  {
+   "name": "Tech-Investitionszyklus (CapEx)",
+   "kategorie": "Sonstiges",
+   "machbar": "nein",
+   "quelle": "keine geprüft",
+   "url": "",
+   "hinweis": "CapEx-Ankündigungen kommen aus Quartalsberichten einzelner Konzerne; kein freier Sammelwert. Nur Einzelzahlen aus den Berichten selbst (SEC) wären nachlesbar."
+  },
+  {
+   "name": "US-Arbeitsmarktdaten",
+   "kategorie": "Arbeitsmarkt",
+   "machbar": "ja",
+   "quelle": "FRED, Serie PAYEMS (Quelle: BLS Employment Situation); Arbeitslosenquote UNRATE",
+   "url": "https://fred.stlouisfed.org/series/PAYEMS",
+   "hinweis": "Geprüft für PAYEMS: monatlich, letzter Stand September 2026 (159.044 Tsd., Seite aktualisiert 02.10.2026). UNRATE in dieser Woche nicht einzeln geprüft. Wöchentliche Erstanträge (ICSA) nicht geprüft."
+  },
+  {
+   "name": "US-Zollpolitik & Schuldenpläne",
+   "kategorie": "Politik & Zölle",
+   "machbar": "nein",
+   "quelle": "keine",
+   "url": "",
+   "hinweis": "Politische Entscheidungen, keine Messzahl. Nur Folgen in Kursen wären sichtbar."
+  },
+  {
+   "name": "US-Dollar (neu)",
+   "kategorie": "Dollar & Währungen",
+   "machbar": "ja",
+   "quelle": "FRED, Serie DTWEXBGS (Nominaler breiter Dollar-Index, Federal Reserve H.10)",
+   "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+   "hinweis": "Geprüft: täglich, zuletzt aktualisiert 13.10.2026 (Daten bis 09.10.), also einige Tage Verzögerung. Schneller: Yahoo DX-Y.NYB, nicht getestet. Erst ein Tag Auswertung, daher nur kurz."
   }
  ]
 }
