@@ -297,190 +297,6 @@
   "stand": "2026-10-12"
  },
  {
-  "id": "events-5ba117e522",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Behemoth & Dimmu Borgir",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-10-14",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die Extreme-Metal-Größen Behemoth und Dimmu Borgir stehen für einen kraftvollen gemeinsamen Auftritt auf der Freimanner Bühne.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-11"
- },
- {
-  "id": "events-9d52082ff0",
-  "rubrik": "events",
-  "titel": "Buchvorstellung: Friedenstüchtig werden",
-  "ort": "",
-  "adresse": "",
-  "datum": "2026-10-14",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Sozialphilosoph Wigbert Tocha präsentiert sein Buch mit Thesen gegen Kriegsdenken und Kriegshandeln.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Führung & Vortrag",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-13"
- },
- {
-  "id": "events-48d815061a",
-  "lat": 48.14007,
-  "lon": 11.58154,
-  "rubrik": "events",
-  "titel": "Ein sanfter Tod",
-  "ort": "Marstall",
-  "adresse": "",
-  "datum": "2026-10-14",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "33 €",
-  "dauer": "1 Std. 25 Min.",
-  "kurz": "Bühnenadaption von Simone de Beauvoirs persönlicher Erzählung über das Abschiednehmen von der sterbenden Mutter.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-12"
- },
- {
-  "id": "events-c9e364d735",
-  "lat": 48.13845,
-  "lon": 11.58272,
-  "rubrik": "events",
-  "titel": "Haltestelle: Ja aber",
-  "ort": "Münchner Kammerspiele (Habibi Kiosk)",
-  "adresse": "",
-  "datum": "2026-10-14",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Ein choreografisches Projekt mit Gebärdensprache von Lina Mattei und Mark Petersen über Nähe und zwischenmenschliche Missverständnisse.",
-  "tags": [
-   "Kultur",
-   "Kostenlos",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-12"
- },
- {
-  "id": "events-98df39c019",
-  "lat": 48.1354,
-  "lon": 11.60088,
-  "rubrik": "events",
-  "titel": "Loreen Sima feat. Jakob Bänsch",
-  "ort": "Jazzclub Unterfahrt",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-10-14",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Bassistin und Sängerin Loreen Sima begeistert mit klarer Stimme, warmen Klangfarben und eingängigen Melodien.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-13"
- },
- {
-  "id": "events-f5c255497f",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "Philip Sayce",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-14",
-  "datum_bis": "2026-10-14",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "3 Std.",
-  "kurz": "Gitarrenvirtuose Philip Sayce gastiert für einen Konzertabend im Backstage.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-11"
- },
- {
-  "id": "events-4d634eb365",
-  "rubrik": "events",
-  "titel": "PingPong & Poğaca",
-  "ort": "",
-  "adresse": "",
-  "datum": "2026-10-14",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Tischtennis-Abend an drei Platten mit Reggae-Beats, Getränken und türkischem Gebäck für Anfänger und Fortgeschrittene.",
-  "tags": [
-   "Musik",
-   "Abends",
-   "Kostenlos"
-  ],
-  "thema": "Draußen & Sport",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-13"
- },
- {
-  "id": "events-dfe152258a",
-  "lat": 48.1384,
-  "lon": 11.58247,
-  "rubrik": "events",
-  "titel": "Suchers Leidenschaften: Ödön von Horváth",
-  "ort": "Münchner Kammerspiele",
-  "adresse": "",
-  "datum": "2026-10-14",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "C. Bernd Sucher und Ensemble präsentieren eine szenische Lesung rund um das Werk und Leben des Schriftstellers Ödön von Horváth.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-12"
- },
- {
   "id": "events-898a909f61",
   "lat": 48.13819,
   "lon": 11.5824,
@@ -1272,7 +1088,7 @@
   "zeit": "10:00",
   "preis": "",
   "dauer": "",
-  "kurz": "Traditioneller Münchner Jahrmarkt am Mariahilfplatz mit Verkaufsständen, Karussells und herbstlicher Festtagsstimmung.",
+  "kurz": "Traditioneller Münchner Markt mit Fahrgeschäften, Handwerkskunst, Antiquitäten und kulinarischen Köstlichkeiten unter freiem Himmel.",
   "tags": [
    "Märkte",
    "Familie",
@@ -1282,7 +1098,7 @@
   "thema": "Feste & Märkte",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-16"
+  "stand": "2026-10-17"
  },
  {
   "id": "events-f75860356d",
@@ -1309,6 +1125,29 @@
   "stand": "2026-10-16"
  },
  {
+  "id": "events-22b28d9ccd",
+  "lat": 48.14236,
+  "lon": 11.57053,
+  "rubrik": "events",
+  "titel": "Comedy Kills",
+  "ort": "Discobox",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-11-28",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Offene Bühne für Stand-Up-Comedy, bei der Comedians neue Gags und frisches Material präsentieren.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-17"
+ },
+ {
   "id": "events-5ebebc9968",
   "lat": 48.13767,
   "lon": 11.58188,
@@ -1321,7 +1160,7 @@
   "zeit": "20:00",
   "preis": "",
   "dauer": "1:15 h",
-  "kurz": "Eine direkte und schonungslose Theateradaption basierend auf dem autobiografischen Text von Literaturnobelpreisträgerin Annie Ernaux.",
+  "kurz": "Eine schonungslose Theaterfassung nach dem autobiografischen Text der französischen Nobelpreisträgerin Annie Ernaux im Werkraum.",
   "tags": [
    "Kultur",
    "Abends"
@@ -1329,7 +1168,30 @@
   "thema": "Kabarett & Theater",
   "quelle": "Münchner Kammerspiele",
   "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-15"
+  "stand": "2026-10-17"
+ },
+ {
+  "id": "events-169affa318",
+  "lat": 48.12366,
+  "lon": 11.5559,
+  "rubrik": "events",
+  "titel": "Die Geierwally",
+  "ort": "Münchner Volkstheater",
+  "adresse": "Tumblingerstraße 29, 80337 München",
+  "datum": "2026-10-17",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "15 €",
+  "dauer": "",
+  "kurz": "Theaterfassung des Romans von Wilhelmine von Hillern in einer Inszenierung von Julia Prechsl auf Bühne 1.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Volkstheater (Spielplan)",
+  "url": "https://www.muenchner-volkstheater.de/spielplan",
+  "stand": "2026-10-17"
  },
  {
   "id": "events-536179adc3",
@@ -1342,7 +1204,7 @@
   "zeit": "18:00",
   "preis": "",
   "dauer": "",
-  "kurz": "Rund einhundert Münchner Museen und Kultureinrichtungen öffnen bis spät in die Nacht ihre Ausstellungen für Nachtschwärmer.",
+  "kurz": "Rund 100 Münchner Museen und Galerien öffnen zu nächtlicher Stunde ihre Türen für Ausstellungen, Touren und Sonderprogramme.",
   "tags": [
    "Kultur",
    "Abends"
@@ -1350,7 +1212,7 @@
   "thema": "Ausstellung & Museum",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-16"
+  "stand": "2026-10-17"
  },
  {
   "id": "events-72b79bfdf9",
@@ -1365,7 +1227,7 @@
   "zeit": "20:00",
   "preis": "33 €",
   "dauer": "1 Std. 40 Min.",
-  "kurz": "Bühnenfassung nach Marieluise Fleißer über Geschlechterrollen, kleinstädtische Konventionen und eine Liebe, die als Zweckbündnis missbraucht wird.",
+  "kurz": "Bühnenadaption von Marieluise Fleißers Roman über Liebe, Sport, Tabakhandel und das Aufkeimen von Ressentiments und Frauenfeindlichkeit.",
   "tags": [
    "Kultur",
    "Abends"
@@ -1373,7 +1235,53 @@
   "thema": "Kabarett & Theater",
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-15"
+  "stand": "2026-10-17"
+ },
+ {
+  "id": "events-85d826bbf3",
+  "lat": 48.1749,
+  "lon": 11.55002,
+  "rubrik": "events",
+  "titel": "Felix Lobrecht - Sell Out",
+  "ort": "Olympiahalle",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-10-17",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Der beliebte Stand-Up-Comedian tritt im Rahmen seiner aktuellen Arena-Tournee live in München auf.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-17"
+ },
+ {
+  "id": "events-fb8f4e24f4",
+  "lat": 48.24531,
+  "lon": 11.55586,
+  "rubrik": "events",
+  "titel": "Inside the Suit – Der Mensch im Raumanzug",
+  "ort": "Deutsches Museum - Flugwerft Schleißheim",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-11-30",
+  "zeit": "09:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Ausstellung über die Entwicklung von Raumanzügen und die technischen Herausforderungen des menschlichen Überlebens im Weltall.",
+  "tags": [
+   "Kultur",
+   "Familie"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-17"
  },
  {
   "id": "events-ec179bec4f",
@@ -1397,6 +1305,29 @@
   "quelle": "Münchner Kammerspiele",
   "url": "https://www.muenchner-kammerspiele.de/",
   "stand": "2026-10-15"
+ },
+ {
+  "id": "events-92501059f3",
+  "lat": 48.04297,
+  "lon": 11.51951,
+  "rubrik": "events",
+  "titel": "Karl Valentin und die alten Rittersleut",
+  "ort": "Burg Grünwald",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-11-15",
+  "zeit": "10:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sonderausstellung in historischer Burgatmosphäre, gewidmet dem Münchner Komiker Karl Valentin und ritterlichen Motiven.",
+  "tags": [
+   "Kultur",
+   "Familie"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-17"
  },
  {
   "id": "events-c2604f8281",
@@ -1435,14 +1366,15 @@
   "zeit": "10:00",
   "preis": "",
   "dauer": "",
-  "kurz": "Sportfestival zum Auftakt der Biathlonsaison mit spannenden Wettbewerben und Unterhaltungsprogramm im Olympiapark.",
+  "kurz": "Zweitägiges Sport- und Freizeitevent zum Auftakt der Biathlonsaison mit Wettbewerben und Rahmenprogramm im Olympiapark.",
   "tags": [
-   "Draußen"
+   "Draußen",
+   "Familie"
   ],
   "thema": "Draußen & Sport",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-16"
+  "stand": "2026-10-17"
  },
  {
   "id": "events-0f5c441519",
@@ -1478,7 +1410,7 @@
   "zeit": "19:30",
   "preis": "21 bis 64 €",
   "dauer": "2 Std. 20 Min.",
-  "kurz": "Schillers historischer Machtkampf zwischen zwei Herrscherinnen, bei dem vor jeder Vorstellung per Los über die Rollenverteilung entschieden wird.",
+  "kurz": "Friedrich Schillers dramatischer Machtkampf zwischen Elisabeth I. und Maria Stuart, bei dem die Rollenbesetzung jedes Mal neu ausgelost wird.",
   "tags": [
    "Kultur",
    "Abends"
@@ -1486,7 +1418,52 @@
   "thema": "Kabarett & Theater",
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-15"
+  "stand": "2026-10-17"
+ },
+ {
+  "id": "events-3811159d2b",
+  "rubrik": "events",
+  "titel": "Mozartissimo! Mozart zum 270. Geburtstag",
+  "ort": "Herkulessaal der Residenz",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-10-17",
+  "zeit": "19:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Klassisches Festkonzert mit Werken von Wolfgang Amadeus Mozart anlässlich seines Jubiläums im Herkulessaal.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-17"
+ },
+ {
+  "id": "events-aa2487f3c0",
+  "lat": 48.14614,
+  "lon": 11.55945,
+  "rubrik": "events",
+  "titel": "Peter Pan",
+  "ort": "Münchner Theater für Kinder",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2027-01-23",
+  "zeit": "10:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Bühneninszenierung der berühmten Abenteuergeschichte um Peter Pan, Wendy und Kapitän Hook für die ganze Familie.",
+  "tags": [
+   "Familie",
+   "Kultur"
+  ],
+  "thema": "Familie & Kinder",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-17"
  },
  {
   "id": "events-13ffee926c",
@@ -1509,6 +1486,52 @@
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-16"
+ },
+ {
+  "id": "events-6f4bd6f1ab",
+  "lat": 48.14081,
+  "lon": 11.57755,
+  "rubrik": "events",
+  "titel": "Residenzwoche: Führungen",
+  "ort": "Residenz München",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-10-25",
+  "zeit": "11:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Thematische Führungen durch die prunkvollen Säle und historischen Gemächer des Münchner Stadtschlosses.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-17"
+ },
+ {
+  "id": "events-1ffb4aad9e",
+  "lat": 48.14498,
+  "lon": 11.52197,
+  "rubrik": "events",
+  "titel": "TENSIDE / AURORAWAVE",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-10-17",
+  "zeit": "19:00",
+  "preis": "",
+  "dauer": "4 Std.",
+  "kurz": "Metal-Konzertabend mit den Bands TENSIDE und AURORAWAVE live auf dem Gelände des Münchner Kulturzentrums.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-17"
  },
  {
   "id": "events-e360b61a10",
@@ -1546,14 +1569,14 @@
   "zeit": "15:00",
   "preis": "10 €",
   "dauer": "1 Std. 20 Min.",
-  "kurz": "Ein geführter Samstagsrundgang eröffnet faszinierende Einblicke hinter die Kulissen und Abläufe des Münchner Residenztheaters.",
+  "kurz": "Ein spannender Blick hinter die Kulissen des Münchner Residenztheaters für neugierige Theaterfans.",
   "tags": [
    "Kultur"
   ],
   "thema": "Führung & Vortrag",
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-15"
+  "stand": "2026-10-17"
  },
  {
   "id": "events-066a9a7b1c",
@@ -1589,15 +1612,15 @@
   "zeit": "16:00",
   "preis": "frei",
   "dauer": "",
-  "kurz": "Gemeinsam mit Dramaturgie und Ensemble entdecken Teilnehmende im offenen Leseclub die literarischen Vorlagen der Theaterproduktionen.",
+  "kurz": "Leseclub-Format mit Ensemble und Dramaturgie rund um den Debütroman von Lea Ruckpaul und die Hintergründe der Theaterinszenierung.",
   "tags": [
    "Kultur",
    "Kostenlos"
   ],
-  "thema": "Führung & Vortrag",
+  "thema": "Sonstiges",
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-15"
+  "stand": "2026-10-17"
  },
  {
   "id": "events-5a05b79a6a",
@@ -1610,7 +1633,7 @@
   "zeit": "20:00",
   "preis": "17 bis 57 €",
   "dauer": "1 Std. 50 Min.",
-  "kurz": "Lea Ruckpauls Theateradaption dreht Nabokovs Perspektive um und lässt die Betroffene selbst auf ihre Erfahrungen zurückblicken.",
+  "kurz": "Uraufführung nach Lea Ruckpauls Debütroman, der die Figur Dolores Haze erwachsen und reflektiert auf ihre Missbrauchserfahrungen zurückblicken lässt.",
   "tags": [
    "Kultur",
    "Abends"
@@ -1618,7 +1641,7 @@
   "thema": "Kabarett & Theater",
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-15"
+  "stand": "2026-10-17"
  },
  {
   "id": "events-87f5132c7b",
@@ -1718,7 +1741,7 @@
   "lat": 48.14498,
   "lon": 11.52197,
   "rubrik": "events",
-  "titel": "KÄRBHOLZ",
+  "titel": "Kärbholz",
   "ort": "Backstage",
   "adresse": "Reitknechtstr. 6, 80639 München",
   "datum": "2026-10-18",
@@ -1726,15 +1749,16 @@
   "zeit": "20:00",
   "preis": "",
   "dauer": "3 Std.",
-  "kurz": "Live-Auftritt der Formation Kärbholz im Münchner Backstage.",
+  "kurz": "Die deutsche Rockband Kärbholz bringt ihren geradlinigen Mix aus Punk, Rock und Vollgas-Sound auf die Bühne.",
   "tags": [
    "Musik",
+   "Kultur",
    "Abends"
   ],
   "thema": "Konzert & Musik",
   "quelle": "Backstage München (Konzerte)",
   "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-15"
+  "stand": "2026-10-17"
  },
  {
   "id": "events-af8855ea60",
@@ -1749,7 +1773,7 @@
   "zeit": "18:30",
   "preis": "25 bis 69 €",
   "dauer": "3 Std. 10 Min.",
-  "kurz": "Manfred Zapatka brilliert in Shakespeares Tragödie als alternder Herrscher, der durch seinen Kontrollverlust ins Verderben stürzt.",
+  "kurz": "Shakespeares berühmte Tragödie um Machtverlust, Familie und Wahn mit Publikumsliebling Manfred Zapatka in der Titelrolle.",
   "tags": [
    "Kultur",
    "Abends"
@@ -1757,30 +1781,7 @@
   "thema": "Kabarett & Theater",
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-2f77766d4c",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "MARKO HIETALA",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-18",
-  "datum_bis": "2026-10-18",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "3 Std.",
-  "kurz": "Marko Hietala gastiert für ein abendliches Konzert im Backstage.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-15"
+  "stand": "2026-10-17"
  },
  {
   "id": "events-3dcfdfe746",
@@ -1795,7 +1796,7 @@
   "zeit": "11:00",
   "preis": "",
   "dauer": "",
-  "kurz": "Ein Aktionstag an neun Münchner Bühnen mit Workshops für alle von 6 bis 99 Jahren rund um Demokratie und Vielfalt.",
+  "kurz": "Aktionstag für Demokratie und Vielfalt mit interaktiven Workshops an neun Münchner Bühnen für Menschen von 6 bis 99 Jahren.",
   "tags": [
    "Kultur",
    "Familie"
@@ -1803,30 +1804,249 @@
   "thema": "Familie & Kinder",
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-15"
+  "stand": "2026-10-17"
  },
  {
-  "id": "events-52d33fa247",
-  "lat": 48.12366,
-  "lon": 11.5559,
+  "id": "events-2f77766d4c",
+  "lat": 48.14498,
+  "lon": 11.52197,
   "rubrik": "events",
-  "titel": "Tatort Mittelmeer",
-  "ort": "Münchner Volkstheater",
-  "adresse": "Tumblingerstraße 29, 80337 München",
+  "titel": "Marko Hietala",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
   "datum": "2026-10-18",
-  "datum_bis": "",
+  "datum_bis": "2026-10-18",
   "zeit": "20:00",
   "preis": "",
-  "dauer": "",
-  "kurz": "Szenische Lesung, bei der bekannte TV-Ermittlerinnen und Ermittler über Menschenrechtsverbrechen auf dem Mittelmeer berichten.",
+  "dauer": "3 Std.",
+  "kurz": "Der finnische Musiker und ehemalige Nightwish-Bassist Marko Hietala gastiert für ein abendliches Konzert im Backstage.",
   "tags": [
+   "Musik",
    "Kultur",
    "Abends"
   ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Volkstheater (Spielplan)",
-  "url": "https://www.muenchner-volkstheater.de/spielplan",
-  "stand": "2026-10-15"
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-17"
+ },
+ {
+  "id": "stream-below",
+  "rubrik": "stream",
+  "titel": "Below",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Neue Thriller-Serie, seit 8. Oktober bei Netflix.",
+  "tags": [
+   "Serie",
+   "Thriller"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-10-17",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-captain-phillips",
+  "rubrik": "stream",
+  "titel": "Captain Phillips",
+  "ort": "ZDF Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Thriller nach wahrer Geschichte: Ein Frachter wird von somalischen Piraten gekapert. Neu seit 15. Oktober. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Thriller",
+   "Drama"
+  ],
+  "quelle": "news.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-17",
+  "thema": "ZDF Mediathek"
+ },
+ {
+  "id": "stream-das-gold",
+  "rubrik": "stream",
+  "titel": "Das Gold",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Britische Krimiserie nach wahrem Fall, Staffel 1 in der ARD Mediathek. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Serie",
+   "Krimi",
+   "Drama",
+   "Historie"
+  ],
+  "quelle": "netzwelt.de",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-10-17",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-portobello-unschuldig-verurteilt",
+  "rubrik": "stream",
+  "titel": "Portobello – Unschuldig verurteilt",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Justizdrama-Serie über einen Fall von Fehlurteil, seit 8. Oktober in der ARTE-Mediathek. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Serie",
+   "Drama",
+   "Krimi"
+  ],
+  "quelle": "wochenblatt-reporter.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-17",
+  "thema": "ARTE Mediathek"
+ },
+ {
+  "id": "stream-schumacher-94-die-geburt-einer-legende",
+  "rubrik": "stream",
+  "titel": "Schumacher '94 – Die Geburt einer Legende",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentation über Michael Schumachers erste Titelsaison in der Formel 1 1994, seit 2. Oktober bei Netflix.",
+  "tags": [
+   "Film",
+   "Doku"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-10-17",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-small-prophets",
+  "rubrik": "stream",
+  "titel": "Small Prophets",
+  "ort": "Apple TV",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Neue Comedy-Serie, seit 7. Oktober bei Apple TV.",
+  "tags": [
+   "Serie",
+   "Komödie"
+  ],
+  "quelle": "apfelpatient.de",
+  "url": "https://tv.apple.com/de",
+  "stand": "2026-10-17",
+  "thema": "Apple TV"
+ },
+ {
+  "id": "stream-the-alto-knights",
+  "rubrik": "stream",
+  "titel": "The Alto Knights",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Mafia-Drama um zwei Bosse in New York, seit 5. Oktober im Netflix-Angebot.",
+  "tags": [
+   "Film",
+   "Krimi",
+   "Drama"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-10-17",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-the-last-first-winter-k2",
+  "rubrik": "stream",
+  "titel": "The Last First: Winter K2",
+  "ort": "Apple TV",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentarfilm über den Versuch, den K2 im Winter zu besteigen, seit 2. Oktober.",
+  "tags": [
+   "Film",
+   "Doku",
+   "Abenteuer"
+  ],
+  "quelle": "apfelpatient.de",
+  "url": "https://tv.apple.com/de",
+  "stand": "2026-10-17",
+  "thema": "Apple TV"
+ },
+ {
+  "id": "stream-the-social-network",
+  "rubrik": "stream",
+  "titel": "The Social Network",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Drama über die Gründung von Facebook und den Streit der Beteiligten, seit 8. Oktober bei Prime.",
+  "tags": [
+   "Film",
+   "Drama"
+  ],
+  "quelle": "kino.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-17",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-the-x-files",
+  "rubrik": "stream",
+  "titel": "The X-Files",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Zwei FBI-Agenten ermitteln in unerklärlichen Fällen; Staffel 1–11 seit 11. Oktober bei Prime.",
+  "tags": [
+   "Serie",
+   "Sci-Fi",
+   "Krimi",
+   "Thriller"
+  ],
+  "quelle": "kino.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-17",
+  "thema": "Amazon Prime"
  },
  {
   "id": "tv-07d6dd58d7",
@@ -2167,223 +2387,5 @@
   "url": "https://www.ndr.de/fernsehen/",
   "stand": "2026-10-16",
   "thema": "NDR"
- },
- {
-  "id": "stream-schumacher-94-die-geburt-einer-legende",
-  "rubrik": "stream",
-  "titel": "Schumacher '94 – Die Geburt einer Legende",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über Michael Schumachers erste Titelsaison in der Formel 1 1994, seit 2. Oktober bei Netflix.",
-  "tags": [
-   "Film",
-   "Doku"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-17",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-the-alto-knights",
-  "rubrik": "stream",
-  "titel": "The Alto Knights",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Mafia-Drama um zwei Bosse in New York, seit 5. Oktober im Netflix-Angebot.",
-  "tags": [
-   "Film",
-   "Krimi",
-   "Drama"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-17",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-the-social-network",
-  "rubrik": "stream",
-  "titel": "The Social Network",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Drama über die Gründung von Facebook und den Streit der Beteiligten, seit 8. Oktober bei Prime.",
-  "tags": [
-   "Film",
-   "Drama"
-  ],
-  "quelle": "kino.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-17",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-captain-phillips",
-  "rubrik": "stream",
-  "titel": "Captain Phillips",
-  "ort": "ZDF Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Thriller nach wahrer Geschichte: Ein Frachter wird von somalischen Piraten gekapert. Neu seit 15. Oktober. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Thriller",
-   "Drama"
-  ],
-  "quelle": "news.de",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-10-17",
-  "thema": "ZDF Mediathek"
- },
- {
-  "id": "stream-the-last-first-winter-k2",
-  "rubrik": "stream",
-  "titel": "The Last First: Winter K2",
-  "ort": "Apple TV",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentarfilm über den Versuch, den K2 im Winter zu besteigen, seit 2. Oktober.",
-  "tags": [
-   "Film",
-   "Doku",
-   "Abenteuer"
-  ],
-  "quelle": "apfelpatient.de",
-  "url": "https://tv.apple.com/de",
-  "stand": "2026-10-17",
-  "thema": "Apple TV"
- },
- {
-  "id": "stream-below",
-  "rubrik": "stream",
-  "titel": "Below",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Neue Thriller-Serie, seit 8. Oktober bei Netflix.",
-  "tags": [
-   "Serie",
-   "Thriller"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-17",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-the-x-files",
-  "rubrik": "stream",
-  "titel": "The X-Files",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Zwei FBI-Agenten ermitteln in unerklärlichen Fällen; Staffel 1–11 seit 11. Oktober bei Prime.",
-  "tags": [
-   "Serie",
-   "Sci-Fi",
-   "Krimi",
-   "Thriller"
-  ],
-  "quelle": "kino.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-17",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-small-prophets",
-  "rubrik": "stream",
-  "titel": "Small Prophets",
-  "ort": "Apple TV",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Neue Comedy-Serie, seit 7. Oktober bei Apple TV.",
-  "tags": [
-   "Serie",
-   "Komödie"
-  ],
-  "quelle": "apfelpatient.de",
-  "url": "https://tv.apple.com/de",
-  "stand": "2026-10-17",
-  "thema": "Apple TV"
- },
- {
-  "id": "stream-portobello-unschuldig-verurteilt",
-  "rubrik": "stream",
-  "titel": "Portobello – Unschuldig verurteilt",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Justizdrama-Serie über einen Fall von Fehlurteil, seit 8. Oktober in der ARTE-Mediathek. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Serie",
-   "Drama",
-   "Krimi"
-  ],
-  "quelle": "wochenblatt-reporter.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-17",
-  "thema": "ARTE Mediathek"
- },
- {
-  "id": "stream-das-gold",
-  "rubrik": "stream",
-  "titel": "Das Gold",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Britische Krimiserie nach wahrem Fall, Staffel 1 in der ARD Mediathek. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Serie",
-   "Krimi",
-   "Drama",
-   "Historie"
-  ],
-  "quelle": "netzwelt.de",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-17",
-  "thema": "ARD Mediathek"
  }
 ]

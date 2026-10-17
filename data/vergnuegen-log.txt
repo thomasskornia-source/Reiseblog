@@ -1,13 +1,9 @@
 FEHLER buehne-staatsoper HTTP Error 403: Forbidden
-ok eintrittfrei 8 Tipps
-ok musik-unterfahrt 10 Tipps
-ok geheimtipp-events 10 Tipps
-gemini-3.8-flash: HTTP 429
+ok mitvergnuegen-wochenende 0 Tipps
+ok musik-backstage 10 Tipps
+ok musik-alte-utting 4 Tipps
+ok buehne-residenztheater 10 Tipps
+ok buehne-kammerspiele 10 Tipps
+ok buehne-volkstheater 10 Tipps
 ok muenchen-de-wochenende 10 Tipps
-gemini-3.8-flash: HTTP 429
-ok muenchen-travel-kalender 0 Tipps
-gemini-3.8-flash: HTTP 429
-gemini-flash-latest: HTTP 429
-FEHLER mitvergnuegen-wochenende gemini-flash-latest: HTTP 429
-ok musik-zenith 10 Tipps
-Fertig: 6 Quellen ok, 2 Fehler, 40 neue Tipps, 107 gesamt
+Fertig: 7 Quellen ok, 1 Fehler, 40 neue Tipps, 107 gesamt
