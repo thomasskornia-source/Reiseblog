@@ -652,6 +652,15 @@ body.fp-body { padding-bottom: 0; }
         <p class="small" id="c4Note"></p>
       </section>
 
+      <section class="panel" id="zielPanel" aria-labelledby="h-ziel">
+        <header><h2 id="h-ziel">Wie viel Vermögen brauche ich?</h2><p>So viel Vermögen, dass die Rendite allein deine monatlichen Ausgaben zahlt.</p></header>
+        <div class="grid2" style="margin-top:6px">
+          <label class="f" for="zlA"><span>Ausgaben pro Monat</span><input id="zlA" type="number" inputmode="decimal" min="0" step="50" placeholder="€" oninput="window.zielRechnen&&window.zielRechnen()"></label>
+          <label class="f" for="zlR"><span>Rendite (%)</span><input id="zlR" type="number" inputmode="decimal" min="0" step="0.5" oninput="window.zielRechnen&&window.zielRechnen()"></label>
+        </div>
+        <div id="zielOut" class="inc" style="margin-top:12px"></div>
+      </section>
+
       <section class="panel" id="bavPanel" aria-labelledby="h-bav" hidden>
         <header><h2 id="h-bav">Betriebsrente: Rente oder Auszahlung?</h2><p>Die drei Varianten im Vergleich, nach Steuer sowie Kranken- und Pflegeversicherung.</p></header>
         <div id="bavBox" class="inc"></div>
@@ -1713,6 +1722,37 @@ function compute(P) {
         '<p class="note">' + depl + '</p>' +
         '<p class="small">Ausgaben ändern sich im Alter oft: erst mehr für Reisen und Freizeit, später mehr für Gesundheit und Pflege. Pflegekosten sind hier nicht enthalten.</p>';
     }
+
+    // Vermögensziel: Rendite zahlt die Ausgaben
+    (function () {
+      var nz = function (v) { var x = parseFloat(String(v).replace(',', '.')); return isFinite(x) ? x : NaN; };
+      var aDef = ausTotal > 0 ? ausTotal : (nz(($('stopLeben') || {}).value) > 0 ? nz($('stopLeben').value) : 0), rDef = P.rRet * 100;
+      var st = {}; try { st = JSON.parse(localStorage.getItem('fp-ziel') || '{}') || {}; } catch (e) {}
+      $('zlA').placeholder = aDef > 0 ? Math.round(aDef) + ' € (deine Ausgaben)' : '€';
+      $('zlR').placeholder = String(Math.round(rDef * 10) / 10).replace('.', ',') + ' (Ruhestand)';
+      if (document.activeElement !== $('zlA') && st.a != null && $('zlA').value === '') $('zlA').value = st.a;
+      if (document.activeElement !== $('zlR') && st.r != null && $('zlR').value === '') $('zlR').value = st.r;
+      window.zielRechnen = function () {
+        var a = nz($('zlA').value), r = nz($('zlR').value);
+        try { localStorage.setItem('fp-ziel', JSON.stringify({ a: $('zlA').value, r: $('zlR').value })); } catch (e) {}
+        if (!(a > 0)) a = aDef; if (!(r > 0)) r = rDef;
+        var o = $('zielOut');
+        if (!(a > 0) || !(r > 0)) { o.innerHTML = '<p class="note">Trage Ausgaben pro Monat und Rendite ein, dann siehst du hier das nötige Vermögen.</p>'; return; }
+        var ri = r / 100, j = a * 12, t = 0.26375;
+        var v1 = j / ri, v2 = j / (ri * (1 - t)), rr = (1 + ri) / (1 + P.infl) - 1, v3 = rr > 0 ? j / rr : NaN;
+        var h = '<span class="verdict good">Etwa ' + eur(v1) + ' Vermögen</span>' +
+          '<p class="note">Bei <b>' + eur(a) + '</b> Ausgaben im Monat (' + eur(j) + ' im Jahr) und <b>' + String(Math.round(r * 100) / 100).replace('.', ',') + ' % Rendite</b> brauchst du rund <b>' + eur(v1) + '</b>, damit die Zinsen und Erträge die Ausgaben allein tragen und das Vermögen selbst unangetastet bleibt.</p>' +
+          '<div class="kv">' +
+          '<div><b>' + eur(v1) + '</b><span>Nur aus der Rendite, vor Steuern</span></div>' +
+          '<div><b>' + eur(v2) + '</b><span>Wenn die Rendite voll mit 26,375 % Abgeltungsteuer belastet wird</span></div>' +
+          '<div><b>' + (isFinite(v3) ? eur(v3) : '–') + '</b><span>Mit Inflationsschutz: die Ausgaben steigen mit der Inflation von ' + pct(P.infl, 1) + ' mit, die Kaufkraft bleibt</span></div>' +
+          '</div>';
+        if (P.W0 > 0) h += '<p class="small">Dein Vermögen heute: ' + eur(P.W0) + ' (' + pct(P.W0 / v1, 0) + ' des Ziels ohne Steuer).' + (R.kReal > 0 ? ' Bei Rentenbeginn: ' + eur(R.kReal) + ' in heutiger Kaufkraft (' + (isFinite(v3) ? pct(R.kReal / v3, 0) + ' des Ziels mit Inflationsschutz' : '–') + ').' : '') + '</p>';
+        h += '<p class="small">Faustregel: Ausgaben mal 12, geteilt durch die Rendite. Die Rente ist hier nicht abgezogen: Zahlt sie schon einen Teil der Ausgaben, trage nur den Rest ein. Renditen sind Annahmen und nicht garantiert; Teilfreistellung bei ETFs ist nicht berücksichtigt.</p>';
+        o.innerHTML = h;
+      };
+      window.zielRechnen();
+    })();
 
     // Kaufen oder mieten
     (function () {
