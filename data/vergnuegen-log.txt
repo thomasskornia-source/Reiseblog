@@ -1,9 +1,14 @@
 FEHLER buehne-staatsoper HTTP Error 403: Forbidden
-ok mitvergnuegen-wochenende 0 Tipps
-ok musik-backstage 10 Tipps
-ok musik-alte-utting 4 Tipps
-ok buehne-residenztheater 10 Tipps
-ok buehne-kammerspiele 10 Tipps
-ok buehne-volkstheater 10 Tipps
-ok muenchen-de-wochenende 10 Tipps
-Fertig: 7 Quellen ok, 1 Fehler, 40 neue Tipps, 107 gesamt
+ok muenchen-travel-kalender 0 Tipps
+ok eintrittfrei 7 Tipps
+gemini-3.8-flash: The read operation timed out
+ok geheimtipp-events 10 Tipps
+ok musik-zenith 10 Tipps
+gemini-3.8-flash: The read operation timed out
+gemini-flash-latest: HTTP 429
+FEHLER musik-unterfahrt gemini-flash-latest: HTTP 429
+gemini-3.8-flash: HTTP 429
+gemini-flash-latest: HTTP 429
+FEHLER mucbook-neu gemini-flash-latest: HTTP 429
+Zwei Mal in Folge Tempolimit, Abbruch bis zum nächsten Lauf
+Fertig: 4 Quellen ok, 3 Fehler, 25 neue Tipps, 107 gesamt

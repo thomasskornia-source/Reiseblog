@@ -1101,6 +1101,52 @@
   "stand": "2026-10-17"
  },
  {
+  "id": "events-37b9689a4a",
+  "lat": 48.14335,
+  "lon": 11.58615,
+  "rubrik": "events",
+  "titel": "Ausstellung Gedanken–Brüche",
+  "ort": "Galerie Bezirk Oberbayern",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "2026-12-02",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Kostenfreie Kunstausstellung in der Galerie des Bezirks Oberbayern.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-17"
+ },
+ {
+  "id": "events-fce889481c",
+  "lat": 48.13711,
+  "lon": 11.57538,
+  "rubrik": "events",
+  "titel": "BABYRICHMAN Kunstraum",
+  "ort": "München",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Temporärer Kunstraum mit Werken von sechs zeitgenössischen Künstlerinnen im Herzen Münchens.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-17"
+ },
+ {
   "id": "events-f75860356d",
   "lat": 48.19469,
   "lon": 11.60785,
@@ -1113,7 +1159,7 @@
   "zeit": "20:30",
   "preis": "",
   "dauer": "",
-  "kurz": "Die Rock-Ikonen um Goran Bregovic zelebrieren ihr 50-jähriges Jubiläum live mit ihren größten Hits.",
+  "kurz": "Die legendäre Rockband um Goran Bregovic feiert ihr 50-jähriges Jubiläum mit großen Hits und kraftvollem Sound.",
   "tags": [
    "Musik",
    "Kultur",
@@ -1122,7 +1168,7 @@
   "thema": "Konzert & Musik",
   "quelle": "Zenith, Kulturhalle (Konzerte)",
   "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-16"
+  "stand": "2026-10-17"
  },
  {
   "id": "events-22b28d9ccd",
@@ -1215,6 +1261,30 @@
   "stand": "2026-10-17"
  },
  {
+  "id": "events-1d504a3bcb",
+  "lat": 48.19393,
+  "lon": 11.61817,
+  "rubrik": "events",
+  "titel": "Duo MODU – Dancing Strings",
+  "ort": "Mohr-Villa",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Gitarre und Violine verweben Stücke von Bartók, Kreisler, Gardel und Piazzolla zu leidenschaftlichen Klangwelten.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-17"
+ },
+ {
   "id": "events-72b79bfdf9",
   "lat": 48.14007,
   "lon": 11.58154,
@@ -1258,6 +1328,27 @@
   "thema": "Kabarett & Theater",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-17"
+ },
+ {
+  "id": "events-ae4e02b622",
+  "rubrik": "events",
+  "titel": "Fotoausstellung Jüdische Friedhöfe und Synagogen",
+  "ort": "Europäische Janusz Korczak Akademie e.V.",
+  "adresse": "",
+  "datum": "2026-10-17",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Fotografische Reise von Michael Graber zu jüdischen Friedhöfen und Synagogen in Oberfranken.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
   "stand": "2026-10-17"
  },
  {
@@ -1587,11 +1678,11 @@
   "ort": "MaximiliansForum",
   "adresse": "",
   "datum": "2026-10-17",
-  "datum_bis": "",
+  "datum_bis": "2026-11-29",
   "zeit": "",
   "preis": "frei",
   "dauer": "",
-  "kurz": "Kollektive Werkstatt im MaximiliansForum, gestaltet von Verena Seibt und Adrian Sölch zur laufenden Kunstausstellung.",
+  "kurz": "Offene Werkstatt des Kollektivs Raumfragen begleitend zur laufenden Ausstellung im MaximiliansForum.",
   "tags": [
    "Kultur",
    "Kostenlos"
@@ -1599,7 +1690,7 @@
   "thema": "Ausstellung & Museum",
   "quelle": "Eintritt frei München",
   "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-16"
+  "stand": "2026-10-17"
  },
  {
   "id": "events-e911c25816",
@@ -1735,100 +1826,6 @@
   "quelle": "Münchner Kammerspiele",
   "url": "https://www.muenchner-kammerspiele.de/",
   "stand": "2026-10-15"
- },
- {
-  "id": "events-efcace73bb",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "Kärbholz",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-18",
-  "datum_bis": "2026-10-18",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "3 Std.",
-  "kurz": "Die deutsche Rockband Kärbholz bringt ihren geradlinigen Mix aus Punk, Rock und Vollgas-Sound auf die Bühne.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-17"
- },
- {
-  "id": "events-af8855ea60",
-  "lat": 48.14011,
-  "lon": 11.57943,
-  "rubrik": "events",
-  "titel": "König Lear",
-  "ort": "Residenztheater",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "18:30",
-  "preis": "25 bis 69 €",
-  "dauer": "3 Std. 10 Min.",
-  "kurz": "Shakespeares berühmte Tragödie um Machtverlust, Familie und Wahn mit Publikumsliebling Manfred Zapatka in der Titelrolle.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-17"
- },
- {
-  "id": "events-3dcfdfe746",
-  "lat": 48.14011,
-  "lon": 11.57943,
-  "rubrik": "events",
-  "titel": "Macht Theater!",
-  "ort": "Residenztheater",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "11:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Aktionstag für Demokratie und Vielfalt mit interaktiven Workshops an neun Münchner Bühnen für Menschen von 6 bis 99 Jahren.",
-  "tags": [
-   "Kultur",
-   "Familie"
-  ],
-  "thema": "Familie & Kinder",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-17"
- },
- {
-  "id": "events-2f77766d4c",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "Marko Hietala",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-18",
-  "datum_bis": "2026-10-18",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "3 Std.",
-  "kurz": "Der finnische Musiker und ehemalige Nightwish-Bassist Marko Hietala gastiert für ein abendliches Konzert im Backstage.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-17"
  },
  {
   "id": "stream-below",
