@@ -1,3 +1,6 @@
-FEHLER piazza-maggiore HTTP 429: {"error":{"message":"Rate limit exceeded for model gemini-3.8-flash-tts (limit: 10 requests per day on Free Tier). Please retry in 3h47m35s or upgrade your tier at https://ai.dev/rate-limit.","code":"too_many_requests"}}
-ok intro 211053 Bytes
+FEHLER archiginnasio HTTP 429: {"error":{"message":"Rate limit exceeded for model gemini-3.8-flash-tts (limit: 10 requests per day on Free Tier). Please retry in 19h6m or upgrade your tier at https://ai.dev/rate-limit.","code":"too_many_requests"}}
+ok piazza-maggiore 254685 Bytes
+ok nettuno 212781 Bytes
+ok due-torri 317901 Bytes
+ok portici 261453 Bytes
 Tageslimit erreicht, der nächste Lauf macht weiter.
