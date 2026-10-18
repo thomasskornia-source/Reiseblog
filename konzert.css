@@ -1,0 +1,58 @@
+/* Konzertmodus + Musik-Seite (Thomas, 18.10.2026). Farben kommen über --kz-* aus konzert.js. */
+html.kz-an body { background: var(--paper); color: var(--ink); }
+html.kz-an .topbar, html.kz-an .topbar.stuck { background: var(--paper); }
+body.konzert .hero, body.konzert .bo-bar, body.konzert .song-bar, body.konzert .wh-bar, body.konzert .fav-bar,
+body.konzert .vs-bar, body.konzert .bento, body.konzert .section-title, body.konzert .entry-list { display: none !important; }
+
+.kz-home { margin: 0 -18px; }
+@media (min-width: 700px) { .kz-home { margin: 0; } }
+.kz-hero { padding: 40px 22px 28px; color: #fff; background: radial-gradient(120% 120% at 85% 0%, var(--kz-from, #5a2230) 0%, var(--kz-to, #1d1018) 100%); }
+.kz-kicker { margin: 0 0 8px; font: 600 12px 'Work Sans', sans-serif; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
+.kz-name { margin: 0 0 18px; font-family: var(--kz-font, 'Fraunces', serif); font-weight: 600; font-size: clamp(34px, 9vw, 64px); line-height: 1.05; color: #fff; overflow-wrap: anywhere; }
+.kz-off { all: unset; cursor: pointer; display: inline-block; padding: 10px 16px; border-radius: 999px; border: 1.5px solid rgba(255, 255, 255, .7); color: #fff; font: 600 14px 'Work Sans', sans-serif; }
+.kz-off:focus-visible, .kz-btn:focus-visible, .kz-play:focus-visible { outline: 3px solid var(--kz-gold, #F6C253); outline-offset: 2px; }
+.kz-body { display: grid; gap: 14px; padding: 18px; }
+@media (min-width: 900px) { .kz-body { grid-template-columns: 1fr 1fr; padding: 24px 0; } }
+.kz-card { display: block; border-radius: 18px; padding: 18px; background: var(--paper-warm, #f3e9d8); color: var(--ink); text-decoration: none; overflow: hidden; }
+.kz-card h2 { margin: 0 0 4px; font-family: var(--kz-font, 'Fraunces', serif); font-weight: 600; font-size: 24px; line-height: 1.2; color: var(--ink); }
+.kz-card h3 { margin: 14px 0 4px; font: 700 13px 'Work Sans', sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--kz-accent, var(--rust)); }
+.kz-card p { margin: 0 0 8px; line-height: 1.55; font-size: 15.5px; }
+.kz-small { font: 600 11px 'Work Sans', sans-serif !important; letter-spacing: .12em; text-transform: uppercase; color: var(--kz-accent, var(--rust)); }
+.kz-by { color: var(--ink-soft); }
+.kz-fun { font-style: italic; color: var(--ink-soft); }
+.kz-btn, .kz-play { all: unset; cursor: pointer; display: inline-block; margin-top: 8px; padding: 12px 20px; border-radius: 999px; background: var(--kz-accent, #B5502E); color: #fff; font: 700 15px 'Work Sans', sans-serif; text-align: center; }
+.kz-btn:active, .kz-play:active { transform: scale(.97); }
+.kz-bild { display: block; width: calc(100% + 36px); margin: -18px -18px 14px; aspect-ratio: 16 / 9; object-fit: cover; background: rgba(0, 0, 0, .15); }
+.kz-special { padding: 18px; }
+.kz-special:has(.kz-bild) { padding: 0 18px 18px; }
+
+/* Musik-Seite */
+.mu-card { border-radius: 18px; padding: 18px; margin: 14px 0; background: var(--paper-warm, #f3e9d8); }
+.mu-card h2 { margin: 0 0 6px; font-family: 'Fraunces', serif; font-weight: 600; font-size: 22px; }
+.mu-card p { margin: 0 0 10px; line-height: 1.5; }
+.mu-form { display: grid; gap: 10px; margin-top: 10px; }
+.mu-form label { display: grid; gap: 4px; font: 600 13px 'Work Sans', sans-serif; color: var(--ink-soft); }
+.mu-form input { font: 16px 'Work Sans', sans-serif; padding: 12px 14px; border-radius: 12px; border: 1.5px solid rgba(46, 58, 50, .25); background: #fff; color: #2E3A32; }
+.mu-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+.mu-emoji { all: unset; cursor: pointer; font-size: 38px; line-height: 1; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fff; box-shadow: 0 3px 10px rgba(0, 0, 0, .18); }
+.mu-emoji:active { transform: scale(.94); }
+.mu-emoji:focus-visible { outline: 3px solid var(--rust); outline-offset: 2px; }
+.mu-concert { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; background: #262F63; color: #FAF3E8; font: 700 17px 'Work Sans', sans-serif; box-shadow: 0 4px 14px rgba(0, 0, 0, .2); }
+.mu-concert:focus-visible { outline: 3px solid #F6C253; outline-offset: 2px; }
+.mu-msg { margin: 12px 0 0; padding: 10px 14px; border-radius: 12px; background: #fff1d6; border: 1px solid #F6C253; color: #2E3A32; font-size: 14.5px; line-height: 1.45; }
+.mu-lied { display: block; text-decoration: none; color: inherit; }
+.mu-lied b { display: block; font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; }
+.mu-lied span { color: var(--ink-soft); }
+
+/* Special-Seite */
+.ks-bild { margin: 0 0 16px; }
+.ks-bild img { display: block; width: 100%; max-height: 420px; object-fit: cover; border-radius: 16px; }
+.ks-bild figcaption { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
+.ks-lied { border-bottom: 1px solid rgba(128, 128, 128, .25); padding: 12px 0; }
+.ks-lied > button.ks-kopf { all: unset; cursor: pointer; display: block; width: 100%; box-sizing: border-box; }
+.ks-lied b { font-size: 18px; }
+.ks-lied .ks-j { color: var(--ink-soft); margin-left: 8px; font-size: 14px; }
+.ks-lied .ks-t { margin-top: 10px; }
+.ks-lied .ks-t[hidden] { display: none; }
+.ks-q { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+.ks-q a { color: inherit; }

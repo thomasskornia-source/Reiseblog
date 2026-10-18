@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<meta name="theme-color" content="#FAF3E8">
+<title>Konzert-Special – Unterwegs und zuhause</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=29">
+<link rel="stylesheet" href="konzert.css?v=2">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+</head>
+<body class="page-info page-single pc" data-kz>
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="quiz.html">München</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+      <a href="musik.html">Musik</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+  <div class="entry-topbar"><a class="back-link" href="musik.html">← Zur Musik</a></div>
+  <article>
+    <header class="entry-header">
+      <p class="date" id="ks-kicker">Konzert-Special</p>
+      <h1 id="ks-h1">Konzert-Special</h1>
+      <hr class="rule">
+    </header>
+    <div id="ks-inhalt"></div>
+    <p class="mu-msg" id="ks-leer" hidden></p>
+  </article>
+  <footer class="site-footer"><p>Von einer KI mit Websuche zusammengefasst und nicht redaktionell geprüft. Eigene Worte, kein Wortlaut aus den Quellen. Bild nur, wenn es frei lizenziert ist. Vorgelesen von einer KI-Stimme.</p></footer>
+</div>
+<script src="konzert.js?v=1"></script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); }, K = window.Konzert, E = K.el;
+  var q = new URLSearchParams(location.search), slug = q.get('k') || '', m = K.get();
+  if (!slug && m) slug = K.slug(m.artist);
+  function leer(t, link) {
+    var x = $('ks-leer'); x.textContent = t; x.hidden = false;
+    if (link) { x.appendChild(document.createElement('br')); var a = E('a', 'kz-btn', 'Special anfordern'); a.href = link; a.target = '_blank'; a.rel = 'noopener'; x.appendChild(a); }
+  }
+  if (!slug) { leer('Kein Konzert gewählt. Auf der Musik-Seite kannst du „Goin’ on concert“ drücken.'); return; }
+  K.load(slug).then(function (d) {
+    if (!d) { leer('Für dieses Special gibt es noch keine Daten.', m && K.slug(m.artist) === slug ? K.issueUrl(m.artist, m.city || '') : null); return; }
+    if (m && K.slug(m.artist) === slug) K.apply(K.theme(d, m.artist));
+    document.title = d.artist + ' – Konzert-Special'; $('ks-h1').textContent = d.artist; $('ks-kicker').textContent = (d.special && d.special.titel) || 'Konzert-Special';
+    var box = $('ks-inhalt');
+    if (d.bild && d.bild.datei) {
+      var f = E('figure', 'ks-bild'), im = E('img'); im.alt = d.artist; im.src = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(d.bild.datei) + '?width=1000'; f.appendChild(im);
+      var cp = E('figcaption', '', 'Bild: ' + (d.bild.urheber || 'Wikimedia Commons') + (d.bild.lizenz ? ', ' + d.bild.lizenz : '') + ' · '); var ca = E('a', '', 'Quelle'); ca.href = d.bild.seite || ('https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(d.bild.datei)); ca.target = '_blank'; ca.rel = 'noopener'; cp.appendChild(ca); f.appendChild(cp); box.appendChild(f);
+    }
+    var pod = E('button', 'kz-play', '▶ Podcast anhören'); pod.type = 'button';
+    var sp = (d.special && (d.special.sprech || d.special.text)) || '';
+    pod.addEventListener('click', function () {
+      if (K.spielt()) { K.stop(); return; }
+      pod.textContent = '■ Stopp';
+      K.audioHead('audio/konzert-' + encodeURIComponent(slug) + '.mp3').then(function (ok) {
+        K.sprich(sp, ok ? 'audio/konzert-' + encodeURIComponent(slug) + '.mp3' : null, function () { pod.textContent = '▶ Podcast anhören'; });
+      });
+    });
+    box.appendChild(pod);
+    var tx = E('div', 'entry-body'); K.paras(tx, d.special && d.special.text); box.appendChild(tx);
+    if (d.songs && d.songs.length) {
+      box.appendChild(E('h2', '', 'Die Lieder'));
+      d.songs.forEach(function (s) {
+        var li = E('div', 'ks-lied'), kopf = E('button', 'ks-kopf'); kopf.type = 'button'; kopf.setAttribute('aria-expanded', 'false');
+        kopf.appendChild(E('b', '', s.title)); if (s.year) kopf.appendChild(E('span', 'ks-j', String(s.year))); li.appendChild(kopf);
+        var t = E('div', 'ks-t'); t.hidden = true; t.appendChild(E('p', '', s.herkunft)); t.appendChild(E('p', '', s.bedeutung)); if (s.fun) t.appendChild(E('p', 'kz-fun', s.fun));
+        var pl = E('button', 'kz-play', '▶ Anhören'); pl.type = 'button';
+        pl.addEventListener('click', function () { if (K.spielt()) { K.stop(); return; } pl.textContent = '■ Stopp'; K.sprich(s.herkunft + ' ' + s.bedeutung, null, function () { pl.textContent = '▶ Anhören'; }); });
+        t.appendChild(pl); li.appendChild(t);
+        kopf.addEventListener('click', function () { t.hidden = !t.hidden; kopf.setAttribute('aria-expanded', String(!t.hidden)); });
+        box.appendChild(li);
+      });
+    }
+    if (d.quellen && d.quellen.length) {
+      var qq = E('p', 'ks-q'); qq.appendChild(document.createTextNode('Quellen: '));
+      d.quellen.slice(0, 12).forEach(function (x, j) { if (!/^https?:\/\//.test(x.url || '')) return; if (j) qq.appendChild(document.createTextNode(' · ')); var a = E('a', '', x.titel || x.url); a.href = x.url; a.target = '_blank'; a.rel = 'noopener'; qq.appendChild(a); });
+      box.appendChild(qq);
+    }
+  });
+})();
+</script>
+<script src="nav.js?v=21" defer></script>
+</body>
+</html>

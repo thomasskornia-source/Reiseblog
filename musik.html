@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<meta name="theme-color" content="#FAF3E8">
+<title>Musik – Unterwegs und zuhause</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=29">
+<link rel="stylesheet" href="konzert.css?v=2">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+</head>
+<body class="page-info page-single pc" data-kz>
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="quiz.html">München</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+      <a href="musik.html">Musik</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+  <article>
+    <header class="entry-header">
+      <p class="date">Musik</p>
+      <h1>Musik</h1>
+      <hr class="rule">
+    </header>
+
+    <section class="mu-card" id="mu-song" hidden>
+      <h2>Song des Tages</h2>
+      <a class="mu-lied" id="mu-link" href="song.html"><b id="mu-titel"></b><span id="mu-by"></span></a>
+      <p style="margin-top:10px"><a href="song.html">Geschichte lesen und anhören</a></p>
+    </section>
+
+    <section class="mu-card" id="mu-konzert">
+      <h2>Konzert</h2>
+      <div id="mu-aktiv" hidden>
+        <p id="mu-aktiv-t"></p>
+        <div class="mu-row">
+          <a class="kz-btn" id="mu-special" href="konzert.html">Zum Special</a>
+          <a class="kz-btn" href="index.html">Zur Startseite</a>
+          <button type="button" class="mu-concert" id="mu-aus">Konzertmodus beenden</button>
+        </div>
+      </div>
+      <div id="mu-start">
+        <p>Du gehst auf ein Konzert? Dann bekommt die Startseite das Gesicht der Band: ihre Lieder des Tages, ein Special mit Text, Bild und Podcast und passende Farben.</p>
+        <button type="button" class="mu-concert" id="mu-go">🤟🏼 Goin’ on concert</button>
+      </div>
+      <form class="mu-form" id="mu-form" hidden>
+        <label>Interpret oder Band<input id="mu-artist" type="text" maxlength="60" autocomplete="off" required></label>
+        <label>Stadt<input id="mu-city" type="text" maxlength="40" autocomplete="off" required></label>
+        <div class="mu-row"><button type="submit" class="kz-btn" style="margin-top:0">Weiter</button></div>
+      </form>
+      <div id="mu-frage" hidden>
+        <p><b>Soll ich den Konzertmodus aktivieren?</b></p>
+        <p id="mu-frage-t" style="color:var(--ink-soft)"></p>
+        <div class="mu-row">
+          <button type="button" class="mu-emoji" id="mu-ja" aria-label="Ja, Konzertmodus aktivieren">🤟🏼</button>
+          <button type="button" class="mu-emoji" id="mu-nein" aria-label="Nein, nicht aktivieren">👎🏻</button>
+        </div>
+      </div>
+      <p class="mu-msg" id="mu-msg" role="status" hidden></p>
+    </section>
+  </article>
+  <footer class="site-footer"><p>Der Konzertmodus gilt nur auf diesem Gerät und lässt sich jederzeit beenden.</p></footer>
+</div>
+<script src="konzert.js?v=1"></script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); }, K = window.Konzert, cur = null;
+  function msg(t) { var m = $('mu-msg'); m.textContent = t || ''; m.hidden = !t; }
+  function zeige() {
+    var m = K.get();
+    $('mu-aktiv').hidden = !m; $('mu-start').hidden = !!m; $('mu-form').hidden = true; $('mu-frage').hidden = true;
+    if (m) {
+      $('mu-aktiv-t').textContent = 'Konzertmodus aktiv: ' + m.artist + (m.city ? ' in ' + m.city : '') + '.';
+      $('mu-special').href = 'konzert.html?k=' + encodeURIComponent(K.slug(m.artist));
+    }
+  }
+  fetch('data/songs.json').then(function (r) { return r.json(); }).then(function (l) {
+    l = l.filter(function (x) { return x && x.title; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    if (!l.length) return;
+    $('mu-titel').textContent = l[0].title; $('mu-by').textContent = l[0].artist;
+    $('mu-link').href = 'song.html?id=' + encodeURIComponent(l[0].id); $('mu-song').hidden = false;
+  }).catch(function () {});
+  $('mu-go').addEventListener('click', function () { msg(''); $('mu-start').hidden = true; $('mu-form').hidden = false; $('mu-artist').focus(); });
+  $('mu-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var a = $('mu-artist').value.trim(), c = $('mu-city').value.trim();
+    if (!a || !c || !K.slug(a)) { msg('Bitte Interpret und Stadt eintragen.'); return; }
+    cur = { artist: a, city: c }; $('mu-form').hidden = true; $('mu-frage').hidden = false;
+    $('mu-frage-t').textContent = a + ' in ' + c;
+  });
+  $('mu-nein').addEventListener('click', function () { cur = null; $('mu-frage').hidden = true; $('mu-start').hidden = false; msg('Alles bleibt, wie es ist.'); });
+  $('mu-ja').addEventListener('click', function () {
+    if (!cur || !K.set(cur.artist, cur.city)) { msg('Dieses Gerät kann den Konzertmodus nicht speichern (Privates Surfen?).'); return; }
+    var a = cur.artist, c = cur.city; cur = null; zeige();
+    K.load(K.slug(a)).then(function (d) {
+      if (d) { msg('Konzertmodus ist an. Das Special zu ' + a + ' ist schon da.'); return; }
+      msg('Konzertmodus ist an. Das Special wird noch erstellt: Tippe unten auf „Special anfordern“ und dann auf GitHub „Submit new issue“.');
+      var l = document.createElement('a'); l.className = 'kz-btn'; l.href = K.issueUrl(a, c); l.target = '_blank'; l.rel = 'noopener'; l.textContent = 'Special anfordern';
+      $('mu-msg').appendChild(document.createElement('br')); $('mu-msg').appendChild(l);
+    });
+  });
+  $('mu-aus').addEventListener('click', function () { K.clear(); K.unapply(); zeige(); msg('Konzertmodus beendet. Die Startseite ist wieder wie immer.'); });
+  zeige();
+})();
+</script>
+<script src="nav.js?v=21" defer></script>
+</body>
+</html>
