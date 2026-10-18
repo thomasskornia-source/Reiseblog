@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>VivaScope in fünf Folgen – Unterwegs und zuhause</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=29">
+<link rel="stylesheet" href="song.css?v=2">
+<style>
+.we-hero{border-radius:20px;padding:20px 18px 18px;margin:0 0 6px;color:#FAF3E8;background:radial-gradient(120% 100% at 90% 0%,#d9793f 0%,#B5502E 38%,#2E3A32 100%)}
+.we-hero h2{margin:0 0 6px;font-family:'Fraunces',serif;font-weight:500;font-size:22px;line-height:1.2;color:inherit}
+.we-hero p{margin:0 0 14px;font-size:15px;line-height:1.5;opacity:.95}
+.we-all{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:10px;background:#F6C253;color:#262F63;font-weight:700;font-size:15.5px;padding:12px 20px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.28)}
+.we-all:active{transform:scale(.97)}
+.we-all:focus-visible,.we-btn:focus-visible,.we-pill:focus-visible{outline:3px solid #262F63;outline-offset:2px}
+.we-teil{font-family:'Fraunces',serif;font-weight:500;font-size:22px;margin:26px 0 10px}
+.we-l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.we-k{background:#fff;border:1px solid rgba(46,58,50,.1);border-radius:18px;padding:14px 14px 12px;box-shadow:0 2px 8px rgba(46,58,50,.06);transition:box-shadow .2s,border-color .2s}
+.we-k.spielt{border-color:#F6C253;box-shadow:0 0 0 3px rgba(246,194,83,.55),0 4px 14px rgba(46,58,50,.1)}
+.we-r{display:flex;align-items:center;gap:14px}
+.we-btn{all:unset;cursor:pointer;flex:none;width:52px;height:52px;border-radius:50%;background:#F6C253;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+.we-btn:active{transform:scale(.94)}
+.we-btn svg{width:26px;height:26px;fill:#262F63}.we-btn .st{display:none}.spielt .we-btn .pl{display:none}.spielt .we-btn .st{display:block}
+.we-n{flex:none;font-family:'Fraunces',serif;font-size:13px;font-weight:600;color:#B5502E}
+.we-t{min-width:0}.we-t b{display:block;font-size:16.5px;line-height:1.25}.we-t span{display:block;font-size:13px;color:var(--ink-soft);margin-top:3px;line-height:1.35}
+.we-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.we-pill{all:unset;cursor:pointer;box-sizing:border-box;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;line-height:1;padding:9px 14px;border-radius:999px;white-space:nowrap}
+.we-tour{background:#262F63;color:#FAF3E8}
+.we-lies{background:rgba(46,58,50,.08);color:#2E3A32}
+.we-text{margin-top:10px;padding-top:10px;border-top:1px solid rgba(46,58,50,.1)}
+.we-text p{font-size:15px;line-height:1.55;margin:0 0 10px}
+.we-text[hidden]{display:none}
+.we-q{font-size:13px;color:var(--ink-soft);line-height:1.5}.we-q a{color:inherit}
+.we-msg{margin:12px 0 0;padding:10px 14px;border-radius:12px;background:#fff1d6;border:1px solid #F6C253;font-size:14.5px;line-height:1.45}
+.we-bald{opacity:.7;background:rgba(255,255,255,.5);box-shadow:none}
+@media(min-width:900px){.we-l{display:grid;grid-template-columns:1fr 1fr}}
+</style>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+</head>
+<body class="page-song">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="quiz.html">München</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+  <div class="entry-topbar"><a class="back-link" href="index.html">← Zur Startseite</a></div>
+  <article>
+    <header class="entry-header">
+      <p class="date">Firmenporträt · Miniserie</p>
+      <h1>VivaScope in fünf Folgen</h1>
+      <hr class="rule">
+    </header>
+    <section class="we-hero"><h2>Ein Münchner Medizintechnik-Unternehmen</h2><p>Fünf kurze Folgen über Geschichte, Geräte, Studien, Zahlen und Menschen von VivaScope. Zum Anhören oder Lesen, mit Quellen. Wo etwas nicht öffentlich ist, steht das dabei.</p><button type="button" class="we-all" id="we-all"><span id="we-all-t">▶ Alle nacheinander</span></button></section>
+    <p class="we-msg" id="we-msg" role="status" hidden></p>
+    <ul class="we-l" id="we-l1"></ul>
+    <p class="song-note">Eigene Zusammenfassung öffentlich zugänglicher Quellen, die Links stehen jeweils unter „Text lesen“.</p>
+  </article>
+  <p id="we-error" class="song-note" hidden>Die Erklärung konnte gerade nicht geladen werden.</p>
+  <footer class="site-footer"><p>Keine Anlage- oder Rechtsberatung. Vorgelesen von der Stimme deines Geräts. Stand: 18.10.2026.</p></footer>
+</div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var K = [], idx = -1, sp = false, reihe = false, hat = {}, player = null;
+  var PL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M8 5.5v13l11-6.5z"/><rect class="st" x="7" y="7" width="10" height="10" rx="1.6"/></svg>';
+  function msg(t) { var m = $('we-msg'); m.textContent = t || ''; m.hidden = !t; }
+  function laeuft() { return sp || (player && !player.paused && !player.ended); }
+  function marke() {
+    var els = document.querySelectorAll('.we-k[data-i]');
+    for (var i = 0; i < els.length; i++) {
+      var an = (i === idx) && laeuft();
+      els[i].classList.toggle('spielt', !!an);
+      els[i].querySelector('.we-btn').setAttribute('aria-label', (an ? 'Stopp: ' : 'Anhören: ') + K[i].titel);
+    }
+    $('we-all-t').textContent = reihe ? '■ Stopp' : '▶ Alle nacheinander';
+  }
+  function stop() {
+    sp = false; reihe = false; idx = -1;
+    if (player) { player.onended = player.onerror = null; try { player.pause(); } catch (e) {} }
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    marke();
+  }
+  function weiter() { var n = idx + 1; sp = false; if (reihe && n < K.length) spiel(n); else stop(); }
+  function speech(k) {
+    if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') { stop(); msg('Dieses Gerät kann nicht vorlesen. Du kannst den Text unter dem Kapitel lesen.'); return; }
+    var p = (k.sprech || k.text).replace(/\n+/g, ' ').match(/[^.!?:]+[.!?:]+|[^.!?:]+$/g) || [k.text]; sp = true; marke();
+    var gestartet = false;
+    (function n() {
+      if (!sp) return;
+      if (!p.length) { weiter(); return; }
+      var u = new SpeechSynthesisUtterance(p.shift().trim()); u.lang = 'de-DE'; u.rate = .95;
+      u.onstart = function () { gestartet = true; };
+      u.onend = n;
+      u.onerror = function (er) { if (er && (er.error === 'canceled' || er.error === 'interrupted')) return; stop(); msg('Die Stimme deines Geräts hat nicht gestartet. Tippe noch einmal auf den gelben Knopf oder lies den Text.'); };
+      speechSynthesis.speak(u);
+    })();
+    setTimeout(function () { if (sp && !gestartet && !speechSynthesis.speaking) { stop(); msg('Die Stimme deines Geräts hat nicht gestartet. Prüfe, ob das iPhone nicht auf lautlos steht, und tippe noch einmal.'); } }, 2500);
+  }
+  function spiel(i) {
+    msg('');
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    sp = false; idx = i; var k = K[i];
+    if (hat[k.id]) {
+      if (!player) player = new Audio();
+      player.onended = weiter;
+      player.onerror = function () { hat[k.id] = false; speech(k); };
+      player.src = 'audio/vivascope-' + encodeURIComponent(k.id) + '.mp3';
+      var r = player.play(); marke();
+      if (r && r.catch) r.catch(function () { msg('Der Ton hat nicht gestartet. Tippe noch einmal auf den gelben Knopf.'); stop(); });
+    } else speech(k);   // direkt beim Tippen, sonst erlaubt iOS keine Sprachausgabe
+  }
+  function min(k) { var m = Math.max(1, Math.round((k.sprech || k.text).split(/\s+/).length / 140)); return 'ca. ' + m + ' Min.'; }
+  function bau(l) {
+    K.forEach(function (k, i) {
+      var li = document.createElement('li'); li.className = 'we-k'; li.setAttribute('data-i', i);
+      var r = document.createElement('div'); r.className = 'we-r';
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'we-btn'; b.innerHTML = PL; b.setAttribute('aria-label', 'Anhören: ' + k.titel);
+      b.addEventListener('click', function () { if (idx === i && laeuft()) stop(); else { reihe = false; spiel(i); } });
+      var t = document.createElement('div'); t.className = 'we-t'; var tb = document.createElement('b'); tb.textContent = k.nr + '. ' + k.titel; var ts = document.createElement('span'); ts.textContent = k.kurz + ' · ' + min(k);
+      var nr = document.createElement('div'); nr.className = 'we-n'; nr.textContent = k.nr;
+      t.appendChild(tb); t.appendChild(ts); r.appendChild(b); r.appendChild(t); li.appendChild(r);
+      var ac = document.createElement('div'); ac.className = 'we-acts';
+      if (k.tour) { var at = document.createElement('a'); at.className = 'we-pill we-tour'; at.href = 'aktien.html?tour=' + encodeURIComponent(k.tour); at.textContent = '👆 Auf der Seite zeigen'; ac.appendChild(at); }
+      var lb = document.createElement('button'); lb.type = 'button'; lb.className = 'we-pill we-lies'; lb.textContent = '📖 Text lesen'; lb.setAttribute('aria-expanded', 'false'); ac.appendChild(lb); li.appendChild(ac);
+      var d = document.createElement('div'); d.className = 'we-text'; d.hidden = true;
+      k.text.split('\n\n').forEach(function (x) { var p = document.createElement('p'); p.textContent = x; d.appendChild(p); });
+      lb.addEventListener('click', function () { d.hidden = !d.hidden; lb.setAttribute('aria-expanded', String(!d.hidden)); lb.textContent = d.hidden ? '📖 Text lesen' : '📖 Text ausblenden'; });
+      if (k.quellen && k.quellen.length) { var q = document.createElement('p'); q.className = 'we-q'; q.appendChild(document.createTextNode('Quellen: ')); k.quellen.forEach(function (x, j) { if (j) q.appendChild(document.createTextNode(' · ')); var a = document.createElement('a'); a.href = x.u; a.target = '_blank'; a.rel = 'noopener'; a.textContent = x.t; q.appendChild(a); }); d.appendChild(q); }
+      li.appendChild(d); l.appendChild(li);
+    });
+  }
+  $('we-all').addEventListener('click', function () { if (reihe || laeuft()) { stop(); return; } reihe = true; spiel(0); });
+  window.addEventListener('pagehide', stop);
+  fetch('data/vivascope-podcast.json').then(function (r) { return r.json(); }).then(function (l) {
+    K = l.filter(function (x) { return x && x.titel && true; }).sort(function (a, b) { return a.nr - b.nr; });
+    if (!K.length) throw 0; bau($('we-l1'));
+    K.forEach(function (k) { fetch('audio/vivascope-' + encodeURIComponent(k.id) + '.mp3', { method: 'HEAD' }).then(function (r) { hat[k.id] = r.ok; }).catch(function () {}); });
+  }).catch(function () { $('we-error').hidden = false; });
+})();
+</script>
+<script src="nav.js?v=20" defer></script>
+</body>
+</html>

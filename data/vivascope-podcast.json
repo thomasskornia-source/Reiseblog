@@ -1,0 +1,75 @@
+[
+ {
+  "id": "herkunft",
+  "teil": 1,
+  "nr": 1,
+  "titel": "Vom Familienbetrieb zur eigenen Firma",
+  "kurz": "Die Geschichte von VivaScope, von 1921 bis zur Übernahme von Caliber",
+  "text": "Willkommen zu unserer kleinen Serie über VivaScope, ein Münchner Medizintechnik-Unternehmen. In fünf kurzen Folgen geht es um Geschichte, Geräte, Studien, Zahlen und die Menschen dahinter. Alles stammt aus öffentlich auffindbaren Quellen. Wo etwas nicht öffentlich ist, sagen wir das offen.\n\nDie Wurzeln liegen bei MAVIG, einem Münchner Familienunternehmen, das nach eigener Darstellung auf das Jahr 1921 zurückgeht. MAVIG kennt man vor allem für Strahlenschutz in der Röntgentechnik, also Schürzen, Schutzwände und Deckenversorgungssysteme. Die GmbH im heutigen Handelsregister wurde 1984 eingetragen und hat nach einem Firmenprofil für das Jahr 2023 gut hundertsechzig Beschäftigte.\n\nIm Jahr 2006 entstand bei MAVIG eine spezialisierte Abteilung. Sie vertrieb das erste Konfokalmikroskop, das man direkt auf der Haut eines Patienten einsetzen kann, das VivaScope. Gebaut wurde es von einer amerikanischen Firma namens Lucid aus Rochester im Bundesstaat New York, die später unter dem Namen Caliber Imaging and Diagnostics auftrat. MAVIG war dort über Jahre der größte Vertriebspartner für Europa und den Mittelmeerraum.\n\nDie Meilensteine, die das Unternehmen selbst nennt: 2010 das Handgerät VivaScope 3000, 2011 die erste medizinische Leitlinie zur konfokalen Lasermikroskopie in der Dermatologie, 2017 das Forschungsmikroskop RS-G4 und 2018 ein Gerät für die digitale Schnellschnitt-Diagnostik, das auch die Urologie als Einsatzfeld erschloss.\n\nIm August 2022 kam der große Schritt. Die VivaScope GmbH, herausgelöst aus Vertrieb, Marketing und Service von MAVIG, schloss eine Vereinbarung, alle Anteile an Caliber zu übernehmen. Damit sitzen Entwicklung, Fertigung und Vertrieb unter einem Dach. Heute trägt die Firma das Motto: Fortschritt für die Medizin, weltweit.",
+  "quellen": [
+   {"t": "VivaScope: Über uns", "u": "https://www.vivascope.com/us/about-us-neu/"},
+   {"t": "Pressemitteilung zur Fusion, 12.08.2022", "u": "https://www.einpresswire.com/article/585426998/caliber-i-d-signs-definitive-agreement-to-merge-with-vivascope"},
+   {"t": "MAVIG bei Implisense", "u": "https://app.implisense.com/en/companies/mavig-gmbh-muenchen--DE4M79G52S50"},
+   {"t": "MAVIG bei Key to Bavaria", "u": "https://www.keytobavaria.com/company-details/mavig-gmbh-4801"}
+  ]
+ },
+ {
+  "id": "technik",
+  "teil": 1,
+  "nr": 2,
+  "titel": "Die optische Biopsie",
+  "kurz": "Wie ein Mikroskop die Haut ohne Schnitt durchleuchtet und welche Geräte es gibt",
+  "text": "Das Grundprinzip heißt Reflektanz-Konfokalmikroskopie. Ein Laserstrahl wird auf eine winzige Stelle im Gewebe gebündelt, und nur das Licht, das genau von dort zurückkommt, wird ausgewertet. So entstehen scharfe Schnittbilder der Haut in verschiedenen Tiefen, ohne dass jemand ein Skalpell anfasst. Ärzte sprechen deshalb von einer optischen Biopsie. Man sieht Zellen und Gewebestrukturen live am Patienten.\n\nDas Hauptanwendungsfeld ist die Hautkrebs-Diagnostik: Eine verdächtige Stelle wird angeschaut, bevor man entscheidet, ob sie operiert werden muss.\n\nDie Produktfamilie für den Einsatz am Menschen besteht aus mehreren Geräten. Das VivaScope 1500 ist das klassische Gerät, das VivaScope 3000 ein Handgerät für schwer erreichbare Stellen, und es gibt eine Kombination aus beiden. Dazu kommt die VivaCam, ein weiteres bildgebendes System. Telemedizin ist eingebaut, Bilder können also von Fachleuten an einem anderen Ort beurteilt werden. Zum Lernen gibt es VivaTeach und die VivaScope Academy, eine Online-Lernplattform für Ärzte.\n\nNeu ist das VivaScope Ultra, angekündigt am sechsten Oktober 2026. Es verbindet die konfokale Bildgebung mit hochfrequentem Ultraschall und wurde zusammen mit dem Partner Dermus entwickelt. Die Idee: Das Mikroskop zeigt feine Zelldetails nahe der Oberfläche, der Ultraschall liefert den Blick in tiefere Schichten.\n\nZur Zulassung: Die US-Behörde FDA ließ die Geräte VivaScope 1500 und 3000 im September 2008 als Medizinprodukte der Klasse zwei zu. Im Mai 2018 folgte eine weitere Freigabe. Zum Preis nur eine alte Orientierung: 2013 nannte eine Zeitung für ein Gerät eine Spanne von fünfundvierzigtausend bis fünfundneunzigtausend Dollar.",
+  "quellen": [
+   {"t": "VivaScope: Startseite und Produkte", "u": "https://www.vivascope.com"},
+   {"t": "Lucid Inc., Jahresbericht 2013 (SEC)", "u": "https://www.sec.gov/Archives/edgar/data/0000752902/000101905614000371/lucid_10k13.htm"},
+   {"t": "Rochester Business Journal, 18.10.2013", "u": "https://rbj.net/2013/10/18/caliber-scopes-out-new-focus/"},
+   {"t": "Meldung zur Übernahme, 2022 (FDA-Freigabe 2018)", "u": "https://www.marketscreener.com/quote/stock/CALIBER-IMAGING-DIAGNOSTI-120794124/news/VivaScope-GmbH-signed-a-definitive-agreement-to-acquire-Caliber-Imaging-Diagnostics-Inc--41329036/"}
+  ]
+ },
+ {
+  "id": "exvivo",
+  "teil": 1,
+  "nr": 3,
+  "titel": "Gewebeproben in Minuten",
+  "kurz": "Das VivaScope 2500 und was eine Brustkrebs-Studie zeigt",
+  "text": "Neben den Geräten für den Einsatz am Patienten gibt es den zweiten Zweig: Ex vivo, also an entnommenem Gewebe. Das Modell VivaScope 2500 untersucht frisch entnommene Proben direkt im Operationssaal und liefert digitale Bilder. Das nennt sich digitale Pathologie. Die fünfte Generation wurde im September 2025 vorgestellt. Dazu gehört VivaLAN, eine Lösung, um Bilder im Netzwerk zu teilen. Für Ende 2026 kündigt die Firma als Vorschau ein Forschungssystem namens RS-G5 an, das große Gewebeflächen als Mosaik abbildet.\n\nWie gut das in der Praxis funktioniert, zeigt eine Studie, die im Dezember 2025 in der Fachzeitschrift Cancers erschien. Ein Team am Universitätsklinikum Germans Trias in Badalona bei Barcelona untersuchte 146 Gewebeproben von 98 Patientinnen mit Brustkrebs-Operationen. Verglichen wurde das Mikroskop mit der klassischen Untersuchung unter dem Standardverfahren der Pathologie.\n\nDie Ergebnisse: Tumorgewebe wurde mit rund 94 Prozent Treffsicherheit erkannt. Bei der Beurteilung der Schnittränder, also der Frage, ob am Rand noch Tumorzellen sitzen, lag die Genauigkeit bei über 99 Prozent, allerdings bei nur fünf auffälligen Rändern. Die Aufbereitung dauerte weniger als fünf Minuten pro Probe.\n\nWichtig für die Einordnung: Es war eine Studie an einem einzigen Zentrum, die Ergebnisse brauchen Bestätigung. Das Mikroskop gehörte dem Krankenhaus, und die Hersteller waren an Planung, Auswertung und Text nicht beteiligt. Die Autoren sehen das Verfahren als mögliche Alternative zum Schnellschnitt, behaupten aber nicht, dass es schon weniger Nachoperationen gibt.",
+  "quellen": [
+   {"t": "Studie in Cancers 2025 (MDPI)", "u": "https://www.mdpi.com/2072-6694/17/23/3848"},
+   {"t": "VivaScope: Startseite, News", "u": "https://www.vivascope.com"}
+  ]
+ },
+ {
+  "id": "zahlen",
+  "teil": 1,
+  "nr": 4,
+  "titel": "Was die Zahlen hergeben",
+  "kurz": "Bilanzdaten der GmbH, von MAVIG und die Geschichte von Caliber",
+  "text": "Jetzt zu den Zahlen. Die vollständigen Jahresabschlüsse der VivaScope GmbH konnte ich nicht einsehen, die Seiten dafür waren nicht abrufbar. Ein Firmenverzeichnis nennt aber Eckdaten. Die GmbH steht unter der Nummer HRB 258401 beim Amtsgericht München im Register. Sie wurde laut Verzeichnis am 15. Juli 2020 gegründet und hat ein Stammkapital von 57.925 Euro. Als Bilanzsumme für das Jahr 2023 nennt es rund 15,7 Millionen Euro. Umsatz, Ergebnis und Eigenkapital stehen nur in kostenpflichtigen Profilen.\n\nFür den Mutterbetrieb MAVIG nennt dasselbe Verzeichnis einen Umsatz von rund 50,9 Millionen Euro, eine Bilanzsumme von 34,1 Millionen Euro im Jahr 2023 und 162 Beschäftigte. Das Umsatzjahr ist dort nicht angegeben. Eine andere Datenbank schätzt für VivaScope einen Umsatz zwischen einer und fünf Millionen Dollar. Das ist eine reine Schätzung ohne Beleg.\n\nGut dokumentiert ist dagegen die amerikanische Tochter Caliber, weil sie bis 2014 an der Börse berichtete. Die Verluste: etwa 4,1 Millionen Dollar 2009, 4,3 Millionen 2010, 9,1 Millionen 2011, 9,8 Millionen 2012 und 5,5 Millionen 2013. Der angesammelte Verlust lag Ende 2013 bei 52 Millionen Dollar, bei rund 12 Millionen Dollar Schulden und knapp einer Million Barmittel. Die Wirtschaftsprüfer äußerten Zweifel, ob die Firma weiterbestehen kann. Der Umsatz war klein: im ersten Halbjahr 2013 rund 1,6 Millionen Dollar, bei 28 Beschäftigten. Etwa vier Fünftel der Verkäufe gingen ins Ausland.\n\nIm Juli 2014 steuerten Verwaltungsratsmitglieder 16,1 Millionen Dollar frisches Kapital bei, und 13,5 Millionen Dollar Schulden wurden in Aktien getauscht, zu 55 Cent je Aktie. Danach zog sich die Firma von der US-Börsenaufsicht zurück. Im November 2019 kam ein Bankkredit über 5 Millionen Dollar dazu. Beim Zusammenschluss 2022 wurde kein Kaufpreis genannt.",
+  "quellen": [
+   {"t": "VivaScope GmbH bei Implisense", "u": "https://app.implisense.com/en/companies/vivascope-gmbh-muenchen--DE4UGL4F3D82"},
+   {"t": "MAVIG GmbH bei Implisense", "u": "https://app.implisense.com/en/companies/mavig-gmbh-muenchen--DE4M79G52S50"},
+   {"t": "Lucid Inc., Jahresbericht 2013 (SEC)", "u": "https://www.sec.gov/Archives/edgar/data/0000752902/000101905614000371/lucid_10k13.htm"},
+   {"t": "Rochester Business Journal, 18.10.2013", "u": "https://rbj.net/2013/10/18/caliber-scopes-out-new-focus/"},
+   {"t": "Rekapitalisierung, 31.07.2014 (BioSpace)", "u": "https://www.biospace.com/caliber-imaging-and-diagnostics-completes-substantial-recapitalization"},
+   {"t": "Meldung zur Übernahme, 12.08.2022", "u": "https://www.marketscreener.com/quote/stock/CALIBER-IMAGING-DIAGNOSTI-120794124/news/VivaScope-GmbH-signed-a-definitive-agreement-to-acquire-Caliber-Imaging-Diagnostics-Inc--41329036/"},
+   {"t": "Net-Income-Tabelle Caliber (TipRanks)", "u": "https://tipranks.com/stocks/lcdx/financials/income-statement"},
+   {"t": "VivaScope bei Crunchbase (Schätzung)", "u": "https://www.crunchbase.com/organization/vivascope"}
+  ]
+ },
+ {
+  "id": "menschen",
+  "teil": 1,
+  "nr": 5,
+  "titel": "Menschen und Aufbau",
+  "kurz": "Wer führt, wem gehört die Firma, wie ist sie organisiert",
+  "text": "Zum Schluss die Frage nach Inhabern und Organisation. Als Geschäftsführer nennt das Impressum der Firmenseite Christian Stoian. Ein Firmenverzeichnis führt zusätzlich Michael Hone als Geschäftsführer. Er ist der frühere Chef von Caliber und tritt im Jahr 2022 in der Pressemitteilung zur Fusion als Chef (CEO) von Caliber auf. Wem die Anteile gehören, steht auf der Firmenseite nicht, und auch in den frei lesbaren Quellen fand ich keine Angabe, die Gesellschafterlisten liegen hinter einer Anmeldung. Sicher ist nur die Herkunft: Die GmbH wurde aus dem Vertriebs-, Marketing- und Servicebereich von MAVIG herausgelöst, einem Familienunternehmen.\n\nZur Organisation: Es gibt zwei Standorte, München als Firmensitz und Rochester im US-Bundesstaat New York als amerikanisches Büro, geführt unter dem Namen Caliber Imaging and Diagnostics. Auf der Webseite gibt es getrennte Seiten für ein Team in den USA und eines in Europa. Gesucht werden Leute in Vertrieb, IT, Verwaltung, Produktmanagement und Service. Die Zahl der Beschäftigten nennt die Firma nicht. Datenbanken schätzen elf bis fünfzig.\n\nDer Vertrieb läuft über Vertriebspartner weltweit, die auch schulen. Das Unternehmen spricht von mehr als vierhundert installierten Systemen und einem Netz von über vierhundert Zentren. Dazu kommen Kongresse wie EADV und ECP, Live-Sitzungen mit Anwendern und die Academy.\n\nZum Ausblick: Das Ultra-System mit Ultraschall, die fünfte Generation des 2500 und die Vorschau auf das Forschungssystem RS-G5 zeigen, wohin es geht, nämlich vom reinen Hautmikroskop hin zu mehr Anwendungen. Was fehlt, sind Umsatz und Ergebnis der GmbH und die Eigentümer. Wer die haben will, kann sie im Unternehmensregister oder Bundesanzeiger abfragen.",
+  "quellen": [
+   {"t": "VivaScope: Impressum", "u": "https://www.vivascope.com/imprint/"},
+   {"t": "VivaScope: Über uns", "u": "https://www.vivascope.com/us/about-us-neu/"},
+   {"t": "VivaScope GmbH bei Implisense", "u": "https://app.implisense.com/en/companies/vivascope-gmbh-muenchen--DE4UGL4F3D82"},
+   {"t": "Pressemitteilung, 12.08.2022", "u": "https://www.einpresswire.com/article/585426998/caliber-i-d-signs-definitive-agreement-to-merge-with-vivascope"},
+   {"t": "VivaScope bei Crunchbase", "u": "https://www.crunchbase.com/organization/vivascope"}
+  ]
+ }
+]
