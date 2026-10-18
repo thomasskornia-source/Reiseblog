@@ -297,166 +297,6 @@
   "stand": "2026-10-12"
  },
  {
-  "id": "events-898a909f61",
-  "lat": 48.13819,
-  "lon": 11.5824,
-  "rubrik": "events",
-  "titel": "11. QFFM – Queer Filmfestival München",
-  "ort": "Münchner Kammerspiele - Schauspielhaus",
-  "adresse": "",
-  "datum": "2026-10-15",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Eröffnung des queeren Filmfestivals München mit dem Film Feito Pipa – Gugu's World des Regisseurs Allan Deberton.",
-  "tags": [
-   "Kultur"
-  ],
-  "thema": "Sonstiges",
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-3b0a48eb67",
-  "lat": 48.12366,
-  "lon": 11.5559,
-  "rubrik": "events",
-  "titel": "Andreas Bönte Buchpräsentation",
-  "ort": "Münchner Volkstheater",
-  "adresse": "Tumblingerstraße 29, 80337 München",
-  "datum": "2026-10-15",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Buchpräsentation und Gespräch über die eigene Familie und die Schatten des Nationalsozialismus.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Führung & Vortrag",
-  "quelle": "Münchner Volkstheater (Spielplan)",
-  "url": "https://www.muenchner-volkstheater.de/spielplan",
-  "stand": "2026-10-12"
- },
- {
-  "id": "events-d793905a74",
-  "rubrik": "events",
-  "titel": "Bernarda Albas Haus",
-  "ort": "Cuvilliéstheater",
-  "adresse": "",
-  "datum": "2026-10-15",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "17 bis 57 €",
-  "dauer": "1 Std. 20 Min.",
-  "kurz": "Nach dem Tod ihres Gatten verhängt Witwe Bernarda eine achtjährige Trauer und sperrt ihre Töchter in strenger Isolation ein.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-fc9f9c83bc",
-  "lat": 48.12366,
-  "lon": 11.5559,
-  "rubrik": "events",
-  "titel": "Buchpräsentation Andreas Bönte",
-  "ort": "Münchner Volkstheater",
-  "adresse": "Tumblingerstraße 29, 80337 München",
-  "datum": "2026-10-15",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Buchpräsentation und Gespräch über die Aufarbeitung familiärer Schatten der NS-Vergangenheit auf Bühne 2.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Führung & Vortrag",
-  "quelle": "Münchner Volkstheater (Spielplan)",
-  "url": "https://www.muenchner-volkstheater.de/spielplan",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-8ae0a725d6",
-  "lat": 48.14011,
-  "lon": 11.57943,
-  "rubrik": "events",
-  "titel": "Cabaret",
-  "ort": "Residenztheater",
-  "adresse": "",
-  "datum": "2026-10-15",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "29 bis 74 €",
-  "dauer": "3 Std.",
-  "kurz": "Das Musical entführt in den verruchten Berliner Kit-Kat-Club der 1930er-Jahre, während sich allmählich der Faschismus breitmacht.",
-  "tags": [
-   "Kultur",
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-bbce2b7f6c",
-  "lat": 48.1384,
-  "lon": 11.58247,
-  "rubrik": "events",
-  "titel": "Edgar Selge: Juras letzter Winter",
-  "ort": "Münchner Kammerspiele - Schauspielhaus",
-  "adresse": "",
-  "datum": "2026-10-15",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Der renommierte Schauspieler Edgar Selge präsentiert sein Buch in einer gemeinsamen Veranstaltung mit dem Literaturhaus München.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Führung & Vortrag",
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-fca456d779",
-  "lat": 48.1354,
-  "lon": 11.60088,
-  "rubrik": "events",
-  "titel": "Elephant 9",
-  "ort": "Jazzclub Unterfahrt",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-10-15",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Das norwegische Trio Elephant 9 entfesselt eine energiegeladene Fusion aus Progressive Rock, Psychedelic und Jazzrock.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-13"
- },
- {
   "id": "events-39dcc158eb",
   "lat": 48.1749,
   "lon": 11.55002,
@@ -500,75 +340,6 @@
   "thema": "Kabarett & Theater",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-ea24f4194d",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "MONOLORD",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-15",
-  "datum_bis": "2026-10-15",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "1 Std.",
-  "kurz": "Die Band Monolord tritt live im Münchner Kulturzentrum Backstage auf.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-b65e23625a",
-  "lat": 48.13767,
-  "lon": 11.58188,
-  "rubrik": "events",
-  "titel": "Oft wollte ich weglaufen, nie habe ich es getan.",
-  "ort": "Münchner Kammerspiele - Werkraum",
-  "adresse": "",
-  "datum": "2026-10-15",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Szenische Lesung unter Regie von Sapir Heller mit berührenden Texten und biografischen Zeugnissen von Grete Weil.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-9b25bc1c9d",
-  "lat": 48.12366,
-  "lon": 11.5559,
-  "rubrik": "events",
-  "titel": "Was ihr wollt",
-  "ort": "Münchner Volkstheater",
-  "adresse": "Tumblingerstraße 29, 80337 München",
-  "datum": "2026-10-15",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Aufführung von William Shakespeares berühmter Komödie in einer Inszenierung von Christian Stückl auf Bühne 1.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Volkstheater (Spielplan)",
-  "url": "https://www.muenchner-volkstheater.de/spielplan",
   "stand": "2026-10-15"
  },
  {
@@ -1693,6 +1464,96 @@
   "stand": "2026-10-17"
  },
  {
+  "id": "events-9da017473c",
+  "lat": 48.12422,
+  "lon": 11.58117,
+  "rubrik": "events",
+  "titel": "Auer Dult - Kirchweihdult",
+  "ort": "Mariahilfplatz",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "2026-10-25",
+  "zeit": "10:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Die traditionelle Kirchweihdult bietet herbstliches Markttreiben, Verkaufsstände und Fahrgeschäfte auf dem Mariahilfplatz.",
+  "tags": [
+   "Märkte",
+   "Familie",
+   "Draußen",
+   "Kultur"
+  ],
+  "thema": "Feste & Märkte",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "events-69ae8e182d",
+  "lat": 48.14335,
+  "lon": 11.58615,
+  "rubrik": "events",
+  "titel": "Ausstellung Gedanken–Brüche",
+  "ort": "Galerie Bezirk Oberbayern",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "2026-12-02",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Die Galerie des Bezirks Oberbayern präsentiert die kostenfreie Ausstellung Gedanken–Brüche bis Anfang Dezember.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "events-44e787ab46",
+  "rubrik": "events",
+  "titel": "Ausstellung Jüdische Friedhöfe und Synagogen",
+  "ort": "Europäische Janusz Korczak Akademie e.V.",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Michael Graber zeigt Fotografien jüdischer Synagogen und Friedhöfe in Oberfranken, entstanden auf einer Motorradreise.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "events-c0cf19ee31",
+  "rubrik": "events",
+  "titel": "BABYRICHMAN Kunstraum",
+  "ort": "BABYRICHMAN",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Temporärer Kunstraum im Zentrum Münchens mit aktuellen Werken von sechs zeitgenössischen Künstlerinnen bei freiem Eintritt.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-18"
+ },
+ {
   "id": "events-e911c25816",
   "rubrik": "events",
   "titel": "Buch trifft Bühne: Leseclub zu »Bye Bye Lolita«",
@@ -1735,6 +1596,28 @@
   "stand": "2026-10-17"
  },
  {
+  "id": "events-05b9fb523d",
+  "lat": 48.15104,
+  "lon": 11.46128,
+  "rubrik": "events",
+  "titel": "Django Asül - Am Ende vorn",
+  "ort": "Pasinger Fabrik",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "2026-10-18",
+  "zeit": "18:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kabarettist Django Asül gastiert mit seinem aktuellen Soloprogramm in der Pasinger Fabrik.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-18"
+ },
+ {
   "id": "events-87f5132c7b",
   "lat": 48.13845,
   "lon": 11.58272,
@@ -1756,6 +1639,53 @@
   "quelle": "Münchner Kammerspiele",
   "url": "https://www.muenchner-kammerspiele.de/",
   "stand": "2026-10-15"
+ },
+ {
+  "id": "events-2a0ea10caf",
+  "lat": 48.13289,
+  "lon": 11.58949,
+  "rubrik": "events",
+  "titel": "Henrik Freischlader",
+  "ort": "Ampere im Muffatwerk",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "2026-10-18",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Live-Konzert des Bluesrock-Gitarristen und Singer-Songwriters Henrik Freischlader im Ampere.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "events-af9e7fd5ec",
+  "lat": 48.24531,
+  "lon": 11.55586,
+  "rubrik": "events",
+  "titel": "Inside the Suit – Der Mensch im Raumanzug",
+  "ort": "Deutsches Museum - Flugwerft Schleißheim",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "2026-11-30",
+  "zeit": "09:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sonderausstellung in der Flugwerft Schleißheim über Raumfahrttechnologie und den Schutz des Menschen im Weltall.",
+  "tags": [
+   "Kultur",
+   "Familie"
+  ],
+  "thema": "Ausstellung & Museum",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-18"
  },
  {
   "id": "events-2fc523c2df",
@@ -1806,6 +1736,30 @@
   "stand": "2026-10-13"
  },
  {
+  "id": "events-c09f973c46",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Jam Session: Maxim Frischmann",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Saxofonist Maxim Frischmann eröffnet die Session mit modernem Jazz, treibenden Gegenwarts-Beats und elektronischen Klangfarben.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-18"
+ },
+ {
   "id": "events-602dc2087d",
   "lat": 48.13819,
   "lon": 11.5824,
@@ -1826,6 +1780,51 @@
   "quelle": "Münchner Kammerspiele",
   "url": "https://www.muenchner-kammerspiele.de/",
   "stand": "2026-10-15"
+ },
+ {
+  "id": "events-cfb141fae7",
+  "rubrik": "events",
+  "titel": "Kirchweih mit Kirtahutschn",
+  "ort": "Angermairhof",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "13:00",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "Kirchweihfest in Obermenzing mit traditioneller Kirtahutschn, Volkstanz der Trachtenjugend und Live-Klängen der Würmtaler Blasmusik.",
+  "tags": [
+   "Familie",
+   "Musik",
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Feste & Märkte",
+  "quelle": "Eintritt frei München",
+  "url": "https://www.eintrittfrei-muenchen.de/",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "events-e10434bb02",
+  "lat": 48.16912,
+  "lon": 11.54616,
+  "rubrik": "events",
+  "titel": "LOOP ONE Festival - Biathlon Opening",
+  "ort": "Olympiapark in München",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "2026-10-18",
+  "zeit": "10:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sportliches Eröffnungsevent rund um den Biathlonsport im Münchner Olympiapark mit vielfältigem Programm.",
+  "tags": [
+   "Draußen"
+  ],
+  "thema": "Draußen & Sport",
+  "quelle": "muenchen.de – Wochenende",
+  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "stand": "2026-10-18"
  },
  {
   "id": "stream-a-quiet-place",
@@ -1849,96 +1848,6 @@
   "url": "https://www.netflix.com/de/",
   "stand": "2026-10-18",
   "thema": "Netflix"
- },
- {
-  "id": "stream-furiosa",
-  "rubrik": "stream",
-  "titel": "Furiosa: A Mad Max Saga",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Vorgeschichte zu Mad Max: Furiosas Weg durch die Wüste zur Rache; seit 15. Oktober bei Prime.",
-  "tags": [
-   "Film",
-   "Action",
-   "Abenteuer",
-   "Sci-Fi"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-18",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-the-game",
-  "rubrik": "stream",
-  "titel": "The Game – Das Geschenk seines Lebens",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Ein reicher Banker erhält ein ominöses Spiel zum Geburtstag, das sein Leben aus den Fugen bringt; ab 18. Oktober.",
-  "tags": [
-   "Film",
-   "Thriller",
-   "Drama"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-18",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-tenzing",
-  "rubrik": "stream",
-  "titel": "Tenzing",
-  "ort": "Apple TV",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Drama um den Sherpa Tenzing Norgay und die Erstbesteigung des Everest; seit 16. Oktober bei Apple TV.",
-  "tags": [
-   "Film",
-   "Drama",
-   "Abenteuer"
-  ],
-  "quelle": "apfelpatient.de",
-  "url": "https://tv.apple.com/de",
-  "stand": "2026-10-18",
-  "thema": "Apple TV"
- },
- {
-  "id": "stream-the-yards",
-  "rubrik": "stream",
-  "titel": "The Yards – Im Hinterhof der Macht",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Ein entlassener Gangster gerät in Korruption und Verrat der Familie in New York. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Krimi",
-   "Thriller",
-   "Drama"
-  ],
-  "quelle": "hifi.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-18",
-  "thema": "ARTE Mediathek"
  },
  {
   "id": "stream-die-falle",
@@ -1985,9 +1894,32 @@
   "thema": "Amazon Prime"
  },
  {
-  "id": "stream-the-sisters-grimm",
+  "id": "stream-furiosa",
   "rubrik": "stream",
-  "titel": "The Sisters Grimm – Staffel 2",
+  "titel": "Furiosa: A Mad Max Saga",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Vorgeschichte zu Mad Max: Furiosas Weg durch die Wüste zur Rache; seit 15. Oktober bei Prime.",
+  "tags": [
+   "Film",
+   "Action",
+   "Abenteuer",
+   "Sci-Fi"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-18",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-tenzing",
+  "rubrik": "stream",
+  "titel": "Tenzing",
   "ort": "Apple TV",
   "adresse": "",
   "datum": "",
@@ -1995,17 +1927,38 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Märchenhafte Abenteuer der Familie Grimm, zweite Staffel seit 2. Oktober.",
+  "kurz": "Drama um den Sherpa Tenzing Norgay und die Erstbesteigung des Everest; seit 16. Oktober bei Apple TV.",
   "tags": [
-   "Serie",
-   "Familie",
-   "Fantasy",
+   "Film",
+   "Drama",
    "Abenteuer"
   ],
   "quelle": "apfelpatient.de",
   "url": "https://tv.apple.com/de",
   "stand": "2026-10-18",
   "thema": "Apple TV"
+ },
+ {
+  "id": "stream-the-game",
+  "rubrik": "stream",
+  "titel": "The Game – Das Geschenk seines Lebens",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Ein reicher Banker erhält ein ominöses Spiel zum Geburtstag, das sein Leben aus den Fugen bringt; ab 18. Oktober.",
+  "tags": [
+   "Film",
+   "Thriller",
+   "Drama"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-18",
+  "thema": "Amazon Prime"
  },
  {
   "id": "stream-the-miniaturist",
@@ -2031,6 +1984,52 @@
   "thema": "ARD Mediathek"
  },
  {
+  "id": "stream-the-sisters-grimm",
+  "rubrik": "stream",
+  "titel": "The Sisters Grimm – Staffel 2",
+  "ort": "Apple TV",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Märchenhafte Abenteuer der Familie Grimm, zweite Staffel seit 2. Oktober.",
+  "tags": [
+   "Serie",
+   "Familie",
+   "Fantasy",
+   "Abenteuer"
+  ],
+  "quelle": "apfelpatient.de",
+  "url": "https://tv.apple.com/de",
+  "stand": "2026-10-18",
+  "thema": "Apple TV"
+ },
+ {
+  "id": "stream-the-yards",
+  "rubrik": "stream",
+  "titel": "The Yards – Im Hinterhof der Macht",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Ein entlassener Gangster gerät in Korruption und Verrat der Familie in New York. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Krimi",
+   "Thriller",
+   "Drama"
+  ],
+  "quelle": "hifi.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-18",
+  "thema": "ARTE Mediathek"
+ },
+ {
   "id": "stream-unseen",
   "rubrik": "stream",
   "titel": "Unseen",
@@ -2053,26 +2052,6 @@
   "thema": "ZDF Mediathek"
  },
  {
-  "id": "tv-420d31b704",
-  "rubrik": "tv",
-  "titel": "Tatort: Unter Feinden",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Krimi aus der Tatort-Reihe mit einer Sendedauer von 90 Minuten. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "tv-programmheute.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-10-18",
-  "thema": "Das Erste"
- },
- {
   "id": "tv-8defb03ff0",
   "rubrik": "tv",
   "titel": "Caren Miosga",
@@ -2093,24 +2072,24 @@
   "thema": "Das Erste"
  },
  {
-  "id": "tv-70358f0345",
+  "id": "tv-e979e50cc0",
   "rubrik": "tv",
-  "titel": "die nordstory Spezial - Prora auf Rügen",
-  "ort": "NDR",
+  "titel": "Dr. Nice",
+  "ort": "ZDF",
   "adresse": "",
   "datum": "2026-10-18",
   "datum_bis": "",
   "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Dokumentation über Prora zwischen Ferienparadies und leeren Versprechen. Programm kann sich ändern.",
+  "kurz": "Romantischer Spielfilm mit einer Gesamtlaufzeit von 90 Minuten. Programm kann sich ändern.",
   "tags": [
-   "Doku"
+   "Film"
   ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.zdf.de/",
   "stand": "2026-10-18",
-  "thema": "NDR"
+  "thema": "ZDF"
  },
  {
   "id": "tv-55fda7db85",
@@ -2133,6 +2112,26 @@
   "thema": "NDR"
  },
  {
+  "id": "tv-420d31b704",
+  "rubrik": "tv",
+  "titel": "Tatort: Unter Feinden",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Krimi aus der Tatort-Reihe mit einer Sendedauer von 90 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-18",
+  "thema": "Das Erste"
+ },
+ {
   "id": "tv-466b6537f8",
   "rubrik": "tv",
   "titel": "Terra X",
@@ -2153,23 +2152,23 @@
   "thema": "ZDF"
  },
  {
-  "id": "tv-e979e50cc0",
+  "id": "tv-70358f0345",
   "rubrik": "tv",
-  "titel": "Dr. Nice",
-  "ort": "ZDF",
+  "titel": "die nordstory Spezial - Prora auf Rügen",
+  "ort": "NDR",
   "adresse": "",
   "datum": "2026-10-18",
   "datum_bis": "",
   "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Romantischer Spielfilm mit einer Gesamtlaufzeit von 90 Minuten. Programm kann sich ändern.",
+  "kurz": "Dokumentation über Prora zwischen Ferienparadies und leeren Versprechen. Programm kann sich ändern.",
   "tags": [
-   "Film"
+   "Doku"
   ],
-  "quelle": "tv-programmheute.de",
-  "url": "https://www.zdf.de/",
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
   "stand": "2026-10-18",
-  "thema": "ZDF"
+  "thema": "NDR"
  }
 ]
