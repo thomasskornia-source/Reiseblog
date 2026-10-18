@@ -2052,64 +2052,144 @@
   "thema": "ZDF Mediathek"
  },
  {
-  "id": "tv-8defb03ff0",
+  "id": "tv-dcc6afeccd",
   "rubrik": "tv",
-  "titel": "Caren Miosga",
-  "ort": "Das Erste",
+  "titel": "Schätze der Welt - Erbe der Menschheit",
+  "ort": "3sat",
   "adresse": "",
   "datum": "2026-10-18",
   "datum_bis": "",
-  "zeit": "21:45",
+  "zeit": "19:41",
   "preis": "",
   "dauer": "",
-  "kurz": "Sonntäglicher politischer Talk mit Moderatorin Caren Miosga. Programm kann sich ändern.",
+  "kurz": "Reihe über geschichtsträchtige Kultur- und Naturdenkmäler weltweit. Programm kann sich ändern.",
   "tags": [
-   "Show"
+   "Doku"
   ],
-  "quelle": "tv-programmheute.de",
-  "url": "https://www.daserste.de/",
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
   "stand": "2026-10-18",
-  "thema": "Das Erste"
+  "thema": "3sat"
  },
  {
-  "id": "tv-e979e50cc0",
+  "id": "tv-a8a2f5a7d3",
   "rubrik": "tv",
-  "titel": "Dr. Nice",
-  "ort": "ZDF",
+  "titel": "Till Reiners' Happy Hour",
+  "ort": "3sat",
   "adresse": "",
   "datum": "2026-10-18",
   "datum_bis": "",
   "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Romantischer Spielfilm mit einer Gesamtlaufzeit von 90 Minuten. Programm kann sich ändern.",
+  "kurz": "Kabarett und Comedy präsentiert von Till Reiners mit wechselnden Gästen. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-10-18",
+  "thema": "3sat"
+ },
+ {
+  "id": "tv-f997687c7f",
+  "rubrik": "tv",
+  "titel": "Mitternachtsspitzen",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "21:01",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Satirische Kabarettsendung aus Köln mit humorvollen Beiträgen. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-10-18",
+  "thema": "3sat"
+ },
+ {
+  "id": "tv-28d3445303",
+  "rubrik": "tv",
+  "titel": "Im Einsatz für Nepals bedrohte Krokodile",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "19:40",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Reportage über den Einsatz zum Schutz der bedrohten Krokodilpopulation in Nepal. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-18",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-31daccd992",
+  "rubrik": "tv",
+  "titel": "Interstellar",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Science-Fiction-Film über Astronauten auf der Suche nach einer neuen Heimat im All. Programm kann sich ändern.",
   "tags": [
    "Film"
   ],
-  "quelle": "tv-programmheute.de",
-  "url": "https://www.zdf.de/",
+  "quelle": "hoerzu.de",
+  "url": "https://www.arte.tv/de/",
   "stand": "2026-10-18",
-  "thema": "ZDF"
+  "thema": "ARTE"
  },
  {
-  "id": "tv-55fda7db85",
+  "id": "tv-60c5d5e351",
   "rubrik": "tv",
-  "titel": "Sportschau",
-  "ort": "NDR",
+  "titel": "Brettl-Spitzen",
+  "ort": "BR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Volkstümliche Musik- und Kabarettunterhaltung aus Bayern. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.br.de/fernsehen/",
+  "stand": "2026-10-18",
+  "thema": "BR"
+ },
+ {
+  "id": "tv-3f1938e7ec",
+  "rubrik": "tv",
+  "titel": "Blickpunkt Sport",
+  "ort": "BR",
   "adresse": "",
   "datum": "2026-10-18",
   "datum_bis": "",
   "zeit": "21:45",
   "preis": "",
   "dauer": "",
-  "kurz": "Sportmagazin mit Zusammenfassungen der Fußball-Bundesliga am Sonntag. Programm kann sich ändern.",
+  "kurz": "Sportmagazin mit aktuellen Berichten und Ergebnissen. Programm kann sich ändern.",
   "tags": [
    "Show"
   ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
+  "quelle": "hoerzu.de",
+  "url": "https://www.br.de/fernsehen/",
   "stand": "2026-10-18",
-  "thema": "NDR"
+  "thema": "BR"
  },
  {
   "id": "tv-420d31b704",
@@ -2122,34 +2202,34 @@
   "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Krimi aus der Tatort-Reihe mit einer Sendedauer von 90 Minuten. Programm kann sich ändern.",
+  "kurz": "Kommissarin Mila Sahin bezweifelt den angeblichen Drogenunfall ihrer Kollegin und ermittelt auf eigene Faust. Programm kann sich ändern.",
   "tags": [
-   "Film"
+   "Serie"
   ],
-  "quelle": "tv-programmheute.de",
+  "quelle": "tvinfo.de",
   "url": "https://www.daserste.de/",
   "stand": "2026-10-18",
   "thema": "Das Erste"
  },
  {
-  "id": "tv-466b6537f8",
+  "id": "tv-8defb03ff0",
   "rubrik": "tv",
-  "titel": "Terra X",
-  "ort": "ZDF",
+  "titel": "Caren Miosga",
+  "ort": "Das Erste",
   "adresse": "",
   "datum": "2026-10-18",
   "datum_bis": "",
-  "zeit": "19:30",
+  "zeit": "21:45",
   "preis": "",
   "dauer": "",
-  "kurz": "Dokumentation im ZDF mit einer Sendezeit von 45 Minuten. Programm kann sich ändern.",
+  "kurz": "Politisches Talkformat mit Moderatorin Caren Miosga. Programm kann sich ändern.",
   "tags": [
-   "Doku"
+   "Show"
   ],
   "quelle": "tv-programmheute.de",
-  "url": "https://www.zdf.de/",
+  "url": "https://www.daserste.de/",
   "stand": "2026-10-18",
-  "thema": "ZDF"
+  "thema": "Das Erste"
  },
  {
   "id": "tv-70358f0345",
@@ -2162,7 +2242,7 @@
   "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Dokumentation über Prora zwischen Ferienparadies und leeren Versprechen. Programm kann sich ändern.",
+  "kurz": "Reportage über das Seebad Prora auf Rügen zwischen Ferienparadies und unerfüllten Versprechen. Programm kann sich ändern.",
   "tags": [
    "Doku"
   ],
@@ -2170,5 +2250,145 @@
   "url": "https://www.ndr.de/fernsehen/",
   "stand": "2026-10-18",
   "thema": "NDR"
+ },
+ {
+  "id": "tv-64aabd4245",
+  "rubrik": "tv",
+  "titel": "Sportschau - Bundesliga am Sonntag",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Die Bundesliga-Partien vom Sonntag in der Zusammenfassung. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-18",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-f5ef8e4d20",
+  "rubrik": "tv",
+  "titel": "Der Pfälzerwald rund ums Jahr",
+  "ort": "SWR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentarische Aufnahmen aus dem Pfälzerwald im Verlauf der Jahreszeiten. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.swrfernsehen.de/",
+  "stand": "2026-10-18",
+  "thema": "SWR"
+ },
+ {
+  "id": "tv-257444441e",
+  "rubrik": "tv",
+  "titel": "SWR Sport",
+  "ort": "SWR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Regionales Sportmagazin mit Berichten und Highlights des Wochenendes. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.swrfernsehen.de/",
+  "stand": "2026-10-18",
+  "thema": "SWR"
+ },
+ {
+  "id": "tv-125af6d22b",
+  "rubrik": "tv",
+  "titel": "Wunderschön!",
+  "ort": "WDR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Reisereportagereihe des WDR mit Impressionen und Landschaftsbildern. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www1.wdr.de/fernsehen/",
+  "stand": "2026-10-18",
+  "thema": "WDR"
+ },
+ {
+  "id": "tv-6e7ffccfcf",
+  "rubrik": "tv",
+  "titel": "Sportschau Bundesliga am Sonntag",
+  "ort": "WDR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Zusammenfassung der Sonntagsspiele der Fußball-Bundesliga. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www1.wdr.de/fernsehen/",
+  "stand": "2026-10-18",
+  "thema": "WDR"
+ },
+ {
+  "id": "tv-c3f3b88084",
+  "rubrik": "tv",
+  "titel": "Ozeane - Eine Menschheitsgeschichte: Indischer Ozean",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Die Dokumentation zeigt, wie Monsunwinde den Indischen Ozean zu einem der ältesten Handelsräume machten. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "tvinfo.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-18",
+  "thema": "ZDF"
+ },
+ {
+  "id": "tv-8444787a71",
+  "rubrik": "tv",
+  "titel": "Dr. Nice: Ungebetene Gäste",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dr. Nice untersucht rätselhafte Symptome bei Flensburger Werftarbeitern und steht plötzlich ohne Bleibe da. Programm kann sich ändern.",
+  "tags": [
+   "Serie"
+  ],
+  "quelle": "tvinfo.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-18",
+  "thema": "ZDF"
  }
 ]
