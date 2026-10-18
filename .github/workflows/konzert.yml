@@ -42,7 +42,9 @@ jobs:
           CITY: ${{ inputs.city }}
           NEU: ${{ inputs.neu == 'ja' && '1' || '' }}
           ISSUE_BODY: ${{ github.event.issue.body }}
-        run: python3 tools/konzert-bauen.py 2>&1 | tee /tmp/konzert-log.txt
+        run: |
+          set -o pipefail
+          python3 tools/konzert-bauen.py 2>&1 | tee /tmp/konzert-log.txt
       - name: Speichern
         run: |
           git config user.name "github-actions[bot]"
