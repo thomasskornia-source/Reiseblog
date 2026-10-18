@@ -210,3 +210,13 @@ html:has(body.home) { overflow-x: hidden; }
 .bo-bar .sb-note.spielt .pl { display: none; }
 .bo-bar .sb-note.spielt .st { display: inline; }
 @media (min-width: 700px) { .bo-bar { margin: 0; padding-left: 28px; padding-right: 28px; } }
+
+/* Special VivaScope (sichtbar bis 01.11.2026, Steuerung in index.html) */
+.vs-bar { display: none; align-items: center; gap: 14px; margin: 0 -18px; padding: 22px 20px; color: #fff; background: linear-gradient(105deg, #3C4A9E 0%, #2B3677 55%, #1D2552 100%); }
+.vs-bar.on { display: flex; }
+.vs-bar .sb-link { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; color: inherit; text-decoration: none; }
+.vs-bar small { font: 600 11px 'Work Sans', sans-serif; letter-spacing: .1em; text-transform: uppercase; opacity: .85; }
+.vs-bar b { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vs-bar .sb-link span { font-size: 14px; opacity: .9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vs-bar .vs-icon { flex: none; width: 46px; height: 46px; }
+@media (min-width: 700px) { .vs-bar { margin: 0; padding-left: 28px; padding-right: 28px; } }
