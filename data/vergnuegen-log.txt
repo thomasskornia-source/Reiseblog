@@ -1,9 +1,9 @@
 FEHLER buehne-staatsoper HTTP Error 403: Forbidden
-ok musik-unterfahrt 10 Tipps
-ok muenchen-de-wochenende 10 Tipps
-ok muenchen-travel-kalender 0 Tipps
-ok eintrittfrei 6 Tipps
-ok geheimtipp-events 10 Tipps
-ok mitvergnuegen-wochenende 0 Tipps
-ok musik-zenith 10 Tipps
-Fertig: 7 Quellen ok, 1 Fehler, 46 neue Tipps, 96 gesamt
+ok musik-backstage 10 Tipps
+ok musik-alte-utting 3 Tipps
+ok buehne-residenztheater 10 Tipps
+ok buehne-kammerspiele 10 Tipps
+ok buehne-volkstheater 10 Tipps
+ok mucbook-neu 10 Tipps
+ok insiderei 10 Tipps
+Fertig: 7 Quellen ok, 1 Fehler, 60 neue Tipps, 125 gesamt

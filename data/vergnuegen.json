@@ -1585,7 +1585,7 @@
   "zeit": "20:00",
   "preis": "17 bis 57 €",
   "dauer": "1 Std. 50 Min.",
-  "kurz": "Uraufführung nach Lea Ruckpauls Debütroman, der die Figur Dolores Haze erwachsen und reflektiert auf ihre Missbrauchserfahrungen zurückblicken lässt.",
+  "kurz": "Bühnenadaption nach Lea Ruckpauls Debütroman, die Nabokovs Figur Dolores Haze als erwachsene Frau auf ihre Missbrauchserfahrungen zurückblicken lässt.",
   "tags": [
    "Kultur",
    "Abends"
@@ -1593,7 +1593,7 @@
   "thema": "Kabarett & Theater",
   "quelle": "Residenztheater (Spielplan)",
   "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-17"
+  "stand": "2026-10-18"
  },
  {
   "id": "events-05b9fb523d",
@@ -1805,25 +1805,419 @@
   "stand": "2026-10-18"
  },
  {
-  "id": "events-e10434bb02",
-  "lat": 48.16912,
-  "lon": 11.54616,
+  "id": "events-efcace73bb",
+  "lat": 48.14498,
+  "lon": 11.52197,
   "rubrik": "events",
-  "titel": "LOOP ONE Festival - Biathlon Opening",
-  "ort": "Olympiapark in München",
-  "adresse": "",
+  "titel": "KÄRBHOLZ",
+  "ort": "Backstage",
+  "adresse": "Reitknechtstr. 6, 80639 München",
   "datum": "2026-10-18",
   "datum_bis": "2026-10-18",
-  "zeit": "10:00",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "3 Std.",
+  "kurz": "Die Band Kärbholz tritt live im Münchner Kulturzentrum Backstage auf.",
+  "tags": [
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Backstage München (Konzerte)",
+  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-bdfa06e2a6",
+  "rubrik": "food",
+  "titel": "89 Anju",
+  "ort": "89 Anju",
+  "adresse": "Luisenstraße 47",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Sportliches Eröffnungsevent rund um den Biathlonsport im Münchner Olympiapark mit vielfältigem Programm.",
+  "kurz": "Koreanisches Lokal in der Maxvorstadt im Seoul-Look mit Kimchi-Pancakes, Bibimbap, Tteokbokki sowie ausgefallenen Drinks.",
   "tags": [
-   "Draußen"
+   "Asiatisch",
+   "Vegetarisch"
   ],
-  "thema": "Draußen & Sport",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
+  "thema": "Restaurant",
+  "quelle": "MUCBOOK – Neueröffnungen",
+  "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-28c3b3c4bc",
+  "lat": 48.1494,
+  "lon": 11.56595,
+  "rubrik": "food",
+  "titel": "89Anju",
+  "ort": "89Anju",
+  "adresse": "Luisenstr. 47, 80333 München",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Koreanisches Soulfood-Lokal mit Gerichten wie Bibimbap, Dubu Kimchi und Kimchi Pancakes im bunten K-Pop-Ambiente.",
+  "tags": [
+   "Asiatisch"
+  ],
+  "thema": "Restaurant",
+  "quelle": "Insiderei – neue Lokale",
+  "url": "https://insiderei.com/listen/neue-lokale-muenchen",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-eff2ffb5c1",
+  "lat": 48.13146,
+  "lon": 11.57199,
+  "rubrik": "food",
+  "titel": "A small Café",
+  "ort": "A small Café",
+  "adresse": "Müllerstraße 17, 80469 München",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Buntes Café im Glockenbachviertel mit indisch-schwäbischen Fusions-Snacks, Chai Masala und kreativen Kaffeespezialitäten.",
+  "tags": [
+   "Café",
+   "Vegetarisch"
+  ],
+  "thema": "Café & Brunch",
+  "quelle": "Insiderei – neue Lokale",
+  "url": "https://insiderei.com/listen/neue-lokale-muenchen",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-8157660f45",
+  "lat": 48.11896,
+  "lon": 11.5712,
+  "rubrik": "food",
+  "titel": "Ahimsa Restaurant",
+  "ort": "Ahimsa",
+  "adresse": "Sommerstraße 41, 81543 München",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Rein pflanzliches Restaurant mit kreativer panasiatischer Fusion-Küche ohne künstliche Zusätze in München.",
+  "tags": [
+   "Asiatisch",
+   "Vegetarisch"
+  ],
+  "thema": "Restaurant",
+  "quelle": "Insiderei – neue Lokale",
+  "url": "https://insiderei.com/listen/neue-lokale-muenchen",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-5f47197cd4",
+  "lat": 48.12511,
+  "lon": 11.58064,
+  "rubrik": "food",
+  "titel": "Café Faber",
+  "ort": "Café Faber",
+  "adresse": "Zeppelinstraße 5",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Wiedereröffnetes Café in Haidhausen mit regionaler und saisonaler Küche. Serviert werden feiner Kaffee, abwechslungsreicher Lunch und Wochenend-Brunch.",
+  "tags": [
+   "Café",
+   "Brunch",
+   "Vegetarisch"
+  ],
+  "thema": "Café & Brunch",
+  "quelle": "MUCBOOK – Neueröffnungen",
+  "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-beb6d500bc",
+  "rubrik": "food",
+  "titel": "Dizzy Daisy Weinbar",
+  "ort": "Dizzy Daisy Weinbar",
+  "adresse": "Thalkirchner Straße 10",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Gemütliche neue Weinbar am Sendlinger Tor mit Hausweinen, Spritz-Variationen und entspannter Wohlfühlatmosphäre im Lissabon-Stil.",
+  "tags": [],
+  "thema": "Neueröffnung",
+  "quelle": "MUCBOOK – Neueröffnungen",
+  "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-b4ef5a1da4",
+  "lat": 48.13137,
+  "lon": 11.5713,
+  "rubrik": "food",
+  "titel": "Fesch",
+  "ort": "Fesch",
+  "adresse": "Müllerstraße 30",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Modernes queeres Wirtshaus im Glockenbachviertel mit Stehausschank und bayerischen Gerichten wie hausgemachten Spinat-Käsespätzle.",
+  "tags": [
+   "Bayerisch",
+   "Vegetarisch"
+  ],
+  "thema": "Restaurant",
+  "quelle": "MUCBOOK – Neueröffnungen",
+  "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-15e12fffd3",
+  "lat": 48.15058,
+  "lon": 11.53734,
+  "rubrik": "food",
+  "titel": "Florentin",
+  "ort": "Florentin",
+  "adresse": "Blutenburgstraße 112",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Neu eröffnetes Lokal in Neuhausen mit israelischer Küche. Geboten werden vegetarische Mezze zum Teilen wie gerösteter Blumenkohl und Rote-Bete-Tatar.",
+  "tags": [
+   "Vegetarisch"
+  ],
+  "thema": "Restaurant",
+  "quelle": "MUCBOOK – Neueröffnungen",
+  "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-c946517c13",
+  "lat": 48.12918,
+  "lon": 11.58195,
+  "rubrik": "food",
+  "titel": "Frau im Mond Bar",
+  "ort": "Frau im Mond Bar",
+  "adresse": "Museumsinsel 1, 80538 München",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Rooftop-Terrasse beim Deutschen Museum mit Isarblick, Frühstück, Mittagsgerichten, Drinks und abendlichen DJ-Sounds.",
+  "tags": [
+   "Brunch"
+  ],
+  "thema": "Restaurant",
+  "quelle": "Insiderei – neue Lokale",
+  "url": "https://insiderei.com/listen/neue-lokale-muenchen",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-e83244705b",
+  "lat": 48.12846,
+  "lon": 11.59444,
+  "rubrik": "food",
+  "titel": "Giorgia Trattoria",
+  "ort": "Giorgia Trattoria",
+  "adresse": "Weißenburger Str. 2, 81667 München",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Buntes italienisches Restaurant im Stil der 80er-Jahre mit neapolitanischer Pizza, Pasta und überwiegend vegetarischen Gerichten.",
+  "tags": [
+   "Italienisch",
+   "Vegetarisch"
+  ],
+  "thema": "Restaurant",
+  "quelle": "Insiderei – neue Lokale",
+  "url": "https://insiderei.com/listen/neue-lokale-muenchen",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-cb3958b7d7",
+  "lat": 48.13617,
+  "lon": 11.56844,
+  "rubrik": "food",
+  "titel": "Julius Brantner Brothandwerk",
+  "ort": "Julius Brantner",
+  "adresse": "Kreuzstraße 1",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Transparente Bio-Backstube in der Münchner Altstadt, die handwerklich hergestelltes Brot und schwäbische Brezeln frisch anbietet.",
+  "tags": [
+   "Vegetarisch"
+  ],
+  "thema": "Neueröffnung",
+  "quelle": "MUCBOOK – Neueröffnungen",
+  "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-ee71392b4c",
+  "lat": 48.12236,
+  "lon": 11.55495,
+  "rubrik": "food",
+  "titel": "La Favela",
+  "ort": "La Favela",
+  "adresse": "Tumblingerstraße 45, 80337 München",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Brasilianische Spezialitäten wie Pão de Queijo und Feijoada in einem ausrangierten U-Bahn-Waggon beim Bahnwärter Thiel.",
+  "tags": [],
+  "thema": "Restaurant",
+  "quelle": "Insiderei – neue Lokale",
+  "url": "https://insiderei.com/listen/neue-lokale-muenchen",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-6e1770b6e5",
+  "lat": 48.10244,
+  "lon": 11.53414,
+  "rubrik": "food",
+  "titel": "MOCCASOLA",
+  "ort": "MOCCASOLA",
+  "adresse": "Zielstattstraße 9",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Inklusive Kaffeerösterei und Café in Sendling mit fairem Kaffee sowie preiswertem, täglich wechselndem Mittagstisch.",
+  "tags": [
+   "Café"
+  ],
+  "thema": "Café & Brunch",
+  "quelle": "MUCBOOK – Neueröffnungen",
+  "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-7c9b97297a",
+  "rubrik": "food",
+  "titel": "Maison Tran",
+  "ort": "Maison Tran",
+  "adresse": "Ehrengutstraße 27",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Vietnamesisches Lokal am Sendlinger Röcklplatz mit asiatischen Tapas, Edamame, frischen Salaten, Suppen und Sushi in stimmungsvollem Ambiente.",
+  "tags": [
+   "Asiatisch",
+   "Vegetarisch"
+  ],
+  "thema": "Restaurant",
+  "quelle": "MUCBOOK – Neueröffnungen",
+  "url": "https://www.mucbook.de/die-10-wirklich-besten-neueroeffnungen-in-muenchen/",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-6130b22516",
+  "lat": 48.14767,
+  "lon": 11.56176,
+  "rubrik": "food",
+  "titel": "Mamma Bao",
+  "ort": "Mamma Bao",
+  "adresse": "Augustenstraße 31, 80333 München",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Beliebtes Lokal in der Maxvorstadt mit handgezogenen chinesischen Nudeln, Bao und veganen sowie vegetarischen Optionen.",
+  "tags": [
+   "Asiatisch",
+   "Vegetarisch"
+  ],
+  "thema": "Restaurant",
+  "quelle": "Insiderei – neue Lokale",
+  "url": "https://insiderei.com/listen/neue-lokale-muenchen",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-be6a2be5d3",
+  "lat": 48.15271,
+  "lon": 11.57648,
+  "rubrik": "food",
+  "titel": "Max Emanuel Brauerei",
+  "ort": "Max Emanuel Brauerei",
+  "adresse": "Adalbertstraße 33, 80799 München",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Traditionsreicher Biergarten in der Maxvorstadt mit bayerischen Klassikern sowie modernem Brunch wie Avocado Smash.",
+  "tags": [
+   "Bayerisch",
+   "Biergarten",
+   "Brunch"
+  ],
+  "thema": "Biergarten",
+  "quelle": "Insiderei – neue Lokale",
+  "url": "https://insiderei.com/listen/neue-lokale-muenchen",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-e106709749",
+  "rubrik": "food",
+  "titel": "Sojo",
+  "ort": "Sojo",
+  "adresse": "Schwanthalerstraße 13, 80336 München",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Spannende Fusion-Küche direkt am Deutschen Theater, die japanische Spezialitäten wie Sushi mit südafrikanischen Aromen kombiniert.",
+  "tags": [
+   "Asiatisch"
+  ],
+  "thema": "Restaurant",
+  "quelle": "Insiderei – neue Lokale",
+  "url": "https://insiderei.com/listen/neue-lokale-muenchen",
+  "stand": "2026-10-18"
+ },
+ {
+  "id": "food-678fbc4aa7",
+  "rubrik": "food",
+  "titel": "Wirtshaus Fesch",
+  "ort": "Wirtshaus Fesch",
+  "adresse": "Müllerstraße 30, 80469 München",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Queeres bayerisches Wirtshaus im Glockenbachviertel mit frisch gekochten regionalen Gerichten und Augustiner-Bier.",
+  "tags": [
+   "Bayerisch"
+  ],
+  "thema": "Restaurant",
+  "quelle": "Insiderei – neue Lokale",
+  "url": "https://insiderei.com/listen/neue-lokale-muenchen",
   "stand": "2026-10-18"
  },
  {
@@ -2052,64 +2446,104 @@
   "thema": "ZDF Mediathek"
  },
  {
-  "id": "tv-dcc6afeccd",
+  "id": "tv-3f1938e7ec",
   "rubrik": "tv",
-  "titel": "Schätze der Welt - Erbe der Menschheit",
-  "ort": "3sat",
+  "titel": "Blickpunkt Sport",
+  "ort": "BR",
   "adresse": "",
   "datum": "2026-10-18",
   "datum_bis": "",
-  "zeit": "19:41",
+  "zeit": "21:45",
   "preis": "",
   "dauer": "",
-  "kurz": "Reihe über geschichtsträchtige Kultur- und Naturdenkmäler weltweit. Programm kann sich ändern.",
+  "kurz": "Sportmagazin mit aktuellen Berichten und Ergebnissen. Programm kann sich ändern.",
   "tags": [
-   "Doku"
+   "Show"
   ],
   "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
+  "url": "https://www.br.de/fernsehen/",
   "stand": "2026-10-18",
-  "thema": "3sat"
+  "thema": "BR"
  },
  {
-  "id": "tv-a8a2f5a7d3",
+  "id": "tv-60c5d5e351",
   "rubrik": "tv",
-  "titel": "Till Reiners' Happy Hour",
-  "ort": "3sat",
+  "titel": "Brettl-Spitzen",
+  "ort": "BR",
   "adresse": "",
   "datum": "2026-10-18",
   "datum_bis": "",
   "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Kabarett und Comedy präsentiert von Till Reiners mit wechselnden Gästen. Programm kann sich ändern.",
+  "kurz": "Volkstümliche Musik- und Kabarettunterhaltung aus Bayern. Programm kann sich ändern.",
   "tags": [
    "Show"
   ],
   "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
+  "url": "https://www.br.de/fernsehen/",
   "stand": "2026-10-18",
-  "thema": "3sat"
+  "thema": "BR"
  },
  {
-  "id": "tv-f997687c7f",
+  "id": "tv-8defb03ff0",
   "rubrik": "tv",
-  "titel": "Mitternachtsspitzen",
-  "ort": "3sat",
+  "titel": "Caren Miosga",
+  "ort": "Das Erste",
   "adresse": "",
   "datum": "2026-10-18",
   "datum_bis": "",
-  "zeit": "21:01",
+  "zeit": "21:45",
   "preis": "",
   "dauer": "",
-  "kurz": "Satirische Kabarettsendung aus Köln mit humorvollen Beiträgen. Programm kann sich ändern.",
+  "kurz": "Politisches Talkformat mit Moderatorin Caren Miosga. Programm kann sich ändern.",
   "tags": [
    "Show"
   ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.daserste.de/",
   "stand": "2026-10-18",
-  "thema": "3sat"
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-f5ef8e4d20",
+  "rubrik": "tv",
+  "titel": "Der Pfälzerwald rund ums Jahr",
+  "ort": "SWR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentarische Aufnahmen aus dem Pfälzerwald im Verlauf der Jahreszeiten. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.swrfernsehen.de/",
+  "stand": "2026-10-18",
+  "thema": "SWR"
+ },
+ {
+  "id": "tv-8444787a71",
+  "rubrik": "tv",
+  "titel": "Dr. Nice: Ungebetene Gäste",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dr. Nice untersucht rätselhafte Symptome bei Flensburger Werftarbeitern und steht plötzlich ohne Bleibe da. Programm kann sich ändern.",
+  "tags": [
+   "Serie"
+  ],
+  "quelle": "tvinfo.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-18",
+  "thema": "ZDF"
  },
  {
   "id": "tv-28d3445303",
@@ -2152,204 +2586,24 @@
   "thema": "ARTE"
  },
  {
-  "id": "tv-60c5d5e351",
+  "id": "tv-f997687c7f",
   "rubrik": "tv",
-  "titel": "Brettl-Spitzen",
-  "ort": "BR",
+  "titel": "Mitternachtsspitzen",
+  "ort": "3sat",
   "adresse": "",
   "datum": "2026-10-18",
   "datum_bis": "",
-  "zeit": "20:15",
+  "zeit": "21:01",
   "preis": "",
   "dauer": "",
-  "kurz": "Volkstümliche Musik- und Kabarettunterhaltung aus Bayern. Programm kann sich ändern.",
+  "kurz": "Satirische Kabarettsendung aus Köln mit humorvollen Beiträgen. Programm kann sich ändern.",
   "tags": [
    "Show"
   ],
   "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
+  "url": "https://www.3sat.de/",
   "stand": "2026-10-18",
-  "thema": "BR"
- },
- {
-  "id": "tv-3f1938e7ec",
-  "rubrik": "tv",
-  "titel": "Blickpunkt Sport",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Sportmagazin mit aktuellen Berichten und Ergebnissen. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-10-18",
-  "thema": "BR"
- },
- {
-  "id": "tv-420d31b704",
-  "rubrik": "tv",
-  "titel": "Tatort: Unter Feinden",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kommissarin Mila Sahin bezweifelt den angeblichen Drogenunfall ihrer Kollegin und ermittelt auf eigene Faust. Programm kann sich ändern.",
-  "tags": [
-   "Serie"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-10-18",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-8defb03ff0",
-  "rubrik": "tv",
-  "titel": "Caren Miosga",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Politisches Talkformat mit Moderatorin Caren Miosga. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "tv-programmheute.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-10-18",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-70358f0345",
-  "rubrik": "tv",
-  "titel": "die nordstory Spezial - Prora auf Rügen",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Reportage über das Seebad Prora auf Rügen zwischen Ferienparadies und unerfüllten Versprechen. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-18",
-  "thema": "NDR"
- },
- {
-  "id": "tv-64aabd4245",
-  "rubrik": "tv",
-  "titel": "Sportschau - Bundesliga am Sonntag",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die Bundesliga-Partien vom Sonntag in der Zusammenfassung. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-18",
-  "thema": "NDR"
- },
- {
-  "id": "tv-f5ef8e4d20",
-  "rubrik": "tv",
-  "titel": "Der Pfälzerwald rund ums Jahr",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentarische Aufnahmen aus dem Pfälzerwald im Verlauf der Jahreszeiten. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-10-18",
-  "thema": "SWR"
- },
- {
-  "id": "tv-257444441e",
-  "rubrik": "tv",
-  "titel": "SWR Sport",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Regionales Sportmagazin mit Berichten und Highlights des Wochenendes. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-10-18",
-  "thema": "SWR"
- },
- {
-  "id": "tv-125af6d22b",
-  "rubrik": "tv",
-  "titel": "Wunderschön!",
-  "ort": "WDR",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Reisereportagereihe des WDR mit Impressionen und Landschaftsbildern. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www1.wdr.de/fernsehen/",
-  "stand": "2026-10-18",
-  "thema": "WDR"
- },
- {
-  "id": "tv-6e7ffccfcf",
-  "rubrik": "tv",
-  "titel": "Sportschau Bundesliga am Sonntag",
-  "ort": "WDR",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Zusammenfassung der Sonntagsspiele der Fußball-Bundesliga. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www1.wdr.de/fernsehen/",
-  "stand": "2026-10-18",
-  "thema": "WDR"
+  "thema": "3sat"
  },
  {
   "id": "tv-c3f3b88084",
@@ -2372,23 +2626,163 @@
   "thema": "ZDF"
  },
  {
-  "id": "tv-8444787a71",
+  "id": "tv-257444441e",
   "rubrik": "tv",
-  "titel": "Dr. Nice: Ungebetene Gäste",
-  "ort": "ZDF",
+  "titel": "SWR Sport",
+  "ort": "SWR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Regionales Sportmagazin mit Berichten und Highlights des Wochenendes. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.swrfernsehen.de/",
+  "stand": "2026-10-18",
+  "thema": "SWR"
+ },
+ {
+  "id": "tv-dcc6afeccd",
+  "rubrik": "tv",
+  "titel": "Schätze der Welt - Erbe der Menschheit",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "19:41",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Reihe über geschichtsträchtige Kultur- und Naturdenkmäler weltweit. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-10-18",
+  "thema": "3sat"
+ },
+ {
+  "id": "tv-64aabd4245",
+  "rubrik": "tv",
+  "titel": "Sportschau - Bundesliga am Sonntag",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Die Bundesliga-Partien vom Sonntag in der Zusammenfassung. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-18",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-6e7ffccfcf",
+  "rubrik": "tv",
+  "titel": "Sportschau Bundesliga am Sonntag",
+  "ort": "WDR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Zusammenfassung der Sonntagsspiele der Fußball-Bundesliga. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www1.wdr.de/fernsehen/",
+  "stand": "2026-10-18",
+  "thema": "WDR"
+ },
+ {
+  "id": "tv-420d31b704",
+  "rubrik": "tv",
+  "titel": "Tatort: Unter Feinden",
+  "ort": "Das Erste",
   "adresse": "",
   "datum": "2026-10-18",
   "datum_bis": "",
   "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Dr. Nice untersucht rätselhafte Symptome bei Flensburger Werftarbeitern und steht plötzlich ohne Bleibe da. Programm kann sich ändern.",
+  "kurz": "Kommissarin Mila Sahin bezweifelt den angeblichen Drogenunfall ihrer Kollegin und ermittelt auf eigene Faust. Programm kann sich ändern.",
   "tags": [
    "Serie"
   ],
   "quelle": "tvinfo.de",
-  "url": "https://www.zdf.de/",
+  "url": "https://www.daserste.de/",
   "stand": "2026-10-18",
-  "thema": "ZDF"
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-a8a2f5a7d3",
+  "rubrik": "tv",
+  "titel": "Till Reiners' Happy Hour",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kabarett und Comedy präsentiert von Till Reiners mit wechselnden Gästen. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-10-18",
+  "thema": "3sat"
+ },
+ {
+  "id": "tv-125af6d22b",
+  "rubrik": "tv",
+  "titel": "Wunderschön!",
+  "ort": "WDR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Reisereportagereihe des WDR mit Impressionen und Landschaftsbildern. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www1.wdr.de/fernsehen/",
+  "stand": "2026-10-18",
+  "thema": "WDR"
+ },
+ {
+  "id": "tv-70358f0345",
+  "rubrik": "tv",
+  "titel": "die nordstory Spezial - Prora auf Rügen",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Reportage über das Seebad Prora auf Rügen zwischen Ferienparadies und unerfüllten Versprechen. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-18",
+  "thema": "NDR"
  }
 ]
