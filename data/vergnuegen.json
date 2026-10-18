@@ -1828,346 +1828,6 @@
   "stand": "2026-10-15"
  },
  {
-  "id": "tv-07d6dd58d7",
-  "rubrik": "tv",
-  "titel": "Berghütten mit Marcus Fahn",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Reportagereihe aus dem Jahr 2026 über das Leben auf Berghütten. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-10-16",
-  "thema": "BR"
- },
- {
-  "id": "tv-db15ede4e1",
-  "rubrik": "tv",
-  "titel": "Das weiße Haus am Rhein (1/2)",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Historienfilm aus dem Jahr 2021 über die Geschichte eines Traditionshotels. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-10-16",
-  "thema": "3sat"
- },
- {
-  "id": "tv-0e58e7e72e",
-  "rubrik": "tv",
-  "titel": "Expedition in die Heimat",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Reisereportage aus dem Jahr 2026 auf Erkundungstour in der Region. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-10-16",
-  "thema": "SWR"
- },
- {
-  "id": "tv-d0eb2a24de",
-  "rubrik": "tv",
-  "titel": "Expedition in die Heimat",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Fortsetzung der regionalen Reisereportage aus dem Jahr 2026. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-10-16",
-  "thema": "SWR"
- },
- {
-  "id": "tv-94f87f7fd1",
-  "rubrik": "tv",
-  "titel": "Jenseits der Spree - Kontrollverlust",
-  "ort": "ZDF",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Nachdem ein Wachmann im Stadion erschlagen und seine schwangere Freundin schwer verletzt wird, ermitteln Robert und Mavi. Programm kann sich ändern.",
-  "tags": [
-   "Serie"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-10-16",
-  "thema": "ZDF"
- },
- {
-  "id": "tv-68170d9954",
-  "rubrik": "tv",
-  "titel": "Johann König findet",
-  "ort": "WDR",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Comedytalk-Sendung aus Deutschland aus dem Jahr 2026. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www1.wdr.de/fernsehen/",
-  "stand": "2026-10-16",
-  "thema": "WDR"
- },
- {
-  "id": "tv-6b257dc631",
-  "rubrik": "tv",
-  "titel": "Kanzlei Liebling Kreuzberg - Ein Meisterstück",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Lisa Liebling gerät in einen Streit, als ein Auszubildender am Gewinn seiner neu erfundenen Backware beteiligt werden will. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-10-16",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-be5f91274e",
-  "rubrik": "tv",
-  "titel": "Mit Mut, Mörtel und Millionen Tipps - Das erste Zimmer: Fertig",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "21:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über Sanierungsarbeiten und Handwerkertipps. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-16",
-  "thema": "NDR"
- },
- {
-  "id": "tv-e667589357",
-  "rubrik": "tv",
-  "titel": "Plan A - Was würdest du tun?",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Historisches Drama aus dem Jahr 2021 über jüdische Vergeltungspläne nach dem Zweiten Weltkrieg. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-16",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-92fb1fc45b",
-  "rubrik": "tv",
-  "titel": "Re: Urlaub am Polarkreis - Norwegens Lofoten am Limit",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "19:40",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Reportage über die Herausforderungen des Massentourismus auf den norwegischen Lofoten. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-16",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-f5b4c6f6a5",
-  "rubrik": "tv",
-  "titel": "SOKO Leipzig - Letzte Umarmung",
-  "ort": "ZDF",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "21:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Ein Mann hält seine tote Frau im Arm und droht nach dem ungelösten Mord an seiner Tochter, eine Bombe zu zünden. Programm kann sich ändern.",
-  "tags": [
-   "Serie"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-10-16",
-  "thema": "ZDF"
- },
- {
-  "id": "tv-2e40a392c1",
-  "rubrik": "tv",
-  "titel": "Sabine Heinrich - Auf dem Wasser durch NRW",
-  "ort": "WDR",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokureihe aus dem Jahr 2026 über Reisen auf Nordrhein-Westfalens Wasserwegen. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www1.wdr.de/fernsehen/",
-  "stand": "2026-10-16",
-  "thema": "WDR"
- },
- {
-  "id": "tv-f9e6c49578",
-  "rubrik": "tv",
-  "titel": "Thailand",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentarfilm aus dem Jahr 2023 über Land und Landschaften Thailands. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-10-16",
-  "thema": "3sat"
- },
- {
-  "id": "tv-ab9b54b1a3",
-  "rubrik": "tv",
-  "titel": "Tina Turner - My Songs. My Life",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "21:55",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation und Porträt über das musikalische Werk und das Leben von Tina Turner. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-16",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-dc71450dbc",
-  "rubrik": "tv",
-  "titel": "Watzmann ermittelt",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Deutsche Krimiserie aus dem Jahr 2024. Programm kann sich ändern.",
-  "tags": [
-   "Serie"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-10-16",
-  "thema": "BR"
- },
- {
-  "id": "tv-47c2ff01ec",
-  "rubrik": "tv",
-  "titel": "Watzmann ermittelt",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Eine weitere Episode der Krimiserie aus dem Jahr 2024. Programm kann sich ändern.",
-  "tags": [
-   "Serie"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-10-16",
-  "thema": "BR"
- },
- {
-  "id": "tv-2c55585ecc",
-  "rubrik": "tv",
-  "titel": "die nordstory - Zwischen Watt und Wolken - Schleswig-Holstein von oben",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Regionalreportage mit Luftaufnahmen über die Landschaften Schleswig-Holsteins. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-16",
-  "thema": "NDR"
- },
- {
   "id": "stream-a-quiet-place",
   "rubrik": "stream",
   "titel": "A Quiet Place",
@@ -2391,5 +2051,125 @@
   "url": "https://www.zdf.de/",
   "stand": "2026-10-18",
   "thema": "ZDF Mediathek"
+ },
+ {
+  "id": "tv-420d31b704",
+  "rubrik": "tv",
+  "titel": "Tatort: Unter Feinden",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Krimi aus der Tatort-Reihe mit einer Sendedauer von 90 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-18",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-8defb03ff0",
+  "rubrik": "tv",
+  "titel": "Caren Miosga",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sonntäglicher politischer Talk mit Moderatorin Caren Miosga. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-18",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-70358f0345",
+  "rubrik": "tv",
+  "titel": "die nordstory Spezial - Prora auf Rügen",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentation über Prora zwischen Ferienparadies und leeren Versprechen. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-18",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-55fda7db85",
+  "rubrik": "tv",
+  "titel": "Sportschau",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sportmagazin mit Zusammenfassungen der Fußball-Bundesliga am Sonntag. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-18",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-466b6537f8",
+  "rubrik": "tv",
+  "titel": "Terra X",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentation im ZDF mit einer Sendezeit von 45 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-18",
+  "thema": "ZDF"
+ },
+ {
+  "id": "tv-e979e50cc0",
+  "rubrik": "tv",
+  "titel": "Dr. Nice",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-18",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Romantischer Spielfilm mit einer Gesamtlaufzeit von 90 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-18",
+  "thema": "ZDF"
  }
 ]
