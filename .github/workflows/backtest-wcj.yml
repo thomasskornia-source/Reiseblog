@@ -1,0 +1,34 @@
+name: WCJ-Rückblick (einmalig)
+
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: 'Hauptwert (Standard AMZN)'
+        required: false
+        default: 'AMZN'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: backtest-wcj
+  cancel-in-progress: false
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rückblick rechnen
+        run: python3 tools/backtest-wcj.py "${{ github.event.inputs.ticker || 'AMZN' }}"
+      - name: Ergebnis hochladen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/backtest-wcj.json
+          if git diff --cached --quiet; then echo "Keine Änderung"; exit 0; fi
+          git commit -m "WCJ-Rückblick berechnet"
+          git pull --rebase origin main
+          git push origin HEAD:main
