@@ -1,0 +1,31 @@
+name: Faktor-Rückblick (einmalig)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: faktortest
+  cancel-in-progress: false
+
+jobs:
+  faktortest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Numpy bereitstellen
+        run: python3 -c "import numpy" 2>/dev/null || pip install --break-system-packages numpy || pip install numpy
+      - name: Faktoren rechnen
+        run: python3 tools/faktortest.py
+      - name: Ergebnis hochladen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/faktortest.json
+          if git diff --cached --quiet; then echo "Keine Änderung"; exit 0; fi
+          git commit -m "Faktor-Rückblick berechnet"
+          git pull --rebase origin main
+          git push origin HEAD:main
