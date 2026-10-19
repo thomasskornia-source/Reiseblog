@@ -343,52 +343,6 @@
   "stand": "2026-10-15"
  },
  {
-  "id": "events-9dcfcc1df0",
-  "lat": 48.13784,
-  "lon": 11.58137,
-  "rubrik": "events",
-  "titel": "(Münchner) Verkehr",
-  "ort": "Münchner Kammerspiele - Therese-Giehse-Halle",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Choreografische Versuchsanordnung über Vergänglichkeit und Tanz, inspiriert vom Leben und Wirken der Tänzerin Valeska Gert.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-44594c299b",
-  "lat": 48.1384,
-  "lon": 11.58247,
-  "rubrik": "events",
-  "titel": "11. QFFM – Queer Filmfestival München",
-  "ort": "Münchner Kammerspiele",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Eröffnung des queeren Filmfestivals im Schauspielhaus mit dem Screening des Spielfilms Feito Pipa von Allan Deberton.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Sonstiges",
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-12"
- },
- {
   "id": "events-f5d2a2f517",
   "lat": 48.14335,
   "lon": 11.58615,
@@ -410,120 +364,6 @@
   "quelle": "Eintritt frei München",
   "url": "https://www.eintrittfrei-muenchen.de/",
   "stand": "2026-10-16"
- },
- {
-  "id": "events-b2fd962d1a",
-  "lat": 48.13711,
-  "lon": 11.57538,
-  "rubrik": "events",
-  "titel": "Ausstellung TIRAMI_SU",
-  "ort": "München",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Vielschichtige Kunstausstellung rund um die Themen Aufbruch, Transformation und das Zusammenspiel unterschiedlicher Positionen.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Ausstellung & Museum",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-16"
- },
- {
-  "id": "events-605fb84599",
-  "lat": 48.14007,
-  "lon": 11.58154,
-  "rubrik": "events",
-  "titel": "Automatenbüfett",
-  "ort": "Marstall",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "33 €",
-  "dauer": "2 Std. 15 Min.",
-  "kurz": "In Anna Gmeyners Stück gerät das gewohnte Kleinstadtleben durch eine geheimnisvolle Fremde und eigenwillige Pläne ins Wanken.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-8446a50d25",
-  "rubrik": "events",
-  "titel": "BABYRICHMAN Kunstraum",
-  "ort": "Temporärer Kunstraum",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Temporärer Kunstraum im Zentrum Münchens mit aktuellen Werken von sechs zeitgenössischen Künstlerinnen.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Ausstellung & Museum",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-16"
- },
- {
-  "id": "events-eaa9638123",
-  "lat": 48.1354,
-  "lon": 11.60088,
-  "rubrik": "events",
-  "titel": "Dida Pelled",
-  "ort": "Jazzclub Unterfahrt",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die Singer-Songwriterin und Jazz-Gitarristin Dida Pelled präsentiert mit ihrem Allstar-Quartett ihr neues Album.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-16"
- },
- {
-  "id": "events-71378bc59d",
-  "lat": 48.12366,
-  "lon": 11.5559,
-  "rubrik": "events",
-  "titel": "Die Geierwally",
-  "ort": "Münchner Volkstheater",
-  "adresse": "Tumblingerstraße 29, 80337 München",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Bühnenadaption des Romans von Wilhelmine von Hillern, inszeniert von Regisseurin Julia Prechsl.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Volkstheater (Spielplan)",
-  "url": "https://www.muenchner-volkstheater.de/spielplan",
-  "stand": "2026-10-15"
  },
  {
   "id": "events-9857a7f5e9",
@@ -573,169 +413,6 @@
   "stand": "2026-10-16"
  },
  {
-  "id": "events-87006b29a3",
-  "lat": 48.13711,
-  "lon": 11.57538,
-  "rubrik": "events",
-  "titel": "Fotoausstellung: Jüdische Friedhöfe und Synagogen",
-  "ort": "München",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Michael Graber zeigt Fotografien oberfränkischer jüdischer Friedhöfe und Synagogen in Kooperation mit der Janusz Korczak Akademie.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Ausstellung & Museum",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-16"
- },
- {
-  "id": "events-273a8111ef",
-  "lat": 48.12366,
-  "lon": 11.5559,
-  "rubrik": "events",
-  "titel": "Freddy & Friends Comedy",
-  "ort": "Münchner Volkstheater",
-  "adresse": "Tumblingerstraße 29, 80337 München",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Ein unterhaltsamer Comedy-Abend unter der Leitung von Freddy Ekué auf Bühne 2.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Volkstheater (Spielplan)",
-  "url": "https://www.muenchner-volkstheater.de/spielplan",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-deb71db4fe",
-  "lat": 48.12391,
-  "lon": 11.60691,
-  "rubrik": "events",
-  "titel": "Freya Ridings",
-  "ort": "Tonhalle",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "2026-10-16",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die britische Musikerin Freya Ridings begeistert mit gefühlvollem Pop und eindrucksvoller Stimme in der Tonhalle.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-16"
- },
- {
-  "id": "events-27d6d348cf",
-  "lat": 48.13845,
-  "lon": 11.58272,
-  "rubrik": "events",
-  "titel": "Haltestelle: Ja aber",
-  "ort": "Habibi Kiosk",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Ein Tanz- und Performance-Abend über menschliche Nähe und Missverständnisse mit Einsatz von Gebärdensprache, gestaltet von Lina Mattei und Mark Petersen.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Münchner Kammerspiele",
-  "url": "https://www.muenchner-kammerspiele.de/",
-  "stand": "2026-10-15"
- },
- {
-  "id": "events-3cb9c0f1a8",
-  "lat": 48.14509,
-  "lon": 11.55007,
-  "rubrik": "events",
-  "titel": "Josef Hader",
-  "ort": "Circus Krone",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "2026-10-16",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Der österreichische Kabarettist Josef Hader präsentiert sein schwarzhumoriges Solo-Bühnenprogramm live im Münchner Circus Krone.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-16"
- },
- {
-  "id": "events-3e46779f79",
-  "lat": 48.13711,
-  "lon": 11.57538,
-  "rubrik": "events",
-  "titel": "Karl Richter: Gespräch und Dokumentarfilm",
-  "ort": "München",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Gespräch mit Bach-Spezialisten über Karl Richter und anschließende Filmvorführung der Dokumentation von Prof. Tobias Richter.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-16"
- },
- {
-  "id": "events-e1eb99efe7",
-  "lat": 48.13319,
-  "lon": 11.56482,
-  "rubrik": "events",
-  "titel": "Orgelkonzert 100 Jahre Moser-Orgel",
-  "ort": "Matthäuskirche",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Gedenkkonzert zum 100-jährigen Jubiläum der Albert-Moser-Orgel in der Münchner Matthäuskirche.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-16"
- },
- {
   "id": "events-0ae879cac0",
   "lat": 48.14614,
   "lon": 11.55945,
@@ -757,28 +434,6 @@
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-16"
- },
- {
-  "id": "events-675a1aea58",
-  "rubrik": "events",
-  "titel": "Residenzwoche: Eröffnungskonzert",
-  "ort": "Antiquarium der Residenz",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "2026-10-16",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "2 Std.",
-  "kurz": "Klassisches Auftaktkonzert der Residenzwoche zu Ehren Max Emanuels im Renaissance-Saal der Münchner Residenz.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-15"
  },
  {
   "id": "events-1997c8a948",
@@ -823,28 +478,6 @@
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-15"
- },
- {
-  "id": "events-ffc1ac2697",
-  "rubrik": "events",
-  "titel": "Zirkus Pumpernudl",
-  "ort": "Verschiedene Stadtbezirke",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "",
-  "zeit": "11:00",
-  "preis": "frei",
-  "dauer": "6 Stunden",
-  "kurz": "Freitags stattfindendes Zirkusangebot für Kinder und Familien an wechselnden Orten in Münchner Stadtbezirken.",
-  "tags": [
-   "Familie",
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Familie & Kinder",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-16"
  },
  {
   "id": "events-67851188cb",
@@ -2221,6 +1854,29 @@
   "stand": "2026-10-18"
  },
  {
+  "id": "stream-captain-phillips",
+  "rubrik": "stream",
+  "titel": "Captain Phillips",
+  "ort": "ZDF Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Thriller nach wahrer Geschichte: Ein Frachtkapitän wird von Piraten gekapert. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Thriller",
+   "Drama",
+   "Action"
+  ],
+  "quelle": "news.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-19",
+  "thema": "ZDF Mediathek"
+ },
+ {
   "id": "stream-ein-minecraft-film",
   "rubrik": "stream",
   "titel": "Ein Minecraft Film",
@@ -2238,28 +1894,6 @@
    "Fantasy",
    "Abenteuer",
    "Komödie"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-19",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-the-diplomat",
-  "rubrik": "stream",
-  "titel": "The Diplomat – Staffel 4",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Politthriller um eine US-Botschafterin in London zwischen Krisendiplomatie und Ehe-Drama.",
-  "tags": [
-   "Serie",
-   "Thriller",
-   "Drama"
   ],
   "quelle": "serienjunkies.de",
   "url": "https://www.netflix.com/de/",
@@ -2290,25 +1924,26 @@
   "thema": "Amazon Prime"
  },
  {
-  "id": "stream-the-social-network",
+  "id": "stream-hubert-ohne-staller",
   "rubrik": "stream",
-  "titel": "The Social Network",
-  "ort": "Amazon Prime",
+  "titel": "Hubert ohne Staller – Staffel 11",
+  "ort": "ARD Mediathek",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Drama über die Gründung von Facebook und den Streit unter den Gründern.",
+  "kurz": "Bayerische Krimi-Comedy aus Haag in Oberbayern mit zwei ungleichen Polizisten. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Film",
-   "Drama"
+   "Serie",
+   "Komödie",
+   "Krimi"
   ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.primevideo.com/",
+  "quelle": "news.de",
+  "url": "https://www.ardmediathek.de/",
   "stand": "2026-10-19",
-  "thema": "Amazon Prime"
+  "thema": "ARD Mediathek"
  },
  {
   "id": "stream-mad-men",
@@ -2333,26 +1968,26 @@
   "thema": "Amazon Prime"
  },
  {
-  "id": "stream-the-last-first-winter-k2",
+  "id": "stream-nord-bei-nordwest",
   "rubrik": "stream",
-  "titel": "The Last First: Winter K2",
-  "ort": "Apple TV",
+  "titel": "Nord bei Nordwest – Staffel 1",
+  "ort": "ARD Mediathek",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Doku über den Versuch, den K2 im Winter zu besteigen.",
+  "kurz": "Krimiserie mit Humor an der Ostsee: Ein Kommissar ermittelt in einem Küstenort. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Film",
-   "Doku",
-   "Abenteuer"
+   "Serie",
+   "Krimi",
+   "Komödie"
   ],
-  "quelle": "apfelpatient.de",
-  "url": "https://tv.apple.com/de",
+  "quelle": "news.de",
+  "url": "https://www.ardmediathek.de/",
   "stand": "2026-10-19",
-  "thema": "Apple TV"
+  "thema": "ARD Mediathek"
  },
  {
   "id": "stream-small-prophets",
@@ -2377,71 +2012,69 @@
   "thema": "Apple TV"
  },
  {
-  "id": "stream-nord-bei-nordwest",
+  "id": "stream-the-diplomat",
   "rubrik": "stream",
-  "titel": "Nord bei Nordwest – Staffel 1",
-  "ort": "ARD Mediathek",
+  "titel": "The Diplomat – Staffel 4",
+  "ort": "Netflix",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Krimiserie mit Humor an der Ostsee: Ein Kommissar ermittelt in einem Küstenort. Verfügbarkeit bitte prüfen.",
+  "kurz": "Politthriller um eine US-Botschafterin in London zwischen Krisendiplomatie und Ehe-Drama.",
   "tags": [
    "Serie",
-   "Krimi",
-   "Komödie"
+   "Thriller",
+   "Drama"
   ],
-  "quelle": "news.de",
-  "url": "https://www.ardmediathek.de/",
+  "quelle": "serienjunkies.de",
+  "url": "https://www.netflix.com/de/",
   "stand": "2026-10-19",
-  "thema": "ARD Mediathek"
+  "thema": "Netflix"
  },
  {
-  "id": "stream-hubert-ohne-staller",
+  "id": "stream-the-last-first-winter-k2",
   "rubrik": "stream",
-  "titel": "Hubert ohne Staller – Staffel 11",
-  "ort": "ARD Mediathek",
+  "titel": "The Last First: Winter K2",
+  "ort": "Apple TV",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Bayerische Krimi-Comedy aus Haag in Oberbayern mit zwei ungleichen Polizisten. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Serie",
-   "Komödie",
-   "Krimi"
-  ],
-  "quelle": "news.de",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-10-19",
-  "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-captain-phillips",
-  "rubrik": "stream",
-  "titel": "Captain Phillips",
-  "ort": "ZDF Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Thriller nach wahrer Geschichte: Ein Frachtkapitän wird von Piraten gekapert. Verfügbarkeit bitte prüfen.",
+  "kurz": "Doku über den Versuch, den K2 im Winter zu besteigen.",
   "tags": [
    "Film",
-   "Thriller",
-   "Drama",
-   "Action"
+   "Doku",
+   "Abenteuer"
   ],
-  "quelle": "news.de",
-  "url": "https://www.zdf.de/",
+  "quelle": "apfelpatient.de",
+  "url": "https://tv.apple.com/de",
   "stand": "2026-10-19",
-  "thema": "ZDF Mediathek"
+  "thema": "Apple TV"
+ },
+ {
+  "id": "stream-the-social-network",
+  "rubrik": "stream",
+  "titel": "The Social Network",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Drama über die Gründung von Facebook und den Streit unter den Gründern.",
+  "tags": [
+   "Film",
+   "Drama"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-19",
+  "thema": "Amazon Prime"
  },
  {
   "id": "tv-3f1938e7ec",
