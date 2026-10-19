@@ -87,7 +87,8 @@ def naaim():
     try:
         t = holen('https://naaim.org/programs/naaim-exposure-index/', kopf=dict(BROWSER, Origin='https://naaim.org', Referer='https://naaim.org/'))
         m = re.search(r'(?:NAAIM\s+Number|Exposure\s+Index)[^0-9<]{0,120}(?:<[^>]*>\s*){0,6}(\d{1,3}\.\d{1,2})', t, re.I)
-        if not m: print('NAAIM: Zahl nicht gefunden, Seitenlänge', len(t)); return []
+        if not m: i = t.lower().find('number'); txt = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', t))
+        k = txt.lower().find('naaim number'); print('NAAIM: Zahl nicht gefunden:', txt[max(0, k - 20):k + 160] if k >= 0 else 'kein Treffer'); return []
         v = float(m.group(1))
         if not (-50 <= v <= 200): return []
         return [(datetime.date.today().strftime('%Y-%m-%d'), v)]
