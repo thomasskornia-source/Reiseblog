@@ -10,7 +10,7 @@
   {
    "id": "vix",
    "name": "VIX (Angstbarometer)",
-   "wert": 18.36,
+   "wert": 18.32,
    "einheit": "",
    "pfeil": "seitwaerts",
    "text": "normal bis nervös",
@@ -77,7 +77,7 @@
     16.87,
     16.46,
     19.99,
-    18.36
+    18.32
    ],
    "datum": "2026-10-19",
    "alter_tage": 0
@@ -420,5 +420,8 @@
    40.0
   ]
  },
+ "meldungen": [
+  "CNN Fear&Greed Fehler: HTTP Error 418: Unknown Error"
+ ],
  "hinweis": "Eigene Auswertung freier Daten, keine Anlageberatung. Schwellen sind Faustregeln und keine Prognose."
 }
