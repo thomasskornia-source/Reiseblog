@@ -14,9 +14,11 @@ Zeiträume: gesamt sowie erste und zweite Hälfte getrennt (Entwicklung gegen Ge
   unklar   alles dazwischen
 Bei rund 30 Faktoren x 4 Horizonten sind einzelne Zufallstreffer zu erwarten; ein Urteil gilt erst mit Blick auf beide Hälften.
 Grenzen: heutige Index-Mitglieder (Überlebensverzerrung), Yahoo-Kurse (inoffiziell), keine Kosten/Steuern, Rückblick ist keine Prognose.
+Zusätze (20.10.2026): (1) zweite Auswertung mit Rendite minus Beta mal Marktrendite (adj), Beta nur aus den 252 Tagen davor; (2) Kennzahlen aus den SEC-Jahresabschlüssen
+(companyfacts, nur Werte, die am Stichtag schon gemeldet waren): Eigenkapitalrendite, Margen, Umsatzwachstum, Gewinn- und Free-Cashflow-Rendite, Verschuldung, Accruals.
 Aufruf: python3 tools/faktortest.py [Anzahl_Aktien]   (ohne Zahl: alle)
 """
-import csv, datetime, io, json, math, os, sys, time, urllib.request
+import csv, datetime, io, json, math, os, sys, threading, time, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 import numpy as np
 sys.path.insert(0, os.path.dirname(__file__))
@@ -46,6 +48,15 @@ KAND = {
     'dist_ma200': ('Abstand zur 200-Tage-Linie', 'Kurs gegen den 200-Tage-Durchschnitt'),
     'steig200': ('Steigung der 200-Tage-Linie', '200er heute gegen vor 21 Tagen'),
     'volspike': ('Umsatz-Spitze', 'Umsatz der letzten 5 Tage gegen 50-Tage-Schnitt'),
+    'beta': ('Beta (252 Tage)', 'Empfindlichkeit gegenüber dem S&P 500 (Tagesrenditen der letzten 252 Tage)'),
+    'roe': ('Eigenkapitalrendite', 'Jahresgewinn / Eigenkapital (letzter Jahresabschluss, nur wenn schon veröffentlicht)'),
+    'opm': ('Operative Marge', 'Operatives Ergebnis / Umsatz (Jahresabschluss)'),
+    'gpm': ('Bruttomarge', 'Bruttogewinn / Umsatz (Jahresabschluss)'),
+    'wachstum': ('Umsatzwachstum', 'Umsatz gegen Vorjahr (Jahresabschluss)'),
+    'ep': ('Gewinnrendite (E/P)', 'Jahresgewinn / Börsenwert (Kurs am Tag, Aktienzahl aus dem Abschluss)'),
+    'fcfy': ('Free-Cashflow-Rendite', '(Cashflow aus Betrieb minus Investitionen) / Börsenwert'),
+    'schulden': ('Verschuldung', 'Verbindlichkeiten / Bilanzsumme'),
+    'accruals': ('Accruals (Gewinnqualität)', '(Gewinn minus operativer Cashflow) / Bilanzsumme; niedrig = Gewinn durch Cash gedeckt'),
     'punkte': ('WCJ-Score (Punkte)', 'Gesamtpunkte 0 bis 11 nach den aktuellen Gewichten'),
 }
 REGELN = ['MA FAN (Kurs über 8, 21, 50 geordnet)', 'Über steigender 200er (Pflicht)', 'Über 10-Wochen-EMA', 'Höhere Hochs und Tiefs',
@@ -59,7 +70,7 @@ def web(url, ua='Mozilla/5.0'):
 
 def tickerliste():
     rows = csv.DictReader(io.StringIO(web(LISTE).decode('utf-8')))
-    return [r['Symbol'].replace('.', '-') for r in rows]
+    return [(r['Symbol'].replace('.', '-'), int(r['CIK'])) for r in rows]
 
 def datum(t): return datetime.datetime.utcfromtimestamp(t).strftime('%Y-%m-%d')
 
@@ -70,7 +81,85 @@ def monatsende(daten):
         if daten[i][:7] != daten[i + 1][:7]: out.append(i)
     return out
 
-def faktoren(zeilen, bench_dict, tage):
+SEC = 'https://data.sec.gov/api/xbrl/companyfacts/CIK%010d.json'
+TAGS = {
+    'umsatz': ['Revenues', 'RevenueFromContractWithCustomerExcludingAssessedTax', 'SalesRevenueNet', 'RevenueFromContractWithCustomerIncludingAssessedTax'],
+    'gewinn': ['NetIncomeLoss'], 'betrieb': ['OperatingIncomeLoss'], 'brutto': ['GrossProfit'],
+    'eigenkapital': ['StockholdersEquity'], 'bilanz': ['Assets'], 'verbind': ['Liabilities'],
+    'ocf': ['NetCashProvidedByUsedInOperatingActivities'], 'capex': ['PaymentsToAcquirePropertyPlantAndEquipment'],
+}
+
+def sec_kompakt(js):
+    """Aus companyfacts nur Jahresabschlüsse (10-K): je Kennzahl Liste (Ende, Beginn oder None, Wert, Meldedatum). Plus Aktienzahl vom Deckblatt."""
+    out = {}
+    gaap = js.get('facts', {}).get('us-gaap', {})
+    for key, tags in TAGS.items():
+        rows = {}
+        for tg in tags:
+            for x in gaap.get(tg, {}).get('units', {}).get('USD', []):
+                if x.get('form') not in ('10-K', '10-K/A') or x.get('fp') != 'FY': continue
+                b, e = x.get('start'), x.get('end')
+                if key in ('eigenkapital', 'bilanz', 'verbind'):
+                    if b: continue
+                else:
+                    if not b: continue
+                    try:
+                        dd = (datetime.date.fromisoformat(e) - datetime.date.fromisoformat(b)).days
+                    except Exception: continue
+                    if not 350 <= dd <= 380: continue
+                rows.setdefault((e, tg), []).append((e, b, x['val'], x['filed']))
+        flat = {}
+        for (e, tg), lst in rows.items():       # Reihenfolge der Tags = Vorrang; je Ende den frühesten Meldestand behalten
+            lst.sort(key=lambda r: r[3])
+            if e not in flat or tags.index(tg) < flat[e][0]: flat[e] = (tags.index(tg), lst[0])
+        out[key] = sorted([v[1] for v in flat.values()])
+    sh = []
+    for x in js.get('facts', {}).get('dei', {}).get('EntityCommonStockSharesOutstanding', {}).get('units', {}).get('shares', []):
+        if x.get('form') in ('10-K', '10-K/A'): sh.append((x['end'], None, x['val'], x['filed']))
+    out['aktien'] = sorted(sh)
+    return out
+
+def stand(reihe, tag):
+    """Jüngster am Tag schon gemeldeter Wert und der Wert des Vorjahres. (Ende, Wert, Meldedatum) oder None."""
+    ok = [r for r in reihe if r[3] <= tag]
+    if not ok: return None, None
+    ok.sort(key=lambda r: (r[0], r[3]))
+    last = ok[-1]
+    if (datetime.date.fromisoformat(tag) - datetime.date.fromisoformat(last[3])).days > 450: return None, None
+    prev = None
+    for r in ok[:-1]:
+        d = (datetime.date.fromisoformat(last[0]) - datetime.date.fromisoformat(r[0])).days
+        if 330 <= d <= 400: prev = r
+    return last, prev
+
+def fundamental(f, tag, kurs):
+    """Kennzahlen zum Stichtag nur aus damals veröffentlichten Jahresabschlüssen."""
+    if not f: return {}
+    g = lambda k: stand(f.get(k, []), tag)
+    out = {}
+    (um, um0), (ge, _), (bt, _), (br, _), (ek, _), (bi, _), (vb, _), (oc, _), (cx, _), (ak, _) = g('umsatz'), g('gewinn'), g('betrieb'), g('brutto'), g('eigenkapital'), g('bilanz'), g('verbind'), g('ocf'), g('capex'), g('aktien')
+    v = lambda r: None if r is None else float(r[2])
+    if v(ge) is not None and v(ek) and v(ek) > 0: out['roe'] = v(ge) / v(ek)
+    if v(um) and v(um) > 0:
+        if v(bt) is not None: out['opm'] = v(bt) / v(um)
+        if v(br) is not None: out['gpm'] = v(br) / v(um)
+        if um0 is not None and v(um0) and v(um0) > 0: out['wachstum'] = v(um) / v(um0) - 1
+    cap = v(ak) * kurs if ak and v(ak) else None
+    if cap and cap > 0:
+        if v(ge) is not None: out['ep'] = v(ge) / cap
+        if v(oc) is not None: out['fcfy'] = (v(oc) - (v(cx) or 0)) / cap
+    if v(bi) and v(bi) > 0:
+        if v(vb) is not None: out['schulden'] = v(vb) / v(bi)
+        elif v(ek) is not None: out['schulden'] = 1 - v(ek) / v(bi)
+        if v(ge) is not None and v(oc) is not None: out['accruals'] = (v(ge) - v(oc)) / v(bi)
+    return out
+
+def _beta(a, b):
+    m = ~(np.isnan(a) | np.isnan(b))
+    if m.sum() < 150 or np.var(b[m]) == 0: return None
+    return float(np.cov(a[m], b[m])[0, 1] / np.var(b[m], ddof=1))
+
+def faktoren(zeilen, bench_dict, tage, fund=None):
     """Je Monatsende-Datum (aus tage): Faktorwerte, Regel-Flags und Folgerenditen. Alles nur mit Daten bis zu dem Tag."""
     c = np.array([z[4] for z in zeilen], float); h = np.array([z[2] for z in zeilen], float)
     l = np.array([z[3] for z in zeilen], float); v = np.array([z[5] for z in zeilen], float)
@@ -83,6 +172,8 @@ def faktoren(zeilen, bench_dict, tage):
     lr = np.diff(np.log(c), prepend=np.nan)
     tr = np.maximum.reduce([h[1:] - l[1:], np.abs(h[1:] - c[:-1]), np.abs(l[1:] - c[:-1])])
     pos = {d: i for i, d in enumerate(ds)}
+    br_ = np.array([x if x is not None else np.nan for x in bench], float)
+    lb = np.diff(np.log(br_), prepend=np.nan)
     out = {}
     for d in tage:
         i = pos.get(d)
@@ -97,11 +188,17 @@ def faktoren(zeilen, bench_dict, tage):
             'ret1w': c[i] / c[i - 5] - 1, 'vol60': float(np.nanstd(lr[i - 59:i + 1])), 'atrpct': float(np.mean(tr[i - 14:i]) / c[i]),
             'rsi2': rsi2[i], 'rsi14': rsi14[i], 'dist_hoch': c[i] / h[i - 251:i + 1].max() - 1, 'dist_tief': c[i] / l[i - 251:i + 1].min() - 1,
             'dist_ma50': c[i] / m50[i] - 1, 'dist_ma200': c[i] / m200[i] - 1, 'steig200': m200[i] / m200[i - 21] - 1,
+            'beta': _beta(lr[i - 251:i + 1], lb[i - 251:i + 1]),
             'volspike': float(v[i - 4:i + 1].mean() / max(v[i - 49:i + 1].mean(), 1)), 'punkte': float(sc['punkte']),
         }
+        if fund: f.update(fundamental(fund, d, c[i]))
         for k, x in enumerate(sc['kriterien']): f['r%d' % (k + 1)] = 1.0 if x['ok'] else 0.0
         for hk, hd in HOR.items():
             f['f' + hk] = (c[i + hd] / c[i] - 1) * 100 if i + hd < n else None
+            if i + hd < n and not np.isnan(br_[i + hd]) and f['beta'] is not None:   # Rendite minus Beta mal Marktrendite (Beta nur aus der Vergangenheit)
+                f['g' + hk] = f['f' + hk] - f['beta'] * (br_[i + hd] / br_[i] - 1) * 100
+            else:
+                f['g' + hk] = None
         out[d] = f
     return out
 
@@ -137,7 +234,7 @@ def urteil(t, t1, t2, m1, m2):
     if np.sign(m1) != np.sign(m2) and abs(t1) >= 1 and abs(t2) >= 1: return 'dreht'
     return 'unklar'
 
-def auswerten(zeit):
+def auswerten(zeit, vor='f'):
     """zeit: {datum: {aktie: faktor-dict}} -> Kennzahlen je Faktor und Horizont."""
     monate = sorted(zeit)
     namen = list(KAND) + ['r%d' % k for k in range(1, 13)]
@@ -149,7 +246,7 @@ def auswerten(zeit):
             for d in monate:
                 a = zeit[d]
                 x = np.array([a[t][nm] if nm in a[t] and a[t][nm] is not None else np.nan for t in a], float)
-                y = np.array([a[t]['f' + hk] if a[t].get('f' + hk) is not None else np.nan for t in a], float)
+                y = np.array([a[t][vor + hk] if a[t].get(vor + hk) is not None else np.nan for t in a], float)
                 q = querschnitt(x, y)
                 if q: ics.append(q[0]); sps.append(q[1]); mon.append(d[:7])
             if len(ics) < 12: res[nm][hk] = None; continue
@@ -178,45 +275,65 @@ def korrelation(zeit):
     m = np.corrcoef(np.array(zeilen, float).T)
     return [[round(float(x), 2) if not np.isnan(x) else 0 for x in row] for row in m]
 
+_sperre = threading.Lock(); _letzter = [0.0]
+
+def sec_holen(cik, ua):
+    with _sperre:                                    # höchstens etwa 8 Abrufe pro Sekunde (SEC-Grenze 10)
+        w = _letzter[0] + 0.13 - time.time()
+        if w > 0: time.sleep(w)
+        _letzter[0] = time.time()
+    return json.loads(web(SEC % cik, ua).decode('utf-8'))
+
 def main():
     liste = tickerliste()
     if len(sys.argv) > 1: liste = liste[:int(sys.argv[1])]
+    ua = 'Reiseblog Faktortest %s' % os.environ.get('SEC_KONTAKT', 'kontakt@example.com')
     print('Aktien in der Liste:', len(liste))
     _, spy = trend.holen('SPY', '10y')
     bd = {datum(z[0]): z[4] for z in spy}
     tage = [datum(spy[i][0]) for i in monatsende([datum(z[0]) for z in spy]) if i >= 253]
     print('Monatsenden:', len(tage), tage[0], '…', tage[-1])
-    def hole(t):
-        err = None
+    def hole(p):
+        t, cik = p
+        err, z, fund = None, None, None
         for v in range(3):
             try:
-                return t, trend.holen(t, '10y')[1]
+                z = trend.holen(t, '10y')[1]; break
             except Exception as e:
                 time.sleep(2 * (v + 1)); err = e
-        print(t, 'Fehler:', err); return t, None
-    zeit, ok = {}, 0
+        if z is None: print(t, 'Kursfehler:', err); return t, None, None
+        for v in range(2):
+            try:
+                fund = sec_kompakt(sec_holen(cik, ua)); break
+            except Exception as e:
+                time.sleep(2); err = e
+        if fund is None: print(t, 'SEC-Fehler:', err)
+        return t, z, fund
+    zeit, ok, mitfund = {}, 0, 0
     with ThreadPoolExecutor(6) as ex:
-        for t, z in ex.map(hole, liste):
+        for t, z, fund in ex.map(hole, liste):
             if not z or len(z) < 400: continue
             try:
-                f = faktoren(z, bd, tage)
+                f = faktoren(z, bd, tage, fund)
             except Exception as e:
                 print(t, 'Rechenfehler:', e); continue
             for d, v in f.items(): zeit.setdefault(d, {})[t] = v
-            ok += 1
-            if ok % 50 == 0: print(ok, 'Aktien gerechnet')
+            ok += 1; mitfund += 1 if fund else 0
+            if ok % 50 == 0: print(ok, 'Aktien gerechnet, davon mit SEC-Daten', mitfund)
     if ok < len(liste) * 0.6: print('Zu wenige Aktien (%d), nichts geschrieben' % ok); sys.exit(1)
-    res = auswerten(zeit)
+    res, adj = auswerten(zeit, 'f'), auswerten(zeit, 'g')
     faktoren_out = []
-    for k, (name, besch) in KAND.items(): faktoren_out.append({'id': k, 'name': name, 'beschreibung': besch, 'art': 'kandidat', 'horizonte': res[k], 'urteil': gesamturteil(res[k])})
-    for k in range(1, 13):
-        nm = 'r%d' % k
-        faktoren_out.append({'id': nm, 'name': REGELN[k - 1], 'beschreibung': 'WCJ-Regel %d (ja/nein)' % k, 'art': 'regel', 'horizonte': res[nm], 'urteil': gesamturteil(res[nm])})
-    out = {'stand': datetime.date.today().isoformat(), 'aktien': ok, 'monate': len(zeit), 'von': tage[0], 'bis': tage[-1], 'teilung': TEILUNG,
-           'hinweis': 'Rückblick, keine Prognose. Heutige Index-Mitglieder (Überlebensverzerrung), keine Kosten. Bei vielen Tests sind einzelne Zufallstreffer zu erwarten.',
+    def eintrag(k, name, besch, art):
+        return {'id': k, 'name': name, 'beschreibung': besch, 'art': art, 'horizonte': res[k], 'urteil': gesamturteil(res[k]),
+                'horizonte_adj': adj[k], 'urteil_adj': gesamturteil(adj[k])}
+    for k, (name, besch) in KAND.items(): faktoren_out.append(eintrag(k, name, besch, 'kandidat'))
+    for k in range(1, 13): faktoren_out.append(eintrag('r%d' % k, REGELN[k - 1], 'WCJ-Regel %d (ja/nein)' % k, 'regel'))
+    out = {'stand': datetime.date.today().isoformat(), 'aktien': ok, 'aktien_mit_sec': mitfund, 'monate': len(zeit), 'von': tage[0], 'bis': tage[-1], 'teilung': TEILUNG,
+           'hinweis': 'Rückblick, keine Prognose. Heutige Index-Mitglieder (Überlebensverzerrung), keine Kosten. Bei vielen Tests sind einzelne Zufallstreffer zu erwarten. "adj" = Rendite minus Beta mal Marktrendite (Beta nur aus Vergangenheit). Kennzahlen aus Jahresabschlüssen erst ab Meldedatum.',
            'faktoren': faktoren_out, 'regelkorrelation': korrelation(zeit), 'regelnamen': REGELN}
     json.dump(out, open(PFAD, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-    print('geschrieben', PFAD, {u: sum(1 for f in faktoren_out if f['urteil'] == u) for u in ('traegt', 'dreht', 'unklar', 'nicht')})
+    print('geschrieben', PFAD, {u: sum(1 for f in faktoren_out if f['urteil'] == u) for u in ('traegt', 'dreht', 'unklar', 'nicht')},
+          'bereinigt', {u: sum(1 for f in faktoren_out if f['urteil_adj'] == u) for u in ('traegt', 'dreht', 'unklar', 'nicht')})
 
 if __name__ == '__main__':
     main()

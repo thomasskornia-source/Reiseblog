@@ -19,6 +19,8 @@ jobs:
       - name: Numpy bereitstellen
         run: python3 -c "import numpy" 2>/dev/null || pip install --break-system-packages numpy || pip install numpy
       - name: Faktoren rechnen
+        env:
+          SEC_KONTAKT: ${{ secrets.SEC_KONTAKT }}
         run: python3 tools/faktortest.py
       - name: Ergebnis hochladen
         run: |
