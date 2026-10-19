@@ -25,8 +25,12 @@ _print = print
 def print(*a, **k):
     FEHLER.append(' '.join(str(x) for x in a)[:200]); _print(*a, **k)
 
-def holen(url, timeout=40):
-    req = urllib.request.Request(url, headers=UA)
+BROWSER = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+           'Accept': 'application/json, text/html;q=0.9', 'Accept-Language': 'en-US,en;q=0.9',
+           'Origin': 'https://edition.cnn.com', 'Referer': 'https://edition.cnn.com/markets/fear-and-greed'}
+
+def holen(url, timeout=40, kopf=None):
+    req = urllib.request.Request(url, headers=kopf or UA)
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.read().decode('utf-8', 'replace')
 
@@ -72,7 +76,7 @@ def putcall():
 
 def feargreed():
     try:
-        j = json.loads(holen('https://production.dataviz.cnn.io/index/fearandgreed/graphdata'))
+        j = json.loads(holen('https://production.dataviz.cnn.io/index/fearandgreed/graphdata', kopf=BROWSER))
         h = j['fear_and_greed_historical']['data']
         out = [(datetime.datetime.utcfromtimestamp(x['x'] / 1000).strftime('%Y-%m-%d'), float(x['y'])) for x in h]
         return out
@@ -81,9 +85,9 @@ def feargreed():
 
 def naaim():
     try:
-        t = holen('https://naaim.org/programs/naaim-exposure-index/')
+        t = holen('https://naaim.org/programs/naaim-exposure-index/', kopf=dict(BROWSER, Origin='https://naaim.org', Referer='https://naaim.org/'))
         m = re.search(r'(?:NAAIM\s+Number|Exposure\s+Index)[^0-9<]{0,120}(?:<[^>]*>\s*){0,6}(\d{1,3}\.\d{1,2})', t, re.I)
-        if not m: return []
+        if not m: print('NAAIM: Zahl nicht gefunden, Seitenlänge', len(t)); return []
         v = float(m.group(1))
         if not (-50 <= v <= 200): return []
         return [(datetime.date.today().strftime('%Y-%m-%d'), v)]

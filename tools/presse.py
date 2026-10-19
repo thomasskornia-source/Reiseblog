@@ -15,7 +15,7 @@ Je Aktie:
   n       Zahl der Tage; |r| unter 2/sqrt(n) gilt als nicht belastbar (kein Zusammenhang erkennbar)
 Zusätzlich gebündelt über alle Aktien (pool). Es wird nichts überschrieben, wenn weniger als die Hälfte der Aktien abrufbar war.
 """
-import datetime, json, math, os, re, statistics, sys, time, urllib.parse, urllib.request
+import datetime, json, math, os, re, statistics, sys, time, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 PFAD = os.path.join(ROOT, 'data', 'presse.json')
@@ -26,7 +26,7 @@ def log(*a):
     s = ' '.join(str(x) for x in a); print(s); LOG.append(s[:300])
 def status(ok, gesamt):
     json.dump({'stand': datetime.datetime.utcnow().isoformat(timespec='minutes') + 'Z', 'ok': ok, 'von': gesamt, 'meldungen': LOG[:40]}, open(STATUS, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-PAUSE = 6.0   # GDELT erlaubt etwa eine Anfrage je 5 Sekunden
+PAUSE = 8.0   # GDELT erlaubt etwa eine Anfrage je 5 Sekunden
 SUCHE = {     # Suchbegriffe, wo der Firmenname allein zu unscharf ist (GDELT-Abfragesyntax)
     'GOOGL': '(Google OR Alphabet) (Gemini OR Android OR Search OR earnings)', 'GOOG': '(Google OR Alphabet) (Gemini OR Android OR Search OR earnings)',
     'AMZN': 'Amazon (AWS OR Bezos OR Prime OR earnings)', 'INTC': 'Intel (chip OR chips OR foundry OR earnings OR Xeon)',
@@ -61,7 +61,12 @@ def begriff(t, name):
 
 def gdelt(q, modus):
     u = 'https://api.gdeltproject.org/api/v2/doc/doc?query=%s&mode=%s&timespan=90d&format=json' % (urllib.parse.quote(q + ' sourcelang:english'), modus)
-    t = holen(u)
+    for versuch in range(4):
+        try:
+            t = holen(u); break
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or versuch == 3: raise
+            time.sleep(40 * (versuch + 1))
     j = json.loads(t)
     reihe = j['timeline'][0]['data']
     return {x['date'][:8]: x['value'] for x in reihe}   # 'JJJJMMTT' -> Wert
@@ -139,7 +144,7 @@ def main():
             tn = gdelt(q, 'timelinetone'); time.sleep(PAUSE)
         except Exception as e:
             log('GDELT', t, q, 'Fehler:', e); fehl += 1; time.sleep(PAUSE)
-            if fehl >= 4 and ok == 0: log('Abbruch: GDELT nicht erreichbar'); status(0, len(liste)); sys.exit(0)
+            if fehl >= 3 and ok == 0: log('Abbruch: GDELT nicht erreichbar'); status(0, len(liste)); sys.exit(0)
             continue
         k = yahoo(t)
         tage = sorted(set(a) & set(k))
