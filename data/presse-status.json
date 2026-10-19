@@ -1,0 +1,12 @@
+{
+ "stand": "2026-10-19T07:57Z",
+ "ok": 0,
+ "von": 16,
+ "meldungen": [
+  "GDELT KO \"Coca-Cola\" Fehler: HTTP Error 429: Too Many Requests",
+  "GDELT GOOGL (Google OR Alphabet) (Gemini OR Android OR Search OR earnings) Fehler: HTTP Error 429: Too Many Requests",
+  "GDELT BRK-B \"Berkshire Hathaway\" Fehler: HTTP Error 429: Too Many Requests",
+  "GDELT NVDA Nvidia Fehler: HTTP Error 429: Too Many Requests",
+  "Abbruch: GDELT nicht erreichbar"
+ ]
+}
