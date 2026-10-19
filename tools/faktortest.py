@@ -89,14 +89,18 @@ def wiki_liste():
     import re
     ua = 'Reiseblog Faktortest %s' % os.environ.get('SEC_KONTAKT', 'kontakt@example.com')
     html = web(WIKI[UNI], ua).decode('utf-8', 'replace')
-    tab = html[html.find('<table class="wikitable'):]
-    tab = tab[:tab.find('</table>')]
-    syms = []
-    for tr in re.findall(r'<tr>(.*?)</tr>', tab, re.S)[1:]:
-        td = re.findall(r'<td[^>]*>(.*?)</td>', tr, re.S)
-        if not td: continue
-        t = re.sub(r'<[^>]+>', '', td[0]).strip().replace('.', '-')
-        if re.fullmatch(r'[A-Z][A-Z0-9-]{0,5}', t): syms.append(t)
+    best = []
+    for tab in re.findall(r'<table[^>]*wikitable.*?</table>', html, re.S):
+        syms = []
+        for tr in re.findall(r'<tr[^>]*>(.*?)</tr>', tab, re.S)[1:]:
+            td = re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', tr, re.S)
+            if not td: continue
+            t = re.sub(r'<[^>]+>', '', td[0]).strip().replace('.', '-')
+            if re.fullmatch(r'[A-Z][A-Z0-9-]{0,5}', t): syms.append(t)
+        if len(syms) > len(best): best = syms
+    syms = best
+    if not syms:
+        open(os.path.join(ROOT, 'data', 'faktortest-status.json'), 'w').write(json.dumps({'universum': UNI, 'fehler': 'keine Kürzel gefunden', 'laenge': len(html), 'anfang': html[:200]}, ensure_ascii=False))
     try: cik = {v['ticker'].replace('.', '-'): int(v['cik_str']) for v in json.loads(web('https://www.sec.gov/files/company_tickers.json', ua)).values()}
     except Exception as e: print('CIK-Liste nicht geladen:', e); cik = {}
     print('Kürzel aus Wikipedia:', len(syms), 'mit CIK:', sum(1 for t in syms if t in cik))
@@ -350,7 +354,7 @@ def main():
             for d, v in f.items(): zeit.setdefault(d, {})[t] = v
             ok += 1; mitfund += 1 if fund else 0
             if ok % 50 == 0: print(ok, 'Aktien gerechnet, davon mit SEC-Daten', mitfund)
-    if ok < len(liste) * 0.6: print('Zu wenige Aktien (%d), nichts geschrieben' % ok); sys.exit(1)
+    if not liste or ok < len(liste) * 0.6: print('Zu wenige Aktien (%d), nichts geschrieben' % ok); sys.exit(1)
     res, adj = auswerten(zeit, 'f'), auswerten(zeit, 'g')
     faktoren_out = []
     def eintrag(k, name, besch, art):
