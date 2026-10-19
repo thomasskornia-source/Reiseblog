@@ -10,7 +10,7 @@
   {
    "id": "vix",
    "name": "VIX (Angstbarometer)",
-   "wert": 18.38,
+   "wert": 18.49,
    "einheit": "",
    "pfeil": "seitwaerts",
    "text": "normal bis nervös",
@@ -77,7 +77,7 @@
     16.87,
     16.46,
     19.99,
-    18.38
+    18.49
    ],
    "datum": "2026-10-19",
    "alter_tage": 0
@@ -451,9 +451,9 @@
     44.114,
     26.657,
     30.343,
-    20.496,
     20.273,
-    20.273
+    20.162,
+    20.162
    ],
    "datum": "2026-10-19",
    "alter_tage": 0
@@ -496,7 +496,7 @@
   ]
  },
  "meldungen": [
-  "NAAIM: Zahl nicht gefunden, Seitenlänge 143721"
+  "NAAIM: Zahl nicht gefunden: AAIM Exposure Index NAAIM Number: ﻿ ﻿ ﻿ ﻿ ﻿ ﻿ ﻿ ﻿ ﻿ ﻿ ﻿ ﻿ NAAIM member firms who are active money managers are asked each Wednesday to provide a number which represents the"
  ],
  "hinweis": "Eigene Auswertung freier Daten, keine Anlageberatung. Schwellen sind Faustregeln und keine Prognose."
 }
