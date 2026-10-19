@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "0mIEsd_6hK4",
+   "titel": "Kurzes Update - vor meinem Flug nach New York",
+   "datum": "2026-10-19",
+   "zeit": "2026-10-19T11:40:33+00:00",
+   "art": "opening",
+   "score": 20,
+   "pfeil": "hoch",
+   "thema": "Markus Koch ordnet die jüngste Korrektur im Technologiesektor, wachsende Zweifel an der KI-Monetarisierung sowie geopolitische Risiken ein und bleibt für das Jahresende vorsichtig optimistisch.",
+   "gesamtstimmung": "Trotz kurzfristiger Belastungen durch Hedgefonds-Liquidierungen, Bedenken bezüglich der Investitionsrenditen im KI-Bereich und gestiegener Ölpreise betrachtet Koch den Gesamtmarkt als zunehmend robust. Da viele Sektoren abseits der Mega-Caps bereits massiv abverkauft wurden und das Bewertungsniveau gesunken ist, blickt er positiv auf die kommenden Monate.",
+   "begruendung": "Der S&P 500 weist mit einem Forward-KGV von etwa 18,6 wieder ein vernünftiges Bewertungsniveau auf, in dem viele Risiken abseits des Tech-Sektors bereits eingepreist sind. Zudem sprechen historische Muster nach der seltenen achttägigen Verlustserie im Nasdaq 100 kurzfristig für Erholungschancen.",
+   "indikatoren": [
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Enorme Investitionen treffen auf unklare Monetarisierung",
+     "pfeil": "runter",
+     "rolle": "Analystenberichte zu überzogenen KI-Ausgaben und sinkenden Token-Preisen schüren Skepsis gegenüber der Rentabilität der Branche."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Zuletzt spürbar angezogen",
+     "pfeil": "runter",
+     "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Berichte über erhöhte Alarmbereitschaft im Iran",
+     "pfeil": "runter",
+     "rolle": "Meldungen über Truppenbewegungen im Nahen Osten führten vor dem Wochenende zu spürbarem Verkaufsdruck."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Zwangsliquidierungen bei Hedgefonds",
+     "pfeil": "runter",
+     "rolle": "Hohe Fremdkapitalhebel und Derivatepositionen haben die Abwärtsdynamik im Tech-Sektor abrupt verstärkt."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Breiter Markt schwach, viele Branchen stark bereinigt",
+     "pfeil": "hoch",
+     "rolle": "Die massive Korrektur bei Zins- und Standardwerten wie Immobilien, Versorgern und Finanzen schafft wieder attraktive Bewertungsniveaus."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "Historisch seltene achttägige Abwärtsserie im Nasdaq 100",
+     "pfeil": "hoch",
+     "rolle": "Aus charttechnischer und historischer Sicht folgten auf derart ausgeprägte Abwärtsstrecken meist deutliche Gegenbewegungen."
+    }
+   ],
+   "zitate": [
+    "Nutzung und Monetarisierung eben nicht das Gleiche sind",
+    "gar nicht so negativ gestimmt"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 84546
+  },
+  {
    "id": "66bmABSuKic",
    "titel": "Big Show bei Tesla. Anthropic-Investoren senken Bewertungsziele.",
    "datum": "2026-10-16",
@@ -1320,9 +1383,10 @@
   "Nw5Q7CWeMX8",
   "XQ1dFmtr9lk",
   "Tw9LGZv6nSE",
-  "66bmABSuKic"
+  "66bmABSuKic",
+  "0mIEsd_6hK4"
  ],
- "stand": "2026-10-16T22:15Z",
+ "stand": "2026-10-19T19:27Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",

@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-16",
+ "stand": "2026-10-19",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -106,9 +106,9 @@
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 11,
+   "tage_anzahl": 12,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-15",
+   "zuletzt": "2026-10-19",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
@@ -116,7 +116,7 @@
     "Tech-Sektor & KI",
     "Sektorale Kapitalallokation & CapEx-Konzentration"
    ],
-   "rolle": "Die mangelnde Marktbreite offenbart, dass die hohen Indexstände eine breite Kursschwäche verdecken.",
+   "rolle": "Die massive Korrektur bei Zins- und Standardwerten wie Immobilien, Versorgern und Finanzen schafft wieder attraktive Bewertungsniveaus.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -196,21 +196,28 @@
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
      "rolle": "Die mangelnde Marktbreite offenbart, dass die hohen Indexstände eine breite Kursschwäche verdecken."
+    },
+    "2026-10-19": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die massive Korrektur bei Zins- und Standardwerten wie Immobilien, Versorgern und Finanzen schafft wieder attraktive Bewertungsniveaus."
     }
    }
   },
   {
    "kategorie": "Öl & Rohstoffe",
    "status": "bestaetigt",
-   "tage_anzahl": 11,
+   "tage_anzahl": 12,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-16",
+   "zuletzt": "2026-10-19",
    "name": "Öl- und Dieselpreise",
    "namen": [
     "Öl- und Dieselpreise",
     "Ölpreise"
    ],
-   "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation.",
+   "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -288,20 +295,27 @@
       "Öl- und Dieselpreise"
      ],
      "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte."
     }
    }
   },
   {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
-   "tage_anzahl": 8,
+   "tage_anzahl": 9,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-16",
+   "zuletzt": "2026-10-19",
    "name": "Nahost & Ukraine-Krieg",
    "namen": [
     "Nahost & Ukraine-Krieg"
    ],
-   "rolle": "Geopolitische Risiken sind zwar allgegenwärtig, führen aber aktuell nicht zu Panik an den Märkten.",
+   "rolle": "Meldungen über Truppenbewegungen im Nahen Osten führten vor dem Wochenende zu spürbarem Verkaufsdruck.",
    "tage": {
     "2026-10-02": {
      "p": -1,
@@ -358,6 +372,13 @@
       "Nahost & Ukraine-Krieg"
      ],
      "rolle": "Geopolitische Risiken sind zwar allgegenwärtig, führen aber aktuell nicht zu Panik an den Märkten."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Meldungen über Truppenbewegungen im Nahen Osten führten vor dem Wochenende zu spürbarem Verkaufsdruck."
     }
    }
   },
@@ -570,6 +591,73 @@
    }
   },
   {
+   "kategorie": "Stimmung & Volatilität",
+   "status": "bestaetigt",
+   "tage_anzahl": 7,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-19",
+   "name": "Marktpositionierung und Hebel",
+   "namen": [
+    "Marktpositionierung und Hebel",
+    "Anleihevolatilität (MOVE-Index)",
+    "Anlegerstimmung & Depotrealität",
+    "MOVE-Index",
+    "MOVE-Index (Anleihevolatilität)"
+   ],
+   "rolle": "Hohe Fremdkapitalhebel und Derivatepositionen haben die Abwärtsdynamik im Tech-Sektor abrupt verstärkt.",
+   "tage": {
+    "2026-10-01": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal."
+    },
+    "2026-10-05": {
+     "p": -1,
+     "namen": [
+      "Anleihevolatilität (MOVE-Index)"
+     ],
+     "rolle": "Eine hohe Schwankungsbreite am Rentenmarkt signalisiert anhaltende Nervosität und muss sich für eine tragfähige Rally erst beruhigen."
+    },
+    "2026-10-06": {
+     "p": -1,
+     "namen": [
+      "Anlegerstimmung & Depotrealität"
+     ],
+     "rolle": "Beschreibt die Frustration der Anleger, die an der Indexrallye nicht in der Breite teilhaben."
+    },
+    "2026-10-08": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Eine nachlassende Schwankungsbreite am Rentenmarkt ist für ihn die Grundvoraussetzung für stabilere Aktienmärkte."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "MOVE-Index"
+     ],
+     "rolle": "Eine abnehmende Anleihe-Volatilität erhöht die Stabilität an den Finanzmärkten insgesamt."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "MOVE-Index (Anleihevolatilität)"
+     ],
+     "rolle": "Eine nachlassende Nervosität am Zinsmarkt sorgt für ein stabileres Gesamtumfeld an den Finanzmärkten."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Hohe Fremdkapitalhebel und Derivatepositionen haben die Abwärtsdynamik im Tech-Sektor abrupt verstärkt."
+    }
+   }
+  },
+  {
    "kategorie": "Inflation",
    "status": "bestaetigt",
    "tage_anzahl": 6,
@@ -627,77 +715,17 @@
    }
   },
   {
-   "kategorie": "Stimmung & Volatilität",
-   "status": "bestaetigt",
-   "tage_anzahl": 6,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-16",
-   "name": "Marktpositionierung und Hebel",
-   "namen": [
-    "Marktpositionierung und Hebel",
-    "Anleihevolatilität (MOVE-Index)",
-    "Anlegerstimmung & Depotrealität",
-    "MOVE-Index",
-    "MOVE-Index (Anleihevolatilität)"
-   ],
-   "rolle": "Eine nachlassende Nervosität am Zinsmarkt sorgt für ein stabileres Gesamtumfeld an den Finanzmärkten.",
-   "tage": {
-    "2026-10-01": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal."
-    },
-    "2026-10-05": {
-     "p": -1,
-     "namen": [
-      "Anleihevolatilität (MOVE-Index)"
-     ],
-     "rolle": "Eine hohe Schwankungsbreite am Rentenmarkt signalisiert anhaltende Nervosität und muss sich für eine tragfähige Rally erst beruhigen."
-    },
-    "2026-10-06": {
-     "p": -1,
-     "namen": [
-      "Anlegerstimmung & Depotrealität"
-     ],
-     "rolle": "Beschreibt die Frustration der Anleger, die an der Indexrallye nicht in der Breite teilhaben."
-    },
-    "2026-10-08": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Eine nachlassende Schwankungsbreite am Rentenmarkt ist für ihn die Grundvoraussetzung für stabilere Aktienmärkte."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "MOVE-Index"
-     ],
-     "rolle": "Eine abnehmende Anleihe-Volatilität erhöht die Stabilität an den Finanzmärkten insgesamt."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "MOVE-Index (Anleihevolatilität)"
-     ],
-     "rolle": "Eine nachlassende Nervosität am Zinsmarkt sorgt für ein stabileres Gesamtumfeld an den Finanzmärkten."
-    }
-   }
-  },
-  {
    "kategorie": "Saisonalität & Chart",
    "status": "bestaetigt",
-   "tage_anzahl": 5,
+   "tage_anzahl": 6,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-08",
+   "zuletzt": "2026-10-19",
    "name": "Q4-Saisonalität & Positionierung",
    "namen": [
     "Q4-Saisonalität & Positionierung",
     "September-Indexentwicklung"
    ],
-   "rolle": "Die Kombination aus bereinigter Markttechnik und historisch bullischem Schlussquartal begünstigt eine Erholung.",
+   "rolle": "Aus charttechnischer und historischer Sicht folgten auf derart ausgeprägte Abwärtsstrecken meist deutliche Gegenbewegungen.",
    "tage": {
     "2026-10-02": {
      "p": 1,
@@ -734,20 +762,27 @@
       "Q4-Saisonalität & Positionierung"
      ],
      "rolle": "Die Kombination aus bereinigter Markttechnik und historisch bullischem Schlussquartal begünstigt eine Erholung."
+    },
+    "2026-10-19": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Aus charttechnischer und historischer Sicht folgten auf derart ausgeprägte Abwärtsstrecken meist deutliche Gegenbewegungen."
     }
    }
   },
   {
    "kategorie": "Sonstiges",
    "status": "bestaetigt",
-   "tage_anzahl": 4,
+   "tage_anzahl": 5,
    "erstmals": "2026-10-08",
-   "zuletzt": "2026-10-15",
+   "zuletzt": "2026-10-19",
    "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
     "Tech-Investitionszyklus (CapEx)"
    ],
-   "rolle": "Wachsende Skepsis bei KI-Investitionen gefährdet die Fortsetzung der Rallye bei Halbleitern und Tech-Schwergewichten.",
+   "rolle": "Analystenberichte zu überzogenen KI-Ausgaben und sinkenden Token-Preisen schüren Skepsis gegenüber der Rentabilität der Branche.",
    "tage": {
     "2026-10-08": {
      "p": 1,
@@ -776,6 +811,13 @@
       "Tech-Investitionszyklus (CapEx)"
      ],
      "rolle": "Wachsende Skepsis bei KI-Investitionen gefährdet die Fortsetzung der Rallye bei Halbleitern und Tech-Schwergewichten."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Analystenberichte zu überzogenen KI-Ausgaben und sinkenden Token-Preisen schüren Skepsis gegenüber der Rentabilität der Branche."
     }
    }
   },
