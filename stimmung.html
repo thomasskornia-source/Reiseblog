@@ -157,10 +157,11 @@
     fetch('data/presse.json?v=' + Date.now()).then(function (r) { return r.ok ? r.json() : null; }).then(function (p) {
       if (!p || !p.aktien) return;
       var ks = Object.keys(p.aktien), pool = p.pool || {};
+      var wk = p.art === 'wiki' ? '<p class="hinweis">Quelle: tägliche Aufrufe der englischen Wikipedia-Seite der Firma (Ersatz, weil die Nachrichtendatenbank GDELT für den Abruf gesperrt ist). Das misst Interesse, nicht Presse; einen Tonwert gibt es dabei nicht.</p>' : '';
       function zf(v) { return v == null ? '–' : (v > 0 ? '+' : '') + String(v).replace('.', ','); }
       function rf(v, s) { return v == null ? '–' : '<span style="color:' + (Math.abs(v) >= s ? '#2a8f6a;font-weight:600' : '#8a9490') + '">' + String(v).replace('.', ',') + '</span>'; }
       var t = '<h2>Presse-Aufmerksamkeit</h2><p class="sub" style="margin-top:0">Wie oft wird die Firma in englischsprachigen Nachrichten weltweit erwähnt, und in welchem Ton? Die Zahl zeigt, wie ungewöhnlich viel (+) oder wenig (−) die letzten 3 Tage im Vergleich zu den 60 Tagen davor waren. Quelle: GDELT, Stand ' + esc(lang(p.stand)) + '.</p>';
-      t += '<div class="matrix-w"><table class="mx"><thead><tr><th>Aktie</th><th>Artikel</th><th>Aufmerksamkeit</th><th>Ton</th><th>Kurs-Link*</th></tr></thead><tbody>';
+      t += '<div class="matrix-w"><table class="mx"><thead><tr><th>Aktie</th><th>' + (p.art === 'wiki' ? 'Aufrufe' : 'Artikel') + '</th><th>Aufmerksamkeit</th><th>Ton</th><th>Kurs-Link*</th></tr></thead><tbody>';
       ks.forEach(function (k) {
         var a = p.aktien[k], s = a.r && a.r.schwelle || 0.25;
         t += '<tr><td style="text-align:left"><b>' + esc(k) + '</b></td><td>' + Math.round(a.artikel_heute) + ' <small style="color:#8a9490">(Ø ' + Math.round(a.artikel_schnitt) + ')</small></td><td>' + zf(a.aufm) + '</td><td>' + zf(a.ton) + '</td><td>' + rf(a.r && a.r.aufm_vol_gleich, s) + '</td></tr>';
@@ -172,7 +173,7 @@
           (pool.ton_ret_gleich != null ? ' Ton und Kursrichtung am selben Tag: ' + zahlD(pool.ton_ret_gleich) + '.' : '') + '</div>';
       }
       t += '<p class="hinweis">Nur Messwerkzeug: Aufmerksamkeit zeigt ein Ereignis an, aber nicht, ob es gut oder schlecht ausgeht. Der Ton (Wortwahl der Artikel) ist grob.</p>';
-      document.getElementById('presse').innerHTML = t;
+      document.getElementById('presse').innerHTML = t + wk;
     }).catch(function () {});
     fetch('data/koch-indikatoren.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (k) {
       var l = k.kategorien || []; if (!l.length) return;

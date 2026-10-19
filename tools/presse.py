@@ -35,8 +35,8 @@ SUCHE = {     # Suchbegriffe, wo der Firmenname allein zu unscharf ist (GDELT-Ab
     'TSLA': 'Tesla (Musk OR earnings OR EV)',
 }
 
-def holen(url, timeout=60):
-    req = urllib.request.Request(url, headers=UA)
+def holen(url, timeout=60, headers=None):
+    req = urllib.request.Request(url, headers=headers or UA)
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.read().decode('utf-8', 'replace')
 
@@ -59,17 +59,37 @@ def begriff(t, name):
     n = re.sub(r'^The\s+', '', n.strip(), flags=re.I).strip(' ,.')
     return '"%s"' % n if ' ' in n or '-' in n else n
 
-def gdelt(q, modus):
+def gdelt(q, modus, versuche=4):
     u = 'https://api.gdeltproject.org/api/v2/doc/doc?query=%s&mode=%s&timespan=90d&format=json' % (urllib.parse.quote(q + ' sourcelang:english'), modus)
-    for versuch in range(4):
+    for versuch in range(versuche):
         try:
             t = holen(u); break
         except urllib.error.HTTPError as e:
-            if e.code != 429 or versuch == 3: raise
+            if e.code != 429 or versuch == versuche - 1: raise
             time.sleep(40 * (versuch + 1))
     j = json.loads(t)
     reihe = j['timeline'][0]['data']
     return {x['date'][:8]: x['value'] for x in reihe}   # 'JJJJMMTT' -> Wert
+
+WIKI = {'KO': 'Coca-Cola', 'GOOGL': 'Alphabet_Inc.', 'GOOG': 'Alphabet_Inc.', 'BRK-B': 'Berkshire_Hathaway', 'NVDA': 'Nvidia', 'TTWO': 'Take-Two_Interactive',
+        'AMZN': 'Amazon_(company)', 'INTC': 'Intel', 'AAPL': 'Apple_Inc.', 'MSFT': 'Microsoft', 'META': 'Meta_Platforms', 'TSLA': 'Tesla,_Inc.'}
+WUA = {'User-Agent': 'reiseblog-presse/1.0 (https://github.com/thomasskornia-source/Reiseblog)'}
+
+def wiki_titel(t, name):
+    if t in WIKI: return WIKI[t]
+    n = re.sub(r'\(.*?\)', '', name).strip()
+    u = 'https://en.wikipedia.org/w/api.php?action=opensearch&limit=1&format=json&search=' + urllib.parse.quote(n)
+    j = json.loads(holen(u, headers=WUA))
+    return j[1][0].replace(' ', '_') if j[1] else None
+
+def wiki(titel):
+    """Tägliche Seitenaufrufe der letzten 100 Tage -> {'JJJJMMTT': Aufrufe}"""
+    ende = datetime.date.today() - datetime.timedelta(days=1)
+    start = ende - datetime.timedelta(days=100)
+    u = 'https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/%s/daily/%s/%s' % (
+        urllib.parse.quote(titel, safe=''), start.strftime('%Y%m%d'), ende.strftime('%Y%m%d'))
+    j = json.loads(holen(u, headers=WUA))
+    return {x['timestamp'][:8]: x['views'] for x in j['items']}
 
 def yahoo(ticker):
     try:
@@ -137,14 +157,23 @@ def main():
     liste = tickerliste()
     if not liste: print('Keine Aktienliste'); sys.exit(1)
     out, pool_nz, pool_abs, pool_tz, pool_ret, ok, fehl = {}, [], [], [], [], 0, 0
+    quelle = 'gdelt'
     for t, name in liste.items():
         q = begriff(t, name)
         try:
-            a = gdelt(q, 'timelinevolraw'); time.sleep(PAUSE)
-            tn = gdelt(q, 'timelinetone'); time.sleep(PAUSE)
+            if quelle == 'gdelt':
+                try:
+                    a = gdelt(q, 'timelinevolraw', 1); time.sleep(PAUSE)
+                    tn = gdelt(q, 'timelinetone', 1); time.sleep(PAUSE)
+                except Exception as e:
+                    log('GDELT nicht nutzbar (%s), wechsle zu Wikipedia-Aufrufen' % e); quelle = 'wiki'
+            if quelle == 'wiki':
+                q = wiki_titel(t, name)
+                if not q: log(t, 'kein Wikipedia-Artikel'); continue
+                a = wiki(q); tn = {}; time.sleep(0.5)
         except Exception as e:
-            log('GDELT', t, q, 'Fehler:', e); fehl += 1; time.sleep(PAUSE)
-            if fehl >= 3 and ok == 0: log('Abbruch: GDELT nicht erreichbar'); status(0, len(liste)); sys.exit(0)
+            log(quelle, t, q, 'Fehler:', e); fehl += 1
+            if fehl >= 4 and ok == 0: log('Abbruch: keine Quelle erreichbar'); status(0, len(liste)); sys.exit(0)
             continue
         k = yahoo(t)
         tage = sorted(set(a) & set(k))
@@ -161,7 +190,7 @@ def main():
     pr['aufm_vol_gleich'], nn = korr(pool_nz, pool_abs)
     pr['ton_ret_gleich'], _ = korr(pool_tz, pool_ret)
     pr['n'] = nn; pr['schwelle'] = round(2 / math.sqrt(nn), 2) if nn else None
-    erg = {'stand': datetime.date.today().isoformat(), 'quelle': 'GDELT DOC 2.0 (Artikelzahl, Tonwert), Yahoo (Kurse)',
+    erg = {'stand': datetime.date.today().isoformat(), 'quelle': ('GDELT DOC 2.0 (Artikelzahl, Tonwert)' if quelle == 'gdelt' else 'Wikipedia-Seitenaufrufe (englisch), kein Tonwert') + ', Yahoo (Kurse)', 'art': quelle,
            'hinweis': 'Messwerkzeug, kein Handelssignal. Zusammenhänge unter der Schwelle sind nicht belastbar.',
            'pool': {k: (round(v, 3) if isinstance(v, float) else v) for k, v in pr.items()}, 'aktien': out}
     json.dump(erg, open(PFAD, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
