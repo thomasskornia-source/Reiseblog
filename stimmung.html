@@ -14,14 +14,34 @@
   @media (min-width: 1100px) {
     .sm { max-width: none; }
     .sm .sub { max-width: 900px; }
-    #inhalt { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 0 44px; align-items: start; }
-    #inhalt > .tabs { grid-column: 1; }
-    #inhalt > #tag { grid-column: 1; grid-row: 2 / span 12; }
-    #inhalt > :not(.tabs):not(#tag) { grid-column: 2; }
-    #inhalt > h2:first-of-type { margin-top: 0; }
-    #inhalt > .hinweis { grid-column: 1 / -1; }
+    .dash { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+    .dash .kt.breit { grid-column: auto !important; }
+    .pan.p-koch { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 0 44px; align-items: start; }
+    .pan.p-koch .l { grid-column: 1; } .pan.p-koch .r { grid-column: 2; }
+    .pan.p-koch h2:first-child, .pan.p-koch .l > h2:first-child { margin-top: 0; }
   }
   @media (min-width: 1650px) { .ind { grid-template-columns: 1fr 1fr; } }
+  .banner { margin: 4px 0 12px; padding: 10px 14px; border-radius: 12px; font-size: 14.5px; line-height: 1.45; background: var(--paper); border: 1px solid rgba(46,58,50,.12); }
+  .banner b { font-weight: 600; }
+  .dash { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 6px; }
+  .kt { display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer; background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 14px; padding: 12px 13px; min-width: 0; }
+  .kt.breit { grid-column: 1 / -1; }
+  .kt[aria-expanded="true"] { border-color: #2a8f6a; box-shadow: 0 0 0 1px #2a8f6a inset; }
+  .kt .tk { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); display: flex; justify-content: space-between; gap: 6px; }
+  .kt .tk span:last-child { text-transform: none; letter-spacing: 0; white-space: nowrap; }
+  .kt .tm { display: flex; align-items: center; gap: 10px; margin: 8px 0 4px; }
+  .kt .pf { width: 42px; height: 42px; font-size: 20px; flex: none; }
+  .kt .tz { font-family: 'Fraunces', serif; font-size: 18px; line-height: 1.2; }
+  .kt.breit .tu.ls { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .kt .tu { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+  .kt .pt { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .kt .pt i { width: 12px; height: 12px; border-radius: 4px; display: block; }
+  .kt .pt .hoch { background: #2a8f6a; } .kt .pt .runter { background: #c0392b; } .kt .pt .seitwaerts { background: #d99a1e; } .kt .pt .aus { background: rgba(46,58,50,.18); }
+  .pan { display: block; margin-top: 14px; padding-top: 4px; border-top: 1px solid rgba(46,58,50,.12); }
+  .pan[hidden] { display: none; }
+  .pan.p-koch { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .pan.p-koch .l, .pan.p-koch .r { min-width: 0; }
+  .pan.p-koch[hidden] { display: none; }
   .sm .zurueck { display: inline-block; margin: 8px 0 0; font-size: 14.5px; color: var(--ink-soft); }
   .sm h1 { margin-bottom: 4px; }
   .sm .sub { color: var(--ink-soft); font-size: 15px; line-height: 1.55; margin: 6px 0 14px; }
@@ -139,6 +159,18 @@
     var mn = Math.min.apply(null, r), mx = Math.max.apply(null, r), w = 90, h = 24, sp = mx - mn || 1;
     return '<svg viewBox="0 0 ' + w + ' ' + h + '" width="90" height="24" aria-hidden="true" style="display:block;margin-top:4px"><polyline fill="none" stroke="#8a9490" stroke-width="1.5" points="' + r.map(function (v, i) { return (i * w / (r.length - 1)).toFixed(1) + ',' + (h - 2 - (v - mn) / sp * (h - 4)).toFixed(1); }).join(' ') + '"/></svg>';
   }
+  function kachel(id, titel, pfeil, haupt, unter, punkte) {
+    var k = document.getElementById('k-' + id); if (!k) return;
+    k.innerHTML = '<div class="tk"><span>' + titel + '</span><span>▾</span></div><div class="tm">' + (pfeil ? '<div class="pf ' + pfeil + '" aria-hidden="true">' + PF[pfeil] + '</div>' : '') +
+      '<div><div class="tz">' + haupt + '</div></div></div><div class="tu">' + unter + '</div>' + (punkte ? '<div class="pt">' + punkte + '</div>' : '');
+    k.hidden = false;
+  }
+  function katKachel() {
+    var a = window.__kn, f = window.__fj, u = [];
+    if (a) u.push(a[0] + ' von ' + a[1] + ' Indikatoren bestätigt');
+    if (f) u.push(f[0] + ' von ' + f[1] + ' selbst abrufbar');
+    kachel('kat', 'Indikatoren', null, a ? a[0] + ' feste' : (f ? f[0] + ' abrufbar' : ''), u.join(' · '));
+  }
   function zahlD(v, e) { return String(v).replace('.', ',') + (e || ''); }
   function zusatz(bs) {
     var ST = { bestaetigt: ['bestätigt', '#2a8f6a'], beobachtet: ['beobachtet', '#d99a1e'], neu: ['neu', '#8a9490'] };
@@ -153,6 +185,16 @@
         return '<li><span class="ch ' + pf + '" aria-hidden="true">' + PF[pf] + '</span><div><b>' + esc(i.name) + '<span class="kat">' + esc(i.quelle) + (i.veraltet ? ' · veraltet' : '') + '</span></b>' + spark(i.reihe) + '</div><div class="lage">' + zahlD(i.wert, i.einheit) + ' · ' + esc(i.text) + '</div><div class="rolle">' + esc(i.erklaerung) + (i.url ? ' <a href="' + esc(i.url) + '" target="_blank" rel="noopener">Quelle</a>' : '') + '</div></li>';
       }).join('') + '</ul><p class="hinweis">' + esc(z.hinweis || '') + ' Pfeile folgen festen Schwellen (▲ stützt die Börse, ▼ belastet sie). Extreme Stimmung gilt oft als Gegenindikator.</p>';
       document.getElementById('sent').innerHTML = t;
+      var pos = z.indikatoren.filter(function (i) { return i.pfeil === 'hoch'; }).length, neg = z.indikatoren.filter(function (i) { return i.pfeil === 'runter'; }).length;
+      kachel('eigen', 'Eigene Daten', g.pfeil, NAME[g.pfeil] || esc(g.text), (g.score > 0 ? '+' : '') + g.score + ' von ±100 · ' + pos + ' gut, ' + neg + ' schlecht, ' + (z.indikatoren.length - pos - neg) + ' neutral',
+        z.indikatoren.map(function (i) { return '<i class="' + (i.veraltet ? 'aus' : i.pfeil) + '" title="' + esc(i.name) + '"></i>'; }).join(''));
+      var bn = document.getElementById('banner');
+      if (kp) {
+        var einig = kp === g.pfeil;
+        bn.innerHTML = einig ? '<b>Einig:</b> Markus Koch und die eigenen Daten sehen beide ' + (NAME[g.pfeil] || '').toLowerCase() + '.' :
+          '<b>Uneinig:</b> Koch sieht „' + (NAME[kp] || '').toLowerCase() + '“, die eigenen Daten „' + (NAME[g.pfeil] || '').toLowerCase() + '“.';
+        bn.hidden = false;
+      }
     }).catch(function () {});
     fetch('data/presse.json?v=' + Date.now()).then(function (r) { return r.ok ? r.json() : null; }).then(function (p) {
       if (!p || !p.aktien) return;
@@ -192,6 +234,10 @@
       }
       t += '<p class="hinweis">Nur Messwerkzeug: Aufmerksamkeit zeigt ein Ereignis an, aber nicht, ob es gut oder schlecht ausgeht. ' + (wiki ? '' : 'Der Ton (Wortwahl der Artikel) ist grob.') + '</p>';
       document.getElementById('presse').innerHTML = t + wk;
+      var auf = ks.filter(function (k) { return p.aktien[k].aufm != null && Math.abs(p.aktien[k].aufm) >= 1; }).sort(function (x, y) { return Math.abs(p.aktien[y].aufm) - Math.abs(p.aktien[x].aufm); });
+      var bel = pool.aufm_vol_gleich != null && Math.abs(pool.aufm_vol_gleich) >= (pool.schwelle || 0.1);
+      kachel('presse', 'Aufmerksamkeit', null, auf.length ? auf.length + ' auffällig' : 'Nichts Auffälliges',
+        (auf.length ? auf.slice(0, 4).map(function (k) { return esc(k) + ' ' + zf(p.aktien[k].aufm); }).join(', ') + ' · ' : '') + 'Link zum Kurs: ' + (bel ? 'belegt' : 'noch nicht belegt'));
       var tb = document.getElementById('pr-tab');
       function neu() { tb.innerHTML = tabelle(); }
       tb.addEventListener('click', function (e) {
@@ -212,6 +258,7 @@
         t += '<li><span class="ch" style="background:' + s2[1] + ';font-size:11px;font-weight:600">' + x.tage_anzahl + '×</span><span><b>' + esc(x.kategorie) + '</b><span class="kat">' + s2[0] + ' · zuletzt ' + esc(kurz(x.zuletzt)) + '</span></span><span class="lage">' + esc(x.name) + '</span><span class="rolle">' + pts + '</span></li>';
       });
       document.getElementById('kat').innerHTML = t + '</ul>';
+      window.__kn = [n, l.length]; katKachel();
     }).catch(function () {});
     fetch('data/koch-feedback.json?v=' + Date.now()).then(function (r) { return r.ok ? r.json() : null; }).then(function (f) {
       if (!f || !f.indikatoren) return;
@@ -222,6 +269,7 @@
         t += '<li><span class="ch" style="background:' + m[1] + ';font-size:11px"></span><span><b>' + esc(x.name) + '</b><span class="kat">' + m[0] + '</span></span><span class="lage">' + (x.url ? '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.quelle || 'Quelle') + '</a>' : esc(x.quelle || '')) + '</span><span class="rolle">' + esc(x.hinweis || '') + '</span></li>';
       });
       document.getElementById('fb').innerHTML = t + '</ul>';
+      window.__fj = [f.indikatoren.filter(function (x) { return x.machbar === 'ja'; }).length, f.indikatoren.length]; katKachel();
     }).catch(function () {});
   }
   fetch('data/koch.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
@@ -241,15 +289,33 @@
       if (b.zitate && b.zitate.length) t += '<p class="hinweis" style="margin-top:10px">' + b.zitate.map(function (z) { return '„' + esc(z) + '“'; }).join(' · ') + ' (Markus Koch, „' + esc(b.titel || '') + '“)</p>';
       return t;
     }
-    h += '<div class="tabs" id="tabs" role="group" aria-label="Beitrag wählen">' + tage.map(function (b, i) {
+    var b0 = bs[0], last = bs.slice(0, 6).reverse();
+    h += '<div id="banner" class="banner" hidden></div><div class="dash" id="dash">' +
+      '<button type="button" class="kt breit" data-p="koch" aria-expanded="false"><div class="tk"><span>Koch · ' + esc(kurz(b0.datum)) + (ART[b0.art] ? ' ' + (b0.art === 'opening' ? 'Opening' : 'Closing') : '') + '</span><span>▾</span></div>' +
+      '<div class="tm"><div class="pf ' + b0.pfeil + '" aria-hidden="true">' + PF[b0.pfeil] + '</div><div><div class="tz">' + NAME[b0.pfeil] + '</div><div class="tu">Barometer ' + (b0.score > 0 ? '+' : '') + b0.score + ' von ±100</div></div></div>' +
+      '<div class="tu ls">' + esc(b0.gesamtstimmung) + '</div><div class="pt" title="Letzte Beiträge, links älter">' + last.map(function (x) { return '<i class="' + x.pfeil + '"></i>'; }).join('') + '</div></button>' +
+      '<button type="button" class="kt" id="k-eigen" data-p="eigen" aria-expanded="false" hidden></button>' +
+      '<button type="button" class="kt" id="k-presse" data-p="presse" aria-expanded="false" hidden></button>' +
+      '<button type="button" class="kt" id="k-kat" data-p="kat" aria-expanded="false" hidden></button>' +
+      '</div><div id="dp">';
+    h += '<section class="pan p-koch" id="p-koch" hidden><div class="l">' + '<div class="tabs" id="tabs" role="group" aria-label="Beitrag wählen">' + tage.map(function (b, i) {
       return '<button type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + kurz(b.datum) + (ART[b.art] ? ' ' + ART[b.art] : '') + '</button>';
-    }).join('') + '</div><div id="tag">' + tag(0) + '</div>';
-    h += '<h2>Stimmungsbarometer</h2><div class="karte">' + verlauf(bs) + '</div>';
-    h += '<h2>Indikatoren im Verlauf</h2><div class="karte">' + matrix(bs, d.kategorien || []) + '</div>';
-    h += '<div id="sent"></div><div id="presse"></div><div id="kat"></div><div id="fb"></div>';
+    }).join('') + '</div><div id="tag">' + tag(0) + '</div>' + '</div><div class="r">' + '<h2>Stimmungsbarometer</h2><div class="karte">' + verlauf(bs) + '</div><h2>Indikatoren im Verlauf</h2><div class="karte">' + matrix(bs, d.kategorien || []) + '</div>' + '</div></section>';
+    h += '<section class="pan" id="p-eigen" hidden><div id="sent"></div></section><section class="pan" id="p-presse" hidden><div id="presse"></div></section><section class="pan" id="p-kat" hidden><div id="kat"></div><div id="fb"></div></section></div>';
     h += '<p class="hinweis">Pfeil ▲ heißt: stützt die Börse, ▼ belastet sie, <i class="rt" style="color:#d99a1e"></i> neutral oder unklar, jeweils aus Kochs Sicht. Das Barometer ist meine Einschätzung seiner Stimmung aus den YouTube-Beiträgen, kein Transkript und keine Anlageberatung. Die Auswertung macht eine KI und kann sich irren. Stand: ' + esc((d.stand || '').replace('T', ' ').replace('Z', ' UTC')) + '.</p>';
     el.innerHTML = h;
     zusatz(bs);
+    document.getElementById('dash').addEventListener('click', function (e) {
+      var k = e.target.closest('.kt'); if (!k) return;
+      var id = k.getAttribute('data-p'), offen = k.getAttribute('aria-expanded') === 'true';
+      Array.prototype.forEach.call(document.querySelectorAll('.kt'), function (x) { x.setAttribute('aria-expanded', 'false'); var l = x.querySelector('.tk span:last-child'); if (l) l.textContent = '▾'; });
+      Array.prototype.forEach.call(document.querySelectorAll('.pan'), function (x) { x.hidden = true; });
+      if (!offen) {
+        k.setAttribute('aria-expanded', 'true'); var l2 = k.querySelector('.tk span:last-child'); if (l2) l2.textContent = '▴';
+        var p = document.getElementById('p-' + id); p.hidden = false;
+        setTimeout(function () { p.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 30);
+      }
+    });
     document.getElementById('tabs').addEventListener('click', function (e) {
       var bt = e.target.closest('button'); if (!bt) return;
       Array.prototype.forEach.call(this.children, function (c) { c.setAttribute('aria-pressed', c === bt ? 'true' : 'false'); });
