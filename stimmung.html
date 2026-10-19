@@ -134,8 +134,46 @@
     return '<div class="matrix-w"><table class="mx"><thead><tr>' + kopf + '</tr></thead><tbody>' + zeilen + '</tbody></table></div>';
   }
 
-  function zusatz() {
+  function spark(r) {
+    if (!r || r.length < 3) return '';
+    var mn = Math.min.apply(null, r), mx = Math.max.apply(null, r), w = 90, h = 24, sp = mx - mn || 1;
+    return '<svg viewBox="0 0 ' + w + ' ' + h + '" width="90" height="24" aria-hidden="true" style="display:block;margin-top:4px"><polyline fill="none" stroke="#8a9490" stroke-width="1.5" points="' + r.map(function (v, i) { return (i * w / (r.length - 1)).toFixed(1) + ',' + (h - 2 - (v - mn) / sp * (h - 4)).toFixed(1); }).join(' ') + '"/></svg>';
+  }
+  function zahlD(v, e) { return String(v).replace('.', ',') + (e || ''); }
+  function zusatz(bs) {
     var ST = { bestaetigt: ['bestätigt', '#2a8f6a'], beobachtet: ['beobachtet', '#d99a1e'], neu: ['neu', '#8a9490'] };
+    fetch('data/sentiment.json?v=' + Date.now()).then(function (r) { return r.ok ? r.json() : null; }).then(function (z) {
+      if (!z || !z.indikatoren || !z.gesamt) return;
+      var g = z.gesamt, kp = bs && bs[0] ? bs[0].pfeil : null;
+      var t = '<h2>Eigene Stimmungsdaten</h2><div class="karte heute"><div class="pf ' + g.pfeil + '" aria-hidden="true">' + PF[g.pfeil] + '</div><div><div class="dat">Stand ' + esc(lang(z.stand)) + '</div><div class="st">' + esc(g.text) + '</div><div class="sc">Mittel aus ' + g.anzahl + ' Indikatoren: ' + (g.score > 0 ? '+' : '') + g.score + ' von ±100</div></div>' +
+        '<p class="txt">' + (kp ? (kp === g.pfeil ? 'Das passt zu Markus Kochs Pfeil (' + NAME[kp].toLowerCase() + '): Seine Einschätzung und die Zahlen zeigen in dieselbe Richtung.' : 'Hier gibt es einen Widerspruch zu Markus Koch (' + NAME[kp].toLowerCase() + '): Er sieht es anders als die Zahlen. Das ist keine Entscheidung, aber ein Grund, genauer hinzusehen.') : '') + '</p>' +
+        '<div style="grid-column:1/-1"><div class="skala"><i style="left:' + ((g.score + 100) / 2) + '%"></i></div><div class="skala-l"><span>−100</span><span>0</span><span>+100</span></div></div></div>';
+      t += '<ul class="ind">' + z.indikatoren.map(function (i) {
+        var pf = i.veraltet ? 'seitwaerts' : i.pfeil;
+        return '<li><span class="ch ' + pf + '" aria-hidden="true">' + PF[pf] + '</span><div><b>' + esc(i.name) + '<span class="kat">' + esc(i.quelle) + (i.veraltet ? ' · veraltet' : '') + '</span></b>' + spark(i.reihe) + '</div><div class="lage">' + zahlD(i.wert, i.einheit) + ' · ' + esc(i.text) + '</div><div class="rolle">' + esc(i.erklaerung) + (i.url ? ' <a href="' + esc(i.url) + '" target="_blank" rel="noopener">Quelle</a>' : '') + '</div></li>';
+      }).join('') + '</ul><p class="hinweis">' + esc(z.hinweis || '') + ' Pfeile folgen festen Schwellen (▲ stützt die Börse, ▼ belastet sie). Extreme Stimmung gilt oft als Gegenindikator.</p>';
+      document.getElementById('sent').innerHTML = t;
+    }).catch(function () {});
+    fetch('data/presse.json?v=' + Date.now()).then(function (r) { return r.ok ? r.json() : null; }).then(function (p) {
+      if (!p || !p.aktien) return;
+      var ks = Object.keys(p.aktien), pool = p.pool || {};
+      function zf(v) { return v == null ? '–' : (v > 0 ? '+' : '') + String(v).replace('.', ','); }
+      function rf(v, s) { return v == null ? '–' : '<span style="color:' + (Math.abs(v) >= s ? '#2a8f6a;font-weight:600' : '#8a9490') + '">' + String(v).replace('.', ',') + '</span>'; }
+      var t = '<h2>Presse-Aufmerksamkeit</h2><p class="sub" style="margin-top:0">Wie oft wird die Firma in englischsprachigen Nachrichten weltweit erwähnt, und in welchem Ton? Die Zahl zeigt, wie ungewöhnlich viel (+) oder wenig (−) die letzten 3 Tage im Vergleich zu den 60 Tagen davor waren. Quelle: GDELT, Stand ' + esc(lang(p.stand)) + '.</p>';
+      t += '<div class="matrix-w"><table class="mx"><thead><tr><th>Aktie</th><th>Artikel</th><th>Aufmerksamkeit</th><th>Ton</th><th>Kurs-Link*</th></tr></thead><tbody>';
+      ks.forEach(function (k) {
+        var a = p.aktien[k], s = a.r && a.r.schwelle || 0.25;
+        t += '<tr><td style="text-align:left"><b>' + esc(k) + '</b></td><td>' + Math.round(a.artikel_heute) + ' <small style="color:#8a9490">(Ø ' + Math.round(a.artikel_schnitt) + ')</small></td><td>' + zf(a.aufm) + '</td><td>' + zf(a.ton) + '</td><td>' + rf(a.r && a.r.aufm_vol_gleich, s) + '</td></tr>';
+      });
+      t += '</tbody></table></div><p class="hinweis">* Zusammenhang (−1 bis +1) zwischen ungewöhnlich vielen Artikeln und der Größe der Kursbewegung am selben Tag, über die letzten 90 Tage. Grün erst, wenn er über der Schwelle liegt (' + (pool.schwelle != null ? zahlD(pool.schwelle) : '≈0,2') + ' bei dieser Datenmenge), sonst ist er vom Zufall nicht zu trennen.</p>';
+      if (pool.aufm_vol_gleich != null) {
+        var beleg = Math.abs(pool.aufm_vol_gleich) >= (pool.schwelle || 0.1);
+        t += '<div class="karte" style="font-size:14.5px;line-height:1.55"><b>Über alle ' + ks.length + ' Aktien zusammen:</b> Zusammenhang Aufmerksamkeit und Kursausschlag ' + zahlD(pool.aufm_vol_gleich) + ' (Schwelle ' + zahlD(pool.schwelle) + ', ' + pool.n + ' Tage). ' + (beleg ? 'Das ist belastbar: Wenn eine Firma ungewöhnlich oft in der Presse steht, bewegt sich ihr Kurs am selben Tag auch stärker. Über die Richtung sagt das nichts, und die Presse reagiert oft erst auf den Kurs.' : 'Das ist (noch) nicht belastbar: In diesen Daten ist kein klarer Zusammenhang zu erkennen.') +
+          (pool.ton_ret_gleich != null ? ' Ton und Kursrichtung am selben Tag: ' + zahlD(pool.ton_ret_gleich) + '.' : '') + '</div>';
+      }
+      t += '<p class="hinweis">Nur Messwerkzeug: Aufmerksamkeit zeigt ein Ereignis an, aber nicht, ob es gut oder schlecht ausgeht. Der Ton (Wortwahl der Artikel) ist grob.</p>';
+      document.getElementById('presse').innerHTML = t;
+    }).catch(function () {});
     fetch('data/koch-indikatoren.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (k) {
       var l = k.kategorien || []; if (!l.length) return;
       var n = l.filter(function (x) { return x.status === 'bestaetigt'; }).length;
@@ -180,10 +218,10 @@
     }).join('') + '</div><div id="tag">' + tag(0) + '</div>';
     h += '<h2>Stimmungsbarometer</h2><div class="karte">' + verlauf(bs) + '</div>';
     h += '<h2>Indikatoren im Verlauf</h2><div class="karte">' + matrix(bs, d.kategorien || []) + '</div>';
-    h += '<div id="kat"></div><div id="fb"></div>';
+    h += '<div id="sent"></div><div id="presse"></div><div id="kat"></div><div id="fb"></div>';
     h += '<p class="hinweis">Pfeil ▲ heißt: stützt die Börse, ▼ belastet sie, <i class="rt" style="color:#d99a1e"></i> neutral oder unklar, jeweils aus Kochs Sicht. Das Barometer ist meine Einschätzung seiner Stimmung aus den YouTube-Beiträgen, kein Transkript und keine Anlageberatung. Die Auswertung macht eine KI und kann sich irren. Stand: ' + esc((d.stand || '').replace('T', ' ').replace('Z', ' UTC')) + '.</p>';
     el.innerHTML = h;
-    zusatz();
+    zusatz(bs);
     document.getElementById('tabs').addEventListener('click', function (e) {
       var bt = e.target.closest('button'); if (!bt) return;
       Array.prototype.forEach.call(this.children, function (c) { c.setAttribute('aria-pressed', c === bt ? 'true' : 'false'); });

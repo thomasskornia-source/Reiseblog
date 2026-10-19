@@ -1,0 +1,31 @@
+name: Sentiment-Indikatoren
+
+on:
+  schedule:
+    - cron: '50 22 * * 1-5'   # nach US-Börsenschluss
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sentiment
+  cancel-in-progress: false
+
+jobs:
+  sentiment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sentiment-Daten abrufen
+        run: python3 tools/sentiment.py
+      - name: Änderung hochladen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/sentiment.json
+          if git diff --cached --quiet; then echo "Keine Änderung"; exit 0; fi
+          git commit -m "Sentiment-Indikatoren aktualisiert"
+          git pull --rebase origin main
+          git push origin HEAD:main

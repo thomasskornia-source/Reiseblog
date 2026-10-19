@@ -1,0 +1,31 @@
+name: Presse-Aufmerksamkeit
+
+on:
+  schedule:
+    - cron: '30 4 * * *'   # täglich früh, GDELT hat dann den Vortag komplett
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: presse
+  cancel-in-progress: false
+
+jobs:
+  presse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Presse- und Kursdaten abrufen
+        run: python3 tools/presse.py
+      - name: Änderung hochladen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/presse.json
+          if git diff --cached --quiet; then echo "Keine Änderung"; exit 0; fi
+          git commit -m "Presse-Aufmerksamkeit aktualisiert"
+          git pull --rebase origin main
+          git push origin HEAD:main
