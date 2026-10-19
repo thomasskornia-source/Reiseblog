@@ -12,6 +12,8 @@ UNI = os.path.join(ROOT, 'data', 'universum.json')
 PFAD = os.path.join(ROOT, 'data', 'forward.json')
 HOR = (5, 20, 60)
 MAXTAGE = 130
+FLUSS = os.path.join(ROOT, 'data', 'sektorflow.json')
+SCHWELLE = 0.3          # Anteil (gekaufte Calls + verkaufte Puts - gekaufte Puts) / alle: ab +/-0,3 bullisch/bärisch
 STUFEN = [('Stark', 8), ('Momentum', 6), ('Beobachten', 4), ('Schwach', 0)]
 
 def iso(d):
@@ -46,6 +48,34 @@ def main():
     arch[tag] = {a['t']: [a['p'], a['k']] for a in u['aktien'] if a.get('p') is not None and a.get('k')}
     for d in sorted(arch)[:-MAXTAGE]: del arch[d]
     tage = sorted(arch)
+    fluss = alt.get('fluss', {})
+    try:
+        for d, v in json.load(open(FLUSS, encoding='utf-8')).get('tage', {}).items(): fluss[d] = {t: x[:3] for t, x in v.items()}
+    except Exception as e: print('Optionsfluss nicht gelesen:', e)
+    for d in sorted(fluss)[:-MAXTAGE]: del fluss[d]
+    out_f = {}
+    for h in HOR:
+        gr = {'bullisch': [], 'gemischt': [], 'baerisch': [], 'keine': []}; ex = {k: [] for k in gr}; pr, rr = [], []; tg = 0
+        for i, d in enumerate(tage):
+            if i + h >= len(tage) or d not in fluss: continue
+            d2 = tage[i + h]; rets = {}
+            for t, (p, k) in arch[d].items():
+                if t in arch[d2] and k: rets[t] = (arch[d2][t][1] / k - 1) * 100
+            if len(rets) < 100: continue
+            mkt = sum(rets.values()) / len(rets); tg += 1
+            for t, r in rets.items():
+                f = fluss[d].get(t); tot = sum(f) if f else 0
+                if not tot: g = 'keine'
+                else:
+                    q = (f[0] + f[1] - f[2]) / tot
+                    g = 'bullisch' if q >= SCHWELLE else 'baerisch' if q <= -SCHWELLE else 'gemischt'
+                    pr.append(q); rr.append(r - mkt)
+                gr[g].append(r); ex[g].append(r - mkt)
+        if not tg: out_f[str(h)] = None; continue
+        mw = lambda v: round(sum(v) / len(v), 2) if v else None
+        out_f[str(h)] = {'tage': tg, 'gruppen': {g: {'n': len(gr[g]), 'rendite': mw(gr[g]), 'ueber_markt': mw(ex[g])} for g in gr},
+                         'bullisch_minus_baerisch': round(mw(ex['bullisch']) - mw(ex['baerisch']), 2) if ex['bullisch'] and ex['baerisch'] else None,
+                         'ic': round(pearson(rang(pr), rang(rr)), 3) if len(pr) > 50 else None}
     out_h = {}
     for h in HOR:
         je_stufe = {n: [] for n, _ in STUFEN}; ics = []; alle = []
@@ -70,7 +100,7 @@ def main():
         out_h[str(h)] = {'tage': len(ics), 'beobachtungen': len(alle), 'grundrate': base, 'ic': ic, 't': t,
                          'stufen': {n: {'n': len(v), 'rendite': mw(v)} for n, v in je_stufe.items()},
                          'stark_minus_schwach': round(mw(je_stufe['Stark']) - mw(je_stufe['Schwach']), 2) if je_stufe['Stark'] and je_stufe['Schwach'] else None}
-    out = {'stand': tag, 'seit': tage[0], 'handelstage': len(tage), 'horizonte': out_h,
+    out = {'stand': tag, 'seit': tage[0], 'handelstage': len(tage), 'horizonte': out_h, 'fluss_horizonte': out_f, 'fluss': fluss,
            'hinweis': 'Score wird täglich vor der Rendite festgehalten, nichts wird zurückgerechnet. Unter 20 Handelstagen Archiv sagt der Test noch nichts; belastbar frühestens nach einigen Monaten.',
            'archiv': arch}
     with open(PFAD, 'w', encoding='utf-8') as fh:

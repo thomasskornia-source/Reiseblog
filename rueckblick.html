@@ -147,6 +147,15 @@
       ['Stark', 'Momentum', 'Beobachten', 'Schwach'].forEach(function (s) { var z = v.stufen[s]; h += '<tr><td>' + s + '</td><td>' + z.n + '</td><td>' + f1(z.rendite) + ' %</td></tr>'; });
       h += '<tr><td>Alle</td><td>' + v.beobachtungen + '</td><td>' + f1(v.grundrate) + ' %</td></tr></table>';
     });
+    h += '<h3>Optionsfluss als Hinweis</h3><p>Aktien mit auffälligem Optionsfluss (bullisch: gekaufte Calls und verkaufte Puts überwiegen, bärisch: gekaufte Puts), verglichen mit dem Durchschnitt aller Aktien am selben Tag. Die Kaufseite ist nur geschätzt.</p>';
+    var fo = f.fluss_horizonte || {}, nf = 0;
+    ['5', '20'].forEach(function (k) {
+      var v = fo[k]; if (!v) { h += '<p style="color:var(--ink-soft)">Nach ' + k + ' Handelstagen: noch nicht messbar.</p>'; return; }
+      nf++;
+      h += '<h3>Nach ' + k + ' Handelstagen (' + v.tage + ' Tage, Zusammenhang ' + f1(v.ic, 3) + ')</h3><table class="stufen"><tr><th>Fluss</th><th>Anzahl</th><th>Ø über Markt</th></tr>';
+      [['bullisch', 'Bullisch'], ['gemischt', 'Gemischt'], ['baerisch', 'Bärisch'], ['keine', 'Nichts Auffälliges']].forEach(function (g) { var z = v.gruppen[g[0]]; h += '<tr><td>' + g[1] + '</td><td>' + z.n + '</td><td>' + f1(z.ueber_markt) + ' %</td></tr>'; });
+      h += '<tr><td>Bullisch minus bärisch</td><td></td><td>' + f1(v.bullisch_minus_baerisch) + ' Pkt.</td></tr></table>';
+    });
     el.innerHTML = h;
   }).catch(function () { $('fw').innerHTML = '<p style="color:var(--ink-soft)">Noch keine Daten. Der Test beginnt mit dem ersten Lauf nach Börsenschluss.</p>'; });
 })();
