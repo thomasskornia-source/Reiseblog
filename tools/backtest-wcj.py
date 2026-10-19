@@ -85,7 +85,7 @@ def vergleichswerte():
 def main():
     args = [a.upper() for a in sys.argv[1:]]
     haupt = args[0] if args else 'AMZN'
-    liste = args or ([haupt] + [t for t in vergleichswerte() if t != haupt])
+    liste = args if len(args) > 1 else [haupt] + [t for t in vergleichswerte() if t != haupt]
     meta, spy = trend.holen('SPY', '6y')
     bd = {datum(z[0]): z[4] for z in spy}
     alle, je, haupt_rows = [], {}, None
