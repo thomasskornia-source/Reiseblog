@@ -160,20 +160,47 @@
       var wk = p.art === 'wiki' ? '<p class="hinweis">Quelle: tägliche Aufrufe der englischen Wikipedia-Seite der Firma (Ersatz, weil die Nachrichtendatenbank GDELT für den Abruf gesperrt ist). Das misst Interesse, nicht Presse; einen Tonwert gibt es dabei nicht.</p>' : '';
       function zf(v) { return v == null ? '–' : (v > 0 ? '+' : '') + String(v).replace('.', ','); }
       function rf(v, s) { return v == null ? '–' : '<span style="color:' + (Math.abs(v) >= s ? '#2a8f6a;font-weight:600' : '#8a9490') + '">' + String(v).replace('.', ',') + '</span>'; }
-      var t = '<h2>Presse-Aufmerksamkeit</h2><p class="sub" style="margin-top:0">Wie oft wird die Firma in englischsprachigen Nachrichten weltweit erwähnt, und in welchem Ton? Die Zahl zeigt, wie ungewöhnlich viel (+) oder wenig (−) die letzten 3 Tage im Vergleich zu den 60 Tagen davor waren. Quelle: GDELT, Stand ' + esc(lang(p.stand)) + '.</p>';
-      t += '<div class="matrix-w"><table class="mx"><thead><tr><th>Aktie</th><th>' + (p.art === 'wiki' ? 'Aufrufe' : 'Artikel') + '</th><th>Aufmerksamkeit</th><th>Ton</th><th>Kurs-Link*</th></tr></thead><tbody>';
-      ks.forEach(function (k) {
-        var a = p.aktien[k], s = a.r && a.r.schwelle || 0.25;
-        t += '<tr><td style="text-align:left"><b>' + esc(k) + '</b></td><td>' + Math.round(a.artikel_heute) + ' <small style="color:#8a9490">(Ø ' + Math.round(a.artikel_schnitt) + ')</small></td><td>' + zf(a.aufm) + '</td><td>' + zf(a.ton) + '</td><td>' + rf(a.r && a.r.aufm_vol_gleich, s) + '</td></tr>';
-      });
-      t += '</tbody></table></div><p class="hinweis">* Zusammenhang (−1 bis +1) zwischen ungewöhnlich vielen Artikeln und der Größe der Kursbewegung am selben Tag, über die letzten 90 Tage. Grün erst, wenn er über der Schwelle liegt (' + (pool.schwelle != null ? zahlD(pool.schwelle) : '≈0,2') + ' bei dieser Datenmenge), sonst ist er vom Zufall nicht zu trennen.</p>';
+      var t = '<h2>Presse-Aufmerksamkeit</h2><p class="sub" style="margin-top:0">' + (p.art === 'wiki' ? 'Wie oft wird die Wikipedia-Seite der Firma aufgerufen? Das zeigt, wie viel Interesse sie gerade findet.' : 'Wie oft wird die Firma in englischsprachigen Nachrichten weltweit erwähnt, und in welchem Ton?') + ' Die Zahl zeigt, wie ungewöhnlich viel (+) oder wenig (−) die letzten 3 Tage im Vergleich zu den 60 Tagen davor waren. Quelle: ' + (p.art === 'wiki' ? 'Wikipedia' : 'GDELT') + ', Stand ' + esc(lang(p.stand)) + '.</p>';
+      var wiki = p.art === 'wiki', sk = 'aufm', sr = -1;
+      var spalten = [['k', 'Aktie'], ['n', wiki ? 'Aufrufe' : 'Artikel'], ['aufm', 'Aufmerksamkeit'], ['ton', 'Ton'], ['r', 'Kurs-Link*']];
+      function wert(k, c) {
+        var a = p.aktien[k];
+        return c === 'k' ? k : c === 'n' ? a.artikel_heute : c === 'r' ? (a.r && a.r.aufm_vol_gleich) : a[c];
+      }
+      function tabelle() {
+        var o = ks.slice().sort(function (x, y) {
+          var u = wert(x, sk), v = wert(y, sk);
+          if (u == null && v == null) return 0;
+          if (u == null) return 1; if (v == null) return -1;       // leere Werte immer unten
+          return (typeof u === 'string' ? u.localeCompare(v) : u - v) * sr;
+        });
+        var h = '<table class="mx"><thead><tr>' + spalten.map(function (c) {
+          return '<th data-sort="' + c[0] + '" style="cursor:pointer;white-space:nowrap' + (c[0] === sk ? ';color:#2a8f6a' : '') + '">' + c[1] + (c[0] === sk ? (sr > 0 ? ' ▲' : ' ▼') : '') + '</th>';
+        }).join('') + '</tr></thead><tbody>';
+        o.forEach(function (k) {
+          var a = p.aktien[k], s = a.r && a.r.schwelle || 0.25;
+          h += '<tr><td style="text-align:left"><b>' + esc(k) + '</b></td><td>' + Math.round(a.artikel_heute) + ' <small style="color:#8a9490">(Ø ' + Math.round(a.artikel_schnitt) + ')</small></td><td>' + zf(a.aufm) + '</td><td>' + zf(a.ton) + '</td><td>' + rf(a.r && a.r.aufm_vol_gleich, s) + '</td></tr>';
+        });
+        return h + '</tbody></table>';
+      }
+      t += '<div class="matrix-w" id="pr-tab"></div>';
+      t += '<p class="hinweis">* Zusammenhang (−1 bis +1) zwischen ungewöhnlich vielen Artikeln und der Größe der Kursbewegung am selben Tag, über die letzten 90 Tage. Grün erst, wenn er über der Schwelle liegt (' + (pool.schwelle != null ? zahlD(pool.schwelle) : '≈0,2') + ' bei dieser Datenmenge), sonst ist er vom Zufall nicht zu trennen. Zum Sortieren oben auf eine Spalte tippen, nochmal tippen dreht die Reihenfolge.</p>';
       if (pool.aufm_vol_gleich != null) {
         var beleg = Math.abs(pool.aufm_vol_gleich) >= (pool.schwelle || 0.1);
         t += '<div class="karte" style="font-size:14.5px;line-height:1.55"><b>Über alle ' + ks.length + ' Aktien zusammen:</b> Zusammenhang Aufmerksamkeit und Kursausschlag ' + zahlD(pool.aufm_vol_gleich) + ' (Schwelle ' + zahlD(pool.schwelle) + ', ' + pool.n + ' Tage). ' + (beleg ? 'Das ist belastbar: Wenn eine Firma ungewöhnlich oft in der Presse steht, bewegt sich ihr Kurs am selben Tag auch stärker. Über die Richtung sagt das nichts, und die Presse reagiert oft erst auf den Kurs.' : 'Das ist (noch) nicht belastbar: In diesen Daten ist kein klarer Zusammenhang zu erkennen.') +
           (pool.ton_ret_gleich != null ? ' Ton und Kursrichtung am selben Tag: ' + zahlD(pool.ton_ret_gleich) + '.' : '') + '</div>';
       }
-      t += '<p class="hinweis">Nur Messwerkzeug: Aufmerksamkeit zeigt ein Ereignis an, aber nicht, ob es gut oder schlecht ausgeht. Der Ton (Wortwahl der Artikel) ist grob.</p>';
+      t += '<p class="hinweis">Nur Messwerkzeug: Aufmerksamkeit zeigt ein Ereignis an, aber nicht, ob es gut oder schlecht ausgeht. ' + (wiki ? '' : 'Der Ton (Wortwahl der Artikel) ist grob.') + '</p>';
       document.getElementById('presse').innerHTML = t + wk;
+      var tb = document.getElementById('pr-tab');
+      function neu() { tb.innerHTML = tabelle(); }
+      tb.addEventListener('click', function (e) {
+        var th = e.target.closest('th[data-sort]'); if (!th) return;
+        var c = th.getAttribute('data-sort');
+        if (c === sk) sr = -sr; else { sk = c; sr = c === 'k' ? 1 : -1; }
+        neu();
+      });
+      neu();
     }).catch(function () {});
     fetch('data/koch-indikatoren.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (k) {
       var l = k.kategorien || []; if (!l.length) return;
