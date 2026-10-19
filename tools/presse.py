@@ -20,6 +20,12 @@ import datetime, json, math, os, re, statistics, sys, time, urllib.parse, urllib
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 PFAD = os.path.join(ROOT, 'data', 'presse.json')
 UA = {'User-Agent': 'Mozilla/5.0 (compatible; reiseblog-presse)'}
+STATUS = os.path.join(ROOT, 'data', 'presse-status.json')
+LOG = []
+def log(*a):
+    s = ' '.join(str(x) for x in a); print(s); LOG.append(s[:300])
+def status(ok, gesamt):
+    json.dump({'stand': datetime.datetime.utcnow().isoformat(timespec='minutes') + 'Z', 'ok': ok, 'von': gesamt, 'meldungen': LOG[:40]}, open(STATUS, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 PAUSE = 6.0   # GDELT erlaubt etwa eine Anfrage je 5 Sekunden
 SUCHE = {     # Suchbegriffe, wo der Firmenname allein zu unscharf ist (GDELT-Abfragesyntax)
     'GOOGL': '(Google OR Alphabet) (Gemini OR Android OR Search OR earnings)', 'GOOG': '(Google OR Alphabet) (Gemini OR Android OR Search OR earnings)',
@@ -66,7 +72,7 @@ def yahoo(ticker):
         j = json.loads(holen(u))['chart']['result'][0]
         return {datetime.datetime.utcfromtimestamp(t).strftime('%Y%m%d'): c for t, c in zip(j['timestamp'], j['indicators']['quote'][0]['close']) if c is not None}
     except Exception as e:
-        print('Yahoo', ticker, 'Fehler:', e); return {}
+        log('Yahoo', ticker, 'Fehler:', e); return {}
 
 # ---- Rechnung (reine Funktionen, testbar) ---------------------------------------------------------------------------
 def z_wert(reihe, letzte=3, vorher=60):
@@ -125,25 +131,27 @@ def auswerten(tage, anzahl, ton, kurs):
 def main():
     liste = tickerliste()
     if not liste: print('Keine Aktienliste'); sys.exit(1)
-    out, pool_nz, pool_abs, pool_tz, pool_ret, ok = {}, [], [], [], [], 0
+    out, pool_nz, pool_abs, pool_tz, pool_ret, ok, fehl = {}, [], [], [], [], 0, 0
     for t, name in liste.items():
         q = begriff(t, name)
         try:
             a = gdelt(q, 'timelinevolraw'); time.sleep(PAUSE)
             tn = gdelt(q, 'timelinetone'); time.sleep(PAUSE)
         except Exception as e:
-            print('GDELT', t, q, 'Fehler:', e); time.sleep(PAUSE); continue
+            log('GDELT', t, q, 'Fehler:', e); fehl += 1; time.sleep(PAUSE)
+            if fehl >= 4 and ok == 0: log('Abbruch: GDELT nicht erreichbar'); status(0, len(liste)); sys.exit(0)
+            continue
         k = yahoo(t)
         tage = sorted(set(a) & set(k))
         res = auswerten(tage, a, tn, k)
-        if not res: print(t, 'zu wenig Daten'); continue
+        if not res: log(t, 'zu wenig Daten'); continue
         ok += 1
         erg, nz, tz, ret = res
         erg.update({'name': name, 'suche': q})
         out[t] = erg
         pool_nz += nz; pool_tz += tz; pool_ret += ret; pool_abs += [None if r is None else abs(r) for r in ret]
     if ok < max(1, len(liste) // 2):
-        print('Nur %d von %d Aktien abrufbar, nichts überschrieben' % (ok, len(liste))); sys.exit(0)
+        log('Nur %d von %d Aktien abrufbar, nichts überschrieben' % (ok, len(liste))); status(ok, len(liste)); sys.exit(0)
     pr = {}
     pr['aufm_vol_gleich'], nn = korr(pool_nz, pool_abs)
     pr['ton_ret_gleich'], _ = korr(pool_tz, pool_ret)
@@ -152,7 +160,7 @@ def main():
            'hinweis': 'Messwerkzeug, kein Handelssignal. Zusammenhänge unter der Schwelle sind nicht belastbar.',
            'pool': {k: (round(v, 3) if isinstance(v, float) else v) for k, v in pr.items()}, 'aktien': out}
     json.dump(erg, open(PFAD, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-    print('geschrieben:', ok, 'Aktien')
+    print('geschrieben:', ok, 'Aktien'); status(ok, len(liste))
 
 if __name__ == '__main__':
     main()

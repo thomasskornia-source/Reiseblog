@@ -20,6 +20,11 @@ PFAD = os.path.join(ROOT, 'data', 'sentiment.json')
 UA = {'User-Agent': 'Mozilla/5.0 (compatible; reiseblog-sentiment)'}
 MAX_VERLAUF = 90
 
+FEHLER = []
+_print = print
+def print(*a, **k):
+    FEHLER.append(' '.join(str(x) for x in a)[:200]); _print(*a, **k)
+
 def holen(url, timeout=40):
     req = urllib.request.Request(url, headers=UA)
     with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -202,7 +207,7 @@ def main():
     verlauf = [x for x in alt.get('verlauf', []) if x.get('d') != heute.isoformat()]
     verlauf.append({'d': heute.isoformat(), 'score': g['score']})
     out = {'stand': heute.isoformat(), 'gesamt': g, 'indikatoren': ind, 'verlauf': verlauf[-MAX_VERLAUF:],
-           'schwellen': SCHWELLEN,
+           'schwellen': SCHWELLEN, 'meldungen': FEHLER[:20],
            'hinweis': 'Eigene Auswertung freier Daten, keine Anlageberatung. Schwellen sind Faustregeln und keine Prognose.'}
     json.dump(out, open(PFAD, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print('geschrieben:', len(ind), 'Indikatoren, Gesamt', g['score'])
