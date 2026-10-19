@@ -1,0 +1,31 @@
+name: Fortlaufender Test
+
+on:
+  schedule:
+    - cron: '50 22 * * 1-5'   # nach top10.yml (22:30 UTC), das universum.json schreibt
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: forward
+  cancel-in-progress: false
+
+jobs:
+  forward:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Score festhalten und Renditen messen
+        run: python3 tools/forward-test.py
+      - name: Ergebnis hochladen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/forward.json
+          if git diff --cached --quiet; then echo "Keine Änderung"; exit 0; fi
+          git commit -m "Fortlaufender Test: Stand festgehalten"
+          git pull --rebase origin main
+          git push origin HEAD:main

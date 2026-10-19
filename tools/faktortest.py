@@ -25,7 +25,17 @@ sys.path.insert(0, os.path.dirname(__file__))
 import trend
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
-PFAD = os.path.join(ROOT, 'data', 'faktortest.json')
+UNI = os.environ.get('UNIVERSUM', 'sp500').strip().lower()      # sp500 | sp400 | sp600 | europa
+UNI_NAMEN = {'sp500': 'S&P 500 (große US-Werte)', 'sp400': 'S&P MidCap 400 (mittlere US-Werte)', 'sp600': 'S&P SmallCap 600 (kleine US-Werte)',
+             'europa': 'Europa (rund 90 große Werte, Yahoo-Kürzel)'}
+BENCH = {'sp500': 'SPY', 'sp400': 'MDY', 'sp600': 'IJR', 'europa': '^STOXX50E'}
+PFAD = os.path.join(ROOT, 'data', 'faktortest.json' if UNI == 'sp500' else 'faktortest-%s.json' % UNI)
+WIKI = {'sp400': 'https://en.wikipedia.org/wiki/List_of_S%26P_400_companies', 'sp600': 'https://en.wikipedia.org/wiki/List_of_S%26P_600_companies'}
+EUROPA = ('ASML.AS ADYEN.AS INGA.AS PHIA.AS HEIA.AS AD.AS WKL.AS PRX.AS SAP.DE SIE.DE ALV.DE DTE.DE MUV2.DE BAS.DE BAYN.DE BMW.DE MBG.DE VOW3.DE '
+          'DBK.DE ADS.DE IFX.DE DHL.DE RWE.DE EOAN.DE HEN3.DE FRE.DE MRK.DE SY1.DE BEI.DE CON.DE HNR1.DE MC.PA OR.PA TTE.PA SAN.PA AIR.PA SU.PA AI.PA '
+          'BNP.PA CS.PA RMS.PA KER.PA DG.PA SGO.PA BN.PA CAP.PA VIV.PA ORA.PA EL.PA STLAM.MI ENEL.MI ENI.MI ISP.MI UCG.MI RACE.MI G.MI SAN.MC IBE.MC '
+          'ITX.MC BBVA.MC TEF.MC REP.MC NESN.SW ROG.SW NOVN.SW ZURN.SW UBSG.SW ABBN.SW CFR.SW SREN.SW HOLN.SW ALC.SW SHEL.L AZN.L ULVR.L HSBA.L BP.L '
+          'GSK.L DGE.L RIO.L BATS.L LSEG.L REL.L NG.L VOD.L BARC.L LLOY.L NOVO-B.CO CARL-B.CO VWS.CO VOLV-B.ST ERIC-B.ST ATCO-A.ST EQNR.OL NOKIA.HE').split()
 LISTE = 'https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv'
 HOR = {'1': 21, '3': 63, '6': 126, '12': 252}      # Handelstage je Monatshorizont
 HM = {'1': 1, '3': 3, '6': 6, '12': 12}
@@ -69,8 +79,28 @@ def web(url, ua='Mozilla/5.0'):
         return r.read()
 
 def tickerliste():
+    if UNI == 'europa': return [(t, None) for t in EUROPA]
+    if UNI in WIKI: return wiki_liste()
     rows = csv.DictReader(io.StringIO(web(LISTE).decode('utf-8')))
     return [(r['Symbol'].replace('.', '-'), int(r['CIK'])) for r in rows]
+
+def wiki_liste():
+    """S&P 400/600: Kürzel aus der ersten Tabelle der Wikipedia-Liste, CIK aus der SEC-Zuordnung company_tickers.json."""
+    import re
+    ua = 'Reiseblog Faktortest %s' % os.environ.get('SEC_KONTAKT', 'kontakt@example.com')
+    html = web(WIKI[UNI], ua).decode('utf-8', 'replace')
+    tab = html[html.find('<table class="wikitable'):]
+    tab = tab[:tab.find('</table>')]
+    syms = []
+    for tr in re.findall(r'<tr>(.*?)</tr>', tab, re.S)[1:]:
+        td = re.findall(r'<td[^>]*>(.*?)</td>', tr, re.S)
+        if not td: continue
+        t = re.sub(r'<[^>]+>', '', td[0]).strip().replace('.', '-')
+        if re.fullmatch(r'[A-Z][A-Z0-9-]{0,5}', t): syms.append(t)
+    try: cik = {v['ticker'].replace('.', '-'): int(v['cik_str']) for v in json.loads(web('https://www.sec.gov/files/company_tickers.json', ua)).values()}
+    except Exception as e: print('CIK-Liste nicht geladen:', e); cik = {}
+    print('Kürzel aus Wikipedia:', len(syms), 'mit CIK:', sum(1 for t in syms if t in cik))
+    return [(t, cik.get(t)) for t in dict.fromkeys(syms)]
 
 def datum(t): return datetime.datetime.utcfromtimestamp(t).strftime('%Y-%m-%d')
 
@@ -289,7 +319,7 @@ def main():
     if len(sys.argv) > 1: liste = liste[:int(sys.argv[1])]
     ua = 'Reiseblog Faktortest %s' % os.environ.get('SEC_KONTAKT', 'kontakt@example.com')
     print('Aktien in der Liste:', len(liste))
-    _, spy = trend.holen('SPY', '10y')
+    _, spy = trend.holen(BENCH[UNI], '10y')
     bd = {datum(z[0]): z[4] for z in spy}
     tage = [datum(spy[i][0]) for i in monatsende([datum(z[0]) for z in spy]) if i >= 253]
     print('Monatsenden:', len(tage), tage[0], '…', tage[-1])
@@ -302,12 +332,12 @@ def main():
             except Exception as e:
                 time.sleep(2 * (v + 1)); err = e
         if z is None: print(t, 'Kursfehler:', err); return t, None, None
-        for v in range(2):
+        for v in range(2 if cik else 0):
             try:
                 fund = sec_kompakt(sec_holen(cik, ua)); break
             except Exception as e:
                 time.sleep(2); err = e
-        if fund is None: print(t, 'SEC-Fehler:', err)
+        if fund is None and cik: print(t, 'SEC-Fehler:', err)
         return t, z, fund
     zeit, ok, mitfund = {}, 0, 0
     with ThreadPoolExecutor(6) as ex:
@@ -328,7 +358,7 @@ def main():
                 'horizonte_adj': adj[k], 'urteil_adj': gesamturteil(adj[k])}
     for k, (name, besch) in KAND.items(): faktoren_out.append(eintrag(k, name, besch, 'kandidat'))
     for k in range(1, 13): faktoren_out.append(eintrag('r%d' % k, REGELN[k - 1], 'WCJ-Regel %d (ja/nein)' % k, 'regel'))
-    out = {'stand': datetime.date.today().isoformat(), 'aktien': ok, 'aktien_mit_sec': mitfund, 'monate': len(zeit), 'von': tage[0], 'bis': tage[-1], 'teilung': TEILUNG,
+    out = {'universum': UNI, 'universum_name': UNI_NAMEN.get(UNI, UNI), 'vergleich': BENCH[UNI], 'stand': datetime.date.today().isoformat(), 'aktien': ok, 'aktien_mit_sec': mitfund, 'monate': len(zeit), 'von': tage[0], 'bis': tage[-1], 'teilung': TEILUNG,
            'hinweis': 'Rückblick, keine Prognose. Heutige Index-Mitglieder (Überlebensverzerrung), keine Kosten. Bei vielen Tests sind einzelne Zufallstreffer zu erwarten. "adj" = Rendite minus Beta mal Marktrendite (Beta nur aus Vergangenheit). Kennzahlen aus Jahresabschlüssen erst ab Meldedatum.',
            'faktoren': faktoren_out, 'regelkorrelation': korrelation(zeit), 'regelnamen': REGELN}
     json.dump(out, open(PFAD, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
