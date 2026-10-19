@@ -63,5 +63,78 @@
     "s": "Und heute? Die alte Strecke von Berchtesgaden nach Reichenhall ist seit neunzehnhunderteinundsechzig stillgelegt. Dafür gibt es den Soleleitungsweg, einen beliebten Wanderweg mit einem begehbaren Tunnel, in dem man noch Originalrohre sehen kann. Die Leitung selbst gibt es aber noch: Eine neue, achtzehn Kilometer lange Leitung über Hallthurm bringt bis heute Sole nach Reichenhall. Das war das Bayern-Rätsel der Woche. Bis nächsten Montag!"
    }
   ]
+ },
+ {
+  "id": "walchenseekraftwerk",
+  "date": "2026-10-19",
+  "titel": "Der See, der Strom macht",
+  "teaser": "Wie ein Bergsee in Oberbayern ein ganzes Kraftwerk antreibt.",
+  "ort": "Walchensee, Kochel am See, Krün",
+  "quelle": {
+   "titel": "Wikipedia: Walchenseekraftwerk",
+   "url": "https://de.wikipedia.org/wiki/Walchenseekraftwerk"
+  },
+  "segmente": [
+   {
+    "k": "t",
+    "t": "Das Bayern-Rätsel der Woche: Das Walchenseekraftwerk. Wie ein See zum Stromspeicher wurde."
+   },
+   {
+    "k": "t",
+    "t": "Wir sind am Walchensee in Oberbayern. Das Wasser ist türkisblau, die Berge ringsum sind hoch. Nur 200 Meter tiefer liegt der Kochelsee. Ein Ingenieur namens Oskar von Miller sah das und hatte eine Idee: Man könnte das Wasser vom einen See zum anderen stürzen lassen und damit Strom erzeugen. Im Juni 1918 beschloss der bayerische Landtag den Bau. Im November ging es los.",
+    "s": "Wir sind am Walchensee in Oberbayern. Das Wasser ist türkisblau, die Berge ringsum sind hoch. Nur zweihundert Meter tiefer liegt der Kochelsee. Ein Ingenieur namens Oskar von Miller sah das und hatte eine Idee: Man könnte das Wasser vom einen See zum anderen stürzen lassen und damit Strom erzeugen. Im Juni neunzehnhundertachtzehn beschloss der bayerische Landtag den Bau. Im November ging es los."
+   },
+   {
+    "k": "f",
+    "t": "Erste Frage: Wie groß ist der Höhenunterschied, den das Wasser auf dem Weg zum Kochelsee hinabstürzt? Etwa 20, 200 oder 2000 Meter? Denk kurz nach.",
+    "pause": 8,
+    "s": "Erste Frage: Wie groß ist der Höhenunterschied, den das Wasser auf dem Weg zum Kochelsee hinabstürzt? Etwa zwanzig, zweihundert oder zweitausend Meter? Denk kurz nach."
+   },
+   {
+    "k": "a",
+    "t": "Die Antwort: 201 Meter. Der Walchensee liegt auf 801 Metern, der Kochelsee auf 600 Metern. Dieses Gefälle treibt die Turbinen an.",
+    "pause": null,
+    "s": "Die Antwort: zweihunderteins Meter. Der Walchensee liegt auf achthunderteins Metern, der Kochelsee auf sechshundert Metern. Dieses Gefälle treibt die Turbinen an."
+   },
+   {
+    "k": "t",
+    "t": "Doch der Walchensee allein liefert nicht genug Wasser. Also holte man sich Verstärkung. Bei Krün wird die Isar aufgestaut und fast vollständig in einen Stollen zum See geleitet. Dazu kommt noch der Rißbach.",
+    "pause": null
+   },
+   {
+    "k": "f",
+    "t": "Zweite Frage: Wie viel Wasser kann die Isar höchstens pro Sekunde zum See schicken? Zwei, 25 oder 250 Kubikmeter? Das sind Badewannen voll, und zwar viele. Schätze mal.",
+    "pause": 8,
+    "s": "Zweite Frage: Wie viel Wasser kann die Isar höchstens pro Sekunde zum See schicken? Zwei, fünfundzwanzig oder zweihundertfünfzig Kubikmeter? Das sind Badewannen voll, und zwar viele. Schätze mal."
+   },
+   {
+    "k": "a",
+    "t": "Die Antwort: höchstens 25 Kubikmeter pro Sekunde. Seit 1990 muss allerdings eine Mindestmenge in der Isar bleiben, damit der Fluss nicht ausgetrocknet wird.",
+    "pause": null,
+    "s": "Die Antwort: höchstens fünfundzwanzig Kubikmeter pro Sekunde. Seit neunzehnhundertneunzig muss allerdings eine Mindestmenge in der Isar bleiben, damit der Fluss nicht ausgetrocknet wird."
+   },
+   {
+    "k": "t",
+    "t": "Der Bau war eine Riesenaufgabe, mitten in der Notzeit nach dem Ersten Weltkrieg. Die Zahl der Arbeiter wuchs von 120 im Januar 1919 immer weiter. Am 24. Januar 1924 lieferte die erste Turbine Strom, die anderen folgten in den Monaten danach.",
+    "s": "Der Bau war eine Riesenaufgabe, mitten in der Notzeit nach dem Ersten Weltkrieg. Die Zahl der Arbeiter wuchs von einhundertzwanzig im Januar neunzehnhundertneunzehn immer weiter. Am vierundzwanzigsten Januar neunzehnhundertvierundzwanzig lieferte die erste Turbine Strom, die anderen folgten in den Monaten danach."
+   },
+   {
+    "k": "f",
+    "t": "Dritte Frage: Wie viele Menschen arbeiteten zur Spitze auf der Baustelle? Etwa 200, 2000 oder 20000? Schätze mal.",
+    "pause": 8,
+    "s": "Dritte Frage: Wie viele Menschen arbeiteten zur Spitze auf der Baustelle? Etwa zweihundert, zweitausend oder zwanzigtausend? Schätze mal."
+   },
+   {
+    "k": "a",
+    "t": "Die Antwort: rund 2000. Im November 1923 waren es sogar 2100. Leider kamen beim Bau 17 Arbeiter ums Leben.",
+    "pause": null,
+    "s": "Die Antwort: rund zweitausend. Im November neunzehnhundertdreiundzwanzig waren es sogar zweitausendeinhundert. Leider kamen beim Bau siebzehn Arbeiter ums Leben."
+   },
+   {
+    "k": "t",
+    "t": "Und heute? Das Kraftwerk läuft noch immer und leistet 124 Megawatt. Ein Teil davon ist Bahnstrom, der die Züge antreibt. Seit 1983 steht es unter Denkmalschutz. Im Besucherzentrum kann man sich alles ansehen, es kommen knapp 100.000 Gäste im Jahr. Das war das Bayern-Rätsel der Woche. Bis nächsten Montag!",
+    "s": "Und heute? Das Kraftwerk läuft noch immer und leistet einhundertvierundzwanzig Megawatt. Ein Teil davon ist Bahnstrom, der die Züge antreibt. Seit neunzehnhundertdreiundachtzig steht es unter Denkmalschutz. Im Besucherzentrum kann man sich alles ansehen, es kommen knapp einhunderttausend Gäste im Jahr. Das war das Bayern-Rätsel der Woche. Bis nächsten Montag!"
+   }
+  ]
  }
 ]
