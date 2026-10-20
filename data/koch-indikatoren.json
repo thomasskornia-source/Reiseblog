@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-19",
+ "stand": "2026-10-20",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -8,14 +8,14 @@
   {
    "kategorie": "Anleihen & Renditen",
    "status": "bestaetigt",
-   "tage_anzahl": 12,
+   "tage_anzahl": 13,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-16",
+   "zuletzt": "2026-10-20",
    "name": "US-Staatsanleiherenditen",
    "namen": [
     "US-Staatsanleiherenditen"
    ],
-   "rolle": "Sinkende Renditen langlaufender Staatsanleihen nehmen Bewertungsdruck vom Aktienmarkt und wirken entlastend.",
+   "rolle": "Er betrachtet das Nachlassen des Renditedrucks als einen der wenigen stabilisierenden Faktoren für den Gesamtmarkt.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -100,6 +100,119 @@
       "US-Staatsanleiherenditen"
      ],
      "rolle": "Sinkende Renditen langlaufender Staatsanleihen nehmen Bewertungsdruck vom Aktienmarkt und wirken entlastend."
+    },
+    "2026-10-20": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Er betrachtet das Nachlassen des Renditedrucks als einen der wenigen stabilisierenden Faktoren für den Gesamtmarkt."
+    }
+   }
+  },
+  {
+   "kategorie": "Öl & Rohstoffe",
+   "status": "bestaetigt",
+   "tage_anzahl": 13,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-20",
+   "name": "Öl- und Dieselpreise",
+   "namen": [
+    "Öl- und Dieselpreise",
+    "Ölpreise"
+   ],
+   "rolle": "Steigende Rohstoffnotierungen schüren erneut Inflationssorgen und begrenzen den Spielraum der Notenbanken.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
+    },
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Ölpreise"
+     ],
+     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
+    },
+    "2026-10-07": {
+     "p": 2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
+    },
+    "2026-10-08": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
+    },
+    "2026-10-12": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Trotz leichter Tagesgewinne bleibt das Rohöl klar unter den Spitzenwerten des Vormonats, was die Inflationssorgen dämpft."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Steigende Rohstoffnotierungen schüren erneut Inflationssorgen und begrenzen den Spielraum der Notenbanken."
     }
    }
   },
@@ -207,105 +320,6 @@
    }
   },
   {
-   "kategorie": "Öl & Rohstoffe",
-   "status": "bestaetigt",
-   "tage_anzahl": 12,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-19",
-   "name": "Öl- und Dieselpreise",
-   "namen": [
-    "Öl- und Dieselpreise",
-    "Ölpreise"
-   ],
-   "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte.",
-   "tage": {
-    "2026-10-01": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
-    },
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Ölpreise"
-     ],
-     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
-    },
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
-    },
-    "2026-10-06": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
-    },
-    "2026-10-07": {
-     "p": 2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
-    },
-    "2026-10-08": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
-    },
-    "2026-10-12": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
-    },
-    "2026-10-13": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Trotz leichter Tagesgewinne bleibt das Rohöl klar unter den Spitzenwerten des Vormonats, was die Inflationssorgen dämpft."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation."
-    },
-    "2026-10-19": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte."
-    }
-   }
-  },
-  {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
    "tage_anzahl": 9,
@@ -385,14 +399,14 @@
   {
    "kategorie": "Gewinnsaison",
    "status": "bestaetigt",
-   "tage_anzahl": 8,
+   "tage_anzahl": 9,
    "erstmals": "2026-10-05",
-   "zuletzt": "2026-10-15",
+   "zuletzt": "2026-10-20",
    "name": "Q3-Gewinnschätzungen",
    "namen": [
     "Q3-Gewinnschätzungen"
    ],
-   "rolle": "Die solide Kreditqualität stützt zwar, doch Zweifel am Erreichen des Ertragspeaks belasten die Sektorstimmung.",
+   "rolle": "Er sieht in den negativen Kursreaktionen auf solide Berichte ein klares Zeichen für eine generelle Stimmungseintrübung an der Wall Street.",
    "tage": {
     "2026-10-05": {
      "p": 2,
@@ -449,6 +463,88 @@
       "Q3-Gewinnschätzungen"
      ],
      "rolle": "Die solide Kreditqualität stützt zwar, doch Zweifel am Erreichen des Ertragspeaks belasten die Sektorstimmung."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Er sieht in den negativen Kursreaktionen auf solide Berichte ein klares Zeichen für eine generelle Stimmungseintrübung an der Wall Street."
+    }
+   }
+  },
+  {
+   "kategorie": "Konjunktur",
+   "status": "bestaetigt",
+   "tage_anzahl": 8,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-20",
+   "name": "Industrie- und Exportdaten (Asien & USA)",
+   "namen": [
+    "Industrie- und Exportdaten (Asien & USA)",
+    "Atlanta-Fed GDPNow-Indikator",
+    "Atlanta-Fed-GDPNow-Schätzung",
+    "Konjunktur & Kapitalverfügbarkeit",
+    "US-Einzelhandelsumsätze"
+   ],
+   "rolle": "Die Daten belegen aus seiner Sicht, dass die hohen Zinsen den zinssensitiven Bausektor zunehmend belasten.",
+   "tage": {
+    "2026-10-01": {
+     "p": 0,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
+    },
+    "2026-10-05": {
+     "p": 0,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Die anstehenden Daten entscheiden kurzfristig über die Richtung des Handelstages."
+    },
+    "2026-10-06": {
+     "p": -1,
+     "namen": [
+      "Atlanta-Fed GDPNow-Indikator"
+     ],
+     "rolle": "Der Rückgang illustriert die abkühlende Wirtschaftsdynamik infolge des restriktiven Zinsniveaus."
+    },
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "Atlanta-Fed-GDPNow-Schätzung"
+     ],
+     "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal."
+    },
+    "2026-10-08": {
+     "p": 0,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)",
+      "Konjunktur & Kapitalverfügbarkeit"
+     ],
+     "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Als historischer Frühindikator für das Gewinnwachstum des S&P 500 deutet dieser Anstieg auf eine robuste Tech-Nachfrage hin."
+    },
+    "2026-10-15": {
+     "p": -1,
+     "namen": [
+      "US-Einzelhandelsumsätze"
+     ],
+     "rolle": "Nachlassende Konsumlaune droht die US-Konjunktur im Zusammenspiel mit gestrafften Finanzierungsbedingungen abzuwürgen."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Die Daten belegen aus seiner Sicht, dass die hohen Zinsen den zinssensitiven Bausektor zunehmend belasten."
     }
    }
   },
@@ -519,74 +615,6 @@
       "Fed-Zinserwartungen"
      ],
      "rolle": "Das Ausbleiben hawkisher Überraschungen stützt die Zuversicht im Markt."
-    }
-   }
-  },
-  {
-   "kategorie": "Konjunktur",
-   "status": "bestaetigt",
-   "tage_anzahl": 7,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-15",
-   "name": "Industrie- und Exportdaten (Asien & USA)",
-   "namen": [
-    "Industrie- und Exportdaten (Asien & USA)",
-    "Atlanta-Fed GDPNow-Indikator",
-    "Atlanta-Fed-GDPNow-Schätzung",
-    "Konjunktur & Kapitalverfügbarkeit",
-    "US-Einzelhandelsumsätze"
-   ],
-   "rolle": "Nachlassende Konsumlaune droht die US-Konjunktur im Zusammenspiel mit gestrafften Finanzierungsbedingungen abzuwürgen.",
-   "tage": {
-    "2026-10-01": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
-    },
-    "2026-10-05": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Die anstehenden Daten entscheiden kurzfristig über die Richtung des Handelstages."
-    },
-    "2026-10-06": {
-     "p": -1,
-     "namen": [
-      "Atlanta-Fed GDPNow-Indikator"
-     ],
-     "rolle": "Der Rückgang illustriert die abkühlende Wirtschaftsdynamik infolge des restriktiven Zinsniveaus."
-    },
-    "2026-10-07": {
-     "p": -1,
-     "namen": [
-      "Atlanta-Fed-GDPNow-Schätzung"
-     ],
-     "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal."
-    },
-    "2026-10-08": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)",
-      "Konjunktur & Kapitalverfügbarkeit"
-     ],
-     "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung."
-    },
-    "2026-10-13": {
-     "p": 1,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Als historischer Frühindikator für das Gewinnwachstum des S&P 500 deutet dieser Anstieg auf eine robuste Tech-Nachfrage hin."
-    },
-    "2026-10-15": {
-     "p": -1,
-     "namen": [
-      "US-Einzelhandelsumsätze"
-     ],
-     "rolle": "Nachlassende Konsumlaune droht die US-Konjunktur im Zusammenspiel mit gestrafften Finanzierungsbedingungen abzuwürgen."
     }
    }
   },
@@ -775,14 +803,14 @@
   {
    "kategorie": "Sonstiges",
    "status": "bestaetigt",
-   "tage_anzahl": 5,
+   "tage_anzahl": 6,
    "erstmals": "2026-10-08",
-   "zuletzt": "2026-10-19",
+   "zuletzt": "2026-10-20",
    "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
     "Tech-Investitionszyklus (CapEx)"
    ],
-   "rolle": "Analystenberichte zu überzogenen KI-Ausgaben und sinkenden Token-Preisen schüren Skepsis gegenüber der Rentabilität der Branche.",
+   "rolle": "Die Furcht vor Überinvestitionen und sinkenden Preisen bremst die Leitbranche des bisherigen Bullenmarkts aus.",
    "tage": {
     "2026-10-08": {
      "p": 1,
@@ -818,6 +846,48 @@
       "Tech-Investitionszyklus (CapEx)"
      ],
      "rolle": "Analystenberichte zu überzogenen KI-Ausgaben und sinkenden Token-Preisen schüren Skepsis gegenüber der Rentabilität der Branche."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die Furcht vor Überinvestitionen und sinkenden Preisen bremst die Leitbranche des bisherigen Bullenmarkts aus."
+    }
+   }
+  },
+  {
+   "kategorie": "Politik & Zölle",
+   "status": "bestaetigt",
+   "tage_anzahl": 3,
+   "erstmals": "2026-10-07",
+   "zuletzt": "2026-10-20",
+   "name": "US-Zollpolitik & Schuldenpläne",
+   "namen": [
+    "US-Zollpolitik & Schuldenpläne"
+   ],
+   "rolle": "Politische Unsicherheiten vor den Wahlen sorgen für Nervosität bei Technologiekonzernen und Investoren.",
+   "tage": {
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein."
+    },
+    "2026-10-09": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Politische Unsicherheiten vor den Wahlen sorgen für Nervosität bei Technologiekonzernen und Investoren."
     }
    }
   },
@@ -846,34 +916,6 @@
       "US-Arbeitsmarktdaten"
      ],
      "rolle": "Eine spürbare Abkühlung des Arbeitsmarktes nimmt weiteren Druck von der Zinsfront."
-    }
-   }
-  },
-  {
-   "kategorie": "Politik & Zölle",
-   "status": "beobachtet",
-   "tage_anzahl": 2,
-   "erstmals": "2026-10-07",
-   "zuletzt": "2026-10-09",
-   "name": "US-Zollpolitik & Schuldenpläne",
-   "namen": [
-    "US-Zollpolitik & Schuldenpläne"
-   ],
-   "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt.",
-   "tage": {
-    "2026-10-07": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein."
-    },
-    "2026-10-09": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt."
     }
    }
   },

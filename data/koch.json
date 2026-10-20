@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "FLMD819X5Ps",
+   "titel": "Wall Street drängt Bären zurück | Anfängliche Verluste nach einer Stunde aufgeholt.",
+   "datum": "2026-10-20",
+   "zeit": "2026-10-20T15:16:35+00:00",
+   "art": "opening",
+   "score": -35,
+   "pfeil": "runter",
+   "thema": "US-Börsen geraten trotz überwiegend solider Quartalszahlen unter Druck, da vorsichtige Ausblicke und Skepsis im KI-Sektor die Stimmung belasten.",
+   "gesamtstimmung": "Die Marktstimmung hat sich spürbar eingetrübt, da selbst solide Unternehmensergebnisse bei kleinsten Schwächen im Ausblick abverkauft werden. Zunehmende Zweifel an der Profitabilität von KI-Geschäftsmodellen, schwache US-Immobiliendaten und politische Unsicherheiten drücken auf die Kurse.",
+   "begruendung": "Markus Koch betont, dass die Börse derzeit kaum noch gute Nachrichten honoriert und hohe Erwartungshaltungen zu deutlichen Kursverlusten nach Zahlen führen. Zudem belasten wachsende Skepsis im Technologiesektor bezüglich hoher Finanzierungskosten und sinkender Token-Preise das Marktumfeld.",
+   "indikatoren": [
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Zahlen solide, aber Kurse fallen wegen verhaltener Ausblicke",
+     "pfeil": "runter",
+     "rolle": "Er sieht in den negativen Kursreaktionen auf solide Berichte ein klares Zeichen für eine generelle Stimmungseintrübung an der Wall Street."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Zweifel an Tragfähigkeit und Margendruck im KI- und Cloudbereich",
+     "pfeil": "runter",
+     "rolle": "Die Furcht vor Überinvestitionen und sinkenden Preisen bremst die Leitbranche des bisherigen Bullenmarkts aus."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Industrie- und Exportdaten (Asien & USA)",
+     "lage": "US-Baubeginne und Baugenehmigungen im September deutlich unter Erwartungen",
+     "pfeil": "runter",
+     "rolle": "Die Daten belegen aus seiner Sicht, dass die hohen Zinsen den zinssensitiven Bausektor zunehmend belasten."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Zehnjährige Renditen im Wochenvergleich leicht gesunken",
+     "pfeil": "hoch",
+     "rolle": "Er betrachtet das Nachlassen des Renditedrucks als einen der wenigen stabilisierenden Faktoren für den Gesamtmarkt."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "WTI-Öl legt um 1,6 Prozent zu",
+     "pfeil": "runter",
+     "rolle": "Steigende Rohstoffnotierungen schüren erneut Inflationssorgen und begrenzen den Spielraum der Notenbanken."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zollpolitik & Schuldenpläne",
+     "lage": "Wahlunsicherheiten und Debatten um schärfere KI-Regulierung",
+     "pfeil": "runter",
+     "rolle": "Politische Unsicherheiten vor den Wahlen sorgen für Nervosität bei Technologiekonzernen und Investoren."
+    }
+   ],
+   "zitate": [
+    "Welche schlechte Nachrichten hättet ihr denn gerne zuerst?",
+    "Die Stimmung an der Wall Street hat sich eingetrübt."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 142831
+  },
+  {
    "id": "0mIEsd_6hK4",
    "titel": "Kurzes Update - vor meinem Flug nach New York",
    "datum": "2026-10-19",
@@ -1384,9 +1447,11 @@
   "XQ1dFmtr9lk",
   "Tw9LGZv6nSE",
   "66bmABSuKic",
-  "0mIEsd_6hK4"
+  "0mIEsd_6hK4",
+  "KDm_ZoXDRvI",
+  "FLMD819X5Ps"
  ],
- "stand": "2026-10-19T19:27Z",
+ "stand": "2026-10-20T18:10Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
