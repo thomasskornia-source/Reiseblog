@@ -1,6 +1,62 @@
 {
  "beitraege": [
   {
+   "id": "JAw0Qs6mxPc",
+   "titel": "Liefern SpaceX und Netflix nach dem Closing?",
+   "datum": "2026-10-20",
+   "zeit": "2026-10-20T22:03:28+00:00",
+   "art": "closing",
+   "score": 5,
+   "pfeil": "seitwaerts",
+   "thema": "Markus Koch analysiert die nachbörslichen Quartalszahlen, die solide Marktbreite der Wall Street sowie die wachsende Skepsis beim Risikoappetit der Anleger.",
+   "gesamtstimmung": "Die Marktstimmung zeigt sich zweigeteilt: Einerseits stützen eine erfreuliche Marktbreite und Kursgewinne im Dow Jones den Handelstag, andererseits dämpfen fallende Konjunkturindikatoren und ein schwindender Risikoappetit die Zuversicht. Nachbörsliche Quartalsberichte bringen gemischte Impulse ohne panikartige Einbrüche.",
+   "begruendung": "Der Dow Jones und eine breite Masse an Standardwerten konnten deutlich zulegen, unterstützt durch eine Beruhigung bei den Anleiherenditen und nachgebende Ölpreise. Demgegenüber stehen Warnungen von Goldman Sachs über kollabierenden Risikoappetit sowie Abwärtskorrekturen beim US-Wachstumsindikator GDPNow.",
+   "indikatoren": [
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "stark verbessert, 70 Prozent der Aktien im Plus",
+     "pfeil": "hoch",
+     "rolle": "Eine breite Erholung abseits der großen Tech-Werte signalisiert für ihn eine gesündere Marktverfassung."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "stabilisieren sich bei rund 5,11 Prozent",
+     "pfeil": "seitwaerts",
+     "rolle": "Die nachlassende Aufwärtsdynamik bei den Renditen nimmt vorerst Druck von den Aktienmärkten."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "nach wildem Ritt rund 2,5 Prozent im Minus",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Rohölpreise mildern Inflations- und Kostensorgen der Unternehmen ab."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Risikoappetit laut Goldman Sachs auf tiefstem Stand seit April",
+     "pfeil": "runter",
+     "rolle": "Der Rückzug aus Tech-Aktien in US-Staatsanleihen zeigt die anhaltende Verunsicherung der Investoren."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Industrie- und Exportdaten (Asien & USA)",
+     "lage": "GDPNow-Wachstumsschätzungen sukzessive nach unten revidiert",
+     "pfeil": "runter",
+     "rolle": "Er sieht darin ein Warnsignal, dass die hohen Zinsen und Finanzierungskosten die US-Wirtschaft ausbremsen."
+    }
+   ],
+   "zitate": [
+    "Wilde Zeiten bei uns, muss man sagen.",
+    "Der Risikoappetit-Indikator hat jetzt das niedrigste Niveau erreicht"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 179495
+  },
+  {
    "id": "FLMD819X5Ps",
    "titel": "Wall Street drängt Bären zurück | Anfängliche Verluste nach einer Stunde aufgeholt.",
    "datum": "2026-10-20",
@@ -1449,9 +1505,10 @@
   "66bmABSuKic",
   "0mIEsd_6hK4",
   "KDm_ZoXDRvI",
-  "FLMD819X5Ps"
+  "FLMD819X5Ps",
+  "JAw0Qs6mxPc"
  ],
- "stand": "2026-10-20T18:10Z",
+ "stand": "2026-10-20T22:41Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",

@@ -15,7 +15,7 @@
    "namen": [
     "US-Staatsanleiherenditen"
    ],
-   "rolle": "Er betrachtet das Nachlassen des Renditedrucks als einen der wenigen stabilisierenden Faktoren für den Gesamtmarkt.",
+   "rolle": "Die nachlassende Aufwärtsdynamik bei den Renditen nimmt vorerst Druck von den Aktienmärkten.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -106,122 +106,16 @@
      "namen": [
       "US-Staatsanleiherenditen"
      ],
-     "rolle": "Er betrachtet das Nachlassen des Renditedrucks als einen der wenigen stabilisierenden Faktoren für den Gesamtmarkt."
-    }
-   }
-  },
-  {
-   "kategorie": "Öl & Rohstoffe",
-   "status": "bestaetigt",
-   "tage_anzahl": 13,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-20",
-   "name": "Öl- und Dieselpreise",
-   "namen": [
-    "Öl- und Dieselpreise",
-    "Ölpreise"
-   ],
-   "rolle": "Steigende Rohstoffnotierungen schüren erneut Inflationssorgen und begrenzen den Spielraum der Notenbanken.",
-   "tage": {
-    "2026-10-01": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
-    },
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Ölpreise"
-     ],
-     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
-    },
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
-    },
-    "2026-10-06": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
-    },
-    "2026-10-07": {
-     "p": 2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
-    },
-    "2026-10-08": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
-    },
-    "2026-10-12": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
-    },
-    "2026-10-13": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Trotz leichter Tagesgewinne bleibt das Rohöl klar unter den Spitzenwerten des Vormonats, was die Inflationssorgen dämpft."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation."
-    },
-    "2026-10-19": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte."
-    },
-    "2026-10-20": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Steigende Rohstoffnotierungen schüren erneut Inflationssorgen und begrenzen den Spielraum der Notenbanken."
+     "rolle": "Die nachlassende Aufwärtsdynamik bei den Renditen nimmt vorerst Druck von den Aktienmärkten."
     }
    }
   },
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 12,
+   "tage_anzahl": 13,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-19",
+   "zuletzt": "2026-10-20",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
@@ -229,7 +123,7 @@
     "Tech-Sektor & KI",
     "Sektorale Kapitalallokation & CapEx-Konzentration"
    ],
-   "rolle": "Die massive Korrektur bei Zins- und Standardwerten wie Immobilien, Versorgern und Finanzen schafft wieder attraktive Bewertungsniveaus.",
+   "rolle": "Eine breite Erholung abseits der großen Tech-Werte signalisiert für ihn eine gesündere Marktverfassung.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -316,6 +210,119 @@
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
      "rolle": "Die massive Korrektur bei Zins- und Standardwerten wie Immobilien, Versorgern und Finanzen schafft wieder attraktive Bewertungsniveaus."
+    },
+    "2026-10-20": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine breite Erholung abseits der großen Tech-Werte signalisiert für ihn eine gesündere Marktverfassung."
+    }
+   }
+  },
+  {
+   "kategorie": "Öl & Rohstoffe",
+   "status": "bestaetigt",
+   "tage_anzahl": 13,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-20",
+   "name": "Öl- und Dieselpreise",
+   "namen": [
+    "Öl- und Dieselpreise",
+    "Ölpreise"
+   ],
+   "rolle": "Sinkende Rohölpreise mildern Inflations- und Kostensorgen der Unternehmen ab.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
+    },
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Ölpreise"
+     ],
+     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
+    },
+    "2026-10-07": {
+     "p": 2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
+    },
+    "2026-10-08": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
+    },
+    "2026-10-12": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Trotz leichter Tagesgewinne bleibt das Rohöl klar unter den Spitzenwerten des Vormonats, was die Inflationssorgen dämpft."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte."
+    },
+    "2026-10-20": {
+     "p": 0,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Sinkende Rohölpreise mildern Inflations- und Kostensorgen der Unternehmen ab."
     }
    }
   },
@@ -487,7 +494,7 @@
     "Konjunktur & Kapitalverfügbarkeit",
     "US-Einzelhandelsumsätze"
    ],
-   "rolle": "Die Daten belegen aus seiner Sicht, dass die hohen Zinsen den zinssensitiven Bausektor zunehmend belasten.",
+   "rolle": "Er sieht darin ein Warnsignal, dass die hohen Zinsen und Finanzierungskosten die US-Wirtschaft ausbremsen.",
    "tage": {
     "2026-10-01": {
      "p": 0,
@@ -540,11 +547,85 @@
      "rolle": "Nachlassende Konsumlaune droht die US-Konjunktur im Zusammenspiel mit gestrafften Finanzierungsbedingungen abzuwürgen."
     },
     "2026-10-20": {
-     "p": -1,
+     "p": -2,
      "namen": [
       "Industrie- und Exportdaten (Asien & USA)"
      ],
-     "rolle": "Die Daten belegen aus seiner Sicht, dass die hohen Zinsen den zinssensitiven Bausektor zunehmend belasten."
+     "rolle": "Er sieht darin ein Warnsignal, dass die hohen Zinsen und Finanzierungskosten die US-Wirtschaft ausbremsen."
+    }
+   }
+  },
+  {
+   "kategorie": "Stimmung & Volatilität",
+   "status": "bestaetigt",
+   "tage_anzahl": 8,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-20",
+   "name": "Marktpositionierung und Hebel",
+   "namen": [
+    "Marktpositionierung und Hebel",
+    "Anleihevolatilität (MOVE-Index)",
+    "Anlegerstimmung & Depotrealität",
+    "MOVE-Index",
+    "MOVE-Index (Anleihevolatilität)"
+   ],
+   "rolle": "Der Rückzug aus Tech-Aktien in US-Staatsanleihen zeigt die anhaltende Verunsicherung der Investoren.",
+   "tage": {
+    "2026-10-01": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal."
+    },
+    "2026-10-05": {
+     "p": -1,
+     "namen": [
+      "Anleihevolatilität (MOVE-Index)"
+     ],
+     "rolle": "Eine hohe Schwankungsbreite am Rentenmarkt signalisiert anhaltende Nervosität und muss sich für eine tragfähige Rally erst beruhigen."
+    },
+    "2026-10-06": {
+     "p": -1,
+     "namen": [
+      "Anlegerstimmung & Depotrealität"
+     ],
+     "rolle": "Beschreibt die Frustration der Anleger, die an der Indexrallye nicht in der Breite teilhaben."
+    },
+    "2026-10-08": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Eine nachlassende Schwankungsbreite am Rentenmarkt ist für ihn die Grundvoraussetzung für stabilere Aktienmärkte."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "MOVE-Index"
+     ],
+     "rolle": "Eine abnehmende Anleihe-Volatilität erhöht die Stabilität an den Finanzmärkten insgesamt."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "MOVE-Index (Anleihevolatilität)"
+     ],
+     "rolle": "Eine nachlassende Nervosität am Zinsmarkt sorgt für ein stabileres Gesamtumfeld an den Finanzmärkten."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Hohe Fremdkapitalhebel und Derivatepositionen haben die Abwärtsdynamik im Tech-Sektor abrupt verstärkt."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Der Rückzug aus Tech-Aktien in US-Staatsanleihen zeigt die anhaltende Verunsicherung der Investoren."
     }
    }
   },
@@ -615,73 +696,6 @@
       "Fed-Zinserwartungen"
      ],
      "rolle": "Das Ausbleiben hawkisher Überraschungen stützt die Zuversicht im Markt."
-    }
-   }
-  },
-  {
-   "kategorie": "Stimmung & Volatilität",
-   "status": "bestaetigt",
-   "tage_anzahl": 7,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-19",
-   "name": "Marktpositionierung und Hebel",
-   "namen": [
-    "Marktpositionierung und Hebel",
-    "Anleihevolatilität (MOVE-Index)",
-    "Anlegerstimmung & Depotrealität",
-    "MOVE-Index",
-    "MOVE-Index (Anleihevolatilität)"
-   ],
-   "rolle": "Hohe Fremdkapitalhebel und Derivatepositionen haben die Abwärtsdynamik im Tech-Sektor abrupt verstärkt.",
-   "tage": {
-    "2026-10-01": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal."
-    },
-    "2026-10-05": {
-     "p": -1,
-     "namen": [
-      "Anleihevolatilität (MOVE-Index)"
-     ],
-     "rolle": "Eine hohe Schwankungsbreite am Rentenmarkt signalisiert anhaltende Nervosität und muss sich für eine tragfähige Rally erst beruhigen."
-    },
-    "2026-10-06": {
-     "p": -1,
-     "namen": [
-      "Anlegerstimmung & Depotrealität"
-     ],
-     "rolle": "Beschreibt die Frustration der Anleger, die an der Indexrallye nicht in der Breite teilhaben."
-    },
-    "2026-10-08": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Eine nachlassende Schwankungsbreite am Rentenmarkt ist für ihn die Grundvoraussetzung für stabilere Aktienmärkte."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "MOVE-Index"
-     ],
-     "rolle": "Eine abnehmende Anleihe-Volatilität erhöht die Stabilität an den Finanzmärkten insgesamt."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "MOVE-Index (Anleihevolatilität)"
-     ],
-     "rolle": "Eine nachlassende Nervosität am Zinsmarkt sorgt für ein stabileres Gesamtumfeld an den Finanzmärkten."
-    },
-    "2026-10-19": {
-     "p": -1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Hohe Fremdkapitalhebel und Derivatepositionen haben die Abwärtsdynamik im Tech-Sektor abrupt verstärkt."
     }
    }
   },

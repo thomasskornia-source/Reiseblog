@@ -1,4 +1,5 @@
 Feed: 15 Videos
+   JAw0Qs6mxPc 2026-10-20 Liefern SpaceX und Netflix nach dem Closing?
    KDm_ZoXDRvI 2026-10-20 Kein Unternehmen dieser Größe investiert so viel in sich selbst. 🚀
    FLMD819X5Ps 2026-10-20 Wall Street drängt Bären zurück | Anfängliche Verluste nach einer Stun
    0mIEsd_6hK4 2026-10-19 Kurzes Update - vor meinem Flug nach New York
@@ -6,8 +7,7 @@ Feed: 15 Videos
    Tw9LGZv6nSE 2026-10-15 Tech-Verkaufswelle bleibt. Erzeugerpreise sehr heiß.
    Nw5Q7CWeMX8 2026-10-14 Inflation verschreckt Wall Street. Starke Ergebnisse ignoriert.
    44a91nG4zSI 2026-10-13 Kampf am Rekordhoch. Tech und Banken unter Druck.
-   XQ1dFmtr9lk 2026-10-13 Gewinnmitnahmen, selbst nach guten Zahlen. Banken und Tech unter Druck
-Werte aus: KDm_ZoXDRvI Kein Unternehmen dieser Größe investiert so viel in sich selbst. 🚀 2026-10-20 closing
+Werte aus: JAw0Qs6mxPc Liefern SpaceX und Netflix nach dem Closing? 2026-10-20 closing
 gemini-3.8-flash: HTTP 503 {
   "error": {
     "code": 503,
@@ -16,8 +16,6 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
-  kein Börsenbeitrag, übersprungen
-Werte aus: FLMD819X5Ps Wall Street drängt Bären zurück | Anfängliche Verluste nach einer Stunde aufgeholt. 2026-10-20 opening
 gemini-3.8-flash: HTTP 503 {
   "error": {
     "code": 503,
@@ -26,4 +24,12 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
-  Score -35 Pfeil runter (142831 Tokens)
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  Score 5 Pfeil seitwaerts (179495 Tokens)
