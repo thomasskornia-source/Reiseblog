@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-19",
+ "stand": "2026-10-20",
  "gesamt": {
   "score": 0,
   "pfeil": "seitwaerts",
@@ -10,7 +10,7 @@
   {
    "id": "vix",
    "name": "VIX (Angstbarometer)",
-   "wert": 18.49,
+   "wert": 18.44,
    "einheit": "",
    "pfeil": "seitwaerts",
    "text": "normal bis nervös",
@@ -77,15 +77,15 @@
     16.87,
     16.46,
     19.99,
-    18.49
+    18.44
    ],
    "datum": "2026-10-19",
-   "alter_tage": 0
+   "alter_tage": 1
   },
   {
    "id": "kurve",
    "name": "VIX-Kurve (VIX / VIX3M)",
-   "wert": 0.975,
+   "wert": 0.941,
    "einheit": "",
    "pfeil": "seitwaerts",
    "text": "neutral",
@@ -93,7 +93,6 @@
    "quelle": "Cboe über Yahoo (^VIX, ^VIX3M)",
    "url": "https://finance.yahoo.com/quote/%5EVIX3M",
    "reihe": [
-    0.906,
     0.924,
     0.917,
     0.961,
@@ -152,15 +151,16 @@
     0.85,
     0.898,
     0.89,
-    0.975
+    0.975,
+    0.941
    ],
-   "datum": "2026-10-16",
-   "alter_tage": 3
+   "datum": "2026-10-19",
+   "alter_tage": 1
   },
   {
    "id": "hy",
    "name": "High-Yield-Spread",
-   "wert": 3.23,
+   "wert": 3.31,
    "einheit": " %",
    "pfeil": "hoch",
    "text": "entspannt",
@@ -168,7 +168,6 @@
    "quelle": "FRED (ICE BofA US High Yield OAS)",
    "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
    "reihe": [
-    2.79,
     2.81,
     2.84,
     2.87,
@@ -227,9 +226,10 @@
     3.11,
     3.16,
     3.25,
-    3.23
+    3.23,
+    3.31
    ],
-   "datum": "2026-10-15",
+   "datum": "2026-10-16",
    "alter_tage": 4
   },
   {
@@ -305,7 +305,7 @@
     0.28
    ],
    "datum": "2026-10-16",
-   "alter_tage": 3
+   "alter_tage": 4
   },
   {
    "id": "pc",
@@ -380,13 +380,13 @@
     1.05
    ],
    "datum": "2019-10-04",
-   "alter_tage": 2572,
+   "alter_tage": 2573,
    "veraltet": true
   },
   {
    "id": "fg",
    "name": "Fear & Greed (CNN)",
-   "wert": 20,
+   "wert": 23,
    "einheit": "",
    "pfeil": "runter",
    "text": "Angst",
@@ -451,17 +451,21 @@
     44.114,
     26.657,
     30.343,
-    20.273,
-    20.162,
-    20.162
+    22.073,
+    23.107,
+    23.107
    ],
    "datum": "2026-10-19",
-   "alter_tage": 0
+   "alter_tage": 1
   }
  ],
  "verlauf": [
   {
    "d": "2026-10-19",
+   "score": 0
+  },
+  {
+   "d": "2026-10-20",
    "score": 0
   }
  ],
