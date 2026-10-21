@@ -1,63 +1,31 @@
 Feed: 15 Videos
+   ZKIXgHWY9Ek 2026-10-21 Meta schüttet neue Aktiengattung an Aktionäre aus | Das ist KEINE Kapi
+   7K89kqXtR0k 2026-10-21 80% der Neo-Cloud-Unternehmen werden 2030 nicht mehr existieren. 📉
    4I6LbJ4i--Q 2026-10-21 SpaceX springt 8 Prozent. Jetzt folgen Meta und Tesla!
    JAw0Qs6mxPc 2026-10-20 Liefern SpaceX und Netflix nach dem Closing?
    KDm_ZoXDRvI 2026-10-20 Kein Unternehmen dieser Größe investiert so viel in sich selbst. 🚀
    FLMD819X5Ps 2026-10-20 Wall Street drängt Bären zurück | Anfängliche Verluste nach einer Stun
    0mIEsd_6hK4 2026-10-19 Kurzes Update - vor meinem Flug nach New York
    66bmABSuKic 2026-10-16 Big Show bei Tesla. Anthropic-Investoren senken Bewertungsziele.
-   Tw9LGZv6nSE 2026-10-15 Tech-Verkaufswelle bleibt. Erzeugerpreise sehr heiß.
-   Nw5Q7CWeMX8 2026-10-14 Inflation verschreckt Wall Street. Starke Ergebnisse ignoriert.
+Werte aus: ZKIXgHWY9Ek Meta schüttet neue Aktiengattung an Aktionäre aus | Das ist KEINE Kapitalerhöhung. 2026-10-21 closing
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  Score 35 Pfeil hoch (164343 Tokens)
+Werte aus: 7K89kqXtR0k 80% der Neo-Cloud-Unternehmen werden 2030 nicht mehr existieren. 📉 2026-10-21 closing
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+  kein Börsenbeitrag, übersprungen
 Werte aus: 4I6LbJ4i--Q SpaceX springt 8 Prozent. Jetzt folgen Meta und Tesla! 2026-10-21 opening
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "s
+  Score 20 Pfeil hoch (127271 Tokens)

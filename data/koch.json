@@ -1,6 +1,111 @@
 {
  "beitraege": [
   {
+   "id": "ZKIXgHWY9Ek",
+   "titel": "Meta schüttet neue Aktiengattung an Aktionäre aus | Das ist KEINE Kapitalerhöhung.",
+   "datum": "2026-10-21",
+   "zeit": "2026-10-21T20:46:21+00:00",
+   "art": "closing",
+   "score": 35,
+   "pfeil": "hoch",
+   "thema": "Die nachbörsliche Flut an Quartalszahlen großer US-Konzerne überzeugt überwiegend, während geopolitische Spannungen für Volatilität beim Ölpreis sorgen.",
+   "gesamtstimmung": "Die Berichtssaison zeigt sich nachbörslich mit starken Zahlen und positiven Kursreaktionen im Tech-Sektor von ihrer robusten Seite. Belastend wirken dagegen geopolitische Unwägbarkeiten sowie anhaltender Druck auf zinssensible Konsum- und Dienstleistungswerte.",
+   "begruendung": "Mehrere Schwergewichte wie Meta, IBM und Texas Instruments übertreffen nachbörslich die Erwartungen und treiben den Technologiesektor an. Gleichzeitig dämpfen Zinssorgen bei defensiven Konsumsektoren und die Nervosität im Nahen Osten eine uneingeschränkte Euphorie.",
+   "indikatoren": [
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "überwiegend solide über den Markterwartungen",
+     "pfeil": "hoch",
+     "rolle": "Ergebnisse und Margen wichtiger Konzerne stützen nachbörslich die Marktstimmung spürbar."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Investitionen in KI-Infrastruktur werden weiter angehoben",
+     "pfeil": "hoch",
+     "rolle": "Anhaltend hohe Investitionsausgaben untermauern den KI-Trend und treiben verwandte Sektoren an."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "hohe Intraday-Schwankungen mit Tendenz zur Beruhigung",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Volatilität am Rohstoffmarkt reflektiert die nervöse Nachrichtenlage und beeinflusst Inflationssorgen."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Nervosität um Iran und Israel nach Falschmeldungen kurzzeitig gedämpft",
+     "pfeil": "seitwaerts",
+     "rolle": "Geopolitische Schlagzeilen lösen schnelle Ausschläge am Markt aus, beruhigen sich aber nach Klarstellungen."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "deutliche Schwäche bei Konsum-, Gastronomie- und Telekomwerten",
+     "pfeil": "runter",
+     "rolle": "Zinssensible Konsumwerte leiden unter hohen Finanzierungs- und Betriebskosten, was die Marktbreite trübt."
+    }
+   ],
+   "zitate": [
+    "Wow, I love days like this!",
+    "unter dem Strich die Zahlen, die wir heute Abend bekommen haben, positiv sind"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 164343
+  },
+  {
+   "id": "4I6LbJ4i--Q",
+   "titel": "SpaceX springt 8 Prozent. Jetzt folgen Meta und Tesla!",
+   "datum": "2026-10-21",
+   "zeit": "2026-10-21T13:35:46+00:00",
+   "art": "opening",
+   "score": 20,
+   "pfeil": "hoch",
+   "thema": "Ein dynamisches Comeback im KI- und Tech-Sektor stützt die Wall Street, während geopolitische Spannungen und hohe Ölpreise die Risiken im Markt hoch halten.",
+   "gesamtstimmung": "Die Marktstimmung profitiert spürbar vom anhaltenden Investitionsboom rund um künstliche Intelligenz und starken Tech-Vorgaben. Dennoch verhindern gemischte Ergebnisse abseits der Tech-Werte sowie geopolitische Risiken eine unbeschwerte Rallye.",
+   "begruendung": "Der Technologiesektor zieht den Gesamtmarkt vorbörslich kräftig nach oben, getragen von massiven CapEx-Ausgaben und ungebrochener Nachfrage. Gleichzeitig belasten der weiterhin teure Ölpreis und die ungelösten geopolitischen Krisen das breite Sentiment.",
+   "indikatoren": [
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "drastisch steigende Investitionen in Rechenkapazitäten",
+     "pfeil": "hoch",
+     "rolle": "Die massiven Infrastrukturausgaben der Tech-Giganten sind der zentrale Motor für das anhaltende Wachstum und die Fantasie im Markt."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Brent-Öl notiert weiterhin über 111 Dollar",
+     "pfeil": "runter",
+     "rolle": "Das anhaltend hohe Preisniveau beim Öl signalisiert Inflations- und Konjunkturrisiken für die Wirtschaft."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Drohungen einer Konfliktausweitung im Nahen Osten und neue Reibungspunkte mit Ru",
+     "pfeil": "runter",
+     "rolle": "Militärische Eskalationsgefahren schüren Unsicherheit und lasten als latenter Bremsklotz auf den Märkten."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "sehr gemischte Reaktionen außerhalb des Tech-Sektors",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Quartalsberichte zeigen abseits von KI kein einheitliches Bild und dämpfen die Euphorie im breiten Markt."
+    }
+   ],
+   "zitate": [
+    "da macht Börse doch endlich mal wieder ein bisschen Spaß",
+    "Öl bleibt also kritisch"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 127271
+  },
+  {
    "id": "JAw0Qs6mxPc",
    "titel": "Liefern SpaceX und Netflix nach dem Closing?",
    "datum": "2026-10-20",
@@ -1506,9 +1611,12 @@
   "0mIEsd_6hK4",
   "KDm_ZoXDRvI",
   "FLMD819X5Ps",
-  "JAw0Qs6mxPc"
+  "JAw0Qs6mxPc",
+  "ZKIXgHWY9Ek",
+  "7K89kqXtR0k",
+  "4I6LbJ4i--Q"
  ],
- "stand": "2026-10-20T22:41Z",
+ "stand": "2026-10-21T22:49Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",

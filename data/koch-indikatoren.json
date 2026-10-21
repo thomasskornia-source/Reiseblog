@@ -1,10 +1,240 @@
 {
- "stand": "2026-10-20",
+ "stand": "2026-10-21",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
  },
  "kategorien": [
+  {
+   "kategorie": "Marktbreite & Sektoren",
+   "status": "bestaetigt",
+   "tage_anzahl": 14,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-21",
+   "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+   "namen": [
+    "Marktbreite (S&P 500 vs. Equal Weight)",
+    "Marktbreite",
+    "Tech-Sektor & KI",
+    "Sektorale Kapitalallokation & CapEx-Konzentration"
+   ],
+   "rolle": "Zinssensible Konsumwerte leiden unter hohen Finanzierungs- und Betriebskosten, was die Marktbreite trübt.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die Rally steht auf wackeligen Beinen, da nur eine Handvoll Tech-Giganten die Indizes nach oben zieht."
+    },
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Marktbreite"
+     ],
+     "rolle": "Ohne KI-Aktien zeigt der breite Markt deutliche Schwächezeichen."
+    },
+    "2026-10-05": {
+     "p": 0,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die massive Divergenz zwischen dem Gesamtmarkt und den führenden Tech-Titeln mahnt ihn zur Vorsicht."
+    },
+    "2026-10-06": {
+     "p": -2,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die Rally stützt sich primär auf wenige Mega-Cap-Techwerte, während Banken, Versorger und Immobilien verlieren."
+    },
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)",
+      "Tech-Sektor & KI"
+     ],
+     "rolle": "Die extreme Konzentration auf wenige Technologietitel macht den Gesamtmarkt anfällig für Korrekturen."
+    },
+    "2026-10-08": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)",
+      "Sektorale Kapitalallokation & CapEx-Konzentration"
+     ],
+     "rolle": "Die Umschichtung in Substanz- und Finanzwerte zeigt, dass Liquidität im Markt bleibt und sich nur verteilt."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine Verbesserung der Marktbreite jenseits von Big Tech ist essenziell für einen tragfähigen Bullenmarkt."
+    },
+    "2026-10-12": {
+     "p": 0,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine breitere Beteiligung anderer Sektoren stützt den Gesamtmarkt, wenn die großen Tech-Schwergewichte korrigieren."
+    },
+    "2026-10-13": {
+     "p": 0,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die historisch enge Marktführung bricht auf und führt zu einer gesünderen, aber kurzfristig holprigen Umschichtung."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die schwache Marktbreite verdeutlicht, dass die breite Wirtschaft unter den hohen Zinsen leidet."
+    },
+    "2026-10-15": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die mangelnde Marktbreite offenbart, dass die hohen Indexstände eine breite Kursschwäche verdecken."
+    },
+    "2026-10-19": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die massive Korrektur bei Zins- und Standardwerten wie Immobilien, Versorgern und Finanzen schafft wieder attraktive Bewertungsniveaus."
+    },
+    "2026-10-20": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine breite Erholung abseits der großen Tech-Werte signalisiert für ihn eine gesündere Marktverfassung."
+    },
+    "2026-10-21": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Zinssensible Konsumwerte leiden unter hohen Finanzierungs- und Betriebskosten, was die Marktbreite trübt."
+    }
+   }
+  },
+  {
+   "kategorie": "Öl & Rohstoffe",
+   "status": "bestaetigt",
+   "tage_anzahl": 14,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-21",
+   "name": "Öl- und Dieselpreise",
+   "namen": [
+    "Öl- und Dieselpreise",
+    "Ölpreise"
+   ],
+   "rolle": "Die Volatilität am Rohstoffmarkt reflektiert die nervöse Nachrichtenlage und beeinflusst Inflationssorgen.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
+    },
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Ölpreise"
+     ],
+     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
+    },
+    "2026-10-07": {
+     "p": 2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
+    },
+    "2026-10-08": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
+    },
+    "2026-10-12": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Trotz leichter Tagesgewinne bleibt das Rohöl klar unter den Spitzenwerten des Vormonats, was die Inflationssorgen dämpft."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte."
+    },
+    "2026-10-20": {
+     "p": 0,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Sinkende Rohölpreise mildern Inflations- und Kostensorgen der Unternehmen ab."
+    },
+    "2026-10-21": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Die Volatilität am Rohstoffmarkt reflektiert die nervöse Nachrichtenlage und beeinflusst Inflationssorgen."
+    }
+   }
+  },
   {
    "kategorie": "Anleihen & Renditen",
    "status": "bestaetigt",
@@ -111,232 +341,16 @@
    }
   },
   {
-   "kategorie": "Marktbreite & Sektoren",
-   "status": "bestaetigt",
-   "tage_anzahl": 13,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-20",
-   "name": "Marktbreite (S&P 500 vs. Equal Weight)",
-   "namen": [
-    "Marktbreite (S&P 500 vs. Equal Weight)",
-    "Marktbreite",
-    "Tech-Sektor & KI",
-    "Sektorale Kapitalallokation & CapEx-Konzentration"
-   ],
-   "rolle": "Eine breite Erholung abseits der großen Tech-Werte signalisiert für ihn eine gesündere Marktverfassung.",
-   "tage": {
-    "2026-10-01": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die Rally steht auf wackeligen Beinen, da nur eine Handvoll Tech-Giganten die Indizes nach oben zieht."
-    },
-    "2026-10-02": {
-     "p": -1,
-     "namen": [
-      "Marktbreite"
-     ],
-     "rolle": "Ohne KI-Aktien zeigt der breite Markt deutliche Schwächezeichen."
-    },
-    "2026-10-05": {
-     "p": 0,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die massive Divergenz zwischen dem Gesamtmarkt und den führenden Tech-Titeln mahnt ihn zur Vorsicht."
-    },
-    "2026-10-06": {
-     "p": -2,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die Rally stützt sich primär auf wenige Mega-Cap-Techwerte, während Banken, Versorger und Immobilien verlieren."
-    },
-    "2026-10-07": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)",
-      "Tech-Sektor & KI"
-     ],
-     "rolle": "Die extreme Konzentration auf wenige Technologietitel macht den Gesamtmarkt anfällig für Korrekturen."
-    },
-    "2026-10-08": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)",
-      "Sektorale Kapitalallokation & CapEx-Konzentration"
-     ],
-     "rolle": "Die Umschichtung in Substanz- und Finanzwerte zeigt, dass Liquidität im Markt bleibt und sich nur verteilt."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Eine Verbesserung der Marktbreite jenseits von Big Tech ist essenziell für einen tragfähigen Bullenmarkt."
-    },
-    "2026-10-12": {
-     "p": 0,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Eine breitere Beteiligung anderer Sektoren stützt den Gesamtmarkt, wenn die großen Tech-Schwergewichte korrigieren."
-    },
-    "2026-10-13": {
-     "p": 0,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die historisch enge Marktführung bricht auf und führt zu einer gesünderen, aber kurzfristig holprigen Umschichtung."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die schwache Marktbreite verdeutlicht, dass die breite Wirtschaft unter den hohen Zinsen leidet."
-    },
-    "2026-10-15": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die mangelnde Marktbreite offenbart, dass die hohen Indexstände eine breite Kursschwäche verdecken."
-    },
-    "2026-10-19": {
-     "p": 1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die massive Korrektur bei Zins- und Standardwerten wie Immobilien, Versorgern und Finanzen schafft wieder attraktive Bewertungsniveaus."
-    },
-    "2026-10-20": {
-     "p": 1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Eine breite Erholung abseits der großen Tech-Werte signalisiert für ihn eine gesündere Marktverfassung."
-    }
-   }
-  },
-  {
-   "kategorie": "Öl & Rohstoffe",
-   "status": "bestaetigt",
-   "tage_anzahl": 13,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-20",
-   "name": "Öl- und Dieselpreise",
-   "namen": [
-    "Öl- und Dieselpreise",
-    "Ölpreise"
-   ],
-   "rolle": "Sinkende Rohölpreise mildern Inflations- und Kostensorgen der Unternehmen ab.",
-   "tage": {
-    "2026-10-01": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
-    },
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Ölpreise"
-     ],
-     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
-    },
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
-    },
-    "2026-10-06": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
-    },
-    "2026-10-07": {
-     "p": 2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
-    },
-    "2026-10-08": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
-    },
-    "2026-10-12": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
-    },
-    "2026-10-13": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Trotz leichter Tagesgewinne bleibt das Rohöl klar unter den Spitzenwerten des Vormonats, was die Inflationssorgen dämpft."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation."
-    },
-    "2026-10-19": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte."
-    },
-    "2026-10-20": {
-     "p": 0,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Sinkende Rohölpreise mildern Inflations- und Kostensorgen der Unternehmen ab."
-    }
-   }
-  },
-  {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
-   "tage_anzahl": 9,
+   "tage_anzahl": 10,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-19",
+   "zuletzt": "2026-10-21",
    "name": "Nahost & Ukraine-Krieg",
    "namen": [
     "Nahost & Ukraine-Krieg"
    ],
-   "rolle": "Meldungen über Truppenbewegungen im Nahen Osten führten vor dem Wochenende zu spürbarem Verkaufsdruck.",
+   "rolle": "Geopolitische Schlagzeilen lösen schnelle Ausschläge am Markt aus, beruhigen sich aber nach Klarstellungen.",
    "tage": {
     "2026-10-02": {
      "p": -1,
@@ -400,20 +414,27 @@
       "Nahost & Ukraine-Krieg"
      ],
      "rolle": "Meldungen über Truppenbewegungen im Nahen Osten führten vor dem Wochenende zu spürbarem Verkaufsdruck."
+    },
+    "2026-10-21": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Schlagzeilen lösen schnelle Ausschläge am Markt aus, beruhigen sich aber nach Klarstellungen."
     }
    }
   },
   {
    "kategorie": "Gewinnsaison",
    "status": "bestaetigt",
-   "tage_anzahl": 9,
+   "tage_anzahl": 10,
    "erstmals": "2026-10-05",
-   "zuletzt": "2026-10-20",
+   "zuletzt": "2026-10-21",
    "name": "Q3-Gewinnschätzungen",
    "namen": [
     "Q3-Gewinnschätzungen"
    ],
-   "rolle": "Er sieht in den negativen Kursreaktionen auf solide Berichte ein klares Zeichen für eine generelle Stimmungseintrübung an der Wall Street.",
+   "rolle": "Ergebnisse und Margen wichtiger Konzerne stützen nachbörslich die Marktstimmung spürbar.",
    "tage": {
     "2026-10-05": {
      "p": 2,
@@ -477,6 +498,13 @@
       "Q3-Gewinnschätzungen"
      ],
      "rolle": "Er sieht in den negativen Kursreaktionen auf solide Berichte ein klares Zeichen für eine generelle Stimmungseintrübung an der Wall Street."
+    },
+    "2026-10-21": {
+     "p": 1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Ergebnisse und Margen wichtiger Konzerne stützen nachbörslich die Marktstimmung spürbar."
     }
    }
   },
@@ -700,6 +728,69 @@
    }
   },
   {
+   "kategorie": "Sonstiges",
+   "status": "bestaetigt",
+   "tage_anzahl": 7,
+   "erstmals": "2026-10-08",
+   "zuletzt": "2026-10-21",
+   "name": "Tech-Investitionszyklus (CapEx)",
+   "namen": [
+    "Tech-Investitionszyklus (CapEx)"
+   ],
+   "rolle": "Anhaltend hohe Investitionsausgaben untermauern den KI-Trend und treiben verwandte Sektoren an.",
+   "tage": {
+    "2026-10-08": {
+     "p": 1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die massiven Unternehmensausgaben treiben das Wachstum der führenden Tech-Konzerne an."
+    },
+    "2026-10-12": {
+     "p": -2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Zweifel an der Tragfähigkeit der massiven Investitionen belasten das gesamte Marktumfeld im Technologiesektor."
+    },
+    "2026-10-13": {
+     "p": -2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Befürchtungen über nachlassende Investitionsdynamik und teure Kreditfinanzierungen im Halbleiterbereich belasten das Sentiment."
+    },
+    "2026-10-15": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Wachsende Skepsis bei KI-Investitionen gefährdet die Fortsetzung der Rallye bei Halbleitern und Tech-Schwergewichten."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Analystenberichte zu überzogenen KI-Ausgaben und sinkenden Token-Preisen schüren Skepsis gegenüber der Rentabilität der Branche."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die Furcht vor Überinvestitionen und sinkenden Preisen bremst die Leitbranche des bisherigen Bullenmarkts aus."
+    },
+    "2026-10-21": {
+     "p": 2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Anhaltend hohe Investitionsausgaben untermauern den KI-Trend und treiben verwandte Sektoren an."
+    }
+   }
+  },
+  {
    "kategorie": "Inflation",
    "status": "bestaetigt",
    "tage_anzahl": 6,
@@ -811,62 +902,6 @@
       "Q4-Saisonalität & Positionierung"
      ],
      "rolle": "Aus charttechnischer und historischer Sicht folgten auf derart ausgeprägte Abwärtsstrecken meist deutliche Gegenbewegungen."
-    }
-   }
-  },
-  {
-   "kategorie": "Sonstiges",
-   "status": "bestaetigt",
-   "tage_anzahl": 6,
-   "erstmals": "2026-10-08",
-   "zuletzt": "2026-10-20",
-   "name": "Tech-Investitionszyklus (CapEx)",
-   "namen": [
-    "Tech-Investitionszyklus (CapEx)"
-   ],
-   "rolle": "Die Furcht vor Überinvestitionen und sinkenden Preisen bremst die Leitbranche des bisherigen Bullenmarkts aus.",
-   "tage": {
-    "2026-10-08": {
-     "p": 1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Die massiven Unternehmensausgaben treiben das Wachstum der führenden Tech-Konzerne an."
-    },
-    "2026-10-12": {
-     "p": -2,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Zweifel an der Tragfähigkeit der massiven Investitionen belasten das gesamte Marktumfeld im Technologiesektor."
-    },
-    "2026-10-13": {
-     "p": -2,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Befürchtungen über nachlassende Investitionsdynamik und teure Kreditfinanzierungen im Halbleiterbereich belasten das Sentiment."
-    },
-    "2026-10-15": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Wachsende Skepsis bei KI-Investitionen gefährdet die Fortsetzung der Rallye bei Halbleitern und Tech-Schwergewichten."
-    },
-    "2026-10-19": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Analystenberichte zu überzogenen KI-Ausgaben und sinkenden Token-Preisen schüren Skepsis gegenüber der Rentabilität der Branche."
-    },
-    "2026-10-20": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Die Furcht vor Überinvestitionen und sinkenden Preisen bremst die Leitbranche des bisherigen Bullenmarkts aus."
     }
    }
   },
