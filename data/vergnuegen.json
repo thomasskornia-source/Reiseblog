@@ -2230,6 +2230,50 @@
   "stand": "2026-10-18"
  },
  {
+  "id": "stream-below",
+  "rubrik": "stream",
+  "titel": "Below",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Ein Fischer beschützt seine Heimatstadt vor einem Seeungeheuer; düstere Serie mit Josh Hartnett.",
+  "tags": [
+   "Serie",
+   "Fantasy",
+   "Horror"
+  ],
+  "quelle": "www.serienjunkies.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-10-22",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-carrie-staffel-1",
+  "rubrik": "stream",
+  "titel": "Carrie (Staffel 1)",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Neue Serienadaption des Stephen-King-Stoffs um eine Außenseiterin mit unheimlichen Kräften.",
+  "tags": [
+   "Serie",
+   "Horror",
+   "Drama"
+  ],
+  "quelle": "www.mobiflip.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-22",
+  "thema": "Amazon Prime"
+ },
+ {
   "id": "stream-extrawurst",
   "rubrik": "stream",
   "titel": "Extrawurst",
@@ -2317,9 +2361,9 @@
   "thema": "ZDF Mediathek"
  },
  {
-  "id": "stream-the-rocky-horror-picture-show",
+  "id": "stream-portobello-unschuldig-verurteilt",
   "rubrik": "stream",
-  "titel": "The Rocky Horror Picture Show",
+  "titel": "Portobello – Unschuldig verurteilt",
   "ort": "ARTE Mediathek",
   "adresse": "",
   "datum": "",
@@ -2327,60 +2371,16 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Kultmusical-Film: Ein Pärchen strandet im Schloss des schrillen Dr. Frank N. Furter. Teil des Halloween-Schwerpunkts. Verfügbarkeit bitte prüfen.",
+  "kurz": "Serie von Marco Bellocchio über den Justizskandal um den TV-Moderator Enzo Tortora. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Film",
-   "Komödie",
-   "Horror"
+   "Serie",
+   "Drama",
+   "Historie"
   ],
   "quelle": "www.wochenblatt-reporter.de",
   "url": "https://www.arte.tv/de/",
   "stand": "2026-10-22",
   "thema": "ARTE Mediathek"
- },
- {
-  "id": "stream-below",
-  "rubrik": "stream",
-  "titel": "Below",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Ein Fischer beschützt seine Heimatstadt vor einem Seeungeheuer; düstere Serie mit Josh Hartnett.",
-  "tags": [
-   "Serie",
-   "Fantasy",
-   "Horror"
-  ],
-  "quelle": "www.serienjunkies.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-10-22",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-carrie-staffel-1",
-  "rubrik": "stream",
-  "titel": "Carrie (Staffel 1)",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Neue Serienadaption des Stephen-King-Stoffs um eine Außenseiterin mit unheimlichen Kräften.",
-  "tags": [
-   "Serie",
-   "Horror",
-   "Drama"
-  ],
-  "quelle": "www.mobiflip.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-22",
-  "thema": "Amazon Prime"
  },
  {
   "id": "stream-slow-horses",
@@ -2405,28 +2405,6 @@
   "thema": "Apple TV"
  },
  {
-  "id": "stream-portobello-unschuldig-verurteilt",
-  "rubrik": "stream",
-  "titel": "Portobello – Unschuldig verurteilt",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Serie von Marco Bellocchio über den Justizskandal um den TV-Moderator Enzo Tortora. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Serie",
-   "Drama",
-   "Historie"
-  ],
-  "quelle": "www.wochenblatt-reporter.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-22",
-  "thema": "ARTE Mediathek"
- },
- {
   "id": "stream-sommer-auf-asphalt",
   "rubrik": "stream",
   "titel": "Sommer auf Asphalt",
@@ -2442,6 +2420,28 @@
    "Serie",
    "Drama",
    "Komödie"
+  ],
+  "quelle": "www.wochenblatt-reporter.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-22",
+  "thema": "ARTE Mediathek"
+ },
+ {
+  "id": "stream-the-rocky-horror-picture-show",
+  "rubrik": "stream",
+  "titel": "The Rocky Horror Picture Show",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kultmusical-Film: Ein Pärchen strandet im Schloss des schrillen Dr. Frank N. Furter. Teil des Halloween-Schwerpunkts. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Komödie",
+   "Horror"
   ],
   "quelle": "www.wochenblatt-reporter.de",
   "url": "https://www.arte.tv/de/",
