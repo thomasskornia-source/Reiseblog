@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "ck_ECROX1nQ",
+   "titel": "Tag der KI-Panik. Flucht in Sicherheit.",
+   "datum": "2026-10-22",
+   "zeit": "2026-10-22T21:00:50+00:00",
+   "art": "closing",
+   "score": -25,
+   "pfeil": "runter",
+   "thema": "Ein schwerer Abverkauf bei überlaufenen KI- und Tech-Momentum-Aktien führt zu einer massiven Umschichtung in defensive Marktbereiche, während fallende Anleiherenditen für Stützung sorgen.",
+   "gesamtstimmung": "Markus Koch zeichnet das Bild einer schmerzhaften Korrektur im Technologiesektor, bei der insbesondere hochgehebelte und überlaufene KI-Werte drastisch Federn lassen müssen. Allerdings sieht er keinen systemischen Marktcrash, da defensive Werte, Nebenwerte und der breite Equal-Weight-Markt von einer ausgeprägten Rotation und sinkenden Renditen profitieren.",
+   "begruendung": "Der schlechteste Nasdaq-Handelstag seit Monaten und Panikverkäufe bei Halbleitern belasten das Sentiment spürbar. Abgefedert wird das Marktbild jedoch durch robuste defensive Sektoren sowie nachgebende Kapitalmarktzinsen, die zinssensiblen Branchen Halt geben.",
+   "indikatoren": [
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Starke Rotation von Tech/KI in Value und defensive Werte",
+     "pfeil": "hoch",
+     "rolle": "Während die Tech-Schwergewichte einbrechen, schließen der gleichgewichtete S&P 500, der Dow Jones und der Russell 2000 behauptet bis freundlich."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Bereinigung der beiden am stärksten überfüllten Trades",
+     "pfeil": "runter",
+     "rolle": "Das gleichzeitige Auflösen der Long-Positionen in KI und Short-Positionen in US-Staatsanleihen löst heftige Verwerfungen aus."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Rückläufig trotz höherer Inflations- und Öldaten",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Renditen bringen Entlastung für Software-, Immobilien- und Bauwerte und wirken als Stoßdämpfer."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Atlanta Fed GDPNow",
+     "lage": "Zunehmende Abkühlung signalisiert",
+     "pfeil": "runter",
+     "rolle": "Wachsende Sorgen vor einer wirtschaftlichen Flaute drücken einerseits auf die Zinsen, dämpfen aber die Konjunkturzuversicht."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Fester mit rund 2 Prozent Plus",
+     "pfeil": "runter",
+     "rolle": "Trotz fester Energiepreise fallen die Zinsen, was auf eine Flucht in sichere Häfen hinweist."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Schlagzeilen über mögliche Schläge gegen den Iran",
+     "pfeil": "runter",
+     "rolle": "Geopolitische Spannungen im Nahen Osten treiben Anleger zusätzlich in sichere US-Staatsanleihen."
+    }
+   ],
+   "zitate": [
+    "Es war der schlechteste Handelstag im Nasdaq Composite in sieben Monaten.",
+    "Die Indexebene signalisiert nicht, was unter dem Teppich passiert."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 152584
+  },
+  {
    "id": "AHVbHg1grnU",
    "titel": "Gegenwind aus vielen Richtungen | Schnapp Dir den Mini-Koch",
    "datum": "2026-10-22",
@@ -1671,9 +1734,11 @@
   "ZKIXgHWY9Ek",
   "7K89kqXtR0k",
   "4I6LbJ4i--Q",
-  "AHVbHg1grnU"
+  "AHVbHg1grnU",
+  "QuQYbbJdwcg",
+  "ck_ECROX1nQ"
  ],
- "stand": "2026-10-23T18:06Z",
+ "stand": "2026-10-23T22:45Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
