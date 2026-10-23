@@ -1,7 +1,7 @@
 {
- "stand": "2026-10-22",
+ "stand": "2026-10-23",
  "gesamt": {
-  "score": 20,
+  "score": 0,
   "pfeil": "seitwaerts",
   "anzahl": 5,
   "text": "Die Stimmungsdaten sind gemischt."
@@ -10,15 +10,14 @@
   {
    "id": "vix",
    "name": "VIX (Angstbarometer)",
-   "wert": 16.68,
+   "wert": 19.03,
    "einheit": "",
-   "pfeil": "hoch",
-   "text": "ruhig",
+   "pfeil": "seitwaerts",
+   "text": "normal bis nervös",
    "erklaerung": "Erwartete Schwankung des S&P 500 über 30 Tage aus Optionspreisen. Unter 17 ruhig, über 25 Angst. Sehr niedrige Werte bedeuten oft Sorglosigkeit.",
    "quelle": "Cboe über Yahoo (^VIX)",
    "url": "https://finance.yahoo.com/quote/%5EVIX",
    "reihe": [
-    17.09,
     15.99,
     15.86,
     16.5,
@@ -77,23 +76,23 @@
     19.99,
     18.44,
     17.31,
-    16.68
+    16.68,
+    19.03
    ],
-   "datum": "2026-10-21",
+   "datum": "2026-10-22",
    "alter_tage": 1
   },
   {
    "id": "kurve",
    "name": "VIX-Kurve (VIX / VIX3M)",
-   "wert": 0.891,
+   "wert": 0.946,
    "einheit": "",
-   "pfeil": "hoch",
-   "text": "entspannt",
+   "pfeil": "seitwaerts",
+   "text": "neutral",
    "erklaerung": "Verhältnis der Angst von heute zur Angst der nächsten drei Monate. Über 1,0 rechnen Anleger kurzfristig mit mehr Ausschlägen als später: ein Stresszeichen.",
    "quelle": "Cboe über Yahoo (^VIX, ^VIX3M)",
    "url": "https://finance.yahoo.com/quote/%5EVIX3M",
    "reihe": [
-    0.961,
     0.876,
     0.841,
     0.838,
@@ -152,39 +151,98 @@
     0.975,
     0.941,
     0.912,
-    0.891
+    0.891,
+    0.946
    ],
-   "datum": "2026-10-21",
+   "datum": "2026-10-22",
    "alter_tage": 1
   },
   {
    "id": "hy",
    "name": "High-Yield-Spread",
-   "wert": 400.0,
+   "wert": 3.27,
    "einheit": " %",
-   "pfeil": "runter",
-   "text": "Stress",
+   "pfeil": "hoch",
+   "text": "entspannt",
    "erklaerung": "Zusatzzins, den Ramschanleihen gegenüber Staatsanleihen zahlen. Steigt er, trauen Anleger Firmen weniger zu: oft ein Frühwarnzeichen für Aktien.",
    "quelle": "FRED (ICE BofA US High Yield OAS)",
    "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
    "reihe": [
-    400.0
+    2.84,
+    2.85,
+    2.78,
+    2.73,
+    2.75,
+    2.71,
+    2.7,
+    2.7,
+    2.72,
+    2.71,
+    2.71,
+    2.67,
+    2.7,
+    2.75,
+    2.73,
+    2.75,
+    2.7,
+    2.69,
+    2.7,
+    2.67,
+    2.63,
+    2.6,
+    2.63,
+    2.65,
+    2.66,
+    2.65,
+    2.68,
+    2.68,
+    2.67,
+    2.71,
+    2.7,
+    2.65,
+    2.71,
+    2.76,
+    2.7,
+    2.7,
+    2.68,
+    2.66,
+    2.68,
+    2.73,
+    2.8,
+    2.93,
+    3.02,
+    3.08,
+    3.12,
+    3.24,
+    3.1,
+    3.12,
+    3.03,
+    3.09,
+    3.15,
+    3.11,
+    3.11,
+    3.16,
+    3.25,
+    3.23,
+    3.31,
+    3.29,
+    3.33,
+    3.27
    ],
-   "datum": "    <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300",
-   "alter_tage": 0
+   "datum": "2026-10-21",
+   "alter_tage": 2
   },
   {
    "id": "breite",
    "name": "Marktbreite (RSP gegen SPY)",
-   "wert": 0.01,
+   "wert": -0.11,
    "einheit": " %",
-   "pfeil": "hoch",
-   "text": "breit getragen",
+   "pfeil": "seitwaerts",
+   "text": "neutral",
    "erklaerung": "Gleichgewichteter S&P 500 (RSP) gegen den marktgewichteten (SPY), Abweichung vom 50-Tage-Schnitt. Steigt RSP stärker, machen viele Aktien mit; fällt das Verhältnis, tragen wenige Riesen den Index.",
    "quelle": "Yahoo (RSP, SPY)",
    "url": "https://finance.yahoo.com/quote/RSP",
    "reihe": [
-    0.294,
     0.296,
     0.29,
     0.288,
@@ -243,9 +301,10 @@
     0.279,
     0.28,
     0.278,
-    0.281
+    0.281,
+    0.28
    ],
-   "datum": "2026-10-20",
+   "datum": "2026-10-21",
    "alter_tage": 2
   },
   {
@@ -321,13 +380,13 @@
     1.05
    ],
    "datum": "2019-10-04",
-   "alter_tage": 2575,
+   "alter_tage": 2576,
    "veraltet": true
   },
   {
    "id": "fg",
    "name": "Fear & Greed (CNN)",
-   "wert": 31,
+   "wert": 20,
    "einheit": "",
    "pfeil": "runter",
    "text": "Angst",
@@ -335,7 +394,6 @@
    "quelle": "CNN Business",
    "url": "https://edition.cnn.com/markets/fear-and-greed",
    "reihe": [
-    38.114,
     39.571,
     46.143,
     58.971,
@@ -393,10 +451,11 @@
     22.073,
     20.804,
     29.571,
-    31.371,
-    31.371
+    27.226,
+    19.813,
+    19.813
    ],
-   "datum": "2026-10-21",
+   "datum": "2026-10-22",
    "alter_tage": 1
   }
  ],
@@ -416,6 +475,10 @@
   {
    "d": "2026-10-22",
    "score": 20
+  },
+  {
+   "d": "2026-10-23",
+   "score": 0
   }
  ],
  "schwellen": {
