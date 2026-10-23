@@ -779,27 +779,6 @@
   "stand": "2026-10-19"
  },
  {
-  "id": "events-16e5e71238",
-  "rubrik": "events",
-  "titel": "BABYRICHMAN Kunstraum",
-  "ort": "BABYRICHMAN",
-  "adresse": "",
-  "datum": "2026-10-20",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Temporärer Kunstraum im Herzen Münchens mit Werken von sechs zeitgenössischen Künstlerinnen.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Ausstellung & Museum",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-20"
- },
- {
   "id": "events-991ab6772c",
   "lat": 48.1369,
   "lon": 11.56204,
@@ -822,94 +801,6 @@
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-19"
- },
- {
-  "id": "events-f81af4476e",
-  "rubrik": "events",
-  "titel": "Fotoausstellung Jüdische Friedhöfe und Synagogen",
-  "ort": "Münchner Jugendinformationszentrum",
-  "adresse": "",
-  "datum": "2026-10-20",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Fotografien von Michael Graber, der bei einer Motorradreise durch Oberfranken jüdische Friedhöfe und Synagogen dokumentierte.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Ausstellung & Museum",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-20"
- },
- {
-  "id": "events-9c468ed486",
-  "lat": 48.14335,
-  "lon": 11.58615,
-  "rubrik": "events",
-  "titel": "Führung: Gedanken-Brüche",
-  "ort": "Galerie Bezirk Oberbayern",
-  "adresse": "",
-  "datum": "2026-10-20",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Führung in leicht verständlicher Sprache durch die Kunstausstellung über die Zerbrechlichkeit des menschlichen Daseins.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Führung & Vortrag",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-20"
- },
- {
-  "id": "events-adab7cdfae",
-  "lat": 48.11175,
-  "lon": 11.55393,
-  "rubrik": "events",
-  "titel": "Kopfhörer-Party in Halle E",
-  "ort": "Halle E",
-  "adresse": "",
-  "datum": "2026-10-20",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Party mit Funk-Kopfhörern und drei Live-DJs auf verschiedenen Musikkanälen in der denkmalgeschützten Halle E.",
-  "tags": [
-   "Musik",
-   "Kostenlos"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-20"
- },
- {
-  "id": "events-83e373bf54",
-  "rubrik": "events",
-  "titel": "Teesalon im Köşk",
-  "ort": "Köşk",
-  "adresse": "Zenettistraße",
-  "datum": "2026-10-20",
-  "datum_bis": "",
-  "zeit": "17:00",
-  "preis": "frei",
-  "dauer": "2 Stunden",
-  "kurz": "Gemütlicher Austausch bei Tee über Ideen und Visionen für den offenen Kunstraum im Schlachthofviertel.",
-  "tags": [
-   "Kultur",
-   "Kostenlos"
-  ],
-  "thema": "Sonstiges",
-  "quelle": "Eintritt frei München",
-  "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-20"
  },
  {
   "id": "events-7ee972649b",
@@ -2252,27 +2143,27 @@
   "thema": "Netflix"
  },
  {
-  "id": "stream-tenzing",
+  "id": "stream-babylon-berlin-staffel-5",
   "rubrik": "stream",
-  "titel": "Tenzing",
-  "ort": "Apple TV",
+  "titel": "Babylon Berlin (Staffel 5)",
+  "ort": "ARD Mediathek",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Drama über Tenzing Norgay und die Everest-Erstbesteigung 1953, mit Tom Hiddleston und Willem Dafoe.",
+  "kurz": "Finale Staffel der Krimiserie im Berlin der Weimarer Republik. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Film",
+   "Serie",
+   "Krimi",
    "Drama",
-   "Abenteuer",
    "Historie"
   ],
-  "quelle": "www.apfelpatient.de",
-  "url": "https://tv.apple.com/de",
+  "quelle": "www.filmdienst.de",
+  "url": "https://www.ardmediathek.de/",
   "stand": "2026-10-23",
-  "thema": "Apple TV"
+  "thema": "ARD Mediathek"
  },
  {
   "id": "stream-captain-phillips",
@@ -2365,6 +2256,27 @@
   "thema": "Netflix"
  },
  {
+  "id": "stream-mad-men-staffel-1-7",
+  "rubrik": "stream",
+  "titel": "Mad Men (Staffel 1–7)",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Werbeagentur-Drama im New York der 1960er um Don Draper; alle Staffeln seit 19.10.",
+  "tags": [
+   "Serie",
+   "Drama"
+  ],
+  "quelle": "www.kino.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-10-23",
+  "thema": "Amazon Prime"
+ },
+ {
   "id": "stream-paris-police-1900-staffel-1",
   "rubrik": "stream",
   "titel": "Paris Police 1900 (Staffel 1)",
@@ -2388,27 +2300,27 @@
   "thema": "ARD Mediathek"
  },
  {
-  "id": "stream-babylon-berlin-staffel-5",
+  "id": "stream-tenzing",
   "rubrik": "stream",
-  "titel": "Babylon Berlin (Staffel 5)",
-  "ort": "ARD Mediathek",
+  "titel": "Tenzing",
+  "ort": "Apple TV",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Finale Staffel der Krimiserie im Berlin der Weimarer Republik. Verfügbarkeit bitte prüfen.",
+  "kurz": "Drama über Tenzing Norgay und die Everest-Erstbesteigung 1953, mit Tom Hiddleston und Willem Dafoe.",
   "tags": [
-   "Serie",
-   "Krimi",
+   "Film",
    "Drama",
+   "Abenteuer",
    "Historie"
   ],
-  "quelle": "www.filmdienst.de",
-  "url": "https://www.ardmediathek.de/",
+  "quelle": "www.apfelpatient.de",
+  "url": "https://tv.apple.com/de",
   "stand": "2026-10-23",
-  "thema": "ARD Mediathek"
+  "thema": "Apple TV"
  },
  {
   "id": "stream-wo-ist-wanda-staffel-2",
@@ -2431,26 +2343,5 @@
   "url": "https://tv.apple.com/de",
   "stand": "2026-10-23",
   "thema": "Apple TV"
- },
- {
-  "id": "stream-mad-men-staffel-1-7",
-  "rubrik": "stream",
-  "titel": "Mad Men (Staffel 1–7)",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Werbeagentur-Drama im New York der 1960er um Don Draper; alle Staffeln seit 19.10.",
-  "tags": [
-   "Serie",
-   "Drama"
-  ],
-  "quelle": "www.kino.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-10-23",
-  "thema": "Amazon Prime"
  }
 ]
