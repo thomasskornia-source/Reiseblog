@@ -1,13 +1,13 @@
 Feed: 15 Videos
+   5BYdq8AzVi4 2026-10-23 KI-Ausverkauf setzt sich fort. Jetzt sinkt auch der Dow Jones.
+   JG5MS4L0tEo 2026-10-23 KI-Ausverkauf setzt sich fort. Jetzt sinkt auch der Dow Jones.
    QuQYbbJdwcg 2026-10-22 Dein nächster Urlaubsflug könnte bis zu 20% teurer werden. 💸
    ck_ECROX1nQ 2026-10-22 Tag der KI-Panik. Flucht in Sicherheit.
    AHVbHg1grnU 2026-10-22 Gegenwind aus vielen Richtungen | Schnapp Dir den Mini-Koch
    ZKIXgHWY9Ek 2026-10-21 Meta schüttet neue Aktiengattung an Aktionäre aus | Das ist KEINE Kapi
    7K89kqXtR0k 2026-10-21 80% der Neo-Cloud-Unternehmen werden 2030 nicht mehr existieren. 📉
    4I6LbJ4i--Q 2026-10-21 SpaceX springt 8 Prozent. Jetzt folgen Meta und Tesla!
-   JAw0Qs6mxPc 2026-10-20 Liefern SpaceX und Netflix nach dem Closing?
-   KDm_ZoXDRvI 2026-10-20 Kein Unternehmen dieser Größe investiert so viel in sich selbst. 🚀
-Werte aus: QuQYbbJdwcg Dein nächster Urlaubsflug könnte bis zu 20% teurer werden. 💸 2026-10-22 closing
+Werte aus: ck_ECROX1nQ Tag der KI-Panik. Flucht in Sicherheit. 2026-10-22 closing
 gemini-3.8-flash: HTTP 503 {
   "error": {
     "code": 503,
@@ -16,10 +16,14 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
-gemini-3.8-flash: HTTP 429 {
+gemini-3.8-flash: HTTP 503 {
   "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
 gemini-3.7-flash: HTTP 503 {
   "error": {
     "code": 503,
@@ -28,39 +32,14 @@ gemini-3.7-flash: HTTP 503 {
   }
 }
 
-gemini-3.7-flash: HTTP 429 {
+gemini-3.7-flash: HTTP 503 {
   "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
-gemini-flash-latest: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
-gemini-flash-latest: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
-  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
-Werte aus: ck_ECROX1nQ Tag der KI-Panik. Flucht in Sicherheit. 2026-10-22 closing
-gemini-3.8-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
-gemini-3.8-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
-gemini-3.7-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
-gemini-3.7-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
 gemini-flash-latest: HTTP 503 {
   "error": {
     "code": 503,
@@ -69,27 +48,95 @@ gemini-flash-latest: HTTP 503 {
   }
 }
 
-gemini-flash-latest: HTTP 429 {
+gemini-flash-latest: HTTP 503 {
   "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
-  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 429 {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 503 {
   "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "s
 Werte aus: AHVbHg1grnU Gegenwind aus vielen Richtungen | Schnapp Dir den Mini-Koch 2026-10-22 opening
-gemini-3.8-flash: HTTP 429 {
+gemini-3.8-flash: HTTP 503 {
   "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
-gemini-3.8-flash: HTTP 429 {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: HTTP 503 {
   "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
-gemini-3.7-flash: HTTP 429 {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  Score -55 Pfeil runter (115224 Tokens)
+Werte aus: 5BYdq8AzVi4 KI-Ausverkauf setzt sich fort. Jetzt sinkt auch der Dow Jones. 2026-10-23 opening
+gemini-3.8-flash: HTTP 403 {
   "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+    "code": 403,
+    "message": "The caller does not have permission",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+gemini-3.7-flash: HTTP 403 {
+  "error": {
+    "code": 403,
+    "message": "The caller does not have permission",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+gemini-flash-latest: HTTP 403 {
+  "error": {
+    "code": 403,
+    "message": "The caller does not have permission",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 403 {
+  "error": {
+    "code": 403,
+    "message": "The caller does not have permission",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+Werte aus: JG5MS4L0tEo KI-Ausverkauf setzt sich fort. Jetzt sinkt auch der Dow Jones. 2026-10-23 opening
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
 gemini-3.7-flash: HTTP 429 {
   "error": {
     "code": 429,

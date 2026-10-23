@@ -1,6 +1,62 @@
 {
  "beitraege": [
   {
+   "id": "AHVbHg1grnU",
+   "titel": "Gegenwind aus vielen Richtungen | Schnapp Dir den Mini-Koch",
+   "datum": "2026-10-22",
+   "zeit": "2026-10-22T15:09:34+00:00",
+   "art": "opening",
+   "score": -55,
+   "pfeil": "runter",
+   "thema": "Der US-Aktienmarkt gerät durch geopolitische Spannungen im Nahen Osten und asymmetrisch negative Kursreaktionen auf Quartalszahlen spürbar unter Druck.",
+   "gesamtstimmung": "Markus Koch zeichnet ein fragiles und nervöses Bild der Wall Street, die von vielfältigem Gegenwind belastet wird. Selbst solide Unternehmenszahlen werden derzeit abverkauft, während geopolitische Ängste die Energiepreise antreiben.",
+   "begruendung": "Geopolitische Berichte über drohende Eskalationen rund um den Iran schüren Risikoscheu und treiben den Ölpreis in die Höhe. Zudem zeigen sich Anleger trotz überwiegend guter Quartalsberichte skeptisch und strafen viele Aktien ab.",
+   "indikatoren": [
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Berichte über potenzielle US- und Israel-Angriffe auf Iran",
+     "pfeil": "runter",
+     "rolle": "Die akuten geopolitischen Zuspitzungen verunsichern die Marktteilnehmer massiv."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "ziehen durch Nahost-Sorgen an",
+     "pfeil": "runter",
+     "rolle": "Steigende Ölnotierungen belasten die Konjunkturaussichten und schüren neue Inflationsängste."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "überwiegend gute Ergebnisse führen oft zu Kursverlusten",
+     "pfeil": "runter",
+     "rolle": "Die negative Marktreaktion auf eigentlich solide Unternehmenszahlen offenbart eine fragile Marktverfassung."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "laufen durch Flucht in sichere Häfen zurück",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Renditen bringen zwar Zinsentlastung, spiegeln primär jedoch Risikoaversion wider."
+    },
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "viele Unternehmen kündigen Preisanhebungen an",
+     "pfeil": "runter",
+     "rolle": "Geplante Preiserhöhungen stehen einer schnellen Entspannung an der Zinsfront entgegen."
+    }
+   ],
+   "zitate": [
+    "wir haben aus verschiedensten Richtungen Gegenwind",
+    "What a shitshow, kann man anders wirklich nicht beschreiben"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 115224
+  },
+  {
    "id": "ZKIXgHWY9Ek",
    "titel": "Meta schüttet neue Aktiengattung an Aktionäre aus | Das ist KEINE Kapitalerhöhung.",
    "datum": "2026-10-21",
@@ -1614,9 +1670,10 @@
   "JAw0Qs6mxPc",
   "ZKIXgHWY9Ek",
   "7K89kqXtR0k",
-  "4I6LbJ4i--Q"
+  "4I6LbJ4i--Q",
+  "AHVbHg1grnU"
  ],
- "stand": "2026-10-21T22:49Z",
+ "stand": "2026-10-23T18:06Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",

@@ -1,10 +1,242 @@
 {
- "stand": "2026-10-21",
+ "stand": "2026-10-22",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
  },
  "kategorien": [
+  {
+   "kategorie": "Öl & Rohstoffe",
+   "status": "bestaetigt",
+   "tage_anzahl": 15,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-22",
+   "name": "Öl- und Dieselpreise",
+   "namen": [
+    "Öl- und Dieselpreise",
+    "Ölpreise"
+   ],
+   "rolle": "Steigende Ölnotierungen belasten die Konjunkturaussichten und schüren neue Inflationsängste.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
+    },
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Ölpreise"
+     ],
+     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
+    },
+    "2026-10-07": {
+     "p": 2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
+    },
+    "2026-10-08": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
+    },
+    "2026-10-12": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Trotz leichter Tagesgewinne bleibt das Rohöl klar unter den Spitzenwerten des Vormonats, was die Inflationssorgen dämpft."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte."
+    },
+    "2026-10-20": {
+     "p": 0,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Sinkende Rohölpreise mildern Inflations- und Kostensorgen der Unternehmen ab."
+    },
+    "2026-10-21": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Die Volatilität am Rohstoffmarkt reflektiert die nervöse Nachrichtenlage und beeinflusst Inflationssorgen."
+    },
+    "2026-10-22": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Steigende Ölnotierungen belasten die Konjunkturaussichten und schüren neue Inflationsängste."
+    }
+   }
+  },
+  {
+   "kategorie": "Anleihen & Renditen",
+   "status": "bestaetigt",
+   "tage_anzahl": 14,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-22",
+   "name": "US-Staatsanleiherenditen",
+   "namen": [
+    "US-Staatsanleiherenditen"
+   ],
+   "rolle": "Sinkende Renditen bringen zwar Zinsentlastung, spiegeln primär jedoch Risikoaversion wider.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Hohe Renditen setzen die breite Aktienbewertung und insbesondere Finanzwerte kontinuierlich unter Druck."
+    },
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Sinkende Renditen entlasten die Aktienmärkte und verringern den Refinanzierungsdruck."
+    },
+    "2026-10-05": {
+     "p": 0,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Hohe Renditen belasten zinssensible Branchen und deckeln das Aufwärtspotenzial am breiten Markt."
+    },
+    "2026-10-06": {
+     "p": 0,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Die hohen Renditen der 10-jährigen Staatsanleihen setzen insbesondere zinssensible Marktsegmente unter Druck."
+    },
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Die Renditeentwicklung gilt als zentraler Bremsklotz, dessen Entspannung zwingend für eine breite Erholung nötig ist."
+    },
+    "2026-10-08": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Sinkende Renditen nehmen Druck von den Aktienbewertungen und beruhigen die Zinsangst der Anleger."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Sinkende Renditen nehmen den Druck von den Aktienmärkten und begünstigen eine breitere Markterholung."
+    },
+    "2026-10-12": {
+     "p": 0,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Höhere Renditen belasten Hypothekengeschäft und Anleiheportfolios der Banken."
+    },
+    "2026-10-13": {
+     "p": 2,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Der Rückzug von den Renditespitzen nimmt etwas Druck vom Aktienmarkt, insbesondere vor den anstehenden Verbraucherpreisen."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Steigende Renditen setzen Bewertungsniveaus unter Druck und sorgen für unmittelbaren Gegenwind an den Aktienmärkten."
+    },
+    "2026-10-15": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Sinkende Renditen dienen Koch als effektive Absicherung gegen Verluste am schwächelnden Aktienmarkt."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Sinkende Renditen langlaufender Staatsanleihen nehmen Bewertungsdruck vom Aktienmarkt und wirken entlastend."
+    },
+    "2026-10-20": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Die nachlassende Aufwärtsdynamik bei den Renditen nimmt vorerst Druck von den Aktienmärkten."
+    },
+    "2026-10-22": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Sinkende Renditen bringen zwar Zinsentlastung, spiegeln primär jedoch Risikoaversion wider."
+    }
+   }
+  },
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
@@ -123,234 +355,16 @@
    }
   },
   {
-   "kategorie": "Öl & Rohstoffe",
-   "status": "bestaetigt",
-   "tage_anzahl": 14,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-21",
-   "name": "Öl- und Dieselpreise",
-   "namen": [
-    "Öl- und Dieselpreise",
-    "Ölpreise"
-   ],
-   "rolle": "Die Volatilität am Rohstoffmarkt reflektiert die nervöse Nachrichtenlage und beeinflusst Inflationssorgen.",
-   "tage": {
-    "2026-10-01": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
-    },
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Ölpreise"
-     ],
-     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
-    },
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
-    },
-    "2026-10-06": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
-    },
-    "2026-10-07": {
-     "p": 2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
-    },
-    "2026-10-08": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
-    },
-    "2026-10-12": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
-    },
-    "2026-10-13": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Trotz leichter Tagesgewinne bleibt das Rohöl klar unter den Spitzenwerten des Vormonats, was die Inflationssorgen dämpft."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation."
-    },
-    "2026-10-19": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte."
-    },
-    "2026-10-20": {
-     "p": 0,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Sinkende Rohölpreise mildern Inflations- und Kostensorgen der Unternehmen ab."
-    },
-    "2026-10-21": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Die Volatilität am Rohstoffmarkt reflektiert die nervöse Nachrichtenlage und beeinflusst Inflationssorgen."
-    }
-   }
-  },
-  {
-   "kategorie": "Anleihen & Renditen",
-   "status": "bestaetigt",
-   "tage_anzahl": 13,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-20",
-   "name": "US-Staatsanleiherenditen",
-   "namen": [
-    "US-Staatsanleiherenditen"
-   ],
-   "rolle": "Die nachlassende Aufwärtsdynamik bei den Renditen nimmt vorerst Druck von den Aktienmärkten.",
-   "tage": {
-    "2026-10-01": {
-     "p": -1,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Hohe Renditen setzen die breite Aktienbewertung und insbesondere Finanzwerte kontinuierlich unter Druck."
-    },
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Sinkende Renditen entlasten die Aktienmärkte und verringern den Refinanzierungsdruck."
-    },
-    "2026-10-05": {
-     "p": 0,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Hohe Renditen belasten zinssensible Branchen und deckeln das Aufwärtspotenzial am breiten Markt."
-    },
-    "2026-10-06": {
-     "p": 0,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Die hohen Renditen der 10-jährigen Staatsanleihen setzen insbesondere zinssensible Marktsegmente unter Druck."
-    },
-    "2026-10-07": {
-     "p": -1,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Die Renditeentwicklung gilt als zentraler Bremsklotz, dessen Entspannung zwingend für eine breite Erholung nötig ist."
-    },
-    "2026-10-08": {
-     "p": 1,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Sinkende Renditen nehmen Druck von den Aktienbewertungen und beruhigen die Zinsangst der Anleger."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Sinkende Renditen nehmen den Druck von den Aktienmärkten und begünstigen eine breitere Markterholung."
-    },
-    "2026-10-12": {
-     "p": 0,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Höhere Renditen belasten Hypothekengeschäft und Anleiheportfolios der Banken."
-    },
-    "2026-10-13": {
-     "p": 2,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Der Rückzug von den Renditespitzen nimmt etwas Druck vom Aktienmarkt, insbesondere vor den anstehenden Verbraucherpreisen."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Steigende Renditen setzen Bewertungsniveaus unter Druck und sorgen für unmittelbaren Gegenwind an den Aktienmärkten."
-    },
-    "2026-10-15": {
-     "p": 1,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Sinkende Renditen dienen Koch als effektive Absicherung gegen Verluste am schwächelnden Aktienmarkt."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Sinkende Renditen langlaufender Staatsanleihen nehmen Bewertungsdruck vom Aktienmarkt und wirken entlastend."
-    },
-    "2026-10-20": {
-     "p": 1,
-     "namen": [
-      "US-Staatsanleiherenditen"
-     ],
-     "rolle": "Die nachlassende Aufwärtsdynamik bei den Renditen nimmt vorerst Druck von den Aktienmärkten."
-    }
-   }
-  },
-  {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
-   "tage_anzahl": 10,
+   "tage_anzahl": 11,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-21",
+   "zuletzt": "2026-10-22",
    "name": "Nahost & Ukraine-Krieg",
    "namen": [
     "Nahost & Ukraine-Krieg"
    ],
-   "rolle": "Geopolitische Schlagzeilen lösen schnelle Ausschläge am Markt aus, beruhigen sich aber nach Klarstellungen.",
+   "rolle": "Die akuten geopolitischen Zuspitzungen verunsichern die Marktteilnehmer massiv.",
    "tage": {
     "2026-10-02": {
      "p": -1,
@@ -421,20 +435,27 @@
       "Nahost & Ukraine-Krieg"
      ],
      "rolle": "Geopolitische Schlagzeilen lösen schnelle Ausschläge am Markt aus, beruhigen sich aber nach Klarstellungen."
+    },
+    "2026-10-22": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Die akuten geopolitischen Zuspitzungen verunsichern die Marktteilnehmer massiv."
     }
    }
   },
   {
    "kategorie": "Gewinnsaison",
    "status": "bestaetigt",
-   "tage_anzahl": 10,
+   "tage_anzahl": 11,
    "erstmals": "2026-10-05",
-   "zuletzt": "2026-10-21",
+   "zuletzt": "2026-10-22",
    "name": "Q3-Gewinnschätzungen",
    "namen": [
     "Q3-Gewinnschätzungen"
    ],
-   "rolle": "Ergebnisse und Margen wichtiger Konzerne stützen nachbörslich die Marktstimmung spürbar.",
+   "rolle": "Die negative Marktreaktion auf eigentlich solide Unternehmenszahlen offenbart eine fragile Marktverfassung.",
    "tage": {
     "2026-10-05": {
      "p": 2,
@@ -505,6 +526,13 @@
       "Q3-Gewinnschätzungen"
      ],
      "rolle": "Ergebnisse und Margen wichtiger Konzerne stützen nachbörslich die Marktstimmung spürbar."
+    },
+    "2026-10-22": {
+     "p": -1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die negative Marktreaktion auf eigentlich solide Unternehmenszahlen offenbart eine fragile Marktverfassung."
     }
    }
   },
@@ -728,6 +756,70 @@
    }
   },
   {
+   "kategorie": "Inflation",
+   "status": "bestaetigt",
+   "tage_anzahl": 7,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-22",
+   "name": "Inflationsdynamik",
+   "namen": [
+    "Inflationsdynamik",
+    "Bevorstehende Inflationsdaten (CPI)"
+   ],
+   "rolle": "Geplante Preiserhöhungen stehen einer schnellen Entspannung an der Zinsfront entgegen.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Hartnäckige Teuerungsraten dämpfen Hoffnungen auf rasche Zinssenkungen der Notenbanken."
+    },
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Bevorstehende Inflationsdaten (CPI)"
+     ],
+     "rolle": "Anhaltende Preissorgen könnten die Erholung am Anleihe- und Aktienmarkt dämpfen."
+    },
+    "2026-10-09": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Hartnäckige Inflationsdaten könnten die Notenbank zu längeren Zinserhöhungsphasen zwingen."
+    },
+    "2026-10-12": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Höhere Inflationsdaten könnten die Hoffnungen auf geldpolitische Lockerungen dämpfen und die Zinsängste wieder anfachen."
+    },
+    "2026-10-13": {
+     "p": 0,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Treffen die Daten die Schätzungen, könnte dies den Anleiherenditen weiteren Raum nach unten geben."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Die hartnäckig hohe Kern- und Gesamtinflation zerstört Hoffnungen auf ein baldiges Ende des Zinsdrucks."
+    },
+    "2026-10-22": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Geplante Preiserhöhungen stehen einer schnellen Entspannung an der Zinsfront entgegen."
+    }
+   }
+  },
+  {
    "kategorie": "Sonstiges",
    "status": "bestaetigt",
    "tage_anzahl": 7,
@@ -787,63 +879,6 @@
       "Tech-Investitionszyklus (CapEx)"
      ],
      "rolle": "Anhaltend hohe Investitionsausgaben untermauern den KI-Trend und treiben verwandte Sektoren an."
-    }
-   }
-  },
-  {
-   "kategorie": "Inflation",
-   "status": "bestaetigt",
-   "tage_anzahl": 6,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-14",
-   "name": "Inflationsdynamik",
-   "namen": [
-    "Inflationsdynamik",
-    "Bevorstehende Inflationsdaten (CPI)"
-   ],
-   "rolle": "Die hartnäckig hohe Kern- und Gesamtinflation zerstört Hoffnungen auf ein baldiges Ende des Zinsdrucks.",
-   "tage": {
-    "2026-10-01": {
-     "p": -1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Hartnäckige Teuerungsraten dämpfen Hoffnungen auf rasche Zinssenkungen der Notenbanken."
-    },
-    "2026-10-02": {
-     "p": -1,
-     "namen": [
-      "Bevorstehende Inflationsdaten (CPI)"
-     ],
-     "rolle": "Anhaltende Preissorgen könnten die Erholung am Anleihe- und Aktienmarkt dämpfen."
-    },
-    "2026-10-09": {
-     "p": -1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Hartnäckige Inflationsdaten könnten die Notenbank zu längeren Zinserhöhungsphasen zwingen."
-    },
-    "2026-10-12": {
-     "p": -1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Höhere Inflationsdaten könnten die Hoffnungen auf geldpolitische Lockerungen dämpfen und die Zinsängste wieder anfachen."
-    },
-    "2026-10-13": {
-     "p": 0,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Treffen die Daten die Schätzungen, könnte dies den Anleiherenditen weiteren Raum nach unten geben."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Die hartnäckig hohe Kern- und Gesamtinflation zerstört Hoffnungen auf ein baldiges Ende des Zinsdrucks."
     }
    }
   },
