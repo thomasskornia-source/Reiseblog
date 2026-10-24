@@ -1,7 +1,7 @@
 {
- "stand": "2026-10-23",
+ "stand": "2026-10-24",
  "gesamt": {
-  "score": 0,
+  "score": 20,
   "pfeil": "seitwaerts",
   "anzahl": 5,
   "text": "Die Stimmungsdaten sind gemischt."
@@ -10,7 +10,7 @@
   {
    "id": "vix",
    "name": "VIX (Angstbarometer)",
-   "wert": 19.03,
+   "wert": 19.45,
    "einheit": "",
    "pfeil": "seitwaerts",
    "text": "normal bis nervös",
@@ -18,7 +18,6 @@
    "quelle": "Cboe über Yahoo (^VIX)",
    "url": "https://finance.yahoo.com/quote/%5EVIX",
    "reihe": [
-    15.99,
     15.86,
     16.5,
     15.81,
@@ -77,15 +76,16 @@
     18.44,
     17.31,
     16.68,
-    19.03
+    19.03,
+    19.45
    ],
-   "datum": "2026-10-22",
+   "datum": "2026-10-23",
    "alter_tage": 1
   },
   {
    "id": "kurve",
    "name": "VIX-Kurve (VIX / VIX3M)",
-   "wert": 0.946,
+   "wert": 0.95,
    "einheit": "",
    "pfeil": "seitwaerts",
    "text": "neutral",
@@ -93,7 +93,6 @@
    "quelle": "Cboe über Yahoo (^VIX, ^VIX3M)",
    "url": "https://finance.yahoo.com/quote/%5EVIX3M",
    "reihe": [
-    0.876,
     0.841,
     0.838,
     0.853,
@@ -152,15 +151,16 @@
     0.941,
     0.912,
     0.891,
-    0.946
+    0.946,
+    0.95
    ],
-   "datum": "2026-10-22",
+   "datum": "2026-10-23",
    "alter_tage": 1
   },
   {
    "id": "hy",
    "name": "High-Yield-Spread",
-   "wert": 3.27,
+   "wert": 3.4,
    "einheit": " %",
    "pfeil": "hoch",
    "text": "entspannt",
@@ -168,7 +168,6 @@
    "quelle": "FRED (ICE BofA US High Yield OAS)",
    "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
    "reihe": [
-    2.84,
     2.85,
     2.78,
     2.73,
@@ -227,23 +226,23 @@
     3.31,
     3.29,
     3.33,
-    3.27
+    3.27,
+    3.4
    ],
-   "datum": "2026-10-21",
+   "datum": "2026-10-22",
    "alter_tage": 2
   },
   {
    "id": "breite",
    "name": "Marktbreite (RSP gegen SPY)",
-   "wert": -0.11,
+   "wert": 1.83,
    "einheit": " %",
-   "pfeil": "seitwaerts",
-   "text": "neutral",
+   "pfeil": "hoch",
+   "text": "breit getragen",
    "erklaerung": "Gleichgewichteter S&P 500 (RSP) gegen den marktgewichteten (SPY), Abweichung vom 50-Tage-Schnitt. Steigt RSP stärker, machen viele Aktien mit; fällt das Verhältnis, tragen wenige Riesen den Index.",
    "quelle": "Yahoo (RSP, SPY)",
    "url": "https://finance.yahoo.com/quote/RSP",
    "reihe": [
-    0.296,
     0.29,
     0.288,
     0.287,
@@ -302,9 +301,10 @@
     0.28,
     0.278,
     0.281,
-    0.28
+    0.28,
+    0.286
    ],
-   "datum": "2026-10-21",
+   "datum": "2026-10-22",
    "alter_tage": 2
   },
   {
@@ -380,13 +380,13 @@
     1.05
    ],
    "datum": "2019-10-04",
-   "alter_tage": 2576,
+   "alter_tage": 2577,
    "veraltet": true
   },
   {
    "id": "fg",
    "name": "Fear & Greed (CNN)",
-   "wert": 20,
+   "wert": 21,
    "einheit": "",
    "pfeil": "runter",
    "text": "Angst",
@@ -394,7 +394,6 @@
    "quelle": "CNN Business",
    "url": "https://edition.cnn.com/markets/fear-and-greed",
    "reihe": [
-    39.571,
     46.143,
     58.971,
     60.229,
@@ -452,10 +451,11 @@
     20.804,
     29.571,
     27.226,
-    19.813,
-    19.813
+    19.44,
+    20.981,
+    20.981
    ],
-   "datum": "2026-10-22",
+   "datum": "2026-10-23",
    "alter_tage": 1
   }
  ],
@@ -479,6 +479,10 @@
   {
    "d": "2026-10-23",
    "score": 0
+  },
+  {
+   "d": "2026-10-24",
+   "score": 20
   }
  ],
  "schwellen": {
