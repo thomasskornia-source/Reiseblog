@@ -16,14 +16,14 @@ gemini-3.8-flash: HTTP 403 {
   }
 }
 
-gemini-3.7-flash: HTTP 403 {
+gemini-3.7-flash: HTTP 429 {
   "error": {
-    "code": 403,
-    "message": "The caller does not have permission",
-    "status": "PERMISSION_DENIED"
-  }
-}
-
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota ex
 gemini-flash-latest: HTTP 403 {
   "error": {
     "code": 403,
@@ -40,5 +40,3 @@ gemini-flash-latest: HTTP 403 {
   }
 }
 
-Werte aus: JG5MS4L0tEo KI-Ausverkauf setzt sich fort. Jetzt sinkt auch der Dow Jones. 2026-10-23 opening
-  Score -50 Pfeil runter (106564 Tokens)
