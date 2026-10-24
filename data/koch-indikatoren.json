@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-22",
+ "stand": "2026-10-23",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -8,9 +8,9 @@
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 15,
+   "tage_anzahl": 16,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-22",
+   "zuletzt": "2026-10-23",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
@@ -18,7 +18,7 @@
     "Tech-Sektor & KI",
     "Sektorale Kapitalallokation & CapEx-Konzentration"
    ],
-   "rolle": "Während die Tech-Schwergewichte einbrechen, schließen der gleichgewichtete S&P 500, der Dow Jones und der Russell 2000 behauptet bis freundlich.",
+   "rolle": "Die Schwäche der tonangebenden Tech-Schwergewichte zieht das Marktsentiment nach unten, auch wenn über 40 Prozent der Einzeltitel bereits korrigiert haben.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -126,6 +126,13 @@
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
      "rolle": "Während die Tech-Schwergewichte einbrechen, schließen der gleichgewichtete S&P 500, der Dow Jones und der Russell 2000 behauptet bis freundlich."
+    },
+    "2026-10-23": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die Schwäche der tonangebenden Tech-Schwergewichte zieht das Marktsentiment nach unten, auch wenn über 40 Prozent der Einzeltitel bereits korrigiert haben."
     }
    }
   },
@@ -364,14 +371,14 @@
   {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
-   "tage_anzahl": 11,
+   "tage_anzahl": 12,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-22",
+   "zuletzt": "2026-10-23",
    "name": "Nahost & Ukraine-Krieg",
    "namen": [
     "Nahost & Ukraine-Krieg"
    ],
-   "rolle": "Geopolitische Spannungen im Nahen Osten treiben Anleger zusätzlich in sichere US-Staatsanleihen.",
+   "rolle": "Anhaltende Eskalationsrisiken im Nahen Osten belasten das makroökonomische Umfeld und bergen Risiken für die Energiepreise.",
    "tage": {
     "2026-10-02": {
      "p": -1,
@@ -449,20 +456,28 @@
       "Nahost & Ukraine-Krieg"
      ],
      "rolle": "Geopolitische Spannungen im Nahen Osten treiben Anleger zusätzlich in sichere US-Staatsanleihen."
+    },
+    "2026-10-23": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Anhaltende Eskalationsrisiken im Nahen Osten belasten das makroökonomische Umfeld und bergen Risiken für die Energiepreise."
     }
    }
   },
   {
    "kategorie": "Gewinnsaison",
    "status": "bestaetigt",
-   "tage_anzahl": 11,
+   "tage_anzahl": 12,
    "erstmals": "2026-10-05",
-   "zuletzt": "2026-10-22",
+   "zuletzt": "2026-10-23",
    "name": "Q3-Gewinnschätzungen",
    "namen": [
-    "Q3-Gewinnschätzungen"
+    "Q3-Gewinnschätzungen",
+    "Reaktion auf Quartalszahlen ('Sell the News')"
    ],
-   "rolle": "Die negative Marktreaktion auf eigentlich solide Unternehmenszahlen offenbart eine fragile Marktverfassung.",
+   "rolle": "Das Ausbleiben positiver Kursreaktionen auf gute Quartalsberichte verdeutlicht einen tiefgreifenden Stimmungsumschwung bei Anlegern.",
    "tage": {
     "2026-10-05": {
      "p": 2,
@@ -540,6 +555,13 @@
       "Q3-Gewinnschätzungen"
      ],
      "rolle": "Die negative Marktreaktion auf eigentlich solide Unternehmenszahlen offenbart eine fragile Marktverfassung."
+    },
+    "2026-10-23": {
+     "p": -1,
+     "namen": [
+      "Reaktion auf Quartalszahlen ('Sell the News')"
+     ],
+     "rolle": "Das Ausbleiben positiver Kursreaktionen auf gute Quartalsberichte verdeutlicht einen tiefgreifenden Stimmungsumschwung bei Anlegern."
     }
    }
   },
@@ -708,6 +730,76 @@
    }
   },
   {
+   "kategorie": "Sonstiges",
+   "status": "bestaetigt",
+   "tage_anzahl": 8,
+   "erstmals": "2026-10-08",
+   "zuletzt": "2026-10-23",
+   "name": "Tech-Investitionszyklus (CapEx)",
+   "namen": [
+    "Tech-Investitionszyklus (CapEx)"
+   ],
+   "rolle": "Aggressive Kapazitätsausweitungen drohen die Margen der Technologiekonzerne zukünftig merklich zu belasten.",
+   "tage": {
+    "2026-10-08": {
+     "p": 1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die massiven Unternehmensausgaben treiben das Wachstum der führenden Tech-Konzerne an."
+    },
+    "2026-10-12": {
+     "p": -2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Zweifel an der Tragfähigkeit der massiven Investitionen belasten das gesamte Marktumfeld im Technologiesektor."
+    },
+    "2026-10-13": {
+     "p": -2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Befürchtungen über nachlassende Investitionsdynamik und teure Kreditfinanzierungen im Halbleiterbereich belasten das Sentiment."
+    },
+    "2026-10-15": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Wachsende Skepsis bei KI-Investitionen gefährdet die Fortsetzung der Rallye bei Halbleitern und Tech-Schwergewichten."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Analystenberichte zu überzogenen KI-Ausgaben und sinkenden Token-Preisen schüren Skepsis gegenüber der Rentabilität der Branche."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die Furcht vor Überinvestitionen und sinkenden Preisen bremst die Leitbranche des bisherigen Bullenmarkts aus."
+    },
+    "2026-10-21": {
+     "p": 2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Anhaltend hohe Investitionsausgaben untermauern den KI-Trend und treiben verwandte Sektoren an."
+    },
+    "2026-10-23": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Aggressive Kapazitätsausweitungen drohen die Margen der Technologiekonzerne zukünftig merklich zu belasten."
+    }
+   }
+  },
+  {
    "kategorie": "Zinsen & Notenbank",
    "status": "bestaetigt",
    "tage_anzahl": 8,
@@ -842,80 +934,18 @@
    }
   },
   {
-   "kategorie": "Sonstiges",
-   "status": "bestaetigt",
-   "tage_anzahl": 7,
-   "erstmals": "2026-10-08",
-   "zuletzt": "2026-10-21",
-   "name": "Tech-Investitionszyklus (CapEx)",
-   "namen": [
-    "Tech-Investitionszyklus (CapEx)"
-   ],
-   "rolle": "Anhaltend hohe Investitionsausgaben untermauern den KI-Trend und treiben verwandte Sektoren an.",
-   "tage": {
-    "2026-10-08": {
-     "p": 1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Die massiven Unternehmensausgaben treiben das Wachstum der führenden Tech-Konzerne an."
-    },
-    "2026-10-12": {
-     "p": -2,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Zweifel an der Tragfähigkeit der massiven Investitionen belasten das gesamte Marktumfeld im Technologiesektor."
-    },
-    "2026-10-13": {
-     "p": -2,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Befürchtungen über nachlassende Investitionsdynamik und teure Kreditfinanzierungen im Halbleiterbereich belasten das Sentiment."
-    },
-    "2026-10-15": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Wachsende Skepsis bei KI-Investitionen gefährdet die Fortsetzung der Rallye bei Halbleitern und Tech-Schwergewichten."
-    },
-    "2026-10-19": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Analystenberichte zu überzogenen KI-Ausgaben und sinkenden Token-Preisen schüren Skepsis gegenüber der Rentabilität der Branche."
-    },
-    "2026-10-20": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Die Furcht vor Überinvestitionen und sinkenden Preisen bremst die Leitbranche des bisherigen Bullenmarkts aus."
-    },
-    "2026-10-21": {
-     "p": 2,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Anhaltend hohe Investitionsausgaben untermauern den KI-Trend und treiben verwandte Sektoren an."
-    }
-   }
-  },
-  {
    "kategorie": "Saisonalität & Chart",
    "status": "bestaetigt",
-   "tage_anzahl": 6,
+   "tage_anzahl": 7,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-19",
+   "zuletzt": "2026-10-23",
    "name": "Q4-Saisonalität & Positionierung",
    "namen": [
     "Q4-Saisonalität & Positionierung",
-    "September-Indexentwicklung"
+    "September-Indexentwicklung",
+    "Halbleiter-Index (SOX) 200-Tage-Linie"
    ],
-   "rolle": "Aus charttechnischer und historischer Sicht folgten auf derart ausgeprägte Abwärtsstrecken meist deutliche Gegenbewegungen.",
+   "rolle": "Ein Bruch dieser Schlüsselmarke würde das technische Bild für den gesamten Technologiesektor weiter eintrüben.",
    "tage": {
     "2026-10-02": {
      "p": 1,
@@ -959,6 +989,13 @@
       "Q4-Saisonalität & Positionierung"
      ],
      "rolle": "Aus charttechnischer und historischer Sicht folgten auf derart ausgeprägte Abwärtsstrecken meist deutliche Gegenbewegungen."
+    },
+    "2026-10-23": {
+     "p": -1,
+     "namen": [
+      "Halbleiter-Index (SOX) 200-Tage-Linie"
+     ],
+     "rolle": "Ein Bruch dieser Schlüsselmarke würde das technische Bild für den gesamten Technologiesektor weiter eintrüben."
     }
    }
   },

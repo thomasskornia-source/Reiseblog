@@ -1,6 +1,62 @@
 {
  "beitraege": [
   {
+   "id": "JG5MS4L0tEo",
+   "titel": "KI-Ausverkauf setzt sich fort. Jetzt sinkt auch der Dow Jones.",
+   "datum": "2026-10-23",
+   "zeit": "2026-10-23T13:35:14+00:00",
+   "art": "opening",
+   "score": -50,
+   "pfeil": "runter",
+   "thema": "Die Wall Street leidet unter anhaltendem Abgabedruck im Technologiesektor, getrieben von schrumpfenden Bewertungsmultiplikatoren und Margendruck trotz solider Quartalszahlen.",
+   "gesamtstimmung": "Markus Koch beschreibt eine deutliche Stimmungsverschlechterung an den Märkten, bei der insbesondere Tech- und Halbleiterwerte ein spürbares Blutbad erleben. Selbst hervorragende Unternehmensergebnisse werden konsequent abverkauft, während hohe Investitionsausgaben und geopolitische Spannungen die Risiken erhöhen.",
+   "begruendung": "Der Abverkauf bei Tech-Momentum-Werten und der Test der 200-Tage-Linie im Halbleiterindex signalisieren eine anhaltende Korrekturphase. Zudem belasten schrumpfende Bewertungsmultiplikatoren bei KI-Pionieren und die Furcht vor einer Margenkompression die Marktstimmung.",
+   "indikatoren": [
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Tech-Sektor unter massivem Verkaufsdruck, während der gleichgewichtete S&P stabi",
+     "pfeil": "runter",
+     "rolle": "Die Schwäche der tonangebenden Tech-Schwergewichte zieht das Marktsentiment nach unten, auch wenn über 40 Prozent der Einzeltitel bereits korrigiert haben."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Reaktion auf Quartalszahlen ('Sell the News')",
+     "lage": "Starke Zahlen und angehobene Prognosen werden sofort abverkauft",
+     "pfeil": "runter",
+     "rolle": "Das Ausbleiben positiver Kursreaktionen auf gute Quartalsberichte verdeutlicht einen tiefgreifenden Stimmungsumschwung bei Anlegern."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Ausweitende Investitionsausgaben erhöhen den Margendruck",
+     "pfeil": "runter",
+     "rolle": "Aggressive Kapazitätsausweitungen drohen die Margen der Technologiekonzerne zukünftig merklich zu belasten."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Halbleiter-Index (SOX) 200-Tage-Linie",
+     "lage": "Testet die 200-Tage-Linie und den langfristigen Aufwärtstrend",
+     "pfeil": "runter",
+     "rolle": "Ein Bruch dieser Schlüsselmarke würde das technische Bild für den gesamten Technologiesektor weiter eintrüben."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Drohungen des Iran gegen Energieinfrastruktur und Erwartung eines langen Konflik",
+     "pfeil": "runter",
+     "rolle": "Anhaltende Eskalationsrisiken im Nahen Osten belasten das makroökonomische Umfeld und bergen Risiken für die Energiepreise."
+    }
+   ],
+   "zitate": [
+    "Geile News, Sell the News.",
+    "Wir haben keine Earnings-Bubble, wir haben eine Margen-Bubble"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 106564
+  },
+  {
    "id": "ck_ECROX1nQ",
    "titel": "Tag der KI-Panik. Flucht in Sicherheit.",
    "datum": "2026-10-22",
@@ -1736,9 +1792,10 @@
   "4I6LbJ4i--Q",
   "AHVbHg1grnU",
   "QuQYbbJdwcg",
-  "ck_ECROX1nQ"
+  "ck_ECROX1nQ",
+  "JG5MS4L0tEo"
  ],
- "stand": "2026-10-23T22:45Z",
+ "stand": "2026-10-24T16:47Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
