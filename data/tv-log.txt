@@ -1,11 +1,9 @@
-Quelle ok 7000 Zeichen mit 20:15 https://www.tvinfo.de/tv-programm
+Quelle ok 7000 Zeichen ohne 20:15 https://www.tvinfo.de/tv-programm
 Quelle ok 7000 Zeichen mit 20:15 https://www.tv-programmheute.de/
 Quelle ok 7000 Zeichen mit 20:15 https://www.hoerzu.de/tv-programm/jetzt/
-Quelle ok 6006 Zeichen mit 20:15 https://www.tv.de/programm/
+Quelle ok 6429 Zeichen mit 20:15 https://www.tv.de/programm/
 Quelle ok 7000 Zeichen mit 20:15 https://programm.ard.de/TV/Programm/Alle-Sender/
-Quelle ok 3232 Zeichen mit 20:15 https://www.ndr.de/fernsehen/programm/index.html
+Quelle ok 3155 Zeichen mit 20:15 https://www.ndr.de/fernsehen/programm/index.html
 gemini-3.8-flash: The read operation timed out
-gemini-flash-latest: HTTP 429
-gemini-flash-latest: HTTP 429
-gemini-flash-latest: HTTP 429
-Gemini-Fehler: gemini-flash-latest: HTTP 429
+gemini-flash-latest: The read operation timed out
+Gemini-Fehler: gemini-flash-latest: The read operation timed out
