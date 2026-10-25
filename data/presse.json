@@ -1,12 +1,12 @@
 {
- "stand": "2026-10-24",
+ "stand": "2026-10-25",
  "quelle": "Wikipedia-Seitenaufrufe (englisch), kein Tonwert, Yahoo (Kurse)",
  "art": "wiki",
  "hinweis": "Messwerkzeug, kein Handelssignal. Zusammenhänge unter der Schwelle sind nicht belastbar.",
  "pool": {
-  "aufm_vol_gleich": 0.021,
+  "aufm_vol_gleich": 0.02,
   "ton_ret_gleich": null,
-  "n": 936,
+  "n": 918,
   "schwelle": 0.07
  },
  "aktien": {
@@ -16,7 +16,7 @@
     "aufm_vol_folge": 0.18,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -278,11 +278,11 @@
   },
   "GOOGL": {
    "r": {
-    "aufm_vol_gleich": 0.33,
+    "aufm_vol_gleich": 0.32,
     "aufm_vol_folge": 0.2,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -548,7 +548,7 @@
     "aufm_vol_folge": 0.3,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -810,11 +810,11 @@
   },
   "NVDA": {
    "r": {
-    "aufm_vol_gleich": 0.5,
-    "aufm_vol_folge": 0.34,
+    "aufm_vol_gleich": 0.53,
+    "aufm_vol_folge": 0.33,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -1080,7 +1080,7 @@
     "aufm_vol_folge": 0.17,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -1346,7 +1346,7 @@
     "aufm_vol_folge": 0.07,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -1612,7 +1612,7 @@
     "aufm_vol_folge": 0.11,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -1874,11 +1874,11 @@
   },
   "UBER": {
    "r": {
-    "aufm_vol_gleich": -0.12,
+    "aufm_vol_gleich": -0.13,
     "aufm_vol_folge": -0.18,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -2144,7 +2144,7 @@
     "aufm_vol_folge": 0.04,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -2410,7 +2410,7 @@
     "aufm_vol_folge": -0.11,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -2672,11 +2672,11 @@
   },
   "EOG": {
    "r": {
-    "aufm_vol_gleich": 0.14,
+    "aufm_vol_gleich": 0.15,
     "aufm_vol_folge": 0.07,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -2938,11 +2938,11 @@
   },
   "VRSN": {
    "r": {
-    "aufm_vol_gleich": -0.08,
-    "aufm_vol_folge": -0.06,
+    "aufm_vol_gleich": -0.11,
+    "aufm_vol_folge": -0.09,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -3208,7 +3208,7 @@
     "aufm_vol_folge": 0.27,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -3471,10 +3471,10 @@
   "PG": {
    "r": {
     "aufm_vol_gleich": -0.08,
-    "aufm_vol_folge": -0.12,
+    "aufm_vol_folge": -0.13,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -3740,7 +3740,7 @@
     "aufm_vol_folge": 0.11,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -4002,11 +4002,11 @@
   },
   "TRV": {
    "r": {
-    "aufm_vol_gleich": -0.18,
-    "aufm_vol_folge": -0.07,
+    "aufm_vol_gleich": -0.19,
+    "aufm_vol_folge": -0.06,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -4268,11 +4268,11 @@
   },
   "FAST": {
    "r": {
-    "aufm_vol_gleich": 0.06,
-    "aufm_vol_folge": 0.41,
+    "aufm_vol_gleich": 0.07,
+    "aufm_vol_folge": 0.4,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
@@ -4538,7 +4538,7 @@
     "aufm_vol_folge": -0.22,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 52,
+    "n": 51,
     "schwelle": 0.28
    },
    "serie": {
