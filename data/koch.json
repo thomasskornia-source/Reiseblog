@@ -1,6 +1,62 @@
 {
  "beitraege": [
   {
+   "id": "5BYdq8AzVi4",
+   "titel": "Meta will fast 100 Mrd. US-Dollar auftreiben. Anthropic S1-Filing raus.",
+   "datum": "2026-10-26",
+   "zeit": "2026-10-26T13:40:38+00:00",
+   "art": "opening",
+   "score": -15,
+   "pfeil": "runter",
+   "thema": "Vor dem Höhepunkt der US-Berichtssaison und zentralen Notenbankentscheidungen belasten eine Flut an Tech-Aktienplatzierungen sowie geopolitische Spannungen die Marktstimmung.",
+   "gesamtstimmung": "Markus Koch blickt angespannt auf eine hochvolatile Woche mit zahlreichen Big-Tech-Ergebnissen und Notenbanksitzungen. Besondere Skepsis herrscht darüber, ob der Markt die massive Flut an neuen Tech-Aktien und Kapitalerhöhungen problemlos absorbieren kann.",
+   "begruendung": "Zwar sieht Koch nach dem vorherigen Tech-Abverkauf die Chance auf eine technische Gegenbewegung aus überverkauften Niveaus. Jedoch überwiegen die Risiken durch das enorme Papierangebot im Tech-Sektor, Notenbanktagungen und die Zuspitzung im Nahen Osten.",
+   "indikatoren": [
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Zahlreiche Megacaps und Tech-Schwergewichte legen Zahlen vor",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Flut wichtiger Quartalszahlen entscheidet über die Richtung der Gesamtmärkte in dieser Woche."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Riesige Kapitalerhöhungen und Börsengänge zur Finanzierung von KI-Infrastruktur",
+     "pfeil": "runter",
+     "rolle": "Er hinterfragt kritisch, ob die Wall Street die enorme Menge an neuem Aktienangebot aufnehmen kann."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Zinsentscheide von Fed, EZB und Bank of Japan stehen an",
+     "pfeil": "seitwaerts",
+     "rolle": "Zinsschritte werden zwar kaum erwartet, doch die Notenbanken bringen zusätzliche Volatilität."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Tech-Sektor nach starkem Drawdown überverkauft",
+     "pfeil": "hoch",
+     "rolle": "Die überverkaufte Lage eröffnet kurzfristig die Möglichkeit für eine technische Gegenbewegung."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Militärische Eskalationsgefahr zwischen USA und Iran, Drohungen gegen Dateninfra",
+     "pfeil": "runter",
+     "rolle": "Geopolitische Spannungen im Nahen Osten bleiben ein akutes Risiko für Energiepreise und die Märkte."
+    }
+   ],
+   "zitate": [
+    "Ladies and Gentlemen, wir müssen uns anschnallen.",
+    "Super Bowl der Earnings beginnt"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-flash-latest",
+   "tokens": 128047
+  },
+  {
    "id": "JG5MS4L0tEo",
    "titel": "KI-Ausverkauf setzt sich fort. Jetzt sinkt auch der Dow Jones.",
    "datum": "2026-10-23",
@@ -1793,9 +1849,10 @@
   "AHVbHg1grnU",
   "QuQYbbJdwcg",
   "ck_ECROX1nQ",
-  "JG5MS4L0tEo"
+  "JG5MS4L0tEo",
+  "5BYdq8AzVi4"
  ],
- "stand": "2026-10-24T16:47Z",
+ "stand": "2026-10-26T20:14Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",

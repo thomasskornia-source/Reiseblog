@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-23",
+ "stand": "2026-10-26",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -371,14 +371,14 @@
   {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
-   "tage_anzahl": 12,
+   "tage_anzahl": 13,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-23",
+   "zuletzt": "2026-10-26",
    "name": "Nahost & Ukraine-Krieg",
    "namen": [
     "Nahost & Ukraine-Krieg"
    ],
-   "rolle": "Anhaltende Eskalationsrisiken im Nahen Osten belasten das makroökonomische Umfeld und bergen Risiken für die Energiepreise.",
+   "rolle": "Geopolitische Spannungen im Nahen Osten bleiben ein akutes Risiko für Energiepreise und die Märkte.",
    "tage": {
     "2026-10-02": {
      "p": -1,
@@ -463,21 +463,28 @@
       "Nahost & Ukraine-Krieg"
      ],
      "rolle": "Anhaltende Eskalationsrisiken im Nahen Osten belasten das makroökonomische Umfeld und bergen Risiken für die Energiepreise."
+    },
+    "2026-10-26": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Geopolitische Spannungen im Nahen Osten bleiben ein akutes Risiko für Energiepreise und die Märkte."
     }
    }
   },
   {
    "kategorie": "Gewinnsaison",
    "status": "bestaetigt",
-   "tage_anzahl": 12,
+   "tage_anzahl": 13,
    "erstmals": "2026-10-05",
-   "zuletzt": "2026-10-23",
+   "zuletzt": "2026-10-26",
    "name": "Q3-Gewinnschätzungen",
    "namen": [
     "Q3-Gewinnschätzungen",
     "Reaktion auf Quartalszahlen ('Sell the News')"
    ],
-   "rolle": "Das Ausbleiben positiver Kursreaktionen auf gute Quartalsberichte verdeutlicht einen tiefgreifenden Stimmungsumschwung bei Anlegern.",
+   "rolle": "Die Flut wichtiger Quartalszahlen entscheidet über die Richtung der Gesamtmärkte in dieser Woche.",
    "tage": {
     "2026-10-05": {
      "p": 2,
@@ -562,6 +569,101 @@
       "Reaktion auf Quartalszahlen ('Sell the News')"
      ],
      "rolle": "Das Ausbleiben positiver Kursreaktionen auf gute Quartalsberichte verdeutlicht einen tiefgreifenden Stimmungsumschwung bei Anlegern."
+    },
+    "2026-10-26": {
+     "p": 0,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die Flut wichtiger Quartalszahlen entscheidet über die Richtung der Gesamtmärkte in dieser Woche."
+    }
+   }
+  },
+  {
+   "kategorie": "Stimmung & Volatilität",
+   "status": "bestaetigt",
+   "tage_anzahl": 10,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-10-26",
+   "name": "Marktpositionierung und Hebel",
+   "namen": [
+    "Marktpositionierung und Hebel",
+    "Anleihevolatilität (MOVE-Index)",
+    "Anlegerstimmung & Depotrealität",
+    "MOVE-Index",
+    "MOVE-Index (Anleihevolatilität)"
+   ],
+   "rolle": "Die überverkaufte Lage eröffnet kurzfristig die Möglichkeit für eine technische Gegenbewegung.",
+   "tage": {
+    "2026-10-01": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal."
+    },
+    "2026-10-05": {
+     "p": -1,
+     "namen": [
+      "Anleihevolatilität (MOVE-Index)"
+     ],
+     "rolle": "Eine hohe Schwankungsbreite am Rentenmarkt signalisiert anhaltende Nervosität und muss sich für eine tragfähige Rally erst beruhigen."
+    },
+    "2026-10-06": {
+     "p": -1,
+     "namen": [
+      "Anlegerstimmung & Depotrealität"
+     ],
+     "rolle": "Beschreibt die Frustration der Anleger, die an der Indexrallye nicht in der Breite teilhaben."
+    },
+    "2026-10-08": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Eine nachlassende Schwankungsbreite am Rentenmarkt ist für ihn die Grundvoraussetzung für stabilere Aktienmärkte."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "MOVE-Index"
+     ],
+     "rolle": "Eine abnehmende Anleihe-Volatilität erhöht die Stabilität an den Finanzmärkten insgesamt."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "MOVE-Index (Anleihevolatilität)"
+     ],
+     "rolle": "Eine nachlassende Nervosität am Zinsmarkt sorgt für ein stabileres Gesamtumfeld an den Finanzmärkten."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Hohe Fremdkapitalhebel und Derivatepositionen haben die Abwärtsdynamik im Tech-Sektor abrupt verstärkt."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Der Rückzug aus Tech-Aktien in US-Staatsanleihen zeigt die anhaltende Verunsicherung der Investoren."
+    },
+    "2026-10-22": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Das gleichzeitige Auflösen der Long-Positionen in KI und Short-Positionen in US-Staatsanleihen löst heftige Verwerfungen aus."
+    },
+    "2026-10-26": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Die überverkaufte Lage eröffnet kurzfristig die Möglichkeit für eine technische Gegenbewegung."
     }
    }
   },
@@ -649,97 +751,16 @@
    }
   },
   {
-   "kategorie": "Stimmung & Volatilität",
-   "status": "bestaetigt",
-   "tage_anzahl": 9,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-22",
-   "name": "Marktpositionierung und Hebel",
-   "namen": [
-    "Marktpositionierung und Hebel",
-    "Anleihevolatilität (MOVE-Index)",
-    "Anlegerstimmung & Depotrealität",
-    "MOVE-Index",
-    "MOVE-Index (Anleihevolatilität)"
-   ],
-   "rolle": "Das gleichzeitige Auflösen der Long-Positionen in KI und Short-Positionen in US-Staatsanleihen löst heftige Verwerfungen aus.",
-   "tage": {
-    "2026-10-01": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal."
-    },
-    "2026-10-05": {
-     "p": -1,
-     "namen": [
-      "Anleihevolatilität (MOVE-Index)"
-     ],
-     "rolle": "Eine hohe Schwankungsbreite am Rentenmarkt signalisiert anhaltende Nervosität und muss sich für eine tragfähige Rally erst beruhigen."
-    },
-    "2026-10-06": {
-     "p": -1,
-     "namen": [
-      "Anlegerstimmung & Depotrealität"
-     ],
-     "rolle": "Beschreibt die Frustration der Anleger, die an der Indexrallye nicht in der Breite teilhaben."
-    },
-    "2026-10-08": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Eine nachlassende Schwankungsbreite am Rentenmarkt ist für ihn die Grundvoraussetzung für stabilere Aktienmärkte."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "MOVE-Index"
-     ],
-     "rolle": "Eine abnehmende Anleihe-Volatilität erhöht die Stabilität an den Finanzmärkten insgesamt."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "MOVE-Index (Anleihevolatilität)"
-     ],
-     "rolle": "Eine nachlassende Nervosität am Zinsmarkt sorgt für ein stabileres Gesamtumfeld an den Finanzmärkten."
-    },
-    "2026-10-19": {
-     "p": -1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Hohe Fremdkapitalhebel und Derivatepositionen haben die Abwärtsdynamik im Tech-Sektor abrupt verstärkt."
-    },
-    "2026-10-20": {
-     "p": -1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Der Rückzug aus Tech-Aktien in US-Staatsanleihen zeigt die anhaltende Verunsicherung der Investoren."
-    },
-    "2026-10-22": {
-     "p": -1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Das gleichzeitige Auflösen der Long-Positionen in KI und Short-Positionen in US-Staatsanleihen löst heftige Verwerfungen aus."
-    }
-   }
-  },
-  {
    "kategorie": "Sonstiges",
    "status": "bestaetigt",
-   "tage_anzahl": 8,
+   "tage_anzahl": 9,
    "erstmals": "2026-10-08",
-   "zuletzt": "2026-10-23",
+   "zuletzt": "2026-10-26",
    "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
     "Tech-Investitionszyklus (CapEx)"
    ],
-   "rolle": "Aggressive Kapazitätsausweitungen drohen die Margen der Technologiekonzerne zukünftig merklich zu belasten.",
+   "rolle": "Er hinterfragt kritisch, ob die Wall Street die enorme Menge an neuem Aktienangebot aufnehmen kann.",
    "tage": {
     "2026-10-08": {
      "p": 1,
@@ -796,20 +817,27 @@
       "Tech-Investitionszyklus (CapEx)"
      ],
      "rolle": "Aggressive Kapazitätsausweitungen drohen die Margen der Technologiekonzerne zukünftig merklich zu belasten."
+    },
+    "2026-10-26": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Er hinterfragt kritisch, ob die Wall Street die enorme Menge an neuem Aktienangebot aufnehmen kann."
     }
    }
   },
   {
    "kategorie": "Zinsen & Notenbank",
    "status": "bestaetigt",
-   "tage_anzahl": 8,
+   "tage_anzahl": 9,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-16",
+   "zuletzt": "2026-10-26",
    "name": "Fed-Zinserwartungen",
    "namen": [
     "Fed-Zinserwartungen"
    ],
-   "rolle": "Das Ausbleiben hawkisher Überraschungen stützt die Zuversicht im Markt.",
+   "rolle": "Zinsschritte werden zwar kaum erwartet, doch die Notenbanken bringen zusätzliche Volatilität.",
    "tage": {
     "2026-10-02": {
      "p": 1,
@@ -866,6 +894,13 @@
       "Fed-Zinserwartungen"
      ],
      "rolle": "Das Ausbleiben hawkisher Überraschungen stützt die Zuversicht im Markt."
+    },
+    "2026-10-26": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Zinsschritte werden zwar kaum erwartet, doch die Notenbanken bringen zusätzliche Volatilität."
     }
    }
   },
