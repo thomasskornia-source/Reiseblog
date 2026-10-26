@@ -1,13 +1,7 @@
 FEHLER buehne-staatsoper HTTP Error 403: Forbidden
-gemini-3.8-flash: HTTP 503
-gemini-3.8-flash: HTTP 503
-gemini-3.8-flash: HTTP 503
-ok musik-zenith 10 Tipps
 gemini-3.8-flash: The read operation timed out
+gemini-flash-latest: HTTP 503
 gemini-flash-latest: The read operation timed out
 FEHLER muenchen-de-wochenende gemini-flash-latest: The read operation timed out
-gemini-3.8-flash: HTTP 429
-gemini-flash-latest: HTTP 429
-FEHLER musik-backstage gemini-flash-latest: HTTP 429
 Zwei Mal in Folge Tempolimit, Abbruch bis zum nächsten Lauf
-Fertig: 1 Quellen ok, 3 Fehler, 10 neue Tipps, 108 gesamt
+Fertig: 0 Quellen ok, 2 Fehler, 0 neue Tipps, 100 gesamt
