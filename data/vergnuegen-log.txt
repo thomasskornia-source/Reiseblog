@@ -1,6 +1,5 @@
 FEHLER buehne-staatsoper HTTP Error 403: Forbidden
 gemini-3.8-flash: The read operation timed out
-gemini-flash-latest: HTTP 503
 gemini-flash-latest: The read operation timed out
 FEHLER muenchen-de-wochenende gemini-flash-latest: The read operation timed out
 Zwei Mal in Folge Tempolimit, Abbruch bis zum nächsten Lauf
