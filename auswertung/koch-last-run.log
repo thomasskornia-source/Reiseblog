@@ -1,2 +1,44 @@
-Feed nicht lesbar: HTTP Error 404: Not Found
-Nichts Neues.
+Feed: 15 Videos
+   ED_dN0fZxcY 2026-10-27 Flaue Kurse, nach gemischten Ergebnissen. KI-Erholung geht weiter.
+   1r0RTaef6TQ 2026-10-26 Anthropic: Nun gilt es Investoren zu überzeugen.
+   5BYdq8AzVi4 2026-10-26 Meta will fast 100 Mrd. US-Dollar auftreiben. Anthropic S1-Filing raus
+   JG5MS4L0tEo 2026-10-23 KI-Ausverkauf setzt sich fort. Jetzt sinkt auch der Dow Jones.
+   QuQYbbJdwcg 2026-10-22 Dein nächster Urlaubsflug könnte bis zu 20% teurer werden. 💸
+   ck_ECROX1nQ 2026-10-22 Tag der KI-Panik. Flucht in Sicherheit.
+   AHVbHg1grnU 2026-10-22 Gegenwind aus vielen Richtungen | Schnapp Dir den Mini-Koch
+   ZKIXgHWY9Ek 2026-10-21 Meta schüttet neue Aktiengattung an Aktionäre aus | Das ist KEINE Kapi
+Werte aus: ED_dN0fZxcY Flaue Kurse, nach gemischten Ergebnissen. KI-Erholung geht weiter. 2026-10-27 opening
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-flash-latest: Remote end closed connection without response
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: Remote end closed connection without response
