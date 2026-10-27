@@ -1,6 +1,76 @@
 {
  "beitraege": [
   {
+   "id": "1r0RTaef6TQ",
+   "titel": "Anthropic: Nun gilt es Investoren zu überzeugen.",
+   "datum": "2026-10-26",
+   "zeit": "2026-10-26T21:08:44+00:00",
+   "art": "closing",
+   "score": -20,
+   "pfeil": "runter",
+   "thema": "Nach verpuffenden Tagesgewinnen blickt die Wall Street vorsichtig auf eine drohende Testphase der 200-Tage-Linie sowie auf massiven Liquiditätsentzug durch gigantische Tech-Kapitalerhöhungen.",
+   "gesamtstimmung": "Markus Koch zeichnet ein verhaltenes bis skeptisches Kurzfristbild: Der Markt zeigt nach anfänglichen Gewinnen kaum echte Durchschlagskraft und droht charttechnisch nochmals nach unten abzudriften. Vor den anstehenden Notenbankentscheidungen und einer Flut an Quartalszahlen dämpfen vor allem die angespannte Liquidität und ein Überangebot an neuen Aktien die Stimmung.",
+   "begruendung": "Führende Strategen wie BTIG und Morgan Stanley rechnen kurzfristig mit einem weiteren Rücksetzer unter die 200-Tage-Linie des S&P 500. Hinzu kommt die Sorge vor verschärften Finanzkonditionen und einem spürbaren Liquiditätsabfluss durch milliardenschwere Kapitalerhöhungen und Börsenprospekte im Tech-Sektor.",
+   "indikatoren": [
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Charttechnik (200-Tage-Linie S&P 500)",
+     "lage": "drohender Test und mögliches kurzfristiges Unterschreiten der 200-Tage-Linie",
+     "pfeil": "runter",
+     "rolle": "Analystenhäuser wie BTIG und Morgan Stanley sehen charttechnisch weiteres Abwärtspotenzial auf die Sommertiefs, bevor eine Erholung einsetzen kann."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Liquidität & Financial Conditions",
+     "lage": "Financial Conditions Index verschärft sich, Liquidität bleibt größtes Risiko",
+     "pfeil": "runter",
+     "rolle": "Eine Straffung der Finanzierungsbedingungen limitiert die kurzfristige Erholungsfähigkeit der Aktienindizes."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Aktienüberangebot durch Kapitalerhöhungen & IPOs",
+     "lage": "Milliardenschwere Kapitalerhöhungen (z. B. Meta) und Groß-IPOs entziehen dem Mar",
+     "pfeil": "runter",
+     "rolle": "Der dramatische Wandel von Aktienrückkäufen hin zu einer Flut an Neuemissionen und Kapitalerhöhungen belastet die Kapitalströme an der Wall Street."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "10-jährige Renditen verharren knapp unter der 5%-Marke bei 4,99%",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Renditen verharrten auf hohem Niveau seitwärts und standen heute nicht im unmittelbaren Fokus der Marktteilnehmer."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "WTI über 100 Dollar, gibt trotz geopolitischer Schlagzeilen 1,6 % nach",
+     "pfeil": "seitwaerts",
+     "rolle": "Ein hohes Ölpreisniveau bleibt ein latenter Belastungsfaktor, wirkte heute jedoch nicht als akuter Kurstreiber."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Kluft zwischen S&P 500 und Equal-Weight schließt sich schrittweise",
+     "pfeil": "hoch",
+     "rolle": "Die voranschreitende Makro-Rotation und Verengung der Bewertungsspanne signalisieren ein allmähliches Näherrücken des Korrekturendes."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Stillhalten der Fed, EZB und Bank of Japan vor den US-Wahlen erwartet",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Notenbanken dürften vor den anstehenden politischen Terminen keine überraschenden Kursschwenks vollziehen."
+    }
+   ],
+   "zitate": [
+    "So richtig Wumms war heute noch nicht wirklich dahinter.",
+    "Das größte kurzfristige Risiko sei vor allen Dingen Liquidität."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 133919
+  },
+  {
    "id": "5BYdq8AzVi4",
    "titel": "Meta will fast 100 Mrd. US-Dollar auftreiben. Anthropic S1-Filing raus.",
    "datum": "2026-10-26",
@@ -1850,9 +1920,10 @@
   "QuQYbbJdwcg",
   "ck_ECROX1nQ",
   "JG5MS4L0tEo",
-  "5BYdq8AzVi4"
+  "5BYdq8AzVi4",
+  "1r0RTaef6TQ"
  ],
- "stand": "2026-10-26T20:14Z",
+ "stand": "2026-10-27T00:11Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
