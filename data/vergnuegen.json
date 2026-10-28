@@ -410,31 +410,6 @@
   "stand": "2026-10-15"
  },
  {
-  "id": "events-67851188cb",
-  "lat": 48.12422,
-  "lon": 11.58117,
-  "rubrik": "events",
-  "titel": "Auer Dult - Kirchweihdult",
-  "ort": "Mariahilfplatz",
-  "adresse": "",
-  "datum": "2026-10-17",
-  "datum_bis": "2026-10-25",
-  "zeit": "10:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Traditioneller Münchner Markt mit Fahrgeschäften, Handwerkskunst, Antiquitäten und kulinarischen Köstlichkeiten unter freiem Himmel.",
-  "tags": [
-   "Märkte",
-   "Familie",
-   "Draußen",
-   "Kultur"
-  ],
-  "thema": "Feste & Märkte",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-17"
- },
- {
   "id": "events-37b9689a4a",
   "lat": 48.14335,
   "lon": 11.58615,
@@ -550,50 +525,6 @@
   "stand": "2026-10-17"
  },
  {
-  "id": "events-13ffee926c",
-  "lat": 48.14081,
-  "lon": 11.57755,
-  "rubrik": "events",
-  "titel": "Residenzwoche 2026: Führungen",
-  "ort": "Residenz München",
-  "adresse": "",
-  "datum": "2026-10-17",
-  "datum_bis": "2026-10-25",
-  "zeit": "11:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Sonderführungen durch die prunkvollen Säle des Münchner Stadtschlosses im Rahmen der jährlichen Residenzwoche.",
-  "tags": [
-   "Kultur"
-  ],
-  "thema": "Führung & Vortrag",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-16"
- },
- {
-  "id": "events-6f4bd6f1ab",
-  "lat": 48.14081,
-  "lon": 11.57755,
-  "rubrik": "events",
-  "titel": "Residenzwoche: Führungen",
-  "ort": "Residenz München",
-  "adresse": "",
-  "datum": "2026-10-17",
-  "datum_bis": "2026-10-25",
-  "zeit": "11:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Thematische Führungen durch die prunkvollen Säle und historischen Gemächer des Münchner Stadtschlosses.",
-  "tags": [
-   "Kultur"
-  ],
-  "thema": "Führung & Vortrag",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-17"
- },
- {
   "id": "events-066a9a7b1c",
   "lat": 48.13825,
   "lon": 11.58448,
@@ -615,31 +546,6 @@
   "quelle": "Eintritt frei München",
   "url": "https://www.eintrittfrei-muenchen.de/",
   "stand": "2026-10-17"
- },
- {
-  "id": "events-9da017473c",
-  "lat": 48.12422,
-  "lon": 11.58117,
-  "rubrik": "events",
-  "titel": "Auer Dult - Kirchweihdult",
-  "ort": "Mariahilfplatz",
-  "adresse": "",
-  "datum": "2026-10-18",
-  "datum_bis": "2026-10-25",
-  "zeit": "10:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die traditionelle Kirchweihdult bietet herbstliches Markttreiben, Verkaufsstände und Fahrgeschäfte auf dem Mariahilfplatz.",
-  "tags": [
-   "Märkte",
-   "Familie",
-   "Draußen",
-   "Kultur"
-  ],
-  "thema": "Feste & Märkte",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-18"
  },
  {
   "id": "events-69ae8e182d",
@@ -688,30 +594,6 @@
   "stand": "2026-10-18"
  },
  {
-  "id": "events-ed8d8d42ae",
-  "lat": 48.12422,
-  "lon": 11.58117,
-  "rubrik": "events",
-  "titel": "Auer Dult - Kirchweihdult",
-  "ort": "Mariahilfplatz",
-  "adresse": "",
-  "datum": "2026-10-19",
-  "datum_bis": "2026-10-25",
-  "zeit": "10:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die traditionelle Münchner Kirchweihdult bietet am Mariahilfplatz Fahrgeschäfte, Verkaufsstände sowie bayerische Schmankerl.",
-  "tags": [
-   "Märkte",
-   "Familie",
-   "Draußen"
-  ],
-  "thema": "Feste & Märkte",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-19"
- },
- {
   "id": "events-2e383ec528",
   "lat": 48.24531,
   "lon": 11.55586,
@@ -730,28 +612,6 @@
    "Familie"
   ],
   "thema": "Ausstellung & Museum",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-19"
- },
- {
-  "id": "events-8fa7c45e7c",
-  "lat": 48.14081,
-  "lon": 11.57755,
-  "rubrik": "events",
-  "titel": "Residenzwoche 2026: Führungen",
-  "ort": "Residenz München",
-  "adresse": "",
-  "datum": "2026-10-19",
-  "datum_bis": "2026-10-25",
-  "zeit": "11:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Im Rahmen der Residenzwoche werden geführte Rundgänge durch die historischen Prunksäle des Münchner Stadtschlosses angeboten.",
-  "tags": [
-   "Kultur"
-  ],
-  "thema": "Führung & Vortrag",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-19"
@@ -801,31 +661,6 @@
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-19"
- },
- {
-  "id": "events-7ee972649b",
-  "lat": 48.12422,
-  "lon": 11.58117,
-  "rubrik": "events",
-  "titel": "Auer Dult - Kirchweihdult",
-  "ort": "Mariahilfplatz",
-  "adresse": "",
-  "datum": "2026-10-21",
-  "datum_bis": "2026-10-25",
-  "zeit": "10:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die traditionelle Kirchweihdult bietet Marktstände, Fahrgeschäfte und kulinarische Schmankerl zum herbstlichen Bummeln auf dem Mariahilfplatz.",
-  "tags": [
-   "Märkte",
-   "Familie",
-   "Draußen",
-   "Kultur"
-  ],
-  "thema": "Feste & Märkte",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-21"
  },
  {
   "id": "events-8189b9b8bf",
@@ -915,28 +750,6 @@
    "Kultur"
   ],
   "thema": "Ausstellung & Museum",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-21"
- },
- {
-  "id": "events-8620a070ac",
-  "lat": 48.14081,
-  "lon": 11.57755,
-  "rubrik": "events",
-  "titel": "Residenzwoche 2026: Führungen",
-  "ort": "Residenz München",
-  "adresse": "",
-  "datum": "2026-10-21",
-  "datum_bis": "2026-10-25",
-  "zeit": "11:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Im Rahmen der Residenzwoche können Interessierte das historische Münchner Stadtschloss bei thematischen Führungen besichtigen.",
-  "tags": [
-   "Kultur"
-  ],
-  "thema": "Führung & Vortrag",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-21"
@@ -1878,24 +1691,24 @@
   "thema": "Amazon Prime"
  },
  {
-  "id": "tv-42a50e4f4f",
+  "id": "tv-62992d1736",
   "rubrik": "tv",
-  "titel": "Wissen vor acht - Erde",
-  "ort": "Das Erste",
+  "titel": "Expeditionen ins Tierreich: Orcas - Herrscher der Meere",
+  "ort": "NDR",
   "adresse": "",
   "datum": "2026-10-28",
   "datum_bis": "",
-  "zeit": "19:45",
+  "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Kurzes Wissensformat zum Thema Erde. Programm kann sich ändern.",
+  "kurz": "Naturdokumentation über Orcas als Herrscher der Weltmeere. Programm kann sich ändern.",
   "tags": [
    "Doku"
   ],
-  "quelle": "tv-programmheute.de",
-  "url": "https://www.daserste.de/",
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
   "stand": "2026-10-28",
-  "thema": "Das Erste"
+  "thema": "NDR"
  },
  {
   "id": "tv-dba8dde7f0",
@@ -1918,24 +1731,24 @@
   "thema": "Das Erste"
  },
  {
-  "id": "tv-62992d1736",
+  "id": "tv-e6ca1d9b64",
   "rubrik": "tv",
-  "titel": "Expeditionen ins Tierreich: Orcas - Herrscher der Meere",
-  "ort": "NDR",
+  "titel": "Wendland - Stiller und das große Schweigen",
+  "ort": "ZDF",
   "adresse": "",
   "datum": "2026-10-28",
   "datum_bis": "",
   "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Naturdokumentation über Orcas als Herrscher der Weltmeere. Programm kann sich ändern.",
+  "kurz": "Krimi mit einer Laufzeit von 1 Stunde und 30 Minuten. Programm kann sich ändern.",
   "tags": [
-   "Doku"
+   "Film"
   ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.zdf.de/",
   "stand": "2026-10-28",
-  "thema": "NDR"
+  "thema": "ZDF"
  },
  {
   "id": "tv-ba6c066d43",
@@ -1958,23 +1771,23 @@
   "thema": "NDR"
  },
  {
-  "id": "tv-e6ca1d9b64",
+  "id": "tv-42a50e4f4f",
   "rubrik": "tv",
-  "titel": "Wendland - Stiller und das große Schweigen",
-  "ort": "ZDF",
+  "titel": "Wissen vor acht - Erde",
+  "ort": "Das Erste",
   "adresse": "",
   "datum": "2026-10-28",
   "datum_bis": "",
-  "zeit": "20:15",
+  "zeit": "19:45",
   "preis": "",
   "dauer": "",
-  "kurz": "Krimi mit einer Laufzeit von 1 Stunde und 30 Minuten. Programm kann sich ändern.",
+  "kurz": "Kurzes Wissensformat zum Thema Erde. Programm kann sich ändern.",
   "tags": [
-   "Film"
+   "Doku"
   ],
   "quelle": "tv-programmheute.de",
-  "url": "https://www.zdf.de/",
+  "url": "https://www.daserste.de/",
   "stand": "2026-10-28",
-  "thema": "ZDF"
+  "thema": "Das Erste"
  }
 ]
