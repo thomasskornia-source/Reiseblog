@@ -1876,5 +1876,105 @@
   "url": "https://www.primevideo.com/",
   "stand": "2026-10-27",
   "thema": "Amazon Prime"
+ },
+ {
+  "id": "tv-42a50e4f4f",
+  "rubrik": "tv",
+  "titel": "Wissen vor acht - Erde",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-28",
+  "datum_bis": "",
+  "zeit": "19:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kurzes Wissensformat zum Thema Erde. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-28",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-dba8dde7f0",
+  "rubrik": "tv",
+  "titel": "Sportschau",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-28",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sportberichterstattung mit einer Sendedauer von 3 Stunden und 30 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-28",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-62992d1736",
+  "rubrik": "tv",
+  "titel": "Expeditionen ins Tierreich: Orcas - Herrscher der Meere",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-28",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Naturdokumentation über Orcas als Herrscher der Weltmeere. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-28",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-ba6c066d43",
+  "rubrik": "tv",
+  "titel": "Wir werden Camper! - Rudi & Petra auf Rügen",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-28",
+  "datum_bis": "",
+  "zeit": "21:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Begleitung von Rudi und Petra beim Camping auf der Insel Rügen. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-28",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-e6ca1d9b64",
+  "rubrik": "tv",
+  "titel": "Wendland - Stiller und das große Schweigen",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-28",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Krimi mit einer Laufzeit von 1 Stunde und 30 Minuten. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "tv-programmheute.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-28",
+  "thema": "ZDF"
  }
 ]

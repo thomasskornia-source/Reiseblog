@@ -1,11 +1,11 @@
-Quelle ok 7000 Zeichen mit 20:15 https://www.tvinfo.de/tv-programm
+Quelle ok 7000 Zeichen ohne 20:15 https://www.tvinfo.de/tv-programm
 Quelle ok 7000 Zeichen mit 20:15 https://www.tv-programmheute.de/
 Quelle ok 7000 Zeichen mit 20:15 https://www.hoerzu.de/tv-programm/jetzt/
-Quelle ok 5214 Zeichen mit 20:15 https://www.tv.de/programm/
+Quelle ok 6461 Zeichen mit 20:15 https://www.tv.de/programm/
 Quelle ok 7000 Zeichen mit 20:15 https://programm.ard.de/TV/Programm/Alle-Sender/
-Quelle ok 3013 Zeichen mit 20:15 https://www.ndr.de/fernsehen/programm/index.html
+Quelle ok 3555 Zeichen mit 20:15 https://www.ndr.de/fernsehen/programm/index.html
 gemini-3.8-flash: The read operation timed out
 gemini-flash-latest: HTTP 503
 gemini-flash-latest: HTTP 503
-gemini-flash-latest: HTTP 503
-Gemini-Fehler: gemini-flash-latest: HTTP 503
+5 Sendungen für heute
+Sender heute: ['Das Erste', 'NDR', 'ZDF'] | fehlend: ['3sat', 'ARTE', 'BR', 'SWR', 'WDR', 'hr']
