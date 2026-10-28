@@ -1,16 +1,16 @@
 {
- "stand": "2026-10-27",
+ "stand": "2026-10-28",
  "gesamt": {
-  "score": 20,
-  "pfeil": "seitwaerts",
+  "score": 40,
+  "pfeil": "hoch",
   "anzahl": 5,
-  "text": "Die Stimmungsdaten sind gemischt."
+  "text": "Die Stimmungsdaten stützen die Börse."
  },
  "indikatoren": [
   {
    "id": "vix",
    "name": "VIX (Angstbarometer)",
-   "wert": 18.39,
+   "wert": 17.52,
    "einheit": "",
    "pfeil": "seitwaerts",
    "text": "normal bis nervös",
@@ -18,7 +18,6 @@
    "quelle": "Cboe über Yahoo (^VIX)",
    "url": "https://finance.yahoo.com/quote/%5EVIX",
    "reihe": [
-    16.5,
     15.81,
     15.15,
     14.9,
@@ -77,23 +76,23 @@
     16.68,
     19.03,
     19.45,
-    18.39
+    18.39,
+    17.52
    ],
-   "datum": "2026-10-26",
+   "datum": "2026-10-27",
    "alter_tage": 1
   },
   {
    "id": "kurve",
    "name": "VIX-Kurve (VIX / VIX3M)",
-   "wert": 0.922,
+   "wert": 0.895,
    "einheit": "",
-   "pfeil": "seitwaerts",
-   "text": "neutral",
+   "pfeil": "hoch",
+   "text": "entspannt",
    "erklaerung": "Verhältnis der Angst von heute zur Angst der nächsten drei Monate. Über 1,0 rechnen Anleger kurzfristig mit mehr Ausschlägen als später: ein Stresszeichen.",
    "quelle": "Cboe über Yahoo (^VIX, ^VIX3M)",
    "url": "https://finance.yahoo.com/quote/%5EVIX3M",
    "reihe": [
-    0.838,
     0.853,
     0.834,
     0.811,
@@ -152,15 +151,16 @@
     0.891,
     0.946,
     0.95,
-    0.922
+    0.922,
+    0.895
    ],
-   "datum": "2026-10-26",
+   "datum": "2026-10-27",
    "alter_tage": 1
   },
   {
    "id": "hy",
    "name": "High-Yield-Spread",
-   "wert": 3.38,
+   "wert": 3.3,
    "einheit": " %",
    "pfeil": "hoch",
    "text": "entspannt",
@@ -168,7 +168,6 @@
    "quelle": "FRED (ICE BofA US High Yield OAS)",
    "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
    "reihe": [
-    2.78,
     2.73,
     2.75,
     2.71,
@@ -227,15 +226,16 @@
     3.33,
     3.27,
     3.4,
-    3.38
+    3.38,
+    3.3
    ],
-   "datum": "2026-10-23",
-   "alter_tage": 4
+   "datum": "2026-10-26",
+   "alter_tage": 2
   },
   {
    "id": "breite",
    "name": "Marktbreite (RSP gegen SPY)",
-   "wert": 1.24,
+   "wert": 0.8,
    "einheit": " %",
    "pfeil": "hoch",
    "text": "breit getragen",
@@ -243,7 +243,6 @@
    "quelle": "Yahoo (RSP, SPY)",
    "url": "https://finance.yahoo.com/quote/RSP",
    "reihe": [
-    0.287,
     0.286,
     0.285,
     0.284,
@@ -302,9 +301,10 @@
     0.28,
     0.286,
     0.285,
-    0.284
+    0.284,
+    0.283
    ],
-   "datum": "2026-10-26",
+   "datum": "2026-10-27",
    "alter_tage": 1
   },
   {
@@ -380,13 +380,13 @@
     1.05
    ],
    "datum": "2019-10-04",
-   "alter_tage": 2580,
+   "alter_tage": 2581,
    "veraltet": true
   },
   {
    "id": "fg",
    "name": "Fear & Greed (CNN)",
-   "wert": 27,
+   "wert": 34,
    "einheit": "",
    "pfeil": "runter",
    "text": "Angst",
@@ -394,7 +394,6 @@
    "quelle": "CNN Business",
    "url": "https://edition.cnn.com/markets/fear-and-greed",
    "reihe": [
-    58.971,
     60.229,
     59.686,
     65.143,
@@ -420,42 +419,43 @@
     45.229,
     39.143,
     38.2,
-    32.2,
-    32.686,
-    30.971,
-    27.971,
-    27.314,
-    28.286,
-    30.429,
-    34.171,
-    35.029,
-    32.543,
-    35.743,
-    36.943,
-    34.4,
-    28.857,
+    31.914,
+    33.114,
+    32.086,
+    29.257,
+    27.029,
+    29.457,
+    28.486,
+    33.943,
+    35.229,
+    33.657,
+    34.514,
+    36.914,
+    32.4,
+    31.057,
+    30.314,
+    29.229,
+    38.2,
+    43.086,
+    47.029,
+    44.714,
+    39.171,
+    43.514,
+    45.229,
+    45.6,
+    28.786,
+    32.0,
+    18.214,
+    19.514,
+    28.743,
     30.257,
-    28.971,
-    39.971,
-    43.714,
-    46.8,
-    42.143,
-    39.8,
-    46.486,
-    46.343,
-    44.114,
-    26.657,
-    30.343,
-    22.073,
-    20.804,
-    29.571,
-    27.226,
-    19.44,
-    22.981,
-    27.079,
-    27.079
+    19.986,
+    16.686,
+    29.829,
+    33.6,
+    33.6
    ],
-   "datum": "2026-10-26",
+   "datum": "2026-10-27",
    "alter_tage": 1
   }
  ],
@@ -487,6 +487,10 @@
   {
    "d": "2026-10-27",
    "score": 20
+  },
+  {
+   "d": "2026-10-28",
+   "score": 40
   }
  ],
  "schwellen": {
