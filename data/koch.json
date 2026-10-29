@@ -1,6 +1,48 @@
 {
  "beitraege": [
   {
+   "id": "ALcJjGNQ1tc",
+   "titel": "Diplomatie oder Eskalation? Der Ölmarkt hat sich heute gleich mehrfach entschieden. 🛢️",
+   "datum": "2026-10-28",
+   "zeit": "2026-10-28T08:09:02+00:00",
+   "art": "opening",
+   "score": -30,
+   "pfeil": "runter",
+   "thema": "Der Einfluss der geopolitischen Spannungen zwischen Iran und Israel auf die volatilen Ölpreise.",
+   "gesamtstimmung": "Die Marktstimmung ist geprägt von Verunsicherung angesichts der unberechenbaren Lage im Nahen Osten. Wechselnde Schlagzeilen zwischen diplomatischer Hoffnung und Eskalationsdrohungen sorgen für Nervosität.",
+   "begruendung": "Die geopolitischen Spannungen rund um den Iran belasten das Marktumfeld spürbar durch wilde Ausschläge bei den Ölpreisen. Solange unklar ist, ob es zu militärischen Gegenschlägen kommt, bleibt das Risiko für die Märkte erhöht.",
+   "indikatoren": [
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "drohende Eskalation und Gegenschläge zwischen Iran und Israel",
+     "pfeil": "runter",
+     "rolle": "Die Gefahr eines offenen Konflikts schürt akute Versorgungs- und Marktängste."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "hohe Volatilität im Schleudergang",
+     "pfeil": "runter",
+     "rolle": "Starke Preissprünge beim Rohöl belasten das Vertrauen und bergen Inflationsrisiken."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "getrieben von kurzfristigen Schlagzeilen",
+     "pfeil": "runter",
+     "rolle": "Die erratische Nachrichtenlage sorgt für Verunsicherung und kurzfristige Positionsanpassungen."
+    }
+   ],
+   "zitate": [
+    "was für ein wilder Ritt heute",
+    "haben sich mal wieder im Schleudergang überschlagen"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 4639
+  },
+  {
    "id": "1r0RTaef6TQ",
    "titel": "Anthropic: Nun gilt es Investoren zu überzeugen.",
    "datum": "2026-10-26",
@@ -1921,9 +1963,12 @@
   "ck_ECROX1nQ",
   "JG5MS4L0tEo",
   "5BYdq8AzVi4",
-  "1r0RTaef6TQ"
+  "1r0RTaef6TQ",
+  "nXoXzjkXEOI",
+  "ALcJjGNQ1tc",
+  "PZ9BtRb44X8"
  ],
- "stand": "2026-10-27T00:11Z",
+ "stand": "2026-10-29T20:13Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",

@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-26",
+ "stand": "2026-10-28",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -146,15 +146,15 @@
   {
    "kategorie": "Öl & Rohstoffe",
    "status": "bestaetigt",
-   "tage_anzahl": 16,
+   "tage_anzahl": 17,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-26",
+   "zuletzt": "2026-10-28",
    "name": "Öl- und Dieselpreise",
    "namen": [
     "Öl- und Dieselpreise",
     "Ölpreise"
    ],
-   "rolle": "Ein hohes Ölpreisniveau bleibt ein latenter Belastungsfaktor, wirkte heute jedoch nicht als akuter Kurstreiber.",
+   "rolle": "Starke Preissprünge beim Rohöl belasten das Vertrauen und bergen Inflationsrisiken.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -267,6 +267,13 @@
       "Öl- und Dieselpreise"
      ],
      "rolle": "Ein hohes Ölpreisniveau bleibt ein latenter Belastungsfaktor, wirkte heute jedoch nicht als akuter Kurstreiber."
+    },
+    "2026-10-28": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Starke Preissprünge beim Rohöl belasten das Vertrauen und bergen Inflationsrisiken."
     }
    }
   },
@@ -392,14 +399,14 @@
   {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
-   "tage_anzahl": 13,
+   "tage_anzahl": 14,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-26",
+   "zuletzt": "2026-10-28",
    "name": "Nahost & Ukraine-Krieg",
    "namen": [
     "Nahost & Ukraine-Krieg"
    ],
-   "rolle": "Geopolitische Spannungen im Nahen Osten bleiben ein akutes Risiko für Energiepreise und die Märkte.",
+   "rolle": "Die Gefahr eines offenen Konflikts schürt akute Versorgungs- und Marktängste.",
    "tage": {
     "2026-10-02": {
      "p": -1,
@@ -491,6 +498,13 @@
       "Nahost & Ukraine-Krieg"
      ],
      "rolle": "Geopolitische Spannungen im Nahen Osten bleiben ein akutes Risiko für Energiepreise und die Märkte."
+    },
+    "2026-10-28": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Die Gefahr eines offenen Konflikts schürt akute Versorgungs- und Marktängste."
     }
    }
   },
@@ -603,9 +617,9 @@
   {
    "kategorie": "Stimmung & Volatilität",
    "status": "bestaetigt",
-   "tage_anzahl": 10,
+   "tage_anzahl": 11,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-10-26",
+   "zuletzt": "2026-10-28",
    "name": "Marktpositionierung und Hebel",
    "namen": [
     "Marktpositionierung und Hebel",
@@ -615,7 +629,7 @@
     "MOVE-Index (Anleihevolatilität)",
     "Liquidität & Financial Conditions"
    ],
-   "rolle": "Eine Straffung der Finanzierungsbedingungen limitiert die kurzfristige Erholungsfähigkeit der Aktienindizes.",
+   "rolle": "Die erratische Nachrichtenlage sorgt für Verunsicherung und kurzfristige Positionsanpassungen.",
    "tage": {
     "2026-10-01": {
      "p": 1,
@@ -687,6 +701,13 @@
       "Liquidität & Financial Conditions"
      ],
      "rolle": "Eine Straffung der Finanzierungsbedingungen limitiert die kurzfristige Erholungsfähigkeit der Aktienindizes."
+    },
+    "2026-10-28": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Die erratische Nachrichtenlage sorgt für Verunsicherung und kurzfristige Positionsanpassungen."
     }
    }
   },
