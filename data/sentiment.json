@@ -1,7 +1,7 @@
 {
- "stand": "2026-10-29",
+ "stand": "2026-10-30",
  "gesamt": {
-  "score": 60,
+  "score": 40,
   "pfeil": "hoch",
   "anzahl": 5,
   "text": "Die Stimmungsdaten stützen die Börse."
@@ -10,15 +10,14 @@
   {
    "id": "vix",
    "name": "VIX (Angstbarometer)",
-   "wert": 16.91,
+   "wert": 17.2,
    "einheit": "",
-   "pfeil": "hoch",
-   "text": "ruhig",
+   "pfeil": "seitwaerts",
+   "text": "normal bis nervös",
    "erklaerung": "Erwartete Schwankung des S&P 500 über 30 Tage aus Optionspreisen. Unter 17 ruhig, über 25 Angst. Sehr niedrige Werte bedeuten oft Sorglosigkeit.",
    "quelle": "Cboe über Yahoo (^VIX)",
    "url": "https://finance.yahoo.com/quote/%5EVIX",
    "reihe": [
-    15.15,
     14.9,
     15.46,
     15.28,
@@ -77,15 +76,16 @@
     19.45,
     18.39,
     17.52,
-    16.91
+    16.91,
+    17.2
    ],
-   "datum": "2026-10-28",
+   "datum": "2026-10-29",
    "alter_tage": 1
   },
   {
    "id": "kurve",
    "name": "VIX-Kurve (VIX / VIX3M)",
-   "wert": 0.88,
+   "wert": 0.888,
    "einheit": "",
    "pfeil": "hoch",
    "text": "entspannt",
@@ -93,7 +93,6 @@
    "quelle": "Cboe über Yahoo (^VIX, ^VIX3M)",
    "url": "https://finance.yahoo.com/quote/%5EVIX3M",
    "reihe": [
-    0.834,
     0.811,
     0.796,
     0.815,
@@ -152,15 +151,16 @@
     0.95,
     0.922,
     0.895,
-    0.88
+    0.88,
+    0.888
    ],
-   "datum": "2026-10-28",
+   "datum": "2026-10-29",
    "alter_tage": 1
   },
   {
    "id": "hy",
    "name": "High-Yield-Spread",
-   "wert": 3.18,
+   "wert": 3.14,
    "einheit": " %",
    "pfeil": "hoch",
    "text": "entspannt",
@@ -168,7 +168,6 @@
    "quelle": "FRED (ICE BofA US High Yield OAS)",
    "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
    "reihe": [
-    2.75,
     2.71,
     2.7,
     2.7,
@@ -227,15 +226,16 @@
     3.4,
     3.38,
     3.3,
-    3.18
+    3.18,
+    3.14
    ],
-   "datum": "2026-10-27",
+   "datum": "2026-10-28",
    "alter_tage": 2
   },
   {
    "id": "breite",
    "name": "Marktbreite (RSP gegen SPY)",
-   "wert": 0.45,
+   "wert": 2.06,
    "einheit": " %",
    "pfeil": "hoch",
    "text": "breit getragen",
@@ -243,7 +243,6 @@
    "quelle": "Yahoo (RSP, SPY)",
    "url": "https://finance.yahoo.com/quote/RSP",
    "reihe": [
-    0.285,
     0.284,
     0.285,
     0.285,
@@ -302,9 +301,10 @@
     0.285,
     0.284,
     0.283,
-    0.282
+    0.282,
+    0.286
    ],
-   "datum": "2026-10-28",
+   "datum": "2026-10-29",
    "alter_tage": 1
   },
   {
@@ -380,13 +380,13 @@
     1.05
    ],
    "datum": "2019-10-04",
-   "alter_tage": 2582,
+   "alter_tage": 2583,
    "veraltet": true
   },
   {
    "id": "fg",
    "name": "Fear & Greed (CNN)",
-   "wert": 36,
+   "wert": 35,
    "einheit": "",
    "pfeil": "runter",
    "text": "Angst",
@@ -394,7 +394,6 @@
    "quelle": "CNN Business",
    "url": "https://edition.cnn.com/markets/fear-and-greed",
    "reihe": [
-    59.686,
     65.143,
     64.371,
     60.086,
@@ -452,10 +451,11 @@
     16.686,
     29.829,
     32.886,
-    35.857,
-    35.857
+    34.4,
+    34.6,
+    34.6
    ],
-   "datum": "2026-10-28",
+   "datum": "2026-10-29",
    "alter_tage": 1
   }
  ],
@@ -495,6 +495,10 @@
   {
    "d": "2026-10-29",
    "score": 60
+  },
+  {
+   "d": "2026-10-30",
+   "score": 40
   }
  ],
  "schwellen": {
