@@ -1,2 +1,52 @@
-Feed nicht lesbar: HTTP Error 404: Not Found
-Nichts Neues.
+Feed: 15 Videos
+   SsO9Vpp3ekI 2026-10-30 Tech-Stimmung bricht ein | Hohe Kurseinbrüche bei Intel, Reddit und Ro
+   s3VHxoHJNF0 2026-10-29 Google verliert rund 500 Mrd. US-Dollar an Wert | Amazon und Intel heu
+   PZ9BtRb44X8 2026-10-29 Seagate liefert und wird trotzdem abgestraft. 📉
+   eCbifbH1M_M 2026-10-29 Google-Schock. Einbruch Fortinet, Caterpillar und ServiceNow.
+   M6U-WtoaMOI 2026-10-28 Ertrags-Bonanza heute Abend: Google, Microsoft, ServiceNow und viele m
+   CH3NwXOpKw0 2026-10-28 FED-Pressekonferenz | LIVE hier ab 19:27 Uhr
+   DzPaDeO2RO4 2026-10-28 FED-Entscheidung | LIVE-STREAM ab 18:57 Uhr
+   zHP-A26K71Y 2026-10-28 Fed entscheidet – und der KI-Boom bleibt auf Kurs
+Werte aus: zHP-A26K71Y Fed entscheidet – und der KI-Boom bleibt auf Kurs 2026-10-28 opening
+gemini-3.8-flash: Remote end closed connection without response
+gemini-3.7-flash: Remote end closed connection without response
+  Score -15 Pfeil runter (121341 Tokens)
+Werte aus: s3VHxoHJNF0 Google verliert rund 500 Mrd. US-Dollar an Wert | Amazon und Intel heute Abend. 2026-10-29 opening
+  Score -65 Pfeil runter (150912 Tokens)
+Werte aus: eCbifbH1M_M Google-Schock. Einbruch Fortinet, Caterpillar und ServiceNow. 2026-10-29 opening
+gemini-3.8-flash: Remote end closed connection without response
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  Score -60 Pfeil runter (124999 Tokens)
+Werte aus: SsO9Vpp3ekI Tech-Stimmung bricht ein | Hohe Kurseinbrüche bei Intel, Reddit und Roblox 2026-10-30 opening
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  Score -50 Pfeil runter (135880 Tokens)

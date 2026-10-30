@@ -1,6 +1,230 @@
 {
  "beitraege": [
   {
+   "id": "SsO9Vpp3ekI",
+   "titel": "Tech-Stimmung bricht ein | Hohe Kurseinbrüche bei Intel, Reddit und Roblox",
+   "datum": "2026-10-30",
+   "zeit": "2026-10-30T14:56:59+00:00",
+   "art": "opening",
+   "score": -50,
+   "pfeil": "runter",
+   "thema": "Ein schwerer Ausverkauf im Technologiesektor belastet die Wall Street, während geopolitische Spannungen und politische Unsicherheiten vor den Midterms die Nervosität weiter anheizen.",
+   "gesamtstimmung": "Die Marktstimmung ist von massiver Verunsicherung und Furcht vor einem Auslaufen des Tech- und KI-Booms geprägt, da schrumpfende Cashflows und gebremste Investitionsausgaben belasten. Zwar federt eine Rotation in defensive Value- und Energietitel den Gesamtmarkt noch ab, doch geopolitische Risiken und Wahlen erhöhen den Druck.",
+   "begruendung": "Der Technologiesektor leidet unter herben zweistelligen Kursverlusten und Zweifeln an der Nachhaltigkeit massiver KI-Investitionen bei gleichzeitig kollabierenden freien Cashflows. Zudem trüben der anhaltend hohe Ölpreis, Nahost-Spannungen und Sorgen vor regulatorischem Gegenwind nach den US-Wahlen das Marktumfeld spürbar ein.",
+   "indikatoren": [
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Erste Anzeichen eines Ziels/Höhepunkts erreicht, Ausgabenbudgets werden kaum noc",
+     "pfeil": "runter",
+     "rolle": "Gedämpfte Investitionsausgaben der Tech-Giganten bedrohen das Fundament des gesamten KI-Booms und belasten Halbleiter- sowie Infrastrukturwerte."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Sektorrotation in Value- und Standardwerte",
+     "lage": "Kapital rotiert aus Tech in Energie, Konsum und Standardwerte",
+     "pfeil": "hoch",
+     "rolle": "Die Umschichtung stützt die breiteren Indizes kurzfristig, birgt aber das Risiko, bei anhaltendem Tech-Druck bald zusammenzubrechen."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "WTI-Ölpreis klettert über 104 Dollar je Barrel",
+     "pfeil": "runter",
+     "rolle": "Stark gestiegene Energiepreise nähren Inflations- und Konjunktursorgen, stützen im Gegenzug jedoch die Gewinne der Ölkonzerne."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Spannungen um den Iran und die Straße von Hormus bleiben trotz diplomatischer Be",
+     "pfeil": "runter",
+     "rolle": "Die Gefahr einer Eskalation und Blockade der Öltransportrouten hält eine spürbare Risikoprämie im Markt aufrecht."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Midterm-Wahlen",
+     "lage": "Zunehmende Wahrscheinlichkeit einer 'blauen Welle' (demokratische Mehrheit in be",
+     "pfeil": "runter",
+     "rolle": "Anleger fürchten strengere Regulierungen und fiskalpolitische Belastungen insbesondere für den Technologiesektor."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpsychologie und Angst",
+     "lage": "Emotional und von Panikverkäufen im Tech-Bereich geprägt",
+     "pfeil": "runter",
+     "rolle": "Starke Kurseinbrüche bei Vorzeigeunternehmen führen zu einer spürbaren Abkühlung der Risikobereitschaft."
+    },
+    {
+     "kategorie": "Arbeitsmarkt",
+     "name": "US-Arbeitsmarktdaten",
+     "lage": "Bericht für Oktober steht bevor; Erholung auf 65.000 neue Stellen erwartet",
+     "pfeil": "seitwaerts",
+     "rolle": "Ein robuster Arbeitsmarkt wird für die Beurteilung der US-Konjunktur und der Zinsperspektiven entscheidend sein."
+    }
+   ],
+   "zitate": [
+    "Ein wirklich harter Handelstag im Tech-Sektor.",
+    "Die Psychologie trübt sich ein."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 135880
+  },
+  {
+   "id": "s3VHxoHJNF0",
+   "titel": "Google verliert rund 500 Mrd. US-Dollar an Wert | Amazon und Intel heute Abend.",
+   "datum": "2026-10-29",
+   "zeit": "2026-10-29T23:09:08+00:00",
+   "art": "opening",
+   "score": -65,
+   "pfeil": "runter",
+   "thema": "Ein schwerer Abverkauf bei großen US-Technologiewerten nach enttäuschenden Quartalszahlen und schwachen Ausblicken belastet die Wall Street spürbar.",
+   "gesamtstimmung": "Die Stimmung an der Wall Street ist stark getrübt und von extremer Nervosität geprägt, da gleich mehrere Tech-Schwergewichte enttäuschende Zahlen oder trübe Prognosen geliefert haben. Zudem gerät das bisherige Narrativ des KI-Booms durch nachlassende Wachstumsdynamik und Capex-Sorgen zunehmend ins Wanken.",
+   "begruendung": "Koch beschreibt den Handelstag für den Tech-Sektor als echtes Blutbad und verweist auf historische Marktwertverluste sowie drastische nachbörsliche Kurseinbrüche bei Branchengrößen. Die extrem dünnen Nerven der Anleger im Vorfeld der Midterms und erste Anzeichen für einen erreichten Zenit bei den Investitionen verstärken den Verkaufsdruck.",
+   "indikatoren": [
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Reihenweise verfehlte Umsatz-, Gewinn- und Ausblicksdaten bei Tech-Giganten",
+     "pfeil": "runter",
+     "rolle": "Enttäuschende Quartalszahlen und schwache Prognosen für das Schlussquartal lösen massive Abverkäufe aus."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Capex-Investitionen verfehlen Schätzungen, Zenit-Wachstum rückt in den Fokus",
+     "pfeil": "runter",
+     "rolle": "Die Frage nach der Nachhaltigkeit der massiven KI- und Infrastrukturinvestitionen verunsichert den Markt."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Extrem dünne Nerven, panikartige Reaktionen auf Margen- und Ausblicksrisiken",
+     "pfeil": "runter",
+     "rolle": "Die hohe Verwundbarkeit der Anleger führt dazu, dass selbst kleinere Verfehlungen mit zweistelligen Kursverlusten abgestraft werden."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zollpolitik & Schuldenpläne",
+     "lage": "Wachsende Nervosität im Vorfeld der anstehenden US-Zwischenwahlen",
+     "pfeil": "runter",
+     "rolle": "Die politische Unsicherheit vor den Midterms engt die Risikobereitschaft der Marktteilnehmer zusätzlich ein."
+    }
+   ],
+   "zitate": [
+    "bei einzelnen Tech-Werten ein wirkliches Blutbad",
+    "wie dünn die Nerven aktuell an der Wall Street sind"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 150912
+  },
+  {
+   "id": "eCbifbH1M_M",
+   "titel": "Google-Schock. Einbruch Fortinet, Caterpillar und ServiceNow.",
+   "datum": "2026-10-29",
+   "zeit": "2026-10-29T15:30:09+00:00",
+   "art": "opening",
+   "score": -60,
+   "pfeil": "runter",
+   "thema": "Schwache Tech-Quartalszahlen und wachsende Sorgen vor einem Zenit im KI-Investitionszyklus belasten die Wall Street massiv.",
+   "gesamtstimmung": "Markus Koch zeichnet ein sehr trübes Bild für den Handelstag, da der Technologiesektor und das KI-Narrativ durch enttäuschende Details und CapEx-Bedenken schwer erschüttert werden. Die Marktreaktion ist stark asymmetrisch, da selbst kleine Verfehlungen zu drastischen Kurseinbrüchen führen.",
+   "begruendung": "Heftige Kursverluste bei Schwergewichten und Softwarewerten zeigen, dass der KI-Boom erste Risse bekommt und Anleger zunehmend vorsichtig werden. Zwar gibt es vage Entspannungssignale aus dem Nahen Osten, doch die Enttäuschungen der laufenden Gewinnsaison dominieren das Börsengeschehen eindeutig.",
+   "indikatoren": [
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Sorgen vor baldigem Zenit und verfehlte Investitionserwartungen",
+     "pfeil": "runter",
+     "rolle": "Er sieht den gesamten KI-Trade gefährdet, wenn Tech-Giganten ihre massiven Investitionsausgaben drosseln oder deren Höhepunkt absehbar wird."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Schrumpfende Fehlertoleranz, Verfehlungen führen zu Kurseinbrüchen",
+     "pfeil": "runter",
+     "rolle": "Die Zahlen zeigen ihm, dass selbst solide Ergebnisse bei Schwächen in Teilbereichen gnadenlos abgestraft werden."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Optimismus der Vortage verfliegt schlagartig",
+     "pfeil": "runter",
+     "rolle": "Die ausgeprägte Nervosität und die heftigen Abverkäufe signalisieren eine sehr fragile Marktverfassung."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Diplomatische Gespräche und Hoffnung auf Deeskalation mit dem Iran",
+     "pfeil": "hoch",
+     "rolle": "Mögliche Verhandlungserfolge und eine Offenhaltung der Straße von Hormus könnten geopolitische Risiken dämpfen."
+    }
+   ],
+   "zitate": [
+    "Heute wird es an der Wall Street sehr ungemütlich",
+    "Der AI-Trade fängt auch an zu wackeln"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-flash-latest",
+   "tokens": 124999
+  },
+  {
+   "id": "zHP-A26K71Y",
+   "titel": "Fed entscheidet – und der KI-Boom bleibt auf Kurs",
+   "datum": "2026-10-28",
+   "zeit": "2026-10-28T16:31:12+00:00",
+   "art": "opening",
+   "score": -15,
+   "pfeil": "runter",
+   "thema": "Einschätzung der Wall Street vor der Fed-Zinsentscheidung im Spannungsfeld zwischen Tech-Quartalszahlen, schwacher Marktbreite und Nahost-Spannungen.",
+   "gesamtstimmung": "Die Marktstimmung präsentiert sich vorsichtig und zögerlich, da selbst starke Unternehmensergebnisse aufgrund der hohen Bewertungsmesslatte kaum noch Euphorie auslösen. Belastend wirken zudem geopolitische Risiken um den Iran, anziehende Ölpreise sowie eine anhaltend schwache Marktbreite jenseits der Tech-Werte.",
+   "begruendung": "Zwar ist das absolute Gewinnwachstum im S&P 500 mit 29 Prozent solide, die Spanne der positiven Überraschungen fällt jedoch deutlich geringer aus als im Vorquartal, was bei vielen Titeln zu Abverkäufen führt. Gleichzeitig dämpfen gestiegene Finanzierungskosten die zyklischen Branchen, während geopolitische Spannungen den Ölpreis treiben.",
+   "indikatoren": [
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "hohes absolutes Wachstum, aber geringere positive Überraschungsspanne",
+     "pfeil": "seitwaerts",
+     "rolle": "Erklärt, warum gute Ergebnisse vielerorts bereits eingepreist sind und nicht mehr für Kursrallyes ausreichen."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "schwach, zyklische Dow-Werte und Equal-Weight hinken hinterher",
+     "pfeil": "runter",
+     "rolle": "Zeigt auf, dass der Markt stark von wenigen Technologiewerten getragen wird, während andere Sektoren unter Kosten leiden."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Medienberichte über mögliche US-Militärschläge gegen Iran nach den Zwischenwahle",
+     "pfeil": "runter",
+     "rolle": "Erhöht die geopolitische Risikoprämie und heizt den Ölpreis weiter an."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "WTI wieder über 100 Dollar notierend",
+     "pfeil": "runter",
+     "rolle": "Belastet die Gesamtwirtschaft durch höhere Betriebskosten und schürt Inflationssorgen."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Zinsschritt heute sehr unwahrscheinlich, Fokus auf Zinsausblick",
+     "pfeil": "seitwaerts",
+     "rolle": "Beeinflusst, ob der Kapitalmarkt bereits zu viele Zinsschritte eingepreist hat."
+    }
+   ],
+   "zitate": [
+    "Das Ausmaß des Beats und der Anhebung reicht nicht aus",
+    "hier suchen halt viele irgendeine Begründung"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-flash-latest",
+   "tokens": 121341
+  },
+  {
    "id": "ALcJjGNQ1tc",
    "titel": "Diplomatie oder Eskalation? Der Ölmarkt hat sich heute gleich mehrfach entschieden. 🛢️",
    "datum": "2026-10-28",
@@ -1966,9 +2190,13 @@
   "1r0RTaef6TQ",
   "nXoXzjkXEOI",
   "ALcJjGNQ1tc",
-  "PZ9BtRb44X8"
+  "PZ9BtRb44X8",
+  "zHP-A26K71Y",
+  "s3VHxoHJNF0",
+  "eCbifbH1M_M",
+  "SsO9Vpp3ekI"
  ],
- "stand": "2026-10-29T20:13Z",
+ "stand": "2026-10-30T20:08Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
