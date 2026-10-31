@@ -1,2 +1,33 @@
-Feed nicht lesbar: HTTP Error 404: Not Found
-Nichts Neues.
+Feed: 15 Videos
+   LjwNsK8f3PU 2026-10-30 Bilanz einer harten Handelswoche | Ausblick auf nächste Woche
+   SsO9Vpp3ekI 2026-10-30 Tech-Stimmung bricht ein | Hohe Kurseinbrüche bei Intel, Reddit und Ro
+   s3VHxoHJNF0 2026-10-29 Google verliert rund 500 Mrd. US-Dollar an Wert | Amazon und Intel heu
+   PZ9BtRb44X8 2026-10-29 Seagate liefert und wird trotzdem abgestraft. 📉
+   eCbifbH1M_M 2026-10-29 Google-Schock. Einbruch Fortinet, Caterpillar und ServiceNow.
+   M6U-WtoaMOI 2026-10-28 Ertrags-Bonanza heute Abend: Google, Microsoft, ServiceNow und viele m
+   CH3NwXOpKw0 2026-10-28 FED-Pressekonferenz | LIVE hier ab 19:27 Uhr
+   DzPaDeO2RO4 2026-10-28 FED-Entscheidung | LIVE-STREAM ab 18:57 Uhr
+Werte aus: M6U-WtoaMOI Ertrags-Bonanza heute Abend: Google, Microsoft, ServiceNow und viele mehr! 2026-10-28 closing
+  Score -20 Pfeil runter (179623 Tokens)
+Werte aus: CH3NwXOpKw0 FED-Pressekonferenz | LIVE hier ab 19:27 Uhr 2026-10-28 closing
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  Score 35 Pfeil hoch (136883 Tokens)
+Werte aus: DzPaDeO2RO4 FED-Entscheidung | LIVE-STREAM ab 18:57 Uhr 2026-10-28 closing
+  Score 20 Pfeil hoch (82849 Tokens)
+Werte aus: LjwNsK8f3PU Bilanz einer harten Handelswoche | Ausblick auf nächste Woche 2026-10-30 closing
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  Score -25 Pfeil runter (152467 Tokens)

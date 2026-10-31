@@ -1,6 +1,76 @@
 {
  "beitraege": [
   {
+   "id": "LjwNsK8f3PU",
+   "titel": "Bilanz einer harten Handelswoche | Ausblick auf nächste Woche",
+   "datum": "2026-10-30",
+   "zeit": "2026-10-30T22:15:26+00:00",
+   "art": "closing",
+   "score": -25,
+   "pfeil": "runter",
+   "thema": "Nach einer verlustreichen Handelswoche mit schweren Einbrüchen bei Tech-Werten lotet Markus Koch die Chancen für eine technische Gegenbewegung und eine Erholung nach den Midterms aus.",
+   "gesamtstimmung": "Die Marktstimmung ist von massiven Kursverlusten im Technologiesektor und erheblichem Risikoabbau durch Hedgefonds geprägt. Gleichzeitig nähern sich wichtige Indizes charttechnischen Unterstützungen, und die historisch günstige Saisonalität nach den Zwischenwahlen eröffnet Potenzial für eine Gegenbewegung.",
+   "begruendung": "Der Technologiesektor erlebt bei vielen Einzeltiteln crash-ähnliche Zustände, und rund 60 Prozent der S&P-500-Aktien befinden sich bereits in einem verdeckten Bärenmarkt. Allerdings signalisieren das Rekord-De-Grossing der Hedgefonds, das Abkühlen des VIX von den Tageshochs und getestete 200-Tage-Linien eine überverkaufte Lage mit Erholungschancen.",
+   "indikatoren": [
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "200-Tage-Linien im Nasdaq 100 und Halbleiterindex werden getestet; historisch st",
+     "pfeil": "hoch",
+     "rolle": "Die Kombination aus überverkauften Chartmarken und saisonalem Rückenwind nach den Zwischenwahlen bietet eine Basis für eine Erholung."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Größtes De-Grossing und Risikoabbau bei Hedgefonds seit mindestens 2016; Short-P",
+     "pfeil": "hoch",
+     "rolle": "Die extreme Absicherung und der massive Positionsabbau verringern die Gefahr weiterer panikartiger Abverkäufe."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Rund 60 Prozent der S&P-Aktien im Bärenmarkt; Kapital rotiert in defensive Sekto",
+     "pfeil": "runter",
+     "rolle": "Unter der Indexoberfläche herrscht bereits ein schleichender Bärenmarkt, der vor allem Wachstums- und Tech-Werte trifft."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "VIX (Volatilitätsindex)",
+     "lage": "Intraday-Spitze von bis zu 40 Prozent Plus bröckelte bis Handelsschluss spürbar ",
+     "pfeil": "hoch",
+     "rolle": "Das Nachlassen der Volatilität im Tagesverlauf deutet darauf hin, dass die akute Panik im Markt wieder nachlässt."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zwischenwahlen (Midterms)",
+     "lage": "Bevorstehende Wahlen schaffen Unsicherheit und Sorgen vor regulatorischen Hürden",
+     "pfeil": "seitwaerts",
+     "rolle": "Eine klare Entscheidung bei den Midterms könnte die politische Hängepartie beenden und den Weg für eine Jahresendrallye freimachen."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "WTI-Öl gab von Tageshöchstständen bei 105 Dollar auf rund 103 Dollar nach",
+     "pfeil": "seitwaerts",
+     "rolle": "Hohe Ölpreise belasten durch Inflations- und Nahostsorgen, doch ein Rücklauf von den Spitzen mildert den Druck."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "10-jährige Renditen fielen von 5,35 Prozent auf 4,93 Prozent zurück",
+     "pfeil": "seitwaerts",
+     "rolle": "Obwohl sinkende Renditen Aktien stützen sollten, reagierte der Markt bislang kaum positiv darauf."
+    }
+   ],
+   "zitate": [
+    "eine Art Stealth-Bärenmarkt, den man auf den ersten Blick nicht sieht",
+    "wir sehen eher einen Käuferstreik als eine panikartige Verkaufswelle"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 152467
+  },
+  {
    "id": "SsO9Vpp3ekI",
    "titel": "Tech-Stimmung bricht ein | Hohe Kurseinbrüche bei Intel, Reddit und Roblox",
    "datum": "2026-10-30",
@@ -167,6 +237,188 @@
    "sicherheit": "hoch",
    "modell": "gemini-flash-latest",
    "tokens": 124999
+  },
+  {
+   "id": "M6U-WtoaMOI",
+   "titel": "Ertrags-Bonanza heute Abend: Google, Microsoft, ServiceNow und viele mehr!",
+   "datum": "2026-10-28",
+   "zeit": "2026-10-28T22:54:13+00:00",
+   "art": "closing",
+   "score": -20,
+   "pfeil": "runter",
+   "thema": "Markus Koch analysiert die Marktreaktion auf den jüngsten Notenbankentscheid sowie die gemischten Quartalszahlen und Investitionsausgaben der Tech-Schwergewichte nach US-Börsenschluss.",
+   "gesamtstimmung": "Markus Koch beschreibt die aktuelle Marktlage als Ritt durch ein Minenfeld mit enormer Divergenz zwischen Gewinnern und Verlierern. Obwohl der Markt nach dem Fed-Entscheid stabil blieb, trüben straffere Finanzbedingungen und herbe Enttäuschungen im Tech-Sektor das Gesamtbild.",
+   "begruendung": "Zwar sorgte das Ausbleiben eines typischen Notenbank-Abverkaufs zunächst für Erleichterung, doch die sinkenden GDPNow-Schätzungen und restriktiven Finanzierungsbedingungen belasten die Konjunktur. Gleichzeitig offenbaren die nachbörslichen Bilanzen drastische Kursverluste bei Schwergewichten und wecken Zweifel am KI-Investitionszyklus.",
+   "indikatoren": [
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Markt schließt nach Notenbanksitzung stabil ab",
+     "pfeil": "hoch",
+     "rolle": "Dass die Indizes nach dem Zinsentscheid nicht wie historisch üblich um rund ein Prozent einbrachen, wertet er als positives Stabilitätssignal."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Finanzierungskonditionen verharren im restriktiven Bereich",
+     "pfeil": "runter",
+     "rolle": "Der Financial Conditions Index zeigt ein strafferes Finanzumfeld, das zunehmend Wirtschaftsbereiche abwürgt, die für die Inflation gar nicht verantwortlich sind."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Industrie- und Exportdaten (Asien & USA)",
+     "lage": "Atlanta Fed GDPNow-Wachstumsschätzung verliert an Dynamik",
+     "pfeil": "runter",
+     "rolle": "Der Rückgang der Konjunkturschätzungen signalisiert eine spürbare Abkühlung der US-Wirtschaft infolge der straffen Geldpolitik."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "anhaltend schwach",
+     "pfeil": "runter",
+     "rolle": "Eine schlechte Marktbreite macht den Gesamtmarkt extrem verwundbar gegenüber Rückschlägen einzelner Indexschwergewichte."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Ausgaben liegen teilweise unter den Markterwartungen",
+     "pfeil": "runter",
+     "rolle": "Sollten die Hyperscaler ihre massiven Investitionen zurückfahren, droht dem gesamten KI-getriebenen Aufwärtstrend der Nährboden entzogen zu werden."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "extreme Spreizung mit teils massiven Kursabstürzen",
+     "pfeil": "runter",
+     "rolle": "Bereits kleine Verfehlungen bei Umsatz oder Cashflow führen nachbörslich zu zweistelligen Einbrüchen und verunsichern die Anleger."
+    }
+   ],
+   "zitate": [
+    "Wenigstens sind wir nicht gesunken.",
+    "Wie ein Rennen durchs Minenfeld aktuell"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 179623
+  },
+  {
+   "id": "CH3NwXOpKw0",
+   "titel": "FED-Pressekonferenz | LIVE hier ab 19:27 Uhr",
+   "datum": "2026-10-28",
+   "zeit": "2026-10-28T21:18:39+00:00",
+   "art": "closing",
+   "score": 35,
+   "pfeil": "hoch",
+   "thema": "Markus Koch analysiert und kommentiert live die Zinsentscheidung der Fed sowie die Pressekonferenz von Notenbankchef Kevin Warsh.",
+   "gesamtstimmung": "Die Grundstimmung ist verhalten positiv und von Erleichterung geprägt. Markus Koch lobt die professionelle, unabhängige Rhetorik des Fed-Chefs, durch die die Aktienmärkte nach anfänglicher Nervosität spürbar zulegen.",
+   "begruendung": "Die US-Börsen reagieren auf die abgewogene Kommunikation und die Beibehaltung der Zinsen positiv, insbesondere Technologiewerte legen kräftig zu. Dämpfend wirken jedoch die anhaltend hohe Inflation sowie das durch Renditen und Energiepreise bereits deutlich restriktivere Finanzumfeld.",
+   "indikatoren": [
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Zinsen stabil bei 3,75-4 % gehalten, abwartende Haltung für künftige Sitzungen",
+     "pfeil": "hoch",
+     "rolle": "Die Bestätigung des Zinsniveaus ohne aggressive Zinserhöhungssignale beruhigt die Marktteilnehmer ungemein."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Hohe Renditen und straffere Financial Conditions bremsen die Wirtschaft",
+     "pfeil": "runter",
+     "rolle": "Der Kapitalmarktzins erledigt bereits einen großen Teil der Straffungsarbeit der Notenbank und belastet zinssensible Sektoren."
+    },
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "Inflation bleibt erhöht, aber langfristige Erwartungen sind verankert",
+     "pfeil": "seitwaerts",
+     "rolle": "Das Ausbleiben weiterer Fortschritte Richtung 2-Prozent-Ziel mahnt zur Vorsicht, wird aber durch stabile Inflationserwartungen abgefedert."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Industrie- und Exportdaten (Asien & USA)",
+     "lage": "Robuste Konsum- und Investitionsdaten stehen abflachendem GDPNow-Wachstum gegenü",
+     "pfeil": "hoch",
+     "rolle": "Ein solides gesamtwirtschaftliches Umfeld stützt die Gewinnaussichten der Unternehmen."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Tech- und KI-Werte ziehen stark an, während kapitalintensive Branchen zurückblei",
+     "pfeil": "seitwaerts",
+     "rolle": "Trotz erholter Marktbreite werden Sektoren wie Immobilien durch hohe Kapitalkosten abgestraft."
+    }
+   ],
+   "zitate": [
+    "Kevin ist rhetorisch echt ein Ass.",
+    "Der Markt wusste heute, was passieren würde."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 136883
+  },
+  {
+   "id": "DzPaDeO2RO4",
+   "titel": "FED-Entscheidung | LIVE-STREAM ab 18:57 Uhr",
+   "datum": "2026-10-28",
+   "zeit": "2026-10-28T20:54:11+00:00",
+   "art": "closing",
+   "score": 20,
+   "pfeil": "hoch",
+   "thema": "Markus Koch analysiert den Zinsentscheid der US-Notenbank Fed mit einer Zinspause sowie die Auswirkungen auf Anleiherenditen und die Aktienmärkte.",
+   "gesamtstimmung": "Die US-Notenbank pausiert wie erwartet die Zinsen, betont aber weiterhin eine starke Konjunktur und datenabhängige Vorsicht. Koch hält übertriebene Zinserhöhungsszenarien für überzogen und sieht den Markt nach den bisherigen Korrekturen in vielen Sektoren gut gerüstet.",
+   "begruendung": "Der Zinsentscheid bringt mit der Pause bei 3,75 bis 4,00 Prozent keine negative Überraschung, auch wenn zwei Notenbankerinnen für eine Erhöhung stimmten. Zudem stützt die robuste Konsumlaune die Wirtschaft, während straffere Finanzkonditionen bereits einen Teil der geldpolitischen Bremswirkung vorweggenommen haben.",
+   "indikatoren": [
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Leitzins unverändert bei 3,75-4,00 % belassen (10:2 Stimmen)",
+     "pfeil": "hoch",
+     "rolle": "Die Zinspause bestätigt die Markterwartungen und nimmt kurzfristig den Druck von den Aktienmärkten."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Zehnjährige Renditen verharren stabil um 5,02 %",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Renditen reagieren kaum auf den Zinsentscheid, signalisieren aber bereits ein restriktives Zinsumfeld."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Industrie- und Exportdaten (Asien & USA)",
+     "lage": "Fed stuft US-Wirtschaftswachstum von solide auf stark hoch",
+     "pfeil": "hoch",
+     "rolle": "Ein anhaltend robustes Wirtschaftswachstum verringert die akute Gefahr einer harten Rezession."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Breitere Sektoren haben bereits spürbar korrigiert",
+     "pfeil": "hoch",
+     "rolle": "Die deutlichen Vorkorrekturen in Zinssensiblen Sektoren bieten Bewertungsspielraum und machen den Equal Weight Index attraktiv."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "wieder anziehend",
+     "pfeil": "runter",
+     "rolle": "Steigende Energiepreise wirken als Inflationsrisiko und dämpfen die geldpolitische Entspannung."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "anhaltende geopolitische Spannungen um Iran und Straße von Hormus",
+     "pfeil": "runter",
+     "rolle": "Militärische Eskalationsrisiken belasten die Marktstimmung und treiben die Ölpreise."
+    }
+   ],
+   "zitate": [
+    "eine Zinspause",
+    "während der Kapitalmarkt immer noch drei Zinsanhebungen einpreist"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 82849
   },
   {
    "id": "zHP-A26K71Y",
@@ -2194,9 +2446,13 @@
   "zHP-A26K71Y",
   "s3VHxoHJNF0",
   "eCbifbH1M_M",
-  "SsO9Vpp3ekI"
+  "SsO9Vpp3ekI",
+  "M6U-WtoaMOI",
+  "CH3NwXOpKw0",
+  "DzPaDeO2RO4",
+  "LjwNsK8f3PU"
  ],
- "stand": "2026-10-30T20:08Z",
+ "stand": "2026-10-31T18:52Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
