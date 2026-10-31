@@ -1194,6 +1194,30 @@
   "stand": "2026-10-29"
  },
  {
+  "id": "events-f626b87701",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Otomo Yoshihide New Jazz Quintet",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Der experimentierfreudige japanische Gitarrist verbindet differenzierten Noise und ungewöhnliches Sounddesign mit den Traditionen des Spiritual Jazz.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-31"
+ },
+ {
   "id": "events-87f70ac206",
   "lat": 48.14498,
   "lon": 11.52197,
@@ -1238,6 +1262,54 @@
   "quelle": "Backstage München (Konzerte)",
   "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
   "stand": "2026-10-29"
+ },
+ {
+  "id": "events-10e2339564",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Jam Session mit Ida Koch",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-11-01",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Bassistin Ida Koch, Trägerin des BMW Young Artist Jazz Awards, leitet die offene Session für inspirierte Musiker und Einsteiger.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-31"
+ },
+ {
+  "id": "events-d2691cebd6",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Fables of Mingus",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-11-02",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Bassist Martin Zenker interpretiert Charles Mingus' Albumklassiker mit einem internationalen Ensemble neu zwischen Avantgarde, Blues und Gospel.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-31"
  },
  {
   "id": "events-1c7c1320c1",
@@ -1286,6 +1358,30 @@
   "stand": "2026-10-25"
  },
  {
+  "id": "events-76ceb1e960",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Kat Eaton",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-11-03",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Die Sängerin präsentiert gefühlvolle, tiefgründige Songs an der Schnittstelle von Soul, Blues, Gospel und Jazz.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-31"
+ },
+ {
   "id": "events-675dcc4234",
   "lat": 48.14498,
   "lon": 11.52197,
@@ -1332,6 +1428,146 @@
   "stand": "2026-10-25"
  },
  {
+  "id": "events-906e5a08f2",
+  "lat": 48.11998,
+  "lon": 11.55626,
+  "rubrik": "events",
+  "titel": "Istanbul – München, 3000 km auf dem Rad",
+  "ort": "Alte Utting",
+  "adresse": "Lagerhausstraße 15, 81371 München",
+  "datum": "2026-11-04",
+  "datum_bis": "",
+  "zeit": "19:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Anna Volkmer und Christian Burmeister berichten in einem interaktiven Vortrag von ihrer dreitausend Kilometer langen Fahrradreise von Istanbul nach München.",
+  "tags": [
+   "Kultur",
+   "Abends",
+   "Draußen"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Alte Utting (Musik und Kultur)",
+  "url": "https://www.in-muenchen.de/locations/alte-utting.html",
+  "stand": "2026-10-31"
+ },
+ {
+  "id": "events-8c70b3a648",
+  "rubrik": "events",
+  "titel": "Kateryna Kravchenko & Arthur Clees Duo",
+  "ort": "Einstein, Halle 4",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-11-04",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Das Duo aus Gesang und Vibrafon erschafft im Rahmen der Reihe UNHEARD poetisch inspirierte Klanglandschaften.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-31"
+ },
+ {
+  "id": "events-325c0ebfa9",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Or Bareket Quartett",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-11-04",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Bassist Or Bareket stellt sein neues Quartett mit hochkarätigen Musikern der New Yorker Jazzszene vor.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-31"
+ },
+ {
+  "id": "events-802794f6b6",
+  "rubrik": "events",
+  "titel": "Alessandro Di Virgilio Trio",
+  "ort": "Einstein, Halle 4",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-11-05",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "In der Reihe Swing Manouche bietet der Filmkomponist und Gitarrist mediterran gefärbten, energiegeladenen Jazz Manouche.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-31"
+ },
+ {
+  "id": "events-323f95b3f2",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Junger Münchner Jazzpreis – Finale",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-11-06",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Drei Nachwuchsbands spielen im Konzertfinale um den 14. Förderpreis für Musiker bis 28 Jahre.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-31"
+ },
+ {
+  "id": "events-3ce118f132",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Mark Lettieri",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-11-07",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Der Snarky-Puppy-Gitarrist präsentiert funky Rhythmen, packende Melodien und Stücke aus seinem aktuellen Album.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-31"
+ },
+ {
   "id": "events-60ec171957",
   "lat": 48.19469,
   "lon": 11.60785,
@@ -1376,6 +1612,30 @@
   "quelle": "Zenith, Kulturhalle (Konzerte)",
   "url": "https://www.in-muenchen.de/locations/zenith.html",
   "stand": "2026-10-25"
+ },
+ {
+  "id": "events-dab92f974a",
+  "lat": 48.1354,
+  "lon": 11.60088,
+  "rubrik": "events",
+  "titel": "Jam Session mit Ida Koch",
+  "ort": "Jazzclub Unterfahrt",
+  "adresse": "Einsteinstraße 42, 81675 München",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "20:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sonntägliche Jazz-Session unter der Leitung der preisgekrönten Bassistin Ida Koch mit Raum für Einsteiger.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Jazzclub Unterfahrt",
+  "url": "https://www.unterfahrt.de/",
+  "stand": "2026-10-31"
  },
  {
   "id": "events-029fc9d898",
@@ -1447,6 +1707,30 @@
   "stand": "2026-10-25"
  },
  {
+  "id": "events-9ec617af17",
+  "lat": 48.11998,
+  "lon": 11.55626,
+  "rubrik": "events",
+  "titel": "Märchen in der Jurte",
+  "ort": "Alte Utting",
+  "adresse": "Lagerhausstraße 15, 81371 München",
+  "datum": "2026-11-15",
+  "datum_bis": "",
+  "zeit": "15:00",
+  "preis": "frei",
+  "dauer": "",
+  "kurz": "In einer gemütlichen Jurte am knisternden Feuer lauschen Kinder ab vier Jahren lebendig vorgetragenen Märchen von Claudia Schleich.",
+  "tags": [
+   "Familie",
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Familie & Kinder",
+  "quelle": "Alte Utting (Musik und Kultur)",
+  "url": "https://www.in-muenchen.de/locations/alte-utting.html",
+  "stand": "2026-10-31"
+ },
+ {
   "id": "events-9ba4660f6a",
   "lat": 48.19469,
   "lon": 11.60785,
@@ -1490,6 +1774,30 @@
   "quelle": "Zenith, Kulturhalle (Konzerte)",
   "url": "https://www.in-muenchen.de/locations/zenith.html",
   "stand": "2026-10-25"
+ },
+ {
+  "id": "events-7455191abc",
+  "lat": 48.11998,
+  "lon": 11.55626,
+  "rubrik": "events",
+  "titel": "Mit Rad und Zelt von Bayern nach Georgien",
+  "ort": "Alte Utting",
+  "adresse": "Lagerhausstraße 15, 81371 München",
+  "datum": "2026-11-30",
+  "datum_bis": "",
+  "zeit": "19:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Ein junger Zimmerer berichtet über seine abenteuerliche Bikepacking-Reise mit Zelt und Gravel-Bike über fünftausend Kilometer bis nach Georgien.",
+  "tags": [
+   "Kultur",
+   "Abends",
+   "Draußen"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Alte Utting (Musik und Kultur)",
+  "url": "https://www.in-muenchen.de/locations/alte-utting.html",
+  "stand": "2026-10-31"
  },
  {
   "id": "food-bdfa06e2a6",
@@ -2107,64 +2415,64 @@
   "thema": "Amazon Prime"
  },
  {
-  "id": "tv-16b3081c7b",
+  "id": "tv-54aa5f0069",
   "rubrik": "tv",
-  "titel": "Ulrich Tukur & Die Rhythmus Boys",
-  "ort": "3sat",
+  "titel": "Der Boandlkramer und die ewige Liebe",
+  "ort": "BR",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "21:50",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Spielfilm über den Boandlkramer, der erstmals von der ewigen Liebe erfasst wird. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.br.de/fernsehen/",
+  "stand": "2026-10-31",
+  "thema": "BR"
+ },
+ {
+  "id": "tv-22ddc77a9c",
+  "rubrik": "tv",
+  "titel": "Der Staatsanwalt",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "22:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Deutsche Krimiserie im Abendprogramm des ZDF. Programm kann sich ändern.",
+  "tags": [
+   "Serie"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-31",
+  "thema": "ZDF"
+ },
+ {
+  "id": "tv-ce9ab5964b",
+  "rubrik": "tv",
+  "titel": "Die Geschichte vom Brandner Kaspar",
+  "ort": "BR",
   "adresse": "",
   "datum": "2026-10-31",
   "datum_bis": "",
   "zeit": "20:15",
   "preis": "",
   "dauer": "",
-  "kurz": "Konzertmitschnitt von Ulrich Tukur und seiner Band aus dem Jahr 2026. Programm kann sich ändern.",
+  "kurz": "Bayerische Filmkomödie aus dem Jahr 2008 über den Schlosser Brandner Kaspar und den personifizierten Tod. Programm kann sich ändern.",
   "tags": [
-   "Show"
+   "Film"
   ],
   "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
+  "url": "https://www.br.de/fernsehen/",
   "stand": "2026-10-31",
-  "thema": "3sat"
- },
- {
-  "id": "tv-6fd5c63aa8",
-  "rubrik": "tv",
-  "titel": "Leony",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-10-31",
-  "datum_bis": "",
-  "zeit": "21:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Konzertauftritt der Popsängerin Leony. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-10-31",
-  "thema": "3sat"
- },
- {
-  "id": "tv-79259a788d",
-  "rubrik": "tv",
-  "titel": "Tracks East",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-10-31",
-  "datum_bis": "",
-  "zeit": "19:40",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Europäisches Jugend- und Kulturmagazin aus dem Jahr 2026. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-10-31",
-  "thema": "ARTE"
+  "thema": "BR"
  },
  {
   "id": "tv-76734c9693",
@@ -2207,44 +2515,24 @@
   "thema": "ARTE"
  },
  {
-  "id": "tv-ce9ab5964b",
+  "id": "tv-83776a9f34",
   "rubrik": "tv",
-  "titel": "Die Geschichte vom Brandner Kaspar",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-10-31",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Bayerische Filmkomödie aus dem Jahr 2008 über den Schlosser Brandner Kaspar und den personifizierten Tod. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-10-31",
-  "thema": "BR"
- },
- {
-  "id": "tv-54aa5f0069",
-  "rubrik": "tv",
-  "titel": "Der Boandlkramer und die ewige Liebe",
-  "ort": "BR",
+  "titel": "Jürgen B. Hausmann: Hausmann macht Schule",
+  "ort": "SWR",
   "adresse": "",
   "datum": "2026-10-31",
   "datum_bis": "",
   "zeit": "21:50",
   "preis": "",
   "dauer": "",
-  "kurz": "Spielfilm über den Boandlkramer, der erstmals von der ewigen Liebe erfasst wird. Programm kann sich ändern.",
+  "kurz": "Bühnenprogramm des Kabarettisten Jürgen B. Hausmann. Programm kann sich ändern.",
   "tags": [
-   "Film"
+   "Show"
   ],
   "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
+  "url": "https://www.swrfernsehen.de/",
   "stand": "2026-10-31",
-  "thema": "BR"
+  "thema": "SWR"
  },
  {
   "id": "tv-cbc1c59a83",
@@ -2265,86 +2553,6 @@
   "url": "https://www.daserste.de/",
   "stand": "2026-10-31",
   "thema": "Das Erste"
- },
- {
-  "id": "tv-bee21f2565",
-  "rubrik": "tv",
-  "titel": "Prange - Man ist ja Nachbar",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-31",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Deutsche Nachbarschaftskomödie aus dem Jahr 2025. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-31",
-  "thema": "NDR"
- },
- {
-  "id": "tv-c2d9d1d69a",
-  "rubrik": "tv",
-  "titel": "Sörensen fängt Feuer",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-10-31",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kriminalfilm rund um den norddeutschen Ermittler Sörensen. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-10-31",
-  "thema": "NDR"
- },
- {
-  "id": "tv-acad93ba28",
-  "rubrik": "tv",
-  "titel": "Sei still Kerle oder 's Konfirmandefescht",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-10-31",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Schwäbisches Mundart-Theaterstück im Abendprogramm des SWR. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-10-31",
-  "thema": "SWR"
- },
- {
-  "id": "tv-83776a9f34",
-  "rubrik": "tv",
-  "titel": "Jürgen B. Hausmann: Hausmann macht Schule",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-10-31",
-  "datum_bis": "",
-  "zeit": "21:50",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Bühnenprogramm des Kabarettisten Jürgen B. Hausmann. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-10-31",
-  "thema": "SWR"
  },
  {
   "id": "tv-b12ae2cb20",
@@ -2387,6 +2595,66 @@
   "thema": "WDR"
  },
  {
+  "id": "tv-6fd5c63aa8",
+  "rubrik": "tv",
+  "titel": "Leony",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "21:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Konzertauftritt der Popsängerin Leony. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-10-31",
+  "thema": "3sat"
+ },
+ {
+  "id": "tv-bee21f2565",
+  "rubrik": "tv",
+  "titel": "Prange - Man ist ja Nachbar",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Deutsche Nachbarschaftskomödie aus dem Jahr 2025. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-31",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-acad93ba28",
+  "rubrik": "tv",
+  "titel": "Sei still Kerle oder 's Konfirmandefescht",
+  "ort": "SWR",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Schwäbisches Mundart-Theaterstück im Abendprogramm des SWR. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.swrfernsehen.de/",
+  "stand": "2026-10-31",
+  "thema": "SWR"
+ },
+ {
   "id": "tv-ed94871e42",
   "rubrik": "tv",
   "titel": "Stralsund - Dunkle Tiefen",
@@ -2407,23 +2675,63 @@
   "thema": "ZDF"
  },
  {
-  "id": "tv-22ddc77a9c",
+  "id": "tv-c2d9d1d69a",
   "rubrik": "tv",
-  "titel": "Der Staatsanwalt",
-  "ort": "ZDF",
+  "titel": "Sörensen fängt Feuer",
+  "ort": "NDR",
   "adresse": "",
   "datum": "2026-10-31",
   "datum_bis": "",
-  "zeit": "22:00",
+  "zeit": "21:45",
   "preis": "",
   "dauer": "",
-  "kurz": "Deutsche Krimiserie im Abendprogramm des ZDF. Programm kann sich ändern.",
+  "kurz": "Kriminalfilm rund um den norddeutschen Ermittler Sörensen. Programm kann sich ändern.",
   "tags": [
-   "Serie"
+   "Film"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-31",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-79259a788d",
+  "rubrik": "tv",
+  "titel": "Tracks East",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "19:40",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Europäisches Jugend- und Kulturmagazin aus dem Jahr 2026. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
   ],
   "quelle": "hoerzu.de",
-  "url": "https://www.zdf.de/",
+  "url": "https://www.arte.tv/de/",
   "stand": "2026-10-31",
-  "thema": "ZDF"
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-16b3081c7b",
+  "rubrik": "tv",
+  "titel": "Ulrich Tukur & Die Rhythmus Boys",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Konzertmitschnitt von Ulrich Tukur und seiner Band aus dem Jahr 2026. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-10-31",
+  "thema": "3sat"
  }
 ]
