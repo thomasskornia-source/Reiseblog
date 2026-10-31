@@ -2105,5 +2105,325 @@
   "url": "https://www.primevideo.com/",
   "stand": "2026-10-27",
   "thema": "Amazon Prime"
+ },
+ {
+  "id": "tv-16b3081c7b",
+  "rubrik": "tv",
+  "titel": "Ulrich Tukur & Die Rhythmus Boys",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Konzertmitschnitt von Ulrich Tukur und seiner Band aus dem Jahr 2026. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-10-31",
+  "thema": "3sat"
+ },
+ {
+  "id": "tv-6fd5c63aa8",
+  "rubrik": "tv",
+  "titel": "Leony",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "21:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Konzertauftritt der Popsängerin Leony. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-10-31",
+  "thema": "3sat"
+ },
+ {
+  "id": "tv-79259a788d",
+  "rubrik": "tv",
+  "titel": "Tracks East",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "19:40",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Europäisches Jugend- und Kulturmagazin aus dem Jahr 2026. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-31",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-76734c9693",
+  "rubrik": "tv",
+  "titel": "Dracula - Die wahre Geschichte",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Französische Dokumentation aus dem Jahr 2026 über die Ursprünge der Dracula-Legende. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-31",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-307d583764",
+  "rubrik": "tv",
+  "titel": "Haunted Places",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokureihe aus dem Jahr 2024 über unheimliche und verlassene Orte. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-10-31",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-ce9ab5964b",
+  "rubrik": "tv",
+  "titel": "Die Geschichte vom Brandner Kaspar",
+  "ort": "BR",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Bayerische Filmkomödie aus dem Jahr 2008 über den Schlosser Brandner Kaspar und den personifizierten Tod. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.br.de/fernsehen/",
+  "stand": "2026-10-31",
+  "thema": "BR"
+ },
+ {
+  "id": "tv-54aa5f0069",
+  "rubrik": "tv",
+  "titel": "Der Boandlkramer und die ewige Liebe",
+  "ort": "BR",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "21:50",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Spielfilm über den Boandlkramer, der erstmals von der ewigen Liebe erfasst wird. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.br.de/fernsehen/",
+  "stand": "2026-10-31",
+  "thema": "BR"
+ },
+ {
+  "id": "tv-cbc1c59a83",
+  "rubrik": "tv",
+  "titel": "Klein gegen Groß - Das unglaubliche Duell",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kai Pflaume feiert 15 Jahre Familienshow mit Prominenten wie Mats Hummels und Otto Waalkes im Duell gegen Kinder. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "tvinfo.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-10-31",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-bee21f2565",
+  "rubrik": "tv",
+  "titel": "Prange - Man ist ja Nachbar",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Deutsche Nachbarschaftskomödie aus dem Jahr 2025. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-31",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-c2d9d1d69a",
+  "rubrik": "tv",
+  "titel": "Sörensen fängt Feuer",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kriminalfilm rund um den norddeutschen Ermittler Sörensen. Programm kann sich ändern.",
+  "tags": [
+   "Film"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-10-31",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-acad93ba28",
+  "rubrik": "tv",
+  "titel": "Sei still Kerle oder 's Konfirmandefescht",
+  "ort": "SWR",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Schwäbisches Mundart-Theaterstück im Abendprogramm des SWR. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.swrfernsehen.de/",
+  "stand": "2026-10-31",
+  "thema": "SWR"
+ },
+ {
+  "id": "tv-83776a9f34",
+  "rubrik": "tv",
+  "titel": "Jürgen B. Hausmann: Hausmann macht Schule",
+  "ort": "SWR",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "21:50",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Bühnenprogramm des Kabarettisten Jürgen B. Hausmann. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.swrfernsehen.de/",
+  "stand": "2026-10-31",
+  "thema": "SWR"
+ },
+ {
+  "id": "tv-b12ae2cb20",
+  "rubrik": "tv",
+  "titel": "Legendär!",
+  "ort": "WDR",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Deutsche Unterhaltungsshow aus dem Jahr 2026. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www1.wdr.de/fernsehen/",
+  "stand": "2026-10-31",
+  "thema": "WDR"
+ },
+ {
+  "id": "tv-d1f6a15b94",
+  "rubrik": "tv",
+  "titel": "Legendär!",
+  "ort": "WDR",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Zweiter Teil der deutschen Unterhaltungssendung. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www1.wdr.de/fernsehen/",
+  "stand": "2026-10-31",
+  "thema": "WDR"
+ },
+ {
+  "id": "tv-ed94871e42",
+  "rubrik": "tv",
+  "titel": "Stralsund - Dunkle Tiefen",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Ein ermordeter Fischer wird im Fangnetz entdeckt. Die Ermittler Zabek und Hidde geraten an den Bruder des Opfers. Programm kann sich ändern.",
+  "tags": [
+   "Serie"
+  ],
+  "quelle": "tvinfo.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-31",
+  "thema": "ZDF"
+ },
+ {
+  "id": "tv-22ddc77a9c",
+  "rubrik": "tv",
+  "titel": "Der Staatsanwalt",
+  "ort": "ZDF",
+  "adresse": "",
+  "datum": "2026-10-31",
+  "datum_bis": "",
+  "zeit": "22:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Deutsche Krimiserie im Abendprogramm des ZDF. Programm kann sich ändern.",
+  "tags": [
+   "Serie"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-10-31",
+  "thema": "ZDF"
  }
 ]
