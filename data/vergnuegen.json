@@ -892,29 +892,6 @@
   "stand": "2026-10-29"
  },
  {
-  "id": "events-f4dc0a19db",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "DESPISED ICON / CARNIFEX",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-29",
-  "datum_bis": "2026-10-29",
-  "zeit": "18:00",
-  "preis": "",
-  "dauer": "5 Std.",
-  "kurz": "Die beiden Metal-Bands Despised Icon und Carnifex stehen gemeinsam für einen Konzertabend im Backstage auf der Bühne.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-29"
- },
- {
   "id": "events-bf73ea6c57",
   "lat": 48.1369,
   "lon": 11.56204,
@@ -960,52 +937,6 @@
   "thema": "Ausstellung & Museum",
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-29"
- },
- {
-  "id": "events-6e6bf358cb",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "ROXTON + EVON ROSE",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-29",
-  "datum_bis": "2026-10-29",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "3 Std.",
-  "kurz": "Roxton und Evon Rose spielen am Donnerstagabend ein gemeinsames Clubkonzert im Backstage.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-29"
- },
- {
-  "id": "events-f19de27f15",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "WOLVES IN THE THRONE ROOM",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-10-29",
-  "datum_bis": "2026-10-29",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "2,5 Std.",
-  "kurz": "Wolves In The Throne Room bringen atmosphärischen Black Metal live auf die Bühne des Kulturzentrums.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
   "stand": "2026-10-29"
  },
  {
