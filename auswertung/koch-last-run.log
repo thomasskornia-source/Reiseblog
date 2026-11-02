@@ -1,2 +1,41 @@
-Feed nicht lesbar: HTTP Error 404: Not Found
-Nichts Neues.
+Feed: 15 Videos
+   LXJl__-bzZ8 2026-11-02 KI-Angst bleibt | Apple und Palantir nach Zahlen kaum verändert.
+   lF1KyT9hYLo 2026-11-02 AI-Übernahme und Öl-Rücklauf helfen. Midterms und Apple im Fokus. (Str
+   LjwNsK8f3PU 2026-10-30 Bilanz einer harten Handelswoche | Ausblick auf nächste Woche
+   SsO9Vpp3ekI 2026-10-30 Tech-Stimmung bricht ein | Hohe Kurseinbrüche bei Intel, Reddit und Ro
+   s3VHxoHJNF0 2026-10-29 Google verliert rund 500 Mrd. US-Dollar an Wert | Amazon und Intel heu
+   PZ9BtRb44X8 2026-10-29 Seagate liefert und wird trotzdem abgestraft. 📉
+   eCbifbH1M_M 2026-10-29 Google-Schock. Einbruch Fortinet, Caterpillar und ServiceNow.
+   M6U-WtoaMOI 2026-10-28 Ertrags-Bonanza heute Abend: Google, Microsoft, ServiceNow und viele m
+Werte aus: LXJl__-bzZ8 KI-Angst bleibt | Apple und Palantir nach Zahlen kaum verändert. 2026-11-02 closing
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: Remote end closed connection without response
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  Score 10 Pfeil seitwaerts (217827 Tokens)
+Werte aus: lF1KyT9hYLo AI-Übernahme und Öl-Rücklauf helfen. Midterms und Apple im Fokus. (Stream 15:10 Uhr) 2026-11-02 opening
+gemini-3.8-flash: Remote end closed connection without response
+gemini-3.7-flash: Remote end closed connection without response
+gemini-flash-latest: Remote end closed connection without response
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: Remote end closed connection without response

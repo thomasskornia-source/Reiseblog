@@ -1,6 +1,62 @@
 {
  "beitraege": [
   {
+   "id": "LXJl__-bzZ8",
+   "titel": "KI-Angst bleibt | Apple und Palantir nach Zahlen kaum verändert.",
+   "datum": "2026-11-02",
+   "zeit": "2026-11-02T21:51:31+00:00",
+   "art": "closing",
+   "score": 10,
+   "pfeil": "seitwaerts",
+   "thema": "Markus Koch analysiert die Erholung der Marktbreite sowie die jüngsten Quartalszahlen von Palantir und Apple vor dem Hintergrund anhaltender Unsicherheiten im Tech-Sektor.",
+   "gesamtstimmung": "Die Stimmung ist verhalten optimistisch, da sich die Marktbreite spürbar verbessert und die Korrektur laut Analysten in ihre Endphase eintreten könnte. Dennoch bremsen die anhaltende Schwäche bei hochbewerteten KI-Werten sowie anstehende politische Risiken eine dynamische Jahresendrally.",
+   "begruendung": "Positiv gewertet wird, dass zyklische und defensive Werte anziehen und der ISM-Einkaufsmanagerindex für die Industrie robust ausfällt. Belastend wirken hingegen der massive Abgabedruck bei Tech- und KI-Titeln sowie die noch nicht vollständig bereinigte Marktstimmung.",
+   "indikatoren": [
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "deutlich verbessert, Schere zum Cap-Weighted Index schließt sich",
+     "pfeil": "hoch",
+     "rolle": "Eine breitere Partizipation von Industrie- und Zyklikerwerten stabilisiert das Marktgefüge abseits der Tech-Riesen."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "stark abgekühlt, aber noch nicht auf Kapitulationsniveau",
+     "pfeil": "seitwaerts",
+     "rolle": "Für ein nachhaltiges Tief fehlt laut Morgan Stanley noch ein finales Stimmungstief oder das Erreichen technischer Zielmarken."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Industrie- und Exportdaten (Asien & USA)",
+     "lage": "ISM-Einkaufsmanagerindex übertrifft Markterwartungen mit stabilen Auftragseingän",
+     "pfeil": "hoch",
+     "rolle": "Robuste Daten aus dem Industriesektor stützen traditionelle Substanz- und Qualitätswerte."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zwischenwahlen (Midterms)",
+     "lage": "Bevorstehende Wahlen erzeugen kurzfristige Verunsicherung",
+     "pfeil": "runter",
+     "rolle": "Die politische Unsicherheit rund um eine mögliche Mehrheitsverschiebung dämpft die Risikobereitschaft der Anleger."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "stützende Preisentwicklung im Tagesverlauf",
+     "pfeil": "hoch",
+     "rolle": "Eine Stabilisierung an den Rohstoffmärkten nimmt kurzfristigen Druck aus dem Gesamtmarkt."
+    }
+   ],
+   "zitate": [
+    "die Marktbreite hat sich also materiell gebessert",
+    "uns fehlt um das finale Ende der Korrektur auszusprechen"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-flash-latest",
+   "tokens": 217827
+  },
+  {
    "id": "LjwNsK8f3PU",
    "titel": "Bilanz einer harten Handelswoche | Ausblick auf nächste Woche",
    "datum": "2026-10-30",
@@ -2450,9 +2506,10 @@
   "M6U-WtoaMOI",
   "CH3NwXOpKw0",
   "DzPaDeO2RO4",
-  "LjwNsK8f3PU"
+  "LjwNsK8f3PU",
+  "LXJl__-bzZ8"
  ],
- "stand": "2026-10-31T18:52Z",
+ "stand": "2026-11-02T23:16Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
