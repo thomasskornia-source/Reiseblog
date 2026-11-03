@@ -57,6 +57,62 @@
    "tokens": 217827
   },
   {
+   "id": "lF1KyT9hYLo",
+   "titel": "AI-Übernahme und Öl-Rücklauf helfen. Midterms und Apple im Fokus. (Stream 15:10 Uhr)",
+   "datum": "2026-11-02",
+   "zeit": "2026-11-02T15:13:58+00:00",
+   "art": "opening",
+   "score": 10,
+   "pfeil": "seitwaerts",
+   "thema": "Vor den anstehenden US-Midterm-Wahlen und wichtigen Tech-Quartalszahlen zeigt sich die Wall Street trotz nachgebender Renditen und fallender Ölpreise nervös und uneinheitlich.",
+   "gesamtstimmung": "Die Grundstimmung ist von Abwarten und Nervosität vor den Kongresswahlen sowie den Big-Tech-Zahlen geprägt. Gleichzeitig liefern spürbar fallende Anleiherenditen und ein starker Einbruch der Ölpreise willkommene Entlastung für die Aktienmärkte.",
+   "begruendung": "Markus Koch bewertet die Ausgangslage als sehr gemischt, da die anhaltende Schwäche und Skepsis im Technologiesektor eine saubere Erholung erschweren. Eine mögliche Deeskalation im Nahen Osten und die daraus resultierende Entlastung bei Energiepreisen und Zinsen stützen jedoch das Gesamtbild.",
+   "indikatoren": [
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "deutlich unter Druck, WTI verliert über 6 Prozent",
+     "pfeil": "hoch",
+     "rolle": "Günstigere Energiepreise mindern den Inflationsdruck und wirken als willkommener Rückenwind für Aktien."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "im Sinkflug, zehnjährige Rendite fällt Richtung 4,9 Prozent",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Zinsen an den Anleihemärkten nehmen Bewertungsdruck von den Aktienindizes."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Wahlen / Midterms",
+     "lage": "ungewisser Wahlausgang zwischen Gridlock- und Blue-Wave-Szenarien",
+     "pfeil": "seitwaerts",
+     "rolle": "Die politische Unsicherheit sorgt kurzfristig für Nervosität, wobei ein gespaltener Kongress als Idealfall für die Börse gilt."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Hoffnung auf diplomatische Fortschritte zwischen den USA und dem Iran",
+     "pfeil": "hoch",
+     "rolle": "Die Aussicht auf eine Deeskalation nimmt geopolitische Risikoprämien aus Rohstoffen und stützt das Sentiment."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Tech- und KI-Sektor",
+     "lage": "ausbleibende Gegenbewegung und Bewertungsbedenken",
+     "pfeil": "runter",
+     "rolle": "Die Schwäche in führenden Technologiewerten hemmt einen breiten Marktanstieg und bremst den Rebound."
+    }
+   ],
+   "zitate": [
+    "Das Marktumfeld ist nach wie vor sehr, sehr gemischt heute Morgen.",
+    "Gridlock bedeutet Goldlöckchen-Szenario."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 151624
+  },
+  {
    "id": "LjwNsK8f3PU",
    "titel": "Bilanz einer harten Handelswoche | Ausblick auf nächste Woche",
    "datum": "2026-10-30",
@@ -2507,9 +2563,10 @@
   "CH3NwXOpKw0",
   "DzPaDeO2RO4",
   "LjwNsK8f3PU",
-  "LXJl__-bzZ8"
+  "LXJl__-bzZ8",
+  "lF1KyT9hYLo"
  ],
- "stand": "2026-11-02T23:16Z",
+ "stand": "2026-11-03T20:48Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
