@@ -36,7 +36,9 @@
     'weisse-bohnen-tomatensauce': ['🫘', '#F0907A', '#C23B2B'],
     'meraner-antipasti': ['🍐', '#D7D58A', '#8E9A4A'],
     'thunfisch-kichererbsen-avocado-salat': ['🐟', '#9CD9CB', '#3E8F80'],
-    'schwarze-bohnen-quinoa-bowl-avocado': ['🥑', '#AAD68A', '#5D9A52']
+    'schwarze-bohnen-quinoa-bowl-avocado': ['🥑', '#AAD68A', '#5D9A52'],
+    'erbsensuppe-raeuchertofu': ['🍲', '#C9D68A', '#6E9A4F'],
+    'putenbrust-ratatouille-ofen': ['🍗', '#F0A872', '#C25B30']
   };
   function slugOf(href) { var m = /([^\/]+)\.html/.exec(href || ''); return m ? m[1] : ''; }
   function media(slug, base) {
