@@ -986,30 +986,6 @@
   "stand": "2026-10-29"
  },
  {
-  "id": "events-10e2339564",
-  "lat": 48.1354,
-  "lon": 11.60088,
-  "rubrik": "events",
-  "titel": "Jam Session mit Ida Koch",
-  "ort": "Jazzclub Unterfahrt",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-11-01",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Bassistin Ida Koch, Trägerin des BMW Young Artist Jazz Awards, leitet die offene Session für inspirierte Musiker und Einsteiger.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-31"
- },
- {
   "id": "events-d2691cebd6",
   "lat": 48.1354,
   "lon": 11.60088,
