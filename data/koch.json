@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "BzYqlxVL7fY",
+   "titel": "Blue Wave voraus? Heute entscheiden die Midterms über die Wall Street.",
+   "datum": "2026-11-03",
+   "zeit": "2026-11-03T19:16:24+00:00",
+   "art": "closing",
+   "score": -20,
+   "pfeil": "runter",
+   "thema": "Die US-Börsen zeigen sich vor den Zwischenwahlen nervös, während geopolitische Spannungen, nachlassende Kreditnachfrage und eine Flut an Tech-Finanzierungen die Stimmung belasten.",
+   "gesamtstimmung": "Markus Koch beschreibt einen unberechenbaren Markt im Schleudergang, der stark von den US-Zwischenwahlen und hoher Tech-Bewertung geprägt ist. Gleichzeitig sieht er die anstehenden Ereignisse wie Wahlen oder das Anthropic-IPO als potenzielle 'bereinigende Events', die bald wieder für Klarheit sorgen könnten.",
+   "begruendung": "Belastend wirken vor allem die schwächelnde Kreditnachfrage laut Fed-Umfrage, die hohe Verwässerung durch massive Tech-Kapitalerhöhungen sowie die extrem nervöse Reaktion auf Quartalszahlen. Zwar bleibt das mittelfristige Jahresendziel konstruktiv, kurzfristig überwiegen jedoch Zurückhaltung und das Warten auf ein taktisches Zwischentief.",
+   "indikatoren": [
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zwischenwahlen (Midterms)",
+     "lage": "Markt preist Wahrscheinlichkeiten für Senat und Repräsentantenhaus ein",
+     "pfeil": "seitwaerts",
+     "rolle": "Ein geteilter Kongress (Gridlock) gilt historisch als Idealzustand, während ein Durchmarsch einer Partei Unsicherheit über Regulierung schürt."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "US-Kreditnachfrage (Loan Officer Survey)",
+     "lage": "Kühlt bei Unternehmen jeder Größe und bei Privatkunden spürbar ab",
+     "pfeil": "runter",
+     "rolle": "Die nachlassende Bereitschaft zur Kreditaufnahme signalisiert konjunkturelle Abkühlung und bremst das Wirtschaftswachstum."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Flut an Aktien- und Anleiheemissionen zur Finanzierung drückt Bewertungen",
+     "pfeil": "runter",
+     "rolle": "Das massive Angebot an neuen Papieren saugt Liquidität ab und belastet die Multiples im Technologiesektor."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "US-Militärschläge gegen iranische Ziele, aber diplomatische Kanäle bleiben offen",
+     "pfeil": "seitwaerts",
+     "rolle": "Solange eine Eskalation vermieden wird und Signale für Verhandlungen bestehen, hält sich der Schock an den Rohstoffmärkten in Grenzen."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Nach deutlichem Rücksetzer leichte Gegenbewegung",
+     "pfeil": "seitwaerts",
+     "rolle": "Niedrigere Ölpreise dämpfen Inflationssorgen, spiegeln aber teils auch Konjunktursorgen wider."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Harsche Marktreaktionen selbst bei soliden Zahlen",
+     "pfeil": "runter",
+     "rolle": "Die fehlende Fehlertoleranz der Wall Street zeigt die fragile Marktpsychologie und hohe Erwartungshaltung."
+    }
+   ],
+   "zitate": [
+    "die Wall Street bleibt im Schleudergang",
+    "bereinigendes Ereignis"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-flash-latest",
+   "tokens": 166445
+  },
+  {
    "id": "LXJl__-bzZ8",
    "titel": "KI-Angst bleibt | Apple und Palantir nach Zahlen kaum verändert.",
    "datum": "2026-11-02",
@@ -2564,9 +2627,10 @@
   "DzPaDeO2RO4",
   "LjwNsK8f3PU",
   "LXJl__-bzZ8",
-  "lF1KyT9hYLo"
+  "lF1KyT9hYLo",
+  "BzYqlxVL7fY"
  ],
- "stand": "2026-11-03T20:48Z",
+ "stand": "2026-11-04T21:04Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",

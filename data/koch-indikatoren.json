@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-02",
+ "stand": "2026-11-03",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -171,15 +171,15 @@
   {
    "kategorie": "Öl & Rohstoffe",
    "status": "bestaetigt",
-   "tage_anzahl": 19,
+   "tage_anzahl": 20,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-02",
+   "zuletzt": "2026-11-03",
    "name": "Öl- und Dieselpreise",
    "namen": [
     "Öl- und Dieselpreise",
     "Ölpreise"
    ],
-   "rolle": "Eine Stabilisierung an den Rohstoffmärkten nimmt kurzfristigen Druck aus dem Gesamtmarkt.",
+   "rolle": "Niedrigere Ölpreise dämpfen Inflationssorgen, spiegeln aber teils auch Konjunktursorgen wider.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -313,6 +313,13 @@
       "Öl- und Dieselpreise"
      ],
      "rolle": "Eine Stabilisierung an den Rohstoffmärkten nimmt kurzfristigen Druck aus dem Gesamtmarkt."
+    },
+    "2026-11-03": {
+     "p": 0,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Niedrigere Ölpreise dämpfen Inflationssorgen, spiegeln aber teils auch Konjunktursorgen wider."
     }
    }
   },
@@ -459,14 +466,14 @@
   {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
-   "tage_anzahl": 17,
+   "tage_anzahl": 18,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-02",
+   "zuletzt": "2026-11-03",
    "name": "Nahost & Ukraine-Krieg",
    "namen": [
     "Nahost & Ukraine-Krieg"
    ],
-   "rolle": "Die Aussicht auf eine Deeskalation nimmt geopolitische Risikoprämien aus Rohstoffen und stützt das Sentiment.",
+   "rolle": "Solange eine Eskalation vermieden wird und Signale für Verhandlungen bestehen, hält sich der Schock an den Rohstoffmärkten in Grenzen.",
    "tage": {
     "2026-10-02": {
      "p": -1,
@@ -586,21 +593,28 @@
       "Nahost & Ukraine-Krieg"
      ],
      "rolle": "Die Aussicht auf eine Deeskalation nimmt geopolitische Risikoprämien aus Rohstoffen und stützt das Sentiment."
+    },
+    "2026-11-03": {
+     "p": 0,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Solange eine Eskalation vermieden wird und Signale für Verhandlungen bestehen, hält sich der Schock an den Rohstoffmärkten in Grenzen."
     }
    }
   },
   {
    "kategorie": "Gewinnsaison",
    "status": "bestaetigt",
-   "tage_anzahl": 15,
+   "tage_anzahl": 16,
    "erstmals": "2026-10-05",
-   "zuletzt": "2026-10-29",
+   "zuletzt": "2026-11-03",
    "name": "Q3-Gewinnschätzungen",
    "namen": [
     "Q3-Gewinnschätzungen",
     "Reaktion auf Quartalszahlen ('Sell the News')"
    ],
-   "rolle": "Enttäuschende Quartalszahlen und schwache Prognosen für das Schlussquartal lösen massive Abverkäufe aus.",
+   "rolle": "Die fehlende Fehlertoleranz der Wall Street zeigt die fragile Marktpsychologie und hohe Erwartungshaltung.",
    "tage": {
     "2026-10-05": {
      "p": 2,
@@ -706,6 +720,13 @@
       "Q3-Gewinnschätzungen"
      ],
      "rolle": "Enttäuschende Quartalszahlen und schwache Prognosen für das Schlussquartal lösen massive Abverkäufe aus."
+    },
+    "2026-11-03": {
+     "p": -1,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die fehlende Fehlertoleranz der Wall Street zeigt die fragile Marktpsychologie und hohe Erwartungshaltung."
     }
    }
   },
@@ -832,15 +853,15 @@
   {
    "kategorie": "Sonstiges",
    "status": "bestaetigt",
-   "tage_anzahl": 12,
+   "tage_anzahl": 13,
    "erstmals": "2026-10-08",
-   "zuletzt": "2026-10-30",
+   "zuletzt": "2026-11-03",
    "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
     "Tech-Investitionszyklus (CapEx)",
     "Aktienüberangebot durch Kapitalerhöhungen & IPOs"
    ],
-   "rolle": "Gedämpfte Investitionsausgaben der Tech-Giganten bedrohen das Fundament des gesamten KI-Booms und belasten Halbleiter- sowie Infrastrukturwerte.",
+   "rolle": "Das massive Angebot an neuen Papieren saugt Liquidität ab und belastet die Multiples im Technologiesektor.",
    "tage": {
     "2026-10-08": {
      "p": 1,
@@ -926,15 +947,22 @@
       "Tech-Investitionszyklus (CapEx)"
      ],
      "rolle": "Gedämpfte Investitionsausgaben der Tech-Giganten bedrohen das Fundament des gesamten KI-Booms und belasten Halbleiter- sowie Infrastrukturwerte."
+    },
+    "2026-11-03": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Das massive Angebot an neuen Papieren saugt Liquidität ab und belastet die Multiples im Technologiesektor."
     }
    }
   },
   {
    "kategorie": "Konjunktur",
    "status": "bestaetigt",
-   "tage_anzahl": 11,
+   "tage_anzahl": 12,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-02",
+   "zuletzt": "2026-11-03",
    "name": "Industrie- und Exportdaten (Asien & USA)",
    "namen": [
     "Industrie- und Exportdaten (Asien & USA)",
@@ -944,7 +972,7 @@
     "US-Einzelhandelsumsätze",
     "Atlanta Fed GDPNow"
    ],
-   "rolle": "Robuste Daten aus dem Industriesektor stützen traditionelle Substanz- und Qualitätswerte.",
+   "rolle": "Die nachlassende Bereitschaft zur Kreditaufnahme signalisiert konjunkturelle Abkühlung und bremst das Wirtschaftswachstum.",
    "tage": {
     "2026-10-01": {
      "p": 0,
@@ -1023,6 +1051,13 @@
       "Industrie- und Exportdaten (Asien & USA)"
      ],
      "rolle": "Robuste Daten aus dem Industriesektor stützen traditionelle Substanz- und Qualitätswerte."
+    },
+    "2026-11-03": {
+     "p": -1,
+     "namen": [
+      "US-Kreditnachfrage (Loan Officer Survey)"
+     ],
+     "rolle": "Die nachlassende Bereitschaft zur Kreditaufnahme signalisiert konjunkturelle Abkühlung und bremst das Wirtschaftswachstum."
     }
    }
   },
@@ -1265,9 +1300,9 @@
   {
    "kategorie": "Politik & Zölle",
    "status": "bestaetigt",
-   "tage_anzahl": 6,
+   "tage_anzahl": 7,
    "erstmals": "2026-10-07",
-   "zuletzt": "2026-11-02",
+   "zuletzt": "2026-11-03",
    "name": "US-Zollpolitik & Schuldenpläne",
    "namen": [
     "US-Zollpolitik & Schuldenpläne",
@@ -1275,7 +1310,7 @@
     "US-Midterm-Wahlen",
     "US-Wahlen / Midterms"
    ],
-   "rolle": "Die politische Unsicherheit rund um eine mögliche Mehrheitsverschiebung dämpft die Risikobereitschaft der Anleger.",
+   "rolle": "Ein geteilter Kongress (Gridlock) gilt historisch als Idealzustand, während ein Durchmarsch einer Partei Unsicherheit über Regulierung schürt.",
    "tage": {
     "2026-10-07": {
      "p": -1,
@@ -1320,6 +1355,13 @@
       "US-Zwischenwahlen (Midterms)"
      ],
      "rolle": "Die politische Unsicherheit rund um eine mögliche Mehrheitsverschiebung dämpft die Risikobereitschaft der Anleger."
+    },
+    "2026-11-03": {
+     "p": 0,
+     "namen": [
+      "US-Zwischenwahlen (Midterms)"
+     ],
+     "rolle": "Ein geteilter Kongress (Gridlock) gilt historisch als Idealzustand, während ein Durchmarsch einer Partei Unsicherheit über Regulierung schürt."
     }
    }
   },
