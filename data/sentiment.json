@@ -1,24 +1,23 @@
 {
- "stand": "2026-11-04",
+ "stand": "2026-11-05",
  "gesamt": {
-  "score": 20,
-  "pfeil": "seitwaerts",
+  "score": 60,
+  "pfeil": "hoch",
   "anzahl": 5,
-  "text": "Die Stimmungsdaten sind gemischt."
+  "text": "Die Stimmungsdaten stützen die Börse."
  },
  "indikatoren": [
   {
    "id": "vix",
    "name": "VIX (Angstbarometer)",
-   "wert": 20.83,
+   "wert": 16.61,
    "einheit": "",
-   "pfeil": "seitwaerts",
-   "text": "normal bis nervös",
+   "pfeil": "hoch",
+   "text": "ruhig",
    "erklaerung": "Erwartete Schwankung des S&P 500 über 30 Tage aus Optionspreisen. Unter 17 ruhig, über 25 Angst. Sehr niedrige Werte bedeuten oft Sorglosigkeit.",
    "quelle": "Cboe über Yahoo (^VIX)",
    "url": "https://finance.yahoo.com/quote/%5EVIX",
    "reihe": [
-    14.55,
     14.63,
     14.25,
     15.19,
@@ -77,23 +76,23 @@
     17.2,
     19.42,
     21.15,
-    20.83
+    20.83,
+    16.61
    ],
-   "datum": "2026-11-03",
+   "datum": "2026-11-04",
    "alter_tage": 1
   },
   {
    "id": "kurve",
    "name": "VIX-Kurve (VIX / VIX3M)",
-   "wert": 0.979,
+   "wert": 0.884,
    "einheit": "",
-   "pfeil": "seitwaerts",
-   "text": "neutral",
+   "pfeil": "hoch",
+   "text": "entspannt",
    "erklaerung": "Verhältnis der Angst von heute zur Angst der nächsten drei Monate. Über 1,0 rechnen Anleger kurzfristig mit mehr Ausschlägen als später: ein Stresszeichen.",
    "quelle": "Cboe über Yahoo (^VIX, ^VIX3M)",
    "url": "https://finance.yahoo.com/quote/%5EVIX3M",
    "reihe": [
-    0.808,
     0.785,
     0.786,
     0.772,
@@ -152,15 +151,16 @@
     0.888,
     0.935,
     0.979,
-    0.979
+    0.979,
+    0.884
    ],
-   "datum": "2026-11-03",
+   "datum": "2026-11-04",
    "alter_tage": 1
   },
   {
    "id": "hy",
    "name": "High-Yield-Spread",
-   "wert": 3.43,
+   "wert": 3.4,
    "einheit": " %",
    "pfeil": "hoch",
    "text": "entspannt",
@@ -168,7 +168,6 @@
    "quelle": "FRED (ICE BofA US High Yield OAS)",
    "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
    "reihe": [
-    2.72,
     2.71,
     2.71,
     2.67,
@@ -227,15 +226,16 @@
     3.14,
     3.26,
     3.44,
-    3.43
+    3.43,
+    3.4
    ],
-   "datum": "2026-11-02",
+   "datum": "2026-11-03",
    "alter_tage": 2
   },
   {
    "id": "breite",
    "name": "Marktbreite (RSP gegen SPY)",
-   "wert": 3.7,
+   "wert": 3.9,
    "einheit": " %",
    "pfeil": "hoch",
    "text": "breit getragen",
@@ -243,7 +243,6 @@
    "quelle": "Yahoo (RSP, SPY)",
    "url": "https://finance.yahoo.com/quote/RSP",
    "reihe": [
-    0.286,
     0.286,
     0.286,
     0.287,
@@ -302,9 +301,10 @@
     0.286,
     0.289,
     0.292,
+    0.291,
     0.291
    ],
-   "datum": "2026-11-03",
+   "datum": "2026-11-04",
    "alter_tage": 1
   },
   {
@@ -380,13 +380,13 @@
     1.05
    ],
    "datum": "2019-10-04",
-   "alter_tage": 2588,
+   "alter_tage": 2589,
    "veraltet": true
   },
   {
    "id": "fg",
    "name": "Fear & Greed (CNN)",
-   "wert": 19,
+   "wert": 27,
    "einheit": "",
    "pfeil": "runter",
    "text": "Angst",
@@ -394,7 +394,6 @@
    "quelle": "CNN Business",
    "url": "https://edition.cnn.com/markets/fear-and-greed",
    "reihe": [
-    61.686,
     66.114,
     64.314,
     59.143,
@@ -452,10 +451,11 @@
     30.767,
     26.319,
     19.392,
-    19.092,
-    19.092
+    23.543,
+    27.286,
+    27.286
    ],
-   "datum": "2026-11-03",
+   "datum": "2026-11-04",
    "alter_tage": 1
   }
  ],
@@ -511,6 +511,10 @@
   {
    "d": "2026-11-04",
    "score": 20
+  },
+  {
+   "d": "2026-11-05",
+   "score": 60
   }
  ],
  "schwellen": {
