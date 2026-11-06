@@ -986,76 +986,6 @@
   "stand": "2026-10-29"
  },
  {
-  "id": "events-db54775eb4",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Blue – 25 Jahre Jubiläumstour",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-11-03",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die britische Boyband Blue feiert ihr 25-jähriges Bühnenjubiläum mit neuem Album und bekannten Pop-Hits im Zenith München.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-25"
- },
- {
-  "id": "events-76ceb1e960",
-  "lat": 48.1354,
-  "lon": 11.60088,
-  "rubrik": "events",
-  "titel": "Kat Eaton",
-  "ort": "Jazzclub Unterfahrt",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-11-03",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die Sängerin präsentiert gefühlvolle, tiefgründige Songs an der Schnittstelle von Soul, Blues, Gospel und Jazz.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-31"
- },
- {
-  "id": "events-675dcc4234",
-  "lat": 48.14498,
-  "lon": 11.52197,
-  "rubrik": "events",
-  "titel": "The Temperance Movement",
-  "ort": "Backstage",
-  "adresse": "Reitknechtstr. 6, 80639 München",
-  "datum": "2026-11-03",
-  "datum_bis": "2026-11-03",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "3 Std.",
-  "kurz": "Klassischer Rock und packende Melodien live dargeboten von The Temperance Movement.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Backstage München (Konzerte)",
-  "url": "https://www.muenchen.de/veranstaltungen/veranstaltungsorte/backstage",
-  "stand": "2026-10-29"
- },
- {
   "id": "events-51d709fcb4",
   "lat": 48.19469,
   "lon": 11.60785,
@@ -1844,73 +1774,6 @@
   "stand": "2026-10-18"
  },
  {
-  "id": "stream-lieber-thomas",
-  "rubrik": "stream",
-  "titel": "Lieber Thomas",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Filmporträt über den Schriftsteller und Regisseur Thomas Brasch in der DDR und im Westen. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Drama",
-   "Historie"
-  ],
-  "quelle": "justwatch.com",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-11-06",
-  "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-z-politischer-mord",
-  "rubrik": "stream",
-  "titel": "Z: Anatomie eines politischen Mordes",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Politthriller über die Aufklärung eines Attentats auf einen Oppositionellen. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Thriller",
-   "Drama",
-   "Historie"
-  ],
-  "quelle": "justwatch.com",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-11-06",
-  "thema": "ARTE Mediathek"
- },
- {
-  "id": "stream-replacement-killers",
-  "rubrik": "stream",
-  "titel": "The Replacement Killers – Die Ersatzkiller",
-  "ort": "ZDF Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Ein Auftragskiller verweigert einen Mord und taucht mit einer Fälscherin unter. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Action",
-   "Thriller"
-  ],
-  "quelle": "news.de",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-11-06",
-  "thema": "ZDF Mediathek"
- },
- {
   "id": "stream-being-heumann",
   "rubrik": "stream",
   "titel": "Being Heumann",
@@ -1931,28 +1794,6 @@
   "url": "https://tv.apple.com/de",
   "stand": "2026-11-06",
   "thema": "Apple TV"
- },
- {
-  "id": "stream-spider-man-bnd",
-  "rubrik": "stream",
-  "titel": "Spider-Man: Brand New Day",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Neuer Marvel-Film um Spider-Man, laut Vorschau ab 28.11.2026 bei Netflix.",
-  "tags": [
-   "Film",
-   "Action",
-   "Abenteuer"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-11-06",
-  "thema": "Netflix"
  },
  {
   "id": "stream-black-doves-s2",
@@ -2000,6 +1841,93 @@
   "thema": "Amazon Prime"
  },
  {
+  "id": "stream-iaf-jungeaerzte-s10",
+  "rubrik": "stream",
+  "titel": "In aller Freundschaft – Die jungen Ärzte (Staffel 10)",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Junge Ärzte am Klinikum zwischen Prüfungsstress, Patientenfällen und privaten Konflikten. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Serie",
+   "Drama"
+  ],
+  "quelle": "news.de",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-11-06",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-lieber-thomas",
+  "rubrik": "stream",
+  "titel": "Lieber Thomas",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Filmporträt über den Schriftsteller und Regisseur Thomas Brasch in der DDR und im Westen. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Drama",
+   "Historie"
+  ],
+  "quelle": "justwatch.com",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-11-06",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-portobello-s1",
+  "rubrik": "stream",
+  "titel": "Portobello (Staffel 1)",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sechzehnteilige Serie über einen Fernsehmoderator, der zu Unrecht in einen Justizskandal gerät. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Serie",
+   "Drama",
+   "Historie"
+  ],
+  "quelle": "justwatch.com",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-11-06",
+  "thema": "ARTE Mediathek"
+ },
+ {
+  "id": "stream-spider-man-bnd",
+  "rubrik": "stream",
+  "titel": "Spider-Man: Brand New Day",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Neuer Marvel-Film um Spider-Man, laut Vorschau ab 28.11.2026 bei Netflix.",
+  "tags": [
+   "Film",
+   "Action",
+   "Abenteuer"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-11-06",
+  "thema": "Netflix"
+ },
+ {
   "id": "stream-stick-s2",
   "rubrik": "stream",
   "titel": "Stick (Staffel 2)",
@@ -2022,30 +1950,31 @@
   "thema": "Apple TV"
  },
  {
-  "id": "stream-iaf-jungeaerzte-s10",
+  "id": "stream-replacement-killers",
   "rubrik": "stream",
-  "titel": "In aller Freundschaft – Die jungen Ärzte (Staffel 10)",
-  "ort": "ARD Mediathek",
+  "titel": "The Replacement Killers – Die Ersatzkiller",
+  "ort": "ZDF Mediathek",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Junge Ärzte am Klinikum zwischen Prüfungsstress, Patientenfällen und privaten Konflikten. Verfügbarkeit bitte prüfen.",
+  "kurz": "Ein Auftragskiller verweigert einen Mord und taucht mit einer Fälscherin unter. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Serie",
-   "Drama"
+   "Film",
+   "Action",
+   "Thriller"
   ],
   "quelle": "news.de",
-  "url": "https://www.ardmediathek.de/",
+  "url": "https://www.zdf.de/",
   "stand": "2026-11-06",
-  "thema": "ARD Mediathek"
+  "thema": "ZDF Mediathek"
  },
  {
-  "id": "stream-portobello-s1",
+  "id": "stream-z-politischer-mord",
   "rubrik": "stream",
-  "titel": "Portobello (Staffel 1)",
+  "titel": "Z: Anatomie eines politischen Mordes",
   "ort": "ARTE Mediathek",
   "adresse": "",
   "datum": "",
@@ -2053,9 +1982,10 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Sechzehnteilige Serie über einen Fernsehmoderator, der zu Unrecht in einen Justizskandal gerät. Verfügbarkeit bitte prüfen.",
+  "kurz": "Politthriller über die Aufklärung eines Attentats auf einen Oppositionellen. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Serie",
+   "Film",
+   "Thriller",
    "Drama",
    "Historie"
   ],
