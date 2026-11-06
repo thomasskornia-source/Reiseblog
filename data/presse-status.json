@@ -1,8 +1,10 @@
 {
- "stand": "2026-11-05T12:35Z",
- "ok": 17,
+ "stand": "2026-11-06T12:18Z",
+ "ok": 16,
  "von": 17,
  "meldungen": [
-  "GDELT nicht nutzbar (HTTP Error 429: Too Many Requests), wechsle zu Wikipedia-Aufrufen"
+  "GDELT nicht nutzbar (HTTP Error 429: Too Many Requests), wechsle zu Wikipedia-Aufrufen",
+  "Yahoo BF.B Fehler: HTTP Error 404: Not Found",
+  "BF.B zu wenig Daten"
  ]
 }
