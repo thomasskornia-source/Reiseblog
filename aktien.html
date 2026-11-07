@@ -230,6 +230,11 @@
   }
 </style>
 <style>
+  @media (max-width: 1099px) {
+    .ak { grid-template-columns: minmax(0, 1fr); }
+    .wtabs { width: 100%; flex-wrap: wrap; justify-content: center; overflow: visible; border-radius: 18px; gap: 2px; }
+    .wtabs button { flex: 1 1 auto; padding: 7px 10px; }
+  }
   .trk { min-width: 0; max-width: 100%; display: grid; gap: 10px; }
   .trk .tk-top { font-size: 13px; color: var(--ink-soft); text-align: center; margin: 0; }
   .trk .tk-chips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
