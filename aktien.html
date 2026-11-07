@@ -229,6 +229,17 @@
     .top10 ol, #pnl-pruefen .ak { grid-template-columns: repeat(auto-fill, minmax(560px, 1fr)); }
   }
 </style>
+<style>
+  .trk .chips { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+  .trk .chip { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 12px; padding: 8px 10px; }
+  .trk .chip b { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-soft); }
+  .trk .chip span { font-size: 17px; font-weight: 700; }
+  .trk .chip .dn { color: #c0392b; } .trk .chip .up { color: #2f7d3a; }
+  .trk .tw { overflow-x: auto; }
+  .trk table { width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 12px; }
+  .trk th, .trk td { text-align: left; padding: 7px 8px; border-bottom: 1px solid rgba(46,58,50,.1); vertical-align: top; }
+  .trk th { color: var(--ink-soft); font-weight: 600; font-size: 12px; }
+</style>
 </head>
 <body class="page-wide pc">
 <nav class="topbar" id="topbar"><div class="topin">
@@ -260,6 +271,7 @@
       <button type="button" role="tab" data-tab="lynx" aria-selected="false">Lynx</button>
       <button type="button" role="tab" data-tab="pruefen" aria-selected="false">Prüfen</button>
       <button type="button" role="tab" data-tab="megas" aria-selected="false">Megas</button>
+      <button type="button" role="tab" data-tab="tipranks" aria-selected="false">TipRanks</button>
     </div>
     <details class="markt" id="markt" data-panel="sp" open hidden><summary id="markt-s"></summary><div class="body" id="markt-c"></div></details>
     <details class="markt top10" id="top10" data-panel="top10" hidden><summary id="top10-s"></summary><div class="body" id="top10-c"></div></details>
@@ -278,6 +290,29 @@
       <p class="hinweis" id="mg-hin"></p>
       <p class="hinweis">Börsenwert = Kurs mal Aktienzahl (aus den SEC-Meldungen der Firmen). KGV = Kurs geteilt durch den Gewinn je Aktie der letzten vier Quartale, nur mit zum Tag bereits veröffentlichten Zahlen. Wo der Gewinn negativ war, gibt es kein KGV. Kursdaten: Yahoo Finance, Aktiensplits sind herausgerechnet. Keine Empfehlung.</p>
     </div>
+    <!-- TIPRANKS-START (wöchentlich aktualisieren, nur diesen Block ändern) -->
+    <div data-panel="tipranks" class="tab-aus trk" id="pnl-tipranks">
+      <p class="msg">TipRanks Top 5 · Stand: 07.11.2026 · Keine Anlageberatung</p>
+      <div class="chips">
+        <div class="chip"><b>S&amp;P 500 · Do 05.11.</b><span class="dn">≈ −4,4 %</span></div>
+        <div class="chip"><b>Nasdaq Comp. · Do 05.11.</b><span class="dn">&gt; −5,5 %</span></div>
+        <div class="chip"><b>S&amp;P 500 · Fr 06.11.*</b><span class="up">≈ +1,0 %</span></div>
+        <div class="chip"><b>Nasdaq · Fr 06.11.*</b><span class="up">≈ +1,9 %</span></div>
+        <div class="chip"><b>Dow · Fr 06.11.*</b><span class="dn">≈ −0,15 %</span></div>
+        <div class="chip"><b>US-Jobs Oktober</b><span>+165.000</span></div>
+      </div>
+      <p class="hinweis">*Zwischenstand ca. 10 Uhr NY-Zeit, kein Schlusskurs. Treiber: KI-Ausverkauf am Donnerstag, Arbeitslosenquote 4,1 %. Quellen: TheStreet, Yahoo Finance (06.11.).</p>
+      <div class="tw"><table>
+        <tr><th>#</th><th>Analyst (Rang)</th><th>Quote</th><th>Ø-Rendite</th><th>Aktie</th><th>Tipp · Quelle</th></tr>
+        <tr><td>1</td><td>Chatterjee (#4)</td><td>75 %</td><td>55,3 %</td><td>CoreWeave (CRWV)</td><td>Bullisch · CNBC 04.10.</td></tr>
+        <tr><td>2</td><td>Svanberg (#91)</td><td>58 %</td><td>31,8 %</td><td>Marvell (MRVL)</td><td>Bullisch, Custom-Chips → 30 Mrd. $ (FY31) · CNBC 18.10.</td></tr>
+        <tr><td>3</td><td>Moore (#142)</td><td>59 %</td><td>23,4 %</td><td>Nvidia (NVDA)</td><td>Bullisch · CNBC 01.11.</td></tr>
+        <tr><td>4</td><td>Wright (#264)</td><td>64 %</td><td>15 %</td><td>UnitedHealth (UNH)</td><td>Bullisch, Gewinnausblick ≥ 20,50 $ je Aktie · CNBC 18.10.</td></tr>
+        <tr><td>5</td><td>Powell (#320)</td><td>61 %</td><td>17,3 %</td><td>Palo Alto Networks (PANW)</td><td>Bullisch, Umbau zu wachstumsstärkeren Produkten · CNBC 04.10.</td></tr>
+      </table></div>
+      <p class="hinweis">Datenlage unvollständig: TipRanks führt über 12.500 Analysten, die vollständige 5-Sterne-Liste ist nur im Premium-Bereich sichtbar. Hier stehen nur öffentlich (CNBC/TipRanks) genannte Analysten. Tipps stammen aus der Zeit vor dem Ausverkauf vom 05.11.; Quote und Rendite ändern sich laufend. Top-Picks-Berichte sind meist bullisch und kein Marktkonsens.</p>
+    </div>
+    <!-- TIPRANKS-ENDE -->
     <div data-panel="pruefen" class="tab-aus" id="pnl-pruefen">
     <form class="ak-form" id="form" autocomplete="off">
       <input id="inp" type="text" maxlength="60" placeholder="z. B. Apple, KO, Siemens" aria-label="Aktie">
@@ -702,7 +737,7 @@
     [].forEach.call(document.querySelectorAll('#wtabs [data-tab]'), function (b) { b.setAttribute('aria-selected', b.getAttribute('data-tab') === n ? 'true' : 'false'); });
   }
   $('wtabs').addEventListener('click', function (ev) { var b = ev.target.closest('[data-tab]'); if (b) tab(b.getAttribute('data-tab')); });
-  tab(location.hash === '#megas' ? 'megas' : 'sp');
+  tab(location.hash === '#megas' ? 'megas' : location.hash === '#tipranks' ? 'tipranks' : 'sp');
   function pruefen(tk) {
     tab('pruefen');
     $('inp').value = tk; $('form').onsubmit({ preventDefault: function () {} });
