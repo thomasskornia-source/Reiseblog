@@ -986,99 +986,6 @@
   "stand": "2026-10-29"
  },
  {
-  "id": "events-51d709fcb4",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Enter Shikari Live",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-11-04",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Enter Shikari liefern eine geladene Performance an der Schnittstelle von Post-Hardcore, Elektronik und Punkrock ab.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-25"
- },
- {
-  "id": "events-906e5a08f2",
-  "lat": 48.11998,
-  "lon": 11.55626,
-  "rubrik": "events",
-  "titel": "Istanbul – München, 3000 km auf dem Rad",
-  "ort": "Alte Utting",
-  "adresse": "Lagerhausstraße 15, 81371 München",
-  "datum": "2026-11-04",
-  "datum_bis": "",
-  "zeit": "19:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Anna Volkmer und Christian Burmeister berichten in einem interaktiven Vortrag von ihrer dreitausend Kilometer langen Fahrradreise von Istanbul nach München.",
-  "tags": [
-   "Kultur",
-   "Abends",
-   "Draußen"
-  ],
-  "thema": "Führung & Vortrag",
-  "quelle": "Alte Utting (Musik und Kultur)",
-  "url": "https://www.in-muenchen.de/locations/alte-utting.html",
-  "stand": "2026-10-31"
- },
- {
-  "id": "events-8c70b3a648",
-  "rubrik": "events",
-  "titel": "Kateryna Kravchenko & Arthur Clees Duo",
-  "ort": "Einstein, Halle 4",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-11-04",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Das Duo aus Gesang und Vibrafon erschafft im Rahmen der Reihe UNHEARD poetisch inspirierte Klanglandschaften.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-31"
- },
- {
-  "id": "events-325c0ebfa9",
-  "lat": 48.1354,
-  "lon": 11.60088,
-  "rubrik": "events",
-  "titel": "Or Bareket Quartett",
-  "ort": "Jazzclub Unterfahrt",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-11-04",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Bassist Or Bareket stellt sein neues Quartett mit hochkarätigen Musikern der New Yorker Jazzszene vor.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-31"
- },
- {
   "id": "events-802794f6b6",
   "rubrik": "events",
   "titel": "Alessandro Di Virgilio Trio",
@@ -1774,26 +1681,47 @@
   "stand": "2026-10-18"
  },
  {
-  "id": "stream-zone-of-interest",
+  "id": "stream-12-12-12",
   "rubrik": "stream",
-  "titel": "The Zone of Interest",
-  "ort": "ZDF Mediathek",
+  "titel": "12 12 12",
+  "ort": "Apple TV",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Drama über eine Kommandantenfamilie, die neben dem Lager Auschwitz ein scheinbar normales Leben führt. Ab 9.11.2026. Verfügbarkeit bitte prüfen.",
+  "kurz": "Thriller-Serie, neue Folgen freitags ab 13.11.2026, Finale am 25.12.",
   "tags": [
-   "Film",
-   "Drama",
-   "Historie"
+   "Serie",
+   "Thriller"
   ],
-  "quelle": "zdfheute.de",
-  "url": "https://www.zdf.de/",
+  "quelle": "apfelpatient.de",
+  "url": "https://tv.apple.com/de",
   "stand": "2026-11-07",
-  "thema": "ZDF Mediathek"
+  "thema": "Apple TV"
+ },
+ {
+  "id": "stream-blade-runner-2099",
+  "rubrik": "stream",
+  "titel": "Blade Runner 2099",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Neue Sci-Fi-Serie im Blade-Runner-Universum, Start 25.11.2026.",
+  "tags": [
+   "Serie",
+   "Sci-Fi",
+   "Action"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-11-07",
+  "thema": "Amazon Prime"
  },
  {
   "id": "stream-sternwanderer",
@@ -1840,51 +1768,6 @@
   "thema": "ARD Mediathek"
  },
  {
-  "id": "stream-warrior-kid",
-  "rubrik": "stream",
-  "titel": "Warrior Kid",
-  "ort": "Apple TV",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Familienfilm um einen Jungen, der sich mit Training Mut erarbeitet. Start 25.11.2026.",
-  "tags": [
-   "Film",
-   "Familie",
-   "Drama"
-  ],
-  "quelle": "apfelpatient.de",
-  "url": "https://tv.apple.com/de",
-  "stand": "2026-11-07",
-  "thema": "Apple TV"
- },
- {
-  "id": "stream-paddington",
-  "rubrik": "stream",
-  "titel": "Paddington",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Der höfliche Bär aus Peru sucht in London ein Zuhause. Laut Monatsliste ab 15.11.2026. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Familie",
-   "Komödie",
-   "Abenteuer"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-11-07",
-  "thema": "Amazon Prime"
- },
- {
   "id": "stream-kaiserin-s3",
   "rubrik": "stream",
   "titel": "Die Kaiserin (Staffel 3)",
@@ -1905,28 +1788,6 @@
   "url": "https://www.netflix.com/de/",
   "stand": "2026-11-07",
   "thema": "Netflix"
- },
- {
-  "id": "stream-blade-runner-2099",
-  "rubrik": "stream",
-  "titel": "Blade Runner 2099",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Neue Sci-Fi-Serie im Blade-Runner-Universum, Start 25.11.2026.",
-  "tags": [
-   "Serie",
-   "Sci-Fi",
-   "Action"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-11-07",
-  "thema": "Amazon Prime"
  },
  {
   "id": "stream-grantchester-s7",
@@ -1973,9 +1834,54 @@
   "thema": "ZDF Mediathek"
  },
  {
-  "id": "stream-12-12-12",
+  "id": "stream-paddington",
   "rubrik": "stream",
-  "titel": "12 12 12",
+  "titel": "Paddington",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Der höfliche Bär aus Peru sucht in London ein Zuhause. Laut Monatsliste ab 15.11.2026. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Familie",
+   "Komödie",
+   "Abenteuer"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-11-07",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-zone-of-interest",
+  "rubrik": "stream",
+  "titel": "The Zone of Interest",
+  "ort": "ZDF Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Drama über eine Kommandantenfamilie, die neben dem Lager Auschwitz ein scheinbar normales Leben führt. Ab 9.11.2026. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Drama",
+   "Historie"
+  ],
+  "quelle": "zdfheute.de",
+  "url": "https://www.zdf.de/",
+  "stand": "2026-11-07",
+  "thema": "ZDF Mediathek"
+ },
+ {
+  "id": "stream-warrior-kid",
+  "rubrik": "stream",
+  "titel": "Warrior Kid",
   "ort": "Apple TV",
   "adresse": "",
   "datum": "",
@@ -1983,10 +1889,11 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Thriller-Serie, neue Folgen freitags ab 13.11.2026, Finale am 25.12.",
+  "kurz": "Familienfilm um einen Jungen, der sich mit Training Mut erarbeitet. Start 25.11.2026.",
   "tags": [
-   "Serie",
-   "Thriller"
+   "Film",
+   "Familie",
+   "Drama"
   ],
   "quelle": "apfelpatient.de",
   "url": "https://tv.apple.com/de",
