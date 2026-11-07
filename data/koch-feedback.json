@@ -1,6 +1,6 @@
 {
- "stand": "17.10.2026",
- "zusammenfassung": "Woche 10.–16.10.2026 (KW 42): 7 neue Auswertungen von Markus Koch, insgesamt 21 seit 01.10. 11 der 14 Kategorien sind bestätigt, 2 beobachtet, 1 neu (Dollar & Währungen). Von den 14 Punkten sind 6 frei und automatisch abrufbar (Renditen, Marktbreite, Öl/Diesel, Inflation, Arbeitsmarkt, Dollar), 4 teilweise (GDPNow, Zinserwartungen, Stimmung, Saisonalität), 4 bleiben Kochs Einschätzung (Geopolitik, Gewinnschätzungen, CapEx, Zölle/Politik). Geprüft wurden FRED (DGS10, CPIAUCSL, PAYEMS, DTWEXBGS), EIA, Atlanta Fed, AAII, CME; ob der GitHub-Runner sie erreicht und ob die APIs Schlüssel brauchen, ist noch ungetestet.",
+ "stand": "07.11.2026",
+ "zusammenfassung": "Woche 31.10.–06.11.2026 (KW 45): 5 neue Auswertungen von Markus Koch, insgesamt 45 seit 01.10. 13 der 14 Kategorien sind bestätigt, nur Dollar & Währungen ist noch neu. Von 14 Punkten sind 7 frei und automatisch abrufbar (Renditen, Marktbreite, Öl/Diesel, Konjunktur über GDPNow, Inflation, Arbeitsmarkt, Dollar), 3 teilweise (Zinserwartungen, Stimmung, Saisonalität), 4 bleiben Kochs Einschätzung (Geopolitik, Gewinnschätzungen, CapEx, Zölle/Politik). Neu belegt: Der Repo-Lauf von tools/sentiment.py hat am 07.11. FRED-CSV, VIX, Put/Call und CNN Fear & Greed abgerufen – der Runner erreicht diese Quellen offenbar; MOVE bleibt unbelegt.",
  "indikatoren": [
   {
    "name": "US-Staatsanleiherenditen",
@@ -8,7 +8,7 @@
    "machbar": "ja",
    "quelle": "FRED, Serie DGS10 (Quelle: Federal Reserve H.15); Alternative Yahoo ^TNX",
    "url": "https://fred.stlouisfed.org/series/DGS10",
-   "hinweis": "Geprüft: täglich, Stand 15.10.2026 5,10 % (Veröffentlichung mit rund 1 Tag Verzögerung), Daten seit 1962. FRED bietet laut Seite eine API (Schlüssel dafür nicht geprüft); Yahoo ^TNX läuft im Repo ohne Schlüssel, wurde einzeln nicht getestet. Ob der GitHub-Runner FRED erreicht, ist ungeprüft."
+   "hinweis": "Geprüft (07.11.): FRED zeigt DGS10 täglich, letzter Wert 05.11.2026 4,84 % (Seite aktualisiert 06.11.). Im Repo holt tools/sentiment.py FRED bereits ohne Schlüssel über fredgraph.csv, und data/sentiment.json wurde am 07.11. damit gefüllt – der Runner erreicht FRED also offenbar."
   },
   {
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
@@ -24,7 +24,7 @@
    "machbar": "ja",
    "quelle": "Rohöl: Yahoo CL=F (Chartabruf wie oben); Diesel Endkunde: US-Energiebehörde EIA",
    "url": "https://www.eia.gov/petroleum/gasdiesel/",
-   "hinweis": "Geprüft: EIA veröffentlicht den Diesel-Wochenpreis (zuletzt 14.10.2026, nächste 20.10.) mit Voll-Verlauf als XLS und kostenloser API; ob die API einen Schlüssel verlangt, steht auf der Seite nicht. Rohöl täglich über Yahoo, Ticker nicht einzeln getestet."
+   "hinweis": "Geprüft (07.11.): EIA-Seite zeigt Diesel-Wochenpreis (26.10.: 6,352 $/gal) mit freiem Voll-Verlauf als XLS ohne erwähnten Schlüssel; die EIA-API v2 hat laut Seite Registrierung (Schlüssel, kostenlos – indirekt erschlossen). Die Seite war am 07.11. noch auf Stand 27.10. (nächster Termin 03.11. vermerkt), also evtl. verzögert. Rohöl täglich über Yahoo CL=F, im Repo-Sinn nicht einzeln getestet."
   },
   {
    "name": "Nahost & Ukraine-Krieg",
@@ -48,15 +48,15 @@
    "machbar": "teilweise",
    "quelle": "CME FedWatch (Wahrscheinlichkeiten); als Ersatz aus Kurzläufer-Renditen ableitbar (FRED, Serien wie DGS2)",
    "url": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
-   "hinweis": "Geprüft: Die FedWatch-Seite nennt keine freie Download- oder API-Möglichkeit, Nutzungsbedingungen und mögliche Anmeldung bleiben unklar; daher nicht als automatische Quelle zu empfehlen. Der Leitzins selbst und Renditen kurzer Laufzeiten sind über FRED frei, eine eigene Näherung der Erwartung wäre möglich, aber nicht dasselbe."
+   "hinweis": "Geprüft (07.11.): CME verweist auf eine FedWatch-API über ein Entwicklerportal, ob kostenlos oder ohne Anmeldung, steht nicht auf den gelesenen Seiten – nicht als freie Quelle einplanen. Frei: Fed Funds effektiv (FRED DFF, 05.11. 3,88 %) und Renditen kurzer Laufzeiten (z. B. DGS2); daraus ließe sich eine eigene Näherung der Zinserwartung bauen."
   },
   {
    "name": "Industrie- und Exportdaten / Atlanta-Fed GDPNow",
    "kategorie": "Konjunktur",
-   "machbar": "teilweise",
-   "quelle": "Atlanta Fed GDPNow (Excel-Datei mit Verlauf und Prognosen)",
-   "url": "https://www.atlantafed.org/research-and-data/data/gdpnow",
-   "hinweis": "Geprüft: Excel-Download ohne Anmeldung, Aktualisierung sechs- bis siebenmal im Monat an Werktagen (nächste 20.10.2026), kein CSV. Automatisch machbar, aber Excel-Link kann sich ändern. Asiatische Industrie- und Exportdaten und US-Einzelhandelsumsätze wurden nicht geprüft."
+   "machbar": "ja",
+   "quelle": "FRED, Serie GDPNOW (Atlanta Fed, quartalsweise) und Atlanta-Fed-Seite mit Excel-Download",
+   "url": "https://fred.stlouisfed.org/data/GDPNOW",
+   "hinweis": "Geprüft (07.11.): FRED liefert die GDPNow-Tabelle, letzter Wert 2026-Q4 3,44 % (Stand 04.11.), Atlanta Fed nennt 3,4 %; nächstes Update 09.11. Damit entfällt der Excel-Umweg. Industrie-/Exportdaten Asiens und Einzelhandelsumsätze wurden nicht geprüft (Einzelhandel gäbe es voraussichtlich bei FRED, ungeprüft)."
   },
   {
    "name": "Inflationsdynamik / CPI",
@@ -72,7 +72,7 @@
    "machbar": "teilweise",
    "quelle": "AAII-Umfrage (wöchentlich, öffentlich nur letzte vier Wochen); MOVE über Yahoo ^MOVE",
    "url": "https://www.aaii.com/sentimentsurvey",
-   "hinweis": "Geprüft: AAII-Gesamtverlauf nur für Mitglieder, öffentlich nur kurzer Ausschnitt, Veröffentlichung donnerstags. Yahoo zeigt zu ^MOVE einen Wert, nannte ihn aber \"Northern Trust iBoxx 5-Year Tar\", so dass unsicher ist, ob es der ICE-BofA-MOVE ist; nicht verwenden, ohne das nachzuprüfen. Hebel und Positionierung (Anleger-Schulden, Fondspositionen) nicht geprüft."
+   "hinweis": "Geprüft (07.11.): AAII öffentlich nur aktuelle Woche und letzte vier (zuletzt 04.11.: bullish 34,1 %, bearish 48,4 %), volle Historie nur für Mitglieder. Im Repo laufen bereits VIX, VIX/VIX3M, High-Yield-Spread, RSP/SPY, Put/Call und CNN Fear & Greed (data/sentiment.json vom 07.11.). MOVE: Yahoo ^MOVE heißt auf der Seite 'Northern Trust iBoxx 5-Year Tar', ob das der ICE-BofA-MOVE ist, ist nicht belegt – nicht verwenden. Marktpositionierung/Hebel bleibt Kochs Einschätzung."
   },
   {
    "name": "Q4-Saisonalität & Positionierung",
@@ -96,7 +96,7 @@
    "machbar": "ja",
    "quelle": "FRED, Serie PAYEMS (Quelle: BLS Employment Situation); Arbeitslosenquote UNRATE",
    "url": "https://fred.stlouisfed.org/series/PAYEMS",
-   "hinweis": "Geprüft für PAYEMS: monatlich, letzter Stand September 2026 (159.044 Tsd., Seite aktualisiert 02.10.2026). UNRATE in dieser Woche nicht einzeln geprüft. Wöchentliche Erstanträge (ICSA) nicht geprüft."
+   "hinweis": "Geprüft für PAYEMS: monatlich, letzter Stand September 2026 (159.044 Tsd., Seite aktualisiert 02.10.2026). UNRATE in dieser Woche nicht einzeln geprüft. Wöchentliche Erstanträge (ICSA) nicht geprüft. Über FRED-CSV wie bei den Renditen abrufbar; diese Woche nicht erneut einzeln geprüft."
   },
   {
    "name": "US-Zollpolitik & Schuldenpläne",
@@ -112,7 +112,7 @@
    "machbar": "ja",
    "quelle": "FRED, Serie DTWEXBGS (Nominaler breiter Dollar-Index, Federal Reserve H.10)",
    "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
-   "hinweis": "Geprüft: täglich, zuletzt aktualisiert 13.10.2026 (Daten bis 09.10.), also einige Tage Verzögerung. Schneller: Yahoo DX-Y.NYB, nicht getestet. Erst ein Tag Auswertung, daher nur kurz."
+   "hinweis": "Geprüft (07.11.): FRED DTWEXBGS letzter Wert 30.10.2026 121,67, also rund eine Woche Verzögerung. Schneller wäre Yahoo DX-Y.NYB, nicht getestet. Kochs Dollar-Aussagen sind bisher nur an einem Tag aufgetaucht."
   }
  ]
 }
