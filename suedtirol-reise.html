@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Südtirol-Skireise (7 Nächte) – Andrea unterwegs</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=29">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+<style>
+  .subhead { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 32px 0 8px; }
+  .route-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 15px; }
+  .route-table th, .route-table td { border: 1px solid rgba(46,58,50,0.15); padding: 8px 12px; text-align: left; }
+  .route-table th { background: var(--paper-warm); font-family: 'Work Sans', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); }
+  .map-link { display: inline-block; margin: 10px 0 4px; padding: 10px 18px; background: var(--rust); color: #fff; text-decoration: none; border-radius: 6px; font-size: 14px; }
+  .hotel-group { margin: 16px 0; }
+  .hotel-group strong { display: block; font-family: 'Fraunces', serif; font-size: 17px; margin-bottom: 6px; }
+  .hotel-group ul { margin: 0; padding-left: 20px; }
+  .hotel-group li { margin-bottom: 6px; }
+  .safety-box { background: rgba(197, 92, 60, 0.08); border: 1px solid rgba(197, 92, 60, 0.25); border-radius: 8px; padding: 18px 22px; margin: 16px 0; font-size: 15px; }
+  .practical-list li { margin-bottom: 10px; }
+  .note { font-style: italic; color: var(--ink-soft); font-size: 14px; }
+  #route-map { height: 380px; width: 100%; border-radius: 8px; margin: 14px 0 6px; }
+  .route-tooltip { background: var(--paper, #faf6f0); border: 1px solid rgba(46,58,50,0.25); font-family: 'Work Sans', sans-serif; font-size: 12px; padding: 2px 6px; border-radius: 4px; box-shadow: none; }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body class="page-info pc">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="quiz.html">München</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+      <a href="musik.html">Musik</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="reisen.html">← Zu den Reisen</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Seite teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <h1>Südtirol: Skiwoche (2.–9.1.2027)</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="entry-body">
+      <p>Eine Skiwoche in Südtirol für <strong>3 Personen</strong>: <strong>Sa 2.1. bis Sa 9.1.2027</strong> (7 Nächte, 6 Skitage), <strong>4-Sterne-Hotel mit Halbpension</strong>, tägliche Skipässe für alle drei. Anreise mit dem eigenen Auto, den Transport habe ich nicht betrachtet. Die Woche liegt im vorgegebenen Zeitraum 26.12.2026–9.1.2027, ist aber Hochsaison rund um Dreikönig (6.1.): Preise und Verfügbarkeit also bald prüfen. Als Alternative käme die Woche 26.12.–2.1. mit Silvester im Skiort in Frage, die habe ich nicht durchgerechnet.</p>
+    </div>
+
+    <h2 class="subhead">Auf einen Blick</h2>
+    <table class="route-table">
+      <tr><th>Punkt</th><th>Empfehlung</th></tr>
+      <tr><td>Region</td><td><strong>Kronplatz (Pustertal)</strong>: gutes Verhältnis aus Hotelpreis, Größe des Skigebiets und Anbindung; Alternativen siehe unten</td></tr>
+      <tr><td>Hotel</td><td><a href="https://www.booking.com/hotel/it/ferien-und-wellnesshotel-windschar.html" target="_blank">Ferien &amp; Wellnesshotel Windschar</a>, Bruneck, 4 Sterne, 9,1 (627 Bew.), Halbpension, ca. 3.960 € für 7 Nächte zu dritt, kostenloser Shuttle, Skipass-Verkauf im Haus, Innen- und Außenpool</td></tr>
+      <tr><td>Skipass</td><td>Kronplatz 6 Tage 421 € p.P. (zu dritt 1.263 €), oder Dolomiti Superski 6 Tage 453 € p.P. (zu dritt 1.359 €)</td></tr>
+      <tr><td>Gesamt</td><td><strong>≈ 5.700 €</strong> für 3 Personen (Hotel 3.960 € + Skipass 1.263 € + Sonstiges ca. 500 €), ohne Anreise und Skimiete</td></tr>
+    </table>
+
+    <h2 class="subhead">Regionen im Vergleich</h2>
+    <div id="route-map"></div>
+    <table class="route-table">
+      <tr><th>Region</th><th>Orte</th><th>Skipass (6 Tage)</th><th>Hotel 4★ HP, 7 N., 3 Pers.</th><th>Hinweis</th></tr>
+      <tr><td><strong>Kronplatz</strong></td><td>Bruneck, St. Vigil, Olang</td><td>421 €</td><td><strong>ab ca. 3.960 €</strong></td><td>Ein großer Berg mit Gondeln aus mehreren Orten, günstigste Hotels; die Dolomiti-Superski-Karte (453 €) erreicht von hier auch weitere Täler</td></tr>
+      <tr><td><strong>Seiser Alm</strong></td><td>Kastelruth, Seis</td><td>Dolomiti Superski 453 €</td><td>ab ca. 4.770 €</td><td>Hochplateau mit viel Sonne, familienfreundlich, Dorf mit Hotels im Ort</td></tr>
+      <tr><td><strong>Gröden</strong></td><td>St. Ulrich</td><td>Dolomiti Superski 453 €</td><td>ab ca. 9.540 €</td><td>Sella Ronda und Weltcup-Pisten, sehr teuer in dieser Woche</td></tr>
+      <tr><td><strong>Alta Badia</strong></td><td>Corvara</td><td>Dolomiti Superski 453 €</td><td>ab ca. 8.860 € (Apart-Hotel), Hotels 11.500 €+</td><td>Sella Ronda, Gourmet-Region, höchste Preise</td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft);">Hotelpreise sind der Gesamtpreis für den ganzen Aufenthalt, 3 Erwachsene in einem Zimmer, laut Booking-Suche mit Filter 4 Sterne und Halbpension (Stand 07.11.2026). Zimmerart, Platz für drei Personen und Inhalt der Halbpension bitte auf der Buchungsseite prüfen, die Preise ändern sich.</p>
+
+    <h2 class="subhead">Hotels (4 Sterne, Halbpension)</h2>
+    <div class="hotel-group">
+      <strong>Kronplatz (Empfehlung)</strong>
+      <ul>
+        <li><a href="https://www.booking.com/hotel/it/ferien-und-wellnesshotel-windschar.html" target="_blank">Ferien &amp; Wellnesshotel Windschar</a>, Bruneck – 9,1 (627 Bew.), Wellness, Innen- und Außenpool, kostenloser Shuttle, Skipass-Verkauf, ca. 3.960 €</li>
+        <li><a href="https://www.booking.com/hotel/it/andreas-hofer.html" target="_blank">Hotel ANDER</a>, Bruneck – 8,6 (642 Bew.), Wellness, Außenpool, ca. 3.970 €</li>
+        <li><a href="https://www.booking.com/hotel/it/al-plan-dolomites-museum.html" target="_blank">Al Plan, A mountain moving hotel</a>, St. Vigil – 9,2 (349 Bew.), Pool auf dem Dach, Wellness, ca. 4.170 €</li>
+        <li><a href="https://www.booking.com/hotel/it/posta-san-vigilio.html" target="_blank">Parc Hotel Posta</a>, St. Vigil – 9,5 (22 Bew.), ca. 5.300 €</li>
+        <li><a href="https://www.booking.com/hotel/it/corona-st-vigil.html" target="_blank">Kristallhotel Corona-Krone</a>, St. Vigil – 8,7 (40 Bew.), direkter Pistenzugang, Skipass-Verkauf, ca. 6.230 €</li>
+        <li><a href="https://www.booking.com/hotel/it/christoph.html" target="_blank">Hotel Christoph</a>, Olang – 9,1 (37 Bew.), direkter Pistenzugang, ca. 6.410 €</li>
+      </ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Seiser Alm</strong>
+      <ul>
+        <li><a href="https://www.booking.com/hotel/it/chalet-tianes.html" target="_blank">Hotel Chalet Tianes – Alpine Relax</a>, bei Kastelruth – 9,0 (13 Bew.), Pool, Wellness, kostenloser Shuttle, ca. 4.770 €</li>
+        <li><a href="https://www.booking.com/hotel/it/posthotel-lamm-tradition-de-luxe.html" target="_blank">Hotel Lamm</a>, Kastelruth – 9,4 (610 Bew.), Dachpool, Wellness, ca. 6.950 €</li>
+        <li><a href="https://www.booking.com/hotel/it/alpenflora.html" target="_blank">Hotel Alpenflora</a>, Kastelruth – 9,3 (150 Bew.), Innen- und Außenpool, ca. 7.290 €</li>
+      </ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Gröden</strong>
+      <ul>
+        <li><a href="https://www.booking.com/hotel/it/beauty-spa-resort-albion.html" target="_blank">Hotel Albion Mountain Spa Resort</a>, St. Ulrich – 9,6 (371 Bew.), Infinity-Pool, kostenloser Shuttle, ca. 9.540 €</li>
+        <li><a href="https://www.booking.com/hotel/it/piciuel.html" target="_blank">Hotel Niblea Dolomites</a>, St. Ulrich – 9,5 (252 Bew.), ca. 9.550 €</li>
+        <li><a href="https://www.booking.com/hotel/it/luna-mondschein.html" target="_blank">Hotel Luna Mondschein</a>, St. Ulrich – 9,5 (522 Bew.), ca. 10.370 €</li>
+      </ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Alta Badia</strong>
+      <ul>
+        <li><a href="https://www.booking.com/hotel/it/marmolada.html" target="_blank">Hotel Marmolada</a>, Corvara – 9,0 (146 Bew.), direkter Pistenzugang, ca. 11.530 €</li>
+        <li><a href="https://www.booking.com/hotel/it/col-alto.html" target="_blank">Hotel Col Alto</a>, Corvara – 9,3 (64 Bew.), ca. 15.500 €</li>
+      </ul>
+      <p class="note">Die Preise in Gröden und Alta Badia liegen deutlich über denen am Kronplatz; vermutlich spielen hier Hochsaison und Zimmerart (Familien- oder Juniorsuite für drei Personen) eine Rolle.</p>
+    </div>
+
+    <h2 class="subhead">Skipässe für drei Personen (Hochsaison 2026/27)</h2>
+    <table class="route-table">
+      <tr><th>Pass</th><th>1 Tag</th><th>6 Tage</th><th>7 Tage</th><th>zu dritt, 6 Tage</th></tr>
+      <tr><td><strong>Kronplatz</strong> (nur Kronplatz)</td><td>83 €</td><td><strong>421 €</strong></td><td>445 €</td><td><strong>1.263 €</strong></td></tr>
+      <tr><td><strong>Dolomiti Superski</strong> (12 Gebiete, 1.200 Pistenkilometer, 450 Lifte)</td><td>89 €</td><td><strong>453 €</strong></td><td>480 €</td><td><strong>1.359 €</strong></td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft);">Preise für Erwachsene; Kronplatz laut schneehoehen.de (ohne Gewähr), Dolomiti Superski 1 Tag und 6 Tage laut Pressemitteilung des Verbunds, 7 Tage laut schneehoehen.de. Die Dolomiti-Superski-Karte kostet nur ca. 32 € mehr als der reine Kronplatz-Pass und erlaubt Ausflüge nach Alta Badia oder Gröden. Für Seiser Alm, Gröden und Alta Badia braucht ihr die Dolomiti-Superski-Karte. Ob in der Dreikönigswoche ein Zuschlag oder andere Saisonpreise gelten, nennen die Quellen nicht; Kauf online oder im Hotel (Windschar und Corona-Krone verkaufen Pässe).</p>
+
+    <h2 class="subhead">Ablauf der Woche</h2>
+    <table class="route-table">
+      <tr><th>Tag</th><th>Datum</th><th>Programm</th></tr>
+      <tr><td>1</td><td>Sa 2.1.</td><td>Anreise mit dem Auto, Check-in, Abendessen im Hotel (Halbpension), Skipässe im Hotel abholen</td></tr>
+      <tr><td>2–7</td><td>So 3.1.–Fr 8.1.</td><td>6 Skitage am Kronplatz (Gondeln ab Bruneck, St. Vigil und Olang); ein Tag mit der Dolomiti-Superski-Karte als Abstecher in ein anderes Tal möglich; am Mittwoch 6.1. (Dreikönig, Feiertag) mehr Andrang auf den Pisten</td></tr>
+      <tr><td>8</td><td>Sa 9.1.</td><td>Abreise nach dem Frühstück, Gepäck im Skiraum oder Auto, Rückfahrt mit dem Auto</td></tr>
+    </table>
+
+    <h2 class="subhead">Kostenübersicht (3 Personen)</h2>
+    <table class="route-table">
+      <tr><th>Posten</th><th>Betrag</th><th>Grundlage</th></tr>
+      <tr><td>Hotel 7 Nächte, Halbpension</td><td>ca. 3.960 €</td><td>Hotel Windschar laut Booking</td></tr>
+      <tr><td>Skipässe 6 Tage, 3 Erwachsene</td><td>1.263 €</td><td>Kronplatz-Pass 421 € p.P.</td></tr>
+      <tr><td>Mittagessen auf der Hütte, Getränke, Ortstaxe</td><td>ca. 500 €</td><td>geschätzt</td></tr>
+      <tr><td><strong>Gesamt</strong></td><td><strong>≈ 5.700 €</strong></td><td>ohne Anreise (Auto, Maut, Benzin) und ohne Skimiete</td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft);">Mit Dolomiti Superski statt Kronplatz-Pass wären es ca. 100 € mehr. Mit Hotel in Gröden oder Alta Badia käme man auf ca. 11.000 € bis 13.000 €.</p>
+
+    <h2 class="subhead">Praktisches</h2>
+    <ul class="practical-list">
+      <li><strong>Zimmer</strong>: bei Booking das Zimmer für drei Erwachsene wählen (Dreibettzimmer, Familienzimmer oder Suite), Halbpension im Tarif bestätigen lassen</li>
+      <li><strong>Stornierung</strong>: Tarife mit kostenloser Stornierung wählen, Hotel und Skipass erst nach Blick auf die Schneelage fest buchen</li>
+      <li><strong>Skiraum und Skibus</strong>: viele Hotels haben Skiraum und Shuttle zur Gondel; Windschar nennt einen kostenlosen Shuttle, bei den anderen vorab fragen</li>
+      <li><strong>Preise nach Jahrgang</strong>: für Kinder und Senioren gelten andere Skipasspreise, hier sind 3 Erwachsene gerechnet; bei Senioren (Jahrgang 1961 oder früher) lohnt ein Blick auf die Seniorenpreise (Kronplatz 6 Tage 378 €)</li>
+      <li><strong>Schneelage</strong>: vor der Abreise Schneebericht und Pistenöffnung des Skigebiets prüfen</li>
+    </ul>
+
+    <h2 class="subhead">Selbst prüfen</h2>
+    <ul>
+      <li><a href="https://www.booking.com/searchresults.html?ss=Bruneck&amp;checkin=2027-01-02&amp;checkout=2027-01-09&amp;group_adults=3&amp;no_rooms=1&amp;nflt=class%3D4" target="_blank">Booking.com: Bruneck, 2.–9.1.2027, 3 Erwachsene, 4 Sterne</a></li>
+      <li><a href="https://www.dolomitisuperski.com/de/planen-und-buchen/skipassundpreise" target="_blank">Dolomiti Superski: Skipässe und Preise</a></li>
+      <li><a href="https://www.schneehoehen.de/skigebiete/preise/kronplatz" target="_blank">Kronplatz: Skipass-Preise 2026/27 (schneehoehen.de)</a></li>
+      <li><a href="https://www.dolomitisuperski.com/dam/jcr:923d30a7-c26e-4562-8b50-13d90138e711/Dolomiti_Superski_Pressemitteilung_Winter_2026_27_Neuheiten_Preise.pdf" target="_blank">Dolomiti Superski: Pressemitteilung Winter 2026/27</a></li>
+    </ul>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Stand: 7. November 2026. Hotelpreise von Booking.com für 2.–9.1.2027 (3 Erwachsene, 4 Sterne, Halbpension), Skipasspreise Hochsaison 2026/27. Preise sind Momentaufnahmen und können sich ändern. Anreise mit dem eigenen Auto, nicht berechnet.</p>
+
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    { name: "Bruneck / Kronplatz", lat: 46.7961, lon: 11.9365, info: "Hotels ab ca. 3.960 € (7 Nächte, 3 Pers.)" },
+    { name: "St. Vigil / Kronplatz", lat: 46.6990, lon: 11.9320, info: "Hotels ab ca. 4.170 €" },
+    { name: "Kastelruth / Seiser Alm", lat: 46.5679, lon: 11.5594, info: "Hotels ab ca. 4.770 €" },
+    { name: "St. Ulrich / Gröden", lat: 46.5745, lon: 11.6648, info: "Hotels ab ca. 9.540 €" },
+    { name: "Corvara / Alta Badia", lat: 46.5515, lon: 11.8740, info: "Hotels ab ca. 8.860 €" }
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap-Mitwirkende' }).addTo(map);
+  var latlngs = stops.map(function (s) { return [s.lat, s.lon]; });
+  stops.forEach(function (s, i) {
+    var marker = L.circleMarker([s.lat, s.lon], { radius: 9, fillColor: '#c98a4b', color: '#fff', weight: 2, fillOpacity: 1 }).addTo(map);
+    marker.bindTooltip(s.name, { permanent: true, direction: 'top', offset: [0, -8], className: 'route-tooltip' });
+    marker.bindPopup('<strong>' + s.name + '</strong><br>' + s.info);
+  });
+  map.fitBounds(latlngs, { padding: [30, 30] });
+</script>
+<script>
+  function shareRecipe(btn) {
+    var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+    if (navigator.share) {
+      navigator.share(shareData).catch(function(){});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href).then(function(){
+        var original = btn.innerHTML;
+        btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+        setTimeout(function(){ btn.innerHTML = original; }, 2000);
+      });
+    }
+  }
+</script>
+<script src="nav.js?v=21" defer></script>
+</body>
+</html>
