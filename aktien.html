@@ -230,15 +230,20 @@
   }
 </style>
 <style>
-  .trk .chips { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
-  .trk .chip { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 12px; padding: 8px 10px; }
-  .trk .chip b { display: block; font-size: 11.5px; font-weight: 500; color: var(--ink-soft); }
-  .trk .chip span { font-size: 17px; font-weight: 700; }
-  .trk .chip .dn { color: #c0392b; } .trk .chip .up { color: #2f7d3a; }
-  .trk .tw { overflow-x: auto; }
-  .trk table { width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 12px; }
+  .trk { min-width: 0; max-width: 100%; display: grid; gap: 10px; }
+  .trk .tk-top { font-size: 13px; color: var(--ink-soft); text-align: center; margin: 0; }
+  .trk .tk-chips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .trk .tk-chip { background: var(--paper); border: 1px solid rgba(46,58,50,.12); border-radius: 12px; padding: 8px 10px; min-width: 0; }
+  .trk .tk-chip b { display: block; font-size: 11.5px; line-height: 1.3; font-weight: 500; color: var(--ink-soft); }
+  .trk .tk-chip i { display: block; font-style: normal; font-size: 16px; line-height: 1.3; font-weight: 700; margin-top: 2px; white-space: nowrap; }
+  .trk .tk-chip i.dn { color: #c0392b; } .trk .tk-chip i.up { color: #2f7d3a; }
+  .trk .tk-note { font-size: 12px; line-height: 1.5; color: var(--ink-soft); margin: 0 2px; }
+  .trk .tk-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+  .trk table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.35; background: var(--paper); }
   .trk th, .trk td { text-align: left; padding: 7px 8px; border-bottom: 1px solid rgba(46,58,50,.1); vertical-align: top; }
-  .trk th { color: var(--ink-soft); font-weight: 600; font-size: 12px; }
+  .trk small { font-size: 11.5px; color: var(--ink-soft); }
+  .trk th { color: var(--ink-soft); font-weight: 600; font-size: 11.5px; }
+  @media (min-width: 700px) { .trk .tk-chips { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 </style>
 </head>
 <body class="page-wide pc">
@@ -292,25 +297,25 @@
     </div>
     <!-- TIPRANKS-START (wöchentlich aktualisieren, nur diesen Block ändern) -->
     <div data-panel="tipranks" class="tab-aus trk" id="pnl-tipranks">
-      <p class="msg">TipRanks Top 5 · Stand: 07.11.2026 · Keine Anlageberatung</p>
-      <div class="chips">
-        <div class="chip"><b>S&amp;P 500 · Do 05.11.</b><span class="dn">≈ −4,4 %</span></div>
-        <div class="chip"><b>Nasdaq Comp. · Do 05.11.</b><span class="dn">&gt; −5,5 %</span></div>
-        <div class="chip"><b>S&amp;P 500 · Fr 06.11.*</b><span class="up">≈ +1,0 %</span></div>
-        <div class="chip"><b>Nasdaq · Fr 06.11.*</b><span class="up">≈ +1,9 %</span></div>
-        <div class="chip"><b>Dow · Fr 06.11.*</b><span class="dn">≈ −0,15 %</span></div>
-        <div class="chip"><b>US-Jobs Oktober</b><span>+165.000</span></div>
+      <p class="tk-top">TipRanks Top 5 · Stand: 07.11.2026 · Keine Anlageberatung</p>
+      <div class="tk-chips">
+        <div class="tk-chip"><b>S&amp;P 500 · Do 05.11.</b><i class="dn">≈ −4,4 %</i></div>
+        <div class="tk-chip"><b>Nasdaq Comp. · Do 05.11.</b><i class="dn">&gt; −5,5 %</i></div>
+        <div class="tk-chip"><b>S&amp;P 500 · Fr 06.11.*</b><i class="up">≈ +1,0 %</i></div>
+        <div class="tk-chip"><b>Nasdaq · Fr 06.11.*</b><i class="up">≈ +1,9 %</i></div>
+        <div class="tk-chip"><b>Dow · Fr 06.11.*</b><i class="dn">≈ −0,15 %</i></div>
+        <div class="tk-chip"><b>US-Jobs Oktober</b><i>+165.000</i></div>
       </div>
-      <p class="hinweis">*Zwischenstand ca. 10 Uhr NY-Zeit, kein Schlusskurs. Treiber: KI-Ausverkauf am Donnerstag, Arbeitslosenquote 4,1 %. Quellen: TheStreet, Yahoo Finance (06.11.).</p>
-      <div class="tw"><table>
-        <tr><th>#</th><th>Analyst (Rang)</th><th>Quote</th><th>Ø-Rendite</th><th>Aktie</th><th>Tipp · Quelle</th></tr>
-        <tr><td>1</td><td>Chatterjee (#4)</td><td>75 %</td><td>55,3 %</td><td>CoreWeave (CRWV)</td><td>Bullisch · CNBC 04.10.</td></tr>
-        <tr><td>2</td><td>Svanberg (#91)</td><td>58 %</td><td>31,8 %</td><td>Marvell (MRVL)</td><td>Bullisch, Custom-Chips → 30 Mrd. $ (FY31) · CNBC 18.10.</td></tr>
-        <tr><td>3</td><td>Moore (#142)</td><td>59 %</td><td>23,4 %</td><td>Nvidia (NVDA)</td><td>Bullisch · CNBC 01.11.</td></tr>
-        <tr><td>4</td><td>Wright (#264)</td><td>64 %</td><td>15 %</td><td>UnitedHealth (UNH)</td><td>Bullisch, Gewinnausblick ≥ 20,50 $ je Aktie · CNBC 18.10.</td></tr>
-        <tr><td>5</td><td>Powell (#320)</td><td>61 %</td><td>17,3 %</td><td>Palo Alto Networks (PANW)</td><td>Bullisch, Umbau zu wachstumsstärkeren Produkten · CNBC 04.10.</td></tr>
+      <p class="tk-note">*Zwischenstand ca. 10 Uhr NY-Zeit, kein Schlusskurs. Treiber: KI-Ausverkauf am Donnerstag, Arbeitslosenquote 4,1 %. Quellen: TheStreet, Yahoo Finance (06.11.).</p>
+      <div class="tk-scroll"><table>
+        <tr><th>#</th><th>Analyst</th><th>Quote<br>Ø-Rendite</th><th>Aktie · Tipp · Quelle</th></tr>
+        <tr><td>1</td><td>Chatterjee<br><small>Rang #4</small></td><td>75 %<br>55,3 %</td><td><b>CoreWeave (CRWV)</b><br><small>Bullisch · CNBC 04.10.</small></td></tr>
+        <tr><td>2</td><td>Svanberg<br><small>Rang #91</small></td><td>58 %<br>31,8 %</td><td><b>Marvell (MRVL)</b><br><small>Bullisch, Custom-Chips → 30 Mrd. $ (FY31) · CNBC 18.10.</small></td></tr>
+        <tr><td>3</td><td>Moore<br><small>Rang #142</small></td><td>59 %<br>23,4 %</td><td><b>Nvidia (NVDA)</b><br><small>Bullisch · CNBC 01.11.</small></td></tr>
+        <tr><td>4</td><td>Wright<br><small>Rang #264</small></td><td>64 %<br>15 %</td><td><b>UnitedHealth (UNH)</b><br><small>Bullisch, Gewinnausblick ≥ 20,50 $ je Aktie · CNBC 18.10.</small></td></tr>
+        <tr><td>5</td><td>Powell<br><small>Rang #320</small></td><td>61 %<br>17,3 %</td><td><b>Palo Alto Networks (PANW)</b><br><small>Bullisch, Umbau zu wachstumsstärkeren Produkten · CNBC 04.10.</small></td></tr>
       </table></div>
-      <p class="hinweis">Datenlage unvollständig: TipRanks führt über 12.500 Analysten, die vollständige 5-Sterne-Liste ist nur im Premium-Bereich sichtbar. Hier stehen nur öffentlich (CNBC/TipRanks) genannte Analysten. Tipps stammen aus der Zeit vor dem Ausverkauf vom 05.11.; Quote und Rendite ändern sich laufend. Top-Picks-Berichte sind meist bullisch und kein Marktkonsens.</p>
+      <p class="tk-note">Datenlage unvollständig: TipRanks führt über 12.500 Analysten, die vollständige 5-Sterne-Liste ist nur im Premium-Bereich sichtbar. Hier stehen nur öffentlich (CNBC/TipRanks) genannte Analysten. Tipps stammen aus der Zeit vor dem Ausverkauf vom 05.11.; Quote und Rendite ändern sich laufend. Top-Picks-Berichte sind meist bullisch und kein Marktkonsens.</p>
     </div>
     <!-- TIPRANKS-ENDE -->
     <div data-panel="pruefen" class="tab-aus" id="pnl-pruefen">
