@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Österreich-Skireise (7 Nächte) – Andrea unterwegs</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=29">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+<style>
+  .subhead { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 32px 0 8px; }
+  .route-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 15px; }
+  .route-table th, .route-table td { border: 1px solid rgba(46,58,50,0.15); padding: 8px 12px; text-align: left; }
+  .route-table th { background: var(--paper-warm); font-family: 'Work Sans', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); }
+  .map-link { display: inline-block; margin: 10px 0 4px; padding: 10px 18px; background: var(--rust); color: #fff; text-decoration: none; border-radius: 6px; font-size: 14px; }
+  .hotel-group { margin: 16px 0; }
+  .hotel-group strong { display: block; font-family: 'Fraunces', serif; font-size: 17px; margin-bottom: 6px; }
+  .hotel-group ul { margin: 0; padding-left: 20px; }
+  .hotel-group li { margin-bottom: 6px; }
+  .safety-box { background: rgba(197, 92, 60, 0.08); border: 1px solid rgba(197, 92, 60, 0.25); border-radius: 8px; padding: 18px 22px; margin: 16px 0; font-size: 15px; }
+  .practical-list li { margin-bottom: 10px; }
+  .note { font-style: italic; color: var(--ink-soft); font-size: 14px; }
+  #route-map { height: 380px; width: 100%; border-radius: 8px; margin: 14px 0 6px; }
+  .route-tooltip { background: var(--paper, #faf6f0); border: 1px solid rgba(46,58,50,0.25); font-family: 'Work Sans', sans-serif; font-size: 12px; padding: 2px 6px; border-radius: 4px; box-shadow: none; }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body class="page-info pc">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="quiz.html">München</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+      <a href="musik.html">Musik</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+
+  <div class="entry-topbar">
+    <a class="back-link" href="reisen.html">← Zu den Reisen</a>
+    <button class="share-btn" onclick="shareRecipe(this)" aria-label="Seite teilen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12"/>
+        <path d="M8 7l4-4 4 4"/>
+        <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <article>
+    <header class="entry-header">
+      <h1>Österreich: Skiwoche (2.–9.1.2027)</h1>
+      <hr class="rule">
+    </header>
+
+    <div class="entry-body">
+      <p>Eine Skiwoche in Österreich für <strong>3 Personen</strong>: <strong>Sa 2.1. bis Sa 9.1.2027</strong> (7 Nächte, 6 Skitage), <strong>4-Sterne-Hotel mit Halbpension</strong>, tägliche Skipässe für alle drei. Anreise mit dem eigenen Auto, nicht betrachtet. Die Woche ist Hochsaison rund um Dreikönig (6.1.): Preise und Verfügbarkeit bald prüfen. Verglichen habe ich vier große Skigebiete.</p>
+    </div>
+
+    <h2 class="subhead">Auf einen Blick</h2>
+    <table class="route-table">
+      <tr><th>Punkt</th><th>Empfehlung</th></tr>
+      <tr><td>Region</td><td><strong>Schladming (Ski amadé)</strong>: günstigste Hotels der vier Orte, große Vierberge-Skischaukel. Wer mehr Pistenkilometer und Après-Ski will: Saalbach-Hinterglemm.</td></tr>
+      <tr><td>Hotel</td><td>Hotel Sonnschupfer, Schladming, 4 Sterne, 9,2, Halbpension, ca. 3.760 € für 7 Nächte zu dritt. Mit Pistennähe: Hotel-Restaurant Planaihof, 9,3, ca. 4.340 €.</td></tr>
+      <tr><td>Skipass</td><td>Ski amadé 6 Tage 432,50 € p.P. (zu dritt ca. 1.298 €)</td></tr>
+      <tr><td>Gesamt</td><td><strong>≈ 5.560 €</strong> für 3 Personen (Hotel 3.760 € + Skipass 1.298 € + Sonstiges ca. 500 €), ohne Anreise und Skimiete</td></tr>
+    </table>
+
+    <h2 class="subhead">Orte im Vergleich</h2>
+    <div id="route-map"></div>
+    <table class="route-table">
+      <tr><th>Ort</th><th>Skipass</th><th>Hotel 4★ HP, 7 N., 3 Pers.</th><th>Hinweis</th></tr>
+      <tr><td><strong>Schladming</strong></td><td>1 Tag 81,50 €, 6 Tage 432,50 €</td><td><strong>ab ca. 3.760 €</strong></td><td>Ski amadé, Vierberge-Skischaukel, günstigste Variante</td></tr>
+      <tr><td><strong>Saalbach-Hinterglemm</strong></td><td>1 Tag 82 €, 6 Tage nicht gefunden</td><td>ab ca. 4.650 €</td><td>Skicircus, lebhafter Ort, viel Après-Ski</td></tr>
+      <tr><td><strong>St. Anton am Arlberg</strong></td><td>1 Tag 85 €, 6 Tage nicht gefunden</td><td>ab ca. 5.530 €</td><td>Ski Arlberg, anspruchsvolles Gelände, weiter Anreise aus München</td></tr>
+      <tr><td><strong>Kitzbühel</strong></td><td>1 Tag 83 €, 6 Tage SuperSkiCard 449 €</td><td>ab ca. 6.020 €</td><td>KitzSki, Stadt mit Flair, höchste Hotelpreise der vier</td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft);">Hotelpreise sind der Gesamtpreis für den ganzen Aufenthalt, 3 Erwachsene in einem Zimmer, laut Booking-Suche mit Filter 4 Sterne und Halbpension (Stand 07.11.2026). Zimmerart, Platz für drei Personen und Inhalt der Halbpension bitte auf der Buchungsseite prüfen, die Preise ändern sich.</p>
+
+    <h2 class="subhead">Hotels (4 Sterne, Halbpension)</h2>
+    <div class="hotel-group">
+      <strong>Schladming (Empfehlung)</strong>
+      <ul>
+        <li>Hotel Sonnschupfer – 9,2, ca. 3.760 €</li>
+        <li>Hotel-Restaurant Planaihof – 9,3, Pistenzugang, ca. 4.340 €</li>
+      </ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Saalbach-Hinterglemm</strong>
+      <ul><li>Hotel Barbarahof – 9,2, ca. 4.650 €</li></ul>
+    </div>
+    <div class="hotel-group">
+      <strong>St. Anton am Arlberg</strong>
+      <ul><li>Hotel Karl Schranz – ca. 5.530 €</li></ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Kitzbühel</strong>
+      <ul><li>ERIKA Boutiquehotel – ca. 6.020 €</li></ul>
+      <p class="note">Zu den Hotels habe ich hier bewusst keine Direktlinks gesetzt; unten die Booking-Suchen je Ort.</p>
+    </div>
+
+    <h2 class="subhead">Skipässe (Hochsaison 2026/27, Erwachsene)</h2>
+    <table class="route-table">
+      <tr><th>Pass</th><th>1 Tag</th><th>6 Tage</th><th>7 Tage</th><th>zu dritt, 6 Tage</th></tr>
+      <tr><td><strong>Ski amadé</strong> (Schladming)</td><td>81,50 €</td><td><strong>432,50 €</strong></td><td>469 €</td><td><strong>1.297,50 €</strong></td></tr>
+      <tr><td>SuperSkiCard Salzburg &amp; Kitzbüheler Alpen</td><td>86 €</td><td>449 €</td><td>497 €</td><td>1.347 €</td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft);">Tageskarten laut Urlaubshamster-Erhebung vom 17.10.2026: Skicircus Saalbach 82 €, Kitzbühel 83 €, Arlberg 85 €, Schladming 81,50 €. Mehrtagespreise laut schneehoehen.de (ohne Gewähr); bei Ski amadé ist Online-Vorkauf oft günstiger. Für Saalbach und den Arlberg habe ich keine 6-Tage-Preise gefunden.</p>
+
+    <h2 class="subhead">Ablauf der Woche</h2>
+    <table class="route-table">
+      <tr><th>Tag</th><th>Datum</th><th>Programm</th></tr>
+      <tr><td>1</td><td>Sa 2.1.</td><td>Anreise mit dem Auto, Check-in, Abendessen im Hotel (Halbpension), Skipässe besorgen</td></tr>
+      <tr><td>2–7</td><td>So 3.1.–Fr 8.1.</td><td>6 Skitage; am Mittwoch 6.1. (Dreikönig) mehr Andrang</td></tr>
+      <tr><td>8</td><td>Sa 9.1.</td><td>Abreise nach dem Frühstück, Rückfahrt mit dem Auto</td></tr>
+    </table>
+
+    <h2 class="subhead">Kostenübersicht (3 Personen, Schladming)</h2>
+    <table class="route-table">
+      <tr><th>Posten</th><th>Betrag</th><th>Grundlage</th></tr>
+      <tr><td>Hotel 7 Nächte, Halbpension</td><td>ca. 3.760 €</td><td>Hotel Sonnschupfer laut Booking</td></tr>
+      <tr><td>Skipässe 6 Tage, 3 Erwachsene</td><td>1.297,50 €</td><td>Ski amadé 432,50 € p.P.</td></tr>
+      <tr><td>Mittagessen auf der Hütte, Getränke, Ortstaxe</td><td>ca. 500 €</td><td>geschätzt</td></tr>
+      <tr><td><strong>Gesamt</strong></td><td><strong>≈ 5.560 €</strong></td><td>ohne Anreise (Auto, Maut, Benzin) und ohne Skimiete</td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft);">Zum Vergleich Südtirol (Kronplatz) ca. 5.700 €. In Saalbach wären es mit Hotel Barbarahof ca. 6.450 € bei geschätztem Skipass von 430 € p.P.</p>
+
+    <h2 class="subhead">Praktisches</h2>
+    <ul class="practical-list">
+      <li><strong>Zimmer</strong>: bei Booking das Zimmer für drei Erwachsene wählen, Halbpension im Tarif bestätigen lassen</li>
+      <li><strong>Stornierung</strong>: Tarife mit kostenloser Stornierung wählen, erst nach Blick auf die Schneelage fest buchen</li>
+      <li><strong>Schneelage</strong>: vor der Abreise Schneebericht und Pistenöffnung prüfen</li>
+    </ul>
+
+    <h2 class="subhead">Selbst prüfen</h2>
+    <ul>
+      <li><a href="https://www.booking.com/searchresults.html?ss=Schladming&amp;checkin=2027-01-02&amp;checkout=2027-01-09&amp;group_adults=3&amp;no_rooms=1&amp;nflt=class%3D4" target="_blank">Booking.com: Schladming, 2.–9.1.2027, 3 Erwachsene, 4 Sterne</a></li>
+      <li><a href="https://www.booking.com/searchresults.html?ss=Saalbach-Hinterglemm&amp;checkin=2027-01-02&amp;checkout=2027-01-09&amp;group_adults=3&amp;no_rooms=1&amp;nflt=class%3D4" target="_blank">Booking.com: Saalbach-Hinterglemm</a></li>
+      <li><a href="https://www.booking.com/searchresults.html?ss=St.+Anton+am+Arlberg&amp;checkin=2027-01-02&amp;checkout=2027-01-09&amp;group_adults=3&amp;no_rooms=1&amp;nflt=class%3D4" target="_blank">Booking.com: St. Anton am Arlberg</a></li>
+      <li><a href="https://www.booking.com/searchresults.html?ss=Kitzb%C3%BChel&amp;checkin=2027-01-02&amp;checkout=2027-01-09&amp;group_adults=3&amp;no_rooms=1&amp;nflt=class%3D4" target="_blank">Booking.com: Kitzbühel</a></li>
+      <li><a href="https://www.schneehoehen.de/skigebiete/preise/schladming-dachstein" target="_blank">Schladming-Dachstein: Skipass-Preise (schneehoehen.de)</a></li>
+      <li><a href="https://www.leadersnet.at/news/104856,wer-oesterreichs-skipasspreise-vergleicht-muss-auf-den-kalender.html" target="_blank">Tageskarten Österreich 2026/27 (Leadersnet)</a></li>
+    </ul>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Stand: 7. November 2026. Hotelpreise von Booking.com für 2.–9.1.2027 (3 Erwachsene, 4 Sterne, Halbpension). Preise sind Momentaufnahmen und können sich ändern. Anreise mit dem eigenen Auto, nicht berechnet.</p>
+
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    { name: "Schladming", lat: 47.3933, lon: 13.6886, info: "Hotels ab ca. 3.760 € (7 Nächte, 3 Pers.)" },
+    { name: "Saalbach-Hinterglemm", lat: 47.3903, lon: 12.6358, info: "Hotels ab ca. 4.650 €" },
+    { name: "Kitzbühel", lat: 47.4467, lon: 12.3920, info: "Hotels ab ca. 6.020 €" },
+    { name: "St. Anton am Arlberg", lat: 47.1286, lon: 10.2646, info: "Hotels ab ca. 5.530 €" }
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap-Mitwirkende' }).addTo(map);
+  var latlngs = stops.map(function (s) { return [s.lat, s.lon]; });
+  stops.forEach(function (s, i) {
+    var marker = L.circleMarker([s.lat, s.lon], { radius: 9, fillColor: '#c98a4b', color: '#fff', weight: 2, fillOpacity: 1 }).addTo(map);
+    marker.bindTooltip(s.name, { permanent: true, direction: 'top', offset: [0, -8], className: 'route-tooltip' });
+    marker.bindPopup('<strong>' + s.name + '</strong><br>' + s.info);
+  });
+  map.fitBounds(latlngs, { padding: [30, 30] });
+</script>
+<script>
+  function shareRecipe(btn) {
+    var shareData = { title: document.title.replace(' – Andrea unterwegs',''), url: window.location.href };
+    if (navigator.share) {
+      navigator.share(shareData).catch(function(){});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href).then(function(){
+        var original = btn.innerHTML;
+        btn.innerHTML = '<span style="font-size:13px;">Link kopiert!</span>';
+        setTimeout(function(){ btn.innerHTML = original; }, 2000);
+      });
+    }
+  }
+</script>
+<script src="nav.js?v=21" defer></script>
+</body>
+</html>
