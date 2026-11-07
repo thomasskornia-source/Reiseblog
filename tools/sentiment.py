@@ -9,6 +9,8 @@ Rest läuft weiter.
   Put/Call (Gesamt)      Cboe, totalpc.csv (kann veraltet sein, dann Hinweis)
   Fear & Greed           CNN-Datenabruf (inoffiziell, kann ausfallen)
   NAAIM Exposure         naaim.org (Seite wird gelesen, nur mit strenger Prüfung; kann ausfallen)
+  Makro (Thomas, 07.11.2026, nach der Rückmeldung zu Kochs Indikatoren; zählt NICHT zum Gesamtwert, eigener Abschnitt `makro`):
+                         FRED DGS10, DGS2, DFF, GDPNOW, DTWEXBGS, GASDESW (Renditen, Fed Funds, GDPNow, Dollar, Diesel) und Yahoo CL=F (Rohöl)
 Die Ampel (pfeil: hoch = stützt die Börse, runter = belastet, seitwaerts = neutral) folgt festen, offenen Schwellen (SCHWELLEN unten),
 damit sie wie Kochs Pfeile lesbar ist. Gesamtwert = Mittel der Pfeile (−100 bis +100). Verlauf des Gesamtwerts: 90 Tage.
 Keine Anlageberatung: Stimmung ist ein Gegen- und Begleitindikator, kein Signal für sich.
@@ -104,6 +106,14 @@ SCHWELLEN = {
     'pc': (0.70, 1.00),           # Put/Call: unter 0,70 sorglos (hoch), über 1,00 Angst (runter)
     'fg': (60.0, 40.0),           # CNN: über 60 Gier, unter 40 Angst
     'naaim': (80.0, 40.0),        # Fondsmanager: über 80 voll investiert, unter 40 vorsichtig
+    # Makro (Änderung über die genannte Zeit; Pfeil = Wirkung auf Aktien nach Faustregel)
+    'rendite': (0.25, -0.25),     # 10J-Rendite, Änderung in 20 Handelstagen in Prozentpunkten: über +0,25 belastet, unter −0,25 stützt
+    'zinskurve': (0.5, 0.0),      # 10J minus 2J in Prozentpunkten: über 0,5 normal (stützt), unter 0 invers (belastet)
+    'leitzins': (0.25, -0.25),    # Fed Funds, Änderung in 60 Handelstagen: Erhöhung ab 0,25 belastet, Senkung ab 0,25 stützt
+    'gdpnow': (2.0, 1.0),         # Prozent annualisiert: über 2 stützt, unter 1 belastet
+    'dollar': (2.0, -2.0),        # breiter Dollar-Index, Änderung in 20 Handelstagen in Prozent: starker Anstieg belastet
+    'diesel': (5.0, -5.0),        # Diesel Endkunde, Änderung in 4 Wochen in Prozent
+    'oel': (10.0, -10.0),         # Rohöl, Änderung in 20 Handelstagen in Prozent
 }
 
 def pfeil_niedrig_gut(v, grenzen):
@@ -178,6 +188,83 @@ def bauen(daten):
             'NAAIM', 'https://naaim.org/programs/naaim-exposure-index/', [v], d)
     return ind
 
+def aendg(zeilen, n, prozent=False):
+    """Änderung des letzten Werts gegenüber dem Wert n Beobachtungen davor (absolut oder in Prozent) oder None"""
+    if len(zeilen) <= n: return None
+    a, b = zeilen[-1][1], zeilen[-1 - n][1]
+    if prozent: return (a / b - 1) * 100 if b else None
+    return a - b
+
+def pf_aenderung(ae, grenzen):
+    """Anstieg über die obere Grenze belastet, Rückgang unter die untere stützt"""
+    if ae is None: return 'seitwaerts'
+    hi, lo = grenzen
+    return 'runter' if ae > hi else 'hoch' if ae < lo else 'seitwaerts'
+
+def vz(x, nk=2):
+    return ('+' if x > 0 else '') + str(round(x, nk)).replace('.', ',') if x is not None else 'n/a'
+
+def makro_bauen(daten):
+    """Selbst abgerufene Makro-Zahlen, die Markus Koch nutzt. Gleiche Felder wie bauen(), zusätzlich max_alter (Tage)."""
+    m = []
+    def add(i, name, wert, einheit, pfeil, text, erkl, quelle, url, rz, datum, max_alter):
+        m.append({'id': i, 'name': name, 'wert': wert, 'einheit': einheit, 'pfeil': pfeil, 'text': text, 'erklaerung': erkl,
+                  'quelle': quelle, 'url': url, 'reihe': rz, 'datum': datum, 'max_alter': max_alter})
+    r10 = daten.get('dgs10') or []
+    if r10:
+        d, v = r10[-1]; ae = aendg(r10, 20)
+        add('rendite10', '10-jährige US-Rendite', round(v, 2), ' %', pf_aenderung(ae, SCHWELLEN['rendite']),
+            ('20 Tage: ' + vz(ae) + ' Punkte') if ae is not None else 'Verlauf zu kurz',
+            'Zinsen auf zehnjährige US-Staatsanleihen. Steigen sie schnell, werden Aktien im Vergleich weniger attraktiv und Kredite teurer (belastet); fallen sie, entlastet das.',
+            'FRED (DGS10, Federal Reserve H.15)', 'https://fred.stlouisfed.org/series/DGS10', reihe(r10), d, 14)
+        r2 = daten.get('dgs2') or []
+        m2 = dict(r2); sp = [(dd, x - m2[dd]) for dd, x in r10 if dd in m2]
+        if sp:
+            d2, x = sp[-1]
+            add('zinskurve', 'Zinskurve (10 Jahre minus 2 Jahre)', round(x, 2), ' Punkte',
+                'runter' if x < SCHWELLEN['zinskurve'][1] else 'hoch' if x > SCHWELLEN['zinskurve'][0] else 'seitwaerts',
+                'invers (kurze Zinsen höher als lange)' if x < 0 else 'steil' if x > SCHWELLEN['zinskurve'][0] else 'flach',
+                'Abstand zwischen langen und kurzen Zinsen. Unter null (invers) galt in der Vergangenheit oft als Warnzeichen für eine Rezession; deutlich darüber ist der Normalfall.',
+                'FRED (DGS10 und DGS2)', 'https://fred.stlouisfed.org/series/T10Y2Y', reihe(sp), d2, 14)
+    ff = daten.get('dff') or []
+    if ff:
+        d, v = ff[-1]; ae = aendg(ff, 60)
+        pf = 'seitwaerts' if ae is None else 'runter' if ae >= SCHWELLEN['leitzins'][0] else 'hoch' if ae <= SCHWELLEN['leitzins'][1] else 'seitwaerts'
+        add('dff', 'Leitzins (Fed Funds, effektiv)', round(v, 2), ' %', pf,
+            ('60 Tage: ' + vz(ae) + ' Punkte') if ae is not None else 'Verlauf zu kurz',
+            'Zins, zu dem sich Banken über Nacht Geld leihen; wird von der Fed gesteuert. Senkungen stützen Aktien, Erhöhungen belasten sie. Was der Markt als nächstes erwartet, steht hier nicht (die CME-Wahrscheinlichkeiten sind nicht frei abrufbar).',
+            'FRED (DFF)', 'https://fred.stlouisfed.org/series/DFF', reihe(ff), d, 14)
+    gd = daten.get('gdpnow') or []
+    if gd:
+        d, v = gd[-1]
+        add('gdpnow', 'GDPNow (Atlanta Fed)', round(v, 2), ' %',
+            'hoch' if v > SCHWELLEN['gdpnow'][0] else 'runter' if v < SCHWELLEN['gdpnow'][1] else 'seitwaerts',
+            'starkes Wachstum' if v > SCHWELLEN['gdpnow'][0] else 'schwach' if v < SCHWELLEN['gdpnow'][1] else 'mittel',
+            'Laufende Schätzung der Atlanta Fed für das Wirtschaftswachstum des aktuellen Quartals (hochgerechnet auf ein Jahr). Wird mehrmals im Monat angepasst und ist eine Schätzung, kein Ergebnis.',
+            'FRED (GDPNOW)', 'https://fred.stlouisfed.org/series/GDPNOW', reihe(gd, 12), d, 0)   # 0 = Quartalsdatum, kein Alterstest
+    us = daten.get('dxy') or []
+    if us:
+        d, v = us[-1]; ae = aendg(us, 20, True)
+        add('dollar', 'Dollar (breiter Index)', round(v, 1), '', pf_aenderung(ae, SCHWELLEN['dollar']),
+            ('20 Tage: ' + vz(ae, 1) + ' %') if ae is not None else 'Verlauf zu kurz',
+            'Wert des Dollars gegen die wichtigen Handelspartner. Ein schnell steigender Dollar belastet oft die Gewinne großer US-Konzerne im Ausland und die Weltmärkte. Die Daten kommen mit rund einer Woche Verzögerung.',
+            'FRED (DTWEXBGS, Federal Reserve H.10)', 'https://fred.stlouisfed.org/series/DTWEXBGS', reihe(us), d, 14)
+    di = daten.get('diesel') or []
+    if di:
+        d, v = di[-1]; ae = aendg(di, 4, True)
+        add('diesel', 'Diesel (US-Endkunde)', round(v, 2), ' $/Gallone', pf_aenderung(ae, SCHWELLEN['diesel']),
+            ('4 Wochen: ' + vz(ae, 1) + ' %') if ae is not None else 'Verlauf zu kurz',
+            'Wöchentlicher Dieselpreis an US-Tankstellen (EIA, über FRED). Steigt er stark, treibt das die Transportkosten und die Inflationssorgen.',
+            'FRED (GASDESW, Quelle EIA)', 'https://fred.stlouisfed.org/series/GASDESW', reihe(di, 26), d, 21)
+    ol = daten.get('oel') or []
+    if ol:
+        d, v = ol[-1]; ae = aendg(ol, 20, True)
+        add('oel', 'Rohöl (WTI)', round(v, 2), ' $', pf_aenderung(ae, SCHWELLEN['oel']),
+            ('20 Tage: ' + vz(ae, 1) + ' %') if ae is not None else 'Verlauf zu kurz',
+            'Preis für US-Rohöl (nächster Terminkontrakt). Starke Anstiege belasten Margen und nähren Inflationsangst; starke Rückgänge können aber auch Konjunktursorgen zeigen, deshalb ist der Pfeil nur eine Faustregel.',
+            'Yahoo (CL=F)', 'https://finance.yahoo.com/quote/CL=F', reihe(ol), d, 7)
+    return m
+
 def gesamt(ind):
     w = {'hoch': 1, 'runter': -1, 'seitwaerts': 0}
     if not ind: return None
@@ -189,7 +276,10 @@ def gesamt(ind):
 def main():
     daten = {'vix': yahoo('^VIX'), 'vix3m': yahoo('^VIX3M'), 'rsp': yahoo('RSP'), 'spy': yahoo('SPY'),
              'hy': fred('BAMLH0A0HYM2'), 'pc': putcall(), 'fg': feargreed(), 'naaim': naaim()}
+    mdaten = {'dgs10': fred('DGS10'), 'dgs2': fred('DGS2'), 'dff': fred('DFF'), 'gdpnow': fred('GDPNOW'), 'dxy': fred('DTWEXBGS'),
+              'diesel': fred('GASDESW'), 'oel': yahoo('CL=F')}
     ind = bauen(daten)
+    makro = makro_bauen(mdaten)
     # Cboe-Datei kann veraltet sein: dann nicht als aktuell zeigen
     heute = datetime.date.today()
     for i in ind:
@@ -199,6 +289,14 @@ def main():
             alter = 0
         i['alter_tage'] = alter
         if alter > 10:
+            i['veraltet'] = True
+    for i in makro:
+        try:
+            alter = (heute - datetime.date.fromisoformat(i['datum'])).days
+        except ValueError:
+            alter = 0
+        i['alter_tage'] = alter
+        if i['max_alter'] and alter > i['max_alter']:
             i['veraltet'] = True
     frisch = [i for i in ind if not i.get('veraltet')]
     if len(frisch) < 3:
@@ -211,11 +309,11 @@ def main():
         pass
     verlauf = [x for x in alt.get('verlauf', []) if x.get('d') != heute.isoformat()]
     verlauf.append({'d': heute.isoformat(), 'score': g['score']})
-    out = {'stand': heute.isoformat(), 'gesamt': g, 'indikatoren': ind, 'verlauf': verlauf[-MAX_VERLAUF:],
+    out = {'stand': heute.isoformat(), 'gesamt': g, 'indikatoren': ind, 'makro': makro, 'verlauf': verlauf[-MAX_VERLAUF:],
            'schwellen': SCHWELLEN, 'meldungen': FEHLER[:20],
            'hinweis': 'Eigene Auswertung freier Daten, keine Anlageberatung. Schwellen sind Faustregeln und keine Prognose.'}
     json.dump(out, open(PFAD, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-    print('geschrieben:', len(ind), 'Indikatoren, Gesamt', g['score'])
+    print('geschrieben:', len(ind), 'Indikatoren,', len(makro), 'Makro, Gesamt', g['score'])
 
 if __name__ == '__main__':
     main()

@@ -184,6 +184,12 @@
         var pf = i.veraltet ? 'seitwaerts' : i.pfeil;
         return '<li><span class="ch ' + pf + '" aria-hidden="true">' + PF[pf] + '</span><div><b>' + esc(i.name) + '<span class="kat">' + esc(i.quelle) + (i.veraltet ? ' · veraltet' : '') + '</span></b>' + spark(i.reihe) + '</div><div class="lage">' + zahlD(i.wert, i.einheit) + ' · ' + esc(i.text) + '</div><div class="rolle">' + esc(i.erklaerung) + (i.url ? ' <a href="' + esc(i.url) + '" target="_blank" rel="noopener">Quelle</a>' : '') + '</div></li>';
       }).join('') + '</ul><p class="hinweis">' + esc(z.hinweis || '') + ' Pfeile folgen festen Schwellen (▲ stützt die Börse, ▼ belastet sie). Extreme Stimmung gilt oft als Gegenindikator.</p>';
+      if (z.makro && z.makro.length) {
+        t += '<h2>Makro-Zahlen, selbst abgerufen</h2><p class="sub" style="margin-top:0">Die Themen, die Markus Koch immer wieder nennt (Zinsen, Wachstum, Dollar, Öl), hier als eigene Zahlen aus freien Quellen. Die Pfeile folgen festen Faustregeln und zählen nicht zum Wert oben.</p><ul class="ind">' + z.makro.map(function (i) {
+          var pf = i.veraltet ? 'seitwaerts' : i.pfeil;
+          return '<li><span class="ch ' + pf + '" aria-hidden="true">' + PF[pf] + '</span><div><b>' + esc(i.name) + '<span class="kat">' + esc(i.quelle) + (i.veraltet ? ' · veraltet' : '') + '</span></b>' + spark(i.reihe) + '</div><div class="lage">' + zahlD(i.wert, i.einheit) + ' · ' + esc(i.text) + '</div><div class="rolle">' + esc(i.erklaerung) + (i.url ? ' <a href="' + esc(i.url) + '" target="_blank" rel="noopener">Quelle</a>' : '') + '</div></li>';
+        }).join('') + '</ul>';
+      }
       document.getElementById('sent').innerHTML = t;
       var pos = z.indikatoren.filter(function (i) { return i.pfeil === 'hoch'; }).length, neg = z.indikatoren.filter(function (i) { return i.pfeil === 'runter'; }).length;
       kachel('eigen', 'Eigene Daten', g.pfeil, NAME[g.pfeil] || esc(g.text), (g.score > 0 ? '+' : '') + g.score + ' von ±100 · ' + pos + ' gut, ' + neg + ' schlecht, ' + (z.indikatoren.length - pos - neg) + ' neutral',
