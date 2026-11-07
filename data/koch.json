@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "_WhoSHtMFZI",
+   "titel": "Tech-Absturz. Startet jetzt das Comeback?",
+   "datum": "2026-11-06",
+   "zeit": "2026-11-06T16:02:12+00:00",
+   "art": "opening",
+   "score": 20,
+   "pfeil": "hoch",
+   "thema": "Der US-Aktienmarkt versucht nach einem breiten Ausverkauf am Vortag eine technische Gegenbewegung im Technologiesektor, gestützt durch robuste Arbeitsmarktdaten und Hoffnungen auf geopolitische Entspannung.",
+   "gesamtstimmung": "Markus Koch blickt nach dem gestrigen 'Wash-out' vorsichtig optimistisch auf die technisch überfällige Erholung im Tech-Sektor. Zwar mahnt er zur Vorsicht bei Freitags-Rallys und politischem Störfeuer aus Washington, sieht die Makrolage nach soliden Jobdaten jedoch stabilisiert.",
+   "begruendung": "Der Score liegt im leicht positiven Bereich, da die extreme Überverkauftheit im Tech-Segment und der starke Arbeitsmarkt kurzfristig für Auftrieb sorgen. Gleichzeitig dämpfen anhaltender Abgabedruck im Dow Jones, anstehende Inflationsdaten und politische Risiken nach den Wahlen die Euphorie.",
+   "indikatoren": [
+    {
+     "kategorie": "Arbeitsmarkt",
+     "name": "US-Arbeitsmarktdaten",
+     "lage": "Deutlich mehr neue Stellen als erwartet, Arbeitslosenquote sinkt auf 4,1 %",
+     "pfeil": "hoch",
+     "rolle": "Die starken Zahlen zerstreuen Sorgen vor einer abrupten Konjunkturabkühlung, ohne laut Notenbankern sofort neuen Inflationsdruck zu signalisieren."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Tech- und Halbleiterwerte technisch extrem überverkauft nach Vortags-Washout",
+     "pfeil": "hoch",
+     "rolle": "Nach dem massiven VIX-Sprung am Vortag bietet das überverkaufte Marktniveau Raum für eine technische Gegenbewegung."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Gestern schlossen alle elf Sektoren negativ, heute Tech erholt bei schwachem Dow",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Erholung ist noch uneinheitlich und stark auf Tech konzentriert, während traditionelle Werte weiter unter Druck stehen."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Berichte über möglichen Rahmenvertrag zur Beilegung des Konflikts mit dem Iran",
+     "pfeil": "hoch",
+     "rolle": "Signale für eine Deeskalation und offene Schifffahrtswege nehmen geopolitische Risikoprämien aus dem Markt."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zollpolitik & Schuldenpläne",
+     "lage": "Demokraten im Kongress planen Untersuchungen gegen Trump-nahe Tech-Konzerne",
+     "pfeil": "runter",
+     "rolle": "Politische Revancheakte und regulatorische Unsicherheiten belasten die betroffenen Großkonzerne im Tech-Sektor."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Preise ziehen leicht an, könnten bei Iran-Einigung jedoch wieder fallen",
+     "pfeil": "seitwaerts",
+     "rolle": "Kurzfristig steigende Energiepreise heizen die Inflationserwartungen für die kommenden Daten an, mittelfristig droht bei Entspannung aber ein Preisrutsch."
+    }
+   ],
+   "zitate": [
+    "einen wirklichen Washout",
+    "technisch jetzt extrem überverkauft"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 172502
+  },
+  {
    "id": "g-NkSgfmmuQ",
    "titel": "Größter Tageseinbruch in der Geschichte | Fast 3 Billionen US-Dollar ausradiert.",
    "datum": "2026-11-05",
@@ -111,6 +174,139 @@
    "sicherheit": "hoch",
    "modell": "gemini-3.7-flash",
    "tokens": 3573
+  },
+  {
+   "id": "JazicTFN2TA",
+   "titel": "Rotation aus Tech. Ertragsaussichten trüben sich insgesamt ein.",
+   "datum": "2026-11-05",
+   "zeit": "2026-11-05T16:05:46+00:00",
+   "art": "opening",
+   "score": -45,
+   "pfeil": "runter",
+   "thema": "Umschichtung aus Tech-Werten in Standardaktien vor dem Hintergrund breiter Gewinnschwächen und politischer Unsicherheiten.",
+   "gesamtstimmung": "Die Marktstimmung wird von wachsender Skepsis geprägt, da sich die Wachstums- und Ertragsdynamik nicht nur im Technologiesektor, sondern marktbreit abkühlt. Zunehmende Gewinnwarnungen und gesenkte Ausblicke belasten das Sentiment spürbar.",
+   "begruendung": "Zahlreiche Unternehmen verfehlen die Ertragserwartungen und senken Prognosen, was die jüngste Rotation in Standardwerte gefährdet. Gleichzeitig sorgen politische Belastungsfaktoren und geopolitische Spannungen für zusätzliche Verunsicherung am Markt.",
+   "indikatoren": [
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Equal-Weight-Index technisch überkauft, Rotation aus Tech in Standardwerte",
+     "pfeil": "runter",
+     "rolle": "Er warnt davor, dass die Rotation in Standardwerte durch schwächere Unternehmensdaten untergraben werden könnte."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Reihenweise verfehlte Schätzungen und gesenkte Prognosen quer durch alle Branche",
+     "pfeil": "runter",
+     "rolle": "Die deutliche Abkühlung der Ertragsdynamik US-amerikanischer Unternehmen stimmt ihn zunehmend skeptisch."
+    },
+    {
+     "kategorie": "Arbeitsmarkt",
+     "name": "US-Arbeitsmarktdaten",
+     "lage": "Erholung für Oktober erwartet, jedoch anhaltende Abkühlung im Jahresvergleich",
+     "pfeil": "seitwaerts",
+     "rolle": "Der anstehende Arbeitsmarktbericht bleibt ein zentraler Impulsgeber für die Konjunktureinschätzung der Wall Street."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Zuletzt zurückgelaufen",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Renditen könnten dem Kapitalmarkt theoretisch Halt bieten, werden aber durch Konjunktursorgen überschattet."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zollpolitik & Schuldenpläne",
+     "lage": "Drohendes Amtsenthebungsverfahren gegen Minister Hegseth und politische Querelen",
+     "pfeil": "runter",
+     "rolle": "Politisches Chaos in Washington belastet das Vertrauen der Anleger in die Handlungsfähigkeit der Regierung."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Huthi fordern Milliardenzahlung von Saudi-Arabien, Iran-Krise ungelöst",
+     "pfeil": "runter",
+     "rolle": "Die anhaltenden Spannungen im Nahen Osten bergen anhaltende Risiken für die globale Stabilität."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Nach starkem Rückgang heute leichte Gegenbewegung",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Ölpreisentwicklung spiegelt die konjunkturellen Nachfragesorgen wider."
+    }
+   ],
+   "zitate": [
+    "eine Abkühlung der Ertragsdynamik bei amerikanischen Unternehmen",
+    "eine negative Nachricht jagt die andere"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 115640
+  },
+  {
+   "id": "7p0xRqQFnJw",
+   "titel": "Blauer Tsunami: Folgen für die Wall Street?",
+   "datum": "2026-11-04",
+   "zeit": "2026-11-04T15:43:17+00:00",
+   "art": "opening",
+   "score": 30,
+   "pfeil": "hoch",
+   "thema": "Markus Koch analysiert die überraschend positive Wall-Street-Reaktion auf den deutlichen Wahlsieg der Demokraten sowie eine Flut an Quartalszahlen.",
+   "gesamtstimmung": "Die Wall Street reagiert mit Erleichterung auf das eindeutige Wahlergebnis, da eine quälende Hängepartie und juristische Auseinandersetzungen ausbleiben. Trotz neuer Regulierungssorgen für Big Tech und Rechenzentren stützen defensive Werte und überwiegend solide Unternehmensberichte den Gesamtmarkt.",
+   "begruendung": "Das klare politische Ergebnis beseitigt die größte Unsicherheit vor Nachzählungen und Wahlanfechtungen, wodurch die Indizes kräftig von ihren Nachttiefs nach oben drehen. Zugleich liefern solide Unternehmensergebnisse in Kombination mit sinkenden Renditeerwartungen Rückenwind für den breiten Markt.",
+   "indikatoren": [
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Wahlergebnis & Machtverhältnisse",
+     "lage": "Deutlicher demokratischer Sieg in beiden Kongresskammern",
+     "pfeil": "hoch",
+     "rolle": "Ein klares Wahlergebnis ohne wochenlange juristische Anfechtungen nimmt den größten Unsicherheitsfaktor aus dem Markt."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Renditen dürften tendenziell sinken",
+     "pfeil": "hoch",
+     "rolle": "Rückläufige Renditen stärken zinssensitive Bereiche wie Bauwerte und verbessern die Erschwinglichkeit."
+    },
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "Hohe Lebenshaltungskosten waren wahlentscheidend",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Teuerung bleibt auf hohem Niveau, doch der politische Druck könnte protektionistische Preistreiber bremsen."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Überwiegend besser als erwartet ausgefallen",
+     "pfeil": "hoch",
+     "rolle": "Robuste Quartalszahlen stützen die Fundamentaldaten und fangen selektive Enttäuschungen auf."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Defensive Werte und Standardwerte führen die Rallye an",
+     "pfeil": "hoch",
+     "rolle": "Eine breitere Beteiligung jenseits der großen Tech-Titel stabilisiert den Gesamtmarkt nach den Wahlen."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Iran-Konflikt belastet, Hoffnung auf Diplomatie",
+     "pfeil": "seitwaerts",
+     "rolle": "Geopolitische Spannungen treiben Energiepreise, doch Marktteilnehmer spekulieren auf Deeskalation."
+    }
+   ],
+   "zitate": [
+    "Das schlechteste wäre gewesen, wenn wir kein klares Wahlergebnis gehabt hätten.",
+    "Enough is enough, es reicht dem Volk."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 171897
   },
   {
    "id": "BzYqlxVL7fY",
@@ -2742,9 +2938,13 @@
   "lF1KyT9hYLo",
   "BzYqlxVL7fY",
   "g-NkSgfmmuQ",
-  "X2WMFymjrH4"
+  "X2WMFymjrH4",
+  "_ZBe8fjhERE",
+  "7p0xRqQFnJw",
+  "JazicTFN2TA",
+  "_WhoSHtMFZI"
  ],
- "stand": "2026-11-06T20:55Z",
+ "stand": "2026-11-07T19:18Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
