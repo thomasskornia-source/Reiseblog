@@ -1876,106 +1876,6 @@
   "thema": "Netflix"
  },
  {
-  "id": "tv-ef539782d7",
-  "rubrik": "tv",
-  "titel": "Schätze der Welt - Erbe der Menschheit",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "19:40",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kultursendung über weltweite Denkmäler aus dem Jahr 2005. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-11-08",
-  "thema": "3sat"
- },
- {
-  "id": "tv-cc86f13aaa",
-  "rubrik": "tv",
-  "titel": "Till Reiners' Happy Hour",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Satireshow aus Deutschland von 2026. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-11-08",
-  "thema": "3sat"
- },
- {
-  "id": "tv-52a72f4c2b",
-  "rubrik": "tv",
-  "titel": "Bosetti Late Night",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Late-Night-Talkshow aus Deutschland von 2026. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-11-08",
-  "thema": "3sat"
- },
- {
-  "id": "tv-595558d42f",
-  "rubrik": "tv",
-  "titel": "Ladies Night",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kabarett- und Comedysendung mit Künstlerinnen. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-11-08",
-  "thema": "3sat"
- },
- {
-  "id": "tv-f1b0306762",
-  "rubrik": "tv",
-  "titel": "Märkte",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "19:40",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Auslandsdokumentation aus dem Jahr 2015. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-11-08",
-  "thema": "ARTE"
- },
- {
   "id": "tv-2b34317f61",
   "rubrik": "tv",
   "titel": "Absolute Power",
@@ -1994,6 +1894,26 @@
   "url": "https://www.arte.tv/de/",
   "stand": "2026-11-08",
   "thema": "ARTE"
+ },
+ {
+  "id": "tv-32b3da7b05",
+  "rubrik": "tv",
+  "titel": "Alte Mauern - neue Träume",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Reportage über außergewöhnliche Wohnprojekte in Mecklenburg-Vorpommern. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-11-08",
+  "thema": "NDR"
  },
  {
   "id": "tv-cff24011ce",
@@ -2036,24 +1956,24 @@
   "thema": "BR"
  },
  {
-  "id": "tv-eb4316e20c",
+  "id": "tv-52a72f4c2b",
   "rubrik": "tv",
-  "titel": "Tatort: Frei wie ein Adler",
-  "ort": "Das Erste",
+  "titel": "Bosetti Late Night",
+  "ort": "3sat",
   "adresse": "",
   "datum": "2026-11-08",
   "datum_bis": "",
-  "zeit": "20:15",
+  "zeit": "21:00",
   "preis": "",
   "dauer": "",
-  "kurz": "Sophia will Zürich verlassen, bevor ihr krimineller Ex-Mann freikommt, gerät jedoch mit ihrem Angestellten Jacob in Streit. Programm kann sich ändern.",
+  "kurz": "Late-Night-Talkshow aus Deutschland von 2026. Programm kann sich ändern.",
   "tags": [
-   "Serie"
+   "Show"
   ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.daserste.de/",
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
   "stand": "2026-11-08",
-  "thema": "Das Erste"
+  "thema": "3sat"
  },
  {
   "id": "tv-86240c5ec8",
@@ -2074,146 +1994,6 @@
   "url": "https://www.daserste.de/",
   "stand": "2026-11-08",
   "thema": "Das Erste"
- },
- {
-  "id": "tv-32b3da7b05",
-  "rubrik": "tv",
-  "titel": "Alte Mauern - neue Träume",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Reportage über außergewöhnliche Wohnprojekte in Mecklenburg-Vorpommern. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-11-08",
-  "thema": "NDR"
- },
- {
-  "id": "tv-b9f2266c77",
-  "rubrik": "tv",
-  "titel": "Sportschau - Bundesliga am Sonntag",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Sportmagazin mit den Zusammenfassungen der Sonntagsspiele der Bundesliga. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-11-08",
-  "thema": "NDR"
- },
- {
-  "id": "tv-a363a759c7",
-  "rubrik": "tv",
-  "titel": "Wildes Irland - Die grüne Insel",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über Natur und Landschaften Irlands aus dem Jahr 2017. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-11-08",
-  "thema": "SWR"
- },
- {
-  "id": "tv-e4807bd6c5",
-  "rubrik": "tv",
-  "titel": "Wales",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über die Landschaften von Wales. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-11-08",
-  "thema": "SWR"
- },
- {
-  "id": "tv-0b0a4992cc",
-  "rubrik": "tv",
-  "titel": "SWR Sport",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Sportberichterstattung aus dem SWR-Sendegebiet. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-11-08",
-  "thema": "SWR"
- },
- {
-  "id": "tv-f97bafeb60",
-  "rubrik": "tv",
-  "titel": "Wunderschön!",
-  "ort": "WDR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Reportagereihe aus Deutschland von 2026. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www1.wdr.de/fernsehen/",
-  "stand": "2026-11-08",
-  "thema": "WDR"
- },
- {
-  "id": "tv-32175b7346",
-  "rubrik": "tv",
-  "titel": "Sportschau - Bundesliga am Sonntag",
-  "ort": "WDR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Sportmagazin zur Fußball-Bundesliga am Sonntag (2026). Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www1.wdr.de/fernsehen/",
-  "stand": "2026-11-08",
-  "thema": "WDR"
  },
  {
   "id": "tv-dbee8e9931",
@@ -2254,5 +2034,225 @@
   "url": "https://www.zdf.de/",
   "stand": "2026-11-08",
   "thema": "ZDF"
+ },
+ {
+  "id": "tv-595558d42f",
+  "rubrik": "tv",
+  "titel": "Ladies Night",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kabarett- und Comedysendung mit Künstlerinnen. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-11-08",
+  "thema": "3sat"
+ },
+ {
+  "id": "tv-f1b0306762",
+  "rubrik": "tv",
+  "titel": "Märkte",
+  "ort": "ARTE",
+  "adresse": "",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "19:40",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Auslandsdokumentation aus dem Jahr 2015. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-11-08",
+  "thema": "ARTE"
+ },
+ {
+  "id": "tv-0b0a4992cc",
+  "rubrik": "tv",
+  "titel": "SWR Sport",
+  "ort": "SWR",
+  "adresse": "",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sportberichterstattung aus dem SWR-Sendegebiet. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.swrfernsehen.de/",
+  "stand": "2026-11-08",
+  "thema": "SWR"
+ },
+ {
+  "id": "tv-ef539782d7",
+  "rubrik": "tv",
+  "titel": "Schätze der Welt - Erbe der Menschheit",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "19:40",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kultursendung über weltweite Denkmäler aus dem Jahr 2005. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-11-08",
+  "thema": "3sat"
+ },
+ {
+  "id": "tv-b9f2266c77",
+  "rubrik": "tv",
+  "titel": "Sportschau - Bundesliga am Sonntag",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sportmagazin mit den Zusammenfassungen der Sonntagsspiele der Bundesliga. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-11-08",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-32175b7346",
+  "rubrik": "tv",
+  "titel": "Sportschau - Bundesliga am Sonntag",
+  "ort": "WDR",
+  "adresse": "",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sportmagazin zur Fußball-Bundesliga am Sonntag (2026). Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www1.wdr.de/fernsehen/",
+  "stand": "2026-11-08",
+  "thema": "WDR"
+ },
+ {
+  "id": "tv-eb4316e20c",
+  "rubrik": "tv",
+  "titel": "Tatort: Frei wie ein Adler",
+  "ort": "Das Erste",
+  "adresse": "",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sophia will Zürich verlassen, bevor ihr krimineller Ex-Mann freikommt, gerät jedoch mit ihrem Angestellten Jacob in Streit. Programm kann sich ändern.",
+  "tags": [
+   "Serie"
+  ],
+  "quelle": "tvinfo.de",
+  "url": "https://www.daserste.de/",
+  "stand": "2026-11-08",
+  "thema": "Das Erste"
+ },
+ {
+  "id": "tv-cc86f13aaa",
+  "rubrik": "tv",
+  "titel": "Till Reiners' Happy Hour",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Satireshow aus Deutschland von 2026. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-11-08",
+  "thema": "3sat"
+ },
+ {
+  "id": "tv-e4807bd6c5",
+  "rubrik": "tv",
+  "titel": "Wales",
+  "ort": "SWR",
+  "adresse": "",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "21:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentation über die Landschaften von Wales. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.swrfernsehen.de/",
+  "stand": "2026-11-08",
+  "thema": "SWR"
+ },
+ {
+  "id": "tv-a363a759c7",
+  "rubrik": "tv",
+  "titel": "Wildes Irland - Die grüne Insel",
+  "ort": "SWR",
+  "adresse": "",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentation über Natur und Landschaften Irlands aus dem Jahr 2017. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.swrfernsehen.de/",
+  "stand": "2026-11-08",
+  "thema": "SWR"
+ },
+ {
+  "id": "tv-f97bafeb60",
+  "rubrik": "tv",
+  "titel": "Wunderschön!",
+  "ort": "WDR",
+  "adresse": "",
+  "datum": "2026-11-08",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Reportagereihe aus Deutschland von 2026. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www1.wdr.de/fernsehen/",
+  "stand": "2026-11-08",
+  "thema": "WDR"
  }
 ]
