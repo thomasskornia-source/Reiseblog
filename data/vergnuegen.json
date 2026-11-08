@@ -986,28 +986,6 @@
   "stand": "2026-10-29"
  },
  {
-  "id": "events-802794f6b6",
-  "rubrik": "events",
-  "titel": "Alessandro Di Virgilio Trio",
-  "ort": "Einstein, Halle 4",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-11-05",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "In der Reihe Swing Manouche bietet der Filmkomponist und Gitarrist mediterran gefärbten, energiegeladenen Jazz Manouche.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-31"
- },
- {
   "id": "events-323f95b3f2",
   "lat": 48.1354,
   "lon": 11.60088,
@@ -1681,6 +1659,50 @@
   "stand": "2026-10-18"
  },
  {
+  "id": "stream-being-heumann",
+  "rubrik": "stream",
+  "titel": "Being Heumann",
+  "ort": "Apple TV",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Drama über die Aktivistin Judy Heumann, die 1977 die Besetzung eines Bundesgebäudes in San Francisco anführt; ab 13.11.2026.",
+  "tags": [
+   "Film",
+   "Drama",
+   "Historie"
+  ],
+  "quelle": "apfelpatient.de",
+  "url": "https://tv.apple.com/de",
+  "stand": "2026-11-08",
+  "thema": "Apple TV"
+ },
+ {
+  "id": "stream-black-doves-staffel-2",
+  "rubrik": "stream",
+  "titel": "Black Doves (Staffel 2)",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Thriller-Serie um Spionage und Verrat in London, zweite Staffel seit 5.11.2026.",
+  "tags": [
+   "Serie",
+   "Thriller",
+   "Action"
+  ],
+  "quelle": "zdfheute.de",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-11-08",
+  "thema": "Netflix"
+ },
+ {
   "id": "stream-blackbird",
   "rubrik": "stream",
   "titel": "Blackbird",
@@ -1700,6 +1722,93 @@
   "url": "https://www.ardmediathek.de/",
   "stand": "2026-11-08",
   "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-der-herr-der-ringe-die-ringe-der-macht-staffel-3",
+  "rubrik": "stream",
+  "titel": "Der Herr der Ringe: Die Ringe der Macht (Staffel 3)",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Fantasy-Serie in Mittelerde, dritte Staffel ab 11.11.2026.",
+  "tags": [
+   "Serie",
+   "Fantasy",
+   "Abenteuer"
+  ],
+  "quelle": "serienjunkies.de",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-11-08",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-jossi",
+  "rubrik": "stream",
+  "titel": "Jossi",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Culture-Clash-Comedy: Ein Berliner Schauspieler mit russischen Wurzeln gibt sich für eine Rolle als Jude aus; ab 13.11.2026. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Serie",
+   "Komödie"
+  ],
+  "quelle": "zdfheute.de",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-11-08",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-krank-berlin",
+  "rubrik": "stream",
+  "titel": "KRANK Berlin",
+  "ort": "ZDF Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Überdrehte Drama-Serie mit schwarzem Humor: Chaos in einer Berliner Notaufnahme unter neuer Leiterin; ab 6.11.2026. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Serie",
+   "Drama",
+   "Komödie"
+  ],
+  "quelle": "zdfheute.de",
+  "url": "https://www.zdf.de/streaming",
+  "stand": "2026-11-08",
+  "thema": "ZDF Mediathek"
+ },
+ {
+  "id": "stream-stick-staffel-2",
+  "rubrik": "stream",
+  "titel": "Stick (Staffel 2)",
+  "ort": "Apple TV",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Golf-Comedy: Owen Wilson will als ältester Major-Sieger Geschichte schreiben, neu dabei Rhea Seehorn; ab 4.11.2026.",
+  "tags": [
+   "Serie",
+   "Komödie",
+   "Drama"
+  ],
+  "quelle": "apfelpatient.de",
+  "url": "https://tv.apple.com/de",
+  "stand": "2026-11-08",
+  "thema": "Apple TV"
  },
  {
   "id": "stream-the-whale",
@@ -1745,28 +1854,6 @@
   "thema": "Amazon Prime"
  },
  {
-  "id": "stream-being-heumann",
-  "rubrik": "stream",
-  "titel": "Being Heumann",
-  "ort": "Apple TV",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Drama über die Aktivistin Judy Heumann, die 1977 die Besetzung eines Bundesgebäudes in San Francisco anführt; ab 13.11.2026.",
-  "tags": [
-   "Film",
-   "Drama",
-   "Historie"
-  ],
-  "quelle": "apfelpatient.de",
-  "url": "https://tv.apple.com/de",
-  "stand": "2026-11-08",
-  "thema": "Apple TV"
- },
- {
   "id": "stream-winstead-ein-hund-feiert-weihnachten",
   "rubrik": "stream",
   "titel": "Winstead – Ein Hund feiert Weihnachten",
@@ -1787,114 +1874,5 @@
   "url": "https://www.netflix.com/de/",
   "stand": "2026-11-08",
   "thema": "Netflix"
- },
- {
-  "id": "stream-krank-berlin",
-  "rubrik": "stream",
-  "titel": "KRANK Berlin",
-  "ort": "ZDF Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Überdrehte Drama-Serie mit schwarzem Humor: Chaos in einer Berliner Notaufnahme unter neuer Leiterin; ab 6.11.2026. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Serie",
-   "Drama",
-   "Komödie"
-  ],
-  "quelle": "zdfheute.de",
-  "url": "https://www.zdf.de/streaming",
-  "stand": "2026-11-08",
-  "thema": "ZDF Mediathek"
- },
- {
-  "id": "stream-jossi",
-  "rubrik": "stream",
-  "titel": "Jossi",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Culture-Clash-Comedy: Ein Berliner Schauspieler mit russischen Wurzeln gibt sich für eine Rolle als Jude aus; ab 13.11.2026. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Serie",
-   "Komödie"
-  ],
-  "quelle": "zdfheute.de",
-  "url": "https://www.ardmediathek.de/",
-  "stand": "2026-11-08",
-  "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-black-doves-staffel-2",
-  "rubrik": "stream",
-  "titel": "Black Doves (Staffel 2)",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Thriller-Serie um Spionage und Verrat in London, zweite Staffel seit 5.11.2026.",
-  "tags": [
-   "Serie",
-   "Thriller",
-   "Action"
-  ],
-  "quelle": "zdfheute.de",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-11-08",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-der-herr-der-ringe-die-ringe-der-macht-staffel-3",
-  "rubrik": "stream",
-  "titel": "Der Herr der Ringe: Die Ringe der Macht (Staffel 3)",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Fantasy-Serie in Mittelerde, dritte Staffel ab 11.11.2026.",
-  "tags": [
-   "Serie",
-   "Fantasy",
-   "Abenteuer"
-  ],
-  "quelle": "serienjunkies.de",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-11-08",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-stick-staffel-2",
-  "rubrik": "stream",
-  "titel": "Stick (Staffel 2)",
-  "ort": "Apple TV",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Golf-Comedy: Owen Wilson will als ältester Major-Sieger Geschichte schreiben, neu dabei Rhea Seehorn; ab 4.11.2026.",
-  "tags": [
-   "Serie",
-   "Komödie",
-   "Drama"
-  ],
-  "quelle": "apfelpatient.de",
-  "url": "https://tv.apple.com/de",
-  "stand": "2026-11-08",
-  "thema": "Apple TV"
  }
 ]
