@@ -14,7 +14,7 @@
   @media (min-width: 1100px) {
     .sm { max-width: none; }
     .sm .sub { max-width: 900px; }
-    .dash { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+    .dash { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
     .dash .kt.breit { grid-column: auto !important; }
     .pan.p-koch { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 0 44px; align-items: start; }
     .pan.p-koch .l { grid-column: 1; } .pan.p-koch .r { grid-column: 2; }
@@ -278,6 +278,50 @@
       window.__fj = [f.indikatoren.filter(function (x) { return x.machbar === 'ja'; }).length, f.indikatoren.length]; katKachel();
     }).catch(function () {});
   }
+  function kw(s) {
+    var d = dat(s), t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())), n = t.getUTCDay() || 7;
+    t.setUTCDate(t.getUTCDate() + 4 - n);
+    return Math.ceil(((t - new Date(Date.UTC(t.getUTCFullYear(), 0, 1))) / 864e5 + 1) / 7);
+  }
+  function vz(v) { return (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v); }
+  function lernen(bs) {
+    function hol(u) { return fetch(u + '?v=' + Date.now()).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); }
+    Promise.all([hol('data/koch-indikatoren.json'), hol('data/koch-feedback.json')]).then(function (res) {
+      var ki = res[0], fb = res[1], W = {}, ges = 0;
+      bs.forEach(function (b) {
+        var k = kw(b.datum), w = W[k] || (W[k] = { n: 0, s: 0, h: 0, m: 0, r: 0 });
+        w.n++; w.s += b.score; ges += b.score;
+        if (b.pfeil === 'hoch') w.h++; else if (b.pfeil === 'runter') w.r++; else w.m++;
+      });
+      var ks = Object.keys(W).map(Number).sort(function (a, b) { return a - b; });
+      var avg = Math.round(ges / bs.length);
+      var t = '<h2>Verlauf nach Wochen</h2><p class="sub" style="margin-top:0">So hat Markus Koch den Markt seit ' + esc(kurz(bs[bs.length - 1].datum)) + ' gesehen: im Schnitt ' + vz(avg) + ' von ±100, also überwiegend vorsichtig, mit kurzen Erholungs-Hoffnungen nach Überverkauft-Phasen.</p>' +
+        '<div class="matrix-w"><table class="mx"><thead><tr><th>Woche</th><th>Beiträge</th><th>Ø</th><th>▲</th><th>–</th><th>▼</th></tr></thead><tbody>' +
+        ks.map(function (k) {
+          var w = W[k], a = Math.round(w.s / w.n);
+          return '<tr><td>KW ' + k + '</td><td>' + w.n + '</td><td style="color:' + farbe(a) + ';font-weight:600">' + vz(a) + '</td><td>' + w.h + '</td><td>' + w.m + '</td><td>' + w.r + '</td></tr>';
+        }).join('') + '</tbody></table></div>';
+      var teil = 0, ja = 0, nein = [];
+      if (ki && ki.kategorien && ki.kategorien.length) {
+        var M = {}; ((fb && fb.indikatoren) || []).forEach(function (x) { M[x.kategorie] = x.machbar; });
+        var AB = { ja: ['ja', '#2a8f6a'], teilweise: ['teilweise', '#d99a1e'], nein: ['nein', '#c0392b'] };
+        var ls = ki.kategorien.slice().sort(function (a, b) { return b.tage_anzahl - a.tage_anzahl; });
+        t += '<h2>Seine Themen: Tendenz und Selbstabruf</h2><p class="sub" style="margin-top:0">Tage = an wie vielen Tagen er das Thema nutzt. Tendenz: ▲ stützt die Börse, ▼ belastet sie, im Mittel seiner Tageswerte.</p>' +
+          '<div class="matrix-w"><table class="mx"><thead><tr><th>Thema</th><th>Tage</th><th>Tendenz</th><th>Selbst abrufbar</th></tr></thead><tbody>' +
+          ls.map(function (x) {
+            var v = Object.keys(x.tage || {}).map(function (d) { return x.tage[d].p; }), m = v.length ? v.reduce(function (a, b) { return a + b; }, 0) / v.length : 0;
+            var p = m > 0.25 ? 'hoch' : m < -0.25 ? 'runter' : 'seitwaerts', mb = M[x.kategorie];
+            if (mb === 'ja') ja++; else if (mb === 'teilweise') teil++; else if (mb) nein.push(x.kategorie);
+            var ab = AB[mb];
+            return '<tr><td>' + esc(x.kategorie) + '</td><td>' + x.tage_anzahl + '×</td><td><span class="z ' + p + '" title="' + String(Math.round(m * 10) / 10).replace('.', ',') + '">' + PF[p] + '</span></td><td style="color:' + (ab ? ab[1] : '#8a9490') + ';font-weight:600">' + (ab ? ab[0] : '–') + '</td></tr>';
+          }).join('') + '</tbody></table></div>';
+        if (fb) t += '<p class="hinweis" style="margin-top:12px">Davon ' + ja + ' frei und automatisch abrufbar, ' + teil + ' teilweise. ' + (nein.length ? 'Nur seine Einschätzung bleibt: ' + esc(nein.join(', ')) + '.' : '') + ' Die abrufbaren Zahlen stehen unter „Eigene Daten“. Details zu den Quellen unter „Indikatoren“.</p>';
+      }
+      t += '<p class="hinweis">Eigene Auswertung (KI-Zusammenfassung ohne Transkript, ohne Gewähr), keine Anlageberatung. Kochs Pfeil ist eine Lesart der Lage, kein Signal: Der WCJ-Rückblick zeigt, dass Stimmung allein wenig vorhersagt.</p>';
+      document.getElementById('lern').innerHTML = t;
+      kachel('lern', 'Gelerntes', null, 'Ø ' + vz(avg) + ' seit ' + kurz(bs[bs.length - 1].datum), bs.length + ' Beiträge in ' + ks.length + ' Wochen' + (ki && ki.kategorien ? ' · ' + ki.kategorien.length + ' Themen' : ''));
+    });
+  }
   fetch('data/koch.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
     var bs = d.beitraege || [], el = document.getElementById('inhalt');
     if (!bs.length) { el.innerHTML = '<p class="leer">Noch keine Auswertung vorhanden.</p>'; return; }
@@ -303,14 +347,16 @@
       '<button type="button" class="kt" id="k-eigen" data-p="eigen" aria-expanded="false" hidden></button>' +
       '<button type="button" class="kt" id="k-presse" data-p="presse" aria-expanded="false" hidden></button>' +
       '<button type="button" class="kt" id="k-kat" data-p="kat" aria-expanded="false" hidden></button>' +
+      '<button type="button" class="kt" id="k-lern" data-p="lern" aria-expanded="false" hidden></button>' +
       '</div><div id="dp">';
     h += '<section class="pan p-koch" id="p-koch" hidden><div class="l">' + '<div class="tabs" id="tabs" role="group" aria-label="Beitrag wählen">' + tage.map(function (b, i) {
       return '<button type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + kurz(b.datum) + (ART[b.art] ? ' ' + ART[b.art] : '') + '</button>';
     }).join('') + '</div><div id="tag">' + tag(0) + '</div>' + '</div><div class="r">' + '<h2>Stimmungsbarometer</h2><div class="karte">' + verlauf(bs) + '</div><h2>Indikatoren im Verlauf</h2><div class="karte">' + matrix(bs, d.kategorien || []) + '</div>' + '</div></section>';
-    h += '<section class="pan" id="p-eigen" hidden><div id="sent"></div></section><section class="pan" id="p-presse" hidden><div id="presse"></div></section><section class="pan" id="p-kat" hidden><div id="kat"></div><div id="fb"></div></section></div>';
+    h += '<section class="pan" id="p-eigen" hidden><div id="sent"></div></section><section class="pan" id="p-presse" hidden><div id="presse"></div></section><section class="pan" id="p-kat" hidden><div id="kat"></div><div id="fb"></div></section><section class="pan" id="p-lern" hidden><div id="lern"></div></section></div>';
     h += '<p class="hinweis">Pfeil ▲ heißt: stützt die Börse, ▼ belastet sie, <i class="rt" style="color:#d99a1e"></i> neutral oder unklar, jeweils aus Kochs Sicht. Das Barometer ist meine Einschätzung seiner Stimmung aus den YouTube-Beiträgen, kein Transkript und keine Anlageberatung. Die Auswertung macht eine KI und kann sich irren. Stand: ' + esc((d.stand || '').replace('T', ' ').replace('Z', ' UTC')) + '.</p>';
     el.innerHTML = h;
     zusatz(bs);
+    lernen(bs);
     document.getElementById('dash').addEventListener('click', function (e) {
       var k = e.target.closest('.kt'); if (!k) return;
       var id = k.getAttribute('data-p'), offen = k.getAttribute('aria-expanded') === 'true';
