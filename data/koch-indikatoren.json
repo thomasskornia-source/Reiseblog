@@ -167,11 +167,11 @@
      "rolle": "Eine breitere Partizipation von Industrie- und Zyklikerwerten stabilisiert das Marktgefüge abseits der Tech-Riesen."
     },
     "2026-11-04": {
-     "p": 1,
+     "p": 2,
      "namen": [
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
-     "rolle": "Eine breitere Beteiligung jenseits der großen Tech-Titel stabilisiert den Gesamtmarkt nach den Wahlen."
+     "rolle": "Die Erholung basiert nicht mehr nur auf einzelnen Tech-Schwergewichten, sondern erfasst breite Teile der Industrie und zyklischer Werte."
     },
     "2026-11-05": {
      "p": -2,
@@ -193,7 +193,7 @@
   {
    "kategorie": "Öl & Rohstoffe",
    "status": "bestaetigt",
-   "tage_anzahl": 22,
+   "tage_anzahl": 23,
    "erstmals": "2026-10-01",
    "zuletzt": "2026-11-06",
    "name": "Öl- und Dieselpreise",
@@ -342,6 +342,13 @@
       "Öl- und Dieselpreise"
      ],
      "rolle": "Niedrigere Ölpreise dämpfen Inflationssorgen, spiegeln aber teils auch Konjunktursorgen wider."
+    },
+    "2026-11-04": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Niedrigere Energiepreise dämpfen Inflationssorgen und stützen die Konsumstimmung."
     },
     "2026-11-05": {
      "p": 0,
@@ -659,11 +666,11 @@
      "rolle": "Sinkende Zinsen an den Anleihemärkten nehmen Bewertungsdruck von den Aktienindizes."
     },
     "2026-11-04": {
-     "p": 1,
+     "p": 2,
      "namen": [
       "US-Staatsanleiherenditen"
      ],
-     "rolle": "Rückläufige Renditen stärken zinssensitive Bereiche wie Bauwerte und verbessern die Erschwinglichkeit."
+     "rolle": "Sinkende Kapitalmarktzinsen entlasten die Bewertungen am Gesamtmarkt spürbar."
     },
     "2026-11-05": {
      "p": 2,
@@ -818,7 +825,7 @@
   {
    "kategorie": "Stimmung & Volatilität",
    "status": "bestaetigt",
-   "tage_anzahl": 16,
+   "tage_anzahl": 17,
    "erstmals": "2026-10-01",
    "zuletzt": "2026-11-06",
    "name": "Marktpositionierung und Hebel",
@@ -933,6 +940,13 @@
      ],
      "rolle": "Für ein nachhaltiges Tief fehlt laut Morgan Stanley noch ein finales Stimmungstief oder das Erreichen technischer Zielmarken."
     },
+    "2026-11-04": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Systematische Trendfolger geraten durch den Kurssprung unter Zugzwang und treiben die Kurse weiter nach oben."
+    },
     "2026-11-05": {
      "p": -2,
      "namen": [
@@ -953,13 +967,14 @@
   {
    "kategorie": "Sonstiges",
    "status": "bestaetigt",
-   "tage_anzahl": 14,
+   "tage_anzahl": 15,
    "erstmals": "2026-10-08",
    "zuletzt": "2026-11-05",
    "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
     "Tech-Investitionszyklus (CapEx)",
-    "Aktienüberangebot durch Kapitalerhöhungen & IPOs"
+    "Aktienüberangebot durch Kapitalerhöhungen & IPOs",
+    "Aktienrückkäufe"
    ],
    "rolle": "Sorgen um Finanzierungsengpässe und verlangsamten Ausbau treffen das Kernnarrativ der KI-Rallye.",
    "tage": {
@@ -1054,6 +1069,13 @@
       "Tech-Investitionszyklus (CapEx)"
      ],
      "rolle": "Das massive Angebot an neuen Papieren saugt Liquidität ab und belastet die Multiples im Technologiesektor."
+    },
+    "2026-11-04": {
+     "p": 1,
+     "namen": [
+      "Aktienrückkäufe"
+     ],
+     "rolle": "Wieder einsetzende Unternehmensrückkäufe erzeugen erhebliche zusätzliche Nachfrage am Markt."
     },
     "2026-11-05": {
      "p": -1,
@@ -1169,101 +1191,9 @@
    }
   },
   {
-   "kategorie": "Politik & Zölle",
-   "status": "bestaetigt",
-   "tage_anzahl": 10,
-   "erstmals": "2026-10-07",
-   "zuletzt": "2026-11-06",
-   "name": "US-Zollpolitik & Schuldenpläne",
-   "namen": [
-    "US-Zollpolitik & Schuldenpläne",
-    "US-Zwischenwahlen (Midterms)",
-    "US-Midterm-Wahlen",
-    "US-Wahlen / Midterms",
-    "US-Wahlergebnis & Machtverhältnisse",
-    "US-Politik & Regulierung"
-   ],
-   "rolle": "Politische Revancheakte und regulatorische Unsicherheiten belasten die betroffenen Großkonzerne im Tech-Sektor.",
-   "tage": {
-    "2026-10-07": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein."
-    },
-    "2026-10-09": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt."
-    },
-    "2026-10-20": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Politische Unsicherheiten vor den Wahlen sorgen für Nervosität bei Technologiekonzernen und Investoren."
-    },
-    "2026-10-29": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Die politische Unsicherheit vor den Midterms engt die Risikobereitschaft der Marktteilnehmer zusätzlich ein."
-    },
-    "2026-10-30": {
-     "p": -1,
-     "namen": [
-      "US-Midterm-Wahlen",
-      "US-Zwischenwahlen (Midterms)"
-     ],
-     "rolle": "Eine klare Entscheidung bei den Midterms könnte die politische Hängepartie beenden und den Weg für eine Jahresendrallye freimachen."
-    },
-    "2026-11-02": {
-     "p": -1,
-     "namen": [
-      "US-Wahlen / Midterms",
-      "US-Zwischenwahlen (Midterms)"
-     ],
-     "rolle": "Die politische Unsicherheit rund um eine mögliche Mehrheitsverschiebung dämpft die Risikobereitschaft der Anleger."
-    },
-    "2026-11-03": {
-     "p": 0,
-     "namen": [
-      "US-Zwischenwahlen (Midterms)"
-     ],
-     "rolle": "Ein geteilter Kongress (Gridlock) gilt historisch als Idealzustand, während ein Durchmarsch einer Partei Unsicherheit über Regulierung schürt."
-    },
-    "2026-11-04": {
-     "p": 1,
-     "namen": [
-      "US-Wahlergebnis & Machtverhältnisse"
-     ],
-     "rolle": "Ein klares Wahlergebnis ohne wochenlange juristische Anfechtungen nimmt den größten Unsicherheitsfaktor aus dem Markt."
-    },
-    "2026-11-05": {
-     "p": -2,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne",
-      "US-Politik & Regulierung"
-     ],
-     "rolle": "Politische Unsicherheiten in Kernstaaten wie Texas schüren Ängste vor regulatorischen Bremsen im Tech-Sektor."
-    },
-    "2026-11-06": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Politische Revancheakte und regulatorische Unsicherheiten belasten die betroffenen Großkonzerne im Tech-Sektor."
-    }
-   }
-  },
-  {
    "kategorie": "Saisonalität & Chart",
    "status": "bestaetigt",
-   "tage_anzahl": 10,
+   "tage_anzahl": 11,
    "erstmals": "2026-10-02",
    "zuletzt": "2026-11-05",
    "name": "Q4-Saisonalität & Positionierung",
@@ -1340,12 +1270,112 @@
      ],
      "rolle": "Die Kombination aus überverkauften Chartmarken und saisonalem Rückenwind nach den Zwischenwahlen bietet eine Basis für eine Erholung."
     },
+    "2026-11-04": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Historische Daten zeigen nach einem Machtwechsel im Kongress sechs bis zwölf Monate später durchweg Kursgewinne für den S&P 500."
+    },
     "2026-11-05": {
      "p": 1,
      "namen": [
       "Technische Überverkauftheit"
      ],
      "rolle": "Das extreme Ausmaß des Rückschlags eröffnet zumindest charttechnisch die Chance auf eine kurzfristige Gegenbewegung."
+    }
+   }
+  },
+  {
+   "kategorie": "Politik & Zölle",
+   "status": "bestaetigt",
+   "tage_anzahl": 10,
+   "erstmals": "2026-10-07",
+   "zuletzt": "2026-11-06",
+   "name": "US-Zollpolitik & Schuldenpläne",
+   "namen": [
+    "US-Zollpolitik & Schuldenpläne",
+    "US-Zwischenwahlen (Midterms)",
+    "US-Midterm-Wahlen",
+    "US-Wahlen / Midterms",
+    "US-Wahlergebnis & Machtverhältnisse",
+    "US-Politik & Regulierung"
+   ],
+   "rolle": "Politische Revancheakte und regulatorische Unsicherheiten belasten die betroffenen Großkonzerne im Tech-Sektor.",
+   "tage": {
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein."
+    },
+    "2026-10-09": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Politische Unsicherheiten vor den Wahlen sorgen für Nervosität bei Technologiekonzernen und Investoren."
+    },
+    "2026-10-29": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Die politische Unsicherheit vor den Midterms engt die Risikobereitschaft der Marktteilnehmer zusätzlich ein."
+    },
+    "2026-10-30": {
+     "p": -1,
+     "namen": [
+      "US-Midterm-Wahlen",
+      "US-Zwischenwahlen (Midterms)"
+     ],
+     "rolle": "Eine klare Entscheidung bei den Midterms könnte die politische Hängepartie beenden und den Weg für eine Jahresendrallye freimachen."
+    },
+    "2026-11-02": {
+     "p": -1,
+     "namen": [
+      "US-Wahlen / Midterms",
+      "US-Zwischenwahlen (Midterms)"
+     ],
+     "rolle": "Die politische Unsicherheit rund um eine mögliche Mehrheitsverschiebung dämpft die Risikobereitschaft der Anleger."
+    },
+    "2026-11-03": {
+     "p": 0,
+     "namen": [
+      "US-Zwischenwahlen (Midterms)"
+     ],
+     "rolle": "Ein geteilter Kongress (Gridlock) gilt historisch als Idealzustand, während ein Durchmarsch einer Partei Unsicherheit über Regulierung schürt."
+    },
+    "2026-11-04": {
+     "p": 2,
+     "namen": [
+      "US-Wahlergebnis & Machtverhältnisse",
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Politische Blockaden und Gegenwind für unberechenbare Zölle werden von den Märkten als stabilitätsfördernd gewertet."
+    },
+    "2026-11-05": {
+     "p": -2,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne",
+      "US-Politik & Regulierung"
+     ],
+     "rolle": "Politische Unsicherheiten in Kernstaaten wie Texas schüren Ängste vor regulatorischen Bremsen im Tech-Sektor."
+    },
+    "2026-11-06": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Politische Revancheakte und regulatorische Unsicherheiten belasten die betroffenen Großkonzerne im Tech-Sektor."
     }
    }
   },

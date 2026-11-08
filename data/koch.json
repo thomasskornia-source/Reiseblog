@@ -246,6 +246,76 @@
    "tokens": 115640
   },
   {
+   "id": "OLnbm9251DM",
+   "titel": "Dow Jones mit stärkstem Anstieg nach US-Midterms seit 1986",
+   "datum": "2026-11-04",
+   "zeit": "2026-11-04T21:45:28+00:00",
+   "art": "closing",
+   "score": 65,
+   "pfeil": "hoch",
+   "thema": "Nach den US-Zwischenwahlen erlebt die Wall Street eine historische Erleichterungsrallye, getrieben von sinkenden Renditen, fallenden Ölpreisen und anziehender Marktbreite.",
+   "gesamtstimmung": "Markus Koch zeigt sich für den breiten Aktienmarkt ausgesprochen optimistisch und hebt historische Muster nach Midterm-Wahlen hervor. Belastungsfaktoren bleiben vor allem auf den hoch bewerteten KI- und Tech-Sektor beschränkt, während die Marktbreite deutlich profitiert.",
+   "begruendung": "Der Kongress-Machtwechsel schafft politische Klarheit, was historisch zu verlässlich hohen Renditen im S&P 500 geführt hat. Zudem sorgen fallende Anleiherenditen, kollabierende Ölpreise, anstehende Aktienrückkäufe und Short-Eindeckungen durch CTA-Fonds für massiven Rückenwind.",
+   "indikatoren": [
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "historisch stärkste Rallye nach Zwischenwahlen seit 1986",
+     "pfeil": "hoch",
+     "rolle": "Historische Daten zeigen nach einem Machtwechsel im Kongress sechs bis zwölf Monate später durchweg Kursgewinne für den S&P 500."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Renditen langlaufender Staatsanleihen geben nach",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Kapitalmarktzinsen entlasten die Bewertungen am Gesamtmarkt spürbar."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "kräftiger Rückgang um über 7 Prozent",
+     "pfeil": "hoch",
+     "rolle": "Niedrigere Energiepreise dämpfen Inflationssorgen und stützen die Konsumstimmung."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "CTA-Fonds waren massiv short und müssen der Rallye hinterherlaufen",
+     "pfeil": "hoch",
+     "rolle": "Systematische Trendfolger geraten durch den Kurssprung unter Zugzwang und treiben die Kurse weiter nach oben."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "starke Rotation raus aus KI-Tech und rein in den gleichgewichteten Index",
+     "pfeil": "hoch",
+     "rolle": "Die Erholung basiert nicht mehr nur auf einzelnen Tech-Schwergewichten, sondern erfasst breite Teile der Industrie und zyklischer Werte."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zollpolitik & Schuldenpläne",
+     "lage": "demokratische Mehrheit im Kongress begrenzt Trumps Handlungsspielraum",
+     "pfeil": "hoch",
+     "rolle": "Politische Blockaden und Gegenwind für unberechenbare Zölle werden von den Märkten als stabilitätsfördernd gewertet."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Aktienrückkäufe",
+     "lage": "Buyback-Blackout-Fenster schließt sich, Rekordvolumen an Genehmigungen",
+     "pfeil": "hoch",
+     "rolle": "Wieder einsetzende Unternehmensrückkäufe erzeugen erhebliche zusätzliche Nachfrage am Markt."
+    }
+   ],
+   "zitate": [
+    "beste Rally nach Midterm-Wahlen seit 1986",
+    "ein bereinigendes Ereignis, weil wir die Hürde jetzt hinter uns haben"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 220162
+  },
+  {
    "id": "7p0xRqQFnJw",
    "titel": "Blauer Tsunami: Folgen für die Wall Street?",
    "datum": "2026-11-04",
@@ -2942,9 +3012,10 @@
   "_ZBe8fjhERE",
   "7p0xRqQFnJw",
   "JazicTFN2TA",
-  "_WhoSHtMFZI"
+  "_WhoSHtMFZI",
+  "OLnbm9251DM"
  ],
- "stand": "2026-11-07T19:18Z",
+ "stand": "2026-11-08T18:58Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
