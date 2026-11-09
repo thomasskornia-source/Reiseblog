@@ -1,6 +1,125 @@
 {
  "beitraege": [
   {
+   "id": "JL1kH_o9Jok",
+   "titel": "Kapitulation zu FOMO in 72 Handelsstunden | Dow gewinnt 1100 Punkte!",
+   "datum": "2026-11-09",
+   "zeit": "2026-11-09T21:55:15+00:00",
+   "art": "closing",
+   "score": 65,
+   "pfeil": "hoch",
+   "thema": "Markus Koch berichtet über den abrupten Stimmungsumschwung an der Wall Street von Panik zu FOMO, getragen von fallenden Ölpreisen, kollabierender Volatilität und geopolitischer Entspannung.",
+   "gesamtstimmung": "Die Wall Street erlebt eine kraftvolle Erleichterungsrallye auf breiter Front, bei der Marktteilnehmer aus Angst vor dem Verpassen der Jahresendrallye wieder massiv zugreifen. Sinkende Energiepreise, eine deutliche Beruhigung der Volatilität und Hoffnungen auf diplomatische Fortschritte im Nahen Osten stützen das Momentum.",
+   "begruendung": "Koch beschreibt den Wechsel von totaler Kapitulation zu FOMO innerhalb weniger Handelstage als klassisches Washout-Muster, das den Weg für weitere Gewinne ebnen könnte. Zudem untermauern robuste CapEx-Prognosen großer Banken und die positive Q4-Saisonalität seine optimistische Haltung.",
+   "indikatoren": [
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "VIX bricht um über 21 % ein, Panik weicht FOMO",
+     "pfeil": "hoch",
+     "rolle": "Der dramatische Rückgang der Volatilität bestätigt das Ende der Panikverkäufe und öffnet Raum für eine Erholungsrallye."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "stark rückläufig, Brent verliert deutlich",
+     "pfeil": "hoch",
+     "rolle": "Niedrigere Ölpreise dämpfen die Inflationssorgen und entlasten die Märkte fundamental."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Hoffnung auf Wiederaufnahme von Atomgesprächen zwischen USA und Iran",
+     "pfeil": "hoch",
+     "rolle": "Berichte über Annäherungen reduzieren das Risiko einer militärischen Eskalation und einer Schließung der Straße von Hormus."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Morgan Stanley bestätigt hohe CapEx-Prognosen für Hyperscaler",
+     "pfeil": "hoch",
+     "rolle": "Stabile Investitionserwartungen stützen das Vertrauen in den KI-Sektor nach den jüngsten Kursrückschlägen."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "historisch starke Phase der letzten anderthalb Monate",
+     "pfeil": "hoch",
+     "rolle": "Die saisonal typische Stärke zum Jahresende treibt die Erwartung einer fortgesetzten Jahresendrallye an."
+    },
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "Energiepreise dämpfen Druck vor anstehenden CPI-Daten",
+     "pfeil": "seitwaerts",
+     "rolle": "Trotz bevorstehender Verbraucherpreisdaten wirkt der deflationäre Impuls sinkender Rohstoffpreise beruhigend."
+    }
+   ],
+   "zitate": [
+    "Kapitulation zu FOMO in 72 Handelsstunden",
+    "jetzt ist die Jahresendrallye da"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 139896
+  },
+  {
+   "id": "MrA7WFlqK74",
+   "titel": "NVIDIA unter Druck. Wall Street trotzdem fest.",
+   "datum": "2026-11-09",
+   "zeit": "2026-11-09T14:38:48+00:00",
+   "art": "opening",
+   "score": 50,
+   "pfeil": "hoch",
+   "thema": "Die Wall Street startet trotz Schlagzeilen um Nvidia mit einer breiten Rallye in die Handelswoche, getrieben von fallenden Ölpreisen und Deeskalationshoffnungen im Nahen Osten.",
+   "gesamtstimmung": "Markus Koch blickt konstruktiv auf das Marktgeschehen, da fallende Energiepreise und Entspannungssignale aus dem Nahen Osten für Rückenwind sorgen. Trotz individueller Risiken bei Tech-Schwergewichten wie Nvidia überwiegt die Zuversicht auf eine Fortsetzung der Jahresendrallye.",
+   "begruendung": "Der deutliche Rückgang der Ölpreise nimmt akuten Inflationsdruck und beflügelt die Aktienindizes auf breiter Front. Zudem untermauern optimistische Einschätzungen zur Beendigung der Korrekturphase und intakte KI-Investitionen die positive Grundstimmung.",
+   "indikatoren": [
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "WTI fällt spürbar um über 4 Prozent",
+     "pfeil": "hoch",
+     "rolle": "Der spürbare Rückgang der Rohölpreise entlastet die Inflationssorgen und stützt die Aktienmärkte maßgeblich."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Zunehmende Signale für diplomatische Ansätze im Iran-Konflikt",
+     "pfeil": "hoch",
+     "rolle": "Hoffnungen auf das Ausbleiben militärischer Eskalationen senken die geopolitische Risikoprämie."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Breiter Anstieg an der Wall Street trotz Nvidia-Minus",
+     "pfeil": "hoch",
+     "rolle": "Eine robuste Marktbreite signalisiert, dass die Kursgewinne nicht mehr nur an wenigen Einzeltiteln hängen."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "Endphase der Korrektur laut Morgan Stanley erreicht",
+     "pfeil": "hoch",
+     "rolle": "Analysten erwarten einen saisonal getriebenen Schlussspurt der Kurse bis zum Jahresende."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Investitionen in Rechenzentren laufen ungebremst weiter",
+     "pfeil": "hoch",
+     "rolle": "Die anhaltende Ausgabenbereitschaft der Branchenführer dämpft die Furcht vor einer abrupten Abkühlung des KI-Booms."
+    }
+   ],
+   "zitate": [
+    "die Hoffnung über die Statistik siegt",
+    "Too big to getting fired"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 111069
+  },
+  {
    "id": "_WhoSHtMFZI",
    "titel": "Tech-Absturz. Startet jetzt das Comeback?",
    "datum": "2026-11-06",
@@ -3013,9 +3132,11 @@
   "7p0xRqQFnJw",
   "JazicTFN2TA",
   "_WhoSHtMFZI",
-  "OLnbm9251DM"
+  "OLnbm9251DM",
+  "JL1kH_o9Jok",
+  "MrA7WFlqK74"
  ],
- "stand": "2026-11-08T18:58Z",
+ "stand": "2026-11-09T23:38Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
