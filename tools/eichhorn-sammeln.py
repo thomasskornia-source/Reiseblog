@@ -92,12 +92,14 @@ def feed_von_kanalseite():
     for m in re.finditer(r'"videoId":"([A-Za-z0-9_-]{11})"', h):
         if m.group(1) not in ids:
             ids.append(m.group(1))
+    print("Kanalseite: %d Seiten-Bytes, %d Video-IDs" % (len(h), len(ids)), flush=True)
     out = []
     for vid in ids[:10]:
         try:
             sp = seite(vid)
         except Exception as e:  # noqa: BLE001
             print("  Videoseite nicht lesbar:", vid, e); time.sleep(2); continue
+        print("  ", vid, sp["datum"], sp["kanal"], (sp["titel"] or "")[:50], flush=True)
         if sp["kanal"] and kanal_ok(sp["kanal"]) and sp["datum"]:
             out.append({"id": vid, "titel": sp["titel"] or vid, "datum": sp["datum"], "zeit": sp["datum"] + "T00:00:00Z"})
         time.sleep(1)
