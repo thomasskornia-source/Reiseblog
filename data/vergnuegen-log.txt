@@ -1,4 +1,5 @@
 FEHLER buehne-staatsoper HTTP Error 403: Forbidden
+gemini-3.8-flash: HTTP 503
 gemini-3.8-flash: HTTP 429
 gemini-flash-latest: HTTP 429
 FEHLER buehne-residenztheater gemini-flash-latest: HTTP 429
