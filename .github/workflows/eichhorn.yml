@@ -11,6 +11,9 @@ on:
       backfill:
         description: 'Zahl älterer Videos aus dem Feed nachholen (z. B. 5)'
         required: false
+      max:
+        description: 'Höchstens so viele neue Videos je Lauf (Standard 3, 0 = nur die angegebenen)'
+        required: false
       neu:
         description: 'Leer lassen; "ja" wertet die angegebenen Videos erneut aus'
         required: false
@@ -32,6 +35,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           SEED_VIDEOS: ${{ inputs.seed }}
           BACKFILL: ${{ inputs.backfill }}
+          MAX_PRO_LAUF: ${{ inputs.max }}
           NEU: ${{ inputs.neu }}
         run: |
           mkdir -p auswertung

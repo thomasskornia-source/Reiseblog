@@ -85,24 +85,35 @@ def feed(kanal):
              "datum": e.find("a:published", ns).text[:10], "zeit": e.find("a:published", ns).text} for e in x.findall("a:entry", ns)]
 
 
+EINHEIT = {"minute": 0, "minuten": 0, "stunde": 0, "stunden": 0, "tag": 1, "tagen": 1, "woche": 7, "wochen": 7, "monat": 30, "monaten": 30,
+           "jahr": 365, "jahren": 365, "minutes": 0, "minute": 0, "hours": 0, "hour": 0, "day": 1, "days": 1, "week": 7, "weeks": 7,
+           "month": 30, "months": 30, "year": 365, "years": 365}
+
+
 def feed_von_kanalseite():
-    """Ersatz, wenn der RSS-Feed 404 liefert: Video-IDs von der Videos-Seite, Titel/Datum je Video von der Videoseite."""
+    """Ersatz, wenn der RSS-Feed 404 liefert: Videos-Seite des Kanals lesen (Video-ID, Titel, 'vor N Tagen' -> ungefähres Datum)."""
+    import html as _h
     h = get(f"https://www.youtube.com/@{HANDLE}/videos")
-    ids = []
-    for m in re.finditer(r'"videoId":"([A-Za-z0-9_-]{11})"', h):
-        if m.group(1) not in ids:
-            ids.append(m.group(1))
-    print("Kanalseite: %d Seiten-Bytes, %d Video-IDs" % (len(h), len(ids)), flush=True)
-    out = []
-    for vid in ids[:10]:
+    heute = dt.date.today()
+    out, seen = [], set()
+    for m in re.finditer(r'"lockupMetadataViewModel":\{"title":\{"content":"((?:[^"\\]|\\.)*)"', h):
+        i = h.rfind('"contentId":"', 0, m.start())
+        vid = h[i + 13:i + 24] if i >= 0 else ""
+        if vid in seen or not re.fullmatch(r"[A-Za-z0-9_-]{11}", vid):
+            continue
+        t = re.search(r"vor (\d+) (Minuten?|Stunden?|Tagen?|Wochen?|Monaten?|Jahren?)|(\d+) (minutes?|hours?|days?|weeks?|months?|years?) ago",
+                      h[m.end():m.end() + 3000])
+        if not t:
+            continue
+        n, u = int(t.group(1) or t.group(3)), (t.group(2) or t.group(4)).lower()
+        d = heute - dt.timedelta(days=n * EINHEIT.get(u, 0))
         try:
-            sp = seite(vid)
-        except Exception as e:  # noqa: BLE001
-            print("  Videoseite nicht lesbar:", vid, e); time.sleep(2); continue
-        print("  ", vid, sp["datum"], sp["kanal"], (sp["titel"] or "")[:50], flush=True)
-        if sp["kanal"] and kanal_ok(sp["kanal"]) and sp["datum"]:
-            out.append({"id": vid, "titel": sp["titel"] or vid, "datum": sp["datum"], "zeit": sp["datum"] + "T00:00:00Z"})
-        time.sleep(1)
+            titel = json.loads('"' + m.group(1) + '"')
+        except ValueError:
+            titel = m.group(1)
+        seen.add(vid)
+        out.append({"id": vid, "titel": _h.unescape(titel), "datum": d.isoformat(), "zeit": d.isoformat() + "T00:00:00Z"})
+    print("Kanalseite: %d Videos mit Datum" % len(out), flush=True)
     return out
 
 
@@ -246,7 +257,8 @@ def main():
             neu = [e for e in fd if e["id"] not in db["gesehen"] and e["id"] not in schon
                    and (heute - dt.date.fromisoformat(e["datum"])).days <= MAX_ALTER_TAGE]
             alt = [e for e in fd if e["id"] not in db["gesehen"] and e["id"] not in schon and e not in neu]
-            todo += sorted(neu, key=lambda e: e["datum"])[-MAX_PRO_LAUF:]
+            neu = sorted(neu, key=lambda e: e["datum"])
+            todo += neu[max(0, len(neu) - MAX_PRO_LAUF):] if MAX_PRO_LAUF > 0 else []
             if BACKFILL:
                 todo += sorted(alt, key=lambda e: e["datum"], reverse=True)[:BACKFILL]
         except Exception as e:  # noqa: BLE001
