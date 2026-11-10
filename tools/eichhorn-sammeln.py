@@ -85,6 +85,32 @@ def feed(kanal):
              "datum": e.find("a:published", ns).text[:10], "zeit": e.find("a:published", ns).text} for e in x.findall("a:entry", ns)]
 
 
+def feed_von_kanalseite():
+    """Ersatz, wenn der RSS-Feed 404 liefert: Video-IDs von der Videos-Seite, Titel/Datum je Video von der Videoseite."""
+    h = get(f"https://www.youtube.com/@{HANDLE}/videos")
+    ids = []
+    for m in re.finditer(r'"videoId":"([A-Za-z0-9_-]{11})"', h):
+        if m.group(1) not in ids:
+            ids.append(m.group(1))
+    out = []
+    for vid in ids[:10]:
+        try:
+            sp = seite(vid)
+        except Exception as e:  # noqa: BLE001
+            print("  Videoseite nicht lesbar:", vid, e); time.sleep(2); continue
+        if sp["kanal"] and kanal_ok(sp["kanal"]) and sp["datum"]:
+            out.append({"id": vid, "titel": sp["titel"] or vid, "datum": sp["datum"], "zeit": sp["datum"] + "T00:00:00Z"})
+        time.sleep(1)
+    return out
+
+
+def kanal_ok(k):
+    try:
+        return k == json.load(open(KANAL, encoding="utf-8")).get("kanal")
+    except Exception:  # noqa: BLE001
+        return True
+
+
 def bekannte(db):
     """Bisher genannte Indikatornamen, damit die KI gleiche Dinge gleich benennt."""
     namen = {}
@@ -202,7 +228,11 @@ def main():
         todo.append({"id": sid, "titel": sp["titel"], "datum": sp["datum"] or str(heute)})
     if kn.get("kanal"):
         try:
-            fd = feed(kn["kanal"])
+            try:
+                fd = feed(kn["kanal"])
+            except Exception as e:  # noqa: BLE001
+                print("Feed nicht lesbar (", e, "), nutze die Kanalseite")
+                fd = feed_von_kanalseite()
             print("Feed:", len(fd), "Videos")
             for e in fd[:8]:
                 print("  ", e["id"], e["datum"], e["titel"][:70])
