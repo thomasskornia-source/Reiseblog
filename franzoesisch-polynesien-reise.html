@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Französisch-Polynesien-Reise 26.12.–9.1. – Andrea unterwegs</title>
+<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="site.css?v=29">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png?v=4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Unterwegs und zuhause">
+<style>
+  .subhead { font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 32px 0 8px; }
+  .route-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 15px; }
+  .route-table th, .route-table td { border: 1px solid rgba(46,58,50,0.15); padding: 8px 12px; text-align: left; }
+  .route-table th { background: var(--paper-warm); font-family: 'Work Sans', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); }
+  .map-link { display: inline-block; margin: 10px 0 4px; padding: 10px 18px; background: var(--rust); color: #fff; text-decoration: none; border-radius: 6px; font-size: 14px; }
+  .hotel-group { margin: 16px 0; }
+  .hotel-group strong { display: block; font-family: 'Fraunces', serif; font-size: 17px; margin-bottom: 6px; }
+  .hotel-group ul { margin: 0; padding-left: 20px; }
+  .hotel-group li { margin-bottom: 6px; }
+  .tip-box { background: var(--paper-warm); border-radius: 8px; padding: 18px 22px; margin: 16px 0; }
+  .safety-box { background: rgba(197, 92, 60, 0.08); border: 1px solid rgba(197, 92, 60, 0.25); border-radius: 8px; padding: 18px 22px; margin: 16px 0; font-size: 15px; }
+  .practical-list li { margin-bottom: 10px; }
+  #route-map { height: 380px; width: 100%; border-radius: 8px; margin: 14px 0 6px; }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body class="page-info pc">
+<nav class="topbar" id="topbar"><div class="topin">
+    <a class="brand" href="index.html"><img src="icon-180.png?v=4" alt=""><span class="bt">Unterwegs und zuhause</span></a>
+    <div class="topnav">
+      <a href="aktien.html">WCJ</a>
+      <a href="quiz.html">München</a>
+      <a href="reisen.html">Reisen</a>
+      <a href="rezepte.html">Rezepte</a>
+      <a href="finanzplanung.html">Finanzplanung</a>
+      <a href="ernaehrung.html">Ernährung</a>
+      <a href="notfallvorrat.html">Notfallvorrat</a>
+      <a href="musik.html">Musik</a>
+    </div>
+  </div></nav>
+<div class="wrap">
+
+  <a class="back-link" href="reisen.html">← Zu den Reisen</a>
+
+  <article>
+    <header class="entry-header">
+      <h1>Französisch-Polynesien <span style="white-space: nowrap;">26.12.–9.1.</span></h1>
+      <hr class="rule">
+    </header>
+
+    <div class="entry-body">
+      <p>12 Tage Tahiti, Moorea und Bora Bora, zu dritt ab München. Route: <strong>Papeete (Tahiti) → Moorea → Bora Bora</strong>, Inselsprünge per Fähre bzw. Inlandsflug.</p>
+    </div>
+
+    <h2 class="subhead">Vorab: Wunsch und Wirklichkeit</h2>
+    <div class="safety-box">
+      <p><strong>Zwei Vorgaben aus der Anfrage lassen sich bei diesem Ziel nicht halten.</strong></p>
+      <ul style="margin-bottom:0;">
+        <li><strong>Flugzeit:</strong> Gewünscht waren höchstens 5 Stunden. Französisch-Polynesien liegt auf der anderen Erdseite; ab München sind es mit Umstieg (z. B. über Paris oder Nordamerika) etwa ein Tag Reisezeit pro Richtung (ca. 22–26 Std., geschätzt, die genaue Dauer hängt von der Verbindung ab). Es gibt keinen Flug unter 5 Stunden.</li>
+        <li><strong>Budget:</strong> 1.500 € pro Person (4.500 € gesamt) reichen nicht. Allein die Flüge kosten laut Preisvergleichsseiten ab etwa 700–800 € p. P. („ab“-Preise, zur Weihnachtszeit meist deutlich mehr); dazu kommen Inlandsflüge, Unterkunft und Essen auf einem der teuersten Reiseziele der Welt. Realistisch sind eher 2.800–3.800 € p. P. (siehe Kosten, geschätzt).</li>
+      </ul>
+    </div>
+    <p style="font-size:14px; color: var(--ink-soft);">Auch die Reisezeit passt nicht ideal: Ende Dezember/Anfang Januar ist in Französisch-Polynesien Regenzeit (warm, schwül, Schauer und Gewitter). Die trockenere Zeit liegt etwa von Mai bis Oktober. Ein klar „bestes Zeitfenster“ innerhalb von 26.12.–9.1. gibt es nicht; um Weihnachten/Neujahr sind Flüge und Unterkünfte erfahrungsgemäß am teuersten, ein Start erst ab ca. 3.1. ist meist günstiger (Preise vor Buchung vergleichen).</p>
+
+    <h2 class="subhead">Route</h2>
+    <div id="route-map"></div>
+    <a class="map-link" href="https://www.google.com/maps/dir/Papeete,+French+Polynesia/Moorea,+French+Polynesia/Bora+Bora,+French+Polynesia" target="_blank">📍 Stationen in Google Maps öffnen</a>
+    <table class="route-table">
+      <tr><th>Tag</th><th>Station</th><th>Programm</th></tr>
+      <tr><td>1–2</td><td>Anreise</td><td>Abflug 26.12. ab München mit Umstieg, Ankunft in Papeete nach rund einem Tag; Zeitunterschied −11 Std. zu Deutschland</td></tr>
+      <tr><td>2–4</td><td>Tahiti</td><td>Ankommen, Markt von Papeete, Inselrundfahrt mit Mietwagen (Wasserfälle, Strände)</td></tr>
+      <tr><td>5–7</td><td>Moorea</td><td>Fähre ab Papeete (ca. 30–60 Min.), Schnorcheln in der Lagune, Belvédère-Aussichtspunkt, Wanderungen</td></tr>
+      <tr><td>8–11</td><td>Bora Bora</td><td>Inlandsflug mit Air Tahiti (über Tahiti), Lagune, Rochen/Haie-Schnorcheln, Inselrundfahrt</td></tr>
+      <tr><td>12–13</td><td>Rückreise</td><td>Rückflug über Tahiti nach München, Ankunft meist am Folgetag</td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft);">Mit rund zwei Reisetagen je Richtung bleiben etwa 9–10 Tage vor Ort; deshalb nur drei Stationen. Der Mietwagen lohnt sich nur auf Tahiti und Moorea (Ringstraße um die Insel), auf Bora Bora fährt man Fahrrad, Roller oder Boot.</p>
+
+    <h2 class="subhead">Kostenübersicht (12 Tage, zu dritt, geschätzt)</h2>
+    <table class="route-table">
+      <tr><th></th><th>Medium</th><th>Luxus</th></tr>
+      <tr><td>Flüge München–Papeete (3 Pers.)</td><td>ca. 3.000 €</td><td>ca. 6.000 €</td></tr>
+      <tr><td>Inlandsflüge/Fähre (3 Pers.)</td><td>ca. 700 €</td><td>ca. 1.200 €</td></tr>
+      <tr><td>Unterkunft (ca. 10 Nächte)</td><td>ca. 3.500 €</td><td>ca. 9.000 €</td></tr>
+      <tr><td>Mietwagen, Transfers, Ausflüge</td><td>ca. 900 €</td><td>ca. 1.800 €</td></tr>
+      <tr><td>Verpflegung</td><td>ca. 1.200 €</td><td>ca. 2.500 €</td></tr>
+      <tr><td><strong>Gesamt</strong></td><td><strong>≈ 9.300 €</strong></td><td><strong>≈ 20.500 €</strong></td></tr>
+    </table>
+    <p style="font-size:14px; color: var(--ink-soft);">Alle Beträge sind grobe Schätzungen (Stand 10.11.2026), keine Angebote. Belegt ist nur der Rahmen der Flugpreise aus den Preisvergleichsseiten unten; Unterkunft, Inlandsflüge und Verpflegung sind Erfahrungswerte und sollten vor Buchung geprüft werden. Das Budget von 4.500 € würde eher für eine ähnliche Reise nach <a href="madeira-reise.html">Madeira</a>, <a href="costa-de-la-luz-reise.html">an die Costa de la Luz</a> oder <a href="azoren-reise.html">auf die Azoren</a> reichen.</p>
+
+    <h2 class="subhead">Unterkunft (Medium-Budget)</h2>
+    <p style="font-style: italic; color: var(--ink-soft); margin-top: -8px; font-size: 14px;">Konkrete Häuser und Preise habe ich bewusst nicht aufgelistet, weil sie sich für Weihnachten/Neujahr schnell ändern und nicht belegt sind. Üblich sind:</p>
+    <div class="hotel-group">
+      <strong>Tahiti</strong>
+      <ul><li>Kleines Hotel oder Pension in Papeete/Punaauia für die ersten und letzten Nächte (Flughafen nah)</li></ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Moorea</strong>
+      <ul><li>Familiengeführte Pension (<em>pension de famille</em>) oder Bungalow-Anlage mit Lagunenzugang, am günstigsten mit Selbstversorgung</li></ul>
+    </div>
+    <div class="hotel-group">
+      <strong>Bora Bora</strong>
+      <ul><li>Pension auf der Hauptinsel statt Überwasserbungalow (Resorts auf den Motus kosten pro Nacht schnell ein Vielfaches); Boot zum Hauptort einplanen</li></ul>
+    </div>
+    <ul>
+      <li><a href="https://www.booking.com/searchresults.de.html?ss=Moorea" target="_blank">Booking.com: Moorea</a></li>
+      <li><a href="https://www.booking.com/searchresults.de.html?ss=Bora+Bora" target="_blank">Booking.com: Bora Bora</a></li>
+      <li><a href="https://www.booking.com/searchresults.de.html?ss=Papeete" target="_blank">Booking.com: Papeete</a></li>
+    </ul>
+
+    <h2 class="subhead">Flugsuche München–Papeete</h2>
+    <ul>
+      <li><a href="https://www.skyscanner.de/transport/fluege/muc/ppt/" target="_blank">Skyscanner: München → Papeete</a></li>
+      <li><a href="https://www.google.com/travel/flights?q=Flights%20from%20Munich%20to%20Papeete" target="_blank">Google Flights: München → Papeete</a></li>
+      <li><a href="https://www.kayak.de/flights/MUC-PPT" target="_blank">Kayak: München → Papeete</a></li>
+      <li><a href="https://www.airtahiti.com/" target="_blank">Air Tahiti (Inlandsflüge, z. B. nach Bora Bora)</a></li>
+    </ul>
+    <p style="font-size:14px; color: var(--ink-soft);">Preisvergleichsseiten nannten zuletzt „ab“-Preise von rund 700–810 € p. P. für München/Deutschland–Französisch-Polynesien (<a href="https://www.kayak.de/fl%C3%BCge/Muenchen-MUC/Franzoesisch-Polynesien-PF0" target="_blank">Kayak</a>, <a href="https://www.momondo.de/fluege/deutschland/franzosisch-polynesien" target="_blank">Momondo</a>). Das sind günstigste Treffer, zu Weihnachten/Neujahr ist deutlich mehr zu erwarten.</p>
+
+    <h2 class="subhead">Sicherheitslage (Stand: 10. November 2026)</h2>
+    <div class="safety-box">
+      <p>Französisch-Polynesien gehört zu Frankreich. Die Auswärtigen-Amt-Hinweise für Frankreich (inkl. Überseegebiete) lagen beim Erstellen nicht im Wortlaut vor; eine Reisewarnung ist mir für dieses Ziel nicht bekannt, belegt habe ich das aber nicht. Bitte vor Buchung selbst prüfen. Praktisch relevant: Regenzeit mit möglichen Starkregen- und Sturmlagen, Sonnenschutz, Strömungen in Passagen der Lagune, medizinische Versorgung außerhalb Tahitis eingeschränkt (Auslandskrankenversicherung mit Rücktransport sinnvoll).</p>
+      <ul style="margin-bottom:0;">
+        <li><a href="https://www.auswaertiges-amt.de/de/service/laender/frankreich-node/frankreichsicherheit-209524" target="_blank">Auswärtiges Amt: Frankreich – Reise- und Sicherheitshinweise</a></li>
+        <li><a href="https://www.wohin-und-wann.de/when/ozeanien/franzosisch-polynesien/dezember/" target="_blank">Wetter im Dezember (wohin-und-wann.de)</a></li>
+        <li><a href="https://www.tourlane.de/ozeanien/franzoesisch-polynesien/beste-reisezeit/" target="_blank">Beste Reisezeit (Tourlane)</a></li>
+      </ul>
+    </div>
+
+    <h2 class="subhead">Warum diese Route?</h2>
+    <div class="tip-box">
+      <p>Bei so langer Anreise lohnen wenige Stationen: Tahiti als Drehkreuz, Moorea als leicht erreichbare, grüne Nachbarinsel mit guten Lagunen und Bora Bora als bekanntester Höhepunkt. So gibt es nur zwei Inselwechsel.</p>
+      <p style="margin-bottom:0;"><strong>Selbst fahren?</strong> Auf Tahiti und Moorea gut möglich (eine Küstenstraße rund um die Insel, Rechtsverkehr). Auf Bora Bora braucht man kein Auto. Der Wunsch nach Kunst, Kultur und Wassersport lässt sich hier über Märkte, Tanz- und Handwerkskultur sowie Schnorcheln und Tauchen erfüllen.</p>
+    </div>
+
+    <h2 class="subhead">Praktisches</h2>
+    <ul class="practical-list">
+      <li><strong>Einreise:</strong> Es gelten die Regeln für Frankreich; Reisepass bzw. Ausweis und Rückflugticket bereithalten, aktuelle Bedingungen vor Abreise beim Auswärtigen Amt prüfen.</li>
+      <li><strong>Währung:</strong> Pazifik-Franc (CFP), fest an den Euro gekoppelt; Preise liegen deutlich über dem deutschen Niveau.</li>
+      <li><strong>Packliste:</strong> Sonnenschutz, Regenjacke, Wasserschuhe und Schnorchelausrüstung, Mückenschutz.</li>
+    </ul>
+
+    <p style="font-size:13px; color: var(--ink-soft); margin-top: 20px;">Stand: 10. November 2026. Die Websuche lieferte nur Trefferlisten ohne Seitentexte; Angaben ohne Quelle sind als „geschätzt“ oder „ca.“ markiert.</p>
+
+  </article>
+
+  <footer class="site-footer">
+    <p>Automatisch erstellt und gepflegt.</p>
+  </footer>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var stops = [
+    { name: "Papeete (Tahiti)", tag: "Tag 1–4", lat: -17.5516, lon: -149.5585, info: "Ankunft, Markt, Inselrundfahrt" },
+    { name: "Moorea", tag: "Tag 5–7", lat: -17.5388, lon: -149.8295, info: "Lagune, Schnorcheln, Wanderungen" },
+    { name: "Bora Bora", tag: "Tag 8–11", lat: -16.5004, lon: -151.7415, info: "Lagune, Rochen und Haie, Inselrundfahrt" }
+  ];
+  var map = L.map('route-map');
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap-Mitwirkende' }).addTo(map);
+  var latlngs = stops.map(function (s) { return [s.lat, s.lon]; });
+  L.polyline(latlngs, { color: '#a5622a', weight: 3, dashArray: '6 6' }).addTo(map);
+  stops.forEach(function (s, i) {
+    var marker = L.circleMarker([s.lat, s.lon], { radius: 9, fillColor: '#c98a4b', color: '#fff', weight: 2, fillOpacity: 1 }).addTo(map);
+    marker.bindTooltip((i + 1) + '. ' + s.name, { permanent: true, direction: 'top', offset: [0, -8], className: 'route-tooltip' });
+    marker.bindPopup('<strong>' + s.name + '</strong><br>' + s.tag + '<br>' + s.info);
+  });
+  map.fitBounds(latlngs, { padding: [30, 30] });
+</script>
+<style>
+  .route-tooltip { background: var(--paper, #faf6f0); border: 1px solid rgba(46,58,50,0.25); font-family: 'Work Sans', sans-serif; font-size: 12px; padding: 2px 6px; border-radius: 4px; box-shadow: none; }
+</style>
+<script src="nav.js?v=21" defer></script>
+</body>
+</html>
