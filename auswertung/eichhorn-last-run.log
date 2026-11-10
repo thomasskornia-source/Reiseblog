@@ -1,14 +1,39 @@
 Feed nicht lesbar ( HTTP Error 404: Not Found ), nutze die Kanalseite
-Kanalseite: 1347470 Seiten-Bytes, 30 Video-IDs
-   vH4zg3UK3ns None UCzEnX97Kzb9G-Zrpl7EZEFg 
-   RtlL3JCsh4k None UCzEnX97Kzb9G-Zrpl7EZEFg 
-   om-3tPIydHs None UCzEnX97Kzb9G-Zrpl7EZEFg 
-   UOMppMNPv9I None UCzEnX97Kzb9G-Zrpl7EZEFg 
-   DCa02n4Sjj0 None UCzEnX97Kzb9G-Zrpl7EZEFg 
-   bEsxIZEj1jg None UCzEnX97Kzb9G-Zrpl7EZEFg 
-   ip18wb6IpPU None UCzEnX97Kzb9G-Zrpl7EZEFg 
-   nMLNW15LLgg None UCzEnX97Kzb9G-Zrpl7EZEFg 
-   1LtoXkJ_5x8 None UCzEnX97Kzb9G-Zrpl7EZEFg 
-   JJ83i1D0cUE None UCzEnX97Kzb9G-Zrpl7EZEFg 
-Feed: 0 Videos
-Nichts Neues.
+Kanalseite: 14 Videos mit Datum
+Feed: 14 Videos
+   RtlL3JCsh4k 2026-11-06 Optionshandel mit System: Welche Strategie im Oktober wirklich verdien
+   om-3tPIydHs 2026-11-05 #21: Vom Stillhalten leben? So rechnen nur Anfänger
+   UOMppMNPv9I 2026-11-02 #152: Warum wir nach 100 Ausgaben fast nur noch LEAPs verkaufen
+   DCa02n4Sjj0 2026-11-02 Tech-Ausverkauf - Was das jetzt für Stillhalter bedeutet
+   bEsxIZEj1jg 2026-10-30 Die 3 Fragen, die ich mir stelle, bevor ich einen Short Put rolle
+   ip18wb6IpPU 2026-10-27 #151: Family Office ab 300.000 €? Finn Wiesel rechnet nach
+   nMLNW15LLgg 2026-10-27 VIX und VXX - Hast du den Unterschied wirklich verstanden?
+   1LtoXkJ_5x8 2026-10-27 2.000% mit CoreWeave als Stillhalter – und ein Blick in unser Depot
+Werte aus: UOMppMNPv9I #152: Warum wir nach 100 Ausgaben fast nur noch LEAPs verkaufen 2026-11-02
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.8-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.7-flash: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-3.7-flash: The read operation timed out
+gemini-flash-latest: The read operation timed out
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: The read operation timed out
