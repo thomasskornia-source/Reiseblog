@@ -1079,6 +1079,76 @@
   "stand": "2026-10-25"
  },
  {
+  "id": "events-dd3603dc7f",
+  "lat": 48.14011,
+  "lon": 11.57943,
+  "rubrik": "events",
+  "titel": "König Lear",
+  "ort": "Residenztheater",
+  "adresse": "",
+  "datum": "2026-11-11",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "25 bis 69 €",
+  "dauer": "3 Std. 10 Min.",
+  "kurz": "Shakespeares klassische Tragödie über Macht, Wahn und familiären Zerfall mit Manfred Zapatka in der Titelrolle.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-11-10"
+ },
+ {
+  "id": "events-c600d8e059",
+  "lat": 48.14011,
+  "lon": 11.57943,
+  "rubrik": "events",
+  "titel": "Die Dreigroschenoper",
+  "ort": "Residenztheater",
+  "adresse": "",
+  "datum": "2026-11-12",
+  "datum_bis": "",
+  "zeit": "19:00",
+  "preis": "29 bis 74 €",
+  "dauer": "3 Std. 20 Min.",
+  "kurz": "Brechts und Weills berühmtes Musiktheaterstück über die Londoner Unterwelt und die Verflechtung von Verbrechen und Bürgertum.",
+  "tags": [
+   "Kultur",
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-11-10"
+ },
+ {
+  "id": "events-0ed92a2f1d",
+  "lat": 48.14007,
+  "lon": 11.58154,
+  "rubrik": "events",
+  "titel": "La Musica – zwischen ihr und ihm",
+  "ort": "Marstall",
+  "adresse": "",
+  "datum": "2026-11-12",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "33 €",
+  "dauer": "1 Std. 40 Min.",
+  "kurz": "Zwei Texte von Marguerite Duras erkunden das Ende von Beziehungen und das Aufbrechen verborgener Gewalt.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-11-10"
+ },
+ {
   "id": "events-5b368a8075",
   "lat": 48.19469,
   "lon": 11.60785,
@@ -1100,6 +1170,51 @@
   "quelle": "Zenith, Kulturhalle (Konzerte)",
   "url": "https://www.in-muenchen.de/locations/zenith.html",
   "stand": "2026-10-25"
+ },
+ {
+  "id": "events-8dc5c7d169",
+  "lat": 48.14011,
+  "lon": 11.57943,
+  "rubrik": "events",
+  "titel": "Munich Machine",
+  "ort": "Residenztheater",
+  "adresse": "",
+  "datum": "2026-11-13",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "17 bis 57 €",
+  "dauer": "3 Std.",
+  "kurz": "Eine rasante theatrale Zeitreise durch Münchens Geschichte als Hommage an den Filmemacher Klaus Lemke.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-11-10"
+ },
+ {
+  "id": "events-4db87f80d3",
+  "lat": 48.14011,
+  "lon": 11.57943,
+  "rubrik": "events",
+  "titel": "Theaterführung",
+  "ort": "Residenztheater",
+  "adresse": "",
+  "datum": "2026-11-14",
+  "datum_bis": "",
+  "zeit": "15:00",
+  "preis": "10 €",
+  "dauer": "1 Std. 20 Min.",
+  "kurz": "Ein spannender Rundgang hinter die Kulissen gewährt Einblicke in die Arbeitsabläufe des Residenztheaters.",
+  "tags": [
+   "Kultur"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-11-10"
  },
  {
   "id": "events-9ec617af17",
@@ -1124,6 +1239,75 @@
   "quelle": "Alte Utting (Musik und Kultur)",
   "url": "https://www.in-muenchen.de/locations/alte-utting.html",
   "stand": "2026-10-31"
+ },
+ {
+  "id": "events-1d87c07848",
+  "lat": 48.14011,
+  "lon": 11.57943,
+  "rubrik": "events",
+  "titel": "Pippi Langstrumpf",
+  "ort": "Residenztheater",
+  "adresse": "",
+  "datum": "2026-11-15",
+  "datum_bis": "",
+  "zeit": "16:00",
+  "preis": "11 bis 43 €",
+  "dauer": "1 Std. 20 Min.",
+  "kurz": "Das anarchisch-fröhliche Abenteuer nach Astrid Lindgren rund um das stärkste Mädchen der Welt und die Villa Kunterbunt.",
+  "tags": [
+   "Familie",
+   "Kultur"
+  ],
+  "thema": "Familie & Kinder",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-11-10"
+ },
+ {
+  "id": "events-2625725a70",
+  "rubrik": "events",
+  "titel": "kurz & gut",
+  "ort": "Marstall Salon",
+  "adresse": "",
+  "datum": "2026-11-15",
+  "datum_bis": "",
+  "zeit": "19:00",
+  "preis": "11/10 €",
+  "dauer": "",
+  "kurz": "Cathrin Störmer präsentiert gemeinsam mit Gästen Kurzgeschichten und ausgewählte Lieder im Salonformat.",
+  "tags": [
+   "Kultur",
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-11-10"
+ },
+ {
+  "id": "events-09d2ad1002",
+  "lat": 48.14011,
+  "lon": 11.57943,
+  "rubrik": "events",
+  "titel": "Cabaret",
+  "ort": "Residenztheater",
+  "adresse": "",
+  "datum": "2026-11-17",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "29 bis 74 €",
+  "dauer": "3 Std.",
+  "kurz": "Das Musical entführt in den Berliner Kit-Kat-Club der 1930er-Jahre zwischen ausschweifendem Nachtleben und drohendem Faschismus.",
+  "tags": [
+   "Kultur",
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-11-10"
  },
  {
   "id": "events-9ba4660f6a",
@@ -1169,6 +1353,54 @@
   "quelle": "Zenith, Kulturhalle (Konzerte)",
   "url": "https://www.in-muenchen.de/locations/zenith.html",
   "stand": "2026-10-25"
+ },
+ {
+  "id": "events-66c9cd7699",
+  "lat": 48.14007,
+  "lon": 11.58154,
+  "rubrik": "events",
+  "titel": "Bambi",
+  "ort": "Marstall",
+  "adresse": "",
+  "datum": "2026-11-21",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "33 €",
+  "dauer": "",
+  "kurz": "Schorsch Kamerun inszeniert Felix Saltens Roman als schillernde, abgründige Revue über den harten Überlebenskampf im Wald.",
+  "tags": [
+   "Kultur",
+   "Musik",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-11-10"
+ },
+ {
+  "id": "events-d9b78770b1",
+  "lat": 48.13346,
+  "lon": 11.56686,
+  "rubrik": "events",
+  "titel": "Finding Freddie",
+  "ort": "Sendlinger Tor",
+  "adresse": "",
+  "datum": "2026-11-24",
+  "datum_bis": "",
+  "zeit": "18:30",
+  "preis": "15/10 €",
+  "dauer": "",
+  "kurz": "Stadtspaziergang auf den Spuren von Freddie Mercury durch historische Orte und queere Geschichte Münchens.",
+  "tags": [
+   "Kultur",
+   "Draußen",
+   "Abends"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Residenztheater (Spielplan)",
+  "url": "https://www.residenztheater.de/spielplan",
+  "stand": "2026-11-10"
  },
  {
   "id": "events-7455191abc",
