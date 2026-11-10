@@ -24,6 +24,7 @@ concurrency:
 jobs:
   eichhorn:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - name: Folgen auswerten (Gemini)
@@ -35,7 +36,7 @@ jobs:
         run: |
           mkdir -p auswertung
           set -o pipefail
-          python3 tools/eichhorn-sammeln.py 2>&1 | tee auswertung/eichhorn-last-run.log
+          python3 -u tools/eichhorn-sammeln.py 2>&1 | tee auswertung/eichhorn-last-run.log
       - name: Daten ablegen
         if: always()
         run: |

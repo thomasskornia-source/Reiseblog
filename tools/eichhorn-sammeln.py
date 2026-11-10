@@ -107,12 +107,12 @@ def gemini(vid, db):
     gen = {"responseMimeType": "application/json", "temperature": 0.2, "mediaResolution": "MEDIA_RESOLUTION_LOW"}
     errors = []
     for m in MODELS:
-        for attempt in range(3):
+        for attempt in range(2):
             body = {"contents": [{"parts": teile}], "generationConfig": gen}
             req = urllib.request.Request(f"{BASE}/models/{m}:generateContent", data=json.dumps(body).encode(), method="POST",
                                          headers={"x-goog-api-key": KEY, "Content-Type": "application/json"})
             try:
-                with urllib.request.urlopen(req, timeout=900) as r:
+                with urllib.request.urlopen(req, timeout=int(os.environ.get('GEMINI_TIMEOUT') or 480)) as r:
                     res = json.load(r)
                 txt = res["candidates"][0]["content"]["parts"][0]["text"].strip()
                 txt = re.sub(r"^```(?:json)?|```$", "", txt).strip()
@@ -122,7 +122,7 @@ def gemini(vid, db):
                 errors.append(msg); print(msg)
                 if e.code == 400 and "mediaResolution" in gen and "media" in msg.lower():
                     gen = {k: v for k, v in gen.items() if k != "mediaResolution"}; continue
-                if e.code in (429, 500, 503) and attempt < 2:
+                if e.code in (429, 500, 503) and attempt < 1:
                     time.sleep(20); continue
                 break
             except Exception as e:  # noqa: BLE001
@@ -225,7 +225,7 @@ def main():
         print("Nichts Neues."); speichern(db); return
 
     for v in todo:
-        print("Werte aus:", v["id"], v.get("titel"), v["datum"])
+        print("Werte aus:", v["id"], v.get("titel"), v["datum"], flush=True)
         try:
             d, m, tok = gemini(v["id"], db)
         except Exception as e:  # noqa: BLE001
