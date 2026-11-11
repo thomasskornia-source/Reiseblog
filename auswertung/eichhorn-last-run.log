@@ -1,151 +1,23 @@
 Feed: 15 Videos
-   -vtWWK6jgdg 2026-11-10 #Stillhalter sind #Volatilitätshändler, das vergessen fast alle
-   vH4zg3UK3ns 2026-11-09 #153: Die 5 Anfängerfehler, die fast jeder Stillhalter macht
-   RtlL3JCsh4k 2026-11-08 Optionen verkaufen bei niedriger Volatilität: Warum ich Einzelaktien s
-   S32diJBLEpY 2026-11-06 95 % der Trader verlieren Geld – Zehnkampf-Gold ist realistischer
-   om-3tPIydHs 2026-11-05 Optionshandel mit System: Welche Strategie im Oktober wirklich verdien
-   UOMppMNPv9I 2026-11-04 #21: Vom Stillhalten leben? So rechnen nur Anfänger
-   ysRgtzIq5tg 2026-11-03 Meine 2 Regeln im #Optionshandel
-   DCa02n4Sjj0 2026-11-01 #152: Warum wir nach 100 Ausgaben fast nur noch LEAPs verkaufen
-Werte aus: RtlL3JCsh4k Optionen verkaufen bei niedriger Volatilität: Warum ich Einzelaktien statt Indizes nehme 2026-11-08
-gemini-3.8-flash: Remote end closed connection without response
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "s
-Werte aus: vH4zg3UK3ns #153: Die 5 Anfängerfehler, die fast jeder Stillhalter macht 2026-11-09
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "s
-Werte aus: -vtWWK6jgdg #Stillhalter sind #Volatilitätshändler, das vergessen fast alle 2026-11-10
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 429 {
+   -vtWWK6jgdg 2026-11-10 None Min #Stillhalter sind #Volatilitätshändler, das vergessen fast alle
+   vH4zg3UK3ns 2026-11-09 None Min #153: Die 5 Anfängerfehler, die fast jeder Stillhalter macht
+   RtlL3JCsh4k 2026-11-08 None Min Optionen verkaufen bei niedriger Volatilität: Warum ich Einzelaktien s
+   S32diJBLEpY 2026-11-06 None Min 95 % der Trader verlieren Geld – Zehnkampf-Gold ist realistischer
+   om-3tPIydHs 2026-11-05 None Min Optionshandel mit System: Welche Strategie im Oktober wirklich verdien
+   UOMppMNPv9I 2026-11-04 None Min #21: Vom Stillhalten leben? So rechnen nur Anfänger
+   ysRgtzIq5tg 2026-11-03 None Min Meine 2 Regeln im #Optionshandel
+   DCa02n4Sjj0 2026-11-01 None Min #152: Warum wir nach 100 Ausgaben fast nur noch LEAPs verkaufen
+Werte aus: DCa02n4Sjj0 #152: Warum wir nach 100 Ausgaben fast nur noch LEAPs verkaufen 2026-11-01
+  8 Regeln, 2 Indikatoren (224896 Tokens)
+Werte aus: bEsxIZEj1jg Tech-Ausverkauf - Was das jetzt für Stillhalter bedeutet 2026-11-01
+  4 Regeln, 6 Indikatoren (99224 Tokens)
+Werte aus: ysRgtzIq5tg Meine 2 Regeln im #Optionshandel 2026-11-03
+gemini-3.8-flash: HTTP 429 {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
-  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 429 {
+gemini-3.8-flash: HTTP 429 {
   "error": {
     "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+  2 Regeln, 0 Indikatoren (4168 Tokens)

@@ -1,6 +1,237 @@
 {
- "beitraege": [],
- "gesehen": [],
+ "beitraege": [
+  {
+   "id": "ysRgtzIq5tg",
+   "titel": "Meine 2 Regeln im #Optionshandel",
+   "datum": "2026-11-03",
+   "zeit": "2026-11-03T14:36:52+00:00",
+   "thema": "Zwei fundamentale Grundregeln im Optionshandel: Strikt nach Signal handeln und keine Optionen andienen lassen.",
+   "marktlage": "",
+   "regeln": [
+    {
+     "bereich": "Sonstiges",
+     "regel": "Nur Positionen eröffnen, wenn ein klares Signal vorliegt, und niemals nur um des Tradens willen handeln.",
+     "zahl": "",
+     "begruendung": "Disziplin bewahrt vor unnötigen Risiken und verfrühtem oder unüberlegtem Handeln.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Wheel & Einstieg",
+     "regel": "Optionen unter keinen Umständen andienen bzw. zuteilen lassen.",
+     "zahl": "",
+     "begruendung": "Das Vermeiden einer Zuteilung ist eine feste Bedingung im Risikomanagement.",
+     "art": "regel"
+    }
+   ],
+   "indikatoren": [],
+   "quellen": [],
+   "zitate": [
+    "Kein Signal, kein Trade.",
+    "Keine Option andienen lassen."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 4168
+  },
+  {
+   "id": "DCa02n4Sjj0",
+   "titel": "#152: Warum wir nach 100 Ausgaben fast nur noch LEAPs verkaufen",
+   "datum": "2026-11-01",
+   "zeit": "2026-11-01T11:00:09+00:00",
+   "thema": "Rückblick und Selbstkritik zur 100. Ausgabe des Optionsbriefs mit Fokus auf Vor- und Nachteile von LEAPS-Optionen, Regeldisziplin und transparente Depotführung.",
+   "marktlage": "Im Jahresverlauf war die Volatilität über weite Strecken niedrig, was Stillhalter-Trades auf Einzelaktien anspruchsvoll machte, weshalb Saisonalitäten und Ablaufpläne zur Absicherung herangezogen wurden.",
+   "regeln": [
+    {
+     "bereich": "Volatilität & Marktphase",
+     "regel": "Ohne klares Handelssignal wird keine Position eröffnet.",
+     "zahl": "",
+     "begruendung": "Trading darf nicht um des Tradens willen erfolgen, sondern erfordert ein valides Setup.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Wheel & Einstieg",
+     "regel": "Keine Zuteilung beziehungsweise Andienung der zugrundeliegenden Aktie zulassen.",
+     "zahl": "",
+     "begruendung": "Das Depot soll rein auf Optionsstrategien und Cashflow basieren und nicht in unfreiwillige Buy-and-Hold-Aktienpositionen übergehen.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Rollen & Reparatur",
+     "regel": "Gefährdete Short Puts bei starkem Buchverlust rollen, statt die Aktie ins Depot zu buchen.",
+     "zahl": "-100 %",
+     "begruendung": "Rollen bei rund 100 % Verlust verschafft Zeit und vermeidet Kapitalbindung durch Aktienandienung.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Laufzeit",
+     "regel": "Bevorzugt LEAPS mit sehr langen Laufzeiten verkaufen.",
+     "zahl": "360 Tage",
+     "begruendung": "Lange Laufzeiten dämpfen Gamma-, Volga- und Vanna-Risiken und bringen Ruhe ins Depot.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Ausstieg & Gewinnmitnahme",
+     "regel": "LEAPS-Positionen nach Erreichen des Zielgewinns vorzeitig schließen und nicht bis zum Verfall halten.",
+     "zahl": "60 Tage",
+     "begruendung": "Trotz rechnerischer Laufzeit von etwa 360 Tagen verbleibt die Position im Schnitt nur rund 60 Tage im Markt.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Strike & Delta",
+     "regel": "In Phasen niedriger Volatilität eher höhere Deltas nah am Geld wählen statt weit aus dem Geld.",
+     "zahl": "Delta 40",
+     "begruendung": "Weit aus dem Geld liegende Optionen sind reine Volatilitätswetten, während höhere Deltas bei niedriger Vola ein besseres Rendite-Risiko-Profil bieten.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Positionsgröße & Risiko",
+     "regel": "Jeder Trader muss Kontraktanzahl und Risiko strikt an die eigene Kontogröße anpassen.",
+     "zahl": "",
+     "begruendung": "Handelsideen können nicht pauschal skaliert werden, da Depots und Risikotoleranzen individuell verschieden sind.",
+     "art": "warnung"
+    },
+    {
+     "bereich": "Volatilität & Marktphase",
+     "regel": "Volatilität nicht short handeln, wenn das Volatilitätsniveau ohnehin bereits sehr niedrig ist.",
+     "zahl": "",
+     "begruendung": "Short-Vola bei tiefen Ständen birgt ein extremes Risiko für Volatilitätsexplosionen.",
+     "art": "warnung"
+    }
+   ],
+   "indikatoren": [
+    {
+     "name": "VIX / VXX",
+     "art": "Index",
+     "wozu": "Wird zur Beurteilung des Gesamtmarktrisikos, für Volatilitäts-Trades und Hedges genutzt.",
+     "lage": "im Jahresverlauf phasenweise sehr niedrig"
+    },
+    {
+     "name": "Saisonalität",
+     "art": "Kennzahl",
+     "wozu": "Dient der zeitlichen Planung von Einstiegen und Absicherungen über Ablaufpläne.",
+     "lage": ""
+    }
+   ],
+   "quellen": [
+    {
+     "name": "Optionsbrief (Eichhorn Coaching)",
+     "wozu": "Zweiwöchentliche Publikation mit Scoreboard, Ablaufplänen und Marktanalysen."
+    },
+    {
+     "name": "CapTrader",
+     "wozu": "Erwähnter Broker und Sponsor des Podcasts."
+    }
+   ],
+   "zitate": [
+    "Ich trade nicht des Trades wegen."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 224896
+  },
+  {
+   "id": "bEsxIZEj1jg",
+   "titel": "Tech-Ausverkauf - Was das jetzt für Stillhalter bedeutet",
+   "datum": "2026-11-01",
+   "zeit": "2026-11-01T11:00:00+00:00",
+   "thema": "Analyse der aktuellen Marktlage bei S&P 500, Nasdaq und Volatilitätsindizes sowie Handlungsoptionen für Stillhalter bei volatil abgestürzten Einzelaktien.",
+   "marktlage": "Die großen Indizes halten sich trotz kurzzeitiger Rücksetzer nahe Allzeithochs, während viele Einzelaktien unter hoher Volatilität stark korrigiert haben. Die Volatilitätsindizes haben sich nach Spitzen rasch beruhigt und die Terminstruktur stützt das Szenario einer Jahresendrallye.",
+   "regeln": [
+    {
+     "bereich": "Rollen & Reparatur",
+     "regel": "Bei Kursabstürzen nicht panisch sofort reagieren oder überstürzt rollen, sondern dem Basiswert einige Tage Zeit zur Beruhigung geben.",
+     "zahl": "2-3 Tage",
+     "begruendung": "Oftmals führen Überreaktionen zu schlechten Kursen, während sich die Spreads und das Marktsentiment nach wenigen Tagen wieder entspannen.",
+     "art": "warnung"
+    },
+    {
+     "bereich": "Titelauswahl",
+     "regel": "Für Stillhalter-Trades gezielt Sektoren oder Aktien mit extrem hohem Pessimismus und erhöhter impliziter Volatilität ansteuern, statt bereits weit erholte Werte zu wählen.",
+     "zahl": "",
+     "begruendung": "In Panikphasen erhält man überdurchschnittlich hohe Prämien, die das Risiko attraktiver kompensieren.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Ausstieg & Gewinnmitnahme",
+     "regel": "Für den Rückkauf geschriebener Optionen feste Limit-Orders im Markt platzieren.",
+     "zahl": "10 $",
+     "begruendung": "Gewinne werden automatisch gesichert, wenn Optionen vorzeitig den Zielpreis erreichen.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Absicherung & Spreads",
+     "regel": "LEAPS-Optionen einsetzen, um Verlusttrades abzufedern und vor übermäßigen Verlusten zu schützen.",
+     "zahl": "",
+     "begruendung": "Die lange Restlaufzeit reduziert das unmittelbare Delta- und Vega-Risiko bei scharfen Kurskorrekturen.",
+     "art": "gewohnheit"
+    }
+   ],
+   "indikatoren": [
+    {
+     "name": "VIX / VXX",
+     "art": "Index",
+     "wozu": "Misst die implizite Volatilität auf den S&P 500 zur Gesamteinschätzung der Marktstimmung.",
+     "lage": "nach kurzem Spike wieder unter 20 beruhigt"
+    },
+    {
+     "name": "VIX-Terminstruktur",
+     "art": "Kennzahl",
+     "wozu": "Dient der Trenderkennung und Überprüfung, ob der Markt eine Jahresendrallye einpreist.",
+     "lage": "weitgehend in Contango, bullisch"
+    },
+    {
+     "name": "VXEQ",
+     "art": "Index",
+     "wozu": "Misst die aggregierte implizite Volatilität der Einzelaktien im S&P 500 abseits des Index-VIX.",
+     "lage": "erhöht, bietet gute Prämien"
+    },
+    {
+     "name": "VXN",
+     "art": "Index",
+     "wozu": "Misst die implizite Volatilität des technologielastigen Nasdaq 100.",
+     "lage": "erhöht bei rund 28, aber unkritisch"
+    },
+    {
+     "name": "VVIX",
+     "art": "Index",
+     "wozu": "Misst die Volatilität des VIX zur Erkennung akuter Panikphasen.",
+     "lage": "nach Ausschlag über 120 wieder deutlich gefallen"
+    },
+    {
+     "name": "Saisonalität",
+     "art": "Kennzahl",
+     "wozu": "Historischer Vergleich von Monatsverläufen zur Wahrscheinlichkeit von Jahresendrallyes.",
+     "lage": "historisch positiv für November und Dezember"
+    }
+   ],
+   "quellen": [
+    {
+     "name": "VolChart.io",
+     "wozu": "Beobachtung der VIX-Futures-Terminstruktur und Contango- bzw. Backwardation-Werte"
+    },
+    {
+     "name": "TradingView",
+     "wozu": "Chartanalyse von Indizes, Einzelaktien und saisonalen Kursverläufen"
+    },
+    {
+     "name": "Der Optionsbrief",
+     "wozu": "Börsenbrief mit konkreten Stillhalter- und Options-Trades"
+    }
+   ],
+   "zitate": [
+    "rollt nicht in die Panik hinein",
+    "alles mit Verstand handeln"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 99224
+  }
+ ],
+ "gesehen": [
+  "DCa02n4Sjj0",
+  "bEsxIZEj1jg",
+  "ysRgtzIq5tg"
+ ],
  "quelle": "Eichhorn Coaching (YouTube-Podcast). Eigene Auswertung in eigenen Worten, kein Transkript, keine Anlageberatung.",
  "bereiche": [
   "Strike & Delta",
@@ -16,5 +247,5 @@
   "Steuern & Broker",
   "Sonstiges"
  ],
- "stand": "2026-11-10T07:03Z"
+ "stand": "2026-11-11T06:18Z"
 }
