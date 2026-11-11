@@ -22,30 +22,6 @@
   "stand": "2026-10-29"
  },
  {
-  "id": "events-b7b7003c31",
-  "lat": 48.1369,
-  "lon": 11.56204,
-  "rubrik": "events",
-  "titel": "Disney Der Glöckner von Notre Dame",
-  "ort": "Deutsches Theater",
-  "adresse": "",
-  "datum": "2026-10-08",
-  "datum_bis": "2026-11-08",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "2,5 Std.",
-  "kurz": "Das Musical über Quasimodo und Esmeralda gastiert mit bekannter Musik im Deutschen Theater.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-08"
- },
- {
   "id": "events-c73438d746",
   "lat": 48.16028,
   "lon": 11.50384,
@@ -115,29 +91,6 @@
   "stand": "2026-10-10"
  },
  {
-  "id": "events-220b7c1dba",
-  "lat": 48.12366,
-  "lon": 11.5559,
-  "rubrik": "events",
-  "titel": "Der aufhaltsame Aufstieg des Arturo Ui",
-  "ort": "Münchner Volkstheater",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "2026-11-08",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "2 Std.",
-  "kurz": "Inszenierung von Bertolt Brechts Parabel über Machtstrukturen und Korruption am Volkstheater.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-10"
- },
- {
   "id": "events-db7a8f8ea4",
   "lat": 48.24531,
   "lon": 11.55586,
@@ -151,28 +104,6 @@
   "preis": "",
   "dauer": "8 Std.",
   "kurz": "Sonderausstellung zur Geschichte und Funktionsweise von Raumanzügen in der Flugwerft Schleißheim.",
-  "tags": [
-   "Kultur"
-  ],
-  "thema": "Ausstellung & Museum",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-10"
- },
- {
-  "id": "events-ed09603366",
-  "lat": 48.13752,
-  "lon": 11.58578,
-  "rubrik": "events",
-  "titel": "Krishna. Religion, Kunst und Popkultur",
-  "ort": "Museum Fünf Kontinente",
-  "adresse": "",
-  "datum": "2026-10-10",
-  "datum_bis": "2026-11-08",
-  "zeit": "09:30",
-  "preis": "",
-  "dauer": "8 Std.",
-  "kurz": "Kulturhistorische Ausstellung über die hinduistische Gottheit Krishna zwischen Glauben und populärer Kunst.",
   "tags": [
    "Kultur"
   ],
@@ -250,30 +181,6 @@
   "stand": "2026-10-12"
  },
  {
-  "id": "events-9b049711bf",
-  "lat": 48.1369,
-  "lon": 11.56204,
-  "rubrik": "events",
-  "titel": "Disney Der Glöckner von Notre Dame",
-  "ort": "Deutsches Theater",
-  "adresse": "",
-  "datum": "2026-10-13",
-  "datum_bis": "2026-11-08",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Das bekannte Musical um Quasimodo und Esmeralda mit emotionaler Musik live auf der Bühne des Deutschen Theaters.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-12"
- },
- {
   "id": "events-76c3a9bd31",
   "lat": 48.15104,
   "lon": 11.46128,
@@ -316,30 +223,6 @@
   "thema": "Ausstellung & Museum",
   "quelle": "Eintritt frei München",
   "url": "https://www.eintrittfrei-muenchen.de/",
-  "stand": "2026-10-16"
- },
- {
-  "id": "events-9857a7f5e9",
-  "lat": 48.1369,
-  "lon": 11.56204,
-  "rubrik": "events",
-  "titel": "Disney Der Glöckner von Notre Dame",
-  "ort": "Deutsches Theater",
-  "adresse": "",
-  "datum": "2026-10-16",
-  "datum_bis": "2026-11-08",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die Musical-Adaption der bekannten Pariser Geschichte über Quasimodo und Esmeralda auf der Bühne des Deutschen Theaters.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-16"
  },
  {
@@ -639,30 +522,6 @@
   "stand": "2026-10-19"
  },
  {
-  "id": "events-991ab6772c",
-  "lat": 48.1369,
-  "lon": 11.56204,
-  "rubrik": "events",
-  "titel": "Disney Der Glöckner von Notre Dame",
-  "ort": "Deutsches Theater",
-  "adresse": "",
-  "datum": "2026-10-20",
-  "datum_bis": "2026-11-08",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "2,5 Stunden",
-  "kurz": "Das weltbekannte Musical um Quasimodo und die Kathedrale Notre Dame ist live im Deutschen Theater zu erleben.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-19"
- },
- {
   "id": "events-8189b9b8bf",
   "lat": 48.13798,
   "lon": 11.58797,
@@ -678,30 +537,6 @@
   "kurz": "Internationale Artisten und Akrobaten präsentieren ein abwechslungsreiches Bühnenprogramm im Stil eines modernen Varieté-Zirkus.",
   "tags": [
    "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-21"
- },
- {
-  "id": "events-d18f64fcda",
-  "lat": 48.1369,
-  "lon": 11.56204,
-  "rubrik": "events",
-  "titel": "Disney Der Glöckner von Notre Dame",
-  "ort": "Deutsches Theater",
-  "adresse": "",
-  "datum": "2026-10-21",
-  "datum_bis": "2026-11-08",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die Musicalfassung der berühmten Disney-Geschichte über Quasimodo und Esmeralda gastiert auf der Bühne des Deutschen Theaters.",
-  "tags": [
-   "Kultur",
-   "Musik",
    "Abends"
   ],
   "thema": "Kabarett & Theater",
@@ -731,28 +566,6 @@
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-19"
- },
- {
-  "id": "events-84f5b5e273",
-  "lat": 48.13752,
-  "lon": 11.58578,
-  "rubrik": "events",
-  "titel": "Krishna. Religion, Kunst und Popkultur",
-  "ort": "Museum Fünf Kontinente",
-  "adresse": "",
-  "datum": "2026-10-21",
-  "datum_bis": "2026-11-08",
-  "zeit": "09:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Die Ausstellung beleuchtet Darstellungen und Bedeutungen der Gottheit Krishna von historischen Kunstwerken bis zur modernen Popkultur.",
-  "tags": [
-   "Kultur"
-  ],
-  "thema": "Ausstellung & Museum",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-21"
  },
  {
   "id": "events-abbd425478",
@@ -892,31 +705,6 @@
   "stand": "2026-10-29"
  },
  {
-  "id": "events-bf73ea6c57",
-  "lat": 48.1369,
-  "lon": 11.56204,
-  "rubrik": "events",
-  "titel": "Disney Der Glöckner von Notre Dame",
-  "ort": "Deutsches Theater",
-  "adresse": "",
-  "datum": "2026-10-29",
-  "datum_bis": "2026-11-08",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Das bekannte Disney-Musical über Quasimodo live auf der Bühne des Deutschen Theaters.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends",
-   "Familie"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "muenchen.de – Wochenende",
-  "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
-  "stand": "2026-10-29"
- },
- {
   "id": "events-1ce05ee977",
   "lat": 48.16028,
   "lon": 11.50384,
@@ -984,53 +772,6 @@
   "quelle": "muenchen.de – Wochenende",
   "url": "https://www.muenchen.de/veranstaltungen/event/wochenende",
   "stand": "2026-10-29"
- },
- {
-  "id": "events-7a80db4e03",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Amon Amarth Metal-Konzert",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "18:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Ein epischer Melodic-Death-Metal-Abend mit Amon Amarth sowie den Support-Acts Orbit Culture und Soilwork.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-25"
- },
- {
-  "id": "events-dab92f974a",
-  "lat": 48.1354,
-  "lon": 11.60088,
-  "rubrik": "events",
-  "titel": "Jam Session mit Ida Koch",
-  "ort": "Jazzclub Unterfahrt",
-  "adresse": "Einsteinstraße 42, 81675 München",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Sonntägliche Jazz-Session unter der Leitung der preisgekrönten Bassistin Ida Koch mit Raum für Einsteiger.",
-  "tags": [
-   "Musik",
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Jazzclub Unterfahrt",
-  "url": "https://www.unterfahrt.de/",
-  "stand": "2026-10-31"
  },
  {
   "id": "events-029fc9d898",
@@ -1820,389 +1561,32 @@
   "stand": "2026-10-18"
  },
  {
-  "id": "tv-2b34317f61",
-  "rubrik": "tv",
-  "titel": "Absolute Power",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "US-amerikanischer Thriller aus dem Jahr 1997. Programm kann sich ändern.",
-  "tags": [
-   "Film"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-11-08",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-32b3da7b05",
-  "rubrik": "tv",
-  "titel": "Alte Mauern - neue Träume",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Reportage über außergewöhnliche Wohnprojekte in Mecklenburg-Vorpommern. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-11-08",
-  "thema": "NDR"
- },
- {
-  "id": "tv-cff24011ce",
-  "rubrik": "tv",
-  "titel": "BR Heimat - Zsammg'spuit am Mondsee",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Volkstümliche Musik- und Unterhaltungssendung aus Deutschland von 2025. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-11-08",
-  "thema": "BR"
- },
- {
-  "id": "tv-da03c4e5d6",
-  "rubrik": "tv",
-  "titel": "Blickpunkt Sport",
-  "ort": "BR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Sportmagazin aus Deutschland von 2026. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.br.de/fernsehen/",
-  "stand": "2026-11-08",
-  "thema": "BR"
- },
- {
-  "id": "tv-52a72f4c2b",
-  "rubrik": "tv",
-  "titel": "Bosetti Late Night",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Late-Night-Talkshow aus Deutschland von 2026. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-11-08",
-  "thema": "3sat"
- },
- {
-  "id": "tv-86240c5ec8",
-  "rubrik": "tv",
-  "titel": "Caren Miosga",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Talkshow aus Deutschland (2026). Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-11-08",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-dbee8e9931",
-  "rubrik": "tv",
-  "titel": "Chemie des Kochens: Luft",
-  "ort": "ZDF",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dr. Mai Thi Nguyen-Kim erforscht die Einflüsse von Luft auf Geschmack, Textur und Backprozesse wie beim Sauerteig. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-11-08",
-  "thema": "ZDF"
- },
- {
-  "id": "tv-41a26f619c",
-  "rubrik": "tv",
-  "titel": "Dr. Nice: Neben der Spur",
-  "ort": "ZDF",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Nach einem Leitersturz verhält sich Chefarzt Schmidtke völlig verändert, was Dr. Nice große Sorgen bereitet. Programm kann sich ändern.",
-  "tags": [
-   "Serie"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.zdf.de/",
-  "stand": "2026-11-08",
-  "thema": "ZDF"
- },
- {
-  "id": "tv-595558d42f",
-  "rubrik": "tv",
-  "titel": "Ladies Night",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kabarett- und Comedysendung mit Künstlerinnen. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-11-08",
-  "thema": "3sat"
- },
- {
-  "id": "tv-f1b0306762",
-  "rubrik": "tv",
-  "titel": "Märkte",
-  "ort": "ARTE",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "19:40",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Auslandsdokumentation aus dem Jahr 2015. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-11-08",
-  "thema": "ARTE"
- },
- {
-  "id": "tv-0b0a4992cc",
-  "rubrik": "tv",
-  "titel": "SWR Sport",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Sportberichterstattung aus dem SWR-Sendegebiet. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-11-08",
-  "thema": "SWR"
- },
- {
-  "id": "tv-ef539782d7",
-  "rubrik": "tv",
-  "titel": "Schätze der Welt - Erbe der Menschheit",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "19:40",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kultursendung über weltweite Denkmäler aus dem Jahr 2005. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-11-08",
-  "thema": "3sat"
- },
- {
-  "id": "tv-b9f2266c77",
-  "rubrik": "tv",
-  "titel": "Sportschau - Bundesliga am Sonntag",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Sportmagazin mit den Zusammenfassungen der Sonntagsspiele der Bundesliga. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-11-08",
-  "thema": "NDR"
- },
- {
-  "id": "tv-32175b7346",
-  "rubrik": "tv",
-  "titel": "Sportschau - Bundesliga am Sonntag",
-  "ort": "WDR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Sportmagazin zur Fußball-Bundesliga am Sonntag (2026). Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www1.wdr.de/fernsehen/",
-  "stand": "2026-11-08",
-  "thema": "WDR"
- },
- {
-  "id": "tv-eb4316e20c",
-  "rubrik": "tv",
-  "titel": "Tatort: Frei wie ein Adler",
-  "ort": "Das Erste",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Sophia will Zürich verlassen, bevor ihr krimineller Ex-Mann freikommt, gerät jedoch mit ihrem Angestellten Jacob in Streit. Programm kann sich ändern.",
-  "tags": [
-   "Serie"
-  ],
-  "quelle": "tvinfo.de",
-  "url": "https://www.daserste.de/",
-  "stand": "2026-11-08",
-  "thema": "Das Erste"
- },
- {
-  "id": "tv-cc86f13aaa",
-  "rubrik": "tv",
-  "titel": "Till Reiners' Happy Hour",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Satireshow aus Deutschland von 2026. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-11-08",
-  "thema": "3sat"
- },
- {
-  "id": "tv-e4807bd6c5",
-  "rubrik": "tv",
-  "titel": "Wales",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "21:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über die Landschaften von Wales. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-11-08",
-  "thema": "SWR"
- },
- {
-  "id": "tv-a363a759c7",
-  "rubrik": "tv",
-  "titel": "Wildes Irland - Die grüne Insel",
-  "ort": "SWR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über Natur und Landschaften Irlands aus dem Jahr 2017. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.swrfernsehen.de/",
-  "stand": "2026-11-08",
-  "thema": "SWR"
- },
- {
-  "id": "tv-f97bafeb60",
-  "rubrik": "tv",
-  "titel": "Wunderschön!",
-  "ort": "WDR",
-  "adresse": "",
-  "datum": "2026-11-08",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Reportagereihe aus Deutschland von 2026. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www1.wdr.de/fernsehen/",
-  "stand": "2026-11-08",
-  "thema": "WDR"
- },
- {
-  "id": "stream-spider-man-brand-new-day",
+  "id": "stream-anatomie-eines-augenblicks",
   "rubrik": "stream",
-  "titel": "Spider-Man: Brand New Day",
+  "titel": "Anatomie eines Augenblicks",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Politdrama über einen dramatischen Moment der spanischen Demokratie, als Geheimtipp der ARTE-Mediathek besprochen. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Serie",
+   "Drama",
+   "Historie",
+   "Thriller"
+  ],
+  "quelle": "serienjunkies.de – ARTE-Mediathek",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-11-11",
+  "thema": "ARTE Mediathek"
+ },
+ {
+  "id": "stream-black-doves",
+  "rubrik": "stream",
+  "titel": "Black Doves",
   "ort": "Netflix",
   "adresse": "",
   "datum": "",
@@ -2210,12 +1594,12 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Neuer Kinofilm um Peter Parker, laut November-Vorschau jetzt im Netflix-Programm. Verfügbarkeit bitte prüfen.",
+  "kurz": "Agenten-Thriller mit Humor, neue Folgen in den Netflix-Neuheiten des Novembers genannt.",
   "tags": [
-   "Film",
-   "Action",
-   "Abenteuer",
-   "Sci-Fi"
+   "Serie",
+   "Thriller",
+   "Krimi",
+   "Action"
   ],
   "quelle": "serienjunkies.de – Netflix im November 2026",
   "url": "https://www.netflix.com",
@@ -2245,9 +1629,32 @@
   "thema": "Netflix"
  },
  {
-  "id": "stream-black-doves",
+  "id": "stream-die-ringe-der-macht",
   "rubrik": "stream",
-  "titel": "Black Doves",
+  "titel": "Die Ringe der Macht",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Fantasy-Serie im Zweiten Zeitalter Mittelerdes, laut Prime-Vorschau im November mit neuen Folgen.",
+  "tags": [
+   "Serie",
+   "Fantasy",
+   "Abenteuer",
+   "Drama"
+  ],
+  "quelle": "serienjunkies.de – Prime Video im November 2026",
+  "url": "https://www.primevideo.com",
+  "stand": "2026-11-11",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-spider-man-brand-new-day",
+  "rubrik": "stream",
+  "titel": "Spider-Man: Brand New Day",
   "ort": "Netflix",
   "adresse": "",
   "datum": "",
@@ -2255,17 +1662,61 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Agenten-Thriller mit Humor, neue Folgen in den Netflix-Neuheiten des Novembers genannt.",
+  "kurz": "Neuer Kinofilm um Peter Parker, laut November-Vorschau jetzt im Netflix-Programm. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Serie",
-   "Thriller",
-   "Krimi",
-   "Action"
+   "Film",
+   "Action",
+   "Abenteuer",
+   "Sci-Fi"
   ],
   "quelle": "serienjunkies.de – Netflix im November 2026",
   "url": "https://www.netflix.com",
   "stand": "2026-11-11",
   "thema": "Netflix"
+ },
+ {
+  "id": "stream-stick",
+  "rubrik": "stream",
+  "titel": "Stick",
+  "ort": "Apple TV",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Sportserie rund um einen ehemaligen Golfprofi und ein junges Talent; in den Apple-TV-Neustarts im November genannt.",
+  "tags": [
+   "Serie",
+   "Komödie",
+   "Drama"
+  ],
+  "quelle": "kinofans.com – Apple TV im November 2026",
+  "url": "https://tv.apple.com",
+  "stand": "2026-11-11",
+  "thema": "Apple TV"
+ },
+ {
+  "id": "stream-stoepsel",
+  "rubrik": "stream",
+  "titel": "Stöpsel",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Schauspielerin mit Angstzuständen wird gefordert; Filmbesprechung aus dem ARTE-Mediathek-Angebot. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Drama",
+   "Komödie"
+  ],
+  "quelle": "kulturnews.de – ARTE-Mediathek",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-11-11",
+  "thema": "ARTE Mediathek"
  },
  {
   "id": "stream-the-odyssey",
@@ -2291,27 +1742,26 @@
   "thema": "Amazon Prime"
  },
  {
-  "id": "stream-die-ringe-der-macht",
+  "id": "stream-wakefield",
   "rubrik": "stream",
-  "titel": "Die Ringe der Macht",
-  "ort": "Amazon Prime",
+  "titel": "Wakefield",
+  "ort": "ARTE Mediathek",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Fantasy-Serie im Zweiten Zeitalter Mittelerdes, laut Prime-Vorschau im November mit neuen Folgen.",
+  "kurz": "Ein Mann zieht heimlich auf den Dachboden und beobachtet seine Familie; Besprechung aus dem ARTE-Mediathek-Angebot. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Serie",
-   "Fantasy",
-   "Abenteuer",
-   "Drama"
+   "Film",
+   "Drama",
+   "Thriller"
   ],
-  "quelle": "serienjunkies.de – Prime Video im November 2026",
-  "url": "https://www.primevideo.com",
+  "quelle": "kulturnews.de – ARTE-Mediathek",
+  "url": "https://www.arte.tv/de/",
   "stand": "2026-11-11",
-  "thema": "Amazon Prime"
+  "thema": "ARTE Mediathek"
  },
  {
   "id": "stream-warrior-kid",
@@ -2335,94 +1785,5 @@
   "url": "https://tv.apple.com",
   "stand": "2026-11-11",
   "thema": "Apple TV"
- },
- {
-  "id": "stream-stick",
-  "rubrik": "stream",
-  "titel": "Stick",
-  "ort": "Apple TV",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Sportserie rund um einen ehemaligen Golfprofi und ein junges Talent; in den Apple-TV-Neustarts im November genannt.",
-  "tags": [
-   "Serie",
-   "Komödie",
-   "Drama"
-  ],
-  "quelle": "kinofans.com – Apple TV im November 2026",
-  "url": "https://tv.apple.com",
-  "stand": "2026-11-11",
-  "thema": "Apple TV"
- },
- {
-  "id": "stream-anatomie-eines-augenblicks",
-  "rubrik": "stream",
-  "titel": "Anatomie eines Augenblicks",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Politdrama über einen dramatischen Moment der spanischen Demokratie, als Geheimtipp der ARTE-Mediathek besprochen. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Serie",
-   "Drama",
-   "Historie",
-   "Thriller"
-  ],
-  "quelle": "serienjunkies.de – ARTE-Mediathek",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-11-11",
-  "thema": "ARTE Mediathek"
- },
- {
-  "id": "stream-stoepsel",
-  "rubrik": "stream",
-  "titel": "Stöpsel",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Schauspielerin mit Angstzuständen wird gefordert; Filmbesprechung aus dem ARTE-Mediathek-Angebot. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Drama",
-   "Komödie"
-  ],
-  "quelle": "kulturnews.de – ARTE-Mediathek",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-11-11",
-  "thema": "ARTE Mediathek"
- },
- {
-  "id": "stream-wakefield",
-  "rubrik": "stream",
-  "titel": "Wakefield",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Ein Mann zieht heimlich auf den Dachboden und beobachtet seine Familie; Besprechung aus dem ARTE-Mediathek-Angebot. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Drama",
-   "Thriller"
-  ],
-  "quelle": "kulturnews.de – ARTE-Mediathek",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-11-11",
-  "thema": "ARTE Mediathek"
  }
 ]
