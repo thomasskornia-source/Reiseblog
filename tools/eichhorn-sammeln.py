@@ -16,6 +16,7 @@ DB, KANAL = "data/eichhorn.json", "data/eichhorn-kanal.json"
 HANDLE = "eichhorncoaching"
 MAX_PRO_LAUF, MAX_ALTER_TAGE = int(os.environ.get("MAX_PRO_LAUF") or 3), int(os.environ.get("MAX_ALTER_TAGE") or 10)
 BACKFILL = int(os.environ.get("BACKFILL") or 0)
+MAX_MIN = int(os.environ.get("MAX_MIN") or 75)   # längere Folgen überspringen (Gemini-Zeitlimit), außer als SEED_VIDEOS angegeben
 BEHALTEN_TAGE = 365
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
       "Accept-Language": "de-DE,de;q=0.9", "Cookie": "CONSENT=YES+1; SOCS=CAI"}
@@ -97,8 +98,8 @@ def feed_von_kanalseite():
     heute = dt.date.today()
     out, seen = [], set()
     for m in re.finditer(r'"lockupMetadataViewModel":\{"title":\{"content":"((?:[^"\\]|\\.)*)"', h):
-        i = h.rfind('"contentId":"', 0, m.start())
-        vid = h[i + 13:i + 24] if i >= 0 else ""
+        mi = re.search(r'"contentId":"([A-Za-z0-9_-]{11})"', h[m.end():m.end() + 8000])
+        vid = mi.group(1) if mi else ""
         if vid in seen or not re.fullmatch(r"[A-Za-z0-9_-]{11}", vid):
             continue
         t = re.search(r"vor (\d+) (Minuten?|Stunden?|Tagen?|Wochen?|Monaten?|Jahren?)|(\d+) (minutes?|hours?|days?|weeks?|months?|years?) ago",
@@ -111,8 +112,13 @@ def feed_von_kanalseite():
             titel = json.loads('"' + m.group(1) + '"')
         except ValueError:
             titel = m.group(1)
+        dm = re.findall(r'"text":"(\d{1,2}:\d\d(?::\d\d)?)"', h[max(0, m.start() - 6000):m.start()])
+        minuten = None
+        if dm:
+            p = [int(x) for x in dm[-1].split(":")]
+            minuten = (p[0] * 60 + p[1] if len(p) == 3 else p[0]) + (1 if p[-1] >= 30 else 0)
         seen.add(vid)
-        out.append({"id": vid, "titel": _h.unescape(titel), "datum": d.isoformat(), "zeit": d.isoformat() + "T00:00:00Z"})
+        out.append({"id": vid, "titel": _h.unescape(titel), "datum": d.isoformat(), "zeit": d.isoformat() + "T00:00:00Z", "min": minuten})
     print("Kanalseite: %d Videos mit Datum" % len(out), flush=True)
     return out
 
@@ -248,7 +254,7 @@ def main():
                 fd = feed_von_kanalseite()
             print("Feed:", len(fd), "Videos")
             for e in fd[:8]:
-                print("  ", e["id"], e["datum"], e["titel"][:70])
+                print("  ", e["id"], e["datum"], e.get("min"), "Min", e["titel"][:70])
             fmap = {e["id"]: e for e in fd}
             for t in todo:
                 if t["id"] in fmap:
@@ -257,10 +263,17 @@ def main():
             neu = [e for e in fd if e["id"] not in db["gesehen"] and e["id"] not in schon
                    and (heute - dt.date.fromisoformat(e["datum"])).days <= MAX_ALTER_TAGE]
             alt = [e for e in fd if e["id"] not in db["gesehen"] and e["id"] not in schon and e not in neu]
-            neu = sorted(neu, key=lambda e: e["datum"])
-            todo += neu[max(0, len(neu) - MAX_PRO_LAUF):] if MAX_PRO_LAUF > 0 else []
+            def passend(lst):
+                ok = [e for e in lst if (e.get("min") or 0) <= MAX_MIN]
+                for e in lst:
+                    if e not in ok:
+                        print("  übersprungen (zu lang, %s Min): %s" % (e.get("min"), e["titel"][:60]))
+                return sorted(ok, key=lambda e: (e.get("min") or 999, e["datum"]))
+            neu = passend(neu)
+            alt = passend(alt)
+            todo += neu[:MAX_PRO_LAUF] if MAX_PRO_LAUF > 0 else []
             if BACKFILL:
-                todo += sorted(alt, key=lambda e: e["datum"], reverse=True)[:BACKFILL]
+                todo += alt[:BACKFILL]
         except Exception as e:  # noqa: BLE001
             print("Feed nicht lesbar:", e)
     else:
