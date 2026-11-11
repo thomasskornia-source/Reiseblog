@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-10",
+ "stand": "2026-11-11",
  "gesamt": {
   "score": 20,
   "pfeil": "seitwaerts",
@@ -10,7 +10,7 @@
   {
    "id": "vix",
    "name": "VIX (Angstbarometer)",
-   "wert": 19.92,
+   "wert": 19.46,
    "einheit": "",
    "pfeil": "seitwaerts",
    "text": "normal bis nervös",
@@ -18,7 +18,6 @@
    "quelle": "Cboe über Yahoo (^VIX)",
    "url": "https://finance.yahoo.com/quote/%5EVIX",
    "reihe": [
-    15.84,
     14.89,
     16.01,
     15.13,
@@ -77,15 +76,16 @@
     16.61,
     28.18,
     25.64,
-    19.92
+    19.92,
+    19.46
    ],
-   "datum": "2026-11-09",
+   "datum": "2026-11-10",
    "alter_tage": 1
   },
   {
    "id": "kurve",
    "name": "VIX-Kurve (VIX / VIX3M)",
-   "wert": 0.955,
+   "wert": 0.943,
    "einheit": "",
    "pfeil": "seitwaerts",
    "text": "neutral",
@@ -93,7 +93,6 @@
    "quelle": "Cboe über Yahoo (^VIX, ^VIX3M)",
    "url": "https://finance.yahoo.com/quote/%5EVIX3M",
    "reihe": [
-    0.798,
     0.822,
     0.802,
     0.84,
@@ -152,15 +151,16 @@
     0.884,
     1.103,
     1.042,
-    0.955
+    0.955,
+    0.943
    ],
-   "datum": "2026-11-09",
+   "datum": "2026-11-10",
    "alter_tage": 1
   },
   {
    "id": "hy",
    "name": "High-Yield-Spread",
-   "wert": 3.42,
+   "wert": 3.34,
    "einheit": " %",
    "pfeil": "hoch",
    "text": "entspannt",
@@ -168,7 +168,6 @@
    "quelle": "FRED (ICE BofA US High Yield OAS)",
    "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
    "reihe": [
-    2.7,
     2.75,
     2.73,
     2.75,
@@ -227,15 +226,16 @@
     3.4,
     3.32,
     3.48,
-    3.42
+    3.42,
+    3.34
    ],
-   "datum": "2026-11-06",
-   "alter_tage": 4
+   "datum": "2026-11-09",
+   "alter_tage": 2
   },
   {
    "id": "breite",
    "name": "Marktbreite (RSP gegen SPY)",
-   "wert": 4.58,
+   "wert": 4.87,
    "einheit": " %",
    "pfeil": "hoch",
    "text": "breit getragen",
@@ -243,7 +243,6 @@
    "quelle": "Yahoo (RSP, SPY)",
    "url": "https://finance.yahoo.com/quote/RSP",
    "reihe": [
-    0.286,
     0.286,
     0.289,
     0.289,
@@ -302,9 +301,10 @@
     0.291,
     0.296,
     0.294,
-    0.294
+    0.294,
+    0.295
    ],
-   "datum": "2026-11-09",
+   "datum": "2026-11-10",
    "alter_tage": 1
   },
   {
@@ -380,13 +380,13 @@
     1.05
    ],
    "datum": "2019-10-04",
-   "alter_tage": 2594,
+   "alter_tage": 2595,
    "veraltet": true
   },
   {
    "id": "fg",
    "name": "Fear & Greed (CNN)",
-   "wert": 32,
+   "wert": 33,
    "einheit": "",
    "pfeil": "runter",
    "text": "Angst",
@@ -394,7 +394,6 @@
    "quelle": "CNN Business",
    "url": "https://edition.cnn.com/markets/fear-and-greed",
    "reihe": [
-    54.629,
     56.629,
     51.371,
     54.657,
@@ -452,10 +451,11 @@
     34.171,
     19.991,
     24.353,
-    31.714,
-    31.714
+    31.514,
+    33.457,
+    33.457
    ],
-   "datum": "2026-11-09",
+   "datum": "2026-11-10",
    "alter_tage": 1
   }
  ],
@@ -463,7 +463,7 @@
   {
    "id": "rendite10",
    "name": "10-jährige US-Rendite",
-   "wert": 4.86,
+   "wert": 4.88,
    "einheit": " %",
    "pfeil": "hoch",
    "text": "20 Tage: -0,36 Punkte",
@@ -471,7 +471,6 @@
    "quelle": "FRED (DGS10, Federal Reserve H.15)",
    "url": "https://fred.stlouisfed.org/series/DGS10",
    "reihe": [
-    4.63,
     4.68,
     4.72,
     4.71,
@@ -530,16 +529,17 @@
     4.95,
     4.9,
     4.84,
-    4.86
+    4.86,
+    4.88
    ],
-   "datum": "2026-11-06",
+   "datum": "2026-11-09",
    "max_alter": 14,
-   "alter_tage": 4
+   "alter_tage": 2
   },
   {
    "id": "zinskurve",
    "name": "Zinskurve (10 Jahre minus 2 Jahre)",
-   "wert": 0.35,
+   "wert": 0.32,
    "einheit": " Punkte",
    "pfeil": "seitwaerts",
    "text": "flach",
@@ -547,7 +547,6 @@
    "quelle": "FRED (DGS10 und DGS2)",
    "url": "https://fred.stlouisfed.org/series/T10Y2Y",
    "reihe": [
-    0.48,
     0.51,
     0.53,
     0.52,
@@ -606,11 +605,12 @@
     0.34,
     0.32,
     0.38,
-    0.35
+    0.35,
+    0.32
    ],
-   "datum": "2026-11-06",
+   "datum": "2026-11-09",
    "max_alter": 14,
-   "alter_tage": 4
+   "alter_tage": 2
   },
   {
    "id": "dff",
@@ -629,9 +629,9 @@
     3.63,
     3.63,
     3.63,
-    3.63,
-    3.63,
-    3.63,
+    3.88,
+    3.88,
+    3.88,
     3.88,
     3.88,
     3.88,
@@ -684,9 +684,9 @@
     3.88,
     3.88
    ],
-   "datum": "2026-11-06",
+   "datum": "2026-11-09",
    "max_alter": 14,
-   "alter_tage": 4
+   "alter_tage": 2
   },
   {
    "id": "gdpnow",
@@ -714,7 +714,7 @@
    ],
    "datum": "2026-10-01",
    "max_alter": 0,
-   "alter_tage": 40
+   "alter_tage": 41
   },
   {
    "id": "dollar",
@@ -790,20 +790,19 @@
    ],
    "datum": "2026-11-06",
    "max_alter": 14,
-   "alter_tage": 4
+   "alter_tage": 5
   },
   {
    "id": "diesel",
    "name": "Diesel (US-Endkunde)",
-   "wert": 6.29,
+   "wert": 6.13,
    "einheit": " $/Gallone",
    "pfeil": "seitwaerts",
-   "text": "4 Wochen: +1,5 %",
+   "text": "4 Wochen: -0,8 %",
    "erklaerung": "Wöchentlicher Dieselpreis an US-Tankstellen (EIA, über FRED). Steigt er stark, treibt das die Transportkosten und die Inflationssorgen.",
    "quelle": "FRED (GASDESW, Quelle EIA)",
    "url": "https://fred.stlouisfed.org/series/GASDESW",
    "reihe": [
-    5.639,
     5.596,
     5.523,
     5.35,
@@ -828,19 +827,20 @@
     6.179,
     6.276,
     6.352,
-    6.292
+    6.292,
+    6.127
    ],
-   "datum": "2026-11-02",
+   "datum": "2026-11-09",
    "max_alter": 21,
-   "alter_tage": 8
+   "alter_tage": 2
   },
   {
    "id": "oel",
    "name": "Rohöl (WTI)",
-   "wert": 85.96,
+   "wert": 86.35,
    "einheit": " $",
    "pfeil": "seitwaerts",
-   "text": "20 Tage: -8,7 %",
+   "text": "20 Tage: -8,3 %",
    "erklaerung": "Preis für US-Rohöl (nächster Terminkontrakt). Starke Anstiege belasten Margen und nähren Inflationsangst; starke Rückgänge können aber auch Konjunktursorgen zeigen, deshalb ist der Pfeil nur eine Faustregel.",
    "quelle": "Yahoo (CL=F)",
    "url": "https://finance.yahoo.com/quote/CL=F",
@@ -904,9 +904,9 @@
     90.52,
     90.83,
     86.85,
-    85.96
+    86.35
    ],
-   "datum": "2026-11-10",
+   "datum": "2026-11-11",
    "max_alter": 7,
    "alter_tage": 0
   }
@@ -978,6 +978,10 @@
   },
   {
    "d": "2026-11-10",
+   "score": 20
+  },
+  {
+   "d": "2026-11-11",
    "score": 20
   }
  ],
