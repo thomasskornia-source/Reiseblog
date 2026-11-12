@@ -1,6 +1,89 @@
 {
  "beitraege": [
   {
+   "id": "om-3tPIydHs",
+   "titel": "Optionshandel mit System: Welche Strategie im Oktober wirklich verdient hat",
+   "datum": "2026-11-05",
+   "zeit": "2026-11-05T11:00:19+00:00",
+   "thema": "Monatsrückblick Oktober der Mastermind-Gruppe mit Analyse verschiedener Options- und Momentumstrategien sowie dem Schwerpunkt auf Risikokontrolle und breite Diversifikation.",
+   "marktlage": "Der S&P 500 verlor im Oktober knapp 2 Prozent, während die Volatilität anzog und der VIX wieder über die Marke von 20 stieg.",
+   "regeln": [
+    {
+     "bereich": "Positionsgröße & Risiko",
+     "regel": "In der RSL-Weekly-Aktienstrategie pro Einzeltitel einen festen Betrag von 3 % des Gesamtdepots investieren.",
+     "zahl": "3 % (3.000 $)",
+     "begruendung": "Selbst bei einer Insolvenz des Unternehmens bleibt der maximale Verlust auf 3 Prozent des Portfolios begrenzt.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Absicherung & Spreads",
+     "regel": "Diskretionäre Trades zu einem Großteil als definierte Spreads (Bull Put, Bear Call, Iron Condor) mit festem Maximalrisiko strukturieren.",
+     "zahl": "90 %",
+     "begruendung": "Ein von vornherein begrenztes Maximalrisiko verhindert existenzbedrohende Verluste bei unvorhergesehenen Marktbewegungen.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Positionsgröße & Risiko",
+     "regel": "Das Verlustrisiko bei Einzel-Trades auf unter 1 % des Depotvolumens begrenzen.",
+     "zahl": "< 1 %",
+     "begruendung": "Da niemand die zukünftige Marktentwicklung kennt, darf ein Fehltrade das Gesamtergebnis nicht übermäßig belasten.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Laufzeit",
+     "regel": "Calendar-Spreads auf Indizes wie den SPY mit längeren Laufzeiten von über 60 Tagen aufsetzen.",
+     "zahl": "> 60 Tage",
+     "begruendung": "Länger laufende Kalenderspreads verlaufen deutlich ruhiger und erzeugen im laufenden Management wenig Stress.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Sonstiges",
+     "regel": "Signale und Umschichtungen in der RSL-Weekly-Strategie strikt nur montags ausführen und unter der Woche nicht emotional eingreifen.",
+     "zahl": "montags",
+     "begruendung": "Unterwöchige Kurseinbrüche lösen oft unnötige Panik aus, obwohl das übergeordnete Momentum häufig noch intakt ist.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Ausstieg & Gewinnmitnahme",
+     "regel": "Bei extrem gut gelaufenen Momentum-Aktien Teilgewinne mitnehmen, sobald die Position zu einem Klumpenrisiko heranwächst.",
+     "zahl": "",
+     "begruendung": "Gewinnmitnahmen sichern Erträge ab, bevor die Aktie von ihrem Hoch wieder signifikant korrigiert.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Titelauswahl",
+     "regel": "In unruhigen Rohstoffmärkten wie Rohöl eher marktneutrale Strategien (Iron Condors) statt direktionaler Trades handeln.",
+     "zahl": "",
+     "begruendung": "Starke, sprunghafte Preisschwankungen machen direktionale Prognosen im Rohstoffsektor riskant.",
+     "art": "gewohnheit"
+    }
+   ],
+   "indikatoren": [
+    {
+     "name": "VIX / VXX",
+     "art": "Index",
+     "wozu": "Dient als Gradmesser für die Volatilität und Nervosität im Gesamtmarkt.",
+     "lage": "wieder über 20 gestiegen"
+    }
+   ],
+   "quellen": [
+    {
+     "name": "Trader Workstation (TWS)",
+     "wozu": "Handelsplattform von Interactive Brokers zur Erfassung und Verwaltung der Optionspositionen."
+    },
+    {
+     "name": "Der Optionsbrief",
+     "wozu": "Eigener Informationsdienst und Newsletter mit konkreten Trades, Marktberichten und Scoreboard."
+    }
+   ],
+   "zitate": [
+    "Wir wissen nicht, was rechts vom Chart passiert."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 103912
+  },
+  {
    "id": "ysRgtzIq5tg",
    "titel": "Meine 2 Regeln im #Optionshandel",
    "datum": "2026-11-03",
@@ -230,7 +313,8 @@
  "gesehen": [
   "DCa02n4Sjj0",
   "bEsxIZEj1jg",
-  "ysRgtzIq5tg"
+  "ysRgtzIq5tg",
+  "om-3tPIydHs"
  ],
  "quelle": "Eichhorn Coaching (YouTube-Podcast). Eigene Auswertung in eigenen Worten, kein Transkript, keine Anlageberatung.",
  "bereiche": [
@@ -247,5 +331,5 @@
   "Steuern & Broker",
   "Sonstiges"
  ],
- "stand": "2026-11-11T06:18Z"
+ "stand": "2026-11-12T14:15Z"
 }
