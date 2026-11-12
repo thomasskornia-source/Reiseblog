@@ -1561,26 +1561,26 @@
   "stand": "2026-10-18"
  },
  {
-  "id": "stream-die-weisse-rose",
+  "id": "stream-12-12-12",
   "rubrik": "stream",
-  "titel": "Die weiße Rose",
-  "ort": "3sat Mediathek",
+  "titel": "12 12 12",
+  "ort": "Apple TV",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Drama über die Münchner Widerstandsgruppe um Sophie und Hans Scholl gegen das NS-Regime. Verfügbarkeit bitte prüfen.",
+  "kurz": "Thriller: Ein Banküberfall auf einen Tresor tief unter Zürich, erzählt auf drei Zeitebenen. Start 13.11.",
   "tags": [
-   "Film",
-   "Drama",
-   "Historie"
+   "Serie",
+   "Thriller",
+   "Krimi"
   ],
-  "quelle": "justwatch.com – 3sat Neu",
-  "url": "https://www.3sat.de/mediathek",
+  "quelle": "apfelpatient.de – Apple TV im November 2026",
+  "url": "https://tv.apple.com/de",
   "stand": "2026-11-12",
-  "thema": "3sat Mediathek"
+  "thema": "Apple TV"
  },
  {
   "id": "stream-before-midnight",
@@ -1604,52 +1604,6 @@
   "thema": "ARD Mediathek"
  },
  {
-  "id": "stream-z-anatomie-eines-politischen-mordes",
-  "rubrik": "stream",
-  "titel": "Z: Anatomie eines politischen Mordes",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Politthriller: Ein Untersuchungsrichter deckt nach dem Tod eines Oppositionellen ein Komplott auf. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Thriller",
-   "Drama",
-   "Historie"
-  ],
-  "quelle": "justwatch.com – ARTE Neu",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-11-12",
-  "thema": "ARTE Mediathek"
- },
- {
-  "id": "stream-twisters",
-  "rubrik": "stream",
-  "titel": "Twisters",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Actionreicher Katastrophenfilm: Sturmjäger stellen sich neuen gewaltigen Tornados in Oklahoma.",
-  "tags": [
-   "Film",
-   "Action",
-   "Abenteuer",
-   "Drama"
-  ],
-  "quelle": "justwatch.com – Prime Video Neu",
-  "url": "https://www.amazon.de/prime-video",
-  "stand": "2026-11-12",
-  "thema": "Amazon Prime"
- },
- {
   "id": "stream-being-heumann",
   "rubrik": "stream",
   "titel": "Being Heumann",
@@ -1670,6 +1624,29 @@
   "url": "https://tv.apple.com/de",
   "stand": "2026-11-12",
   "thema": "Apple TV"
+ },
+ {
+  "id": "stream-black-sails",
+  "rubrik": "stream",
+  "titel": "Black Sails",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Piratenserie im Goldenen Zeitalter der Seeräuber: Kapitäne, Intrigen und Seeschlachten vor Nassau.",
+  "tags": [
+   "Serie",
+   "Abenteuer",
+   "Action",
+   "Drama"
+  ],
+  "quelle": "justwatch.com – Prime Video Neu",
+  "url": "https://www.amazon.de/prime-video",
+  "stand": "2026-11-12",
+  "thema": "Amazon Prime"
  },
  {
   "id": "stream-der-verdacht-des-mr-whicher",
@@ -1695,27 +1672,26 @@
   "thema": "ARD Mediathek"
  },
  {
-  "id": "stream-black-sails",
+  "id": "stream-die-weisse-rose",
   "rubrik": "stream",
-  "titel": "Black Sails",
-  "ort": "Amazon Prime",
+  "titel": "Die weiße Rose",
+  "ort": "3sat Mediathek",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Piratenserie im Goldenen Zeitalter der Seeräuber: Kapitäne, Intrigen und Seeschlachten vor Nassau.",
+  "kurz": "Drama über die Münchner Widerstandsgruppe um Sophie und Hans Scholl gegen das NS-Regime. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Serie",
-   "Abenteuer",
-   "Action",
-   "Drama"
+   "Film",
+   "Drama",
+   "Historie"
   ],
-  "quelle": "justwatch.com – Prime Video Neu",
-  "url": "https://www.amazon.de/prime-video",
+  "quelle": "justwatch.com – 3sat Neu",
+  "url": "https://www.3sat.de/mediathek",
   "stand": "2026-11-12",
-  "thema": "Amazon Prime"
+  "thema": "3sat Mediathek"
  },
  {
   "id": "stream-portobello",
@@ -1764,25 +1740,49 @@
   "thema": "Netflix"
  },
  {
-  "id": "stream-12-12-12",
+  "id": "stream-twisters",
   "rubrik": "stream",
-  "titel": "12 12 12",
-  "ort": "Apple TV",
+  "titel": "Twisters",
+  "ort": "Amazon Prime",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Thriller: Ein Banküberfall auf einen Tresor tief unter Zürich, erzählt auf drei Zeitebenen. Start 13.11.",
+  "kurz": "Actionreicher Katastrophenfilm: Sturmjäger stellen sich neuen gewaltigen Tornados in Oklahoma.",
   "tags": [
-   "Serie",
-   "Thriller",
-   "Krimi"
+   "Film",
+   "Action",
+   "Abenteuer",
+   "Drama"
   ],
-  "quelle": "apfelpatient.de – Apple TV im November 2026",
-  "url": "https://tv.apple.com/de",
+  "quelle": "justwatch.com – Prime Video Neu",
+  "url": "https://www.amazon.de/prime-video",
   "stand": "2026-11-12",
-  "thema": "Apple TV"
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-z-anatomie-eines-politischen-mordes",
+  "rubrik": "stream",
+  "titel": "Z: Anatomie eines politischen Mordes",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Politthriller: Ein Untersuchungsrichter deckt nach dem Tod eines Oppositionellen ein Komplott auf. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Thriller",
+   "Drama",
+   "Historie"
+  ],
+  "quelle": "justwatch.com – ARTE Neu",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-11-12",
+  "thema": "ARTE Mediathek"
  }
 ]
