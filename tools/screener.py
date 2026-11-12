@@ -100,7 +100,7 @@ def james(f, bm):
 def verlauf(zeilen):
     c = [z[4] for z in zeilen]
     return {'d': [datetime.datetime.utcfromtimestamp(z[0]).strftime('%d.%m.%y') for z in zeilen], 'c': c,
-            'm8': trend.ema_reihe(c, 8), 'm21': trend.ema_reihe(c, 21), 'm50': trend.sma_reihe(c, 50), 'm200': trend.sma_reihe(c, 200)}
+            'm8': trend.ema_reihe(c, 8), 'm21': trend.ema_reihe(c, 21), 'm50': trend.sma_reihe(c, 50), 'm100': trend.sma_reihe(c, 100), 'm200': trend.sma_reihe(c, 200)}
 
 SEKTOR_NAMEN = {'Communication Services': 'Kommunikation', 'Consumer Discretionary': 'Konsum (zyklisch)', 'Consumer Staples': 'Basiskonsum',
                 'Energy': 'Energie', 'Financials': 'Finanzen', 'Health Care': 'Gesundheit', 'Industrials': 'Industrie',
@@ -182,7 +182,7 @@ def breite(js, fl=None, sp_z=None):
     if sp_z:   # Verlauf über das letzte Jahr aus den Kursen zurückgerechnet (heutige Indexmitglieder, kein Archiv nötig)
         sp = verlauf(sp_z); lst = [(j['_h'], {x: i for i, x in enumerate(j['_h']['d'])}) for j in js if j]
         for dd in sp['d'][-252:]:
-            z = {'m8': [0, 0], 'm21': [0, 0], 'm50': [0, 0], 'm200': [0, 0]}
+            z = {'m8': [0, 0], 'm21': [0, 0], 'm50': [0, 0], 'm100': [0, 0], 'm200': [0, 0]}
             for h, pos in lst:
                 i = pos.get(dd)
                 if i is None: continue
@@ -190,7 +190,7 @@ def breite(js, fl=None, sp_z=None):
                     if h[k][i] is not None: z[k][1] += 1; z[k][0] += h['c'][i] > h[k][i]
             if min(v[1] for v in z.values()) >= 100:
                 verl.append({'datum': dd, 'ueber8': round(100 * z['m8'][0] / z['m8'][1]), 'ueber21': round(100 * z['m21'][0] / z['m21'][1]),
-                             'ueber50': round(100 * z['m50'][0] / z['m50'][1]), 'ueber200': round(100 * z['m200'][0] / z['m200'][1])})
+                             'ueber50': round(100 * z['m50'][0] / z['m50'][1]), 'ueber100': round(100 * z['m100'][0] / z['m100'][1]), 'ueber200': round(100 * z['m200'][0] / z['m200'][1])})
     if len(verl) < 100: verl = [v for v in d.get('verlauf', []) if v['datum'] != heute] + [{'datum': heute, 'ueber8': pro('ma8'), 'ueber21': pro('ma21'), 'ueber50': pro('ma50'), 'ueber200': pro('ma200')}]
     verlauf_liste = verl[-260:]
     mega = []
