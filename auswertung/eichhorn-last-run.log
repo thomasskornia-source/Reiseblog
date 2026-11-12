@@ -1,38 +1,26 @@
+Feed nicht lesbar ( HTTP Error 404: Not Found ), nutze die Kanalseite
+Kanalseite: 15 Videos mit Datum
 Feed: 15 Videos
-   -vtWWK6jgdg 2026-11-10 None Min #Stillhalter sind #Volatilitätshändler, das vergessen fast alle
-   vH4zg3UK3ns 2026-11-09 None Min #153: Die 5 Anfängerfehler, die fast jeder Stillhalter macht
-   RtlL3JCsh4k 2026-11-08 None Min Optionen verkaufen bei niedriger Volatilität: Warum ich Einzelaktien s
-   S32diJBLEpY 2026-11-06 None Min 95 % der Trader verlieren Geld – Zehnkampf-Gold ist realistischer
-   om-3tPIydHs 2026-11-05 None Min Optionshandel mit System: Welche Strategie im Oktober wirklich verdien
-   UOMppMNPv9I 2026-11-04 None Min #21: Vom Stillhalten leben? So rechnen nur Anfänger
-   ysRgtzIq5tg 2026-11-03 None Min Meine 2 Regeln im #Optionshandel
-   DCa02n4Sjj0 2026-11-01 None Min #152: Warum wir nach 100 Ausgaben fast nur noch LEAPs verkaufen
-Werte aus: UOMppMNPv9I #21: Vom Stillhalten leben? So rechnen nur Anfänger 2026-11-04
-gemini-3.8-flash: HTTP 429 {
+   vH4zg3UK3ns 2026-11-10 24 Min #153: Die 5 Anfängerfehler, die fast jeder Stillhalter macht
+   RtlL3JCsh4k 2026-11-09 11 Min Optionen verkaufen bei niedriger Volatilität: Warum ich Einzelaktien s
+   om-3tPIydHs 2026-11-06 18 Min Optionshandel mit System: Welche Strategie im Oktober wirklich verdien
+   UOMppMNPv9I 2026-11-05 48 Min #21: Vom Stillhalten leben? So rechnen nur Anfänger
+   DCa02n4Sjj0 2026-11-02 41 Min #152: Warum wir nach 100 Ausgaben fast nur noch LEAPs verkaufen
+   bEsxIZEj1jg 2026-11-02 18 Min Tech-Ausverkauf - Was das jetzt für Stillhalter bedeutet
+   ip18wb6IpPU 2026-10-30 12 Min Die 3 Fragen, die ich mir stelle, bevor ich einen Short Put rolle
+   nMLNW15LLgg 2026-10-29 47 Min #151: Family Office ab 300.000 €? Finn Wiesel rechnet nach
+Werte aus: n3oe3zv7K78 Multiplikator bei Optionen: 100, 10 oder 5? 2026-10-22
+gemini-3.8-flash: HTTP 503 {
   "error": {
-    "code": 429,
-    "message": "Resource has been exhausted (e.g. check quota).",
-    "status": "RESOURCE_EXHAUSTED"
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
   }
 }
 
-gemini-3.8-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "Resource has been exhausted (e.g. check quota).",
-    "status": "RESOURCE_EXHAUSTED"
-  }
-}
-
-gemini-3.7-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "Resource has been exhausted (e.g. check quota).",
-    "status": "RESOURCE_EXHAUSTED"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
+gemini-3.8-flash: The read operation timed out
+gemini-3.7-flash: The read operation timed out
+gemini-flash-latest: HTTP 503 {
   "error": {
     "code": 503,
     "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
@@ -48,9 +36,115 @@ gemini-flash-latest: HTTP 503 {
   }
 }
 
-  7 Regeln, 2 Indikatoren (263517 Tokens)
-Werte aus: om-3tPIydHs Optionshandel mit System: Welche Strategie im Oktober wirklich verdient hat 2026-11-05
-gemini-3.8-flash: The read operation timed out
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "s
+Werte aus: r8E69hckSMY Delta 10 heißt nicht 90 % Gewinnchance (3.400 Trades ausgewertet) 2026-10-22
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-flash-latest: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
+Werte aus: JJ83i1D0cUE 2.000% mit CoreWeave als Stillhalter – und ein Blick in unser Depot 2026-10-29
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
+Werte aus: 1LtoXkJ_5x8 VIX und VXX - Hast du den Unterschied wirklich verstanden? 2026-10-29
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
+Werte aus: ip18wb6IpPU Die 3 Fragen, die ich mir stelle, bevor ich einen Short Put rolle 2026-10-30
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
 gemini-3.7-flash: HTTP 503 {
   "error": {
     "code": 503,
@@ -59,37 +153,44 @@ gemini-3.7-flash: HTTP 503 {
   }
 }
 
-  6 Regeln, 2 Indikatoren (103568 Tokens)
-Werte aus: S32diJBLEpY 95 % der Trader verlieren Geld – Zehnkampf-Gold ist realistischer 2026-11-06
-gemini-3.8-flash: HTTP 503 {
+gemini-flash-latest: HTTP 429 {
   "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.8-flash: HTTP 503 {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-flash-latest: HTTP 429 {
   "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 429 {
   "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
+Werte aus: m2eM-bDJl_Q #149: Wir haben News! 19 offene Trades und ein Seminar in Stuttgart 2026-10-15
+gemini-3.8-flash: HTTP 429 {
   "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
