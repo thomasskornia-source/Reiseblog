@@ -823,5 +823,14 @@
   "info": "Lesbar (Quelle für Claudes Auswahl)",
   "abruf": false,
   "status": "behalten"
+ },
+ {
+  "id": "stream-jw-apple",
+  "rubrik": "stream",
+  "name": "JustWatch Apple TV Neu",
+  "url": "https://www.justwatch.com/de/Anbieter/apple-tv/Neu",
+  "info": "Neu-Liste Apple TV (Link)",
+  "abruf": false,
+  "status": "behalten"
  }
 ]

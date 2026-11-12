@@ -1561,9 +1561,52 @@
   "stand": "2026-10-18"
  },
  {
-  "id": "stream-anatomie-eines-augenblicks",
+  "id": "stream-die-weisse-rose",
   "rubrik": "stream",
-  "titel": "Anatomie eines Augenblicks",
+  "titel": "Die weiße Rose",
+  "ort": "3sat Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Drama über die Münchner Widerstandsgruppe um Sophie und Hans Scholl gegen das NS-Regime. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Drama",
+   "Historie"
+  ],
+  "quelle": "justwatch.com – 3sat Neu",
+  "url": "https://www.3sat.de/mediathek",
+  "stand": "2026-11-12",
+  "thema": "3sat Mediathek"
+ },
+ {
+  "id": "stream-before-midnight",
+  "rubrik": "stream",
+  "titel": "Before Midnight",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dritter Teil der Liebesgeschichte von Jesse und Celine, diesmal im Sommerurlaub in Griechenland. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Drama"
+  ],
+  "quelle": "justwatch.com – ARD Mediathek Neu",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-11-12",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-z-anatomie-eines-politischen-mordes",
+  "rubrik": "stream",
+  "titel": "Z: Anatomie eines politischen Mordes",
   "ort": "ARTE Mediathek",
   "adresse": "",
   "datum": "",
@@ -1571,67 +1614,22 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Politdrama über einen dramatischen Moment der spanischen Demokratie, als Geheimtipp der ARTE-Mediathek besprochen. Verfügbarkeit bitte prüfen.",
+  "kurz": "Politthriller: Ein Untersuchungsrichter deckt nach dem Tod eines Oppositionellen ein Komplott auf. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Serie",
-   "Drama",
-   "Historie",
-   "Thriller"
-  ],
-  "quelle": "serienjunkies.de – ARTE-Mediathek",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-11-11",
-  "thema": "ARTE Mediathek"
- },
- {
-  "id": "stream-black-doves",
-  "rubrik": "stream",
-  "titel": "Black Doves",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Agenten-Thriller mit Humor, neue Folgen in den Netflix-Neuheiten des Novembers genannt.",
-  "tags": [
-   "Serie",
+   "Film",
    "Thriller",
-   "Krimi",
-   "Action"
-  ],
-  "quelle": "serienjunkies.de – Netflix im November 2026",
-  "url": "https://www.netflix.com",
-  "stand": "2026-11-11",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-die-kaiserin",
-  "rubrik": "stream",
-  "titel": "Die Kaiserin",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Historisches Drama um Kaiserin Elisabeth und den Wiener Hof, in den Netflix-Neuheiten des Novembers genannt.",
-  "tags": [
-   "Serie",
    "Drama",
    "Historie"
   ],
-  "quelle": "serienjunkies.de – Netflix im November 2026",
-  "url": "https://www.netflix.com",
-  "stand": "2026-11-11",
-  "thema": "Netflix"
+  "quelle": "justwatch.com – ARTE Neu",
+  "url": "https://www.arte.tv/de/",
+  "stand": "2026-11-12",
+  "thema": "ARTE Mediathek"
  },
  {
-  "id": "stream-die-ringe-der-macht",
+  "id": "stream-twisters",
   "rubrik": "stream",
-  "titel": "Die Ringe der Macht",
+  "titel": "Twisters",
   "ort": "Amazon Prime",
   "adresse": "",
   "datum": "",
@@ -1639,45 +1637,22 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Fantasy-Serie im Zweiten Zeitalter Mittelerdes, laut Prime-Vorschau im November mit neuen Folgen.",
-  "tags": [
-   "Serie",
-   "Fantasy",
-   "Abenteuer",
-   "Drama"
-  ],
-  "quelle": "serienjunkies.de – Prime Video im November 2026",
-  "url": "https://www.primevideo.com",
-  "stand": "2026-11-11",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-spider-man-brand-new-day",
-  "rubrik": "stream",
-  "titel": "Spider-Man: Brand New Day",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Neuer Kinofilm um Peter Parker, laut November-Vorschau jetzt im Netflix-Programm. Verfügbarkeit bitte prüfen.",
+  "kurz": "Actionreicher Katastrophenfilm: Sturmjäger stellen sich neuen gewaltigen Tornados in Oklahoma.",
   "tags": [
    "Film",
    "Action",
    "Abenteuer",
-   "Sci-Fi"
+   "Drama"
   ],
-  "quelle": "serienjunkies.de – Netflix im November 2026",
-  "url": "https://www.netflix.com",
-  "stand": "2026-11-11",
-  "thema": "Netflix"
+  "quelle": "justwatch.com – Prime Video Neu",
+  "url": "https://www.amazon.de/prime-video",
+  "stand": "2026-11-12",
+  "thema": "Amazon Prime"
  },
  {
-  "id": "stream-stick",
+  "id": "stream-being-heumann",
   "rubrik": "stream",
-  "titel": "Stick",
+  "titel": "Being Heumann",
   "ort": "Apple TV",
   "adresse": "",
   "datum": "",
@@ -1685,43 +1660,44 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Sportserie rund um einen ehemaligen Golfprofi und ein junges Talent; in den Apple-TV-Neustarts im November genannt.",
+  "kurz": "Drama über die Aktivistin Judy Heumann, die 1977 mit Mitstreitenden ein Bundesgebäude in San Francisco besetzt. Start 13.11.",
   "tags": [
-   "Serie",
-   "Komödie",
-   "Drama"
+   "Film",
+   "Drama",
+   "Historie"
   ],
-  "quelle": "kinofans.com – Apple TV im November 2026",
-  "url": "https://tv.apple.com",
-  "stand": "2026-11-11",
+  "quelle": "apfelpatient.de – Apple TV im November 2026",
+  "url": "https://tv.apple.com/de",
+  "stand": "2026-11-12",
   "thema": "Apple TV"
  },
  {
-  "id": "stream-stoepsel",
+  "id": "stream-der-verdacht-des-mr-whicher",
   "rubrik": "stream",
-  "titel": "Stöpsel",
-  "ort": "ARTE Mediathek",
+  "titel": "Der Verdacht des Mr. Whicher",
+  "ort": "ARD Mediathek",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Schauspielerin mit Angstzuständen wird gefordert; Filmbesprechung aus dem ARTE-Mediathek-Angebot. Verfügbarkeit bitte prüfen.",
+  "kurz": "Viktorianischer Kriminalfall: Ein Londoner Detektiv ermittelt in rätselhaften Morden. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Film",
-   "Drama",
-   "Komödie"
+   "Serie",
+   "Krimi",
+   "Historie",
+   "Drama"
   ],
-  "quelle": "kulturnews.de – ARTE-Mediathek",
-  "url": "https://www.arte.tv/de/",
-  "stand": "2026-11-11",
-  "thema": "ARTE Mediathek"
+  "quelle": "justwatch.com – ARD Mediathek Neu",
+  "url": "https://www.ardmediathek.de/",
+  "stand": "2026-11-12",
+  "thema": "ARD Mediathek"
  },
  {
-  "id": "stream-the-odyssey",
+  "id": "stream-black-sails",
   "rubrik": "stream",
-  "titel": "The Odyssey",
+  "titel": "Black Sails",
   "ort": "Amazon Prime",
   "adresse": "",
   "datum": "",
@@ -1729,22 +1705,22 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Verfilmung des Homer-Epos um Odysseus' Heimreise, in den Prime-Neuheiten des Novembers genannt. Verfügbarkeit bitte prüfen.",
+  "kurz": "Piratenserie im Goldenen Zeitalter der Seeräuber: Kapitäne, Intrigen und Seeschlachten vor Nassau.",
   "tags": [
-   "Film",
+   "Serie",
    "Abenteuer",
-   "Fantasy",
-   "Historie"
+   "Action",
+   "Drama"
   ],
-  "quelle": "serienjunkies.de – Prime Video im November 2026",
-  "url": "https://www.primevideo.com",
-  "stand": "2026-11-11",
+  "quelle": "justwatch.com – Prime Video Neu",
+  "url": "https://www.amazon.de/prime-video",
+  "stand": "2026-11-12",
   "thema": "Amazon Prime"
  },
  {
-  "id": "stream-wakefield",
+  "id": "stream-portobello",
   "rubrik": "stream",
-  "titel": "Wakefield",
+  "titel": "Portobello",
   "ort": "ARTE Mediathek",
   "adresse": "",
   "datum": "",
@@ -1752,21 +1728,45 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Ein Mann zieht heimlich auf den Dachboden und beobachtet seine Familie; Besprechung aus dem ARTE-Mediathek-Angebot. Verfügbarkeit bitte prüfen.",
+  "kurz": "Italienisches Justizdrama um einen beliebten TV-Moderator, der zu Unrecht ins Visier der Ermittler gerät. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Film",
+   "Serie",
    "Drama",
-   "Thriller"
+   "Thriller",
+   "Historie"
   ],
-  "quelle": "kulturnews.de – ARTE-Mediathek",
+  "quelle": "justwatch.com – ARTE Neu",
   "url": "https://www.arte.tv/de/",
-  "stand": "2026-11-11",
+  "stand": "2026-11-12",
   "thema": "ARTE Mediathek"
  },
  {
-  "id": "stream-warrior-kid",
+  "id": "stream-power",
   "rubrik": "stream",
-  "titel": "Warrior Kid",
+  "titel": "Power",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Krimidrama um einen New Yorker Clubbesitzer, der zwischen Drogenhandel und bürgerlichem Leben balanciert.",
+  "tags": [
+   "Serie",
+   "Krimi",
+   "Drama",
+   "Thriller"
+  ],
+  "quelle": "justwatch.com – Netflix Neu",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-11-12",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-12-12-12",
+  "rubrik": "stream",
+  "titel": "12 12 12",
   "ort": "Apple TV",
   "adresse": "",
   "datum": "",
@@ -1774,16 +1774,15 @@
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Jugendfilm um einen Jungen, der sich mit Training Mut erkämpft; in den Apple-TV-Neustarts im November genannt.",
+  "kurz": "Thriller: Ein Banküberfall auf einen Tresor tief unter Zürich, erzählt auf drei Zeitebenen. Start 13.11.",
   "tags": [
-   "Film",
-   "Familie",
-   "Abenteuer",
-   "Drama"
+   "Serie",
+   "Thriller",
+   "Krimi"
   ],
-  "quelle": "kinofans.com – Apple TV im November 2026",
-  "url": "https://tv.apple.com",
-  "stand": "2026-11-11",
+  "quelle": "apfelpatient.de – Apple TV im November 2026",
+  "url": "https://tv.apple.com/de",
+  "stand": "2026-11-12",
   "thema": "Apple TV"
  }
 ]
