@@ -832,5 +832,23 @@
   "info": "Neu-Liste Apple TV (Link)",
   "abruf": false,
   "status": "behalten"
+ },
+ {
+  "id": "stream-news-ard-nov",
+  "rubrik": "stream",
+  "name": "news.de: Neu in der ARD Mediathek November 2026",
+  "url": "https://www.news.de/film/858569764/ard-mediathek-neue-serien-ab-heute-neuheiten-im-november-2026/1/",
+  "info": "Lesbar (Quelle für Claudes Auswahl)",
+  "abruf": false,
+  "status": "behalten"
+ },
+ {
+  "id": "stream-filmdienst-mediatheken-3",
+  "rubrik": "stream",
+  "name": "Filmdienst: Sehenswert in Mediatheken (Seite 3)",
+  "url": "https://www.filmdienst.de/heimkino/tv-mediatheken/3",
+  "info": "Lesbar (Quelle für Claudes Auswahl)",
+  "abruf": false,
+  "status": "behalten"
  }
 ]
