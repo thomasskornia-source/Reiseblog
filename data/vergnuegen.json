@@ -1561,112 +1561,6 @@
   "stand": "2026-10-18"
  },
  {
-  "id": "stream-heartland",
-  "rubrik": "stream",
-  "titel": "Heartland",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Thriller: Ein früherer Country-Star kehrt nach Nashville zurück und sucht nach seiner verschwundenen Nichte. Start 13.11.",
-  "tags": [
-   "Film",
-   "Thriller",
-   "Drama"
-  ],
-  "quelle": "mobiflip.de – Netflix November 2026",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-11-13",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-overacting",
-  "rubrik": "stream",
-  "titel": "Overacting",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Komödie: Nach dem Herzinfarkt ihres Vaters, der sich noch im Dienst wähnt, gründet die Tochter eine Fake-Polizeieinheit. Start 05.11.",
-  "tags": [
-   "Film",
-   "Komödie"
-  ],
-  "quelle": "mobiflip.de – Netflix November 2026",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-11-13",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-sterben-fuer-anfaenger",
-  "rubrik": "stream",
-  "titel": "Sterben für Anfänger",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Schwarze Komödie von 2007 über eine Trauerfeier, die immer mehr aus dem Ruder läuft. Bis 21.11. abrufbar.",
-  "tags": [
-   "Film",
-   "Komödie"
-  ],
-  "quelle": "filmdienst.de – Sehenswert in Mediatheken",
-  "url": "https://www.filmdienst.de/heimkino/tv-mediatheken/3",
-  "stand": "2026-11-13",
-  "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-peter-von-kant",
-  "rubrik": "stream",
-  "titel": "Peter von Kant",
-  "ort": "ARTE Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Drama von François Ozon (2022): freie Adaption eines Fassbinder-Stoffs über Begehren und Abhängigkeit. Bis 30.11. abrufbar.",
-  "tags": [
-   "Film",
-   "Drama"
-  ],
-  "quelle": "filmdienst.de – Sehenswert in Mediatheken",
-  "url": "https://www.filmdienst.de/heimkino/tv-mediatheken/3",
-  "stand": "2026-11-13",
-  "thema": "ARTE Mediathek"
- },
- {
-  "id": "stream-dirty-dancing",
-  "rubrik": "stream",
-  "titel": "Dirty Dancing",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Klassiker von 1987: Ein Sommer im Ferienresort, Tanzstunden und eine Liebe über Standesgrenzen. Start 13.11.",
-  "tags": [
-   "Film",
-   "Drama"
-  ],
-  "quelle": "mobiflip.de – Prime Video November 2026",
-  "url": "https://www.primevideo.com/",
-  "stand": "2026-11-13",
-  "thema": "Amazon Prime"
- },
- {
   "id": "stream-black-doves-s2",
   "rubrik": "stream",
   "titel": "Black Doves – Staffel 2",
@@ -1682,28 +1576,6 @@
    "Serie",
    "Thriller",
    "Action"
-  ],
-  "quelle": "mobiflip.de – Netflix November 2026",
-  "url": "https://www.netflix.com/de/",
-  "stand": "2026-11-13",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-die-kaiserin-s3",
-  "rubrik": "stream",
-  "titel": "Die Kaiserin – Staffel 3",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Historiendrama: Elisabeth sucht zwischen Liebe, Überzeugung und Pflichten als Kaiserin ihren eigenen Weg. Start 12.11.",
-  "tags": [
-   "Serie",
-   "Historie",
-   "Drama"
   ],
   "quelle": "mobiflip.de – Netflix November 2026",
   "url": "https://www.netflix.com/de/",
@@ -1733,6 +1605,49 @@
   "thema": "Amazon Prime"
  },
  {
+  "id": "stream-die-kaiserin-s3",
+  "rubrik": "stream",
+  "titel": "Die Kaiserin – Staffel 3",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Historiendrama: Elisabeth sucht zwischen Liebe, Überzeugung und Pflichten als Kaiserin ihren eigenen Weg. Start 12.11.",
+  "tags": [
+   "Serie",
+   "Historie",
+   "Drama"
+  ],
+  "quelle": "mobiflip.de – Netflix November 2026",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-11-13",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-dirty-dancing",
+  "rubrik": "stream",
+  "titel": "Dirty Dancing",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Klassiker von 1987: Ein Sommer im Ferienresort, Tanzstunden und eine Liebe über Standesgrenzen. Start 13.11.",
+  "tags": [
+   "Film",
+   "Drama"
+  ],
+  "quelle": "mobiflip.de – Prime Video November 2026",
+  "url": "https://www.primevideo.com/",
+  "stand": "2026-11-13",
+  "thema": "Amazon Prime"
+ },
+ {
   "id": "stream-grantchester-s7",
   "rubrik": "stream",
   "titel": "Grantchester – Staffel 7",
@@ -1755,6 +1670,28 @@
   "thema": "ARD Mediathek"
  },
  {
+  "id": "stream-heartland",
+  "rubrik": "stream",
+  "titel": "Heartland",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Thriller: Ein früherer Country-Star kehrt nach Nashville zurück und sucht nach seiner verschwundenen Nichte. Start 13.11.",
+  "tags": [
+   "Film",
+   "Thriller",
+   "Drama"
+  ],
+  "quelle": "mobiflip.de – Netflix November 2026",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-11-13",
+  "thema": "Netflix"
+ },
+ {
   "id": "stream-hubert-ohne-staller-s6",
   "rubrik": "stream",
   "titel": "Hubert ohne Staller – Staffel 6",
@@ -1773,6 +1710,69 @@
   ],
   "quelle": "news.de – Neu in der ARD Mediathek (03.11.2026)",
   "url": "https://www.ardmediathek.de/",
+  "stand": "2026-11-13",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-overacting",
+  "rubrik": "stream",
+  "titel": "Overacting",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Komödie: Nach dem Herzinfarkt ihres Vaters, der sich noch im Dienst wähnt, gründet die Tochter eine Fake-Polizeieinheit. Start 05.11.",
+  "tags": [
+   "Film",
+   "Komödie"
+  ],
+  "quelle": "mobiflip.de – Netflix November 2026",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-11-13",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-peter-von-kant",
+  "rubrik": "stream",
+  "titel": "Peter von Kant",
+  "ort": "ARTE Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Drama von François Ozon (2022): freie Adaption eines Fassbinder-Stoffs über Begehren und Abhängigkeit. Bis 30.11. abrufbar.",
+  "tags": [
+   "Film",
+   "Drama"
+  ],
+  "quelle": "filmdienst.de – Sehenswert in Mediatheken",
+  "url": "https://www.filmdienst.de/heimkino/tv-mediatheken/3",
+  "stand": "2026-11-13",
+  "thema": "ARTE Mediathek"
+ },
+ {
+  "id": "stream-sterben-fuer-anfaenger",
+  "rubrik": "stream",
+  "titel": "Sterben für Anfänger",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Schwarze Komödie von 2007 über eine Trauerfeier, die immer mehr aus dem Ruder läuft. Bis 21.11. abrufbar.",
+  "tags": [
+   "Film",
+   "Komödie"
+  ],
+  "quelle": "filmdienst.de – Sehenswert in Mediatheken",
+  "url": "https://www.filmdienst.de/heimkino/tv-mediatheken/3",
   "stand": "2026-11-13",
   "thema": "ARD Mediathek"
  }
