@@ -1,6 +1,78 @@
 {
  "beitraege": [
   {
+   "id": "RtlL3JCsh4k",
+   "titel": "Optionen verkaufen bei niedriger Volatilität: Warum ich Einzelaktien statt Indizes nehme",
+   "datum": "2026-11-08",
+   "zeit": "2026-11-08T11:00:29+00:00",
+   "thema": "Warum Stillhalter bei scheinbar niedrigem Gesamtmarkt-VIX durch den Blick auf Einzelaktien und Sektoren (VIX vs. VXEQ) dennoch attraktive Volatilitätsprämien finden können.",
+   "marktlage": "Der Gesamtmarkt notiert nahe Allzeithochs bei moderatem VIX, doch unter der Oberfläche zeigen einzelne Sektoren und Einzeltitel stärkere Korrekturen mit hoher impliziter Volatilität.",
+   "regeln": [
+    {
+     "bereich": "Volatilität & Marktphase",
+     "regel": "Bei niedrigem VIX mit Index-Optionen zurückhaltend agieren und stattdessen gezielt Einzelaktien mit erhöhtem Volatilitätsaufschlag suchen.",
+     "zahl": "",
+     "begruendung": "Die implizite Volatilität von Einzelaktien (gemessen am VXEQ) liegt meist deutlich über der Indexvolatilität und bietet attraktivere Prämien.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Volatilität & Marktphase",
+     "regel": "Bevorzugt teure, übertriebene Volatilität verkaufen.",
+     "zahl": "",
+     "begruendung": "Volatilität neigt statistisch stark zur Mittelwertrückkehr (Reversion to the Mean).",
+     "art": "regel"
+    },
+    {
+     "bereich": "Titelauswahl",
+     "regel": "Märkte top-down von Sektoren hin zu Einzelaktien analysieren, um überverkaufte Qualitätsaktien mit erhöhter Volatilität zu identifizieren.",
+     "zahl": "",
+     "begruendung": "Einzelne Sektoren können deutlich korrigieren, selbst wenn der breite Index auf Rekordniveau verweilt.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Positionsgröße & Risiko",
+     "regel": "Index-Positionen in ruhigen Marktphasen nur mit kleinen Positionsgrößen handeln und Overtrading vermeiden.",
+     "zahl": "",
+     "begruendung": "Ein konservatives, selektives Vorgehen schützt das Gesamtportfolio vor plötzlichen Volatilitätsspitzen.",
+     "art": "warnung"
+    }
+   ],
+   "indikatoren": [
+    {
+     "name": "VIX / VXX",
+     "art": "Index",
+     "wozu": "Misst die 30-Tage implizite Volatilität auf den S&P 500 Index.",
+     "lage": "meist niedrig zwischen 15 und 21 Punkten"
+    },
+    {
+     "name": "VXEQ",
+     "art": "Index",
+     "wozu": "Misst die durchschnittliche implizite Volatilität der Einzelaktien im S&P 500 zum Vergleich mit dem VIX.",
+     "lage": "notiert mit Faktor 2,2 deutlich über dem VIX"
+    }
+   ],
+   "quellen": [
+    {
+     "name": "TradingView",
+     "wozu": "Chartanalyse von Indizes, Sektor-ETFs und Einzelaktien sowie Volatilitätsvergleichen"
+    },
+    {
+     "name": "Interactive Brokers Trader Workstation (TWS)",
+     "wozu": "Handelsplattform und Analyse von impliziter vs. historischer Volatilität"
+    },
+    {
+     "name": "Eichhorn Coaching Optionsbrief",
+     "wozu": "Zweiwöchentlicher Börsenbrief mit konkreten Stillhalter-Trades auf Einzelaktien und Marktupdates"
+    }
+   ],
+   "zitate": [
+    "Es gibt nicht die eine Volatilität am Markt."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 62708
+  },
+  {
    "id": "om-3tPIydHs",
    "titel": "Optionshandel mit System: Welche Strategie im Oktober wirklich verdient hat",
    "datum": "2026-11-05",
@@ -314,7 +386,8 @@
   "DCa02n4Sjj0",
   "bEsxIZEj1jg",
   "ysRgtzIq5tg",
-  "om-3tPIydHs"
+  "om-3tPIydHs",
+  "RtlL3JCsh4k"
  ],
  "quelle": "Eichhorn Coaching (YouTube-Podcast). Eigene Auswertung in eigenen Worten, kein Transkript, keine Anlageberatung.",
  "bereiche": [
@@ -331,5 +404,5 @@
   "Steuern & Broker",
   "Sonstiges"
  ],
- "stand": "2026-11-12T14:15Z"
+ "stand": "2026-11-13T13:27Z"
 }
