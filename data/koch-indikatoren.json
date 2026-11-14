@@ -1,10 +1,200 @@
 {
- "stand": "2026-11-09",
+ "stand": "2026-11-12",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
  },
  "kategorien": [
+  {
+   "kategorie": "Öl & Rohstoffe",
+   "status": "bestaetigt",
+   "tage_anzahl": 25,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-11-12",
+   "name": "Öl- und Dieselpreise",
+   "namen": [
+    "Öl- und Dieselpreise",
+    "Ölpreise"
+   ],
+   "rolle": "Politische Reibungspunkte schüren kurzfristig leichte Inflations- und Kostensorgen am Rohstoffmarkt.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
+    },
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Ölpreise"
+     ],
+     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
+    },
+    "2026-10-07": {
+     "p": 2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
+    },
+    "2026-10-08": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
+    },
+    "2026-10-12": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Trotz leichter Tagesgewinne bleibt das Rohöl klar unter den Spitzenwerten des Vormonats, was die Inflationssorgen dämpft."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte."
+    },
+    "2026-10-20": {
+     "p": 0,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Sinkende Rohölpreise mildern Inflations- und Kostensorgen der Unternehmen ab."
+    },
+    "2026-10-21": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Die Volatilität am Rohstoffmarkt reflektiert die nervöse Nachrichtenlage und beeinflusst Inflationssorgen."
+    },
+    "2026-10-22": {
+     "p": -2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Trotz fester Energiepreise fallen die Zinsen, was auf eine Flucht in sichere Häfen hinweist."
+    },
+    "2026-10-26": {
+     "p": 0,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Ein hohes Ölpreisniveau bleibt ein latenter Belastungsfaktor, wirkte heute jedoch nicht als akuter Kurstreiber."
+    },
+    "2026-10-28": {
+     "p": -3,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Steigende Energiepreise wirken als Inflationsrisiko und dämpfen die geldpolitische Entspannung."
+    },
+    "2026-10-30": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Hohe Ölpreise belasten durch Inflations- und Nahostsorgen, doch ein Rücklauf von den Spitzen mildert den Druck."
+    },
+    "2026-11-02": {
+     "p": 2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Eine Stabilisierung an den Rohstoffmärkten nimmt kurzfristigen Druck aus dem Gesamtmarkt."
+    },
+    "2026-11-03": {
+     "p": 0,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Niedrigere Ölpreise dämpfen Inflationssorgen, spiegeln aber teils auch Konjunktursorgen wider."
+    },
+    "2026-11-04": {
+     "p": 1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Niedrigere Energiepreise dämpfen Inflationssorgen und stützen die Konsumstimmung."
+    },
+    "2026-11-05": {
+     "p": 0,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Die Ölpreisentwicklung spiegelt die konjunkturellen Nachfragesorgen wider."
+    },
+    "2026-11-06": {
+     "p": 0,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Kurzfristig steigende Energiepreise heizen die Inflationserwartungen für die kommenden Daten an, mittelfristig droht bei Entspannung aber ein Preisrutsch."
+    },
+    "2026-11-09": {
+     "p": 2,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Niedrigere Ölpreise dämpfen die Inflationssorgen und entlasten die Märkte fundamental."
+    },
+    "2026-11-12": {
+     "p": 0,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Politische Reibungspunkte schüren kurzfristig leichte Inflations- und Kostensorgen am Rohstoffmarkt."
+    }
+   }
+  },
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
@@ -198,189 +388,6 @@
    }
   },
   {
-   "kategorie": "Öl & Rohstoffe",
-   "status": "bestaetigt",
-   "tage_anzahl": 24,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-09",
-   "name": "Öl- und Dieselpreise",
-   "namen": [
-    "Öl- und Dieselpreise",
-    "Ölpreise"
-   ],
-   "rolle": "Niedrigere Ölpreise dämpfen die Inflationssorgen und entlasten die Märkte fundamental.",
-   "tage": {
-    "2026-10-01": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Steigende Energiekosten schüren neue Inflationsängste und belasten die Gewinnmargen vieler Unternehmen."
-    },
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Ölpreise"
-     ],
-     "rolle": "Niedrigere Energiepreise dämpfen den allgemeinen Inflationsdruck an den Märkten."
-    },
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Fallende Energiepreise mindern den Inflationsdruck und verschaffen den Aktienmärkten leichten Rückenwind."
-    },
-    "2026-10-06": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Erholte Ölexporte aus dem Persischen Golf signalisieren Entspannung, halten die Inflationsrisiken aber präsent."
-    },
-    "2026-10-07": {
-     "p": 2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Ausbleibende Versorgungsengpässe nehmen kurzfristig Inflationsdruck von den Märkten."
-    },
-    "2026-10-08": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Anziehende Energiepreise schüren erneut Inflationssorgen vor den anstehenden US-Verbraucherpreisdaten."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Entspannung bei den Energiepreisen dämpft Inflationssorgen und entlastet Verbraucher und Unternehmen."
-    },
-    "2026-10-12": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Teurere Energie erhöht den Inflationsdruck und belastet zyklische Branchen wie Fluggesellschaften."
-    },
-    "2026-10-13": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Trotz leichter Tagesgewinne bleibt das Rohöl klar unter den Spitzenwerten des Vormonats, was die Inflationssorgen dämpft."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Anhaltend teure Energie sickert zunehmend in die Kernkomponenten der Teuerung ein."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Dass die Ölpreise trotz geopolitischer Zuspitzung nicht nach oben ausbrechen, wertet er als wichtiges Entwarnungssignal für die Inflation."
-    },
-    "2026-10-19": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Der Anstieg der Energiepreise fungiert zusammen mit Zinsängsten als zusätzlicher Belastungsfaktor für die Märkte."
-    },
-    "2026-10-20": {
-     "p": 0,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Sinkende Rohölpreise mildern Inflations- und Kostensorgen der Unternehmen ab."
-    },
-    "2026-10-21": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Die Volatilität am Rohstoffmarkt reflektiert die nervöse Nachrichtenlage und beeinflusst Inflationssorgen."
-    },
-    "2026-10-22": {
-     "p": -2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Trotz fester Energiepreise fallen die Zinsen, was auf eine Flucht in sichere Häfen hinweist."
-    },
-    "2026-10-26": {
-     "p": 0,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Ein hohes Ölpreisniveau bleibt ein latenter Belastungsfaktor, wirkte heute jedoch nicht als akuter Kurstreiber."
-    },
-    "2026-10-28": {
-     "p": -3,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Steigende Energiepreise wirken als Inflationsrisiko und dämpfen die geldpolitische Entspannung."
-    },
-    "2026-10-30": {
-     "p": -1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Hohe Ölpreise belasten durch Inflations- und Nahostsorgen, doch ein Rücklauf von den Spitzen mildert den Druck."
-    },
-    "2026-11-02": {
-     "p": 2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Eine Stabilisierung an den Rohstoffmärkten nimmt kurzfristigen Druck aus dem Gesamtmarkt."
-    },
-    "2026-11-03": {
-     "p": 0,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Niedrigere Ölpreise dämpfen Inflationssorgen, spiegeln aber teils auch Konjunktursorgen wider."
-    },
-    "2026-11-04": {
-     "p": 1,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Niedrigere Energiepreise dämpfen Inflationssorgen und stützen die Konsumstimmung."
-    },
-    "2026-11-05": {
-     "p": 0,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Die Ölpreisentwicklung spiegelt die konjunkturellen Nachfragesorgen wider."
-    },
-    "2026-11-06": {
-     "p": 0,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Kurzfristig steigende Energiepreise heizen die Inflationserwartungen für die kommenden Daten an, mittelfristig droht bei Entspannung aber ein Preisrutsch."
-    },
-    "2026-11-09": {
-     "p": 2,
-     "namen": [
-      "Öl- und Dieselpreise"
-     ],
-     "rolle": "Niedrigere Ölpreise dämpfen die Inflationssorgen und entlasten die Märkte fundamental."
-    }
-   }
-  },
-  {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
    "tage_anzahl": 22,
@@ -551,14 +558,14 @@
   {
    "kategorie": "Anleihen & Renditen",
    "status": "bestaetigt",
-   "tage_anzahl": 20,
+   "tage_anzahl": 21,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-05",
+   "zuletzt": "2026-11-12",
    "name": "US-Staatsanleiherenditen",
    "namen": [
     "US-Staatsanleiherenditen"
    ],
-   "rolle": "Sinkende Renditen bieten eine gewisse Zinsentlastung, spiegeln aber vor allem Risikoaversion und Eindeckungen von Short-Positionen wider.",
+   "rolle": "Steigende Renditen setzen insbesondere die Bewertungsmultiplikatoren im Wachstums- und Technologiesektor unter Druck.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -699,6 +706,13 @@
       "US-Staatsanleiherenditen"
      ],
      "rolle": "Sinkende Renditen bieten eine gewisse Zinsentlastung, spiegeln aber vor allem Risikoaversion und Eindeckungen von Short-Positionen wider."
+    },
+    "2026-11-12": {
+     "p": -1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Steigende Renditen setzen insbesondere die Bewertungsmultiplikatoren im Wachstums- und Technologiesektor unter Druck."
     }
    }
   },
@@ -995,16 +1009,16 @@
   {
    "kategorie": "Sonstiges",
    "status": "bestaetigt",
-   "tage_anzahl": 16,
+   "tage_anzahl": 17,
    "erstmals": "2026-10-08",
-   "zuletzt": "2026-11-09",
+   "zuletzt": "2026-11-12",
    "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
     "Tech-Investitionszyklus (CapEx)",
     "Aktienüberangebot durch Kapitalerhöhungen & IPOs",
     "Aktienrückkäufe"
    ],
-   "rolle": "Stabile Investitionserwartungen stützen das Vertrauen in den KI-Sektor nach den jüngsten Kursrückschlägen.",
+   "rolle": "Die fundamental starke Nachfrage im Cloud- und KI-Sektor bildet das Fundament für die Ertragsstärke der führenden Tech-Konzerne.",
    "tage": {
     "2026-10-08": {
      "p": 1,
@@ -1118,6 +1132,123 @@
       "Tech-Investitionszyklus (CapEx)"
      ],
      "rolle": "Stabile Investitionserwartungen stützen das Vertrauen in den KI-Sektor nach den jüngsten Kursrückschlägen."
+    },
+    "2026-11-12": {
+     "p": 1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die fundamental starke Nachfrage im Cloud- und KI-Sektor bildet das Fundament für die Ertragsstärke der führenden Tech-Konzerne."
+    }
+   }
+  },
+  {
+   "kategorie": "Saisonalität & Chart",
+   "status": "bestaetigt",
+   "tage_anzahl": 13,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-11-12",
+   "name": "Q4-Saisonalität & Positionierung",
+   "namen": [
+    "Q4-Saisonalität & Positionierung",
+    "September-Indexentwicklung",
+    "Halbleiter-Index (SOX) 200-Tage-Linie",
+    "Charttechnik (200-Tage-Linie S&P 500)",
+    "Technische Überverkauftheit"
+   ],
+   "rolle": "Die saisonal typische Stärke zum Jahresende stützt Kochs Erwartung einer weiteren Markterholung.",
+   "tage": {
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Historisch bietet das vierte Quartal nach bereinigten CTA-Positionen Rückenwind für Aktien."
+    },
+    "2026-10-05": {
+     "p": 2,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Er sieht in der historischen Q4-Saisonalität ein starkes Argument für eine anstehende Erholungsphase am Aktienmarkt."
+    },
+    "2026-10-06": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung",
+      "September-Indexentwicklung"
+     ],
+     "rolle": "Dient als oberflächlicher Benchmark, der über die Schwäche vieler Einzelwerte hinwegtäuscht."
+    },
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Historische Muster deuten kurzfristig auf Rückschlagpotenzial von 3 bis 10 Prozent hin."
+    },
+    "2026-10-08": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Die Kombination aus bereinigter Markttechnik und historisch bullischem Schlussquartal begünstigt eine Erholung."
+    },
+    "2026-10-19": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Aus charttechnischer und historischer Sicht folgten auf derart ausgeprägte Abwärtsstrecken meist deutliche Gegenbewegungen."
+    },
+    "2026-10-23": {
+     "p": -1,
+     "namen": [
+      "Halbleiter-Index (SOX) 200-Tage-Linie"
+     ],
+     "rolle": "Ein Bruch dieser Schlüsselmarke würde das technische Bild für den gesamten Technologiesektor weiter eintrüben."
+    },
+    "2026-10-26": {
+     "p": -1,
+     "namen": [
+      "Charttechnik (200-Tage-Linie S&P 500)"
+     ],
+     "rolle": "Analystenhäuser wie BTIG und Morgan Stanley sehen charttechnisch weiteres Abwärtspotenzial auf die Sommertiefs, bevor eine Erholung einsetzen kann."
+    },
+    "2026-10-30": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Die Kombination aus überverkauften Chartmarken und saisonalem Rückenwind nach den Zwischenwahlen bietet eine Basis für eine Erholung."
+    },
+    "2026-11-04": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Historische Daten zeigen nach einem Machtwechsel im Kongress sechs bis zwölf Monate später durchweg Kursgewinne für den S&P 500."
+    },
+    "2026-11-05": {
+     "p": 1,
+     "namen": [
+      "Technische Überverkauftheit"
+     ],
+     "rolle": "Das extreme Ausmaß des Rückschlags eröffnet zumindest charttechnisch die Chance auf eine kurzfristige Gegenbewegung."
+    },
+    "2026-11-09": {
+     "p": 2,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Die saisonal typische Stärke zum Jahresende treibt die Erwartung einer fortgesetzten Jahresendrallye an."
+    },
+    "2026-11-12": {
+     "p": 1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung"
+     ],
+     "rolle": "Die saisonal typische Stärke zum Jahresende stützt Kochs Erwartung einer weiteren Markterholung."
     }
    }
   },
@@ -1226,120 +1357,17 @@
    }
   },
   {
-   "kategorie": "Saisonalität & Chart",
-   "status": "bestaetigt",
-   "tage_anzahl": 12,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-09",
-   "name": "Q4-Saisonalität & Positionierung",
-   "namen": [
-    "Q4-Saisonalität & Positionierung",
-    "September-Indexentwicklung",
-    "Halbleiter-Index (SOX) 200-Tage-Linie",
-    "Charttechnik (200-Tage-Linie S&P 500)",
-    "Technische Überverkauftheit"
-   ],
-   "rolle": "Die saisonal typische Stärke zum Jahresende treibt die Erwartung einer fortgesetzten Jahresendrallye an.",
-   "tage": {
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Q4-Saisonalität & Positionierung"
-     ],
-     "rolle": "Historisch bietet das vierte Quartal nach bereinigten CTA-Positionen Rückenwind für Aktien."
-    },
-    "2026-10-05": {
-     "p": 2,
-     "namen": [
-      "Q4-Saisonalität & Positionierung"
-     ],
-     "rolle": "Er sieht in der historischen Q4-Saisonalität ein starkes Argument für eine anstehende Erholungsphase am Aktienmarkt."
-    },
-    "2026-10-06": {
-     "p": 1,
-     "namen": [
-      "Q4-Saisonalität & Positionierung",
-      "September-Indexentwicklung"
-     ],
-     "rolle": "Dient als oberflächlicher Benchmark, der über die Schwäche vieler Einzelwerte hinwegtäuscht."
-    },
-    "2026-10-07": {
-     "p": -1,
-     "namen": [
-      "Q4-Saisonalität & Positionierung"
-     ],
-     "rolle": "Historische Muster deuten kurzfristig auf Rückschlagpotenzial von 3 bis 10 Prozent hin."
-    },
-    "2026-10-08": {
-     "p": 1,
-     "namen": [
-      "Q4-Saisonalität & Positionierung"
-     ],
-     "rolle": "Die Kombination aus bereinigter Markttechnik und historisch bullischem Schlussquartal begünstigt eine Erholung."
-    },
-    "2026-10-19": {
-     "p": 1,
-     "namen": [
-      "Q4-Saisonalität & Positionierung"
-     ],
-     "rolle": "Aus charttechnischer und historischer Sicht folgten auf derart ausgeprägte Abwärtsstrecken meist deutliche Gegenbewegungen."
-    },
-    "2026-10-23": {
-     "p": -1,
-     "namen": [
-      "Halbleiter-Index (SOX) 200-Tage-Linie"
-     ],
-     "rolle": "Ein Bruch dieser Schlüsselmarke würde das technische Bild für den gesamten Technologiesektor weiter eintrüben."
-    },
-    "2026-10-26": {
-     "p": -1,
-     "namen": [
-      "Charttechnik (200-Tage-Linie S&P 500)"
-     ],
-     "rolle": "Analystenhäuser wie BTIG und Morgan Stanley sehen charttechnisch weiteres Abwärtspotenzial auf die Sommertiefs, bevor eine Erholung einsetzen kann."
-    },
-    "2026-10-30": {
-     "p": 1,
-     "namen": [
-      "Q4-Saisonalität & Positionierung"
-     ],
-     "rolle": "Die Kombination aus überverkauften Chartmarken und saisonalem Rückenwind nach den Zwischenwahlen bietet eine Basis für eine Erholung."
-    },
-    "2026-11-04": {
-     "p": 1,
-     "namen": [
-      "Q4-Saisonalität & Positionierung"
-     ],
-     "rolle": "Historische Daten zeigen nach einem Machtwechsel im Kongress sechs bis zwölf Monate später durchweg Kursgewinne für den S&P 500."
-    },
-    "2026-11-05": {
-     "p": 1,
-     "namen": [
-      "Technische Überverkauftheit"
-     ],
-     "rolle": "Das extreme Ausmaß des Rückschlags eröffnet zumindest charttechnisch die Chance auf eine kurzfristige Gegenbewegung."
-    },
-    "2026-11-09": {
-     "p": 2,
-     "namen": [
-      "Q4-Saisonalität & Positionierung"
-     ],
-     "rolle": "Die saisonal typische Stärke zum Jahresende treibt die Erwartung einer fortgesetzten Jahresendrallye an."
-    }
-   }
-  },
-  {
    "kategorie": "Inflation",
    "status": "bestaetigt",
-   "tage_anzahl": 10,
+   "tage_anzahl": 11,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-09",
+   "zuletzt": "2026-11-12",
    "name": "Inflationsdynamik",
    "namen": [
     "Inflationsdynamik",
     "Bevorstehende Inflationsdaten (CPI)"
    ],
-   "rolle": "Trotz bevorstehender Verbraucherpreisdaten wirkt der deflationäre Impuls sinkender Rohstoffpreise beruhigend.",
+   "rolle": "Hartnäckige Teuerungsdaten schränken den Handlungsspielraum der Notenbank empfindlich ein.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -1410,6 +1438,104 @@
       "Inflationsdynamik"
      ],
      "rolle": "Trotz bevorstehender Verbraucherpreisdaten wirkt der deflationäre Impuls sinkender Rohstoffpreise beruhigend."
+    },
+    "2026-11-12": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Hartnäckige Teuerungsdaten schränken den Handlungsspielraum der Notenbank empfindlich ein."
+    }
+   }
+  },
+  {
+   "kategorie": "Zinsen & Notenbank",
+   "status": "bestaetigt",
+   "tage_anzahl": 11,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-11-12",
+   "name": "Fed-Zinserwartungen",
+   "namen": [
+    "Fed-Zinserwartungen"
+   ],
+   "rolle": "Zunehmende Härte unter den Fed-Gouverneuren dämpft die Hoffnung auf eine rasche Lockerung der US-Geldpolitik.",
+   "tage": {
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
+    },
+    "2026-10-06": {
+     "p": 2,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
+    },
+    "2026-10-07": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren."
+    },
+    "2026-10-13": {
+     "p": 2,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Aussicht, dass nach einer möglichen letzten Zinserhöhung im laufenden Jahr im Folgejahr keine weiteren Schritte folgen, beruhigt die Zinsdebatte."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Zusätzliche Zinserhöhungen erhöhen das Risiko eines wirtschaftlichen Abschwungs."
+    },
+    "2026-10-15": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Zinspfade bis Jahresende bleiben der maßgebliche Treiber für Bewertung und Liquidität an den Märkten."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Das Ausbleiben hawkisher Überraschungen stützt die Zuversicht im Markt."
+    },
+    "2026-10-26": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Notenbanken dürften vor den anstehenden politischen Terminen keine überraschenden Kursschwenks vollziehen."
+    },
+    "2026-10-28": {
+     "p": 3,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Dass die Indizes nach dem Zinsentscheid nicht wie historisch üblich um rund ein Prozent einbrachen, wertet er als positives Stabilitätssignal."
+    },
+    "2026-11-12": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Zunehmende Härte unter den Fed-Gouverneuren dämpft die Hoffnung auf eine rasche Lockerung der US-Geldpolitik."
     }
    }
   },
@@ -1503,90 +1629,6 @@
       "US-Zollpolitik & Schuldenpläne"
      ],
      "rolle": "Politische Revancheakte und regulatorische Unsicherheiten belasten die betroffenen Großkonzerne im Tech-Sektor."
-    }
-   }
-  },
-  {
-   "kategorie": "Zinsen & Notenbank",
-   "status": "bestaetigt",
-   "tage_anzahl": 10,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-10-28",
-   "name": "Fed-Zinserwartungen",
-   "namen": [
-    "Fed-Zinserwartungen"
-   ],
-   "rolle": "Dass die Indizes nach dem Zinsentscheid nicht wie historisch üblich um rund ein Prozent einbrachen, wertet er als positives Stabilitätssignal.",
-   "tage": {
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
-    },
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
-    },
-    "2026-10-06": {
-     "p": 2,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
-    },
-    "2026-10-07": {
-     "p": 0,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren."
-    },
-    "2026-10-13": {
-     "p": 2,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Aussicht, dass nach einer möglichen letzten Zinserhöhung im laufenden Jahr im Folgejahr keine weiteren Schritte folgen, beruhigt die Zinsdebatte."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Zusätzliche Zinserhöhungen erhöhen das Risiko eines wirtschaftlichen Abschwungs."
-    },
-    "2026-10-15": {
-     "p": 0,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Zinspfade bis Jahresende bleiben der maßgebliche Treiber für Bewertung und Liquidität an den Märkten."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Das Ausbleiben hawkisher Überraschungen stützt die Zuversicht im Markt."
-    },
-    "2026-10-26": {
-     "p": 0,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Notenbanken dürften vor den anstehenden politischen Terminen keine überraschenden Kursschwenks vollziehen."
-    },
-    "2026-10-28": {
-     "p": 3,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Dass die Indizes nach dem Zinsentscheid nicht wie historisch üblich um rund ein Prozent einbrachen, wertet er als positives Stabilitätssignal."
     }
    }
   },

@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "tU6a_y01r1o",
+   "titel": "Huang Rücktritt kein Schock | Reaktion der Wall Street",
+   "datum": "2026-11-12",
+   "zeit": "2026-11-12T15:23:09+00:00",
+   "art": "opening",
+   "score": 15,
+   "pfeil": "hoch",
+   "thema": "Die US-Börsen zeigen sich trotz personeller Turbulenzen im Halbleitersektor und steigender Anleiherenditen erstaunlich widerstandsfähig.",
+   "gesamtstimmung": "Markus Koch bewertet die Marktlage trotz kurzfristiger Unsicherheiten verhalten optimistisch und hebt die beachtliche relative Stärke der Indizes hervor. Vor allem mit Blick auf den Jahresendverlauf rechnet er mit weiter steigenden Kursen und nutzt Rücksetzer für selektive Zukäufe.",
+   "begruendung": "Zwar belasten wieder anziehende Anleiherenditen und restriktivere Zinstauben bei der Fed die Bewertungsmultiplikatoren, doch die Märkte stecken negative Schlagzeilen im Technologiesektor bemerkenswert kontrolliert weg. Koch stuft das fundamentale Umfeld im Tech- und KI-Bereich weiterhin als robust ein und setzt auf eine Fortsetzung des positiven Jahresendtrends.",
+   "indikatoren": [
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "steigen weiter auf rund 5,07 %",
+     "pfeil": "runter",
+     "rolle": "Steigende Renditen setzen insbesondere die Bewertungsmultiplikatoren im Wachstums- und Technologiesektor unter Druck."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Falkenhafte Töne und Sorge vor weiteren Straffungen",
+     "pfeil": "runter",
+     "rolle": "Zunehmende Härte unter den Fed-Gouverneuren dämpft die Hoffnung auf eine rasche Lockerung der US-Geldpolitik."
+    },
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "Verbraucherpreise fester als erhofft, Erzeugerpreise stehen an",
+     "pfeil": "runter",
+     "rolle": "Hartnäckige Teuerungsdaten schränken den Handlungsspielraum der Notenbank empfindlich ein."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "Hoffnung auf eine Fortsetzung des Aufwärtstrends bis Jahresende",
+     "pfeil": "hoch",
+     "rolle": "Die saisonal typische Stärke zum Jahresende stützt Kochs Erwartung einer weiteren Markterholung."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "robuste Nachfrage und anhaltend hohe Investitionen in Cloud-Infrastruktur",
+     "pfeil": "hoch",
+     "rolle": "Die fundamental starke Nachfrage im Cloud- und KI-Sektor bildet das Fundament für die Ertragsstärke der führenden Tech-Konzerne."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "leicht anziehend nach Äußerungen zu Iran-Sanktionen",
+     "pfeil": "seitwaerts",
+     "rolle": "Politische Reibungspunkte schüren kurzfristig leichte Inflations- und Kostensorgen am Rohstoffmarkt."
+    }
+   ],
+   "zitate": [
+    "Das wirkt für mich alles recht kontrolliert.",
+    "Behaltet die Nerven, bis dann und ciao!"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 106610
+  },
+  {
    "id": "JL1kH_o9Jok",
    "titel": "Kapitulation zu FOMO in 72 Handelsstunden | Dow gewinnt 1100 Punkte!",
    "datum": "2026-11-09",
@@ -3134,9 +3197,11 @@
   "_WhoSHtMFZI",
   "OLnbm9251DM",
   "JL1kH_o9Jok",
-  "MrA7WFlqK74"
+  "MrA7WFlqK74",
+  "tU6a_y01r1o",
+  "BMoJTQLiGzY"
  ],
- "stand": "2026-11-09T23:38Z",
+ "stand": "2026-11-14T19:37Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
