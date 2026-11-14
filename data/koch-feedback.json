@@ -1,6 +1,6 @@
 {
- "stand": "07.11.2026",
- "zusammenfassung": "Woche 31.10.–06.11.2026 (KW 45): 5 neue Auswertungen von Markus Koch, insgesamt 45 seit 01.10. 13 der 14 Kategorien sind bestätigt, nur Dollar & Währungen ist noch neu. Von 14 Punkten sind 7 frei und automatisch abrufbar (Renditen, Marktbreite, Öl/Diesel, Konjunktur über GDPNow, Inflation, Arbeitsmarkt, Dollar), 3 teilweise (Zinserwartungen, Stimmung, Saisonalität), 4 bleiben Kochs Einschätzung (Geopolitik, Gewinnschätzungen, CapEx, Zölle/Politik). Neu belegt: Der Repo-Lauf von tools/sentiment.py hat am 07.11. FRED-CSV, VIX, Put/Call und CNN Fear & Greed abgerufen – der Runner erreicht diese Quellen offenbar; MOVE bleibt unbelegt.",
+ "stand": "14.11.2026",
+ "zusammenfassung": "Woche 07.–13.11.2026 (KW 46): nur 2 neue Auswertungen von Markus Koch, beide vom 09.11. (insgesamt 51 seit 01.10.); danach kam nichts mehr in data/koch.json (Stand 09.11. 23:38 UTC), der Sammellauf sollte geprüft werden. 13 der 14 Kategorien sind bestätigt, nur Dollar & Währungen ist weiter neu (nur 16.10.). Selbst abrufbar bleiben 7 von 14 Punkten (Renditen, Marktbreite, Öl/Diesel, Konjunktur über GDPNow, Inflation, Arbeitsmarkt, Dollar), 3 teilweise, 4 nur Kochs Einschätzung. Wichtig und neu: Im Lauf von tools/sentiment.py vom 14.11. endeten alle sechs FRED-Abrufe (DGS10, DGS2, DFF, GDPNOW, DTWEXBGS, GASDESW) und der High-Yield-Spread mit Zeitüberschreitung; Yahoo (VIX, RSP/SPY, Öl) und CNN Fear & Greed liefen. Die Aussage der Vorwoche, der Runner erreiche FRED, gilt damit nur eingeschränkt (zeitweise Ausfall oder zu knappe Frist); Put/Call zeigt weiter den Stand 04.10.2019 und ist unbrauchbar, NAAIM-Zahl wurde nicht gefunden.",
  "indikatoren": [
   {
    "name": "US-Staatsanleiherenditen",
@@ -8,7 +8,7 @@
    "machbar": "ja",
    "quelle": "FRED, Serie DGS10 (Quelle: Federal Reserve H.15); Alternative Yahoo ^TNX",
    "url": "https://fred.stlouisfed.org/series/DGS10",
-   "hinweis": "Geprüft (07.11.): FRED zeigt DGS10 täglich, letzter Wert 05.11.2026 4,84 % (Seite aktualisiert 06.11.). Im Repo holt tools/sentiment.py FRED bereits ohne Schlüssel über fredgraph.csv, und data/sentiment.json wurde am 07.11. damit gefüllt – der Runner erreicht FRED also offenbar."
+   "hinweis": "Quelle weiter FRED DGS10. Einschränkung (Lauf 14.11.): der Abruf im Repo endete mit Zeitüberschreitung, Daten sind daher noch nicht belegt. Ausweichen auf Yahoo ^TNX (gleicher Weg wie VIX, der lief) wäre die robustere Lösung. In dieser Woche hat Koch Renditen nicht erwähnt (zuletzt 05.11.)."
   },
   {
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
@@ -16,7 +16,7 @@
    "machbar": "ja",
    "quelle": "Yahoo-Chartabruf (query1.finance.yahoo.com/v8/finance/chart), im Repo schon in tools/trend.py genutzt: Verhältnis der ETFs RSP zu SPY",
    "url": "https://finance.yahoo.com/quote/RSP",
-   "hinweis": "Selbst rechenbar, täglich, ohne Schlüssel. Kochs Zahl kann leicht abweichen. Abruf von RSP in dieser Woche nicht einzeln getestet."
+   "hinweis": "Bestätigt: RSP/SPY lief im Lauf vom 14.11. über Yahoo (Verhältnis-Wert 4,22, Stand 13.11.). Damit wirklich belegt, nicht nur angenommen. Koch nannte das Thema auch am 09.11."
   },
   {
    "name": "Öl- und Dieselpreise",
@@ -24,7 +24,7 @@
    "machbar": "ja",
    "quelle": "Rohöl: Yahoo CL=F (Chartabruf wie oben); Diesel Endkunde: US-Energiebehörde EIA",
    "url": "https://www.eia.gov/petroleum/gasdiesel/",
-   "hinweis": "Geprüft (07.11.): EIA-Seite zeigt Diesel-Wochenpreis (26.10.: 6,352 $/gal) mit freiem Voll-Verlauf als XLS ohne erwähnten Schlüssel; die EIA-API v2 hat laut Seite Registrierung (Schlüssel, kostenlos – indirekt erschlossen). Die Seite war am 07.11. noch auf Stand 27.10. (nächster Termin 03.11. vermerkt), also evtl. verzögert. Rohöl täglich über Yahoo CL=F, im Repo-Sinn nicht einzeln getestet."
+   "hinweis": "Rohöl WTI (Yahoo CL=F) lief am 14.11.: 88,92 $, 20 Tage −12,3 %. Diesel-Endkundenpreis über FRED GASDESW endete mit Zeitüberschreitung, EIA-Seite weiter als Alternative (nicht erneut geprüft)."
   },
   {
    "name": "Nahost & Ukraine-Krieg",
@@ -56,7 +56,7 @@
    "machbar": "ja",
    "quelle": "FRED, Serie GDPNOW (Atlanta Fed, quartalsweise) und Atlanta-Fed-Seite mit Excel-Download",
    "url": "https://fred.stlouisfed.org/data/GDPNOW",
-   "hinweis": "Geprüft (07.11.): FRED liefert die GDPNow-Tabelle, letzter Wert 2026-Q4 3,44 % (Stand 04.11.), Atlanta Fed nennt 3,4 %; nächstes Update 09.11. Damit entfällt der Excel-Umweg. Industrie-/Exportdaten Asiens und Einzelhandelsumsätze wurden nicht geprüft (Einzelhandel gäbe es voraussichtlich bei FRED, ungeprüft)."
+   "hinweis": "FRED GDPNOW endete im Lauf vom 14.11. mit Zeitüberschreitung; Datenquelle selbst nicht erneut gelesen. Weiter machbar, aber erst belegt, wenn ein Lauf durchkommt. Koch nannte das Thema zuletzt am 03.11."
   },
   {
    "name": "Inflationsdynamik / CPI",
@@ -64,7 +64,7 @@
    "machbar": "ja",
    "quelle": "FRED, Serie CPIAUCSL (Quelle: US-Arbeitsministerium BLS)",
    "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
-   "hinweis": "Geprüft: monatlich, letzter Stand September 2026 (aktualisiert 14.10.2026), Veränderung gegen Vorjahr selbst rechenbar. Zahlen erscheinen am Veröffentlichungstag, nicht vorher; Kochs Blick auf Erwartungen davor bleibt Einschätzung."
+   "hinweis": "Koch sprach Inflation am 09.11. erneut an. FRED CPIAUCSL im Lauf nicht abgerufen (nur Einzelabruf der Vorwoche belegt); nächster CPI-Termin nicht geprüft."
   },
   {
    "name": "Marktpositionierung und Hebel / Anlegerstimmung / MOVE-Index",
@@ -72,7 +72,7 @@
    "machbar": "teilweise",
    "quelle": "AAII-Umfrage (wöchentlich, öffentlich nur letzte vier Wochen); MOVE über Yahoo ^MOVE",
    "url": "https://www.aaii.com/sentimentsurvey",
-   "hinweis": "Geprüft (07.11.): AAII öffentlich nur aktuelle Woche und letzte vier (zuletzt 04.11.: bullish 34,1 %, bearish 48,4 %), volle Historie nur für Mitglieder. Im Repo laufen bereits VIX, VIX/VIX3M, High-Yield-Spread, RSP/SPY, Put/Call und CNN Fear & Greed (data/sentiment.json vom 07.11.). MOVE: Yahoo ^MOVE heißt auf der Seite 'Northern Trust iBoxx 5-Year Tar', ob das der ICE-BofA-MOVE ist, ist nicht belegt – nicht verwenden. Marktpositionierung/Hebel bleibt Kochs Einschätzung."
+   "hinweis": "Im Lauf vom 14.11. belegt: VIX, VIX/VIX3M und CNN Fear & Greed (39, Stand 13.11.) über Yahoo bzw. CNN. Nicht brauchbar: Cboe-Put/Call (Datum 04.10.2019, veraltet), NAAIM (Zahl nicht gefunden), High-Yield-Spread (FRED Zeitüberschreitung). MOVE bleibt unbelegt: eine Suche fand nur die Yahoo-Seite ^MOVE ohne lesbaren Inhalt; ob der Chartabruf funktioniert, wurde nicht getestet. Koch sprach Positionierung am 09.11. wieder an."
   },
   {
    "name": "Q4-Saisonalität & Positionierung",
@@ -80,7 +80,7 @@
    "machbar": "teilweise",
    "quelle": "Yahoo-Chartabruf (query1.finance.yahoo.com/v8/finance/chart), im Repo schon in tools/trend.py genutzt (S&P 500 ^GSPC, lange Kursreihe)",
    "url": "https://finance.yahoo.com/quote/%5EGSPC",
-   "hinweis": "Saisonalität (Oktober bis Dezember in früheren Jahren) ist aus Kurshistorie selbst rechenbar; Positionierung gehört zum Stimmungsthema oben."
+   "hinweis": "Weiter aus der Yahoo-Kurshistorie (^GSPC) selbst rechenbar; Koch sprach das Thema am 09.11. erneut an. Positionierung siehe Stimmungspunkt."
   },
   {
    "name": "Tech-Investitionszyklus (CapEx)",
@@ -96,7 +96,7 @@
    "machbar": "ja",
    "quelle": "FRED, Serie PAYEMS (Quelle: BLS Employment Situation); Arbeitslosenquote UNRATE",
    "url": "https://fred.stlouisfed.org/series/PAYEMS",
-   "hinweis": "Geprüft für PAYEMS: monatlich, letzter Stand September 2026 (159.044 Tsd., Seite aktualisiert 02.10.2026). UNRATE in dieser Woche nicht einzeln geprüft. Wöchentliche Erstanträge (ICSA) nicht geprüft. Über FRED-CSV wie bei den Renditen abrufbar; diese Woche nicht erneut einzeln geprüft."
+   "hinweis": "Koch hat Arbeitsmarkt zuletzt am 06.11. erwähnt. FRED-Serien UNRATE und ICSA (wöchentliche Erstanträge) existieren laut Suchtreffern (fred.stlouisfed.org/series/UNRATE, /series/ICSA); Inhalt der Seiten diese Woche nicht gelesen, Abruf aus dem Runner wegen FRED-Zeitüberschreitungen derzeit unsicher."
   },
   {
    "name": "US-Zollpolitik & Schuldenpläne",
@@ -112,7 +112,7 @@
    "machbar": "ja",
    "quelle": "FRED, Serie DTWEXBGS (Nominaler breiter Dollar-Index, Federal Reserve H.10)",
    "url": "https://fred.stlouisfed.org/series/DTWEXBGS",
-   "hinweis": "Geprüft (07.11.): FRED DTWEXBGS letzter Wert 30.10.2026 121,67, also rund eine Woche Verzögerung. Schneller wäre Yahoo DX-Y.NYB, nicht getestet. Kochs Dollar-Aussagen sind bisher nur an einem Tag aufgetaucht."
+   "hinweis": "Weiter nur ein Tag (16.10.) mit Dollar-Aussage, Status bleibt „neu“. FRED DTWEXBGS endete am 14.11. mit Zeitüberschreitung; Yahoo DX-Y.NYB nicht getestet."
   }
  ]
 }
