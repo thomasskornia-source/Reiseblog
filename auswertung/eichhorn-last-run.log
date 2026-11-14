@@ -24,44 +24,12 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "s
+gemini-3.7-flash: The read operation timed out
+gemini-flash-latest: The read operation timed out
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: The read operation timed out
 Werte aus: S32diJBLEpY 95 % der Trader verlieren Geld – Zehnkampf-Gold ist realistischer 2026-11-06
+  0 Regeln, 0 Indikatoren (3747 Tokens)
+Werte aus: vH4zg3UK3ns #153: Die 5 Anfängerfehler, die fast jeder Stillhalter macht 2026-11-09
 gemini-3.8-flash: HTTP 503 {
   "error": {
     "code": 503,
@@ -86,14 +54,7 @@ gemini-3.7-flash: HTTP 503 {
   }
 }
 
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
+gemini-3.7-flash: The read operation timed out
 gemini-flash-latest: HTTP 503 {
   "error": {
     "code": 503,
@@ -115,29 +76,3 @@ gemini-flash-latest: HTTP 503 {
     "code": 503,
     "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
     "s
-Werte aus: RtlL3JCsh4k Optionen verkaufen bei niedriger Volatilität: Warum ich Einzelaktien statt Indizes nehme 2026-11-08
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-  4 Regeln, 2 Indikatoren (62708 Tokens)

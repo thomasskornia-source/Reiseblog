@@ -73,6 +73,23 @@
    "tokens": 62708
   },
   {
+   "id": "S32diJBLEpY",
+   "titel": "95 % der Trader verlieren Geld – Zehnkampf-Gold ist realistischer",
+   "datum": "2026-11-06",
+   "zeit": "2026-11-06T15:09:43+00:00",
+   "thema": "Hinweis auf die hohe Verlustquote im Trading im Vergleich zum langfristigen Investieren.",
+   "marktlage": "",
+   "regeln": [],
+   "indikatoren": [],
+   "quellen": [],
+   "zitate": [
+    "95 % aller Trader verlieren Geld."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 3747
+  },
+  {
    "id": "om-3tPIydHs",
    "titel": "Optionshandel mit System: Welche Strategie im Oktober wirklich verdient hat",
    "datum": "2026-11-05",
@@ -387,7 +404,8 @@
   "bEsxIZEj1jg",
   "ysRgtzIq5tg",
   "om-3tPIydHs",
-  "RtlL3JCsh4k"
+  "RtlL3JCsh4k",
+  "S32diJBLEpY"
  ],
  "quelle": "Eichhorn Coaching (YouTube-Podcast). Eigene Auswertung in eigenen Worten, kein Transkript, keine Anlageberatung.",
  "bereiche": [
@@ -404,5 +422,5 @@
   "Steuern & Broker",
   "Sonstiges"
  ],
- "stand": "2026-11-13T13:27Z"
+ "stand": "2026-11-14T12:58Z"
 }
