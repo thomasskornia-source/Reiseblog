@@ -1,6 +1,121 @@
 {
  "beitraege": [
   {
+   "id": "-vtWWK6jgdg",
+   "titel": "#Stillhalter sind #Volatilitätshändler, das vergessen fast alle",
+   "datum": "2026-11-10",
+   "zeit": "2026-11-10T09:35:46+00:00",
+   "thema": "Bedeutung der Volatilität im Vergleich zum Zeitwertverlust beim Verkauf von Optionen weit aus dem Geld.",
+   "marktlage": "",
+   "regeln": [
+    {
+     "bereich": "Volatilität & Marktphase",
+     "regel": "Sich bewusst machen, dass Stillhalter vor allem Volatilitätshändler sind und der Zeitwertverlust bei Volatilitätssprüngen in den Hintergrund tritt.",
+     "zahl": "",
+     "begruendung": "Je weiter eine Option aus dem Geld liegt, desto stärker schlägt eine explodierende Volatilität im Vergleich zum Zeitwertverlust durch.",
+     "art": "warnung"
+    }
+   ],
+   "indikatoren": [],
+   "quellen": [],
+   "zitate": [
+    "Stillhalter sind nichts anderes als Volatilitätshändler."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 5130
+  },
+  {
+   "id": "vH4zg3UK3ns",
+   "titel": "#153: Die 5 Anfängerfehler, die fast jeder Stillhalter macht",
+   "datum": "2026-11-09",
+   "zeit": "2026-11-09T11:00:10+00:00",
+   "thema": "Alexander Eichhorn bespricht typische Anfängerfehler im Optionshandel, insbesondere falsche Risikoeinschätzungen bei weit aus dem Geld liegenden Optionen und das Verwechseln von Glück mit Können.",
+   "marktlage": "Aktuell bewegen sich die Indizes bei niedriger Volatilität nahe Allzeithochs, weshalb Stillhalter-Trades auf Indizes wenig lukrativ sind und Chancen eher selektiv in Einzeltiteln mit Vola-Spitzen gesucht werden.",
+   "regeln": [
+    {
+     "bereich": "Strike & Delta",
+     "regel": "Weit aus dem Geld liegende Strikes bei niedriger Volatilität nicht für konservativ halten, sondern bei niedriger Vola eher am Geld verkaufen.",
+     "zahl": "Delta 10",
+     "begruendung": "Der relative Einfluss steigender Volatilität (Vega) ist bei OTM-Optionen viel höher als bei ATM-Optionen und zerstört bei Vola-Spitzen sofort den Zeitwertgewinn.",
+     "art": "warnung"
+    },
+    {
+     "bereich": "Positionsgröße & Risiko",
+     "regel": "Trades immer auf Basis gleicher erhaltener Prämien vergleichen und niemals auf Basis der Kontraktanzahl.",
+     "zahl": "1x 1000$ vs. 10x 100$",
+     "begruendung": "Um dieselbe Prämie mit OTM-Optionen zu erzielen, muss ein Vielfaches an Kontrakten gehandelt werden, was bei Marktverwerfungen zu ruinösem Hebel führt.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Ausstieg & Gewinnmitnahme",
+     "regel": "Vor jedem Trade eine klare Exit-Strategie festlegen und Short Puts nur dann andienen lassen, wenn ausreichend Barmittel vorhanden sind.",
+     "zahl": "",
+     "begruendung": "Das ungeplante Halten oder Wandeln von Short Puts in Aktienpositionen erzeugt über Nacht gefährliche Marginauslastungen.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Volatilität & Marktphase",
+     "regel": "Bei niedriger Volatilität Stillhalteraktivitäten drosseln und erst bei Panik und hohen Vola-Spitzen aggressiv Optionen verkaufen.",
+     "zahl": "VIX 14",
+     "begruendung": "Bei niedriger Vola sind die Prämien im Verhältnis zum Katastrophenrisiko zu gering, während Panikphasen die attraktivsten Risikoprämien bieten.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Volatilität & Marktphase",
+     "regel": "Das Vega-Theta-Verhältnis analysieren, um das Risiko eines Vola-Sprungs gegen den Zeitwertgewinn abzuwägen.",
+     "zahl": "1 % Vola",
+     "begruendung": "Bei OTM-Optionen kann bereits ein Anstieg der impliziten Volatilität um einen Prozentpunkt den Theta-Gewinn von vielen Tagen komplett auffressen.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Sonstiges",
+     "regel": "Einen Trade ausschließlich anhand der disziplinierten Regeltreue bewerten und nicht am finanziellen Ergebnis in Dollar.",
+     "zahl": "",
+     "begruendung": "Ein Trade mit Regelverstößen, der zufällig Gewinn abwirft, fördert falsche Verhaltensweisen, die bei der nächsten Krise zum Depotverlust führen.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Ausstieg & Gewinnmitnahme",
+     "regel": "Optionen vor dem Verfallsschluss glattstellen, anstatt sie über das Wochenende in eine automatische Ausübung oder Zuweisung laufen zu lassen.",
+     "zahl": "22:00 Uhr",
+     "begruendung": "Nachbörsliche Kursbewegungen und Wochenendgaps können dazu führen, dass man montags unbemerkt mit einer massiven Short- oder Long-Position im Risiko steht.",
+     "art": "warnung"
+    }
+   ],
+   "indikatoren": [
+    {
+     "name": "VIX / VXX",
+     "art": "Index",
+     "wozu": "Dient als Gradmesser für das Marktrisiko und zur Entscheidung, ob Index-Puts verkauft werden oder die Füße stillgehalten werden.",
+     "lage": "bei 14 als niedrig eingestuft"
+    },
+    {
+     "name": "Vega / Theta Ratio",
+     "art": "Kennzahl",
+     "wozu": "Zeigt auf, wie viele Tage Theta-Verfall nötig sind, um den Schaden eines einprozentigen Vola-Anstiegs auszugleichen.",
+     "lage": ""
+    }
+   ],
+   "quellen": [
+    {
+     "name": "CapTrader",
+     "wozu": "Sponsor des Podcasts und genutzter Broker für den Optionshandel."
+    },
+    {
+     "name": "Delta 10 E-Book",
+     "wozu": "Kostenloses E-Book von Eichhorn Coaching zur finanzmathematischen Erklärung von OTM-Optionen."
+    }
+   ],
+   "zitate": [
+    "Stillhalter sind nichts anderes als Volatilitätshändler.",
+    "Ein guter Trade ist, wenn ihr den fachlich korrekt umsetzt."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 134503
+  },
+  {
    "id": "RtlL3JCsh4k",
    "titel": "Optionen verkaufen bei niedriger Volatilität: Warum ich Einzelaktien statt Indizes nehme",
    "datum": "2026-11-08",
@@ -405,7 +520,9 @@
   "ysRgtzIq5tg",
   "om-3tPIydHs",
   "RtlL3JCsh4k",
-  "S32diJBLEpY"
+  "S32diJBLEpY",
+  "vH4zg3UK3ns",
+  "-vtWWK6jgdg"
  ],
  "quelle": "Eichhorn Coaching (YouTube-Podcast). Eigene Auswertung in eigenen Worten, kein Transkript, keine Anlageberatung.",
  "bereiche": [
@@ -422,5 +539,5 @@
   "Steuern & Broker",
   "Sonstiges"
  ],
- "stand": "2026-11-14T12:58Z"
+ "stand": "2026-11-15T13:00Z"
 }
