@@ -850,5 +850,14 @@
   "info": "Lesbar (Quelle für Claudes Auswahl)",
   "abruf": false,
   "status": "behalten"
+ },
+ {
+  "id": "stream-sj-serienstarts-nov",
+  "rubrik": "stream",
+  "name": "Serienjunkies: Deutsche Serienstarts November 2026",
+  "url": "https://www.serienjunkies.de/news/serien/deutsche-serienstarts-im-november-2026-teil-the-ark-the-institute-rj-decker-94566865.html",
+  "info": "Lesbar (Quelle für Claudes Auswahl)",
+  "abruf": false,
+  "status": "behalten"
  }
 ]
