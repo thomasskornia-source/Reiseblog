@@ -1,6 +1,132 @@
 {
  "beitraege": [
   {
+   "id": "tpoH6_72axo",
+   "titel": "Jensen ist weg. Jetzt muss Nvidia liefern!",
+   "datum": "2026-11-13",
+   "zeit": "2026-11-13T14:28:40+00:00",
+   "art": "opening",
+   "score": -15,
+   "pfeil": "runter",
+   "thema": "Markus Koch blickt auf die Vorgaben zum Wochenausklang, anstehende Tech-Zahlen, steigende Renditen und Inflationsdaten.",
+   "gesamtstimmung": "Die Marktstimmung ist verhalten optimistisch für kurzfristige Erholungen, mittelfristig dominiert jedoch Skepsis aufgrund steigender Renditen und hoher Defizite. Viele Marktteilnehmer planen, temporäre Kursrallys eher für Verkäufe zu nutzen.",
+   "begruendung": "Zwar liefern moderate Erzeugerpreise und hohe Leerverkaufspositionen als Kontraindikator kurzfristig Unterstützung für den Markt. Gleichzeitig belasten jedoch steigende Anleiherenditen, ein drastisch gestiegenes US-Haushaltsdefizit und die Schwäche am Immobilienmarkt das übergeordnete Bild.",
+   "indikatoren": [
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "Erzeugerpreise im Rahmen bzw. unter den Erwartungen",
+     "pfeil": "hoch",
+     "rolle": "Die moderaten Erzeugerpreise verschaffen den Märkten eine kleine Erleichterung gegenüber den zuvor heißeren Verbraucherpreisen."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Renditen der 10-jährigen US-Anleihen ziehen weiter an",
+     "pfeil": "runter",
+     "rolle": "Höhere Renditen erhöhen den Druck auf Aktienbewertungen und signalisieren Skepsis der Anleihemärkte gegenüber der US-Finanzpolitik."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zollpolitik & Schuldenpläne",
+     "lage": "US-Haushaltsdefizit im Oktober mit über 400 Mrd. Dollar deutlich höher als erwar",
+     "pfeil": "runter",
+     "rolle": "Das explodierende Haushaltsdefizit zwingt die Märkte zur Abstrafung des Staates über höhere Refinanzierungskosten."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Höchste Leerverkäufe auf den Nasdaq-100-ETF (QQQ) seit drei Jahren",
+     "pfeil": "hoch",
+     "rolle": "Die extrem hohe Short-Positionierung fungiert als klassischer Kontraindikator, der bei positiven Impulsen Eindeckungsrallys auslösen kann."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "US-Immobilienmarkt",
+     "lage": "Hausverkäufe im Oktober schwach, Hypothekenzinsen auf Mehrjahreshochs",
+     "pfeil": "runter",
+     "rolle": "Die mangelnde Erschwinglichkeit und hohe Zinsen bremsen den US-Immobiliensektor spürbar aus."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "IEA meldet wieder einen weltweiten Angebotsüberschuss",
+     "pfeil": "hoch",
+     "rolle": "Ein entspannteres Angebot-Nachfrage-Gleichgewicht dämpft Inflationsrisiken von der Energieseite."
+    }
+   ],
+   "zitate": [
+    "Wenn der Staat nicht hören will, dann wird der Anleihemarkt den Staat schon abstrafen.",
+    "Das eigentliche Risiko ist eine Verschärfung der Exportrichtlinien von Hochleistungstechnologie nach China."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 123780
+  },
+  {
+   "id": "jARmVcERgc8",
+   "titel": "Huang's Abgang war kein Schock | Cisco kann nachbörslich schlagen.",
+   "datum": "2026-11-12",
+   "zeit": "2026-11-12T21:55:54+00:00",
+   "art": "closing",
+   "score": 20,
+   "pfeil": "hoch",
+   "thema": "Markus Koch analysiert die erstaunliche Widerstandskraft der Wall Street angesichts der Turbulenzen um Nvidia, belastender Anleiherenditen und steigender Ölpreise.",
+   "gesamtstimmung": "Trotz massiver Unruhe um die Nvidia-Führung, steigender Kapitalmarktzinsen und anziehender Ölpreise behauptet sich der Gesamtmarkt überraschend stabil. Getragen von überwiegend überzeugenden Tech-Quartalszahlen bleibt Markus Koch für eine Jahresendrally weiterhin vorsichtig optimistisch.",
+   "begruendung": "Zwar belasten die auf über 5,1 % gekletterten Renditen der US-Staatsanleihen und das ausufernde Haushaltsdefizit das Umfeld spürbar. Allerdings federn robuste Unternehmensergebnisse die Verluste ab, weshalb Koch an steigenden Kursen bis zum Jahresende festhält.",
+   "indikatoren": [
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "überwiegend stark und über den Markterwartungen",
+     "pfeil": "hoch",
+     "rolle": "Solide Bilanzen im Tech-Sektor stützen die Kurse nachbörslich und dämpfen die Nervosität."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "kriechen mit über 5,12 % wieder nach oben",
+     "pfeil": "runter",
+     "rolle": "Anziehende Renditen der zehnjährigen Anleihen belasten die Bewertung am Aktienmarkt."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "steigen wieder in Richtung 89 Dollar je Barrel",
+     "pfeil": "runter",
+     "rolle": "Steigende Energiekosten schüren Inflationssorgen und trüben das Marktumfeld ein."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "Chance auf saisonalen Rückenwind zum Jahresende",
+     "pfeil": "hoch",
+     "rolle": "Er geht trotz kurzfristiger Hürden weiterhin von einer Fortsetzung des Aufwärtstrends bis Jahresende aus."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zollpolitik & Schuldenpläne",
+     "lage": "alarmierende Defizitzahlen zu Beginn des neuen Fiskaljahres",
+     "pfeil": "runter",
+     "rolle": "Das anhaltend hohe Haushaltsdefizit wird als untragbar für Wirtschaft und Rentenmarkt eingestuft."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Equal-Weight-Index unter Druck, Marktbreite schwach",
+     "pfeil": "runter",
+     "rolle": "Eine ungleiche Beteiligung mahnt zur Vorsicht, da Kursgewinne selektiv bleiben."
+    }
+   ],
+   "zitate": [
+    "die Wall Street hat sich heute erstaunlich gut geschlagen",
+    "dass wir ins Jahresende hineingehend noch steigende Kurse sehen werden"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 132846
+  },
+  {
    "id": "tU6a_y01r1o",
    "titel": "Huang Rücktritt kein Schock | Reaktion der Wall Street",
    "datum": "2026-11-12",
@@ -62,6 +188,104 @@
    "sicherheit": "hoch",
    "modell": "gemini-3.7-flash",
    "tokens": 106610
+  },
+  {
+   "id": "icgLYvb5Tfk",
+   "titel": "NVIDIA CEO tritt zurück | Aktie verliert 10%",
+   "datum": "2026-11-12",
+   "zeit": "2026-11-12T14:24:55+00:00",
+   "art": "opening",
+   "score": -35,
+   "pfeil": "runter",
+   "thema": "Die US-Börsen geraten durch einen überraschenden Führungswechsel bei Nvidia, steigende Anleiherenditen und anziehende Ölpreise unter Druck.",
+   "gesamtstimmung": "Der Markt zeigt sich verunsichert und nervös, da der KI-Leitsektor durch Turbulenzen an der Nvidia-Spitze und drohende regulatorische Eingriffe aus Washington belastet wird. Zugleich dämpfen anziehende Renditen und festere Ölpreise die Risikobereitschaft der Anleger.",
+   "begruendung": "Der schockartige Kursrutsch beim Marktschwergewicht Nvidia sorgt für deutliche Unruhe im Technologiesektor und drückt auf den Gesamtmarkt. Zusätzlicher Gegenwind entsteht durch steigende Renditen bei US-Staatsanleihen sowie politische Vorstöße zu weiteren Export- und Ausbaubeschränkungen im KI-Bereich.",
+   "indikatoren": [
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "ziehen bei den zehnjährigen Papieren an",
+     "pfeil": "runter",
+     "rolle": "Steigende Kapitalmarktzinsen belasten traditionell höher bewertete Wachstums- und Technologiewerte."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "ziehen nach politischen Aussagen zu Iran an",
+     "pfeil": "runter",
+     "rolle": "Teurere Energie schürt neue Inflationsbedenken und trübt das makroökonomische Umfeld."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Regulierung & Exportbeschränkungen",
+     "lage": "zunehmender politischer Druck in Washington für schärfere Restriktionen",
+     "pfeil": "runter",
+     "rolle": "Politische Diskussionen über Ausbaumoratorien für Rechenzentren und striktere Exportkontrollen schaffen anhaltende Unsicherheit."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "dreijährige Produkt-Roadmaps und Fundamentaldaten stehen trotz Personalchaos",
+     "pfeil": "seitwaerts",
+     "rolle": "Die solide fundamentale Nachfrage nach KI-Infrastruktur verhindert einen noch tieferen Einbruch der Branche."
+    }
+   ],
+   "zitate": [
+    "da kommt richtig Freude auf, muss man sagen",
+    "es wird nichts so heiß gegessen, wie es gekocht wird"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 81692
+  },
+  {
+   "id": "oJXiEO-lCX4",
+   "titel": "KI-Comeback! OpenAI, Anthropic und CoreWeave liefern Rückenwind",
+   "datum": "2026-11-11",
+   "zeit": "2026-11-11T14:28:58+00:00",
+   "art": "opening",
+   "score": 55,
+   "pfeil": "hoch",
+   "thema": "Die US-Börsen starten dank starker Dynamik im KI-Sektor, sinkender Volatilität und positiver Saisonalität mit deutlichen Kursgewinnen in den Handelstag.",
+   "gesamtstimmung": "Markus Koch blickt optimistisch auf den Handelstag, da sich der Gesamtmarkt nach Vortagstiefs stabilisiert hat und positive Impulse aus dem KI-Ökosystem für Erleichterung sorgen. Zudem stützen eine defensive Positionierung institutioneller Anleger und ein saisonal starkes Zeitfenster die Erholung Richtung Jahresende.",
+   "begruendung": "Der Rückgang des Volatilitätsindex VIX und die robuste Haltung der Indizes trotz Einzeltitelturbulenzen stimmen positiv. Zudem zwingt die vorsichtige Positionierung von Hedgefonds diese bei anhaltender Jahresendrallye zu Anschlusskäufen.",
+   "indikatoren": [
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Volatilitätsindex (VIX)",
+     "lage": "gesunken",
+     "pfeil": "hoch",
+     "rolle": "Der Rückgang des VIX signalisiert eine nachlassende Nervosität und stützt die Markterholung."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "sehr konservativ, Risiken abgebaut",
+     "pfeil": "hoch",
+     "rolle": "Hedgefonds haben Risiken reduziert und müssen nun bei Kursanstiegen dem Markt hinterherlaufen."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "saisonal starke Phase intakt",
+     "pfeil": "hoch",
+     "rolle": "Das historisch vorteilhafte saisonale Umfeld begünstigt Kursgewinne bis zum Jahresende."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "ungebrochen hohe Investitionen und Nachfrage nach KI-Infrastruktur",
+     "pfeil": "hoch",
+     "rolle": "Hohe geplante Ausgaben für Rechenzentren und unersättliche Chip-Nachfrage beruhigen den Technologiesektor."
+    }
+   ],
+   "zitate": [
+    "Schöner Start in den Tag, insbesondere bei den Tech-Werten.",
+    "Die Situation ist gar nicht so schlecht."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 102807
   },
   {
    "id": "JL1kH_o9Jok",
@@ -3199,9 +3423,13 @@
   "JL1kH_o9Jok",
   "MrA7WFlqK74",
   "tU6a_y01r1o",
-  "BMoJTQLiGzY"
+  "BMoJTQLiGzY",
+  "oJXiEO-lCX4",
+  "jARmVcERgc8",
+  "icgLYvb5Tfk",
+  "tpoH6_72axo"
  ],
- "stand": "2026-11-14T19:37Z",
+ "stand": "2026-11-15T20:11Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
