@@ -1,22 +1,22 @@
 {
- "stand": "2026-11-15",
+ "stand": "2026-11-16",
  "quelle": "Wikipedia-Seitenaufrufe (englisch), kein Tonwert, Yahoo (Kurse)",
  "art": "wiki",
  "hinweis": "Messwerkzeug, kein Handelssignal. Zusammenhänge unter der Schwelle sind nicht belastbar.",
  "pool": {
-  "aufm_vol_gleich": 0.135,
+  "aufm_vol_gleich": 0.132,
   "ton_ret_gleich": null,
-  "n": 918,
+  "n": 900,
   "schwelle": 0.07
  },
  "aktien": {
   "KO": {
    "r": {
-    "aufm_vol_gleich": 0.18,
+    "aufm_vol_gleich": 0.19,
     "aufm_vol_folge": 0.14,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -83,17 +83,17 @@
      "20261113"
     ],
     "n": [
-     2788,
-     2689,
-     2738,
-     2977,
-     2939,
-     2780,
-     2789,
-     3628,
-     3019,
-     2981,
-     2763,
+     2798,
+     2681,
+     2698,
+     3013,
+     2895,
+     2807,
+     2800,
+     3627,
+     3001,
+     2960,
+     2750,
      2790,
      2822,
      2757,
@@ -269,10 +269,10 @@
      99.25
     ]
    },
-   "aufm": -1.49,
+   "aufm": -1.53,
    "ton": null,
    "artikel_heute": 2365,
-   "artikel_schnitt": 2648,
+   "artikel_schnitt": 2647,
    "name": "The Coca-Cola Company",
    "suche": "Coca-Cola"
   },
@@ -282,7 +282,7 @@
     "aufm_vol_folge": 0.1,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -349,17 +349,17 @@
      "20261113"
     ],
     "n": [
-     2674,
-     2587,
+     2652,
+     2597,
      2650,
-     3103,
-     2905,
-     2697,
-     4375,
-     3562,
+     3107,
+     2908,
+     2662,
+     4413,
+     3579,
+     3557,
      3578,
-     3574,
-     3155,
+     3174,
      2904,
      3449,
      3422,
@@ -544,11 +544,11 @@
   },
   "BRK-B": {
    "r": {
-    "aufm_vol_gleich": -0.12,
+    "aufm_vol_gleich": -0.13,
     "aufm_vol_folge": 0.16,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -615,17 +615,17 @@
      "20261113"
     ],
     "n": [
-     2315,
-     2425,
-     2443,
-     2426,
-     2253,
-     1989,
-     2587,
-     2614,
-     2712,
-     2531,
-     2177,
+     2263,
+     2374,
+     2364,
+     2384,
+     2250,
+     1964,
+     2599,
+     2600,
+     2723,
+     2517,
+     2147,
      2364,
      2222,
      2182,
@@ -804,7 +804,7 @@
    "aufm": 0.39,
    "ton": null,
    "artikel_heute": 3548,
-   "artikel_schnitt": 2837,
+   "artikel_schnitt": 2832,
    "name": "Berkshire Hathaway Inc. (Klasse B)",
    "suche": "Berkshire_Hathaway"
   },
@@ -814,7 +814,7 @@
     "aufm_vol_folge": 0.3,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -881,17 +881,17 @@
      "20261113"
     ],
     "n": [
-     4036,
-     6620,
-     5096,
-     7637,
-     10817,
-     7365,
-     5813,
-     5725,
-     4999,
-     6533,
-     7116,
+     3201,
+     5791,
+     5339,
+     6636,
+     9999,
+     6662,
+     4946,
+     5002,
+     4844,
+     5775,
+     6414,
      4834,
      5465,
      4736,
@@ -1070,17 +1070,17 @@
    "aufm": 9.83,
    "ton": null,
    "artikel_heute": 252871,
-   "artikel_schnitt": 21532,
+   "artikel_schnitt": 21413,
    "name": "NVIDIA Corporation",
    "suche": "Nvidia"
   },
   "TTWO": {
    "r": {
     "aufm_vol_gleich": 0.05,
-    "aufm_vol_folge": -0.04,
+    "aufm_vol_folge": -0.05,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -1147,17 +1147,17 @@
      "20261113"
     ],
     "n": [
-     5044,
-     4474,
-     3772,
-     4446,
-     5566,
-     8549,
-     4301,
-     3396,
-     3064,
-     2588,
-     2438,
+     5142,
+     4555,
+     3834,
+     4522,
+     5697,
+     8737,
+     4402,
+     3479,
+     3114,
+     2654,
+     2485,
      2012,
      1923,
      2049,
@@ -1333,20 +1333,20 @@
      227.82
     ]
    },
-   "aufm": 1.79,
+   "aufm": 1.76,
    "ton": null,
    "artikel_heute": 5956,
-   "artikel_schnitt": 2837,
+   "artikel_schnitt": 2853,
    "name": "Take-Two Interactive Software, Inc.",
    "suche": "Take-Two_Interactive"
   },
   "AMZN": {
    "r": {
-    "aufm_vol_gleich": 0.07,
-    "aufm_vol_folge": -0.05,
+    "aufm_vol_gleich": 0.04,
+    "aufm_vol_folge": -0.09,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -1413,17 +1413,17 @@
      "20261113"
     ],
     "n": [
-     18997,
-     9094,
-     7607,
-     7417,
-     7819,
-     6556,
-     7230,
-     7195,
-     7511,
-     7547,
-     7070,
+     19342,
+     6693,
+     4581,
+     4629,
+     5451,
+     4265,
+     4739,
+     4800,
+     5034,
+     4869,
+     4559,
      8949,
      8111,
      7846,
@@ -1599,20 +1599,20 @@
      266.66
     ]
    },
-   "aufm": -1.17,
+   "aufm": -0.71,
    "ton": null,
    "artikel_heute": 5889,
-   "artikel_schnitt": 8113,
+   "artikel_schnitt": 7695,
    "name": "Amazon.com, Inc.",
    "suche": "Amazon_(company)"
   },
   "INTC": {
    "r": {
     "aufm_vol_gleich": 0.74,
-    "aufm_vol_folge": 0.2,
+    "aufm_vol_folge": 0.19,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -1679,17 +1679,17 @@
      "20261113"
     ],
     "n": [
-     1166,
-     1206,
-     1269,
-     1272,
-     1198,
-     1084,
-     1269,
-     1205,
-     1306,
-     1362,
-     1181,
+     1111,
+     1136,
+     1172,
+     1211,
+     1174,
+     1072,
+     1209,
+     1144,
+     1241,
+     1300,
+     1094,
      1301,
      1357,
      1450,
@@ -1865,20 +1865,20 @@
      59.66
     ]
    },
-   "aufm": 5.72,
+   "aufm": 5.66,
    "ton": null,
    "artikel_heute": 3236,
-   "artikel_schnitt": 1388,
+   "artikel_schnitt": 1377,
    "name": "Intel Corporation",
    "suche": "Intel"
   },
   "UBER": {
    "r": {
     "aufm_vol_gleich": -0.15,
-    "aufm_vol_folge": -0.16,
+    "aufm_vol_folge": -0.19,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -1945,17 +1945,17 @@
      "20261113"
     ],
     "n": [
-     3,
-     0,
-     2,
-     2,
-     2,
-     0,
      2,
      0,
      1,
-     2,
      1,
+     2,
+     0,
+     1,
+     0,
+     1,
+     1,
+     0,
      0,
      0,
      1,
@@ -2131,7 +2131,7 @@
      69.69
     ]
    },
-   "aufm": -0.28,
+   "aufm": -0.24,
    "ton": null,
    "artikel_heute": 1,
    "artikel_schnitt": 2,
@@ -2140,11 +2140,11 @@
   },
   "VRSN": {
    "r": {
-    "aufm_vol_gleich": -0.08,
-    "aufm_vol_folge": -0.14,
+    "aufm_vol_gleich": -0.09,
+    "aufm_vol_folge": -0.09,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -2211,17 +2211,17 @@
      "20261113"
     ],
     "n": [
-     138,
-     128,
-     151,
      142,
-     112,
-     674,
-     155,
+     124,
+     146,
+     132,
+     115,
+     137,
+     151,
      163,
-     158,
-     445,
-     318,
+     154,
+     439,
+     310,
      166,
      210,
      170,
@@ -2397,20 +2397,20 @@
      313.02
     ]
    },
-   "aufm": -0.04,
+   "aufm": 0.11,
    "ton": null,
    "artikel_heute": 132,
-   "artikel_schnitt": 171,
+   "artikel_schnitt": 162,
    "name": "Verisign",
    "suche": "Verisign"
   },
   "ACGL": {
    "r": {
-    "aufm_vol_gleich": 0.09,
-    "aufm_vol_folge": -0.23,
+    "aufm_vol_gleich": 0.05,
+    "aufm_vol_folge": -0.28,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -2477,17 +2477,17 @@
      "20261113"
     ],
     "n": [
-     47,
-     44,
-     40,
+     46,
+     42,
+     37,
      41,
-     62,
-     39,
-     45,
-     47,
-     62,
-     65,
-     39,
+     61,
+     35,
+     43,
+     44,
+     59,
+     53,
+     36,
      53,
      58,
      44,
@@ -2663,7 +2663,7 @@
      109.61
     ]
    },
-   "aufm": -2.45,
+   "aufm": -2.39,
    "ton": null,
    "artikel_heute": 29,
    "artikel_schnitt": 48,
@@ -2672,11 +2672,11 @@
   },
   "EOG": {
    "r": {
-    "aufm_vol_gleich": -0.09,
-    "aufm_vol_folge": -0.15,
+    "aufm_vol_gleich": -0.08,
+    "aufm_vol_folge": -0.13,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -2744,16 +2744,16 @@
     ],
     "n": [
      58,
-     55,
-     89,
-     60,
-     43,
-     30,
-     54,
-     71,
-     73,
-     75,
-     74,
+     56,
+     81,
+     56,
+     44,
+     23,
+     56,
+     72,
+     67,
+     65,
+     63,
      60,
      81,
      80,
@@ -2929,20 +2929,20 @@
      158.32
     ]
    },
-   "aufm": -1.04,
+   "aufm": -0.99,
    "ton": null,
    "artikel_heute": 40,
-   "artikel_schnitt": 69,
+   "artikel_schnitt": 68,
    "name": "EOG Resources",
    "suche": "EOG_Resources"
   },
   "WRB": {
    "r": {
-    "aufm_vol_gleich": 0.04,
-    "aufm_vol_folge": -0.14,
+    "aufm_vol_gleich": 0.05,
+    "aufm_vol_folge": -0.15,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -3009,17 +3009,17 @@
      "20261113"
     ],
     "n": [
-     49,
-     42,
-     57,
-     40,
-     62,
      44,
-     68,
-     41,
-     65,
+     35,
+     58,
+     35,
+     56,
      43,
-     53,
+     49,
+     36,
+     65,
+     40,
+     42,
      43,
      36,
      46,
@@ -3195,20 +3195,20 @@
      77.44
     ]
    },
-   "aufm": -0.31,
+   "aufm": -0.29,
    "ton": null,
    "artikel_heute": 38,
-   "artikel_schnitt": 51,
+   "artikel_schnitt": 50,
    "name": "W. R. Berkley Corporation",
    "suche": "W._R._Berkley_Corporation"
   },
   "FDS": {
    "r": {
-    "aufm_vol_gleich": -0.16,
-    "aufm_vol_folge": -0.05,
+    "aufm_vol_gleich": -0.13,
+    "aufm_vol_folge": -0.04,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -3276,16 +3276,16 @@
     ],
     "n": [
      92,
-     92,
-     99,
-     113,
-     84,
-     64,
-     77,
-     113,
-     86,
-     84,
-     82,
+     83,
+     83,
+     101,
+     74,
+     57,
+     69,
+     106,
+     72,
+     75,
+     71,
      65,
      78,
      100,
@@ -3461,20 +3461,20 @@
      332.69
     ]
    },
-   "aufm": -0.63,
+   "aufm": -0.52,
    "ton": null,
    "artikel_heute": 72,
-   "artikel_schnitt": 91,
+   "artikel_schnitt": 89,
    "name": "FactSet",
    "suche": "FactSet"
   },
   "MRSH": {
    "r": {
-    "aufm_vol_gleich": -0.06,
+    "aufm_vol_gleich": -0.05,
     "aufm_vol_folge": 0.05,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -3541,17 +3541,17 @@
      "20261113"
     ],
     "n": [
-     436,
-     523,
-     440,
-     481,
-     425,
-     408,
-     520,
-     678,
-     748,
-     678,
-     698,
+     434,
+     522,
+     429,
+     461,
+     414,
+     397,
+     517,
+     663,
+     733,
+     670,
+     680,
      1381,
      1485,
      1965,
@@ -3730,17 +3730,17 @@
    "aufm": -0.44,
    "ton": null,
    "artikel_heute": 244,
-   "artikel_schnitt": 754,
+   "artikel_schnitt": 752,
    "name": "Marsh McLennan",
    "suche": "Marsh_McLennan"
   },
   "PYPL": {
    "r": {
-    "aufm_vol_gleich": 0.02,
-    "aufm_vol_folge": 0.01,
+    "aufm_vol_gleich": -0.04,
+    "aufm_vol_folge": -0.05,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -3808,16 +3808,16 @@
     ],
     "n": [
      2039,
-     2149,
-     2264,
-     2103,
-     2120,
-     2162,
-     2264,
-     2251,
-     2314,
-     2447,
-     2214,
+     2104,
+     2189,
+     2027,
+     2071,
+     2104,
+     2212,
+     2225,
+     2275,
+     2466,
+     2142,
      2297,
      2371,
      2276,
@@ -3993,20 +3993,20 @@
      59.28
     ]
    },
-   "aufm": -0.48,
+   "aufm": -0.44,
    "ton": null,
    "artikel_heute": 1987,
-   "artikel_schnitt": 2064,
+   "artikel_schnitt": 2056,
    "name": "PayPal",
    "suche": "PayPal"
   },
   "PGR": {
    "r": {
-    "aufm_vol_gleich": 0.05,
+    "aufm_vol_gleich": 0.03,
     "aufm_vol_folge": 0.05,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -4073,17 +4073,17 @@
      "20261113"
     ],
     "n": [
-     180,
-     190,
-     191,
-     211,
-     172,
-     151,
-     192,
-     223,
-     212,
-     192,
-     201,
+     170,
+     182,
+     182,
+     193,
+     167,
+     143,
+     177,
+     219,
+     205,
+     176,
+     187,
      205,
      184,
      243,
@@ -4259,20 +4259,20 @@
      235.78
     ]
    },
-   "aufm": -0.49,
+   "aufm": -0.43,
    "ton": null,
    "artikel_heute": 179,
-   "artikel_schnitt": 241,
+   "artikel_schnitt": 239,
    "name": "Progressive Corporation",
    "suche": "Progressive_Corporation"
   },
   "ECL": {
    "r": {
-    "aufm_vol_gleich": -0.08,
-    "aufm_vol_folge": -0.15,
+    "aufm_vol_gleich": -0.04,
+    "aufm_vol_folge": -0.18,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -4339,17 +4339,17 @@
      "20261113"
     ],
     "n": [
-     177,
-     174,
-     261,
-     245,
-     595,
-     175,
-     179,
+     171,
+     172,
+     200,
+     189,
+     197,
+     163,
+     178,
+     208,
      213,
-     221,
-     162,
-     202,
+     150,
+     177,
      164,
      193,
      177,
@@ -4525,20 +4525,20 @@
      309.27
     ]
    },
-   "aufm": -0.48,
+   "aufm": -0.46,
    "ton": null,
    "artikel_heute": 114,
-   "artikel_schnitt": 183,
+   "artikel_schnitt": 173,
    "name": "Ecolab",
    "suche": "Ecolab"
   },
   "DIS": {
    "r": {
-    "aufm_vol_gleich": -0.07,
+    "aufm_vol_gleich": -0.04,
     "aufm_vol_folge": -0.01,
     "ton_ret_gleich": null,
     "ton_ret_folge": null,
-    "n": 51,
+    "n": 50,
     "schwelle": 0.28
    },
    "serie": {
@@ -4605,17 +4605,17 @@
      "20261113"
     ],
     "n": [
-     53,
-     53,
-     81,
-     62,
-     76,
-     78,
-     74,
-     78,
-     69,
-     90,
+     52,
+     49,
+     75,
      61,
+     68,
+     58,
+     68,
+     72,
+     63,
+     72,
+     50,
      65,
      66,
      64,
@@ -4791,10 +4791,10 @@
      118.97
     ]
    },
-   "aufm": -0.83,
+   "aufm": -0.78,
    "ton": null,
    "artikel_heute": 55,
-   "artikel_schnitt": 60,
+   "artikel_schnitt": 59,
    "name": "Walt Disney Company (The)",
    "suche": "Walt_Disney_Company"
   }
