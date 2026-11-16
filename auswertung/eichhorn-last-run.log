@@ -1,4 +1,5 @@
 Feed: 15 Videos
+   Zb9Mh5CTJLw 2026-11-16 None Min #154: Für wen der Optionsbrief nichts ist
    yTq_eSCYQk0 2026-11-15 None Min Pfennige vor der Dampfwalze: Wann der Spruch über Stillhalter stimmt
    WgNME4TrR48 2026-11-13 None Min Warum Dividendenaktien in jungen Jahren ein Fehler sind
    X9olfTBwplI 2026-11-12 None Min Die KI hat mein Options-Depot zerlegt und in einem Punkt hatte sie rec
@@ -6,27 +7,6 @@ Feed: 15 Videos
    vH4zg3UK3ns 2026-11-09 None Min #153: Die 5 Anfängerfehler, die fast jeder Stillhalter macht
    RtlL3JCsh4k 2026-11-08 None Min Optionen verkaufen bei niedriger Volatilität: Warum ich Einzelaktien s
    S32diJBLEpY 2026-11-06 None Min 95 % der Trader verlieren Geld – Zehnkampf-Gold ist realistischer
-   om-3tPIydHs 2026-11-05 None Min Optionshandel mit System: Welche Strategie im Oktober wirklich verdien
-Werte aus: vH4zg3UK3ns #153: Die 5 Anfängerfehler, die fast jeder Stillhalter macht 2026-11-09
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-  7 Regeln, 2 Indikatoren (134503 Tokens)
-Werte aus: -vtWWK6jgdg #Stillhalter sind #Volatilitätshändler, das vergessen fast alle 2026-11-10
-  1 Regeln, 0 Indikatoren (5130 Tokens)
 Werte aus: X9olfTBwplI Die KI hat mein Options-Depot zerlegt und in einem Punkt hatte sie recht 2026-11-12
 gemini-3.8-flash: HTTP 503 {
   "error": {
@@ -36,6 +16,32 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
+gemini-3.8-flash: [Errno 104] Connection reset by peer
+gemini-3.7-flash: [Errno 104] Connection reset by peer
+gemini-flash-latest: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-flash-latest: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 503 {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "s
+Werte aus: WgNME4TrR48 Warum Dividendenaktien in jungen Jahren ein Fehler sind 2026-11-13
+  kein Optionen-/Marktinhalt, übersprungen
+Werte aus: yTq_eSCYQk0 Pfennige vor der Dampfwalze: Wann der Spruch über Stillhalter stimmt 2026-11-15
 gemini-3.8-flash: HTTP 503 {
   "error": {
     "code": 503,
@@ -44,7 +50,7 @@ gemini-3.8-flash: HTTP 503 {
   }
 }
 
-gemini-3.7-flash: HTTP 503 {
+gemini-3.8-flash: HTTP 503 {
   "error": {
     "code": 503,
     "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
@@ -52,14 +58,7 @@ gemini-3.7-flash: HTTP 503 {
   }
 }
 
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
+gemini-3.7-flash: [Errno 104] Connection reset by peer
 gemini-flash-latest: HTTP 503 {
   "error": {
     "code": 503,
