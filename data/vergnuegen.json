@@ -774,52 +774,6 @@
   "stand": "2026-10-29"
  },
  {
-  "id": "events-5b368a8075",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Ikkimel Live 2026",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-11-13",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Rapperin Ikkimel bringt ihre bisher größte Tour mit energiegeladenem Rap, Provokation und Show-Elementen auf die Bühne.",
-  "tags": [
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Konzert & Musik",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-25"
- },
- {
-  "id": "events-8dc5c7d169",
-  "lat": 48.14011,
-  "lon": 11.57943,
-  "rubrik": "events",
-  "titel": "Munich Machine",
-  "ort": "Residenztheater",
-  "adresse": "",
-  "datum": "2026-11-13",
-  "datum_bis": "",
-  "zeit": "19:30",
-  "preis": "17 bis 57 €",
-  "dauer": "3 Std.",
-  "kurz": "Eine rasante theatrale Zeitreise durch Münchens Geschichte als Hommage an den Filmemacher Klaus Lemke.",
-  "tags": [
-   "Kultur",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-11-10"
- },
- {
   "id": "events-4db87f80d3",
   "lat": 48.14011,
   "lon": 11.57943,
