@@ -774,28 +774,6 @@
   "stand": "2026-10-29"
  },
  {
-  "id": "events-4db87f80d3",
-  "lat": 48.14011,
-  "lon": 11.57943,
-  "rubrik": "events",
-  "titel": "Theaterführung",
-  "ort": "Residenztheater",
-  "adresse": "",
-  "datum": "2026-11-14",
-  "datum_bis": "",
-  "zeit": "15:00",
-  "preis": "10 €",
-  "dauer": "1 Std. 20 Min.",
-  "kurz": "Ein spannender Rundgang hinter die Kulissen gewährt Einblicke in die Arbeitsabläufe des Residenztheaters.",
-  "tags": [
-   "Kultur"
-  ],
-  "thema": "Führung & Vortrag",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-11-10"
- },
- {
   "id": "events-9ec617af17",
   "lat": 48.11998,
   "lon": 11.55626,
