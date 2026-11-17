@@ -1,6 +1,118 @@
 {
  "beitraege": [
   {
+   "id": "VoNE-M8YHhE",
+   "titel": "Verlustwelle setzt sich fort | 9 von 11 Sektoren sehen Verluste",
+   "datum": "2026-11-16",
+   "zeit": "2026-11-16T21:51:26+00:00",
+   "art": "closing",
+   "score": 20,
+   "pfeil": "hoch",
+   "thema": "Trotz eines scharfen Ausverkaufs im Technologiesektor und wachsender KI-Investitionsbedenken sieht Markus Koch zunehmend attraktive Bewertungsniveaus für mittelfristige Einstiege.",
+   "gesamtstimmung": "Kurzfristig dominiert an der Wall Street schmerzhafter Verkaufsdruck, der durch Sorgen um Tech-CapEx und eine falkenhafte Fed verstärkt wird. Markus Koch hält jedoch an der Perspektive fest, dass der Markt nach der breiten Korrektur vor einer Bodenbildung steht und solide Einstiegsgelegenheiten bietet.",
+   "begruendung": "Zwar führten Rezessions- und Investitionssorgen zu einem massiven Kurseinbruch quer durch viele Sektoren. Die historische Kapitulationsnähe beim Sentiment und deutlich gefallene Tech-Bewertungen sprechen aus seiner Sicht jedoch mittelfristig für steigende Notierungen.",
+   "indikatoren": [
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Stimmungsindikator nähert sich Kapitulationsniveau, VIX springt an",
+     "pfeil": "hoch",
+     "rolle": "Ein extrem negatives Sentiment und bereinigte Positionierungen signalisieren für ihn oft das nahende Ende einer Korrekturphase."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Lücke zwischen Index und Marktbreite hat sich geschlossen, zwei Drittel im Bären",
+     "pfeil": "hoch",
+     "rolle": "Die Schließung der Performancelücke zeigt, dass die schmerzhafte Bereinigung unter der Oberfläche bereits weit fortgeschritten ist."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Prognosen für KI-Beschleuniger-Ausgaben deutlich gekappt",
+     "pfeil": "runter",
+     "rolle": "Kürzungen bei den Investitionserwartungen schüren Wachstumsängste und belasten die Schwergewichte im Technologiesektor."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Kaum Reaktion trotz Risk-Off und fallender Rohstoffpreise",
+     "pfeil": "runter",
+     "rolle": "Dass Renditen bei fallenden Aktienkursen nicht sinken, spiegelt die anhaltende Sorge vor einer straffen Zinspolitik der Fed wider."
+    },
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "Rückläufige Dynamik erwartet, gestützt durch schwächere Energiepreise",
+     "pfeil": "hoch",
+     "rolle": "Nachlassender Preisdruck stützt das Basisszenario einer anhaltenden Wirtschaftsexpansion im kommenden Jahr."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Preise für Brent und WTI geben weiter nach",
+     "pfeil": "hoch",
+     "rolle": "Sinkende Energiepreise wirken disinflationär und entlasten Konsumenten sowie Unternehmensbilanzen."
+    }
+   ],
+   "zitate": [
+    "Tiefrot across the board",
+    "Man erreiche jetzt attraktive Einstiegsniveaus"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 148969
+  },
+  {
+   "id": "k5Eo3ujwyh0",
+   "titel": "Panik bei KI-Aktien? Massive Buy-the-Dip-Chance oder das Ende einer Bubble.",
+   "datum": "2026-11-16",
+   "zeit": "2026-11-16T14:29:14+00:00",
+   "art": "opening",
+   "score": -25,
+   "pfeil": "runter",
+   "thema": "Vor wichtigen Quartalszahlen wie Nvidia sowie Notenbankreden belasten Spekulationen um Exportkontrollen, Zinsrisiken und eine anziehende Volatilität das Marktumfeld.",
+   "gesamtstimmung": "Die Grundstimmung ist von Nervosität und Vorsicht geprägt, da die Marktteilnehmer vor zentralen Tech-Zahlen in ein Informationsvakuum blicken. Gleichzeitig mahnen steigende Tagesschwankungen und restriktive Zinsängste zur Zurückhaltung.",
+   "begruendung": "Der Sprecher hebt hervor, dass die Volatilität im S&P 500 deutlich angezogen hat und Warnungen vor weiteren Zinsanhebungen die Makroebene trüben. Zudem drücken politische Eingriffe wie verschärfte Exportrestriktionen und regulatorische Hürden auf die Risikobereitschaft.",
+   "indikatoren": [
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Deutsche Bank warnt vor unterschätzten Zinsanhebungsrisiken",
+     "pfeil": "runter",
+     "rolle": "Er verweist darauf, dass der Markt wieder zusätzliche Straffungsschritte einpreist und die Zentralbankpolitik Gegenwind erzeugen könnte."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktvolatilität & Tagesschwankungen",
+     "lage": "S&P-Tagesschwankungen steigen auf 1,2 %, höchster Wert seit April",
+     "pfeil": "runter",
+     "rolle": "Die spürbar anziehende Schwankungsbreite signalisiert wachsende Unsicherheit und Zurückhaltung der Investoren."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Exportbeschränkungen & Regulierung",
+     "lage": "Schlupflöcher für Tech- und Cloud-Exporte nach Asien werden geschlossen",
+     "pfeil": "runter",
+     "rolle": "Die zunehmend strengeren Restriktionen belasten wichtige Wachstumsfantasien und schaffen politische Risiken für den Tech-Sektor."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Tech-Gewinnerwartungen & Quartalszahlen",
+     "lage": "Hohe Erwartungen und Prognoseunsicherheiten vor zentralen Quartalsberichten",
+     "pfeil": "seitwaerts",
+     "rolle": "Die anstehenden Zahlen entscheiden darüber, ob eine Kursrallye fortgesetzt werden kann oder erneuter Abgabedruck droht."
+    }
+   ],
+   "zitate": [
+    "Who the heck knows, ja?",
+    "Buy the dip, guys!"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 119028
+  },
+  {
    "id": "tpoH6_72axo",
    "titel": "Jensen ist weg. Jetzt muss Nvidia liefern!",
    "datum": "2026-11-13",
@@ -3427,9 +3539,11 @@
   "oJXiEO-lCX4",
   "jARmVcERgc8",
   "icgLYvb5Tfk",
-  "tpoH6_72axo"
+  "tpoH6_72axo",
+  "VoNE-M8YHhE",
+  "k5Eo3ujwyh0"
  ],
- "stand": "2026-11-15T20:11Z",
+ "stand": "2026-11-17T03:13Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
