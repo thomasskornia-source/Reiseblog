@@ -1399,71 +1399,6 @@
   "thema": "Amazon Prime"
  },
  {
-  "id": "stream-locked",
-  "rubrik": "stream",
-  "titel": "Locked",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Ein Dieb sitzt in einem fremden Auto fest und wird zum Spielball eines Unbekannten. Seit 17.11. bei Prime.",
-  "tags": [
-   "Film",
-   "Thriller"
-  ],
-  "quelle": "Serienjunkies – Prime Video November 2026",
-  "url": "https://www.amazon.de/prime-video",
-  "stand": "2026-11-17",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-the-lord-of-the-rings-the-rings-of-power-staffel-3",
-  "rubrik": "stream",
-  "titel": "The Lord of the Rings: The Rings of Power (Staffel 3)",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Fantasy-Serie im Tolkien-Universum, lange vor Frodo. Dritte Staffel seit 11.11.",
-  "tags": [
-   "Serie",
-   "Fantasy",
-   "Abenteuer"
-  ],
-  "quelle": "Serienjunkies – Prime Video November 2026",
-  "url": "https://www.amazon.de/prime-video",
-  "stand": "2026-11-17",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-winstead-ein-hund-feiert-weihnachten",
-  "rubrik": "stream",
-  "titel": "Winstead – Ein Hund feiert Weihnachten",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Weihnachtskomödie rund um einen Hund. Start 4.11.",
-  "tags": [
-   "Film",
-   "Komödie",
-   "Familie"
-  ],
-  "quelle": "zdfheute – Streaming-Tipps November 2026",
-  "url": "https://www.netflix.com/de",
-  "stand": "2026-11-17",
-  "thema": "Netflix"
- },
- {
   "id": "stream-black-doves-staffel-2",
   "rubrik": "stream",
   "titel": "Black Doves (Staffel 2)",
@@ -1484,28 +1419,6 @@
   "url": "https://www.netflix.com/de",
   "stand": "2026-11-17",
   "thema": "Netflix"
- },
- {
-  "id": "stream-stick",
-  "rubrik": "stream",
-  "titel": "Stick",
-  "ort": "Apple TV",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Golf-Dramedy, laut Neustart-Liste im November 2026 bei Apple TV.",
-  "tags": [
-   "Serie",
-   "Komödie",
-   "Drama"
-  ],
-  "quelle": "kinofans.com – Apple TV November 2026",
-  "url": "https://tv.apple.com/de",
-  "stand": "2026-11-17",
-  "thema": "Apple TV"
  },
  {
   "id": "stream-grantchester-staffel-7",
@@ -1553,26 +1466,25 @@
   "thema": "ZDF Mediathek"
  },
  {
-  "id": "stream-the-zone-of-interest",
+  "id": "stream-locked",
   "rubrik": "stream",
-  "titel": "The Zone of Interest",
-  "ort": "ZDF Mediathek",
+  "titel": "Locked",
+  "ort": "Amazon Prime",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Oscar-Film: Eine Familie lebt in einem Haus direkt neben dem KZ Auschwitz. Start 9.11. Verfügbarkeit bitte prüfen.",
+  "kurz": "Ein Dieb sitzt in einem fremden Auto fest und wird zum Spielball eines Unbekannten. Seit 17.11. bei Prime.",
   "tags": [
    "Film",
-   "Drama",
-   "Historie"
+   "Thriller"
   ],
-  "quelle": "zdfheute – Streaming-Tipps November 2026",
-  "url": "https://www.zdf.de",
+  "quelle": "Serienjunkies – Prime Video November 2026",
+  "url": "https://www.amazon.de/prime-video",
   "stand": "2026-11-17",
-  "thema": "ZDF Mediathek"
+  "thema": "Amazon Prime"
  },
  {
   "id": "stream-paddington-2",
@@ -1596,5 +1508,93 @@
   "url": "https://www.3sat.de/mediathek",
   "stand": "2026-11-17",
   "thema": "3sat Mediathek"
+ },
+ {
+  "id": "stream-stick",
+  "rubrik": "stream",
+  "titel": "Stick",
+  "ort": "Apple TV",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Golf-Dramedy, laut Neustart-Liste im November 2026 bei Apple TV.",
+  "tags": [
+   "Serie",
+   "Komödie",
+   "Drama"
+  ],
+  "quelle": "kinofans.com – Apple TV November 2026",
+  "url": "https://tv.apple.com/de",
+  "stand": "2026-11-17",
+  "thema": "Apple TV"
+ },
+ {
+  "id": "stream-the-lord-of-the-rings-the-rings-of-power-staffel-3",
+  "rubrik": "stream",
+  "titel": "The Lord of the Rings: The Rings of Power (Staffel 3)",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Fantasy-Serie im Tolkien-Universum, lange vor Frodo. Dritte Staffel seit 11.11.",
+  "tags": [
+   "Serie",
+   "Fantasy",
+   "Abenteuer"
+  ],
+  "quelle": "Serienjunkies – Prime Video November 2026",
+  "url": "https://www.amazon.de/prime-video",
+  "stand": "2026-11-17",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-the-zone-of-interest",
+  "rubrik": "stream",
+  "titel": "The Zone of Interest",
+  "ort": "ZDF Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Oscar-Film: Eine Familie lebt in einem Haus direkt neben dem KZ Auschwitz. Start 9.11. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Drama",
+   "Historie"
+  ],
+  "quelle": "zdfheute – Streaming-Tipps November 2026",
+  "url": "https://www.zdf.de",
+  "stand": "2026-11-17",
+  "thema": "ZDF Mediathek"
+ },
+ {
+  "id": "stream-winstead-ein-hund-feiert-weihnachten",
+  "rubrik": "stream",
+  "titel": "Winstead – Ein Hund feiert Weihnachten",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Weihnachtskomödie rund um einen Hund. Start 4.11.",
+  "tags": [
+   "Film",
+   "Komödie",
+   "Familie"
+  ],
+  "quelle": "zdfheute – Streaming-Tipps November 2026",
+  "url": "https://www.netflix.com/de",
+  "stand": "2026-11-17",
+  "thema": "Netflix"
  }
 ]
