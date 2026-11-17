@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "gbfrTGH83Kw",
+   "titel": "NVIDIA - wird heute Abend geliefert? LIVE",
+   "datum": "2026-11-17",
+   "zeit": "2026-11-17T21:45:23+00:00",
+   "art": "closing",
+   "score": -25,
+   "pfeil": "runter",
+   "thema": "Markus Koch analysiert den schwachen Handelstag an der Wall Street, die Belastungsfaktoren im Technologiesektor sowie die Quartalszahlen von Nvidia.",
+   "gesamtstimmung": "Die Marktstimmung war im regulären Handel von spürbarer Nervosität, Ausverkäufen im Softwaresektor und Sorgen vor technischen Störungen geprägt. Gleichzeitig sieht Markus Koch in den extrem pessimistischen Erwartungen und der massiv überverkauften Lage erste Anzeichen für eine bevorstehende Bodenbildung.",
+   "begruendung": "Der breite Markt litt unter deutlichem Abgabedruck, steigender Volatilität und hartnäckig hohen Anleiherenditen. Dennoch hellt die solide Reaktion auf die Nvidia-Zahlen das Bild nachbörslich leicht auf und regt zu antizyklischen Käufen an.",
+   "indikatoren": [
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "VIX springt um 15 % an; ausgeprägte Nervosität und Kapitulationsanzeichen bei Te",
+     "pfeil": "runter",
+     "rolle": "Der sprunghafte Anstieg der Volatilität spiegelt die akute Furcht der Marktteilnehmer wider, deutet historisch aber auch auf ein baldiges Erreichen eines Stimmungstiefs hin."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Rendite der 10-jährigen US-Anleihen verharrt auf hohem Niveau um 5,10 %",
+     "pfeil": "runter",
+     "rolle": "Hohe Zinsen und restriktive Töne einzelner Notenbanker belasten weiterhin die Bewertungen von Wachstumsaktien."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Notenbanker stellen weitere Zinsanhebungen bis ins Frühjahr in Aussicht",
+     "pfeil": "runter",
+     "rolle": "Die Furcht vor längerfristig hohen Zinsen nimmt dem Aktienmarkt den Rückenwind."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Breiter Abgabedruck über nahezu alle Sektoren hinweg; Softwareaktien besonders s",
+     "pfeil": "runter",
+     "rolle": "Eine stark negative Marktbreite zeigt, dass es im regulären Handel kaum Rückzugsorte für Anleger gab."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Hohe Unsicherheit über Investitionstempo der Hyperscaler, aber solide Investitio",
+     "pfeil": "hoch",
+     "rolle": "Die Investitionsausgaben in KI-Infrastruktur sind der zentrale Treiber für die gesamte Tech-Branche."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "200-Tage-Linie im S&P 500",
+     "lage": "Index testet die 200-Tage-Linie als potenzielle Unterstützungszone",
+     "pfeil": "hoch",
+     "rolle": "Das Erreichen technischer Kernunterstützungen nährt die Hoffnung auf eine Stabilisierung des Marktes."
+    }
+   ],
+   "zitate": [
+    "Momentum ist real, ist echt.",
+    "Ich meine, der Sektor ist so überverkauft."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 205000
+  },
+  {
    "id": "VoNE-M8YHhE",
    "titel": "Verlustwelle setzt sich fort | 9 von 11 Sektoren sehen Verluste",
    "datum": "2026-11-16",
@@ -3541,9 +3604,10 @@
   "icgLYvb5Tfk",
   "tpoH6_72axo",
   "VoNE-M8YHhE",
-  "k5Eo3ujwyh0"
+  "k5Eo3ujwyh0",
+  "gbfrTGH83Kw"
  ],
- "stand": "2026-11-17T03:13Z",
+ "stand": "2026-11-17T22:41Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",

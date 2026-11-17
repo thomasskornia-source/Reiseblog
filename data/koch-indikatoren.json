@@ -1,10 +1,223 @@
 {
- "stand": "2026-11-16",
+ "stand": "2026-11-17",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
  },
  "kategorien": [
+  {
+   "kategorie": "Marktbreite & Sektoren",
+   "status": "bestaetigt",
+   "tage_anzahl": 27,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-11-17",
+   "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+   "namen": [
+    "Marktbreite (S&P 500 vs. Equal Weight)",
+    "Marktbreite",
+    "Tech-Sektor & KI",
+    "Sektorale Kapitalallokation & CapEx-Konzentration",
+    "Sektorrotation in Value- und Standardwerte",
+    "Tech- und KI-Sektor"
+   ],
+   "rolle": "Eine stark negative Marktbreite zeigt, dass es im regulären Handel kaum Rückzugsorte für Anleger gab.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die Rally steht auf wackeligen Beinen, da nur eine Handvoll Tech-Giganten die Indizes nach oben zieht."
+    },
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Marktbreite"
+     ],
+     "rolle": "Ohne KI-Aktien zeigt der breite Markt deutliche Schwächezeichen."
+    },
+    "2026-10-05": {
+     "p": 0,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die massive Divergenz zwischen dem Gesamtmarkt und den führenden Tech-Titeln mahnt ihn zur Vorsicht."
+    },
+    "2026-10-06": {
+     "p": -2,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die Rally stützt sich primär auf wenige Mega-Cap-Techwerte, während Banken, Versorger und Immobilien verlieren."
+    },
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)",
+      "Tech-Sektor & KI"
+     ],
+     "rolle": "Die extreme Konzentration auf wenige Technologietitel macht den Gesamtmarkt anfällig für Korrekturen."
+    },
+    "2026-10-08": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)",
+      "Sektorale Kapitalallokation & CapEx-Konzentration"
+     ],
+     "rolle": "Die Umschichtung in Substanz- und Finanzwerte zeigt, dass Liquidität im Markt bleibt und sich nur verteilt."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine Verbesserung der Marktbreite jenseits von Big Tech ist essenziell für einen tragfähigen Bullenmarkt."
+    },
+    "2026-10-12": {
+     "p": 0,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine breitere Beteiligung anderer Sektoren stützt den Gesamtmarkt, wenn die großen Tech-Schwergewichte korrigieren."
+    },
+    "2026-10-13": {
+     "p": 0,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die historisch enge Marktführung bricht auf und führt zu einer gesünderen, aber kurzfristig holprigen Umschichtung."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die schwache Marktbreite verdeutlicht, dass die breite Wirtschaft unter den hohen Zinsen leidet."
+    },
+    "2026-10-15": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die mangelnde Marktbreite offenbart, dass die hohen Indexstände eine breite Kursschwäche verdecken."
+    },
+    "2026-10-19": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die massive Korrektur bei Zins- und Standardwerten wie Immobilien, Versorgern und Finanzen schafft wieder attraktive Bewertungsniveaus."
+    },
+    "2026-10-20": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine breite Erholung abseits der großen Tech-Werte signalisiert für ihn eine gesündere Marktverfassung."
+    },
+    "2026-10-21": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Zinssensible Konsumwerte leiden unter hohen Finanzierungs- und Betriebskosten, was die Marktbreite trübt."
+    },
+    "2026-10-22": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Während die Tech-Schwergewichte einbrechen, schließen der gleichgewichtete S&P 500, der Dow Jones und der Russell 2000 behauptet bis freundlich."
+    },
+    "2026-10-23": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die Schwäche der tonangebenden Tech-Schwergewichte zieht das Marktsentiment nach unten, auch wenn über 40 Prozent der Einzeltitel bereits korrigiert haben."
+    },
+    "2026-10-26": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die voranschreitende Makro-Rotation und Verengung der Bewertungsspanne signalisieren ein allmähliches Näherrücken des Korrekturendes."
+    },
+    "2026-10-28": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine schlechte Marktbreite macht den Gesamtmarkt extrem verwundbar gegenüber Rückschlägen einzelner Indexschwergewichte."
+    },
+    "2026-10-30": {
+     "p": 0,
+     "namen": [
+      "Sektorrotation in Value- und Standardwerte",
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Unter der Indexoberfläche herrscht bereits ein schleichender Bärenmarkt, der vor allem Wachstums- und Tech-Werte trifft."
+    },
+    "2026-11-02": {
+     "p": 0,
+     "namen": [
+      "Tech- und KI-Sektor",
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine breitere Partizipation von Industrie- und Zyklikerwerten stabilisiert das Marktgefüge abseits der Tech-Riesen."
+    },
+    "2026-11-04": {
+     "p": 2,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die Erholung basiert nicht mehr nur auf einzelnen Tech-Schwergewichten, sondern erfasst breite Teile der Industrie und zyklischer Werte."
+    },
+    "2026-11-05": {
+     "p": -2,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)",
+      "Sektorenrotation"
+     ],
+     "rolle": "Der Ausverkauf erfasst nicht mehr nur Tech, sondern lässt Anlegern marktweit kaum Fluchtmöglichkeiten."
+    },
+    "2026-11-06": {
+     "p": 0,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die Erholung ist noch uneinheitlich und stark auf Tech konzentriert, während traditionelle Werte weiter unter Druck stehen."
+    },
+    "2026-11-09": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine robuste Marktbreite signalisiert, dass die Kursgewinne nicht mehr nur an wenigen Einzeltiteln hängen."
+    },
+    "2026-11-12": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine ungleiche Beteiligung mahnt zur Vorsicht, da Kursgewinne selektiv bleiben."
+    },
+    "2026-11-16": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Die Schließung der Performancelücke zeigt, dass die schmerzhafte Bereinigung unter der Oberfläche bereits weit fortgeschritten ist."
+    },
+    "2026-11-17": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine stark negative Marktbreite zeigt, dass es im regulären Handel kaum Rückzugsorte für Anleger gab."
+    }
+   }
+  },
   {
    "kategorie": "Öl & Rohstoffe",
    "status": "bestaetigt",
@@ -210,222 +423,16 @@
    }
   },
   {
-   "kategorie": "Marktbreite & Sektoren",
-   "status": "bestaetigt",
-   "tage_anzahl": 26,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-16",
-   "name": "Marktbreite (S&P 500 vs. Equal Weight)",
-   "namen": [
-    "Marktbreite (S&P 500 vs. Equal Weight)",
-    "Marktbreite",
-    "Tech-Sektor & KI",
-    "Sektorale Kapitalallokation & CapEx-Konzentration",
-    "Sektorrotation in Value- und Standardwerte",
-    "Tech- und KI-Sektor"
-   ],
-   "rolle": "Die Schließung der Performancelücke zeigt, dass die schmerzhafte Bereinigung unter der Oberfläche bereits weit fortgeschritten ist.",
-   "tage": {
-    "2026-10-01": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die Rally steht auf wackeligen Beinen, da nur eine Handvoll Tech-Giganten die Indizes nach oben zieht."
-    },
-    "2026-10-02": {
-     "p": -1,
-     "namen": [
-      "Marktbreite"
-     ],
-     "rolle": "Ohne KI-Aktien zeigt der breite Markt deutliche Schwächezeichen."
-    },
-    "2026-10-05": {
-     "p": 0,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die massive Divergenz zwischen dem Gesamtmarkt und den führenden Tech-Titeln mahnt ihn zur Vorsicht."
-    },
-    "2026-10-06": {
-     "p": -2,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die Rally stützt sich primär auf wenige Mega-Cap-Techwerte, während Banken, Versorger und Immobilien verlieren."
-    },
-    "2026-10-07": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)",
-      "Tech-Sektor & KI"
-     ],
-     "rolle": "Die extreme Konzentration auf wenige Technologietitel macht den Gesamtmarkt anfällig für Korrekturen."
-    },
-    "2026-10-08": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)",
-      "Sektorale Kapitalallokation & CapEx-Konzentration"
-     ],
-     "rolle": "Die Umschichtung in Substanz- und Finanzwerte zeigt, dass Liquidität im Markt bleibt und sich nur verteilt."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Eine Verbesserung der Marktbreite jenseits von Big Tech ist essenziell für einen tragfähigen Bullenmarkt."
-    },
-    "2026-10-12": {
-     "p": 0,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Eine breitere Beteiligung anderer Sektoren stützt den Gesamtmarkt, wenn die großen Tech-Schwergewichte korrigieren."
-    },
-    "2026-10-13": {
-     "p": 0,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die historisch enge Marktführung bricht auf und führt zu einer gesünderen, aber kurzfristig holprigen Umschichtung."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die schwache Marktbreite verdeutlicht, dass die breite Wirtschaft unter den hohen Zinsen leidet."
-    },
-    "2026-10-15": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die mangelnde Marktbreite offenbart, dass die hohen Indexstände eine breite Kursschwäche verdecken."
-    },
-    "2026-10-19": {
-     "p": 1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die massive Korrektur bei Zins- und Standardwerten wie Immobilien, Versorgern und Finanzen schafft wieder attraktive Bewertungsniveaus."
-    },
-    "2026-10-20": {
-     "p": 1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Eine breite Erholung abseits der großen Tech-Werte signalisiert für ihn eine gesündere Marktverfassung."
-    },
-    "2026-10-21": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Zinssensible Konsumwerte leiden unter hohen Finanzierungs- und Betriebskosten, was die Marktbreite trübt."
-    },
-    "2026-10-22": {
-     "p": 1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Während die Tech-Schwergewichte einbrechen, schließen der gleichgewichtete S&P 500, der Dow Jones und der Russell 2000 behauptet bis freundlich."
-    },
-    "2026-10-23": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die Schwäche der tonangebenden Tech-Schwergewichte zieht das Marktsentiment nach unten, auch wenn über 40 Prozent der Einzeltitel bereits korrigiert haben."
-    },
-    "2026-10-26": {
-     "p": 1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die voranschreitende Makro-Rotation und Verengung der Bewertungsspanne signalisieren ein allmähliches Näherrücken des Korrekturendes."
-    },
-    "2026-10-28": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Eine schlechte Marktbreite macht den Gesamtmarkt extrem verwundbar gegenüber Rückschlägen einzelner Indexschwergewichte."
-    },
-    "2026-10-30": {
-     "p": 0,
-     "namen": [
-      "Sektorrotation in Value- und Standardwerte",
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Unter der Indexoberfläche herrscht bereits ein schleichender Bärenmarkt, der vor allem Wachstums- und Tech-Werte trifft."
-    },
-    "2026-11-02": {
-     "p": 0,
-     "namen": [
-      "Tech- und KI-Sektor",
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Eine breitere Partizipation von Industrie- und Zyklikerwerten stabilisiert das Marktgefüge abseits der Tech-Riesen."
-    },
-    "2026-11-04": {
-     "p": 2,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die Erholung basiert nicht mehr nur auf einzelnen Tech-Schwergewichten, sondern erfasst breite Teile der Industrie und zyklischer Werte."
-    },
-    "2026-11-05": {
-     "p": -2,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)",
-      "Sektorenrotation"
-     ],
-     "rolle": "Der Ausverkauf erfasst nicht mehr nur Tech, sondern lässt Anlegern marktweit kaum Fluchtmöglichkeiten."
-    },
-    "2026-11-06": {
-     "p": 0,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die Erholung ist noch uneinheitlich und stark auf Tech konzentriert, während traditionelle Werte weiter unter Druck stehen."
-    },
-    "2026-11-09": {
-     "p": 1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Eine robuste Marktbreite signalisiert, dass die Kursgewinne nicht mehr nur an wenigen Einzeltiteln hängen."
-    },
-    "2026-11-12": {
-     "p": -1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Eine ungleiche Beteiligung mahnt zur Vorsicht, da Kursgewinne selektiv bleiben."
-    },
-    "2026-11-16": {
-     "p": 1,
-     "namen": [
-      "Marktbreite (S&P 500 vs. Equal Weight)"
-     ],
-     "rolle": "Die Schließung der Performancelücke zeigt, dass die schmerzhafte Bereinigung unter der Oberfläche bereits weit fortgeschritten ist."
-    }
-   }
-  },
-  {
    "kategorie": "Anleihen & Renditen",
    "status": "bestaetigt",
-   "tage_anzahl": 23,
+   "tage_anzahl": 24,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-16",
+   "zuletzt": "2026-11-17",
    "name": "US-Staatsanleiherenditen",
    "namen": [
     "US-Staatsanleiherenditen"
    ],
-   "rolle": "Dass Renditen bei fallenden Aktienkursen nicht sinken, spiegelt die anhaltende Sorge vor einer straffen Zinspolitik der Fed wider.",
+   "rolle": "Hohe Zinsen und restriktive Töne einzelner Notenbanker belasten weiterhin die Bewertungen von Wachstumsaktien.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -587,6 +594,13 @@
       "US-Staatsanleiherenditen"
      ],
      "rolle": "Dass Renditen bei fallenden Aktienkursen nicht sinken, spiegelt die anhaltende Sorge vor einer straffen Zinspolitik der Fed wider."
+    },
+    "2026-11-17": {
+     "p": -1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Hohe Zinsen und restriktive Töne einzelner Notenbanker belasten weiterhin die Bewertungen von Wachstumsaktien."
     }
    }
   },
@@ -761,9 +775,9 @@
   {
    "kategorie": "Stimmung & Volatilität",
    "status": "bestaetigt",
-   "tage_anzahl": 21,
+   "tage_anzahl": 22,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-16",
+   "zuletzt": "2026-11-17",
    "name": "Marktpositionierung und Hebel",
    "namen": [
     "Marktpositionierung und Hebel",
@@ -773,7 +787,7 @@
     "MOVE-Index (Anleihevolatilität)",
     "Liquidität & Financial Conditions"
    ],
-   "rolle": "Ein extrem negatives Sentiment und bereinigte Positionierungen signalisieren für ihn oft das nahende Ende einer Korrekturphase.",
+   "rolle": "Der sprunghafte Anstieg der Volatilität spiegelt die akute Furcht der Marktteilnehmer wider, deutet historisch aber auch auf ein baldiges Erreichen eines Stimmungstiefs hin.",
    "tage": {
     "2026-10-01": {
      "p": 1,
@@ -927,6 +941,13 @@
       "Marktpositionierung und Hebel"
      ],
      "rolle": "Ein extrem negatives Sentiment und bereinigte Positionierungen signalisieren für ihn oft das nahende Ende einer Korrekturphase."
+    },
+    "2026-11-17": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Der sprunghafte Anstieg der Volatilität spiegelt die akute Furcht der Marktteilnehmer wider, deutet historisch aber auch auf ein baldiges Erreichen eines Stimmungstiefs hin."
     }
    }
   },
@@ -1089,16 +1110,16 @@
   {
    "kategorie": "Sonstiges",
    "status": "bestaetigt",
-   "tage_anzahl": 19,
+   "tage_anzahl": 20,
    "erstmals": "2026-10-08",
-   "zuletzt": "2026-11-16",
+   "zuletzt": "2026-11-17",
    "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
     "Tech-Investitionszyklus (CapEx)",
     "Aktienüberangebot durch Kapitalerhöhungen & IPOs",
     "Aktienrückkäufe"
    ],
-   "rolle": "Kürzungen bei den Investitionserwartungen schüren Wachstumsängste und belasten die Schwergewichte im Technologiesektor.",
+   "rolle": "Die Investitionsausgaben in KI-Infrastruktur sind der zentrale Treiber für die gesamte Tech-Branche.",
    "tage": {
     "2026-10-08": {
      "p": 1,
@@ -1233,24 +1254,32 @@
       "Tech-Investitionszyklus (CapEx)"
      ],
      "rolle": "Kürzungen bei den Investitionserwartungen schüren Wachstumsängste und belasten die Schwergewichte im Technologiesektor."
+    },
+    "2026-11-17": {
+     "p": 1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die Investitionsausgaben in KI-Infrastruktur sind der zentrale Treiber für die gesamte Tech-Branche."
     }
    }
   },
   {
    "kategorie": "Saisonalität & Chart",
    "status": "bestaetigt",
-   "tage_anzahl": 14,
+   "tage_anzahl": 15,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-12",
+   "zuletzt": "2026-11-17",
    "name": "Q4-Saisonalität & Positionierung",
    "namen": [
     "Q4-Saisonalität & Positionierung",
     "September-Indexentwicklung",
     "Halbleiter-Index (SOX) 200-Tage-Linie",
     "Charttechnik (200-Tage-Linie S&P 500)",
-    "Technische Überverkauftheit"
+    "Technische Überverkauftheit",
+    "200-Tage-Linie im S&P 500"
    ],
-   "rolle": "Er geht trotz kurzfristiger Hürden weiterhin von einer Fortsetzung des Aufwärtstrends bis Jahresende aus.",
+   "rolle": "Das Erreichen technischer Kernunterstützungen nährt die Hoffnung auf eine Stabilisierung des Marktes.",
    "tage": {
     "2026-10-02": {
      "p": 1,
@@ -1350,6 +1379,13 @@
       "Q4-Saisonalität & Positionierung"
      ],
      "rolle": "Er geht trotz kurzfristiger Hürden weiterhin von einer Fortsetzung des Aufwärtstrends bis Jahresende aus."
+    },
+    "2026-11-17": {
+     "p": 1,
+     "namen": [
+      "200-Tage-Linie im S&P 500"
+     ],
+     "rolle": "Das Erreichen technischer Kernunterstützungen nährt die Hoffnung auf eine Stabilisierung des Marktes."
     }
    }
   },
@@ -1688,14 +1724,14 @@
   {
    "kategorie": "Zinsen & Notenbank",
    "status": "bestaetigt",
-   "tage_anzahl": 12,
+   "tage_anzahl": 13,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-16",
+   "zuletzt": "2026-11-17",
    "name": "Fed-Zinserwartungen",
    "namen": [
     "Fed-Zinserwartungen"
    ],
-   "rolle": "Er verweist darauf, dass der Markt wieder zusätzliche Straffungsschritte einpreist und die Zentralbankpolitik Gegenwind erzeugen könnte.",
+   "rolle": "Die Furcht vor längerfristig hohen Zinsen nimmt dem Aktienmarkt den Rückenwind.",
    "tage": {
     "2026-10-02": {
      "p": 1,
@@ -1780,6 +1816,13 @@
       "Fed-Zinserwartungen"
      ],
      "rolle": "Er verweist darauf, dass der Markt wieder zusätzliche Straffungsschritte einpreist und die Zentralbankpolitik Gegenwind erzeugen könnte."
+    },
+    "2026-11-17": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Furcht vor längerfristig hohen Zinsen nimmt dem Aktienmarkt den Rückenwind."
     }
    }
   },
