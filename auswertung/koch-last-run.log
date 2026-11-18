@@ -1,13 +1,15 @@
 Feed: 15 Videos
+   9o7ZCjBdgFA 2026-11-18 Anthropic Zuteilskurs 83 US-Dollar? Palo Alto nachbörslich fest.
+   j4YiK9mNb_U 2026-11-18 NVIDIA Drama. Anthropic Fieber.
    G0XxE-Lr6iE 2026-11-17 NVIDIA: Kein Comeback Huang & Aussichten Fiskaljahr 2028 angehoben
    gbfrTGH83Kw 2026-11-17 NVIDIA - wird heute Abend geliefert? LIVE
    BjXICXx5RZg 2026-11-17 Bounce oder Verkaufswelle? NVIDIA entscheidet nach dem Closing.
    VoNE-M8YHhE 2026-11-16 Verlustwelle setzt sich fort | 9 von 11 Sektoren sehen Verluste
    k5Eo3ujwyh0 2026-11-16 Panik bei KI-Aktien? Massive Buy-the-Dip-Chance oder das Ende einer Bu
    BMoJTQLiGzY 2026-11-13 Crash 1929 - Was für ein Tag!
-   tpoH6_72axo 2026-11-13 Jensen ist weg. Jetzt muss Nvidia liefern!
-   jARmVcERgc8 2026-11-12 Huang's Abgang war kein Schock | Cisco kann nachbörslich schlagen.
 Werte aus: G0XxE-Lr6iE NVIDIA: Kein Comeback Huang & Aussichten Fiskaljahr 2028 angehoben 2026-11-17 closing
+  Score 15 Pfeil hoch (43371 Tokens)
+Werte aus: BjXICXx5RZg Bounce oder Verkaufswelle? NVIDIA entscheidet nach dem Closing. 2026-11-17 closing
 gemini-3.8-flash: HTTP 429 {
   "error": {
     "code": 429,
@@ -16,7 +18,15 @@ gemini-3.8-flash: HTTP 429 {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
-gemini-3.7-flash: HTTP 503 {
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-flash-latest: HTTP 503 {
   "error": {
     "code": 503,
     "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
@@ -24,6 +34,27 @@ gemini-3.7-flash: HTTP 503 {
   }
 }
 
+gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
+Werte aus: 9o7ZCjBdgFA Anthropic Zuteilskurs 83 US-Dollar? Palo Alto nachbörslich fest. 2026-11-18 closing
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.8-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
+gemini-3.7-flash: HTTP 429 {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
 gemini-3.7-flash: HTTP 429 {
   "error": {
     "code": 429,
@@ -40,7 +71,7 @@ gemini-flash-latest: HTTP 429 {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: 
-Werte aus: BjXICXx5RZg Bounce oder Verkaufswelle? NVIDIA entscheidet nach dem Closing. 2026-11-17 closing
+Werte aus: j4YiK9mNb_U NVIDIA Drama. Anthropic Fieber. 2026-11-18 opening
 gemini-3.8-flash: HTTP 429 {
   "error": {
     "code": 429,

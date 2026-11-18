@@ -607,14 +607,15 @@
   {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
-   "tage_anzahl": 22,
+   "tage_anzahl": 23,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-09",
+   "zuletzt": "2026-11-17",
    "name": "Nahost & Ukraine-Krieg",
    "namen": [
-    "Nahost & Ukraine-Krieg"
+    "Nahost & Ukraine-Krieg",
+    "US-Ermittlungen zu Chip-Exporten nach China"
    ],
-   "rolle": "Berichte über Annäherungen reduzieren das Risiko einer militärischen Eskalation und einer Schließung der Straße von Hormus.",
+   "rolle": "Politische Restriktionen und Geheimdienstkontrollen bedrohen das China-Geschäft wichtiger Tech-Schwergewichte.",
    "tage": {
     "2026-10-02": {
      "p": -1,
@@ -769,6 +770,13 @@
       "Nahost & Ukraine-Krieg"
      ],
      "rolle": "Berichte über Annäherungen reduzieren das Risiko einer militärischen Eskalation und einer Schließung der Straße von Hormus."
+    },
+    "2026-11-17": {
+     "p": -1,
+     "namen": [
+      "US-Ermittlungen zu Chip-Exporten nach China"
+     ],
+     "rolle": "Politische Restriktionen und Geheimdienstkontrollen bedrohen das China-Geschäft wichtiger Tech-Schwergewichte."
     }
    }
   },
@@ -787,7 +795,7 @@
     "MOVE-Index (Anleihevolatilität)",
     "Liquidität & Financial Conditions"
    ],
-   "rolle": "Der sprunghafte Anstieg der Volatilität spiegelt die akute Furcht der Marktteilnehmer wider, deutet historisch aber auch auf ein baldiges Erreichen eines Stimmungstiefs hin.",
+   "rolle": "Die verhaltene Reaktion zeigt, dass politische Risiken die fundamentale Stärke derzeit überschatten.",
    "tage": {
     "2026-10-01": {
      "p": 1,
@@ -945,9 +953,10 @@
     "2026-11-17": {
      "p": -1,
      "namen": [
-      "Marktpositionierung und Hebel"
+      "Marktpositionierung und Hebel",
+      "Anlegerstimmung im Tech-Sektor"
      ],
-     "rolle": "Der sprunghafte Anstieg der Volatilität spiegelt die akute Furcht der Marktteilnehmer wider, deutet historisch aber auch auf ein baldiges Erreichen eines Stimmungstiefs hin."
+     "rolle": "Die verhaltene Reaktion zeigt, dass politische Risiken die fundamentale Stärke derzeit überschatten."
     }
    }
   },
@@ -1119,7 +1128,7 @@
     "Aktienüberangebot durch Kapitalerhöhungen & IPOs",
     "Aktienrückkäufe"
    ],
-   "rolle": "Die Investitionsausgaben in KI-Infrastruktur sind der zentrale Treiber für die gesamte Tech-Branche.",
+   "rolle": "Die ungebrochene Dynamik bei KI-Investitionen sichert das übergeordnete Marktwachstum im Halbleiterbereich ab.",
    "tage": {
     "2026-10-08": {
      "p": 1,
@@ -1256,11 +1265,11 @@
      "rolle": "Kürzungen bei den Investitionserwartungen schüren Wachstumsängste und belasten die Schwergewichte im Technologiesektor."
     },
     "2026-11-17": {
-     "p": 1,
+     "p": 2,
      "namen": [
       "Tech-Investitionszyklus (CapEx)"
      ],
-     "rolle": "Die Investitionsausgaben in KI-Infrastruktur sind der zentrale Treiber für die gesamte Tech-Branche."
+     "rolle": "Die ungebrochene Dynamik bei KI-Investitionen sichert das übergeordnete Marktwachstum im Halbleiterbereich ab."
     }
    }
   },

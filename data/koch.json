@@ -1,6 +1,48 @@
 {
  "beitraege": [
   {
+   "id": "G0XxE-Lr6iE",
+   "titel": "NVIDIA: Kein Comeback Huang & Aussichten Fiskaljahr 2028 angehoben",
+   "datum": "2026-11-17",
+   "zeit": "2026-11-17T22:20:59+00:00",
+   "art": "closing",
+   "score": 15,
+   "pfeil": "hoch",
+   "thema": "Markus Koch analysiert die jüngsten Entwicklungen aus dem Nvidia-Earnings-Call, die Reaktionen auf die angehobene Prognose sowie die Belastung durch politische Untersuchungen und Gerüchte um Jensen Huang.",
+   "gesamtstimmung": "Die fundamentale Stärke und die langfristige technologische Roadmap im KI-Sektor überzeugen weiterhin vollkommen. Dennoch dämpfen ungelöste geopolitische und personelle Fragezeichen die Kursreaktion merklich ab.",
+   "begruendung": "Nvidias Zahlen und langfristige Prognosen übertreffen die Erwartungen deutlich, was die fundamentale Basis stützt. Allerdings wiegen die andauernden Untersuchungen zu China-Exporten und Führungsdebatten schwer auf der Stimmung, sodass die Erholung der Kurse verhalten bleibt.",
+   "indikatoren": [
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Roadmap für KI-Chips für die nächsten Jahre steht, neue Architektur skaliert ras",
+     "pfeil": "hoch",
+     "rolle": "Die ungebrochene Dynamik bei KI-Investitionen sichert das übergeordnete Marktwachstum im Halbleiterbereich ab."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "US-Ermittlungen zu Chip-Exporten nach China",
+     "lage": "Untersuchungen, CIA-Berichte und anstehende Kongressanhörungen sorgen für Unruhe",
+     "pfeil": "runter",
+     "rolle": "Politische Restriktionen und Geheimdienstkontrollen bedrohen das China-Geschäft wichtiger Tech-Schwergewichte."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Anlegerstimmung im Tech-Sektor",
+     "lage": "Nur minimales Kursplus trotz massiv angehobener Wachstumsprognosen",
+     "pfeil": "seitwaerts",
+     "rolle": "Die verhaltene Reaktion zeigt, dass politische Risiken die fundamentale Stärke derzeit überschatten."
+    }
+   ],
+   "zitate": [
+    "Das ist die eigentlich bittere Pille",
+    "Roadmap der nächsten 3 Jahre steht im Grunde"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 43371
+  },
+  {
    "id": "gbfrTGH83Kw",
    "titel": "NVIDIA - wird heute Abend geliefert? LIVE",
    "datum": "2026-11-17",
@@ -3605,9 +3647,10 @@
   "tpoH6_72axo",
   "VoNE-M8YHhE",
   "k5Eo3ujwyh0",
-  "gbfrTGH83Kw"
+  "gbfrTGH83Kw",
+  "G0XxE-Lr6iE"
  ],
- "stand": "2026-11-17T22:41Z",
+ "stand": "2026-11-18T22:24Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
