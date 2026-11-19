@@ -1,6 +1,75 @@
 {
  "beitraege": [
   {
+   "id": "X9olfTBwplI",
+   "titel": "Die KI hat mein Options-Depot zerlegt und in einem Punkt hatte sie recht",
+   "datum": "2026-11-12",
+   "zeit": "2026-11-12T11:00:03+00:00",
+   "thema": "Alexander Eichhorn analysiert ein kritisches Risikomanagement-Audit der KI Claude zu den realen Trades und dem Scoreboard des Eichhorn-Optionsbriefs.",
+   "marktlage": "Nach Phasen erhöhter Volatilität (wie den Spannungen rund um den Iran) ist die Vola wieder gesunken; Tech- und Konsumwerte zeigen nach Rücksetzern teils Erholung.",
+   "regeln": [
+    {
+     "bereich": "Ausstieg & Gewinnmitnahme",
+     "regel": "Gewinne aus verkauften Puts werden vorzeitig bei Erreichen eines definierten Zielgewinns realisiert.",
+     "zahl": "50–70 %",
+     "begruendung": "Das vorzeitige Schließen nimmt das Restrisiko vom Tisch und setzt Margin für neue Trades frei.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Rollen & Reparatur",
+     "regel": "Verlustpositionen werden konsequent gerollt, in der Regel bei Erreichen des doppelten Prämienverlusts.",
+     "zahl": "-100 %",
+     "begruendung": "Durch das Rollen in spätere Fälligkeiten (LEAPs) wird Zeit gewonnen und die Prämie repariert, anstatt Verluste endgültig zu realisieren.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Wheel & Einstieg",
+     "regel": "Aktien werden niemals eingebucht, es wird keine klassische Wheel-Strategie gefahren.",
+     "zahl": "",
+     "begruendung": "Verluste sollen nicht in Form dauerhafter Buchverluste im Depot verharren, sondern über Stillhalter-Management aktiv gesteuert werden.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Laufzeit",
+     "regel": "Es werden weit laufende Puts (LEAPs) verkauft, die im Erfolgsfall bereits nach einem Bruchteil der Gesamtlaufzeit geschlossen werden.",
+     "zahl": "ca. 40 Tage / 20 % der Restlaufzeit",
+     "begruendung": "LEAPs bieten hohe absolute Prämien, wobei schnelle Marktbewegungen schon frühzeitig zur Gewinnmitnahme führen.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Prämie & Rendite",
+     "regel": "Beim Verkauf von Cash-Secured Puts bzw. LEAPs wird eine Prämie von rund einem Zehntel des Basispreises angestrebt.",
+     "zahl": "ca. 10 %",
+     "begruendung": "Hohe absolute Prämieneinnahmen federn Gegenbewegungen der Aktie deutlich besser ab.",
+     "art": "gewohnheit"
+    }
+   ],
+   "indikatoren": [
+    {
+     "name": "VIX / VXX",
+     "art": "Index",
+     "wozu": "Wird für gezielte Volatilitäts-Trades (Long- oder Short-Vola je nach Ereignis) genutzt.",
+     "lage": ""
+    }
+   ],
+   "quellen": [
+    {
+     "name": "Claude",
+     "wozu": "KI-Modell von Anthropic zur objektiven Analyse von Trading-Scoreboard und Risikokennzahlen."
+    },
+    {
+     "name": "Optionsbrief Scoreboard",
+     "wozu": "Eigene Übersicht aller offenen, gerollten und geschlossenen Trades zur Leistungsmessung."
+    }
+   ],
+   "zitate": [
+    "wir lassen nichts andienen"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 86780
+  },
+  {
    "id": "-vtWWK6jgdg",
    "titel": "#Stillhalter sind #Volatilitätshändler, das vergessen fast alle",
    "datum": "2026-11-10",
@@ -523,7 +592,8 @@
   "S32diJBLEpY",
   "vH4zg3UK3ns",
   "-vtWWK6jgdg",
-  "WgNME4TrR48"
+  "WgNME4TrR48",
+  "X9olfTBwplI"
  ],
  "quelle": "Eichhorn Coaching (YouTube-Podcast). Eigene Auswertung in eigenen Worten, kein Transkript, keine Anlageberatung.",
  "bereiche": [
@@ -540,5 +610,5 @@
   "Steuern & Broker",
   "Sonstiges"
  ],
- "stand": "2026-11-16T14:09Z"
+ "stand": "2026-11-19T14:42Z"
 }
