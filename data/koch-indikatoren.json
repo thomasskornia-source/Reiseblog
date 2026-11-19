@@ -210,7 +210,7 @@
      "rolle": "Die Schließung der Performancelücke zeigt, dass die schmerzhafte Bereinigung unter der Oberfläche bereits weit fortgeschritten ist."
     },
     "2026-11-17": {
-     "p": -1,
+     "p": -2,
      "namen": [
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
@@ -611,7 +611,7 @@
      "rolle": "Dass Renditen bei fallenden Aktienkursen nicht sinken, spiegelt die anhaltende Sorge vor einer straffen Zinspolitik der Fed wider."
     },
     "2026-11-17": {
-     "p": -1,
+     "p": -2,
      "namen": [
       "US-Staatsanleiherenditen"
      ],
@@ -966,7 +966,7 @@
      "rolle": "Ein extrem negatives Sentiment und bereinigte Positionierungen signalisieren für ihn oft das nahende Ende einer Korrekturphase."
     },
     "2026-11-17": {
-     "p": -1,
+     "p": 0,
      "namen": [
       "Marktpositionierung und Hebel",
       "Anlegerstimmung im Tech-Sektor"
@@ -974,7 +974,7 @@
      "rolle": "Die verhaltene Reaktion zeigt, dass politische Risiken die fundamentale Stärke derzeit überschatten."
     },
     "2026-11-18": {
-     "p": 2,
+     "p": 1,
      "namen": [
       "Marktpositionierung und Hebel",
       "Volatilitätsindex (VIX)"
@@ -986,16 +986,16 @@
   {
    "kategorie": "Gewinnsaison",
    "status": "bestaetigt",
-   "tage_anzahl": 20,
+   "tage_anzahl": 21,
    "erstmals": "2026-10-05",
-   "zuletzt": "2026-11-16",
+   "zuletzt": "2026-11-18",
    "name": "Q3-Gewinnschätzungen",
    "namen": [
     "Q3-Gewinnschätzungen",
     "Reaktion auf Quartalszahlen ('Sell the News')",
     "Tech-Gewinnerwartungen & Quartalszahlen"
    ],
-   "rolle": "Die anstehenden Zahlen entscheiden darüber, ob eine Kursrallye fortgesetzt werden kann oder erneuter Abgabedruck droht.",
+   "rolle": "Die Zahlen liefern ein gemischtes Konsumbild und geben dem Gesamtmarkt keinen eindeutigen Richtungsimpuls.",
    "tage": {
     "2026-10-05": {
      "p": 2,
@@ -1136,22 +1136,30 @@
       "Tech-Gewinnerwartungen & Quartalszahlen"
      ],
      "rolle": "Die anstehenden Zahlen entscheiden darüber, ob eine Kursrallye fortgesetzt werden kann oder erneuter Abgabedruck droht."
+    },
+    "2026-11-18": {
+     "p": 0,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Die Zahlen liefern ein gemischtes Konsumbild und geben dem Gesamtmarkt keinen eindeutigen Richtungsimpuls."
     }
    }
   },
   {
    "kategorie": "Sonstiges",
    "status": "bestaetigt",
-   "tage_anzahl": 20,
+   "tage_anzahl": 21,
    "erstmals": "2026-10-08",
-   "zuletzt": "2026-11-17",
+   "zuletzt": "2026-11-18",
    "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
     "Tech-Investitionszyklus (CapEx)",
     "Aktienüberangebot durch Kapitalerhöhungen & IPOs",
-    "Aktienrückkäufe"
+    "Aktienrückkäufe",
+    "US-Infrastrukturausfälle (IT Outages)"
    ],
-   "rolle": "Die ungebrochene Dynamik bei KI-Investitionen sichert das übergeordnete Marktwachstum im Halbleiterbereich ab.",
+   "rolle": "Unerklärte Systemunterbrechungen verunsichern Anleger und erweisen sich als spürbarer Belastungsfaktor für den Gesamthandel.",
    "tage": {
     "2026-10-08": {
      "p": 1,
@@ -1288,11 +1296,19 @@
      "rolle": "Kürzungen bei den Investitionserwartungen schüren Wachstumsängste und belasten die Schwergewichte im Technologiesektor."
     },
     "2026-11-17": {
-     "p": 2,
+     "p": 1,
      "namen": [
       "Tech-Investitionszyklus (CapEx)"
      ],
      "rolle": "Die ungebrochene Dynamik bei KI-Investitionen sichert das übergeordnete Marktwachstum im Halbleiterbereich ab."
+    },
+    "2026-11-18": {
+     "p": 0,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)",
+      "US-Infrastrukturausfälle (IT Outages)"
+     ],
+     "rolle": "Unerklärte Systemunterbrechungen verunsichern Anleger und erweisen sich als spürbarer Belastungsfaktor für den Gesamthandel."
     }
    }
   },
@@ -1422,6 +1438,246 @@
    }
   },
   {
+   "kategorie": "Konjunktur",
+   "status": "bestaetigt",
+   "tage_anzahl": 14,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-11-17",
+   "name": "Industrie- und Exportdaten (Asien & USA)",
+   "namen": [
+    "Industrie- und Exportdaten (Asien & USA)",
+    "Atlanta-Fed GDPNow-Indikator",
+    "Atlanta-Fed-GDPNow-Schätzung",
+    "Konjunktur & Kapitalverfügbarkeit",
+    "US-Einzelhandelsumsätze",
+    "Atlanta Fed GDPNow"
+   ],
+   "rolle": "Ein widerstandsfähiger US-Konsument hält die konjunkturelle Basis stabil.",
+   "tage": {
+    "2026-10-01": {
+     "p": 0,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
+    },
+    "2026-10-05": {
+     "p": 0,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Die anstehenden Daten entscheiden kurzfristig über die Richtung des Handelstages."
+    },
+    "2026-10-06": {
+     "p": -1,
+     "namen": [
+      "Atlanta-Fed GDPNow-Indikator"
+     ],
+     "rolle": "Der Rückgang illustriert die abkühlende Wirtschaftsdynamik infolge des restriktiven Zinsniveaus."
+    },
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "Atlanta-Fed-GDPNow-Schätzung"
+     ],
+     "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal."
+    },
+    "2026-10-08": {
+     "p": 0,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)",
+      "Konjunktur & Kapitalverfügbarkeit"
+     ],
+     "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Als historischer Frühindikator für das Gewinnwachstum des S&P 500 deutet dieser Anstieg auf eine robuste Tech-Nachfrage hin."
+    },
+    "2026-10-15": {
+     "p": -1,
+     "namen": [
+      "US-Einzelhandelsumsätze"
+     ],
+     "rolle": "Nachlassende Konsumlaune droht die US-Konjunktur im Zusammenspiel mit gestrafften Finanzierungsbedingungen abzuwürgen."
+    },
+    "2026-10-20": {
+     "p": -2,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Er sieht darin ein Warnsignal, dass die hohen Zinsen und Finanzierungskosten die US-Wirtschaft ausbremsen."
+    },
+    "2026-10-22": {
+     "p": -1,
+     "namen": [
+      "Atlanta Fed GDPNow"
+     ],
+     "rolle": "Wachsende Sorgen vor einer wirtschaftlichen Flaute drücken einerseits auf die Zinsen, dämpfen aber die Konjunkturzuversicht."
+    },
+    "2026-10-28": {
+     "p": 1,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Der Rückgang der Konjunkturschätzungen signalisiert eine spürbare Abkühlung der US-Wirtschaft infolge der straffen Geldpolitik."
+    },
+    "2026-11-02": {
+     "p": 1,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Robuste Daten aus dem Industriesektor stützen traditionelle Substanz- und Qualitätswerte."
+    },
+    "2026-11-03": {
+     "p": -1,
+     "namen": [
+      "US-Kreditnachfrage (Loan Officer Survey)"
+     ],
+     "rolle": "Die nachlassende Bereitschaft zur Kreditaufnahme signalisiert konjunkturelle Abkühlung und bremst das Wirtschaftswachstum."
+    },
+    "2026-11-13": {
+     "p": -1,
+     "namen": [
+      "US-Immobilienmarkt"
+     ],
+     "rolle": "Die mangelnde Erschwinglichkeit und hohe Zinsen bremsen den US-Immobiliensektor spürbar aus."
+    },
+    "2026-11-17": {
+     "p": 1,
+     "namen": [
+      "US-Einzelhandelsdaten"
+     ],
+     "rolle": "Ein widerstandsfähiger US-Konsument hält die konjunkturelle Basis stabil."
+    }
+   }
+  },
+  {
+   "kategorie": "Politik & Zölle",
+   "status": "bestaetigt",
+   "tage_anzahl": 14,
+   "erstmals": "2026-10-07",
+   "zuletzt": "2026-11-18",
+   "name": "US-Zollpolitik & Schuldenpläne",
+   "namen": [
+    "US-Zollpolitik & Schuldenpläne",
+    "US-Zwischenwahlen (Midterms)",
+    "US-Midterm-Wahlen",
+    "US-Wahlen / Midterms",
+    "US-Wahlergebnis & Machtverhältnisse",
+    "US-Politik & Regulierung"
+   ],
+   "rolle": "Das administrative Hin und Her rund um Zölle erschwert eine saubere Bewertung der fundamentalen Gewinndynamik.",
+   "tage": {
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein."
+    },
+    "2026-10-09": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Politische Unsicherheiten vor den Wahlen sorgen für Nervosität bei Technologiekonzernen und Investoren."
+    },
+    "2026-10-29": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Die politische Unsicherheit vor den Midterms engt die Risikobereitschaft der Marktteilnehmer zusätzlich ein."
+    },
+    "2026-10-30": {
+     "p": -1,
+     "namen": [
+      "US-Midterm-Wahlen",
+      "US-Zwischenwahlen (Midterms)"
+     ],
+     "rolle": "Eine klare Entscheidung bei den Midterms könnte die politische Hängepartie beenden und den Weg für eine Jahresendrallye freimachen."
+    },
+    "2026-11-02": {
+     "p": -1,
+     "namen": [
+      "US-Wahlen / Midterms",
+      "US-Zwischenwahlen (Midterms)"
+     ],
+     "rolle": "Die politische Unsicherheit rund um eine mögliche Mehrheitsverschiebung dämpft die Risikobereitschaft der Anleger."
+    },
+    "2026-11-03": {
+     "p": 0,
+     "namen": [
+      "US-Zwischenwahlen (Midterms)"
+     ],
+     "rolle": "Ein geteilter Kongress (Gridlock) gilt historisch als Idealzustand, während ein Durchmarsch einer Partei Unsicherheit über Regulierung schürt."
+    },
+    "2026-11-04": {
+     "p": 2,
+     "namen": [
+      "US-Wahlergebnis & Machtverhältnisse",
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Politische Blockaden und Gegenwind für unberechenbare Zölle werden von den Märkten als stabilitätsfördernd gewertet."
+    },
+    "2026-11-05": {
+     "p": -2,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne",
+      "US-Politik & Regulierung"
+     ],
+     "rolle": "Politische Unsicherheiten in Kernstaaten wie Texas schüren Ängste vor regulatorischen Bremsen im Tech-Sektor."
+    },
+    "2026-11-06": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Politische Revancheakte und regulatorische Unsicherheiten belasten die betroffenen Großkonzerne im Tech-Sektor."
+    },
+    "2026-11-12": {
+     "p": -2,
+     "namen": [
+      "US-Regulierung & Exportbeschränkungen",
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Das anhaltend hohe Haushaltsdefizit wird als untragbar für Wirtschaft und Rentenmarkt eingestuft."
+    },
+    "2026-11-13": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Das explodierende Haushaltsdefizit zwingt die Märkte zur Abstrafung des Staates über höhere Refinanzierungskosten."
+    },
+    "2026-11-16": {
+     "p": -1,
+     "namen": [
+      "US-Exportbeschränkungen & Regulierung"
+     ],
+     "rolle": "Die zunehmend strengeren Restriktionen belasten wichtige Wachstumsfantasien und schaffen politische Risiken für den Tech-Sektor."
+    },
+    "2026-11-18": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Das administrative Hin und Her rund um Zölle erschwert eine saubere Bewertung der fundamentalen Gewinndynamik."
+    }
+   }
+  },
+  {
    "kategorie": "Zinsen & Notenbank",
    "status": "bestaetigt",
    "tage_anzahl": 14,
@@ -1518,7 +1774,7 @@
      "rolle": "Er verweist darauf, dass der Markt wieder zusätzliche Straffungsschritte einpreist und die Zentralbankpolitik Gegenwind erzeugen könnte."
     },
     "2026-11-17": {
-     "p": -1,
+     "p": -2,
      "namen": [
       "Fed-Zinserwartungen"
      ],
@@ -1636,232 +1892,6 @@
       "Inflationsdynamik"
      ],
      "rolle": "Nachlassender Preisdruck stützt das Basisszenario einer anhaltenden Wirtschaftsexpansion im kommenden Jahr."
-    }
-   }
-  },
-  {
-   "kategorie": "Konjunktur",
-   "status": "bestaetigt",
-   "tage_anzahl": 13,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-13",
-   "name": "Industrie- und Exportdaten (Asien & USA)",
-   "namen": [
-    "Industrie- und Exportdaten (Asien & USA)",
-    "Atlanta-Fed GDPNow-Indikator",
-    "Atlanta-Fed-GDPNow-Schätzung",
-    "Konjunktur & Kapitalverfügbarkeit",
-    "US-Einzelhandelsumsätze",
-    "Atlanta Fed GDPNow"
-   ],
-   "rolle": "Die mangelnde Erschwinglichkeit und hohe Zinsen bremsen den US-Immobiliensektor spürbar aus.",
-   "tage": {
-    "2026-10-01": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
-    },
-    "2026-10-05": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Die anstehenden Daten entscheiden kurzfristig über die Richtung des Handelstages."
-    },
-    "2026-10-06": {
-     "p": -1,
-     "namen": [
-      "Atlanta-Fed GDPNow-Indikator"
-     ],
-     "rolle": "Der Rückgang illustriert die abkühlende Wirtschaftsdynamik infolge des restriktiven Zinsniveaus."
-    },
-    "2026-10-07": {
-     "p": -1,
-     "namen": [
-      "Atlanta-Fed-GDPNow-Schätzung"
-     ],
-     "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal."
-    },
-    "2026-10-08": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)",
-      "Konjunktur & Kapitalverfügbarkeit"
-     ],
-     "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung."
-    },
-    "2026-10-13": {
-     "p": 1,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Als historischer Frühindikator für das Gewinnwachstum des S&P 500 deutet dieser Anstieg auf eine robuste Tech-Nachfrage hin."
-    },
-    "2026-10-15": {
-     "p": -1,
-     "namen": [
-      "US-Einzelhandelsumsätze"
-     ],
-     "rolle": "Nachlassende Konsumlaune droht die US-Konjunktur im Zusammenspiel mit gestrafften Finanzierungsbedingungen abzuwürgen."
-    },
-    "2026-10-20": {
-     "p": -2,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Er sieht darin ein Warnsignal, dass die hohen Zinsen und Finanzierungskosten die US-Wirtschaft ausbremsen."
-    },
-    "2026-10-22": {
-     "p": -1,
-     "namen": [
-      "Atlanta Fed GDPNow"
-     ],
-     "rolle": "Wachsende Sorgen vor einer wirtschaftlichen Flaute drücken einerseits auf die Zinsen, dämpfen aber die Konjunkturzuversicht."
-    },
-    "2026-10-28": {
-     "p": 1,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Der Rückgang der Konjunkturschätzungen signalisiert eine spürbare Abkühlung der US-Wirtschaft infolge der straffen Geldpolitik."
-    },
-    "2026-11-02": {
-     "p": 1,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Robuste Daten aus dem Industriesektor stützen traditionelle Substanz- und Qualitätswerte."
-    },
-    "2026-11-03": {
-     "p": -1,
-     "namen": [
-      "US-Kreditnachfrage (Loan Officer Survey)"
-     ],
-     "rolle": "Die nachlassende Bereitschaft zur Kreditaufnahme signalisiert konjunkturelle Abkühlung und bremst das Wirtschaftswachstum."
-    },
-    "2026-11-13": {
-     "p": -1,
-     "namen": [
-      "US-Immobilienmarkt"
-     ],
-     "rolle": "Die mangelnde Erschwinglichkeit und hohe Zinsen bremsen den US-Immobiliensektor spürbar aus."
-    }
-   }
-  },
-  {
-   "kategorie": "Politik & Zölle",
-   "status": "bestaetigt",
-   "tage_anzahl": 13,
-   "erstmals": "2026-10-07",
-   "zuletzt": "2026-11-16",
-   "name": "US-Zollpolitik & Schuldenpläne",
-   "namen": [
-    "US-Zollpolitik & Schuldenpläne",
-    "US-Zwischenwahlen (Midterms)",
-    "US-Midterm-Wahlen",
-    "US-Wahlen / Midterms",
-    "US-Wahlergebnis & Machtverhältnisse",
-    "US-Politik & Regulierung"
-   ],
-   "rolle": "Die zunehmend strengeren Restriktionen belasten wichtige Wachstumsfantasien und schaffen politische Risiken für den Tech-Sektor.",
-   "tage": {
-    "2026-10-07": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein."
-    },
-    "2026-10-09": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt."
-    },
-    "2026-10-20": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Politische Unsicherheiten vor den Wahlen sorgen für Nervosität bei Technologiekonzernen und Investoren."
-    },
-    "2026-10-29": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Die politische Unsicherheit vor den Midterms engt die Risikobereitschaft der Marktteilnehmer zusätzlich ein."
-    },
-    "2026-10-30": {
-     "p": -1,
-     "namen": [
-      "US-Midterm-Wahlen",
-      "US-Zwischenwahlen (Midterms)"
-     ],
-     "rolle": "Eine klare Entscheidung bei den Midterms könnte die politische Hängepartie beenden und den Weg für eine Jahresendrallye freimachen."
-    },
-    "2026-11-02": {
-     "p": -1,
-     "namen": [
-      "US-Wahlen / Midterms",
-      "US-Zwischenwahlen (Midterms)"
-     ],
-     "rolle": "Die politische Unsicherheit rund um eine mögliche Mehrheitsverschiebung dämpft die Risikobereitschaft der Anleger."
-    },
-    "2026-11-03": {
-     "p": 0,
-     "namen": [
-      "US-Zwischenwahlen (Midterms)"
-     ],
-     "rolle": "Ein geteilter Kongress (Gridlock) gilt historisch als Idealzustand, während ein Durchmarsch einer Partei Unsicherheit über Regulierung schürt."
-    },
-    "2026-11-04": {
-     "p": 2,
-     "namen": [
-      "US-Wahlergebnis & Machtverhältnisse",
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Politische Blockaden und Gegenwind für unberechenbare Zölle werden von den Märkten als stabilitätsfördernd gewertet."
-    },
-    "2026-11-05": {
-     "p": -2,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne",
-      "US-Politik & Regulierung"
-     ],
-     "rolle": "Politische Unsicherheiten in Kernstaaten wie Texas schüren Ängste vor regulatorischen Bremsen im Tech-Sektor."
-    },
-    "2026-11-06": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Politische Revancheakte und regulatorische Unsicherheiten belasten die betroffenen Großkonzerne im Tech-Sektor."
-    },
-    "2026-11-12": {
-     "p": -2,
-     "namen": [
-      "US-Regulierung & Exportbeschränkungen",
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Das anhaltend hohe Haushaltsdefizit wird als untragbar für Wirtschaft und Rentenmarkt eingestuft."
-    },
-    "2026-11-13": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Das explodierende Haushaltsdefizit zwingt die Märkte zur Abstrafung des Staates über höhere Refinanzierungskosten."
-    },
-    "2026-11-16": {
-     "p": -1,
-     "namen": [
-      "US-Exportbeschränkungen & Regulierung"
-     ],
-     "rolle": "Die zunehmend strengeren Restriktionen belasten wichtige Wachstumsfantasien und schaffen politische Risiken für den Tech-Sektor."
     }
    }
   },

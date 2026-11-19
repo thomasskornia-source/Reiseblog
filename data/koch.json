@@ -57,6 +57,62 @@
    "tokens": 152694
   },
   {
+   "id": "j4YiK9mNb_U",
+   "titel": "NVIDIA Drama. Anthropic Fieber.",
+   "datum": "2026-11-18",
+   "zeit": "2026-11-18T14:29:28+00:00",
+   "art": "opening",
+   "score": 10,
+   "pfeil": "seitwaerts",
+   "thema": "Der Markt zeigt sich vorbörslich uneinheitlich, gestützt von positiven Analystenkommentaren zu Nvidia, während IT-Ausfälle und Zollverzerrungen im Einzelhandel die Stimmung dämpfen.",
+   "gesamtstimmung": "Die US-Börsen präsentieren sich gespalten mit leichtem Aufwind im Technologiesektor, während der Dow Jones mangels klarer Impulse auf der Stelle tritt. Trotz anhaltend hoher Nachfrage im Halbleiterbereich belasten vorübergehende Verunsicherungen über IT-Ausfälle und nachlassende Dynamik bei Cloud-Investitionen das Sentiment.",
+   "begruendung": "Positive Analystenreaktionen und robuste Prognosen im Technologiesektor wirken als solider Puffer gegen Kursrücksetzer. Gleichzeitig bremsen diffuse Sorgen vor Systemausfällen in den USA und Zollunsicherheiten eine breite Markterholung aus.",
+   "indikatoren": [
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Investitionen in KI-Infrastruktur bleiben hoch, Finanzierungsfenster für Neo-Clo",
+     "pfeil": "hoch",
+     "rolle": "Der fortgesetzte Ausbau der Rechnerkapazitäten sichert die Nachfrage nach Hochleistungschips und stützt die Leitwerte des Sektors."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Kurzfristig hohe Nervosität und schlechte Grundstimmung im KI-Sektor",
+     "pfeil": "runter",
+     "rolle": "Die spürbare Skepsis gegenüber Tech-Investments verhindert trotz guter Quartalsergebnisse eine dynamische Kursexplosion."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "US-Infrastrukturausfälle (IT Outages)",
+     "lage": "Häufung technischer Störungen bei Flugaufsicht, Tech-Konzernen und Banken",
+     "pfeil": "runter",
+     "rolle": "Unerklärte Systemunterbrechungen verunsichern Anleger und erweisen sich als spürbarer Belastungsfaktor für den Gesamthandel."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "Q3-Gewinnschätzungen",
+     "lage": "Einzelhandelsergebnisse übertreffen Erwartungen, teils aber durch Sonderfaktoren",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Zahlen liefern ein gemischtes Konsumbild und geben dem Gesamtmarkt keinen eindeutigen Richtungsimpuls."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zollpolitik & Schuldenpläne",
+     "lage": "Zollrückerstattungen verzerren Ertragszahlen im Konsum- und Baubereich",
+     "pfeil": "runter",
+     "rolle": "Das administrative Hin und Her rund um Zölle erschwert eine saubere Bewertung der fundamentalen Gewinndynamik."
+    }
+   ],
+   "zitate": [
+    "grottenschlechten Stimmung, die wir mittlerweile im AI-Sektor sehen",
+    "macht den Markt nervös gestern auch definitiv ein Belastungsfaktor"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 109716
+  },
+  {
    "id": "G0XxE-Lr6iE",
    "titel": "NVIDIA: Kein Comeback Huang & Aussichten Fiskaljahr 2028 angehoben",
    "datum": "2026-11-17",
@@ -160,6 +216,69 @@
    "sicherheit": "hoch",
    "modell": "gemini-3.7-flash",
    "tokens": 205000
+  },
+  {
+   "id": "BjXICXx5RZg",
+   "titel": "Bounce oder Verkaufswelle? NVIDIA entscheidet nach dem Closing.",
+   "datum": "2026-11-17",
+   "zeit": "2026-11-17T14:32:44+00:00",
+   "art": "closing",
+   "score": -20,
+   "pfeil": "runter",
+   "thema": "Markus Koch beleuchtet die drastische Reduktion der Tech-Gewichtung durch globale Fondsmanager, anhaltend feste Anleiherenditen sowie die entscheidenden Impulse vor den Nvidia-Zahlen.",
+   "gesamtstimmung": "Die Marktstimmung bleibt von spürbarer Zurückhaltung, Sorgen um den Investitionszyklus im Technologiesektor und hartnäckigen Anleiherenditen geprägt. Gleichzeitig sieht Markus Koch in der drastisch abgebauten Positionierung der Investoren zunehmend Potenzial für einen konträren Rebound.",
+   "begruendung": "Der massive Ausverkauf und das De-Leveraging im Tech-Bereich sowie falkenhafte Signale aus der Notenbank belasten das Marktumfeld spürbar. Allerdings deuten die extrem bereinigte Stimmung und robuste US-Konsumdaten darauf hin, dass eine Gegenbewegung nicht mehr weit entfernt sein könnte.",
+   "indikatoren": [
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Stärkster Abbau der Tech-Gewichtung bei Fondsmanagern seit 20 Jahren",
+     "pfeil": "hoch",
+     "rolle": "Die stark bereinigte Positionierung wirkt für ihn bereits wie ein reifer Kontraindikator für eine Erholung."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Mehrheit der Großanleger rechnet mit Kürzungen der KI-Ausgaben bei Hyperscalern",
+     "pfeil": "runter",
+     "rolle": "Erwartete Ausgabenkürzungen dämpfen die wichtigste fundamentale Triebfeder des Gesamtmarktes."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "65 Prozent der Aktien im Russell 3000 liegen über 20 Prozent unter ihren Hochs",
+     "pfeil": "runter",
+     "rolle": "Das Ausmaß der Korrektur unter der Oberfläche zeigt die Verwundbarkeit breiter Marktsegmente."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Verharren auf hohem Niveau trotz fallender Aktien und Rohstoffpreise",
+     "pfeil": "runter",
+     "rolle": "Mangelnde Entspannung am Anleihemarkt verhindert einen verlässlichen Bewertungsboden für Aktien."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "US-Einzelhandelsdaten",
+     "lage": "Solides Kernwachstum von 0,6 Prozent ohne Autoverkäufe",
+     "pfeil": "hoch",
+     "rolle": "Ein widerstandsfähiger US-Konsument hält die konjunkturelle Basis stabil."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Falkenhafte Töne einzelner Notenbanker dämpfen Zinssenkungshoffnungen",
+     "pfeil": "runter",
+     "rolle": "Zweifel an schnellen geldpolitischen Lockerungen halten den Druck auf die Märkte aufrecht."
+    }
+   ],
+   "zitate": [
+    "Das sinkt wie ein Stein, fast schon ein Kontraindikator",
+    "kein Rücklauf bei den Renditen der Staatsanleihen"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 144493
   },
   {
    "id": "VoNE-M8YHhE",
@@ -3705,9 +3824,11 @@
   "k5Eo3ujwyh0",
   "gbfrTGH83Kw",
   "G0XxE-Lr6iE",
-  "9o7ZCjBdgFA"
+  "9o7ZCjBdgFA",
+  "BjXICXx5RZg",
+  "j4YiK9mNb_U"
  ],
- "stand": "2026-11-19T02:45Z",
+ "stand": "2026-11-19T04:08Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
