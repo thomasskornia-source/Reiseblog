@@ -1,17 +1,19 @@
 Feed: 15 Videos
+   eFymOqiyaKs 2026-11-19 Anthropic siegt. Die Wall Street zahlt den Preis.
+   _xrT9GurVBw 2026-11-19 Anthropic-IPO sorgt für Verwerfungen | Verluste nach dem ersten Kurs.
+   vc0fcfHmNdc 2026-11-19 Anthropic gelingt Mega-IPO. Zündet jetzt die KI-Rally?
    9o7ZCjBdgFA 2026-11-18 Anthropic Zuteilskurs 83 US-Dollar? Palo Alto nachbörslich fest.
    j4YiK9mNb_U 2026-11-18 NVIDIA Drama. Anthropic Fieber.
    G0XxE-Lr6iE 2026-11-17 NVIDIA: Kein Comeback Huang & Aussichten Fiskaljahr 2028 angehoben
    gbfrTGH83Kw 2026-11-17 NVIDIA - wird heute Abend geliefert? LIVE
    BjXICXx5RZg 2026-11-17 Bounce oder Verkaufswelle? NVIDIA entscheidet nach dem Closing.
-   VoNE-M8YHhE 2026-11-16 Verlustwelle setzt sich fort | 9 von 11 Sektoren sehen Verluste
-   k5Eo3ujwyh0 2026-11-16 Panik bei KI-Aktien? Massive Buy-the-Dip-Chance oder das Ende einer Bu
-   BMoJTQLiGzY 2026-11-13 Crash 1929 - Was für ein Tag!
-Werte aus: BjXICXx5RZg Bounce oder Verkaufswelle? NVIDIA entscheidet nach dem Closing. 2026-11-17 closing
-  Score -20 Pfeil runter (144493 Tokens)
-Werte aus: j4YiK9mNb_U NVIDIA Drama. Anthropic Fieber. 2026-11-18 opening
+Werte aus: eFymOqiyaKs Anthropic siegt. Die Wall Street zahlt den Preis. 2026-11-19 closing
+  Score -82 Pfeil runter (115426 Tokens)
+Werte aus: _xrT9GurVBw Anthropic-IPO sorgt für Verwerfungen | Verluste nach dem ersten Kurs. 2026-11-19 closing
+  Score -55 Pfeil runter (94132 Tokens)
+Werte aus: vc0fcfHmNdc Anthropic gelingt Mega-IPO. Zündet jetzt die KI-Rally? 2026-11-19 opening
 gemini-3.8-flash: HTTP 429 {
   "error": {
     "code": 429,
     "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
-  Score 10 Pfeil seitwaerts (109716 Tokens)
+  Score 35 Pfeil hoch (147716 Tokens)

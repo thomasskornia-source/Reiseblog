@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-18",
+ "stand": "2026-11-19",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -8,9 +8,9 @@
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 28,
+   "tage_anzahl": 29,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-18",
+   "zuletzt": "2026-11-19",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
@@ -20,7 +20,7 @@
     "Sektorrotation in Value- und Standardwerte",
     "Tech- und KI-Sektor"
    ],
-   "rolle": "Die Rotation zeigt überdehnte Bewertungen in defensiven Konsumwerten und sorgt kurzfristig für Verwerfungen im Gesamtmarkt.",
+   "rolle": "Es gibt für Anleger praktisch keine Fluchtmöglichkeiten abseits einzelner Cybersecurity-Werte.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -222,6 +222,13 @@
       "Sektor-Rotation"
      ],
      "rolle": "Die Rotation zeigt überdehnte Bewertungen in defensiven Konsumwerten und sorgt kurzfristig für Verwerfungen im Gesamtmarkt."
+    },
+    "2026-11-19": {
+     "p": -2,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Es gibt für Anleger praktisch keine Fluchtmöglichkeiten abseits einzelner Cybersecurity-Werte."
     }
    }
   },
@@ -622,15 +629,15 @@
   {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
-   "tage_anzahl": 23,
+   "tage_anzahl": 24,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-17",
+   "zuletzt": "2026-11-19",
    "name": "Nahost & Ukraine-Krieg",
    "namen": [
     "Nahost & Ukraine-Krieg",
     "US-Ermittlungen zu Chip-Exporten nach China"
    ],
-   "rolle": "Politische Restriktionen und Geheimdienstkontrollen bedrohen das China-Geschäft wichtiger Tech-Schwergewichte.",
+   "rolle": "Neue geopolitische Eskalationsgefahren schüren zusätzliche Risikoaversion an den Finanzmärkten.",
    "tage": {
     "2026-10-02": {
      "p": -1,
@@ -792,25 +799,32 @@
       "US-Ermittlungen zu Chip-Exporten nach China"
      ],
      "rolle": "Politische Restriktionen und Geheimdienstkontrollen bedrohen das China-Geschäft wichtiger Tech-Schwergewichte."
+    },
+    "2026-11-19": {
+     "p": -2,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Neue geopolitische Eskalationsgefahren schüren zusätzliche Risikoaversion an den Finanzmärkten."
     }
    }
   },
   {
    "kategorie": "Stimmung & Volatilität",
    "status": "bestaetigt",
-   "tage_anzahl": 23,
+   "tage_anzahl": 24,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-18",
+   "zuletzt": "2026-11-19",
    "name": "Marktpositionierung und Hebel",
    "namen": [
     "Marktpositionierung und Hebel",
+    "VIX (Volatilitätsindex)",
     "Volatilitätsindex (VIX)",
     "Anleihevolatilität (MOVE-Index)",
     "Anlegerstimmung & Depotrealität",
-    "MOVE-Index",
-    "MOVE-Index (Anleihevolatilität)"
+    "MOVE-Index"
    ],
-   "rolle": "Der Rückgang der Volatilität trotz nervöser Indizes ist für ihn ein erstes positives Entspannungssignal.",
+   "rolle": "Der sprunghafte Anstieg der Volatilität signalisiert zunehmende Nervosität und zwingt systematische Strategien zum Risikoabbau.",
    "tage": {
     "2026-10-01": {
      "p": 1,
@@ -980,22 +994,30 @@
       "Volatilitätsindex (VIX)"
      ],
      "rolle": "Der Rückgang der Volatilität trotz nervöser Indizes ist für ihn ein erstes positives Entspannungssignal."
+    },
+    "2026-11-19": {
+     "p": -2,
+     "namen": [
+      "Marktpositionierung und Hebel",
+      "VIX (Volatilitätsindex)"
+     ],
+     "rolle": "Der sprunghafte Anstieg der Volatilität signalisiert zunehmende Nervosität und zwingt systematische Strategien zum Risikoabbau."
     }
    }
   },
   {
    "kategorie": "Gewinnsaison",
    "status": "bestaetigt",
-   "tage_anzahl": 21,
+   "tage_anzahl": 22,
    "erstmals": "2026-10-05",
-   "zuletzt": "2026-11-18",
+   "zuletzt": "2026-11-19",
    "name": "Q3-Gewinnschätzungen",
    "namen": [
     "Q3-Gewinnschätzungen",
     "Reaktion auf Quartalszahlen ('Sell the News')",
     "Tech-Gewinnerwartungen & Quartalszahlen"
    ],
-   "rolle": "Die Zahlen liefern ein gemischtes Konsumbild und geben dem Gesamtmarkt keinen eindeutigen Richtungsimpuls.",
+   "rolle": "Bevorstehende Zahlen von Tech-Schwergewichten bleiben ein relevanter Prüfstein für die Marktstabilität.",
    "tage": {
     "2026-10-05": {
      "p": 2,
@@ -1143,15 +1165,22 @@
       "Q3-Gewinnschätzungen"
      ],
      "rolle": "Die Zahlen liefern ein gemischtes Konsumbild und geben dem Gesamtmarkt keinen eindeutigen Richtungsimpuls."
+    },
+    "2026-11-19": {
+     "p": 0,
+     "namen": [
+      "Q3-Gewinnschätzungen"
+     ],
+     "rolle": "Bevorstehende Zahlen von Tech-Schwergewichten bleiben ein relevanter Prüfstein für die Marktstabilität."
     }
    }
   },
   {
    "kategorie": "Sonstiges",
    "status": "bestaetigt",
-   "tage_anzahl": 21,
+   "tage_anzahl": 22,
    "erstmals": "2026-10-08",
-   "zuletzt": "2026-11-18",
+   "zuletzt": "2026-11-19",
    "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
     "Tech-Investitionszyklus (CapEx)",
@@ -1159,7 +1188,7 @@
     "Aktienrückkäufe",
     "US-Infrastrukturausfälle (IT Outages)"
    ],
-   "rolle": "Unerklärte Systemunterbrechungen verunsichern Anleger und erweisen sich als spürbarer Belastungsfaktor für den Gesamthandel.",
+   "rolle": "Eine Verlangsamung der KI-Investitionen trifft den Kern des bisherigen Markt- und Tech-Aufschwungs.",
    "tage": {
     "2026-10-08": {
      "p": 1,
@@ -1309,15 +1338,22 @@
       "US-Infrastrukturausfälle (IT Outages)"
      ],
      "rolle": "Unerklärte Systemunterbrechungen verunsichern Anleger und erweisen sich als spürbarer Belastungsfaktor für den Gesamthandel."
+    },
+    "2026-11-19": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Eine Verlangsamung der KI-Investitionen trifft den Kern des bisherigen Markt- und Tech-Aufschwungs."
     }
    }
   },
   {
    "kategorie": "Saisonalität & Chart",
    "status": "bestaetigt",
-   "tage_anzahl": 15,
+   "tage_anzahl": 16,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-17",
+   "zuletzt": "2026-11-19",
    "name": "Q4-Saisonalität & Positionierung",
    "namen": [
     "Q4-Saisonalität & Positionierung",
@@ -1327,7 +1363,7 @@
     "Technische Überverkauftheit",
     "200-Tage-Linie im S&P 500"
    ],
-   "rolle": "Das Erreichen technischer Kernunterstützungen nährt die Hoffnung auf eine Stabilisierung des Marktes.",
+   "rolle": "Das immense Volumen vor dem Wochenende treibt kurzfristig die Kursschwankungen und Unsicherheit.",
    "tage": {
     "2026-10-02": {
      "p": 1,
@@ -1434,6 +1470,133 @@
       "200-Tage-Linie im S&P 500"
      ],
      "rolle": "Das Erreichen technischer Kernunterstützungen nährt die Hoffnung auf eine Stabilisierung des Marktes."
+    },
+    "2026-11-19": {
+     "p": -1,
+     "namen": [
+      "Q4-Saisonalität & Positionierung",
+      "Optionsverfall (OPEX)"
+     ],
+     "rolle": "Das immense Volumen vor dem Wochenende treibt kurzfristig die Kursschwankungen und Unsicherheit."
+    }
+   }
+  },
+  {
+   "kategorie": "Zinsen & Notenbank",
+   "status": "bestaetigt",
+   "tage_anzahl": 15,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-11-19",
+   "name": "Fed-Zinserwartungen",
+   "namen": [
+    "Fed-Zinserwartungen"
+   ],
+   "rolle": "Falkenhafte Notenbankerkommentare und Zinserhöhungsprognosen führender Banken belasten die Bewertungsmultiplikatoren.",
+   "tage": {
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
+    },
+    "2026-10-06": {
+     "p": 2,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
+    },
+    "2026-10-07": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren."
+    },
+    "2026-10-13": {
+     "p": 2,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Aussicht, dass nach einer möglichen letzten Zinserhöhung im laufenden Jahr im Folgejahr keine weiteren Schritte folgen, beruhigt die Zinsdebatte."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Zusätzliche Zinserhöhungen erhöhen das Risiko eines wirtschaftlichen Abschwungs."
+    },
+    "2026-10-15": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Zinspfade bis Jahresende bleiben der maßgebliche Treiber für Bewertung und Liquidität an den Märkten."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Das Ausbleiben hawkisher Überraschungen stützt die Zuversicht im Markt."
+    },
+    "2026-10-26": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Notenbanken dürften vor den anstehenden politischen Terminen keine überraschenden Kursschwenks vollziehen."
+    },
+    "2026-10-28": {
+     "p": 3,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Dass die Indizes nach dem Zinsentscheid nicht wie historisch üblich um rund ein Prozent einbrachen, wertet er als positives Stabilitätssignal."
+    },
+    "2026-11-12": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Zunehmende Härte unter den Fed-Gouverneuren dämpft die Hoffnung auf eine rasche Lockerung der US-Geldpolitik."
+    },
+    "2026-11-16": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Er verweist darauf, dass der Markt wieder zusätzliche Straffungsschritte einpreist und die Zentralbankpolitik Gegenwind erzeugen könnte."
+    },
+    "2026-11-17": {
+     "p": -2,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Furcht vor längerfristig hohen Zinsen nimmt dem Aktienmarkt den Rückenwind."
+    },
+    "2026-11-18": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Furcht vor restriktiveren Notenbankmaßnahmen verunsichert die Anleger und bremst die Risikobereitschaft."
+    },
+    "2026-11-19": {
+     "p": -2,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Falkenhafte Notenbankerkommentare und Zinserhöhungsprognosen führender Banken belasten die Bewertungsmultiplikatoren."
     }
    }
   },
@@ -1674,118 +1837,6 @@
       "US-Zollpolitik & Schuldenpläne"
      ],
      "rolle": "Das administrative Hin und Her rund um Zölle erschwert eine saubere Bewertung der fundamentalen Gewinndynamik."
-    }
-   }
-  },
-  {
-   "kategorie": "Zinsen & Notenbank",
-   "status": "bestaetigt",
-   "tage_anzahl": 14,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-18",
-   "name": "Fed-Zinserwartungen",
-   "namen": [
-    "Fed-Zinserwartungen"
-   ],
-   "rolle": "Die Furcht vor restriktiveren Notenbankmaßnahmen verunsichert die Anleger und bremst die Risikobereitschaft.",
-   "tage": {
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
-    },
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
-    },
-    "2026-10-06": {
-     "p": 2,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
-    },
-    "2026-10-07": {
-     "p": 0,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren."
-    },
-    "2026-10-13": {
-     "p": 2,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Aussicht, dass nach einer möglichen letzten Zinserhöhung im laufenden Jahr im Folgejahr keine weiteren Schritte folgen, beruhigt die Zinsdebatte."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Zusätzliche Zinserhöhungen erhöhen das Risiko eines wirtschaftlichen Abschwungs."
-    },
-    "2026-10-15": {
-     "p": 0,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Zinspfade bis Jahresende bleiben der maßgebliche Treiber für Bewertung und Liquidität an den Märkten."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Das Ausbleiben hawkisher Überraschungen stützt die Zuversicht im Markt."
-    },
-    "2026-10-26": {
-     "p": 0,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Notenbanken dürften vor den anstehenden politischen Terminen keine überraschenden Kursschwenks vollziehen."
-    },
-    "2026-10-28": {
-     "p": 3,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Dass die Indizes nach dem Zinsentscheid nicht wie historisch üblich um rund ein Prozent einbrachen, wertet er als positives Stabilitätssignal."
-    },
-    "2026-11-12": {
-     "p": -1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Zunehmende Härte unter den Fed-Gouverneuren dämpft die Hoffnung auf eine rasche Lockerung der US-Geldpolitik."
-    },
-    "2026-11-16": {
-     "p": -1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Er verweist darauf, dass der Markt wieder zusätzliche Straffungsschritte einpreist und die Zentralbankpolitik Gegenwind erzeugen könnte."
-    },
-    "2026-11-17": {
-     "p": -2,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Furcht vor längerfristig hohen Zinsen nimmt dem Aktienmarkt den Rückenwind."
-    },
-    "2026-11-18": {
-     "p": -1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Furcht vor restriktiveren Notenbankmaßnahmen verunsichert die Anleger und bremst die Risikobereitschaft."
     }
    }
   },
