@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-17",
+ "stand": "2026-11-18",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -8,9 +8,9 @@
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 27,
+   "tage_anzahl": 28,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-17",
+   "zuletzt": "2026-11-18",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
@@ -20,7 +20,7 @@
     "Sektorrotation in Value- und Standardwerte",
     "Tech- und KI-Sektor"
    ],
-   "rolle": "Eine stark negative Marktbreite zeigt, dass es im regulären Handel kaum Rückzugsorte für Anleger gab.",
+   "rolle": "Die Rotation zeigt überdehnte Bewertungen in defensiven Konsumwerten und sorgt kurzfristig für Verwerfungen im Gesamtmarkt.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -215,21 +215,29 @@
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
      "rolle": "Eine stark negative Marktbreite zeigt, dass es im regulären Handel kaum Rückzugsorte für Anleger gab."
+    },
+    "2026-11-18": {
+     "p": 0,
+     "namen": [
+      "Sektor-Rotation"
+     ],
+     "rolle": "Die Rotation zeigt überdehnte Bewertungen in defensiven Konsumwerten und sorgt kurzfristig für Verwerfungen im Gesamtmarkt."
     }
    }
   },
   {
    "kategorie": "Öl & Rohstoffe",
    "status": "bestaetigt",
-   "tage_anzahl": 27,
+   "tage_anzahl": 28,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-16",
+   "zuletzt": "2026-11-18",
    "name": "Öl- und Dieselpreise",
    "namen": [
     "Öl- und Dieselpreise",
-    "Ölpreise"
+    "Ölpreise",
+    "Öl- und Rohstoffpreise"
    ],
-   "rolle": "Sinkende Energiepreise wirken disinflationär und entlasten Konsumenten sowie Unternehmensbilanzen.",
+   "rolle": "Die schwachen Rohstoffpreise schüren an der Börse Befürchtungen einer beginnenden Konjunkturabkühlung.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -419,6 +427,13 @@
       "Öl- und Dieselpreise"
      ],
      "rolle": "Sinkende Energiepreise wirken disinflationär und entlasten Konsumenten sowie Unternehmensbilanzen."
+    },
+    "2026-11-18": {
+     "p": -1,
+     "namen": [
+      "Öl- und Rohstoffpreise"
+     ],
+     "rolle": "Die schwachen Rohstoffpreise schüren an der Börse Befürchtungen einer beginnenden Konjunkturabkühlung."
     }
    }
   },
@@ -783,19 +798,19 @@
   {
    "kategorie": "Stimmung & Volatilität",
    "status": "bestaetigt",
-   "tage_anzahl": 22,
+   "tage_anzahl": 23,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-17",
+   "zuletzt": "2026-11-18",
    "name": "Marktpositionierung und Hebel",
    "namen": [
     "Marktpositionierung und Hebel",
+    "Volatilitätsindex (VIX)",
     "Anleihevolatilität (MOVE-Index)",
     "Anlegerstimmung & Depotrealität",
     "MOVE-Index",
-    "MOVE-Index (Anleihevolatilität)",
-    "Liquidität & Financial Conditions"
+    "MOVE-Index (Anleihevolatilität)"
    ],
-   "rolle": "Die verhaltene Reaktion zeigt, dass politische Risiken die fundamentale Stärke derzeit überschatten.",
+   "rolle": "Der Rückgang der Volatilität trotz nervöser Indizes ist für ihn ein erstes positives Entspannungssignal.",
    "tage": {
     "2026-10-01": {
      "p": 1,
@@ -957,6 +972,14 @@
       "Anlegerstimmung im Tech-Sektor"
      ],
      "rolle": "Die verhaltene Reaktion zeigt, dass politische Risiken die fundamentale Stärke derzeit überschatten."
+    },
+    "2026-11-18": {
+     "p": 2,
+     "namen": [
+      "Marktpositionierung und Hebel",
+      "Volatilitätsindex (VIX)"
+     ],
+     "rolle": "Der Rückgang der Volatilität trotz nervöser Indizes ist für ihn ein erstes positives Entspannungssignal."
     }
    }
   },
@@ -1399,6 +1422,118 @@
    }
   },
   {
+   "kategorie": "Zinsen & Notenbank",
+   "status": "bestaetigt",
+   "tage_anzahl": 14,
+   "erstmals": "2026-10-02",
+   "zuletzt": "2026-11-18",
+   "name": "Fed-Zinserwartungen",
+   "namen": [
+    "Fed-Zinserwartungen"
+   ],
+   "rolle": "Die Furcht vor restriktiveren Notenbankmaßnahmen verunsichert die Anleger und bremst die Risikobereitschaft.",
+   "tage": {
+    "2026-10-02": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
+    },
+    "2026-10-05": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
+    },
+    "2026-10-06": {
+     "p": 2,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
+    },
+    "2026-10-07": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren."
+    },
+    "2026-10-13": {
+     "p": 2,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Aussicht, dass nach einer möglichen letzten Zinserhöhung im laufenden Jahr im Folgejahr keine weiteren Schritte folgen, beruhigt die Zinsdebatte."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Zusätzliche Zinserhöhungen erhöhen das Risiko eines wirtschaftlichen Abschwungs."
+    },
+    "2026-10-15": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Zinspfade bis Jahresende bleiben der maßgebliche Treiber für Bewertung und Liquidität an den Märkten."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Das Ausbleiben hawkisher Überraschungen stützt die Zuversicht im Markt."
+    },
+    "2026-10-26": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Notenbanken dürften vor den anstehenden politischen Terminen keine überraschenden Kursschwenks vollziehen."
+    },
+    "2026-10-28": {
+     "p": 3,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Dass die Indizes nach dem Zinsentscheid nicht wie historisch üblich um rund ein Prozent einbrachen, wertet er als positives Stabilitätssignal."
+    },
+    "2026-11-12": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Zunehmende Härte unter den Fed-Gouverneuren dämpft die Hoffnung auf eine rasche Lockerung der US-Geldpolitik."
+    },
+    "2026-11-16": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Er verweist darauf, dass der Markt wieder zusätzliche Straffungsschritte einpreist und die Zentralbankpolitik Gegenwind erzeugen könnte."
+    },
+    "2026-11-17": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Furcht vor längerfristig hohen Zinsen nimmt dem Aktienmarkt den Rückenwind."
+    },
+    "2026-11-18": {
+     "p": -1,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Die Furcht vor restriktiveren Notenbankmaßnahmen verunsichert die Anleger und bremst die Risikobereitschaft."
+    }
+   }
+  },
+  {
    "kategorie": "Inflation",
    "status": "bestaetigt",
    "tage_anzahl": 13,
@@ -1727,111 +1862,6 @@
       "US-Exportbeschränkungen & Regulierung"
      ],
      "rolle": "Die zunehmend strengeren Restriktionen belasten wichtige Wachstumsfantasien und schaffen politische Risiken für den Tech-Sektor."
-    }
-   }
-  },
-  {
-   "kategorie": "Zinsen & Notenbank",
-   "status": "bestaetigt",
-   "tage_anzahl": 13,
-   "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-17",
-   "name": "Fed-Zinserwartungen",
-   "namen": [
-    "Fed-Zinserwartungen"
-   ],
-   "rolle": "Die Furcht vor längerfristig hohen Zinsen nimmt dem Aktienmarkt den Rückenwind.",
-   "tage": {
-    "2026-10-02": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Taubenhaftere Töne von Notenbankern stützen die Risikobereitschaft der Anleger."
-    },
-    "2026-10-05": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Eine Zinspause der Fed kurz vor den Zwischenwahlen nimmt Druck von den Aktienmärkten."
-    },
-    "2026-10-06": {
-     "p": 2,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Aussicht auf ein Stillhalten der US-Notenbank nimmt kurzfristig Zinserhöhungsangst aus dem Markt."
-    },
-    "2026-10-07": {
-     "p": 0,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Fed kann angebotsseitige Faktoren wie Lieferketten oder Zölle nicht über Zinsschritte reparieren."
-    },
-    "2026-10-13": {
-     "p": 2,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Aussicht, dass nach einer möglichen letzten Zinserhöhung im laufenden Jahr im Folgejahr keine weiteren Schritte folgen, beruhigt die Zinsdebatte."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Zusätzliche Zinserhöhungen erhöhen das Risiko eines wirtschaftlichen Abschwungs."
-    },
-    "2026-10-15": {
-     "p": 0,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Zinspfade bis Jahresende bleiben der maßgebliche Treiber für Bewertung und Liquidität an den Märkten."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Das Ausbleiben hawkisher Überraschungen stützt die Zuversicht im Markt."
-    },
-    "2026-10-26": {
-     "p": 0,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Notenbanken dürften vor den anstehenden politischen Terminen keine überraschenden Kursschwenks vollziehen."
-    },
-    "2026-10-28": {
-     "p": 3,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Dass die Indizes nach dem Zinsentscheid nicht wie historisch üblich um rund ein Prozent einbrachen, wertet er als positives Stabilitätssignal."
-    },
-    "2026-11-12": {
-     "p": -1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Zunehmende Härte unter den Fed-Gouverneuren dämpft die Hoffnung auf eine rasche Lockerung der US-Geldpolitik."
-    },
-    "2026-11-16": {
-     "p": -1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Er verweist darauf, dass der Markt wieder zusätzliche Straffungsschritte einpreist und die Zentralbankpolitik Gegenwind erzeugen könnte."
-    },
-    "2026-11-17": {
-     "p": -1,
-     "namen": [
-      "Fed-Zinserwartungen"
-     ],
-     "rolle": "Die Furcht vor längerfristig hohen Zinsen nimmt dem Aktienmarkt den Rückenwind."
     }
    }
   },

@@ -1,6 +1,62 @@
 {
  "beitraege": [
   {
+   "id": "9o7ZCjBdgFA",
+   "titel": "Anthropic Zuteilskurs 83 US-Dollar? Palo Alto nachbörslich fest.",
+   "datum": "2026-11-18",
+   "zeit": "2026-11-18T22:05:33+00:00",
+   "art": "closing",
+   "score": 30,
+   "pfeil": "hoch",
+   "thema": "Markus Koch analysiert die Korrektur im Tech-Sektor, überverkaufte Momentum-Trades sowie neue Zinssorgen und Konjunkturängste an der Wall Street.",
+   "gesamtstimmung": "Trotz nervöser Märkte und aufkommender Zinssorgen stuft Koch die aktuelle Lage als technisch massiv überverkauft ein. Er wertet die grassierende Angst und den extremen Momentum-Abverkauf als übertrieben und rechnet mit einer baldigen kräftigen Gegenbewegung.",
+   "begruendung": "Der Momentum-Herdentrieb hat laut Koch historische Tiefststände erreicht, was statistisch meist zu dynamischen V-förmigen Erholungen führt. Zudem signalisiert der trotz unruhiger Märkte sinkende Volatilitätsindex eine allmähliche Entspannung, weshalb er selbst voll investiert bleibt.",
+   "indikatoren": [
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Momentum-Trades historisch stark bereinigt und überverkauft",
+     "pfeil": "hoch",
+     "rolle": "Ein extrem niedriger Stand des Momentum-Herdentriebs signalisiert für ihn eine überfällige technische Gegenbewegung nach oben."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Volatilitätsindex (VIX)",
+     "lage": "auf erhöhtem Niveau, aber spürbar rückläufig",
+     "pfeil": "hoch",
+     "rolle": "Der Rückgang der Volatilität trotz nervöser Indizes ist für ihn ein erstes positives Entspannungssignal."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Falkenhafte Töne von Fed-Gouverneur Waller über mögliche Zinsschocks",
+     "pfeil": "runter",
+     "rolle": "Die Furcht vor restriktiveren Notenbankmaßnahmen verunsichert die Anleger und bremst die Risikobereitschaft."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Sektor-Rotation",
+     "lage": "starke Umschichtungen aus Tech in defensive Werte nun unter Druck (Healthcare-Sc",
+     "pfeil": "seitwaerts",
+     "rolle": "Die Rotation zeigt überdehnte Bewertungen in defensiven Konsumwerten und sorgt kurzfristig für Verwerfungen im Gesamtmarkt."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Rohstoffpreise",
+     "lage": "Öl, Kupfer und Silber schwächer durch steigende Lagerbestände",
+     "pfeil": "runter",
+     "rolle": "Die schwachen Rohstoffpreise schüren an der Börse Befürchtungen einer beginnenden Konjunkturabkühlung."
+    }
+   ],
+   "zitate": [
+    "Wir sind technisch sehr überverkauft, denke ich.",
+    "Wenn es nicht da brennt, brennt es da."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 152694
+  },
+  {
    "id": "G0XxE-Lr6iE",
    "titel": "NVIDIA: Kein Comeback Huang & Aussichten Fiskaljahr 2028 angehoben",
    "datum": "2026-11-17",
@@ -3648,9 +3704,10 @@
   "VoNE-M8YHhE",
   "k5Eo3ujwyh0",
   "gbfrTGH83Kw",
-  "G0XxE-Lr6iE"
+  "G0XxE-Lr6iE",
+  "9o7ZCjBdgFA"
  ],
- "stand": "2026-11-18T22:24Z",
+ "stand": "2026-11-19T02:45Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
