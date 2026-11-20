@@ -1,6 +1,188 @@
 {
  "beitraege": [
   {
+   "id": "FtfuxFn-M-8",
+   "titel": "#IPO = „It’s probably overpriced“ - Der #Anthropic-#Börsengang",
+   "datum": "2026-11-17",
+   "zeit": "2026-11-17T14:19:23+00:00",
+   "thema": "Warnung vor Risiken und überhöhten Bewertungen bei großen Börsengängen (IPOs).",
+   "marktlage": "",
+   "regeln": [
+    {
+     "bereich": "Titelauswahl",
+     "regel": "Bei großen IPOs äußerst vorsichtig sein und diese meiden.",
+     "zahl": "",
+     "begruendung": "Frühe Investoren nutzen den Börsengang zum Auscashen, was oft zu Verwässerung und starken Kursrücksetzern führt.",
+     "art": "warnung"
+    }
+   ],
+   "indikatoren": [],
+   "quellen": [],
+   "zitate": [
+    "IPO gleich it's probably overpriced."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 7292
+  },
+  {
+   "id": "Zb9Mh5CTJLw",
+   "titel": "#154: Für wen der Optionsbrief nichts ist",
+   "datum": "2026-11-16",
+   "zeit": "2026-11-16T11:00:37+00:00",
+   "thema": "Alexander Eichhorn erläutert Zielgruppe, Erwartungshaltung und Inhalte des 'Optionsbriefs' sowie zentrale Grundregeln seines Stillhalter-Ansatzes.",
+   "marktlage": "Die hauseigene Börsenampel steht seit längerer Zeit auf Grün. Während die Index-Volatilität phasenweise gering war, boten Einzelaktien ausreichend implizite Volatilität für Short Puts.",
+   "regeln": [
+    {
+     "bereich": "Wheel & Einstieg",
+     "regel": "Short Puts niemals andienen lassen, sondern bei Bedrohung vorzeitig schließen oder rollen.",
+     "zahl": "",
+     "begruendung": "Man möchte kein unfreiwilliges Buy-and-Hold mit Buchverlusten betreiben, sondern kontinuierlichen Cashflow sichern.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Rollen & Reparatur",
+     "regel": "Gefährdete Positionen nach festen Regeln rollen, typischerweise bei rund 100 % Buchverlust der Prämie.",
+     "zahl": "100 % Verlust",
+     "begruendung": "Das strukturierte Rollen schützt vor Andienung und gibt dem Trade zusätzliche Zeit zur Erholung.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Volatilität & Marktphase",
+     "regel": "Keine Trades erzwingen, wenn die Volatilität fehlt oder der Markt keine passenden Setups bietet.",
+     "zahl": "",
+     "begruendung": "Stillhalter dürfen nicht des Tradens willen handeln, wenn das Chance-Risiko-Verhältnis unvorteilhaft ist.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Positionsgröße & Risiko",
+     "regel": "Ein Optionsdepot sollte für Stillhalter-Strategien mindestens ein geringes fünfstelliges Kapital aufweisen.",
+     "zahl": "20.000 €",
+     "begruendung": "Bei Kleinstkonten unter 5.000 € stehen Margin und Kontraktgrößen in keinem gesunden Verhältnis zu den Kosten und Risiken.",
+     "art": "warnung"
+    }
+   ],
+   "indikatoren": [
+    {
+     "name": "Börsenampel",
+     "art": "Werkzeug",
+     "wozu": "Dient als übergeordnetes Filtersystem zur Erkennung von Marktphasen, Tiefpunkten und Crash-Gefahren.",
+     "lage": "auf Grün"
+    },
+    {
+     "name": "VIX / VXX",
+     "art": "Index",
+     "wozu": "Wird im Vola-Barometer analysiert sowie gezielt über Long- oder Short-Vola-Setups zur Absicherung und Ertragsgenerierung gehandelt.",
+     "lage": ""
+    },
+    {
+     "name": "SKEW",
+     "art": "Kennzahl",
+     "wozu": "Dient als Hintergrundindikator zur Bewertung der Schiefe und Tail-Risk-Erwartung im Optionsmarkt.",
+     "lage": ""
+    }
+   ],
+   "quellen": [
+    {
+     "name": "CapTrader",
+     "wozu": "Sponsor und Broker für Optionshandel, Altersvorsorgedepot und Börsengänge."
+    },
+    {
+     "name": "Optionsbrief",
+     "wozu": "Zweiwöchentlicher Börsendienst von Eichhorn Coaching mit konkreten Optionsideen, Scoreboard und Marktanalysen."
+    }
+   ],
+   "zitate": [
+    "Puts werden nicht angedient.",
+    "Wenn es keinen Trade gibt, dann gibt es keinen Trade."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 121413
+  },
+  {
+   "id": "yTq_eSCYQk0",
+   "titel": "Pfennige vor der Dampfwalze: Wann der Spruch über Stillhalter stimmt",
+   "datum": "2026-11-15",
+   "zeit": "2026-11-15T11:00:05+00:00",
+   "thema": "Diskussion des Arguments 'Pfennige sammeln vor der Dampfwalze' und wie aktives Risikomanagement Stillhalter vor extremen Verlusten schützt.",
+   "marktlage": "",
+   "regeln": [
+    {
+     "bereich": "Positionsgröße & Risiko",
+     "regel": "Kurzlaufende Optionen (wie 0DTE) nicht ohne strikten Stop oder Risikomanagement verkaufen.",
+     "zahl": "0DTE",
+     "begruendung": "Ein einziger Markteinbruch kann die Gewinne von fast 100 Trades auf einen Schlag vernichten.",
+     "art": "warnung"
+    },
+    {
+     "bereich": "Positionsgröße & Risiko",
+     "regel": "Kurzlaufende Trades mit einer Relativen Order oder Stop-Order absichern.",
+     "zahl": "",
+     "begruendung": "Eine Relative Order begrenzt das Ausführungsrisiko über ein marktpreisgetriggertes Limit gegenüber einer unkontrollierten Market-Order.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Absicherung & Spreads",
+     "regel": "Spreads durch den Zukauf von Long-Optionen nutzen, um das maximale Verlustrisiko von vornherein zu deckeln.",
+     "zahl": "",
+     "begruendung": "Zwar sinkt die vereinnahmte Prämie, aber das Konto wird vor existenzbedrohenden Marktbewegungen geschützt.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Laufzeit",
+     "regel": "Tendenziell längere Restlaufzeiten bei Optionsverkäufen wählen, auch wenn Positionen vorzeitig geschlossen werden.",
+     "zahl": "365 Tage",
+     "begruendung": "Lange Laufzeiten weisen ein deutlich geringeres Gamma-Risiko auf und reagieren viel träger auf kurzfristige Kurssprünge.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Positionsgröße & Risiko",
+     "regel": "Gegenlaufende Trades aktiv steuern, ajustieren oder diszipliniert mit Verlust schließen statt auszusitzen.",
+     "zahl": "",
+     "begruendung": "Stillhalter sind primär Risikomanager und dürfen ihr Depot nicht passiv dem Marktrisiko überlassen.",
+     "art": "regel"
+    }
+   ],
+   "indikatoren": [
+    {
+     "name": "VIX / VXX",
+     "art": "Index",
+     "wozu": "Wird im Volatilitätsbarometer zur Einschätzung der Marktvolatilität und Ableitung von Hedges herangezogen.",
+     "lage": ""
+    },
+    {
+     "name": "VVIX",
+     "art": "Index",
+     "wozu": "Dient als Barometer für die Volatilität der Volatilität im Rahmen von Szenario-Fahrplänen.",
+     "lage": ""
+    },
+    {
+     "name": "VIX-Terminstruktur",
+     "art": "Kennzahl",
+     "wozu": "Wird zur Analyse von Volatilitätsszenarien und optimalen Einstiegszeitpunkten herangezogen.",
+     "lage": ""
+    }
+   ],
+   "quellen": [
+    {
+     "name": "Eichhorn Coaching Optionsbrief",
+     "wozu": "Veröffentlichung konkreter Stillhalter-Trades, Risikofahrpläne und Marktanalysen."
+    },
+    {
+     "name": "Trader Workstation (TWS)",
+     "wozu": "Handelsplattform zur Umsetzung von Optionsstrategien und Ordertypen wie relativen Orders."
+    }
+   ],
+   "zitate": [
+    "Pfennige sammeln vor der Dampfwalze.",
+    "Wir sind alle Risikomanager."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-flash-latest",
+   "tokens": 69053
+  },
+  {
    "id": "X9olfTBwplI",
    "titel": "Die KI hat mein Options-Depot zerlegt und in einem Punkt hatte sie recht",
    "datum": "2026-11-12",
@@ -593,7 +775,10 @@
   "vH4zg3UK3ns",
   "-vtWWK6jgdg",
   "WgNME4TrR48",
-  "X9olfTBwplI"
+  "X9olfTBwplI",
+  "yTq_eSCYQk0",
+  "Zb9Mh5CTJLw",
+  "FtfuxFn-M-8"
  ],
  "quelle": "Eichhorn Coaching (YouTube-Podcast). Eigene Auswertung in eigenen Worten, kein Transkript, keine Anlageberatung.",
  "bereiche": [
@@ -610,5 +795,5 @@
   "Steuern & Broker",
   "Sonstiges"
  ],
- "stand": "2026-11-19T14:42Z"
+ "stand": "2026-11-20T14:26Z"
 }
