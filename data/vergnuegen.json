@@ -705,28 +705,6 @@
   "stand": "2026-10-29"
  },
  {
-  "id": "events-9ba4660f6a",
-  "lat": 48.19469,
-  "lon": 11.60785,
-  "rubrik": "events",
-  "titel": "Karrieretag München",
-  "ort": "Zenith",
-  "adresse": "Lilienthalallee 29, 80939 München",
-  "datum": "2026-11-18",
-  "datum_bis": "",
-  "zeit": "10:00",
-  "preis": "frei",
-  "dauer": "",
-  "kurz": "Karrieremesse mit Workshops, Beratungsangeboten und direktem Austausch mit Unternehmensvertretern für Interessierte aller Berufssparten.",
-  "tags": [
-   "Kostenlos"
-  ],
-  "thema": "Sonstiges",
-  "quelle": "Zenith, Kulturhalle (Konzerte)",
-  "url": "https://www.in-muenchen.de/locations/zenith.html",
-  "stand": "2026-10-25"
- },
- {
   "id": "events-06682cce1d",
   "lat": 48.19469,
   "lon": 11.60785,
@@ -1215,6 +1193,138 @@
   "stand": "2026-10-18"
  },
  {
+  "id": "stream-black-bag-doppeltes-spiel",
+  "rubrik": "stream",
+  "titel": "Black Bag – Doppeltes Spiel",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Spionage-Thriller, seit 15.11. bei Prime Video.",
+  "tags": [
+   "Film",
+   "Thriller",
+   "Krimi"
+  ],
+  "quelle": "Serienjunkies – Prime Video November 2026",
+  "url": "https://www.primevideo.com",
+  "stand": "2026-11-21",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-black-doves-staffel-2",
+  "rubrik": "stream",
+  "titel": "Black Doves (Staffel 2)",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Thriller-Serie kehrt mit neuer Staffel zurück. Seit 5.11.",
+  "tags": [
+   "Serie",
+   "Thriller",
+   "Krimi",
+   "Action"
+  ],
+  "quelle": "Serienjunkies – Netflix November 2026",
+  "url": "https://www.netflix.com/de",
+  "stand": "2026-11-21",
+  "thema": "Netflix"
+ },
+ {
+  "id": "stream-der-herr-der-ringe-die-ringe-der-macht-staffel-3",
+  "rubrik": "stream",
+  "titel": "Der Herr der Ringe: Die Ringe der Macht (Staffel 3)",
+  "ort": "Amazon Prime",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Fantasy-Serie in Mittelerde, dritte Staffel. Seit 11.11.",
+  "tags": [
+   "Serie",
+   "Fantasy",
+   "Abenteuer"
+  ],
+  "quelle": "Serienjunkies – Prime Video November 2026",
+  "url": "https://www.primevideo.com",
+  "stand": "2026-11-21",
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-der-gro-e-stasi-leak",
+  "rubrik": "stream",
+  "titel": "Der große Stasi-Leak",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Doku-Serie in der ARD Mediathek, seit 2.11. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Serie",
+   "Doku",
+   "Historie"
+  ],
+  "quelle": "ZDFheute – Streaming-Tipps November",
+  "url": "https://www.ardmediathek.de",
+  "stand": "2026-11-21",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-iris-die-wahrheit-staffel-2",
+  "rubrik": "stream",
+  "titel": "Iris – Die Wahrheit (Staffel 2)",
+  "ort": "ZDF Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kommissarin Iris Broman ermittelt in Cold Cases, ausgelöst durch einen Skelettfund auf einem Gutshof. Seit 6.11. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Serie",
+   "Krimi",
+   "Thriller"
+  ],
+  "quelle": "ZDFheute – Streaming-Tipps November",
+  "url": "https://www.zdf.de/streaming",
+  "stand": "2026-11-21",
+  "thema": "ZDF Mediathek"
+ },
+ {
+  "id": "stream-stick-staffel-2",
+  "rubrik": "stream",
+  "titel": "Stick (Staffel 2)",
+  "ort": "Apple TV",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Golf-Comedy mit Owen Wilson und Timothy Olyphant, zehn neue Folgen. Seit 4.11.",
+  "tags": [
+   "Serie",
+   "Komödie"
+  ],
+  "quelle": "KINOFANS – Apple TV November 2026",
+  "url": "https://tv.apple.com/de",
+  "stand": "2026-11-21",
+  "thema": "Apple TV"
+ },
+ {
   "id": "stream-the-whale",
   "rubrik": "stream",
   "titel": "The Whale",
@@ -1300,137 +1410,5 @@
   "url": "https://www.netflix.com/de",
   "stand": "2026-11-21",
   "thema": "Netflix"
- },
- {
-  "id": "stream-black-bag-doppeltes-spiel",
-  "rubrik": "stream",
-  "titel": "Black Bag – Doppeltes Spiel",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Spionage-Thriller, seit 15.11. bei Prime Video.",
-  "tags": [
-   "Film",
-   "Thriller",
-   "Krimi"
-  ],
-  "quelle": "Serienjunkies – Prime Video November 2026",
-  "url": "https://www.primevideo.com",
-  "stand": "2026-11-21",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-black-doves-staffel-2",
-  "rubrik": "stream",
-  "titel": "Black Doves (Staffel 2)",
-  "ort": "Netflix",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Thriller-Serie kehrt mit neuer Staffel zurück. Seit 5.11.",
-  "tags": [
-   "Serie",
-   "Thriller",
-   "Krimi",
-   "Action"
-  ],
-  "quelle": "Serienjunkies – Netflix November 2026",
-  "url": "https://www.netflix.com/de",
-  "stand": "2026-11-21",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-der-herr-der-ringe-die-ringe-der-macht-staffel-3",
-  "rubrik": "stream",
-  "titel": "Der Herr der Ringe: Die Ringe der Macht (Staffel 3)",
-  "ort": "Amazon Prime",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Fantasy-Serie in Mittelerde, dritte Staffel. Seit 11.11.",
-  "tags": [
-   "Serie",
-   "Fantasy",
-   "Abenteuer"
-  ],
-  "quelle": "Serienjunkies – Prime Video November 2026",
-  "url": "https://www.primevideo.com",
-  "stand": "2026-11-21",
-  "thema": "Amazon Prime"
- },
- {
-  "id": "stream-stick-staffel-2",
-  "rubrik": "stream",
-  "titel": "Stick (Staffel 2)",
-  "ort": "Apple TV",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Golf-Comedy mit Owen Wilson und Timothy Olyphant, zehn neue Folgen. Seit 4.11.",
-  "tags": [
-   "Serie",
-   "Komödie"
-  ],
-  "quelle": "KINOFANS – Apple TV November 2026",
-  "url": "https://tv.apple.com/de",
-  "stand": "2026-11-21",
-  "thema": "Apple TV"
- },
- {
-  "id": "stream-iris-die-wahrheit-staffel-2",
-  "rubrik": "stream",
-  "titel": "Iris – Die Wahrheit (Staffel 2)",
-  "ort": "ZDF Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kommissarin Iris Broman ermittelt in Cold Cases, ausgelöst durch einen Skelettfund auf einem Gutshof. Seit 6.11. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Serie",
-   "Krimi",
-   "Thriller"
-  ],
-  "quelle": "ZDFheute – Streaming-Tipps November",
-  "url": "https://www.zdf.de/streaming",
-  "stand": "2026-11-21",
-  "thema": "ZDF Mediathek"
- },
- {
-  "id": "stream-der-gro-e-stasi-leak",
-  "rubrik": "stream",
-  "titel": "Der große Stasi-Leak",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Doku-Serie in der ARD Mediathek, seit 2.11. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Serie",
-   "Doku",
-   "Historie"
-  ],
-  "quelle": "ZDFheute – Streaming-Tipps November",
-  "url": "https://www.ardmediathek.de",
-  "stand": "2026-11-21",
-  "thema": "ARD Mediathek"
  }
 ]
