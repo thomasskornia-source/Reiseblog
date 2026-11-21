@@ -40,15 +40,3 @@ gemini-flash-latest: HTTP 403 {
   }
 }
 
-Werte aus: ZM0VARMC-jY Der Damm ist gebrochen | Unkontrollierter Abverkauf, mit Explosion der Volatilität. 2026-11-20 closing
-gemini-3.8-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
-gemini-3.8-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
-  Score -55 Pfeil runter (142506 Tokens)
-Werte aus: YFWFxGJTX_o Verkaufswelle setzt sich im Opening fort | Anthropic verliert fast 10%. 2026-11-20 opening
-  Score -60 Pfeil runter (114190 Tokens)
