@@ -1,6 +1,132 @@
 {
  "beitraege": [
   {
+   "id": "ZM0VARMC-jY",
+   "titel": "Der Damm ist gebrochen | Unkontrollierter Abverkauf, mit Explosion der Volatilität.",
+   "datum": "2026-11-20",
+   "zeit": "2026-11-20T20:56:53+00:00",
+   "art": "closing",
+   "score": -55,
+   "pfeil": "runter",
+   "thema": "Anhaltender Ausverkauf an der Wall Street bei extremer Überverkauftheit und Parallelen zum Markteinbruch von 2018.",
+   "gesamtstimmung": "Markus Koch berichtet von einem schmerzhaften Abverkauf auf breiter Front, angetrieben von technischem Verkaufsdruck, fallenden Tech-Schwergewichten und Sorgen vor einer wirtschaftlichen Abkühlung. Zwar deutet die extreme Panik und Überverkauftheit auf eine reife Gegenbewegung hin, doch historische Parallelen zu 2018 mahnen vor verfrühtem Optimismus.",
+   "begruendung": "Der Markt befindet sich im freien Fall mit Panikstimmung und rasant steigender Volatilität, was das kurzfristige Bild stark belastet. Gleichzeitig betont Koch, dass Panikverkäufe auf den aktuellen, extrem überverkauften Niveaus verfehlt wären, weshalb der Score nicht maximal negativ ausfällt.",
+   "indikatoren": [
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Volatilitätsindex (VIX)",
+     "lage": "schießt senkrecht auf rund 38 Punkte nach oben",
+     "pfeil": "runter",
+     "rolle": "Die explodierende Volatilität erzwingt automatische Verkäufe bei Volatilitätsstrategien und signalisiert offene Panik im Markt."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "rekordtiefes negatives Händler-Gamma und massive CTA-Verkäufe",
+     "pfeil": "runter",
+     "rolle": "Mechanische Absicherungen der Market Maker und Trendfolger verstärken den Abwärtstrend dramatisch."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "CNN Fear & Greed Index",
+     "lage": "steht bei 11 Punkten im Bereich extremer Angst",
+     "pfeil": "hoch",
+     "rolle": "Eine derart ausgeprägte Hoffnungslosigkeit und Panik dient antizyklisch oft als Signal für eine nahende Gegenbewegung."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "zehnjährige Renditen brechen deutlich auf etwa 4,09 % ein",
+     "pfeil": "runter",
+     "rolle": "Der Renditeeinbruch spiegelt eine Flucht in sichere Häfen und wachsende Rezessionsängste wider."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "2018-Analogie & Korrekturtiefe",
+     "lage": "Nasdaq 100 fällt knapp 20 % unter sein Hoch",
+     "pfeil": "seitwaerts",
+     "rolle": "Historisch stoppten Korrekturen oft nahe der 20-Prozent-Marke, doch der Vergleich mit dem Spätjahr 2018 zeigt das Risiko einer längeren Schwächephase."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Verkaufsdruck erfasst nach Tech nun auch defensive Werte und den Equal-Weight-In",
+     "pfeil": "runter",
+     "rolle": "Das Überschwappen des Abverkaufs auf bisher stabile Marktsegmente verdeutlicht die fragile Marktverfassung."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "straffe Haltung der Notenbank trotz erkennbarer Konjunkturabkühlung",
+     "pfeil": "runter",
+     "rolle": "Die Furcht vor einer geldpolitischen Überstraffung zur Inflationsbekämpfung belastet die Bewertungsmultiplikatoren zusätzlich."
+    }
+   ],
+   "zitate": [
+    "in Panik zu verfallen bringt sehr sehr wenig",
+    "Es ist eine harte Woche gewesen"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 142506
+  },
+  {
+   "id": "YFWFxGJTX_o",
+   "titel": "Verkaufswelle setzt sich im Opening fort | Anthropic verliert fast 10%.",
+   "datum": "2026-11-20",
+   "zeit": "2026-11-20T14:39:33+00:00",
+   "art": "opening",
+   "score": -60,
+   "pfeil": "runter",
+   "thema": "Die Wall Street leidet unter extrem defensiver Positionierung, systematischem Verkaufsdruck durch CTAs sowie Negativ-Gamma und neuen Zinssorgen.",
+   "gesamtstimmung": "Die Marktstimmung ist von ausgeprägter Nervosität und extremer Angst geprägt, während Abwärtstrends durch systematische Verkäufe und Derivateverfälle technisch verstärkt werden. Zudem belasten restriktive Töne der US-Notenbank und Rezessionssorgen trotz sinkender Rohstoffpreise.",
+   "begruendung": "Koch beschreibt ein toxisches Gemisch aus maximal defensiv aufgestellten Fondsmanagern, erzwungenem Verkaufsdruck durch Negativ-Gamma und hawkishen Zinsprognosen der Notenbank. Zwar sind Sentiment-Indikatoren auf Kapitulationsniveaus angekommen, doch die technische Marktverfassung bleibt kurzfristig stark angeschlagen.",
+   "indikatoren": [
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Fondsmanager historisch defensiv positioniert, CTAs maximal short",
+     "pfeil": "runter",
+     "rolle": "Die massive Schieflage zwischen vorsichtigen Profis und kaufenden Privatanlegern birgt erhebliche Risiken für weitere Abverkäufe."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Hawkishe Rhetorik schürt Erwartung weiterer Zinsschritte bis auf 4,75 %",
+     "pfeil": "runter",
+     "rolle": "Notenbanker reden den Aktienmarkt gezielt nach unten und dämpfen Hoffnungen auf Zinssenkungen."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Sentiment (Fear & Greed)",
+     "lage": "Im Bereich extremer Angst, Kapitulationsindizes schlagen an",
+     "pfeil": "seitwaerts",
+     "rolle": "Extreme Panik signalisiert zwar eine überverkaufte Lage und Rebound-Potenzial, lähmt aber aktuell das Marktgeschehen."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Optionsverfall & Negativ-Gamma",
+     "lage": "Großer Verfallstag mit 3,4 Bio. Dollar und Rekord-Negativ-Gamma",
+     "pfeil": "runter",
+     "rolle": "Market Maker müssen in fallende Kurse hinein verkaufen, was Kursrückgänge kaskadenartig beschleunigt."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Rohstoffpreise brechen auf breiter Front ein (Kupfer, Gold, Silber)",
+     "pfeil": "runter",
+     "rolle": "Der Preisverfall wird nicht mehr als willkommene Deflation, sondern als Signal einer drohenden Rezession interpretiert."
+    }
+   ],
+   "zitate": [
+    "Fondsmanager aktuell so defensiv positioniert wie noch nie zuvor",
+    "Man hat den Eindruck, die Notenbank hat im Sinn, den Markt runterzureden"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 114190
+  },
+  {
    "id": "eFymOqiyaKs",
    "titel": "Anthropic siegt. Die Wall Street zahlt den Preis.",
    "datum": "2026-11-19",
@@ -4018,9 +4144,11 @@
   "j4YiK9mNb_U",
   "eFymOqiyaKs",
   "_xrT9GurVBw",
-  "vc0fcfHmNdc"
+  "vc0fcfHmNdc",
+  "ZM0VARMC-jY",
+  "YFWFxGJTX_o"
  ],
- "stand": "2026-11-19T22:26Z",
+ "stand": "2026-11-21T03:56Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
