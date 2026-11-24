@@ -705,30 +705,6 @@
   "stand": "2026-10-29"
  },
  {
-  "id": "events-66c9cd7699",
-  "lat": 48.14007,
-  "lon": 11.58154,
-  "rubrik": "events",
-  "titel": "Bambi",
-  "ort": "Marstall",
-  "adresse": "",
-  "datum": "2026-11-21",
-  "datum_bis": "",
-  "zeit": "20:00",
-  "preis": "33 €",
-  "dauer": "",
-  "kurz": "Schorsch Kamerun inszeniert Felix Saltens Roman als schillernde, abgründige Revue über den harten Überlebenskampf im Wald.",
-  "tags": [
-   "Kultur",
-   "Musik",
-   "Abends"
-  ],
-  "thema": "Kabarett & Theater",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-11-10"
- },
- {
   "id": "events-d9b78770b1",
   "lat": 48.13346,
   "lon": 11.56686,
