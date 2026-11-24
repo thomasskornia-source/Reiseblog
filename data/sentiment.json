@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-21",
+ "stand": "2026-11-24",
  "gesamt": {
   "score": -50,
   "pfeil": "runter",
@@ -10,7 +10,7 @@
   {
    "id": "vix",
    "name": "VIX (Angstbarometer)",
-   "wert": 35.89,
+   "wert": 26.62,
    "einheit": "",
    "pfeil": "runter",
    "text": "Angst",
@@ -18,12 +18,11 @@
    "quelle": "Cboe über Yahoo (^VIX)",
    "url": "https://finance.yahoo.com/quote/%5EVIX",
    "reihe": [
-    14.43,
-    14.92,
     16.34,
     15.2,
     14.32,
     14.53,
+    15.3,
     15.72,
     16.46,
     17.84,
@@ -77,15 +76,16 @@
     25.46,
     24.56,
     28.44,
-    35.89
+    35.89,
+    26.62
    ],
-   "datum": "2026-11-20",
+   "datum": "2026-11-23",
    "alter_tage": 1
   },
   {
    "id": "kurve",
    "name": "VIX-Kurve (VIX / VIX3M)",
-   "wert": 1.16,
+   "wert": 1.044,
    "einheit": "",
    "pfeil": "runter",
    "text": "Stress (Kurve umgekehrt)",
@@ -93,7 +93,6 @@
    "quelle": "Cboe über Yahoo (^VIX, ^VIX3M)",
    "url": "https://finance.yahoo.com/quote/%5EVIX3M",
    "reihe": [
-    0.826,
     0.851,
     0.891,
     0.857,
@@ -152,15 +151,16 @@
     1.019,
     1.011,
     1.052,
-    1.16
+    1.16,
+    1.044
    ],
-   "datum": "2026-11-20",
+   "datum": "2026-11-23",
    "alter_tage": 1
   },
   {
    "id": "breite",
    "name": "Marktbreite (RSP gegen SPY)",
-   "wert": 6.37,
+   "wert": 4.13,
    "einheit": " %",
    "pfeil": "hoch",
    "text": "breit getragen",
@@ -168,7 +168,6 @@
    "quelle": "Yahoo (RSP, SPY)",
    "url": "https://finance.yahoo.com/quote/RSP",
    "reihe": [
-    0.287,
     0.286,
     0.286,
     0.286,
@@ -227,9 +226,10 @@
     0.295,
     0.295,
     0.296,
-    0.301
+    0.301,
+    0.295
    ],
-   "datum": "2026-11-20",
+   "datum": "2026-11-23",
    "alter_tage": 1
   },
   {
@@ -305,13 +305,13 @@
     1.05
    ],
    "datum": "2019-10-04",
-   "alter_tage": 2605,
+   "alter_tage": 2608,
    "veraltet": true
   },
   {
    "id": "fg",
    "name": "Fear & Greed (CNN)",
-   "wert": 10,
+   "wert": 17,
    "einheit": "",
    "pfeil": "runter",
    "text": "Angst",
@@ -319,8 +319,6 @@
    "quelle": "CNN Business",
    "url": "https://edition.cnn.com/markets/fear-and-greed",
    "reihe": [
-    49.2,
-    44.857,
     46.057,
     47.514,
     45.229,
@@ -377,27 +375,27 @@
     25.951,
     29.886,
     15.868,
-    9.674,
-    9.674
+    18.587,
+    16.966,
+    16.966,
+    16.966
    ],
-   "datum": "2026-11-20",
-   "alter_tage": 1
+   "datum": "2026-11-24",
+   "alter_tage": 0
   }
  ],
  "makro": [
   {
    "id": "oel",
    "name": "Rohöl (WTI)",
-   "wert": 83.62,
+   "wert": 79.82,
    "einheit": " $",
    "pfeil": "hoch",
-   "text": "20 Tage: -19,0 %",
+   "text": "20 Tage: -20,1 %",
    "erklaerung": "Preis für US-Rohöl (nächster Terminkontrakt). Starke Anstiege belasten Margen und nähren Inflationsangst; starke Rückgänge können aber auch Konjunktursorgen zeigen, deshalb ist der Pfeil nur eine Faustregel.",
    "quelle": "Yahoo (CL=F)",
    "url": "https://finance.yahoo.com/quote/CL=F",
    "reihe": [
-    83.4,
-    85.76,
     90.22,
     91.01,
     91.3,
@@ -455,11 +453,13 @@
     86.01,
     83.26,
     83.21,
-    83.62
+    83.98,
+    80.17,
+    79.82
    ],
-   "datum": "2026-11-20",
+   "datum": "2026-11-24",
    "max_alter": 7,
-   "alter_tage": 1
+   "alter_tage": 0
   }
  ],
  "verlauf": [
@@ -565,6 +565,10 @@
   },
   {
    "d": "2026-11-21",
+   "score": -50
+  },
+  {
+   "d": "2026-11-24",
    "score": -50
   }
  ],
