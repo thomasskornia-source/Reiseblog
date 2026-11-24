@@ -1146,48 +1146,6 @@
   "stand": "2026-10-18"
  },
  {
-  "id": "stream-bad-tales-es-war-einmal-ein-traum",
-  "rubrik": "stream",
-  "titel": "Bad Tales – Es war einmal ein Traum",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Italienisches Drama über Familien in einem Vorort Roms, hinter deren Fassade der Frust brodelt. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Drama"
-  ],
-  "quelle": "kino.de – ARD-Mediathek-Filme November 2026",
-  "url": "https://www.ardmediathek.de",
-  "stand": "2026-11-22",
-  "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-blackbird",
-  "rubrik": "stream",
-  "titel": "Blackbird",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Deutsches Coming-of-Age-Drama im Jahr 1979 über erste Liebe und Freundschaft. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Drama"
-  ],
-  "quelle": "kino.de – ARD-Mediathek-Filme November 2026",
-  "url": "https://www.ardmediathek.de",
-  "stand": "2026-11-22",
-  "thema": "ARD Mediathek"
- },
- {
   "id": "stream-breitscheidplatz-19-12",
   "rubrik": "stream",
   "titel": "Breitscheidplatz 19/12",
@@ -1362,5 +1320,114 @@
   "url": "https://www.primevideo.com",
   "stand": "2026-11-22",
   "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-arlington-road",
+  "rubrik": "stream",
+  "titel": "Arlington Road",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Thriller um einen Professor, der seinen freundlichen Nachbarn verdächtigt, ein Terroranschlag-Geheimnis zu verbergen. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Thriller",
+   "Drama"
+  ],
+  "quelle": "JustWatch – Neu in der ARD Mediathek (Filme)",
+  "url": "https://www.ardmediathek.de",
+  "stand": "2026-11-24",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-burton-und-taylor",
+  "rubrik": "stream",
+  "titel": "Burton und Taylor",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Britisches Drama über das Paar Richard Burton und Elizabeth Taylor, das sich mit einem Theaterstück noch einmal begegnet. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Drama",
+   "Historie"
+  ],
+  "quelle": "JustWatch – Neu in der ARD Mediathek (Filme)",
+  "url": "https://www.ardmediathek.de",
+  "stand": "2026-11-24",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-euromaidan-chronik-eines-angekuendigten-krieges",
+  "rubrik": "stream",
+  "titel": "Euromaidan – Chronik eines angekündigten Krieges",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentarfilm über die Proteste in Kiew und den Weg zum Krieg in der Ukraine. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Doku",
+   "Historie"
+  ],
+  "quelle": "JustWatch – Neu in der ARD Mediathek (Filme)",
+  "url": "https://www.ardmediathek.de",
+  "stand": "2026-11-24",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-drei-haselnuesse-fuer-aschenbroedel",
+  "rubrik": "stream",
+  "titel": "Drei Haselnüsse für Aschenbrödel",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Der Märchenklassiker um ein mutiges Mädchen, einen Prinzen und drei Zauberhaselnüsse, ein Winter-Favorit. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Familie",
+   "Fantasy"
+  ],
+  "quelle": "JustWatch – Neu in der ARD Mediathek (Filme)",
+  "url": "https://www.ardmediathek.de",
+  "stand": "2026-11-24",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-chuzpe-klops-braucht-der-mensch",
+  "rubrik": "stream",
+  "titel": "Chuzpe – Klops braucht der Mensch!",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Deutsche Komödie rund um Familie, Essen und jüdische Traditionen mit Humor. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Komödie"
+  ],
+  "quelle": "JustWatch – Neu in der ARD Mediathek (Filme)",
+  "url": "https://www.ardmediathek.de",
+  "stand": "2026-11-24",
+  "thema": "ARD Mediathek"
  }
 ]
