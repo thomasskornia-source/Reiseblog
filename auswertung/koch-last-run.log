@@ -1,46 +1,13 @@
 Feed: 15 Videos
-   hTn7stPFO3E 2026-11-20 Der Damm ist gebrochen | Unkontrollierter Abverkauf, mit Explosion der
+   MiSISR0ZaxY 2026-11-23 NVIDIA gewinnt 1,3 Billionen US-Dollar an Marktwert | Unfassbare Zeite
+   hTn7stPFO3E 2026-11-23 NVIDIA EXPLODIERT | HUANG ALS CEO ZURÜCK.
    ZM0VARMC-jY 2026-11-20 Der Damm ist gebrochen | Unkontrollierter Abverkauf, mit Explosion der
    YFWFxGJTX_o 2026-11-20 Verkaufswelle setzt sich im Opening fort | Anthropic verliert fast 10%
    eFymOqiyaKs 2026-11-19 Anthropic siegt. Die Wall Street zahlt den Preis.
    _xrT9GurVBw 2026-11-19 Anthropic-IPO sorgt für Verwerfungen | Verluste nach dem ersten Kurs.
    vc0fcfHmNdc 2026-11-19 Anthropic gelingt Mega-IPO. Zündet jetzt die KI-Rally?
    9o7ZCjBdgFA 2026-11-18 Anthropic Zuteilskurs 83 US-Dollar? Palo Alto nachbörslich fest.
-   j4YiK9mNb_U 2026-11-18 NVIDIA Drama. Anthropic Fieber.
-Werte aus: hTn7stPFO3E Der Damm ist gebrochen | Unkontrollierter Abverkauf, mit Explosion der Volatilität. 2026-11-20 closing
-gemini-3.8-flash: HTTP 403 {
-  "error": {
-    "code": 403,
-    "message": "The caller does not have permission",
-    "status": "PERMISSION_DENIED"
-  }
-}
-
-gemini-3.7-flash: HTTP 403 {
-  "error": {
-    "code": 403,
-    "message": "The caller does not have permission",
-    "status": "PERMISSION_DENIED"
-  }
-}
-
-gemini-flash-latest: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
-gemini-flash-latest: HTTP 403 {
-  "error": {
-    "code": 403,
-    "message": "The caller does not have permission",
-    "status": "PERMISSION_DENIED"
-  }
-}
-
-  nicht ausgewertet (neuer Versuch beim nächsten Lauf): gemini-flash-latest: HTTP 403 {
-  "error": {
-    "code": 403,
-    "message": "The caller does not have permission",
-    "status": "PERMISSION_DENIED"
-  }
-}
-
+Werte aus: MiSISR0ZaxY NVIDIA gewinnt 1,3 Billionen US-Dollar an Marktwert | Unfassbare Zeiten. 2026-11-23 closing
+  Score 75 Pfeil hoch (102931 Tokens)
+Werte aus: hTn7stPFO3E NVIDIA EXPLODIERT | HUANG ALS CEO ZURÜCK. 2026-11-23 opening
+  Score 60 Pfeil hoch (157923 Tokens)

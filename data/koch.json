@@ -1,6 +1,132 @@
 {
  "beitraege": [
   {
+   "id": "MiSISR0ZaxY",
+   "titel": "NVIDIA gewinnt 1,3 Billionen US-Dollar an Marktwert | Unfassbare Zeiten.",
+   "datum": "2026-11-23",
+   "zeit": "2026-11-23T21:32:47+00:00",
+   "art": "closing",
+   "score": 75,
+   "pfeil": "hoch",
+   "thema": "Markus Koch analysiert eine massive Erholungsrallye an der Wall Street, getrieben von einem Tech-Rebound, kollabierender Volatilität und günstiger Saisonalität.",
+   "gesamtstimmung": "Nach einer Serie herber Verluste erlebt die Wall Street einen fulminanten Kurssprung mit breiter Marktunterstützung und stark fallender Volatilität. Markus Koch sieht den Markt nach extremer Überverkauftheit und Kapitulation der Bären in einer kräftigen Gegenbewegung.",
+   "begruendung": "Koch verzeichnet in seinem eigenen Depot einen der stärksten Performancetage überhaupt und verweist auf Kursgewinne auf breiter Front im Dow, Nasdaq sowie S&P Equal Weight. Zudem wirken sinkende Ölpreise, nachgebende Anleiherenditen und die anstehende Thanksgiving-Woche als willkommener Rückenwind.",
+   "indikatoren": [
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "VIX stürzt um 25 % ab, massive Short-Eindeckungen",
+     "pfeil": "hoch",
+     "rolle": "Der Einbruch der Volatilität und die extrem pessimistische Vorab-Positionierung lösen panikartige Zukäufe aus."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "deutliche Kursgewinne auf breiter Front",
+     "pfeil": "hoch",
+     "rolle": "Dass auch der gleichgewichtete S&P 500 und Nebenwerte kräftig zulegen, belegt ein solides Fundament der Tagesrallye."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "WTI fällt um 3,8 % auf 80 Dollar",
+     "pfeil": "hoch",
+     "rolle": "Fallende Energiekosten entlasten Verbraucher und schwächen den Inflationsdruck an den Märkten ab."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Zehnjährige Renditen sinken leicht auf 4,94 %",
+     "pfeil": "hoch",
+     "rolle": "Rückläufige Kapitalmarktzinsen nehmen den Druck von den Aktienbewertungen."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "Thanksgiving-Woche beginnt",
+     "pfeil": "hoch",
+     "rolle": "Die Feiertagswoche zeichnet sich historisch betrachtet typischerweise durch freundliche Kurse aus."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Einkaufsmanagerindex (Flash PMI)",
+     "lage": "Wachstumsdynamik und Inflation kühlen ab",
+     "pfeil": "hoch",
+     "rolle": "Nachlassende Inflationsdaten und abkühlende Dynamik nähren Hoffnungen auf eine Beruhigung der Zinsfront."
+    }
+   ],
+   "zitate": [
+    "Es war eine schöne Spritze in den Arm eines ohnehin sehr überverkauften Marktes",
+    "Das war echt mal ein Turnaround heute und ein selten guter Handelstag."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 102931
+  },
+  {
+   "id": "hTn7stPFO3E",
+   "titel": "NVIDIA EXPLODIERT | HUANG ALS CEO ZURÜCK.",
+   "datum": "2026-11-23",
+   "zeit": "2026-11-23T14:35:18+00:00",
+   "art": "opening",
+   "score": 60,
+   "pfeil": "hoch",
+   "thema": "Nach dem heftigen Abverkauf der Vorwoche sorgt die überraschende Rückkehr von Jensen Huang als Nvidia-CEO für eine massive Gegenbewegung, während historisch ausgebombte Positionierungen und günstige Bewertungen die Chancen auf eine Jahresendrallye steigen lassen.",
+   "gesamtstimmung": "Markus Koch zeigt sich nach dem dramatischen Ausverkauf der letzten Woche extrem optimistisch für eine kräftige Gegenbewegung. Er sieht in der Kombination aus panikartiger Kapitulation, starkem De-Risking institutioneller Anleger und einer historisch günstigen Bewertung ideale Voraussetzungen für eine Jahresendrallye.",
+   "begruendung": "Der Moderator verweist darauf, dass Hedgefonds und systematische Trendfolger massiv unterinvestiert sind und der Erholung nun hinterherrennen müssen. Zudem haben sich die Bewertungsmultiplikatoren im S&P 500 deutlich entspannt und die Thanksgiving-Saisonalität stützt zusätzlich.",
+   "indikatoren": [
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Hedgefonds und CTAs extrem defensiv positioniert, De-Risking auf Mehrjahreshochs",
+     "pfeil": "hoch",
+     "rolle": "Die massive Untergewichtung zwingt institutionelle Investoren bei steigenden Kursen zur Eindeckung und treibt die Erholung an."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "Thanksgiving-Woche historisch fest, Wahrscheinlichkeit für Jahresendrallye steig",
+     "pfeil": "hoch",
+     "rolle": "Saisonale Muster deuten nach der jüngsten Marktbereinigung auf ein freundliches Jahresende hin."
+    },
+    {
+     "kategorie": "Gewinnsaison",
+     "name": "S&P 500 Bewertung & KGV",
+     "lage": "Forward-KGV auf 16 gefallen, pessimistische Gewinneinbrüche eingepreist",
+     "pfeil": "hoch",
+     "rolle": "Ein Bewertungsniveau unter dem 30-Jahres-Schnitt bietet attraktive Einstiegschancen."
+    },
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "Kupfer, Silber, Gold und Energiepreise geben spürbar nach",
+     "pfeil": "hoch",
+     "rolle": "Fallende Rohstoffpreise signalisieren eine deutliche Abkühlung des Inflationsdrucks."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Haushaltsstreit & Shutdown-Risiko",
+     "lage": "Demokraten planen vorerst keinen Shutdown im Dezember",
+     "pfeil": "hoch",
+     "rolle": "Das vorläufige Nachlassen eines politischen Risikofaktors nimmt kurzfristig Druck vom Markt."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Warnungen vor weiteren Zinsschritten belasten Konjunkturaussichten",
+     "pfeil": "runter",
+     "rolle": "Die Sorge vor einer geldpolitischen Überstraffung durch die Fed schürt Ängste vor einer Wachstumsflaute."
+    }
+   ],
+   "zitate": [
+    "Die müssen jetzt alle wieder rennen.",
+    "It's your choice, Baby!"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 157923
+  },
+  {
    "id": "ZM0VARMC-jY",
    "titel": "Der Damm ist gebrochen | Unkontrollierter Abverkauf, mit Explosion der Volatilität.",
    "datum": "2026-11-20",
@@ -4146,9 +4272,11 @@
   "_xrT9GurVBw",
   "vc0fcfHmNdc",
   "ZM0VARMC-jY",
-  "YFWFxGJTX_o"
+  "YFWFxGJTX_o",
+  "MiSISR0ZaxY",
+  "hTn7stPFO3E"
  ],
- "stand": "2026-11-21T03:56Z",
+ "stand": "2026-11-24T01:46Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
