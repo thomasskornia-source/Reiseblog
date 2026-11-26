@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-24",
+ "stand": "2026-11-25",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -8,9 +8,9 @@
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 32,
+   "tage_anzahl": 33,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-24",
+   "zuletzt": "2026-11-25",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
@@ -20,7 +20,7 @@
     "Sektorrotation in Value- und Standardwerte",
     "Tech- und KI-Sektor"
    ],
-   "rolle": "Für einen echten Korrekturboden sind laut historischen Vergleichen noch viel zu viele Aktien über ihrer 50-Tage-Linie.",
+   "rolle": "Eine breite Erholung abseits einzelner Tech-Werte bestätigt für ihn die Qualität der Erholungsbewegung.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -250,22 +250,31 @@
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
      "rolle": "Für einen echten Korrekturboden sind laut historischen Vergleichen noch viel zu viele Aktien über ihrer 50-Tage-Linie."
+    },
+    "2026-11-25": {
+     "p": 1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Eine breite Erholung abseits einzelner Tech-Werte bestätigt für ihn die Qualität der Erholungsbewegung."
     }
    }
   },
   {
    "kategorie": "Öl & Rohstoffe",
    "status": "bestaetigt",
-   "tage_anzahl": 30,
+   "tage_anzahl": 32,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-23",
+   "zuletzt": "2026-11-25",
    "name": "Öl- und Dieselpreise",
    "namen": [
     "Öl- und Dieselpreise",
     "Ölpreise",
-    "Öl- und Rohstoffpreise"
+    "Öl- und Rohstoffpreise",
+    "Kupferpreise",
+    "Rohstoff- und Kupferpreise"
    ],
-   "rolle": "Fallende Energiekosten entlasten Verbraucher und schwächen den Inflationsdruck an den Märkten ab.",
+   "rolle": "Schwache Rohstoffe deuten zwar auf Disinflation hin, wecken aber gleichzeitig Befürchtungen einer Wachstumsabkühlung.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -476,6 +485,249 @@
       "Öl- und Dieselpreise"
      ],
      "rolle": "Fallende Energiekosten entlasten Verbraucher und schwächen den Inflationsdruck an den Märkten ab."
+    },
+    "2026-11-24": {
+     "p": -1,
+     "namen": [
+      "Öl- und Dieselpreise"
+     ],
+     "rolle": "Der Preisverfall bei Industriemetallen und Öl signalisiert ihm wachsende Sorgen vor einer Abkühlung der weltweiten Konjunktur."
+    },
+    "2026-11-25": {
+     "p": -1,
+     "namen": [
+      "Kupferpreise",
+      "Rohstoff- und Kupferpreise"
+     ],
+     "rolle": "Schwache Rohstoffe deuten zwar auf Disinflation hin, wecken aber gleichzeitig Befürchtungen einer Wachstumsabkühlung."
+    }
+   }
+  },
+  {
+   "kategorie": "Stimmung & Volatilität",
+   "status": "bestaetigt",
+   "tage_anzahl": 28,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-11-25",
+   "name": "Marktpositionierung und Hebel",
+   "namen": [
+    "Marktpositionierung und Hebel",
+    "VIX (Volatilitätsindex)",
+    "Volatilitätsindex (VIX)",
+    "Anleihevolatilität (MOVE-Index)",
+    "Anlegerstimmung & Depotrealität",
+    "MOVE-Index"
+   ],
+   "rolle": "Die Rückkehr institutioneller Investoren auf die Käuferseite nimmt den extremen Verkaufsdruck aus dem Markt.",
+   "tage": {
+    "2026-10-01": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal."
+    },
+    "2026-10-05": {
+     "p": -1,
+     "namen": [
+      "Anleihevolatilität (MOVE-Index)"
+     ],
+     "rolle": "Eine hohe Schwankungsbreite am Rentenmarkt signalisiert anhaltende Nervosität und muss sich für eine tragfähige Rally erst beruhigen."
+    },
+    "2026-10-06": {
+     "p": -1,
+     "namen": [
+      "Anlegerstimmung & Depotrealität"
+     ],
+     "rolle": "Beschreibt die Frustration der Anleger, die an der Indexrallye nicht in der Breite teilhaben."
+    },
+    "2026-10-08": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Eine nachlassende Schwankungsbreite am Rentenmarkt ist für ihn die Grundvoraussetzung für stabilere Aktienmärkte."
+    },
+    "2026-10-09": {
+     "p": 1,
+     "namen": [
+      "MOVE-Index"
+     ],
+     "rolle": "Eine abnehmende Anleihe-Volatilität erhöht die Stabilität an den Finanzmärkten insgesamt."
+    },
+    "2026-10-16": {
+     "p": 1,
+     "namen": [
+      "MOVE-Index (Anleihevolatilität)"
+     ],
+     "rolle": "Eine nachlassende Nervosität am Zinsmarkt sorgt für ein stabileres Gesamtumfeld an den Finanzmärkten."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Hohe Fremdkapitalhebel und Derivatepositionen haben die Abwärtsdynamik im Tech-Sektor abrupt verstärkt."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Der Rückzug aus Tech-Aktien in US-Staatsanleihen zeigt die anhaltende Verunsicherung der Investoren."
+    },
+    "2026-10-22": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Das gleichzeitige Auflösen der Long-Positionen in KI und Short-Positionen in US-Staatsanleihen löst heftige Verwerfungen aus."
+    },
+    "2026-10-26": {
+     "p": 0,
+     "namen": [
+      "Marktpositionierung und Hebel",
+      "Liquidität & Financial Conditions"
+     ],
+     "rolle": "Eine Straffung der Finanzierungsbedingungen limitiert die kurzfristige Erholungsfähigkeit der Aktienindizes."
+    },
+    "2026-10-28": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Die erratische Nachrichtenlage sorgt für Verunsicherung und kurzfristige Positionsanpassungen."
+    },
+    "2026-10-29": {
+     "p": -2,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Die hohe Verwundbarkeit der Anleger führt dazu, dass selbst kleinere Verfehlungen mit zweistelligen Kursverlusten abgestraft werden."
+    },
+    "2026-10-30": {
+     "p": 1,
+     "namen": [
+      "Marktpsychologie und Angst",
+      "Marktpositionierung und Hebel",
+      "VIX (Volatilitätsindex)"
+     ],
+     "rolle": "Das Nachlassen der Volatilität im Tagesverlauf deutet darauf hin, dass die akute Panik im Markt wieder nachlässt."
+    },
+    "2026-11-02": {
+     "p": 0,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Für ein nachhaltiges Tief fehlt laut Morgan Stanley noch ein finales Stimmungstief oder das Erreichen technischer Zielmarken."
+    },
+    "2026-11-04": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Systematische Trendfolger geraten durch den Kurssprung unter Zugzwang und treiben die Kurse weiter nach oben."
+    },
+    "2026-11-05": {
+     "p": -2,
+     "namen": [
+      "Marktpositionierung und Hebel",
+      "Cboe Volatility Index (VIX)"
+     ],
+     "rolle": "Der historische Anstieg des Angstbarometers signalisiert akute Panik im Markt."
+    },
+    "2026-11-06": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Nach dem massiven VIX-Sprung am Vortag bietet das überverkaufte Marktniveau Raum für eine technische Gegenbewegung."
+    },
+    "2026-11-09": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Der dramatische Rückgang der Volatilität bestätigt das Ende der Panikverkäufe und öffnet Raum für eine Erholungsrallye."
+    },
+    "2026-11-11": {
+     "p": 2,
+     "namen": [
+      "Volatilitätsindex (VIX)",
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Hedgefonds haben Risiken reduziert und müssen nun bei Kursanstiegen dem Markt hinterherlaufen."
+    },
+    "2026-11-13": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Die extrem hohe Short-Positionierung fungiert als klassischer Kontraindikator, der bei positiven Impulsen Eindeckungsrallys auslösen kann."
+    },
+    "2026-11-16": {
+     "p": 0,
+     "namen": [
+      "Marktvolatilität & Tagesschwankungen",
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Ein extrem negatives Sentiment und bereinigte Positionierungen signalisieren für ihn oft das nahende Ende einer Korrekturphase."
+    },
+    "2026-11-17": {
+     "p": 0,
+     "namen": [
+      "Marktpositionierung und Hebel",
+      "Anlegerstimmung im Tech-Sektor"
+     ],
+     "rolle": "Die verhaltene Reaktion zeigt, dass politische Risiken die fundamentale Stärke derzeit überschatten."
+    },
+    "2026-11-18": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel",
+      "Volatilitätsindex (VIX)"
+     ],
+     "rolle": "Der Rückgang der Volatilität trotz nervöser Indizes ist für ihn ein erstes positives Entspannungssignal."
+    },
+    "2026-11-19": {
+     "p": -2,
+     "namen": [
+      "Marktpositionierung und Hebel",
+      "VIX (Volatilitätsindex)"
+     ],
+     "rolle": "Der sprunghafte Anstieg der Volatilität signalisiert zunehmende Nervosität und zwingt systematische Strategien zum Risikoabbau."
+    },
+    "2026-11-20": {
+     "p": -2,
+     "namen": [
+      "Marktpositionierung und Hebel",
+      "Sentiment (Fear & Greed)",
+      "Volatilitätsindex (VIX)",
+      "CNN Fear & Greed Index"
+     ],
+     "rolle": "Eine derart ausgeprägte Hoffnungslosigkeit und Panik dient antizyklisch oft als Signal für eine nahende Gegenbewegung."
+    },
+    "2026-11-23": {
+     "p": 2,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Der Einbruch der Volatilität und die extrem pessimistische Vorab-Positionierung lösen panikartige Zukäufe aus."
+    },
+    "2026-11-24": {
+     "p": -2,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Er betont, dass die Stimmung im Technologiesektor am Boden liegt und Kursgewinne sofort für Notverkäufe genutzt werden."
+    },
+    "2026-11-25": {
+     "p": 1,
+     "namen": [
+      "Marktpositionierung und Hebel",
+      "VIX (Volatilitätsindex)"
+     ],
+     "rolle": "Die Rückkehr institutioneller Investoren auf die Käuferseite nimmt den extremen Verkaufsdruck aus dem Markt."
     }
    }
   },
@@ -683,237 +935,17 @@
    }
   },
   {
-   "kategorie": "Stimmung & Volatilität",
-   "status": "bestaetigt",
-   "tage_anzahl": 27,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-24",
-   "name": "Marktpositionierung und Hebel",
-   "namen": [
-    "Marktpositionierung und Hebel",
-    "Volatilitätsindex (VIX)",
-    "VIX (Volatilitätsindex)",
-    "Anleihevolatilität (MOVE-Index)",
-    "Anlegerstimmung & Depotrealität",
-    "MOVE-Index"
-   ],
-   "rolle": "Er betont, dass die Stimmung im Technologiesektor am Boden liegt und Kursgewinne sofort für Notverkäufe genutzt werden.",
-   "tage": {
-    "2026-10-01": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Ein bereinigter Markt und niedrigere Bewertungen bieten eine bessere Ausgangsbasis für das vierte Quartal."
-    },
-    "2026-10-05": {
-     "p": -1,
-     "namen": [
-      "Anleihevolatilität (MOVE-Index)"
-     ],
-     "rolle": "Eine hohe Schwankungsbreite am Rentenmarkt signalisiert anhaltende Nervosität und muss sich für eine tragfähige Rally erst beruhigen."
-    },
-    "2026-10-06": {
-     "p": -1,
-     "namen": [
-      "Anlegerstimmung & Depotrealität"
-     ],
-     "rolle": "Beschreibt die Frustration der Anleger, die an der Indexrallye nicht in der Breite teilhaben."
-    },
-    "2026-10-08": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Eine nachlassende Schwankungsbreite am Rentenmarkt ist für ihn die Grundvoraussetzung für stabilere Aktienmärkte."
-    },
-    "2026-10-09": {
-     "p": 1,
-     "namen": [
-      "MOVE-Index"
-     ],
-     "rolle": "Eine abnehmende Anleihe-Volatilität erhöht die Stabilität an den Finanzmärkten insgesamt."
-    },
-    "2026-10-16": {
-     "p": 1,
-     "namen": [
-      "MOVE-Index (Anleihevolatilität)"
-     ],
-     "rolle": "Eine nachlassende Nervosität am Zinsmarkt sorgt für ein stabileres Gesamtumfeld an den Finanzmärkten."
-    },
-    "2026-10-19": {
-     "p": -1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Hohe Fremdkapitalhebel und Derivatepositionen haben die Abwärtsdynamik im Tech-Sektor abrupt verstärkt."
-    },
-    "2026-10-20": {
-     "p": -1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Der Rückzug aus Tech-Aktien in US-Staatsanleihen zeigt die anhaltende Verunsicherung der Investoren."
-    },
-    "2026-10-22": {
-     "p": -1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Das gleichzeitige Auflösen der Long-Positionen in KI und Short-Positionen in US-Staatsanleihen löst heftige Verwerfungen aus."
-    },
-    "2026-10-26": {
-     "p": 0,
-     "namen": [
-      "Marktpositionierung und Hebel",
-      "Liquidität & Financial Conditions"
-     ],
-     "rolle": "Eine Straffung der Finanzierungsbedingungen limitiert die kurzfristige Erholungsfähigkeit der Aktienindizes."
-    },
-    "2026-10-28": {
-     "p": -1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Die erratische Nachrichtenlage sorgt für Verunsicherung und kurzfristige Positionsanpassungen."
-    },
-    "2026-10-29": {
-     "p": -2,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Die hohe Verwundbarkeit der Anleger führt dazu, dass selbst kleinere Verfehlungen mit zweistelligen Kursverlusten abgestraft werden."
-    },
-    "2026-10-30": {
-     "p": 1,
-     "namen": [
-      "Marktpsychologie und Angst",
-      "Marktpositionierung und Hebel",
-      "VIX (Volatilitätsindex)"
-     ],
-     "rolle": "Das Nachlassen der Volatilität im Tagesverlauf deutet darauf hin, dass die akute Panik im Markt wieder nachlässt."
-    },
-    "2026-11-02": {
-     "p": 0,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Für ein nachhaltiges Tief fehlt laut Morgan Stanley noch ein finales Stimmungstief oder das Erreichen technischer Zielmarken."
-    },
-    "2026-11-04": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Systematische Trendfolger geraten durch den Kurssprung unter Zugzwang und treiben die Kurse weiter nach oben."
-    },
-    "2026-11-05": {
-     "p": -2,
-     "namen": [
-      "Marktpositionierung und Hebel",
-      "Cboe Volatility Index (VIX)"
-     ],
-     "rolle": "Der historische Anstieg des Angstbarometers signalisiert akute Panik im Markt."
-    },
-    "2026-11-06": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Nach dem massiven VIX-Sprung am Vortag bietet das überverkaufte Marktniveau Raum für eine technische Gegenbewegung."
-    },
-    "2026-11-09": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Der dramatische Rückgang der Volatilität bestätigt das Ende der Panikverkäufe und öffnet Raum für eine Erholungsrallye."
-    },
-    "2026-11-11": {
-     "p": 2,
-     "namen": [
-      "Volatilitätsindex (VIX)",
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Hedgefonds haben Risiken reduziert und müssen nun bei Kursanstiegen dem Markt hinterherlaufen."
-    },
-    "2026-11-13": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Die extrem hohe Short-Positionierung fungiert als klassischer Kontraindikator, der bei positiven Impulsen Eindeckungsrallys auslösen kann."
-    },
-    "2026-11-16": {
-     "p": 0,
-     "namen": [
-      "Marktvolatilität & Tagesschwankungen",
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Ein extrem negatives Sentiment und bereinigte Positionierungen signalisieren für ihn oft das nahende Ende einer Korrekturphase."
-    },
-    "2026-11-17": {
-     "p": 0,
-     "namen": [
-      "Marktpositionierung und Hebel",
-      "Anlegerstimmung im Tech-Sektor"
-     ],
-     "rolle": "Die verhaltene Reaktion zeigt, dass politische Risiken die fundamentale Stärke derzeit überschatten."
-    },
-    "2026-11-18": {
-     "p": 1,
-     "namen": [
-      "Marktpositionierung und Hebel",
-      "Volatilitätsindex (VIX)"
-     ],
-     "rolle": "Der Rückgang der Volatilität trotz nervöser Indizes ist für ihn ein erstes positives Entspannungssignal."
-    },
-    "2026-11-19": {
-     "p": -2,
-     "namen": [
-      "Marktpositionierung und Hebel",
-      "VIX (Volatilitätsindex)"
-     ],
-     "rolle": "Der sprunghafte Anstieg der Volatilität signalisiert zunehmende Nervosität und zwingt systematische Strategien zum Risikoabbau."
-    },
-    "2026-11-20": {
-     "p": -2,
-     "namen": [
-      "Marktpositionierung und Hebel",
-      "Sentiment (Fear & Greed)",
-      "Volatilitätsindex (VIX)",
-      "CNN Fear & Greed Index"
-     ],
-     "rolle": "Eine derart ausgeprägte Hoffnungslosigkeit und Panik dient antizyklisch oft als Signal für eine nahende Gegenbewegung."
-    },
-    "2026-11-23": {
-     "p": 2,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Der Einbruch der Volatilität und die extrem pessimistische Vorab-Positionierung lösen panikartige Zukäufe aus."
-    },
-    "2026-11-24": {
-     "p": -1,
-     "namen": [
-      "Marktpositionierung und Hebel"
-     ],
-     "rolle": "Er betont, dass die Stimmung im Technologiesektor am Boden liegt und Kursgewinne sofort für Notverkäufe genutzt werden."
-    }
-   }
-  },
-  {
    "kategorie": "Geopolitik",
    "status": "bestaetigt",
-   "tage_anzahl": 24,
+   "tage_anzahl": 25,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-19",
+   "zuletzt": "2026-11-25",
    "name": "Nahost & Ukraine-Krieg",
    "namen": [
     "Nahost & Ukraine-Krieg",
     "US-Ermittlungen zu Chip-Exporten nach China"
    ],
-   "rolle": "Neue geopolitische Eskalationsgefahren schüren zusätzliche Risikoaversion an den Finanzmärkten.",
+   "rolle": "Politische Querelen im US-Kongress über Kriegskosten erhöhen die allgemeine Marktunsicherheit.",
    "tage": {
     "2026-10-02": {
      "p": -1,
@@ -1082,6 +1114,200 @@
       "Nahost & Ukraine-Krieg"
      ],
      "rolle": "Neue geopolitische Eskalationsgefahren schüren zusätzliche Risikoaversion an den Finanzmärkten."
+    },
+    "2026-11-25": {
+     "p": -1,
+     "namen": [
+      "Nahost & Ukraine-Krieg"
+     ],
+     "rolle": "Politische Querelen im US-Kongress über Kriegskosten erhöhen die allgemeine Marktunsicherheit."
+    }
+   }
+  },
+  {
+   "kategorie": "Sonstiges",
+   "status": "bestaetigt",
+   "tage_anzahl": 24,
+   "erstmals": "2026-10-08",
+   "zuletzt": "2026-11-25",
+   "name": "Tech-Investitionszyklus (CapEx)",
+   "namen": [
+    "Tech-Investitionszyklus (CapEx)",
+    "Aktienüberangebot durch Kapitalerhöhungen & IPOs",
+    "Aktienrückkäufe",
+    "US-Infrastrukturausfälle (IT Outages)"
+   ],
+   "rolle": "Sorgen vor nachlassenden Investitionsausgaben der Tech-Giganten belasten die Kernstütze der bisherigen Rally.",
+   "tage": {
+    "2026-10-08": {
+     "p": 1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die massiven Unternehmensausgaben treiben das Wachstum der führenden Tech-Konzerne an."
+    },
+    "2026-10-12": {
+     "p": -2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Zweifel an der Tragfähigkeit der massiven Investitionen belasten das gesamte Marktumfeld im Technologiesektor."
+    },
+    "2026-10-13": {
+     "p": -2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Befürchtungen über nachlassende Investitionsdynamik und teure Kreditfinanzierungen im Halbleiterbereich belasten das Sentiment."
+    },
+    "2026-10-15": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Wachsende Skepsis bei KI-Investitionen gefährdet die Fortsetzung der Rallye bei Halbleitern und Tech-Schwergewichten."
+    },
+    "2026-10-19": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Analystenberichte zu überzogenen KI-Ausgaben und sinkenden Token-Preisen schüren Skepsis gegenüber der Rentabilität der Branche."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die Furcht vor Überinvestitionen und sinkenden Preisen bremst die Leitbranche des bisherigen Bullenmarkts aus."
+    },
+    "2026-10-21": {
+     "p": 2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Anhaltend hohe Investitionsausgaben untermauern den KI-Trend und treiben verwandte Sektoren an."
+    },
+    "2026-10-23": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Aggressive Kapazitätsausweitungen drohen die Margen der Technologiekonzerne zukünftig merklich zu belasten."
+    },
+    "2026-10-26": {
+     "p": -2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)",
+      "Aktienüberangebot durch Kapitalerhöhungen & IPOs"
+     ],
+     "rolle": "Der dramatische Wandel von Aktienrückkäufen hin zu einer Flut an Neuemissionen und Kapitalerhöhungen belastet die Kapitalströme an der Wall Street."
+    },
+    "2026-10-28": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Sollten die Hyperscaler ihre massiven Investitionen zurückfahren, droht dem gesamten KI-getriebenen Aufwärtstrend der Nährboden entzogen zu werden."
+    },
+    "2026-10-29": {
+     "p": -2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die Frage nach der Nachhaltigkeit der massiven KI- und Infrastrukturinvestitionen verunsichert den Markt."
+    },
+    "2026-10-30": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Gedämpfte Investitionsausgaben der Tech-Giganten bedrohen das Fundament des gesamten KI-Booms und belasten Halbleiter- sowie Infrastrukturwerte."
+    },
+    "2026-11-03": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Das massive Angebot an neuen Papieren saugt Liquidität ab und belastet die Multiples im Technologiesektor."
+    },
+    "2026-11-04": {
+     "p": 1,
+     "namen": [
+      "Aktienrückkäufe"
+     ],
+     "rolle": "Wieder einsetzende Unternehmensrückkäufe erzeugen erhebliche zusätzliche Nachfrage am Markt."
+    },
+    "2026-11-05": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Sorgen um Finanzierungsengpässe und verlangsamten Ausbau treffen das Kernnarrativ der KI-Rallye."
+    },
+    "2026-11-09": {
+     "p": 2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Stabile Investitionserwartungen stützen das Vertrauen in den KI-Sektor nach den jüngsten Kursrückschlägen."
+    },
+    "2026-11-11": {
+     "p": 1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Hohe geplante Ausgaben für Rechenzentren und unersättliche Chip-Nachfrage beruhigen den Technologiesektor."
+    },
+    "2026-11-12": {
+     "p": 1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die fundamental starke Nachfrage im Cloud- und KI-Sektor bildet das Fundament für die Ertragsstärke der führenden Tech-Konzerne."
+    },
+    "2026-11-16": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Kürzungen bei den Investitionserwartungen schüren Wachstumsängste und belasten die Schwergewichte im Technologiesektor."
+    },
+    "2026-11-17": {
+     "p": 1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die ungebrochene Dynamik bei KI-Investitionen sichert das übergeordnete Marktwachstum im Halbleiterbereich ab."
+    },
+    "2026-11-18": {
+     "p": 0,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)",
+      "US-Infrastrukturausfälle (IT Outages)"
+     ],
+     "rolle": "Unerklärte Systemunterbrechungen verunsichern Anleger und erweisen sich als spürbarer Belastungsfaktor für den Gesamthandel."
+    },
+    "2026-11-19": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Eine Verlangsamung der KI-Investitionen trifft den Kern des bisherigen Markt- und Tech-Aufschwungs."
+    },
+    "2026-11-24": {
+     "p": -2,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die Sorge vor einem bevorstehenden Zenit bei KI-Investitionen belastet die Kernstütze der bisherigen Börsenrally."
+    },
+    "2026-11-25": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Sorgen vor nachlassenden Investitionsausgaben der Tech-Giganten belasten die Kernstütze der bisherigen Rally."
     }
    }
   },
@@ -1264,191 +1490,11 @@
    }
   },
   {
-   "kategorie": "Sonstiges",
-   "status": "bestaetigt",
-   "tage_anzahl": 23,
-   "erstmals": "2026-10-08",
-   "zuletzt": "2026-11-24",
-   "name": "Tech-Investitionszyklus (CapEx)",
-   "namen": [
-    "Tech-Investitionszyklus (CapEx)",
-    "Aktienüberangebot durch Kapitalerhöhungen & IPOs",
-    "Aktienrückkäufe",
-    "US-Infrastrukturausfälle (IT Outages)"
-   ],
-   "rolle": "Die Sorge vor einem bevorstehenden Zenit bei KI-Investitionen belastet die Kernstütze der bisherigen Börsenrally.",
-   "tage": {
-    "2026-10-08": {
-     "p": 1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Die massiven Unternehmensausgaben treiben das Wachstum der führenden Tech-Konzerne an."
-    },
-    "2026-10-12": {
-     "p": -2,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Zweifel an der Tragfähigkeit der massiven Investitionen belasten das gesamte Marktumfeld im Technologiesektor."
-    },
-    "2026-10-13": {
-     "p": -2,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Befürchtungen über nachlassende Investitionsdynamik und teure Kreditfinanzierungen im Halbleiterbereich belasten das Sentiment."
-    },
-    "2026-10-15": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Wachsende Skepsis bei KI-Investitionen gefährdet die Fortsetzung der Rallye bei Halbleitern und Tech-Schwergewichten."
-    },
-    "2026-10-19": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Analystenberichte zu überzogenen KI-Ausgaben und sinkenden Token-Preisen schüren Skepsis gegenüber der Rentabilität der Branche."
-    },
-    "2026-10-20": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Die Furcht vor Überinvestitionen und sinkenden Preisen bremst die Leitbranche des bisherigen Bullenmarkts aus."
-    },
-    "2026-10-21": {
-     "p": 2,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Anhaltend hohe Investitionsausgaben untermauern den KI-Trend und treiben verwandte Sektoren an."
-    },
-    "2026-10-23": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Aggressive Kapazitätsausweitungen drohen die Margen der Technologiekonzerne zukünftig merklich zu belasten."
-    },
-    "2026-10-26": {
-     "p": -2,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)",
-      "Aktienüberangebot durch Kapitalerhöhungen & IPOs"
-     ],
-     "rolle": "Der dramatische Wandel von Aktienrückkäufen hin zu einer Flut an Neuemissionen und Kapitalerhöhungen belastet die Kapitalströme an der Wall Street."
-    },
-    "2026-10-28": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Sollten die Hyperscaler ihre massiven Investitionen zurückfahren, droht dem gesamten KI-getriebenen Aufwärtstrend der Nährboden entzogen zu werden."
-    },
-    "2026-10-29": {
-     "p": -2,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Die Frage nach der Nachhaltigkeit der massiven KI- und Infrastrukturinvestitionen verunsichert den Markt."
-    },
-    "2026-10-30": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Gedämpfte Investitionsausgaben der Tech-Giganten bedrohen das Fundament des gesamten KI-Booms und belasten Halbleiter- sowie Infrastrukturwerte."
-    },
-    "2026-11-03": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Das massive Angebot an neuen Papieren saugt Liquidität ab und belastet die Multiples im Technologiesektor."
-    },
-    "2026-11-04": {
-     "p": 1,
-     "namen": [
-      "Aktienrückkäufe"
-     ],
-     "rolle": "Wieder einsetzende Unternehmensrückkäufe erzeugen erhebliche zusätzliche Nachfrage am Markt."
-    },
-    "2026-11-05": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Sorgen um Finanzierungsengpässe und verlangsamten Ausbau treffen das Kernnarrativ der KI-Rallye."
-    },
-    "2026-11-09": {
-     "p": 2,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Stabile Investitionserwartungen stützen das Vertrauen in den KI-Sektor nach den jüngsten Kursrückschlägen."
-    },
-    "2026-11-11": {
-     "p": 1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Hohe geplante Ausgaben für Rechenzentren und unersättliche Chip-Nachfrage beruhigen den Technologiesektor."
-    },
-    "2026-11-12": {
-     "p": 1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Die fundamental starke Nachfrage im Cloud- und KI-Sektor bildet das Fundament für die Ertragsstärke der führenden Tech-Konzerne."
-    },
-    "2026-11-16": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Kürzungen bei den Investitionserwartungen schüren Wachstumsängste und belasten die Schwergewichte im Technologiesektor."
-    },
-    "2026-11-17": {
-     "p": 1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Die ungebrochene Dynamik bei KI-Investitionen sichert das übergeordnete Marktwachstum im Halbleiterbereich ab."
-    },
-    "2026-11-18": {
-     "p": 0,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)",
-      "US-Infrastrukturausfälle (IT Outages)"
-     ],
-     "rolle": "Unerklärte Systemunterbrechungen verunsichern Anleger und erweisen sich als spürbarer Belastungsfaktor für den Gesamthandel."
-    },
-    "2026-11-19": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Eine Verlangsamung der KI-Investitionen trifft den Kern des bisherigen Markt- und Tech-Aufschwungs."
-    },
-    "2026-11-24": {
-     "p": -1,
-     "namen": [
-      "Tech-Investitionszyklus (CapEx)"
-     ],
-     "rolle": "Die Sorge vor einem bevorstehenden Zenit bei KI-Investitionen belastet die Kernstütze der bisherigen Börsenrally."
-    }
-   }
-  },
-  {
    "kategorie": "Saisonalität & Chart",
    "status": "bestaetigt",
-   "tage_anzahl": 19,
+   "tage_anzahl": 20,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-24",
+   "zuletzt": "2026-11-25",
    "name": "Q4-Saisonalität & Positionierung",
    "namen": [
     "Q4-Saisonalität & Positionierung",
@@ -1458,7 +1504,7 @@
     "Technische Überverkauftheit",
     "200-Tage-Linie im S&P 500"
    ],
-   "rolle": "Er hebt hervor, dass auf extreme Kursexplosionen wie am Vortag statistisch fast immer Ernüchterung und Kursverluste folgen.",
+   "rolle": "Das Halten dieser Schlüsselmarken wertet er als wichtiges technisches Signal für eine Bodenbildung.",
    "tage": {
     "2026-10-02": {
      "p": 1,
@@ -1595,20 +1641,28 @@
       "Historische Folgetage nach starken Rally-Tagen"
      ],
      "rolle": "Er hebt hervor, dass auf extreme Kursexplosionen wie am Vortag statistisch fast immer Ernüchterung und Kursverluste folgen."
+    },
+    "2026-11-25": {
+     "p": 0,
+     "namen": [
+      "Q4-Saisonalität & Positionierung",
+      "Charttechnik: Test der bisherigen Tiefs"
+     ],
+     "rolle": "Das Halten dieser Schlüsselmarken wertet er als wichtiges technisches Signal für eine Bodenbildung."
     }
    }
   },
   {
    "kategorie": "Zinsen & Notenbank",
    "status": "bestaetigt",
-   "tage_anzahl": 17,
+   "tage_anzahl": 19,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-23",
+   "zuletzt": "2026-11-25",
    "name": "Fed-Zinserwartungen",
    "namen": [
     "Fed-Zinserwartungen"
    ],
-   "rolle": "Die Sorge vor einer geldpolitischen Überstraffung durch die Fed schürt Ängste vor einer Wachstumsflaute.",
+   "rolle": "Klarheit über den Zinspfad reduziert Unsicherheit, wenngleich das finale Zinsniveau noch debattiert wird.",
    "tage": {
     "2026-10-02": {
      "p": 1,
@@ -1728,6 +1782,295 @@
       "Fed-Zinserwartungen"
      ],
      "rolle": "Die Sorge vor einer geldpolitischen Überstraffung durch die Fed schürt Ängste vor einer Wachstumsflaute."
+    },
+    "2026-11-24": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Der Zinsausblick bleibt entscheidend, während Notenbanker wie Williams taubenhaftere Töne anschlagen."
+    },
+    "2026-11-25": {
+     "p": 0,
+     "namen": [
+      "Fed-Zinserwartungen"
+     ],
+     "rolle": "Klarheit über den Zinspfad reduziert Unsicherheit, wenngleich das finale Zinsniveau noch debattiert wird."
+    }
+   }
+  },
+  {
+   "kategorie": "Politik & Zölle",
+   "status": "bestaetigt",
+   "tage_anzahl": 17,
+   "erstmals": "2026-10-07",
+   "zuletzt": "2026-11-25",
+   "name": "US-Zollpolitik & Schuldenpläne",
+   "namen": [
+    "US-Zollpolitik & Schuldenpläne",
+    "US-Zwischenwahlen (Midterms)",
+    "US-Midterm-Wahlen",
+    "US-Wahlen / Midterms",
+    "US-Wahlergebnis & Machtverhältnisse",
+    "US-Politik & Regulierung"
+   ],
+   "rolle": "Zolldrohungen treffen auf ein ohnehin fragiles Marktumfeld und schüren Ängste vor Inflations- und Konjunkturdruck.",
+   "tage": {
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein."
+    },
+    "2026-10-09": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt."
+    },
+    "2026-10-20": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Politische Unsicherheiten vor den Wahlen sorgen für Nervosität bei Technologiekonzernen und Investoren."
+    },
+    "2026-10-29": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Die politische Unsicherheit vor den Midterms engt die Risikobereitschaft der Marktteilnehmer zusätzlich ein."
+    },
+    "2026-10-30": {
+     "p": -1,
+     "namen": [
+      "US-Midterm-Wahlen",
+      "US-Zwischenwahlen (Midterms)"
+     ],
+     "rolle": "Eine klare Entscheidung bei den Midterms könnte die politische Hängepartie beenden und den Weg für eine Jahresendrallye freimachen."
+    },
+    "2026-11-02": {
+     "p": -1,
+     "namen": [
+      "US-Wahlen / Midterms",
+      "US-Zwischenwahlen (Midterms)"
+     ],
+     "rolle": "Die politische Unsicherheit rund um eine mögliche Mehrheitsverschiebung dämpft die Risikobereitschaft der Anleger."
+    },
+    "2026-11-03": {
+     "p": 0,
+     "namen": [
+      "US-Zwischenwahlen (Midterms)"
+     ],
+     "rolle": "Ein geteilter Kongress (Gridlock) gilt historisch als Idealzustand, während ein Durchmarsch einer Partei Unsicherheit über Regulierung schürt."
+    },
+    "2026-11-04": {
+     "p": 2,
+     "namen": [
+      "US-Wahlergebnis & Machtverhältnisse",
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Politische Blockaden und Gegenwind für unberechenbare Zölle werden von den Märkten als stabilitätsfördernd gewertet."
+    },
+    "2026-11-05": {
+     "p": -2,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne",
+      "US-Politik & Regulierung"
+     ],
+     "rolle": "Politische Unsicherheiten in Kernstaaten wie Texas schüren Ängste vor regulatorischen Bremsen im Tech-Sektor."
+    },
+    "2026-11-06": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Politische Revancheakte und regulatorische Unsicherheiten belasten die betroffenen Großkonzerne im Tech-Sektor."
+    },
+    "2026-11-12": {
+     "p": -2,
+     "namen": [
+      "US-Regulierung & Exportbeschränkungen",
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Das anhaltend hohe Haushaltsdefizit wird als untragbar für Wirtschaft und Rentenmarkt eingestuft."
+    },
+    "2026-11-13": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Das explodierende Haushaltsdefizit zwingt die Märkte zur Abstrafung des Staates über höhere Refinanzierungskosten."
+    },
+    "2026-11-16": {
+     "p": -1,
+     "namen": [
+      "US-Exportbeschränkungen & Regulierung"
+     ],
+     "rolle": "Die zunehmend strengeren Restriktionen belasten wichtige Wachstumsfantasien und schaffen politische Risiken für den Tech-Sektor."
+    },
+    "2026-11-18": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Das administrative Hin und Her rund um Zölle erschwert eine saubere Bewertung der fundamentalen Gewinndynamik."
+    },
+    "2026-11-23": {
+     "p": 1,
+     "namen": [
+      "US-Haushaltsstreit & Shutdown-Risiko"
+     ],
+     "rolle": "Das vorläufige Nachlassen eines politischen Risikofaktors nimmt kurzfristig Druck vom Markt."
+    },
+    "2026-11-24": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Er sieht Zölle als selbstzerstörerische Belastung, die letztlich von den heimischen Verbrauchern bezahlt wird und die Inflation anheizt."
+    },
+    "2026-11-25": {
+     "p": -1,
+     "namen": [
+      "US-Zollpolitik & Schuldenpläne"
+     ],
+     "rolle": "Zolldrohungen treffen auf ein ohnehin fragiles Marktumfeld und schüren Ängste vor Inflations- und Konjunkturdruck."
+    }
+   }
+  },
+  {
+   "kategorie": "Konjunktur",
+   "status": "bestaetigt",
+   "tage_anzahl": 16,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-11-24",
+   "name": "Industrie- und Exportdaten (Asien & USA)",
+   "namen": [
+    "Industrie- und Exportdaten (Asien & USA)",
+    "Atlanta-Fed GDPNow-Indikator",
+    "Atlanta-Fed-GDPNow-Schätzung",
+    "Konjunktur & Kapitalverfügbarkeit",
+    "US-Einzelhandelsumsätze",
+    "Atlanta Fed GDPNow"
+   ],
+   "rolle": "Schwächere Einkaufsmanagerindizes deuten auf einen nachlassenden Schwung der US-Wirtschaft hin.",
+   "tage": {
+    "2026-10-01": {
+     "p": 0,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
+    },
+    "2026-10-05": {
+     "p": 0,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Die anstehenden Daten entscheiden kurzfristig über die Richtung des Handelstages."
+    },
+    "2026-10-06": {
+     "p": -1,
+     "namen": [
+      "Atlanta-Fed GDPNow-Indikator"
+     ],
+     "rolle": "Der Rückgang illustriert die abkühlende Wirtschaftsdynamik infolge des restriktiven Zinsniveaus."
+    },
+    "2026-10-07": {
+     "p": -1,
+     "namen": [
+      "Atlanta-Fed-GDPNow-Schätzung"
+     ],
+     "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal."
+    },
+    "2026-10-08": {
+     "p": 0,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)",
+      "Konjunktur & Kapitalverfügbarkeit"
+     ],
+     "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung."
+    },
+    "2026-10-13": {
+     "p": 1,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Als historischer Frühindikator für das Gewinnwachstum des S&P 500 deutet dieser Anstieg auf eine robuste Tech-Nachfrage hin."
+    },
+    "2026-10-15": {
+     "p": -1,
+     "namen": [
+      "US-Einzelhandelsumsätze"
+     ],
+     "rolle": "Nachlassende Konsumlaune droht die US-Konjunktur im Zusammenspiel mit gestrafften Finanzierungsbedingungen abzuwürgen."
+    },
+    "2026-10-20": {
+     "p": -2,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Er sieht darin ein Warnsignal, dass die hohen Zinsen und Finanzierungskosten die US-Wirtschaft ausbremsen."
+    },
+    "2026-10-22": {
+     "p": -1,
+     "namen": [
+      "Atlanta Fed GDPNow"
+     ],
+     "rolle": "Wachsende Sorgen vor einer wirtschaftlichen Flaute drücken einerseits auf die Zinsen, dämpfen aber die Konjunkturzuversicht."
+    },
+    "2026-10-28": {
+     "p": 1,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Der Rückgang der Konjunkturschätzungen signalisiert eine spürbare Abkühlung der US-Wirtschaft infolge der straffen Geldpolitik."
+    },
+    "2026-11-02": {
+     "p": 1,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Robuste Daten aus dem Industriesektor stützen traditionelle Substanz- und Qualitätswerte."
+    },
+    "2026-11-03": {
+     "p": -1,
+     "namen": [
+      "US-Kreditnachfrage (Loan Officer Survey)"
+     ],
+     "rolle": "Die nachlassende Bereitschaft zur Kreditaufnahme signalisiert konjunkturelle Abkühlung und bremst das Wirtschaftswachstum."
+    },
+    "2026-11-13": {
+     "p": -1,
+     "namen": [
+      "US-Immobilienmarkt"
+     ],
+     "rolle": "Die mangelnde Erschwinglichkeit und hohe Zinsen bremsen den US-Immobiliensektor spürbar aus."
+    },
+    "2026-11-17": {
+     "p": 1,
+     "namen": [
+      "US-Einzelhandelsdaten"
+     ],
+     "rolle": "Ein widerstandsfähiger US-Konsument hält die konjunkturelle Basis stabil."
+    },
+    "2026-11-23": {
+     "p": 1,
+     "namen": [
+      "Einkaufsmanagerindex (Flash PMI)"
+     ],
+     "rolle": "Nachlassende Inflationsdaten und abkühlende Dynamik nähren Hoffnungen auf eine Beruhigung der Zinsfront."
+    },
+    "2026-11-24": {
+     "p": -1,
+     "namen": [
+      "Industrie- und Exportdaten (Asien & USA)"
+     ],
+     "rolle": "Schwächere Einkaufsmanagerindizes deuten auf einen nachlassenden Schwung der US-Wirtschaft hin."
     }
    }
   },
@@ -1848,260 +2191,6 @@
       "Inflationsdynamik"
      ],
      "rolle": "Ein abklingender Inflationsdruck dämpft die Zinsängste und hilft zyklisch-defensiven Konsumwerten."
-    }
-   }
-  },
-  {
-   "kategorie": "Konjunktur",
-   "status": "bestaetigt",
-   "tage_anzahl": 15,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-23",
-   "name": "Industrie- und Exportdaten (Asien & USA)",
-   "namen": [
-    "Industrie- und Exportdaten (Asien & USA)",
-    "Atlanta-Fed GDPNow-Indikator",
-    "Atlanta-Fed-GDPNow-Schätzung",
-    "Konjunktur & Kapitalverfügbarkeit",
-    "US-Einzelhandelsumsätze",
-    "Atlanta Fed GDPNow"
-   ],
-   "rolle": "Nachlassende Inflationsdaten und abkühlende Dynamik nähren Hoffnungen auf eine Beruhigung der Zinsfront.",
-   "tage": {
-    "2026-10-01": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Eine robuste Wirtschaft stützt zwar die Umsätze, hält aber auch den Zinsdruck hoch."
-    },
-    "2026-10-05": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Die anstehenden Daten entscheiden kurzfristig über die Richtung des Handelstages."
-    },
-    "2026-10-06": {
-     "p": -1,
-     "namen": [
-      "Atlanta-Fed GDPNow-Indikator"
-     ],
-     "rolle": "Der Rückgang illustriert die abkühlende Wirtschaftsdynamik infolge des restriktiven Zinsniveaus."
-    },
-    "2026-10-07": {
-     "p": -1,
-     "namen": [
-      "Atlanta-Fed-GDPNow-Schätzung"
-     ],
-     "rolle": "Der spürbare Rückgang signalisiert eine nachlassende Wachstumsdynamik im laufenden Quartal."
-    },
-    "2026-10-08": {
-     "p": 0,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)",
-      "Konjunktur & Kapitalverfügbarkeit"
-     ],
-     "rolle": "Wenn Kapital nur in eine Nische fließt, schwächt dies die breite wirtschaftliche Entwicklung."
-    },
-    "2026-10-13": {
-     "p": 1,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Als historischer Frühindikator für das Gewinnwachstum des S&P 500 deutet dieser Anstieg auf eine robuste Tech-Nachfrage hin."
-    },
-    "2026-10-15": {
-     "p": -1,
-     "namen": [
-      "US-Einzelhandelsumsätze"
-     ],
-     "rolle": "Nachlassende Konsumlaune droht die US-Konjunktur im Zusammenspiel mit gestrafften Finanzierungsbedingungen abzuwürgen."
-    },
-    "2026-10-20": {
-     "p": -2,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Er sieht darin ein Warnsignal, dass die hohen Zinsen und Finanzierungskosten die US-Wirtschaft ausbremsen."
-    },
-    "2026-10-22": {
-     "p": -1,
-     "namen": [
-      "Atlanta Fed GDPNow"
-     ],
-     "rolle": "Wachsende Sorgen vor einer wirtschaftlichen Flaute drücken einerseits auf die Zinsen, dämpfen aber die Konjunkturzuversicht."
-    },
-    "2026-10-28": {
-     "p": 1,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Der Rückgang der Konjunkturschätzungen signalisiert eine spürbare Abkühlung der US-Wirtschaft infolge der straffen Geldpolitik."
-    },
-    "2026-11-02": {
-     "p": 1,
-     "namen": [
-      "Industrie- und Exportdaten (Asien & USA)"
-     ],
-     "rolle": "Robuste Daten aus dem Industriesektor stützen traditionelle Substanz- und Qualitätswerte."
-    },
-    "2026-11-03": {
-     "p": -1,
-     "namen": [
-      "US-Kreditnachfrage (Loan Officer Survey)"
-     ],
-     "rolle": "Die nachlassende Bereitschaft zur Kreditaufnahme signalisiert konjunkturelle Abkühlung und bremst das Wirtschaftswachstum."
-    },
-    "2026-11-13": {
-     "p": -1,
-     "namen": [
-      "US-Immobilienmarkt"
-     ],
-     "rolle": "Die mangelnde Erschwinglichkeit und hohe Zinsen bremsen den US-Immobiliensektor spürbar aus."
-    },
-    "2026-11-17": {
-     "p": 1,
-     "namen": [
-      "US-Einzelhandelsdaten"
-     ],
-     "rolle": "Ein widerstandsfähiger US-Konsument hält die konjunkturelle Basis stabil."
-    },
-    "2026-11-23": {
-     "p": 1,
-     "namen": [
-      "Einkaufsmanagerindex (Flash PMI)"
-     ],
-     "rolle": "Nachlassende Inflationsdaten und abkühlende Dynamik nähren Hoffnungen auf eine Beruhigung der Zinsfront."
-    }
-   }
-  },
-  {
-   "kategorie": "Politik & Zölle",
-   "status": "bestaetigt",
-   "tage_anzahl": 15,
-   "erstmals": "2026-10-07",
-   "zuletzt": "2026-11-23",
-   "name": "US-Zollpolitik & Schuldenpläne",
-   "namen": [
-    "US-Zollpolitik & Schuldenpläne",
-    "US-Zwischenwahlen (Midterms)",
-    "US-Midterm-Wahlen",
-    "US-Wahlen / Midterms",
-    "US-Wahlergebnis & Machtverhältnisse",
-    "US-Politik & Regulierung"
-   ],
-   "rolle": "Das vorläufige Nachlassen eines politischen Risikofaktors nimmt kurzfristig Druck vom Markt.",
-   "tage": {
-    "2026-10-07": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Zölle belasten Verbraucher und schränken den geldpolitischen Spielraum der Notenbank zusätzlich ein."
-    },
-    "2026-10-09": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Das immense Staatsdefizit bleibt ein strukturelles Risiko für den Anleihe- und Aktienmarkt."
-    },
-    "2026-10-20": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Politische Unsicherheiten vor den Wahlen sorgen für Nervosität bei Technologiekonzernen und Investoren."
-    },
-    "2026-10-29": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Die politische Unsicherheit vor den Midterms engt die Risikobereitschaft der Marktteilnehmer zusätzlich ein."
-    },
-    "2026-10-30": {
-     "p": -1,
-     "namen": [
-      "US-Midterm-Wahlen",
-      "US-Zwischenwahlen (Midterms)"
-     ],
-     "rolle": "Eine klare Entscheidung bei den Midterms könnte die politische Hängepartie beenden und den Weg für eine Jahresendrallye freimachen."
-    },
-    "2026-11-02": {
-     "p": -1,
-     "namen": [
-      "US-Wahlen / Midterms",
-      "US-Zwischenwahlen (Midterms)"
-     ],
-     "rolle": "Die politische Unsicherheit rund um eine mögliche Mehrheitsverschiebung dämpft die Risikobereitschaft der Anleger."
-    },
-    "2026-11-03": {
-     "p": 0,
-     "namen": [
-      "US-Zwischenwahlen (Midterms)"
-     ],
-     "rolle": "Ein geteilter Kongress (Gridlock) gilt historisch als Idealzustand, während ein Durchmarsch einer Partei Unsicherheit über Regulierung schürt."
-    },
-    "2026-11-04": {
-     "p": 2,
-     "namen": [
-      "US-Wahlergebnis & Machtverhältnisse",
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Politische Blockaden und Gegenwind für unberechenbare Zölle werden von den Märkten als stabilitätsfördernd gewertet."
-    },
-    "2026-11-05": {
-     "p": -2,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne",
-      "US-Politik & Regulierung"
-     ],
-     "rolle": "Politische Unsicherheiten in Kernstaaten wie Texas schüren Ängste vor regulatorischen Bremsen im Tech-Sektor."
-    },
-    "2026-11-06": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Politische Revancheakte und regulatorische Unsicherheiten belasten die betroffenen Großkonzerne im Tech-Sektor."
-    },
-    "2026-11-12": {
-     "p": -2,
-     "namen": [
-      "US-Regulierung & Exportbeschränkungen",
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Das anhaltend hohe Haushaltsdefizit wird als untragbar für Wirtschaft und Rentenmarkt eingestuft."
-    },
-    "2026-11-13": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Das explodierende Haushaltsdefizit zwingt die Märkte zur Abstrafung des Staates über höhere Refinanzierungskosten."
-    },
-    "2026-11-16": {
-     "p": -1,
-     "namen": [
-      "US-Exportbeschränkungen & Regulierung"
-     ],
-     "rolle": "Die zunehmend strengeren Restriktionen belasten wichtige Wachstumsfantasien und schaffen politische Risiken für den Tech-Sektor."
-    },
-    "2026-11-18": {
-     "p": -1,
-     "namen": [
-      "US-Zollpolitik & Schuldenpläne"
-     ],
-     "rolle": "Das administrative Hin und Her rund um Zölle erschwert eine saubere Bewertung der fundamentalen Gewinndynamik."
-    },
-    "2026-11-23": {
-     "p": 1,
-     "namen": [
-      "US-Haushaltsstreit & Shutdown-Risiko"
-     ],
-     "rolle": "Das vorläufige Nachlassen eines politischen Risikofaktors nimmt kurzfristig Druck vom Markt."
     }
    }
   },

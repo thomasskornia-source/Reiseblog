@@ -1,6 +1,132 @@
 {
  "beitraege": [
   {
+   "id": "PgpG5KHGWNU",
+   "titel": "Tiefs vom Freitag getestet! Ist der Boden nun drin?",
+   "datum": "2026-11-25",
+   "zeit": "2026-11-25T21:55:17+00:00",
+   "art": "closing",
+   "score": 45,
+   "pfeil": "hoch",
+   "thema": "Nach einem historischen Fehlstart vor Thanksgiving dreht die Wall Street fulminant ins Plus und zeigt Anzeichen einer tragfähigen Bodenbildung.",
+   "gesamtstimmung": "Markus Koch bewertet den massiven Intraday-Reversal nach morgendlicher Panik als äußerst konstruktives Signal für einen kurzfristigen Marktboden. Trotz extremer Schwankungen und Nervenbelastung sieht er durch die Abkühlung der Volatilität, das Kaufverhalten institutioneller Anleger und die breite Erholung gute Chancen auf eine spürbare Gegenbewegung.",
+   "begruendung": "Der Intraday-Turnaround von über 1.300 Punkten im Dow Jones sowie das erfolgreiche Testen vorheriger Tiefstände deuten auf eine Erschöpfung des Verkaufsdrucks hin. Zudem signalisieren der Rücklauf des VIX aus Extrembereichen und die drastische Verbesserung der Marktbreite eine solide technische Erholungschance.",
+   "indikatoren": [
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Charttechnik: Test der bisherigen Tiefs",
+     "lage": "S&P 500 und Nasdaq 100 testen Freitagstiefs exakt an und prallen dynamisch nach ",
+     "pfeil": "hoch",
+     "rolle": "Das Halten dieser Schlüsselmarken wertet er als wichtiges technisches Signal für eine Bodenbildung."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "VIX (Volatilitätsindex)",
+     "lage": "Spitze bei knapp 35 erreicht und anschließend auf unter 28 zurückgefallen",
+     "pfeil": "hoch",
+     "rolle": "VIX-Werte über 31 bis 32 gelten in seinem System historisch als verlässliche Indikatoren für attraktive Kaufkurse."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Dreht im Tagesverlauf massiv ins Plus, zehn von elf Sektoren schließen höher",
+     "pfeil": "hoch",
+     "rolle": "Eine breite Erholung abseits einzelner Tech-Werte bestätigt für ihn die Qualität der Erholungsbewegung."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Hedgefonds mit Rekordkäufen der letzten vier Jahre; prominente Bären wie Michael",
+     "pfeil": "hoch",
+     "rolle": "Die Rückkehr institutioneller Investoren auf die Käuferseite nimmt den extremen Verkaufsdruck aus dem Markt."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "Zinsschritt im Dezember erwartet, Zinsanhebungszyklus nähert sich dem Ende",
+     "pfeil": "seitwaerts",
+     "rolle": "Klarheit über den Zinspfad reduziert Unsicherheit, wenngleich das finale Zinsniveau noch debattiert wird."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Rohstoff- und Kupferpreise",
+     "lage": "Kupfer und andere Rohstoffe deutlich unter Druck",
+     "pfeil": "seitwaerts",
+     "rolle": "Schwache Rohstoffe deuten zwar auf Disinflation hin, wecken aber gleichzeitig Befürchtungen einer Wachstumsabkühlung."
+    }
+   ],
+   "zitate": [
+    "Das muss man sich mal reinziehen: ein Tages-Swing von quasi 1.300 Punkten.",
+    "Die Hütte war am Brennen heute Morgen [...] umso schöner das Comeback."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 133487
+  },
+  {
+   "id": "V7Wj-CTJYBQ",
+   "titel": "Historischer Thanksgiving-Schock. Hält die Wall Street dem Druck stand?",
+   "datum": "2026-11-25",
+   "zeit": "2026-11-25T14:49:45+00:00",
+   "art": "opening",
+   "score": -85,
+   "pfeil": "runter",
+   "thema": "Markus Koch analysiert den historischen Ausverkauf an der Wall Street vor Thanksgiving, getrieben von Tech-Panik, Zollunsicherheit und Bärenmarkt-Parallelen.",
+   "gesamtstimmung": "Die Stimmung an den US-Märkten ist von massiver Panik, schwindender Liquidität und aggressivem De-Risking geprägt. Historische Vergleiche mit den Jahren 2000 und 2018 deuten aus Sicht von Markus Koch darauf hin, dass die Wall Street in einen handfesten Bärenmarkt abgleitet.",
+   "begruendung": "Selbst herausragende Quartalszahlen werden im Technologiesektor abverkauft, während Indizes wie der Nasdaq herbe Tagesverluste von über vier Prozent verzeichnen. Zudem schüren neue Zolldrohungen und geopolitische Spannungen die Furcht vor einer spürbaren Abkühlung der Wirtschaft.",
+   "indikatoren": [
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Panikverkäufe und extremes De-Risking, VIX schießt über 31",
+     "pfeil": "runter",
+     "rolle": "Der dramatische Anstieg der Volatilität und die Liquidation gehebelter Tech-Positionen verstärken die Abwärtsdynamik drastisch."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Wachsende Furcht vor einem Auslaufen des KI-Investitionsbooms",
+     "pfeil": "runter",
+     "rolle": "Sorgen vor nachlassenden Investitionsausgaben der Tech-Giganten belasten die Kernstütze der bisherigen Rally."
+    },
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Q4-Saisonalität & Positionierung",
+     "lage": "Muster gleicht den Bärenmärkten von 2000 und 2018",
+     "pfeil": "runter",
+     "rolle": "Die historische Chartähnlichkeit signalisiert, dass Gegenbewegungen nur temporär sind und tiefere Tiefs drohen."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zollpolitik & Schuldenpläne",
+     "lage": "Ankündigung neuer Zollverschärfungen sorgt für Verunsicherung",
+     "pfeil": "runter",
+     "rolle": "Zolldrohungen treffen auf ein ohnehin fragiles Marktumfeld und schüren Ängste vor Inflations- und Konjunkturdruck."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Kupferpreise",
+     "lage": "Deutlicher Einbruch",
+     "pfeil": "runter",
+     "rolle": "Schwache Rohstoffpreise gelten als Warnsignal für eine globale Konjunkturabkühlung."
+    },
+    {
+     "kategorie": "Geopolitik",
+     "name": "Nahost & Ukraine-Krieg",
+     "lage": "Spannungen rund um die Finanzierung des Iran-Konflikts",
+     "pfeil": "runter",
+     "rolle": "Politische Querelen im US-Kongress über Kriegskosten erhöhen die allgemeine Marktunsicherheit."
+    }
+   ],
+   "zitate": [
+    "Ein Blutbad an der Wall Street.",
+    "So fühlen sich wirklich Bärenmärkte an."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 153096
+  },
+  {
    "id": "aXSmdBRy3ZA",
    "titel": "Nasdaq 100 gibt 1/3 der Vortagsgewinne ab. Dell mit beeindruckenden Zahlen.",
    "datum": "2026-11-24",
@@ -62,6 +188,69 @@
    "sicherheit": "hoch",
    "modell": "gemini-3.8-flash",
    "tokens": 183885
+  },
+  {
+   "id": "xIAZYah8Xbw",
+   "titel": "War die Rally nur ein technischer Bounce?",
+   "datum": "2026-11-24",
+   "zeit": "2026-11-24T14:44:01+00:00",
+   "art": "opening",
+   "score": -35,
+   "pfeil": "runter",
+   "thema": "Nach einer massiven Leerverkauf-Rallye geraten die US-Märkte durch drohende neue Zölle, nachlassende Margendynamik im Tech-Sektor und Konjunktursorgen wieder unter Druck.",
+   "gesamtstimmung": "Die Stimmung ist von großer Verunsicherung und hoher Volatilität geprägt, da die vorherige Rekordrallye vor allem durch Eindeckungen von Leerverkäufen getrieben war. Zunehmende Warnsignale bei Gewinnmargen, neue Zollpläne und nachlassendes Wirtschaftswachstum belasten das Sentiment spürbar.",
+   "begruendung": "Der Moderator warnt vor einer Margenblase im Tech-Bereich und betont, dass der Investitionszyklus (CapEx) seinen Höhepunkt erreichen könnte. Zudem schüren erneut angekündigte Importzölle sowie schwächelnde Rohstoffpreise die Furcht vor Stagflation und Konjunkturabkühlung.",
+   "indikatoren": [
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Extreme Short-Eindeckungen trieben die Kurse, nun wieder Verkaufsdruck",
+     "pfeil": "runter",
+     "rolle": "Er erklärt die heftigen Kurssprünge vor allem mit technischen Eindeckungen von quantitativen Trendfolgern statt echter fundamentaler Stärke."
+    },
+    {
+     "kategorie": "Politik & Zölle",
+     "name": "US-Zollpolitik & Schuldenpläne",
+     "lage": "Pläne für weitere Zollanhebungen auf chinesische Importe und andere Länder",
+     "pfeil": "runter",
+     "rolle": "Er sieht Zölle als selbstzerstörerische Belastung, die letztlich von den heimischen Verbrauchern bezahlt wird und die Inflation anheizt."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Erwarteter Höhepunkt (Zenit) der Ausgaben für 2027 prognostiziert",
+     "pfeil": "runter",
+     "rolle": "Er verweist auf historische Parallelen zur Dotcom-Blase, bei der Aktien bereits Monate vor dem Ausgabenzenit korrigierten."
+    },
+    {
+     "kategorie": "Öl & Rohstoffe",
+     "name": "Öl- und Dieselpreise",
+     "lage": "Öl- und Rohstoffpreise (Kupfer, Silber, Gold) geben deutlich nach",
+     "pfeil": "runter",
+     "rolle": "Der Preisverfall bei Industriemetallen und Öl signalisiert ihm wachsende Sorgen vor einer Abkühlung der weltweiten Konjunktur."
+    },
+    {
+     "kategorie": "Konjunktur",
+     "name": "Industrie- und Exportdaten (Asien & USA)",
+     "lage": "Flash-PMI für November zeigt schwächeres Wachstum",
+     "pfeil": "runter",
+     "rolle": "Schwächere Einkaufsmanagerindizes deuten auf einen nachlassenden Schwung der US-Wirtschaft hin."
+    },
+    {
+     "kategorie": "Zinsen & Notenbank",
+     "name": "Fed-Zinserwartungen",
+     "lage": "25 Basispunkte Zinssenkung erwartet, Notenbanktagung vor Inflationsdaten",
+     "pfeil": "seitwaerts",
+     "rolle": "Der Zinsausblick bleibt entscheidend, während Notenbanker wie Williams taubenhaftere Töne anschlagen."
+    }
+   ],
+   "zitate": [
+    "Das man vor allen Dingen eine Margen-Bubble haben.",
+    "Der Mann lernt einfach nicht dazu."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 146328
   },
   {
    "id": "MiSISR0ZaxY",
@@ -4338,9 +4527,12 @@
   "YFWFxGJTX_o",
   "MiSISR0ZaxY",
   "hTn7stPFO3E",
-  "aXSmdBRy3ZA"
+  "aXSmdBRy3ZA",
+  "xIAZYah8Xbw",
+  "PgpG5KHGWNU",
+  "V7Wj-CTJYBQ"
  ],
- "stand": "2026-11-26T03:13Z",
+ "stand": "2026-11-26T23:25Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
