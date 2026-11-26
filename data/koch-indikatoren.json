@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-23",
+ "stand": "2026-11-24",
  "schwellen": {
   "bestaetigt": 3,
   "beobachtet": 2
@@ -8,9 +8,9 @@
   {
    "kategorie": "Marktbreite & Sektoren",
    "status": "bestaetigt",
-   "tage_anzahl": 31,
+   "tage_anzahl": 32,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-23",
+   "zuletzt": "2026-11-24",
    "name": "Marktbreite (S&P 500 vs. Equal Weight)",
    "namen": [
     "Marktbreite (S&P 500 vs. Equal Weight)",
@@ -20,7 +20,7 @@
     "Sektorrotation in Value- und Standardwerte",
     "Tech- und KI-Sektor"
    ],
-   "rolle": "Dass auch der gleichgewichtete S&P 500 und Nebenwerte kräftig zulegen, belegt ein solides Fundament der Tagesrallye.",
+   "rolle": "Für einen echten Korrekturboden sind laut historischen Vergleichen noch viel zu viele Aktien über ihrer 50-Tage-Linie.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -243,6 +243,13 @@
       "Marktbreite (S&P 500 vs. Equal Weight)"
      ],
      "rolle": "Dass auch der gleichgewichtete S&P 500 und Nebenwerte kräftig zulegen, belegt ein solides Fundament der Tagesrallye."
+    },
+    "2026-11-24": {
+     "p": -1,
+     "namen": [
+      "Marktbreite (S&P 500 vs. Equal Weight)"
+     ],
+     "rolle": "Für einen echten Korrekturboden sind laut historischen Vergleichen noch viel zu viele Aktien über ihrer 50-Tage-Linie."
     }
    }
   },
@@ -475,14 +482,14 @@
   {
    "kategorie": "Anleihen & Renditen",
    "status": "bestaetigt",
-   "tage_anzahl": 26,
+   "tage_anzahl": 27,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-23",
+   "zuletzt": "2026-11-24",
    "name": "US-Staatsanleiherenditen",
    "namen": [
     "US-Staatsanleiherenditen"
    ],
-   "rolle": "Rückläufige Kapitalmarktzinsen nehmen den Druck von den Aktienbewertungen.",
+   "rolle": "Die etwas nachgebenden Renditen stützen defensive Sektoren und den klassischen Dow Jones leicht ab.",
    "tage": {
     "2026-10-01": {
      "p": -1,
@@ -665,15 +672,22 @@
       "US-Staatsanleiherenditen"
      ],
      "rolle": "Rückläufige Kapitalmarktzinsen nehmen den Druck von den Aktienbewertungen."
+    },
+    "2026-11-24": {
+     "p": 1,
+     "namen": [
+      "US-Staatsanleiherenditen"
+     ],
+     "rolle": "Die etwas nachgebenden Renditen stützen defensive Sektoren und den klassischen Dow Jones leicht ab."
     }
    }
   },
   {
    "kategorie": "Stimmung & Volatilität",
    "status": "bestaetigt",
-   "tage_anzahl": 26,
+   "tage_anzahl": 27,
    "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-23",
+   "zuletzt": "2026-11-24",
    "name": "Marktpositionierung und Hebel",
    "namen": [
     "Marktpositionierung und Hebel",
@@ -683,7 +697,7 @@
     "Anlegerstimmung & Depotrealität",
     "MOVE-Index"
    ],
-   "rolle": "Der Einbruch der Volatilität und die extrem pessimistische Vorab-Positionierung lösen panikartige Zukäufe aus.",
+   "rolle": "Er betont, dass die Stimmung im Technologiesektor am Boden liegt und Kursgewinne sofort für Notverkäufe genutzt werden.",
    "tage": {
     "2026-10-01": {
      "p": 1,
@@ -878,6 +892,13 @@
       "Marktpositionierung und Hebel"
      ],
      "rolle": "Der Einbruch der Volatilität und die extrem pessimistische Vorab-Positionierung lösen panikartige Zukäufe aus."
+    },
+    "2026-11-24": {
+     "p": -1,
+     "namen": [
+      "Marktpositionierung und Hebel"
+     ],
+     "rolle": "Er betont, dass die Stimmung im Technologiesektor am Boden liegt und Kursgewinne sofort für Notverkäufe genutzt werden."
     }
    }
   },
@@ -1245,9 +1266,9 @@
   {
    "kategorie": "Sonstiges",
    "status": "bestaetigt",
-   "tage_anzahl": 22,
+   "tage_anzahl": 23,
    "erstmals": "2026-10-08",
-   "zuletzt": "2026-11-19",
+   "zuletzt": "2026-11-24",
    "name": "Tech-Investitionszyklus (CapEx)",
    "namen": [
     "Tech-Investitionszyklus (CapEx)",
@@ -1255,7 +1276,7 @@
     "Aktienrückkäufe",
     "US-Infrastrukturausfälle (IT Outages)"
    ],
-   "rolle": "Eine Verlangsamung der KI-Investitionen trifft den Kern des bisherigen Markt- und Tech-Aufschwungs.",
+   "rolle": "Die Sorge vor einem bevorstehenden Zenit bei KI-Investitionen belastet die Kernstütze der bisherigen Börsenrally.",
    "tage": {
     "2026-10-08": {
      "p": 1,
@@ -1412,15 +1433,22 @@
       "Tech-Investitionszyklus (CapEx)"
      ],
      "rolle": "Eine Verlangsamung der KI-Investitionen trifft den Kern des bisherigen Markt- und Tech-Aufschwungs."
+    },
+    "2026-11-24": {
+     "p": -1,
+     "namen": [
+      "Tech-Investitionszyklus (CapEx)"
+     ],
+     "rolle": "Die Sorge vor einem bevorstehenden Zenit bei KI-Investitionen belastet die Kernstütze der bisherigen Börsenrally."
     }
    }
   },
   {
    "kategorie": "Saisonalität & Chart",
    "status": "bestaetigt",
-   "tage_anzahl": 18,
+   "tage_anzahl": 19,
    "erstmals": "2026-10-02",
-   "zuletzt": "2026-11-23",
+   "zuletzt": "2026-11-24",
    "name": "Q4-Saisonalität & Positionierung",
    "namen": [
     "Q4-Saisonalität & Positionierung",
@@ -1430,7 +1458,7 @@
     "Technische Überverkauftheit",
     "200-Tage-Linie im S&P 500"
    ],
-   "rolle": "Die Feiertagswoche zeichnet sich historisch betrachtet typischerweise durch freundliche Kurse aus.",
+   "rolle": "Er hebt hervor, dass auf extreme Kursexplosionen wie am Vortag statistisch fast immer Ernüchterung und Kursverluste folgen.",
    "tage": {
     "2026-10-02": {
      "p": 1,
@@ -1560,6 +1588,13 @@
       "Q4-Saisonalität & Positionierung"
      ],
      "rolle": "Die Feiertagswoche zeichnet sich historisch betrachtet typischerweise durch freundliche Kurse aus."
+    },
+    "2026-11-24": {
+     "p": -1,
+     "namen": [
+      "Historische Folgetage nach starken Rally-Tagen"
+     ],
+     "rolle": "Er hebt hervor, dass auf extreme Kursexplosionen wie am Vortag statistisch fast immer Ernüchterung und Kursverluste folgen."
     }
    }
   },
@@ -1693,6 +1728,126 @@
       "Fed-Zinserwartungen"
      ],
      "rolle": "Die Sorge vor einer geldpolitischen Überstraffung durch die Fed schürt Ängste vor einer Wachstumsflaute."
+    }
+   }
+  },
+  {
+   "kategorie": "Inflation",
+   "status": "bestaetigt",
+   "tage_anzahl": 15,
+   "erstmals": "2026-10-01",
+   "zuletzt": "2026-11-24",
+   "name": "Inflationsdynamik",
+   "namen": [
+    "Inflationsdynamik",
+    "Bevorstehende Inflationsdaten (CPI)"
+   ],
+   "rolle": "Ein abklingender Inflationsdruck dämpft die Zinsängste und hilft zyklisch-defensiven Konsumwerten.",
+   "tage": {
+    "2026-10-01": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Hartnäckige Teuerungsraten dämpfen Hoffnungen auf rasche Zinssenkungen der Notenbanken."
+    },
+    "2026-10-02": {
+     "p": -1,
+     "namen": [
+      "Bevorstehende Inflationsdaten (CPI)"
+     ],
+     "rolle": "Anhaltende Preissorgen könnten die Erholung am Anleihe- und Aktienmarkt dämpfen."
+    },
+    "2026-10-09": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Hartnäckige Inflationsdaten könnten die Notenbank zu längeren Zinserhöhungsphasen zwingen."
+    },
+    "2026-10-12": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Höhere Inflationsdaten könnten die Hoffnungen auf geldpolitische Lockerungen dämpfen und die Zinsängste wieder anfachen."
+    },
+    "2026-10-13": {
+     "p": 0,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Treffen die Daten die Schätzungen, könnte dies den Anleiherenditen weiteren Raum nach unten geben."
+    },
+    "2026-10-14": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Die hartnäckig hohe Kern- und Gesamtinflation zerstört Hoffnungen auf ein baldiges Ende des Zinsdrucks."
+    },
+    "2026-10-22": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Geplante Preiserhöhungen stehen einer schnellen Entspannung an der Zinsfront entgegen."
+    },
+    "2026-10-28": {
+     "p": 0,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Das Ausbleiben weiterer Fortschritte Richtung 2-Prozent-Ziel mahnt zur Vorsicht, wird aber durch stabile Inflationserwartungen abgefedert."
+    },
+    "2026-11-04": {
+     "p": 0,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Die Teuerung bleibt auf hohem Niveau, doch der politische Druck könnte protektionistische Preistreiber bremsen."
+    },
+    "2026-11-09": {
+     "p": 0,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Trotz bevorstehender Verbraucherpreisdaten wirkt der deflationäre Impuls sinkender Rohstoffpreise beruhigend."
+    },
+    "2026-11-12": {
+     "p": -1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Hartnäckige Teuerungsdaten schränken den Handlungsspielraum der Notenbank empfindlich ein."
+    },
+    "2026-11-13": {
+     "p": 1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Die moderaten Erzeugerpreise verschaffen den Märkten eine kleine Erleichterung gegenüber den zuvor heißeren Verbraucherpreisen."
+    },
+    "2026-11-16": {
+     "p": 1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Nachlassender Preisdruck stützt das Basisszenario einer anhaltenden Wirtschaftsexpansion im kommenden Jahr."
+    },
+    "2026-11-23": {
+     "p": 1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Fallende Rohstoffpreise signalisieren eine deutliche Abkühlung des Inflationsdrucks."
+    },
+    "2026-11-24": {
+     "p": 1,
+     "namen": [
+      "Inflationsdynamik"
+     ],
+     "rolle": "Ein abklingender Inflationsdruck dämpft die Zinsängste und hilft zyklisch-defensiven Konsumwerten."
     }
    }
   },
@@ -1947,119 +2102,6 @@
       "US-Haushaltsstreit & Shutdown-Risiko"
      ],
      "rolle": "Das vorläufige Nachlassen eines politischen Risikofaktors nimmt kurzfristig Druck vom Markt."
-    }
-   }
-  },
-  {
-   "kategorie": "Inflation",
-   "status": "bestaetigt",
-   "tage_anzahl": 14,
-   "erstmals": "2026-10-01",
-   "zuletzt": "2026-11-23",
-   "name": "Inflationsdynamik",
-   "namen": [
-    "Inflationsdynamik",
-    "Bevorstehende Inflationsdaten (CPI)"
-   ],
-   "rolle": "Fallende Rohstoffpreise signalisieren eine deutliche Abkühlung des Inflationsdrucks.",
-   "tage": {
-    "2026-10-01": {
-     "p": -1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Hartnäckige Teuerungsraten dämpfen Hoffnungen auf rasche Zinssenkungen der Notenbanken."
-    },
-    "2026-10-02": {
-     "p": -1,
-     "namen": [
-      "Bevorstehende Inflationsdaten (CPI)"
-     ],
-     "rolle": "Anhaltende Preissorgen könnten die Erholung am Anleihe- und Aktienmarkt dämpfen."
-    },
-    "2026-10-09": {
-     "p": -1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Hartnäckige Inflationsdaten könnten die Notenbank zu längeren Zinserhöhungsphasen zwingen."
-    },
-    "2026-10-12": {
-     "p": -1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Höhere Inflationsdaten könnten die Hoffnungen auf geldpolitische Lockerungen dämpfen und die Zinsängste wieder anfachen."
-    },
-    "2026-10-13": {
-     "p": 0,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Treffen die Daten die Schätzungen, könnte dies den Anleiherenditen weiteren Raum nach unten geben."
-    },
-    "2026-10-14": {
-     "p": -1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Die hartnäckig hohe Kern- und Gesamtinflation zerstört Hoffnungen auf ein baldiges Ende des Zinsdrucks."
-    },
-    "2026-10-22": {
-     "p": -1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Geplante Preiserhöhungen stehen einer schnellen Entspannung an der Zinsfront entgegen."
-    },
-    "2026-10-28": {
-     "p": 0,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Das Ausbleiben weiterer Fortschritte Richtung 2-Prozent-Ziel mahnt zur Vorsicht, wird aber durch stabile Inflationserwartungen abgefedert."
-    },
-    "2026-11-04": {
-     "p": 0,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Die Teuerung bleibt auf hohem Niveau, doch der politische Druck könnte protektionistische Preistreiber bremsen."
-    },
-    "2026-11-09": {
-     "p": 0,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Trotz bevorstehender Verbraucherpreisdaten wirkt der deflationäre Impuls sinkender Rohstoffpreise beruhigend."
-    },
-    "2026-11-12": {
-     "p": -1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Hartnäckige Teuerungsdaten schränken den Handlungsspielraum der Notenbank empfindlich ein."
-    },
-    "2026-11-13": {
-     "p": 1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Die moderaten Erzeugerpreise verschaffen den Märkten eine kleine Erleichterung gegenüber den zuvor heißeren Verbraucherpreisen."
-    },
-    "2026-11-16": {
-     "p": 1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Nachlassender Preisdruck stützt das Basisszenario einer anhaltenden Wirtschaftsexpansion im kommenden Jahr."
-    },
-    "2026-11-23": {
-     "p": 1,
-     "namen": [
-      "Inflationsdynamik"
-     ],
-     "rolle": "Fallende Rohstoffpreise signalisieren eine deutliche Abkühlung des Inflationsdrucks."
     }
    }
   },

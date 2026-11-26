@@ -1,6 +1,69 @@
 {
  "beitraege": [
   {
+   "id": "aXSmdBRy3ZA",
+   "titel": "Nasdaq 100 gibt 1/3 der Vortagsgewinne ab. Dell mit beeindruckenden Zahlen.",
+   "datum": "2026-11-24",
+   "zeit": "2026-11-24T22:06:55+00:00",
+   "art": "closing",
+   "score": -65,
+   "pfeil": "runter",
+   "thema": "Nach dem vorangegangenen Rally-Tag verpufft der Schwung im Technologiesektor sofort wieder, während historische Vergleiche und trübere Investitionsaussichten für anhaltenden Gegenwind sprechen.",
+   "gesamtstimmung": "Markus Koch schätzt die Lage am US-Aktienmarkt überwiegend pessimistisch ein und warnt davor, dass die jüngsten Erholungsversuche nur kurzlebige Gegenbewegungen sind. Das Marktumfeld bleibt von hoher Nervosität, schrumpfenden Margen im Halbleiterbereich und einem noch nicht erreichten Korrekturboden geprägt.",
+   "begruendung": "Er verweist auf historische Statistiken, nach denen auf extreme Kurssprünge in der Mehrheit der Fälle weitere Kursverluste folgen, bevor ein nachhaltiger Boden gefunden wird. Zudem mehren sich die Warnsignale für herabgesetzte Tech-Investitionsschätzungen (CapEx) und wachsende Margenrisiken im Technologiesektor.",
+   "indikatoren": [
+    {
+     "kategorie": "Saisonalität & Chart",
+     "name": "Historische Folgetage nach starken Rally-Tagen",
+     "lage": "Folgetage historisch in über 70 % der Fälle schwach",
+     "pfeil": "runter",
+     "rolle": "Er hebt hervor, dass auf extreme Kursexplosionen wie am Vortag statistisch fast immer Ernüchterung und Kursverluste folgen."
+    },
+    {
+     "kategorie": "Marktbreite & Sektoren",
+     "name": "Marktbreite (S&P 500 vs. Equal Weight)",
+     "lage": "Defensive Werte stabilisieren, aber Tech-Werte ziehen den Gesamtmarkt nach unten",
+     "pfeil": "runter",
+     "rolle": "Für einen echten Korrekturboden sind laut historischen Vergleichen noch viel zu viele Aktien über ihrer 50-Tage-Linie."
+    },
+    {
+     "kategorie": "Sonstiges",
+     "name": "Tech-Investitionszyklus (CapEx)",
+     "lage": "Erste Analystenhäuser kürzen Investitionserwartungen und sehen Margendruck",
+     "pfeil": "runter",
+     "rolle": "Die Sorge vor einem bevorstehenden Zenit bei KI-Investitionen belastet die Kernstütze der bisherigen Börsenrally."
+    },
+    {
+     "kategorie": "Stimmung & Volatilität",
+     "name": "Marktpositionierung und Hebel",
+     "lage": "Extrem hohe Kursschwankungen und tief verunsicherte Marktteilnehmer",
+     "pfeil": "runter",
+     "rolle": "Er betont, dass die Stimmung im Technologiesektor am Boden liegt und Kursgewinne sofort für Notverkäufe genutzt werden."
+    },
+    {
+     "kategorie": "Anleihen & Renditen",
+     "name": "US-Staatsanleiherenditen",
+     "lage": "Leicht rückläufige Renditen",
+     "pfeil": "hoch",
+     "rolle": "Die etwas nachgebenden Renditen stützen defensive Sektoren und den klassischen Dow Jones leicht ab."
+    },
+    {
+     "kategorie": "Inflation",
+     "name": "Inflationsdynamik",
+     "lage": "Zeichen für nachlassenden Preisdruck",
+     "pfeil": "hoch",
+     "rolle": "Ein abklingender Inflationsdruck dämpft die Zinsängste und hilft zyklisch-defensiven Konsumwerten."
+    }
+   ],
+   "zitate": [
+    "der Boden ist nicht drin, es geht abwärts",
+    "die Stimmung im Tech-Sektor ist so dermaßen im Klo"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 183885
+  },
+  {
    "id": "MiSISR0ZaxY",
    "titel": "NVIDIA gewinnt 1,3 Billionen US-Dollar an Marktwert | Unfassbare Zeiten.",
    "datum": "2026-11-23",
@@ -4274,9 +4337,10 @@
   "ZM0VARMC-jY",
   "YFWFxGJTX_o",
   "MiSISR0ZaxY",
-  "hTn7stPFO3E"
+  "hTn7stPFO3E",
+  "aXSmdBRy3ZA"
  ],
- "stand": "2026-11-24T01:46Z",
+ "stand": "2026-11-26T03:13Z",
  "quelle": "Markus Koch (YouTube). Eigene Auswertung der Stimmung, kein Transkript, keine Anlageberatung.",
  "kategorien": [
   "Arbeitsmarkt",
