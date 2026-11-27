@@ -705,30 +705,6 @@
   "stand": "2026-10-29"
  },
  {
-  "id": "events-d9b78770b1",
-  "lat": 48.13346,
-  "lon": 11.56686,
-  "rubrik": "events",
-  "titel": "Finding Freddie",
-  "ort": "Sendlinger Tor",
-  "adresse": "",
-  "datum": "2026-11-24",
-  "datum_bis": "",
-  "zeit": "18:30",
-  "preis": "15/10 €",
-  "dauer": "",
-  "kurz": "Stadtspaziergang auf den Spuren von Freddie Mercury durch historische Orte und queere Geschichte Münchens.",
-  "tags": [
-   "Kultur",
-   "Draußen",
-   "Abends"
-  ],
-  "thema": "Führung & Vortrag",
-  "quelle": "Residenztheater (Spielplan)",
-  "url": "https://www.residenztheater.de/spielplan",
-  "stand": "2026-11-10"
- },
- {
   "id": "events-7455191abc",
   "lat": 48.11998,
   "lon": 11.55626,
