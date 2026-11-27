@@ -705,6 +705,190 @@
   "stand": "2026-10-29"
  },
  {
+  "id": "events-529563eae8",
+  "lat": 48.13819,
+  "lon": 11.5824,
+  "rubrik": "events",
+  "titel": "Danton",
+  "ort": "Münchner Kammerspiele (Schauspielhaus)",
+  "adresse": "",
+  "datum": "2026-11-27",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "2 Std.",
+  "kurz": "Revolutionäre Spurensuche nach Georg Büchner, inszeniert von Post Paradies und Ensemble mit englischen Übertiteln.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-11-27"
+ },
+ {
+  "id": "events-da25d482b0",
+  "lat": 48.13767,
+  "lon": 11.58188,
+  "rubrik": "events",
+  "titel": "Sensing Sites: Das Grab als Archiv",
+  "ort": "Münchner Kammerspiele (Werkraum)",
+  "adresse": "",
+  "datum": "2026-11-27",
+  "datum_bis": "",
+  "zeit": "19:30",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Vortrag von Prof. Dr. Natasha A. Kelly zu Schwarzer Erinnerungskultur und Lesung von Modupe Laja aus „Kula – Zur Schau gestellt“.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-11-27"
+ },
+ {
+  "id": "events-4314af2113",
+  "lat": 48.13784,
+  "lon": 11.58137,
+  "rubrik": "events",
+  "titel": "Theaterworkshop zu „Danton“",
+  "ort": "Münchner Kammerspiele (Therese-Giehse-Halle)",
+  "adresse": "",
+  "datum": "2026-11-27",
+  "datum_bis": "",
+  "zeit": "17:00",
+  "preis": "kostenlos",
+  "dauer": "2 Std.",
+  "kurz": "Interaktiver Theaterworkshop rund um die Inszenierung von „Danton“. Vorab selbst spielen und die Themen des Stücks erkunden.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Sonstiges",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-11-27"
+ },
+ {
+  "id": "events-7fd43a5e96",
+  "lat": 48.13767,
+  "lon": 11.58188,
+  "rubrik": "events",
+  "titel": "Community Dance – Tanz für Alle",
+  "ort": "Münchner Kammerspiele (Werkraum)",
+  "adresse": "",
+  "datum": "2026-11-28",
+  "datum_bis": "",
+  "zeit": "12:30",
+  "preis": "kostenlos",
+  "dauer": "1,5 Std.",
+  "kurz": "Offenes Tanzangebot für alle Interessierten im Werkraum der Münchner Kammerspiele zum Mitmachen und Bewegen.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Sonstiges",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-11-27"
+ },
+ {
+  "id": "events-f9ab8ee524",
+  "lat": 48.13819,
+  "lon": 11.5824,
+  "rubrik": "events",
+  "titel": "Wallenstein",
+  "ort": "Münchner Kammerspiele (Schauspielhaus)",
+  "adresse": "",
+  "datum": "2026-11-28",
+  "datum_bis": "",
+  "zeit": "15:00",
+  "preis": "",
+  "dauer": "7 Std. 15 Min.",
+  "kurz": "Schillers Historiendrama als mehrstündiges Theaterspektakel unter der Regie von Jan-Christoph Gockel, gefolgt von Preisübergabe und Feier.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-11-27"
+ },
+ {
+  "id": "events-5486372cf5",
+  "rubrik": "events",
+  "titel": "Ahnung einer Utopie",
+  "ort": "Münchner Kammerspiele (TAM TAM Treppenbar)",
+  "adresse": "",
+  "datum": "2026-11-29",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "kostenlos",
+  "dauer": "1 Std. 50 Min.",
+  "kurz": "Konzert, Vortrag und Gespräch mit Frank Apunkt Schneider und Frau Kraushaar über Pop, Widerstand und gesellschaftliche Haltung.",
+  "tags": [
+   "Musik",
+   "Kultur",
+   "Kostenlos",
+   "Abends"
+  ],
+  "thema": "Konzert & Musik",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-11-27"
+ },
+ {
+  "id": "events-6d93bca283",
+  "lat": 48.13845,
+  "lon": 11.58272,
+  "rubrik": "events",
+  "titel": "Sensing Sites: Koloniales Gedächtnis in Bayern",
+  "ort": "Münchner Kammerspiele (Habibi Kiosk)",
+  "adresse": "",
+  "datum": "2026-11-29",
+  "datum_bis": "",
+  "zeit": "19:00",
+  "preis": "kostenlos",
+  "dauer": "",
+  "kurz": "Diskursabend mit Ibrahima Sene und Holger Stoecker über Wissensordnungen, Sammlungen und koloniale Leerstellen in Bayern.",
+  "tags": [
+   "Kultur",
+   "Kostenlos"
+  ],
+  "thema": "Führung & Vortrag",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-11-27"
+ },
+ {
+  "id": "events-788508c842",
+  "lat": 48.13819,
+  "lon": 11.5824,
+  "rubrik": "events",
+  "titel": "Indien – Szenische Lesung",
+  "ort": "Münchner Kammerspiele (Schauspielhaus)",
+  "adresse": "",
+  "datum": "2026-11-30",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Szenische Lesung des Kultstücks mit Josef Hader und Alfred Dorfer zum 70-jährigen Jubiläum der Lach- und Schießgesellschaft.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-11-27"
+ },
+ {
   "id": "events-7455191abc",
   "lat": 48.11998,
   "lon": 11.55626,
@@ -727,6 +911,52 @@
   "quelle": "Alte Utting (Musik und Kultur)",
   "url": "https://www.in-muenchen.de/locations/alte-utting.html",
   "stand": "2026-10-31"
+ },
+ {
+  "id": "events-4009cbecb3",
+  "lat": 48.13819,
+  "lon": 11.5824,
+  "rubrik": "events",
+  "titel": "Jugend ohne Gott",
+  "ort": "Münchner Kammerspiele (Schauspielhaus)",
+  "adresse": "",
+  "datum": "2026-12-02",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "1 Std. 45 Min.",
+  "kurz": "Theaterinszenierung nach Ödön von Horváth im Schauspielhaus mit einer Einführung vor Vorstellungsbeginn ab 19:30 Uhr.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-11-27"
+ },
+ {
+  "id": "events-daa669a8e6",
+  "lat": 48.13819,
+  "lon": 11.5824,
+  "rubrik": "events",
+  "titel": "Was ihr wollt",
+  "ort": "Münchner Kammerspiele (Schauspielhaus)",
+  "adresse": "",
+  "datum": "2026-12-03",
+  "datum_bis": "",
+  "zeit": "20:00",
+  "preis": "",
+  "dauer": "2 Std. 20 Min.",
+  "kurz": "Komödie nach William Shakespeare in einer Inszenierung von Lies Pauwels, inklusive einer Einführung ab 19:30 Uhr.",
+  "tags": [
+   "Kultur",
+   "Abends"
+  ],
+  "thema": "Kabarett & Theater",
+  "quelle": "Münchner Kammerspiele",
+  "url": "https://www.muenchner-kammerspiele.de/",
+  "stand": "2026-11-27"
  },
  {
   "id": "food-bdfa06e2a6",
@@ -1122,92 +1352,26 @@
   "stand": "2026-10-18"
  },
  {
-  "id": "stream-heartland",
+  "id": "stream-12-12-12",
   "rubrik": "stream",
-  "titel": "Heartland",
-  "ort": "Netflix",
+  "titel": "12 12 12",
+  "ort": "Apple TV",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Thriller-Film: Ex-Countrystar Misty Jones sucht in Nashville nach ihrer verschwundenen Nichte.",
+  "kurz": "Thrillerserie um einen Bankraub in Zürich aus drei Zeitebenen: Ein gefallener FBI-Agent jagt einen Berufsverbrecher.",
   "tags": [
-   "Film",
+   "Serie",
    "Thriller",
-   "Drama"
+   "Krimi"
   ],
-  "quelle": "Mobiflip – Netflix-Neuheiten November 2026",
-  "url": "https://www.netflix.com/de/",
+  "quelle": "ifun.de – Apple TV im November 2026",
+  "url": "https://tv.apple.com/de",
   "stand": "2026-11-27",
-  "thema": "Netflix"
- },
- {
-  "id": "stream-the-zone-of-interest",
-  "rubrik": "stream",
-  "titel": "The Zone of Interest",
-  "ort": "ZDF Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Drama über das Familienleben des KZ-Kommandanten Höß direkt neben Auschwitz; Oscar als bester internationaler Film. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Drama",
-   "Historie"
-  ],
-  "quelle": "ZDFheute – Streaming-Tipps November 2026",
-  "url": "https://www.zdf.de/streaming",
-  "stand": "2026-11-27",
-  "thema": "ZDF Mediathek"
- },
- {
-  "id": "stream-der-schlimmste-mensch-der-welt",
-  "rubrik": "stream",
-  "titel": "Der schlimmste Mensch der Welt",
-  "ort": "ARD Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Norwegisches Beziehungsdrama mit Humor über eine junge Frau, die ihren Weg zwischen Liebe und Beruf sucht. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Drama",
-   "Komödie"
-  ],
-  "quelle": "JustWatch – Neue Filme in der ARD Mediathek",
-  "url": "https://www.ardmediathek.de",
-  "stand": "2026-11-27",
-  "thema": "ARD Mediathek"
- },
- {
-  "id": "stream-never-grow-old",
-  "rubrik": "stream",
-  "titel": "Never Grow Old",
-  "ort": "3sat Mediathek",
-  "adresse": "",
-  "datum": "",
-  "datum_bis": "",
-  "zeit": "",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Düsterer Western im irischen Einwandererstädtchen der Goldgräberzeit: Ein Bestatter gerät in Konflikt mit einem skrupellosen Fremden. Verfügbarkeit bitte prüfen.",
-  "tags": [
-   "Film",
-   "Thriller",
-   "Drama"
-  ],
-  "quelle": "JustWatch – Neu bei 3sat",
-  "url": "https://www.3sat.de/mediathek",
-  "stand": "2026-11-27",
-  "thema": "3sat Mediathek"
+  "thema": "Apple TV"
  },
  {
   "id": "stream-being-heumann",
@@ -1254,26 +1418,70 @@
   "thema": "Netflix"
  },
  {
-  "id": "stream-12-12-12",
+  "id": "stream-blade-runner-2099",
   "rubrik": "stream",
-  "titel": "12 12 12",
-  "ort": "Apple TV",
+  "titel": "Blade Runner 2099",
+  "ort": "Amazon Prime",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Thrillerserie um einen Bankraub in Zürich aus drei Zeitebenen: Ein gefallener FBI-Agent jagt einen Berufsverbrecher.",
+  "kurz": "Neue Science-Fiction-Serie im Blade-Runner-Universum, Start auf Prime Video am 25.11.2026.",
   "tags": [
    "Serie",
-   "Thriller",
-   "Krimi"
+   "Sci-Fi",
+   "Thriller"
   ],
-  "quelle": "ifun.de – Apple TV im November 2026",
-  "url": "https://tv.apple.com/de",
+  "quelle": "Serienjunkies – Prime Video November 2026",
+  "url": "https://www.primevideo.com",
   "stand": "2026-11-27",
-  "thema": "Apple TV"
+  "thema": "Amazon Prime"
+ },
+ {
+  "id": "stream-der-schlimmste-mensch-der-welt",
+  "rubrik": "stream",
+  "titel": "Der schlimmste Mensch der Welt",
+  "ort": "ARD Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Norwegisches Beziehungsdrama mit Humor über eine junge Frau, die ihren Weg zwischen Liebe und Beruf sucht. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Drama",
+   "Komödie"
+  ],
+  "quelle": "JustWatch – Neue Filme in der ARD Mediathek",
+  "url": "https://www.ardmediathek.de",
+  "stand": "2026-11-27",
+  "thema": "ARD Mediathek"
+ },
+ {
+  "id": "stream-heartland",
+  "rubrik": "stream",
+  "titel": "Heartland",
+  "ort": "Netflix",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Thriller-Film: Ex-Countrystar Misty Jones sucht in Nashville nach ihrer verschwundenen Nichte.",
+  "tags": [
+   "Film",
+   "Thriller",
+   "Drama"
+  ],
+  "quelle": "Mobiflip – Netflix-Neuheiten November 2026",
+  "url": "https://www.netflix.com/de/",
+  "stand": "2026-11-27",
+  "thema": "Netflix"
  },
  {
   "id": "stream-iris-die-wahrheit-staffel-2",
@@ -1319,25 +1527,47 @@
   "thema": "ARD Mediathek"
  },
  {
-  "id": "stream-blade-runner-2099",
+  "id": "stream-never-grow-old",
   "rubrik": "stream",
-  "titel": "Blade Runner 2099",
-  "ort": "Amazon Prime",
+  "titel": "Never Grow Old",
+  "ort": "3sat Mediathek",
   "adresse": "",
   "datum": "",
   "datum_bis": "",
   "zeit": "",
   "preis": "",
   "dauer": "",
-  "kurz": "Neue Science-Fiction-Serie im Blade-Runner-Universum, Start auf Prime Video am 25.11.2026.",
+  "kurz": "Düsterer Western im irischen Einwandererstädtchen der Goldgräberzeit: Ein Bestatter gerät in Konflikt mit einem skrupellosen Fremden. Verfügbarkeit bitte prüfen.",
   "tags": [
-   "Serie",
-   "Sci-Fi",
-   "Thriller"
+   "Film",
+   "Thriller",
+   "Drama"
   ],
-  "quelle": "Serienjunkies – Prime Video November 2026",
-  "url": "https://www.primevideo.com",
+  "quelle": "JustWatch – Neu bei 3sat",
+  "url": "https://www.3sat.de/mediathek",
   "stand": "2026-11-27",
-  "thema": "Amazon Prime"
+  "thema": "3sat Mediathek"
+ },
+ {
+  "id": "stream-the-zone-of-interest",
+  "rubrik": "stream",
+  "titel": "The Zone of Interest",
+  "ort": "ZDF Mediathek",
+  "adresse": "",
+  "datum": "",
+  "datum_bis": "",
+  "zeit": "",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Drama über das Familienleben des KZ-Kommandanten Höß direkt neben Auschwitz; Oscar als bester internationaler Film. Verfügbarkeit bitte prüfen.",
+  "tags": [
+   "Film",
+   "Drama",
+   "Historie"
+  ],
+  "quelle": "ZDFheute – Streaming-Tipps November 2026",
+  "url": "https://www.zdf.de/streaming",
+  "stand": "2026-11-27",
+  "thema": "ZDF Mediathek"
  }
 ]
