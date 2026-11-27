@@ -7,33 +7,4 @@ Feed: 15 Videos
    hTn7stPFO3E 2026-11-23 NVIDIA EXPLODIERT | HUANG ALS CEO ZURÜCK.
    ZM0VARMC-jY 2026-11-20 Der Damm ist gebrochen | Unkontrollierter Abverkauf, mit Explosion der
    YFWFxGJTX_o 2026-11-20 Verkaufswelle setzt sich im Opening fort | Anthropic verliert fast 10%
-Werte aus: xIAZYah8Xbw War die Rally nur ein technischer Bounce? 2026-11-24 opening
-  Score -35 Pfeil runter (146328 Tokens)
-Werte aus: PgpG5KHGWNU Tiefs vom Freitag getestet! Ist der Boden nun drin? 2026-11-25 closing
-gemini-3.8-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-  Score 45 Pfeil hoch (133487 Tokens)
-Werte aus: V7Wj-CTJYBQ Historischer Thanksgiving-Schock. Hält die Wall Street dem Druck stand? 2026-11-25 opening
-gemini-3.8-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
-gemini-3.8-flash: HTTP 429 {
-  "error": {
-    "code": 429,
-    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceede
-gemini-3.7-flash: HTTP 503 {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
-    "status": "UNAVAILABLE"
-  }
-}
-
-  Score -85 Pfeil runter (153096 Tokens)
+Nichts Neues.
