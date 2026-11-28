@@ -1,6 +1,227 @@
 {
  "beitraege": [
   {
+   "id": "zOh0_vN-g_U",
+   "titel": "SPY Call Calendar: 3 Rules for Selling Time",
+   "datum": "2026-11-20",
+   "zeit": "2026-11-20T09:00:39+00:00",
+   "thema": "Wichtige Kernprinzipien beim Optionshandel: Zeitwertverkauf mit definiertem Risiko, Wahl der richtigen Restlaufzeit, Risikokalkulation und disziplinierte Umsetzung.",
+   "marktlage": "",
+   "regeln": [
+    {
+     "bereich": "Laufzeit",
+     "regel": "Sehr kurze Restlaufzeiten (DTE) beim Short-Leg meiden und die passende Duration wählen",
+     "zahl": "",
+     "begruendung": "Backtests zeigen, dass Kombinationen mit zu kurzer Laufzeit auf der Short-Seite nicht gut funktionieren.",
+     "art": "warnung"
+    },
+    {
+     "bereich": "Positionsgröße & Risiko",
+     "regel": "Stets das addierte Gesamtrisiko aller offenen Positionen ermitteln und mit der eigenen Kontogröße abgleichen",
+     "zahl": "",
+     "begruendung": "Mehrere parallele Trades summieren ihr Maximalrisiko auf, weshalb geprüft werden muss, ob man dieses Gesamtrisiko tragen kann.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Sonstiges",
+     "regel": "Strategien vorab backtesten und Trades strikt nach Plan statt nach Gefühl ausführen",
+     "zahl": "",
+     "begruendung": "Eigene Backtests schaffen Vertrauen in das System und Konsistenz ist entscheidend für den Erfolg.",
+     "art": "regel"
+    }
+   ],
+   "indikatoren": [
+    {
+     "name": "DTE",
+     "art": "Kennzahl",
+     "wozu": "Wird zur Bestimmung der optimalen Restlaufzeit von Optionsschenkeln herangezogen.",
+     "lage": ""
+    }
+   ],
+   "quellen": [],
+   "zitate": [
+    "you have to do your risk math",
+    "execute the trade as the plan was"
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.8-flash",
+   "tokens": 7516
+  },
+  {
+   "id": "lA6vmZSQh_E",
+   "titel": "TWS für Optionshändler: 6 Einstellungen, die ich jedem Einsteiger zeige",
+   "datum": "2026-11-19",
+   "zeit": "2026-11-19T11:00:20+00:00",
+   "thema": "Praktische Tipps und Einstellungen für die Trader Workstation (TWS) von Interactive Brokers und CapTrader zur sauberen Orderausführung, Margin-Prüfung und Plattform-Konfiguration.",
+   "marktlage": "",
+   "regeln": [
+    {
+     "bereich": "Steuern & Broker",
+     "regel": "Die Optionskette in der Handelsplattform übersichtlich halten und nur essenzielle Spalten wie Geld-/Briefkurs, Delta, Position, Volumen und Open Interest einblenden.",
+     "zahl": "",
+     "begruendung": "Zu viele ungenutzte Kennzahlen und höhere Griechen überfrachten die Ansicht und erschweren den Überblick.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Prämie & Rendite",
+     "regel": "Beim Verkauf von Optionen mit dem Limitpreis am Briefkurs oder mindestens am Mittelkurs beginnen und sich schrittweise nach unten anpassen.",
+     "zahl": "",
+     "begruendung": "Als Stillhalter möchte man maximale Prämie einnehmen und sollte Orders nicht überhastet direkt an den Geldkurs abgeben.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Positionsgröße & Risiko",
+     "regel": "Vor dem Absenden einer Order über die Vorschau das Margin- und Performanceprofil überprüfen.",
+     "zahl": "",
+     "begruendung": "So lässt sich vorab genau feststellen, wie stark der geplante Trade die freie und geforderte Margin belastet.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Positionsgröße & Risiko",
+     "regel": "Die Margin-Auswirkungen einzelner offener Positionen im Depot über die Finanzinstrument-Info kontrollieren.",
+     "zahl": "",
+     "begruendung": "Man muss wissen, welche konkreten Positionen die größten Margin-Treiber im Gesamtdepot sind.",
+     "art": "regel"
+    },
+    {
+     "bereich": "Steuern & Broker",
+     "regel": "Neue Handelsstrategien vorab auf einem Paper-Trading-Konto mit geteilten Echtzeit-Marktdaten testen.",
+     "zahl": "",
+     "begruendung": "Strategien können so risikofrei, aber unter absolut realistischen Marktpreis-Bedingungen erprobt werden.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Steuern & Broker",
+     "regel": "Die TWS auf automatischen täglichen Neustart außerhalb der Haupthandelszeiten konfigurieren anstatt auf automatische Abmeldung.",
+     "zahl": "",
+     "begruendung": "Ermöglicht den dauerhaften Betrieb auf PCs oder Servern ohne tägliche Neueingabe der Zugangsdaten.",
+     "art": "gewohnheit"
+    }
+   ],
+   "indikatoren": [
+    {
+     "name": "Börsenampel",
+     "art": "Werkzeug",
+     "wozu": "Dient als dreistufiges Indikatorensystem zur Handlungsanweisung bezüglich Cash-Quote und Absicherung.",
+     "lage": ""
+    },
+    {
+     "name": "VIX-Terminstruktur",
+     "art": "Kennzahl",
+     "wozu": "Wird zur Einordnung des Volatilitätsregimes und der Marktrisiken im Optionsbrief herangezogen.",
+     "lage": ""
+    }
+   ],
+   "quellen": [
+    {
+     "name": "Trader Workstation (TWS)",
+     "wozu": "Handelsplattform von Interactive Brokers / CapTrader für Ordereingabe, Margin-Check und Depotverwaltung."
+    },
+    {
+     "name": "Der Eichhorn Coaching Optionsbrief",
+     "wozu": "Zweiwöchentlicher Newsletter mit konkreten Trade-Ideen, Scoreboard, Marktanalyse und Hintergrundwissen."
+    }
+   ],
+   "zitate": [
+    "Haltet eure Optionskette sauber."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 75067
+  },
+  {
+   "id": "Op5_Ls61UjE",
+   "titel": "#22: Huang raus, Anthropic rein",
+   "datum": "2026-11-18",
+   "zeit": "2026-11-18T18:00:06+00:00",
+   "thema": "In dieser Q&A-Folge besprechen die Moderatoren unter anderem Nvidia-Gerüchte, den Anthropic-Börsengang, Quellensteuern, Quantencomputing sowie Stillhalter-Fragen zu SPY-Puts und vorzeitigen Call-Ausübungen bei Dividenden.",
+   "marktlage": "Aktuell herrscht noch Optimismus für eine Jahresendrallye bis Thanksgiving, doch die extreme KI-Hype-Phase mit risikolosen Kursanstiegen sehen die Moderatoren als vorbei an. Ab Mitte Januar wird saisonal bedingt erhöhte Vorsicht empfohlen.",
+   "regeln": [
+    {
+     "bereich": "Rollen & Reparatur",
+     "regel": "Bei Short Calls tief im Geld vor dem Ex-Dividenden-Tag prüfen, ob der verbleibende Zeitwert geringer als die Dividende ist, da sonst eine vorzeitige Zuteilung droht.",
+     "zahl": "",
+     "begruendung": "Der Call-Käufer übt wirtschaftlich sinnvoll vorzeitig aus, um die Dividende der Aktie zu vereinnahmen.",
+     "art": "warnung"
+    },
+    {
+     "bereich": "Prämie & Rendite",
+     "regel": "Puts vor allem dann schreiben, wenn eine hohe implizite Volatilität vorliegt und dafür überdurchschnittlich hohe Prämienrenditen gezahlt werden.",
+     "zahl": "30 bis 35 %",
+     "begruendung": "Nur bei ausreichend hoher Prämie lohnt sich die Übernahme fundamentaler oder bilanzieller Unternehmensrisiken.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Laufzeit",
+     "regel": "Für Cash-Secured Puts auf Indizes wie den SPY bieten sich monatliche Optionen mit typischen Laufzeiten an.",
+     "zahl": "30 bis 45 Tage",
+     "begruendung": "Dieses Zeitfenster bietet einen guten Kompromiss zwischen Zeitwertverfall und Prämienhöhe, birgt aber das volle Andienungsrisiko von 100 Anteilen.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Volatilität & Marktphase",
+     "regel": "Ab Mitte Januar das Stillhalter-Risiko reduzieren und vorsichtiger agieren.",
+     "zahl": "Mitte Januar",
+     "begruendung": "Die statistische Saisonalität und Trefferquote ist in dieser Phase historisch spürbar schwächer.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Rollen & Reparatur",
+     "regel": "Bei stark gegen die Position laufenden Werten kann ein aktives Rollen über längere Zeit den Verlust deutlich abfedern.",
+     "zahl": "",
+     "begruendung": "Durch das wiederholte Rollen kann Zeit gewonnen und eine Position im Idealfall mit geringem Verlust oder neutral beendet werden.",
+     "art": "gewohnheit"
+    },
+    {
+     "bereich": "Steuern & Broker",
+     "regel": "Steuerberichte und Auszüge von ausländischen Brokern strukturiert und mit klarem Deckblatt beim Finanzamt einreichen.",
+     "zahl": "",
+     "begruendung": "Finanzbeamte tun sich mit Rohauszügen oft schwer und erkennen Verluste ohne transparente Aufschlüsselung schwerer an.",
+     "art": "regel"
+    }
+   ],
+   "indikatoren": [
+    {
+     "name": "Saisonalität",
+     "art": "Kennzahl",
+     "wozu": "Beurteilung historisch günstiger oder schwächerer Handelsphasen im Jahresverlauf.",
+     "lage": "Bis Jahresende positiv, ab Mitte Januar schwächer"
+    }
+   ],
+   "quellen": [
+    {
+     "name": "CapTrader",
+     "wozu": "Sponsor und Brokerplattform für den Optionshandel auf Interactive-Brokers-Basis."
+    },
+    {
+     "name": "Trader Workstation (TWS)",
+     "wozu": "Handelsplattform von Interactive Brokers / CapTrader inklusive Dividendenwarnhinweisen bei Optionen."
+    },
+    {
+     "name": "Seeking Alpha",
+     "wozu": "Rechercheplattform für fundamentale Aktienanalysen und Kennzahlen."
+    },
+    {
+     "name": "Divizend",
+     "wozu": "Dienstleister zur automatisierten Rückforderung ausländischer Quellensteuern."
+    },
+    {
+     "name": "DivTax",
+     "wozu": "Dienstleistungsanbieter zur Erstattung ausländischer Quellensteuer."
+    },
+    {
+     "name": "Bondora",
+     "wozu": "P2P-Plattform (Go & Grow) zur Verzinsung von Cash-Rücklagen."
+    }
+   ],
+   "zitate": [
+    "Passt auf euer Geld auf."
+   ],
+   "sicherheit": "hoch",
+   "modell": "gemini-3.7-flash",
+   "tokens": 308361
+  },
+  {
    "id": "FtfuxFn-M-8",
    "titel": "#IPO = „It’s probably overpriced“ - Der #Anthropic-#Börsengang",
    "datum": "2026-11-17",
@@ -778,7 +999,10 @@
   "X9olfTBwplI",
   "yTq_eSCYQk0",
   "Zb9Mh5CTJLw",
-  "FtfuxFn-M-8"
+  "FtfuxFn-M-8",
+  "Op5_Ls61UjE",
+  "lA6vmZSQh_E",
+  "zOh0_vN-g_U"
  ],
  "quelle": "Eichhorn Coaching (YouTube-Podcast). Eigene Auswertung in eigenen Worten, kein Transkript, keine Anlageberatung.",
  "bereiche": [
@@ -795,5 +1019,5 @@
   "Steuern & Broker",
   "Sonstiges"
  ],
- "stand": "2026-11-20T14:26Z"
+ "stand": "2026-11-28T14:34Z"
 }
