@@ -1571,26 +1571,6 @@
   "thema": "ZDF Mediathek"
  },
  {
-  "id": "tv-55f55df3fc",
-  "rubrik": "tv",
-  "titel": "Kurier Romy Gala 2026 - Der Österreichische Film- und Fernsehpreis",
-  "ort": "3sat",
-  "adresse": "",
-  "datum": "2026-11-27",
-  "datum_bis": "",
-  "zeit": "21:45",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Verleihungsgala des österreichischen Film- und Fernsehpreises aus Österreich und Deutschland. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "hoerzu.de",
-  "url": "https://www.3sat.de/",
-  "stand": "2026-11-27",
-  "thema": "3sat"
- },
- {
   "id": "tv-271481f0e8",
   "rubrik": "tv",
   "titel": "24 Türchen zu dir",
@@ -1609,46 +1589,6 @@
   "url": "https://www.daserste.de/",
   "stand": "2026-11-27",
   "thema": "Das Erste"
- },
- {
-  "id": "tv-f87c56cc98",
-  "rubrik": "tv",
-  "titel": "die nordstory - Ein Herz für Holz",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-11-27",
-  "datum_bis": "",
-  "zeit": "20:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Dokumentation über das vorausschauende Pflanzen von Bäumen der Zukunft. Programm kann sich ändern.",
-  "tags": [
-   "Doku"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-11-27",
-  "thema": "NDR"
- },
- {
-  "id": "tv-573b8c2083",
-  "rubrik": "tv",
-  "titel": "Zora schmeckt's!",
-  "ort": "NDR",
-  "adresse": "",
-  "datum": "2026-11-27",
-  "datum_bis": "",
-  "zeit": "21:15",
-  "preis": "",
-  "dauer": "",
-  "kurz": "Kulinarische Sendung mit Zora zu Besuch in Goslar. Programm kann sich ändern.",
-  "tags": [
-   "Show"
-  ],
-  "quelle": "ndr.de",
-  "url": "https://www.ndr.de/fernsehen/",
-  "stand": "2026-11-27",
-  "thema": "NDR"
  },
  {
   "id": "tv-3ed5dd88aa",
@@ -1671,6 +1611,26 @@
   "thema": "ZDF"
  },
  {
+  "id": "tv-55f55df3fc",
+  "rubrik": "tv",
+  "titel": "Kurier Romy Gala 2026 - Der Österreichische Film- und Fernsehpreis",
+  "ort": "3sat",
+  "adresse": "",
+  "datum": "2026-11-27",
+  "datum_bis": "",
+  "zeit": "21:45",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Verleihungsgala des österreichischen Film- und Fernsehpreises aus Österreich und Deutschland. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "hoerzu.de",
+  "url": "https://www.3sat.de/",
+  "stand": "2026-11-27",
+  "thema": "3sat"
+ },
+ {
   "id": "tv-21d71c2f88",
   "rubrik": "tv",
   "titel": "SOKO Leipzig",
@@ -1689,5 +1649,45 @@
   "url": "https://www.zdf.de/",
   "stand": "2026-11-27",
   "thema": "ZDF"
+ },
+ {
+  "id": "tv-573b8c2083",
+  "rubrik": "tv",
+  "titel": "Zora schmeckt's!",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-11-27",
+  "datum_bis": "",
+  "zeit": "21:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Kulinarische Sendung mit Zora zu Besuch in Goslar. Programm kann sich ändern.",
+  "tags": [
+   "Show"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-11-27",
+  "thema": "NDR"
+ },
+ {
+  "id": "tv-f87c56cc98",
+  "rubrik": "tv",
+  "titel": "die nordstory - Ein Herz für Holz",
+  "ort": "NDR",
+  "adresse": "",
+  "datum": "2026-11-27",
+  "datum_bis": "",
+  "zeit": "20:15",
+  "preis": "",
+  "dauer": "",
+  "kurz": "Dokumentation über das vorausschauende Pflanzen von Bäumen der Zukunft. Programm kann sich ändern.",
+  "tags": [
+   "Doku"
+  ],
+  "quelle": "ndr.de",
+  "url": "https://www.ndr.de/fernsehen/",
+  "stand": "2026-11-27",
+  "thema": "NDR"
  }
 ]
